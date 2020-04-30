@@ -1,0 +1,1464 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="使用ImageNet预训练模型权重, blog">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>使用ImageNet预训练模型权重 | blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<!--动态线条背景-->
+<script type="text/javascript"
+color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+<body>
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+    <script type="text/javascript" src="/js/fireworks.js"></script>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">blog</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">使用ImageNet预训练模型权重</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    .toc-fixed .toc-link::before{
+        position: fixed!important;/*当toc的位置改为fixed时，.toc-link::before也要改为fixed*/
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/modelarts/">
+                                <span class="chip bg-color">modelarts</span>
+                            </a>
+                        
+                            <a href="/tags/tensorflow/">
+                                <span class="chip bg-color">tensorflow</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                深度学习
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-04-30
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    28 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>使用ImageNet预训练模型权重<a href="https://render.githubusercontent.com/view/ipynb?commit=f4f272b8a9414e15ec8b460865e99d126c081f0f&enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f687561776569636c6f75642f4d6f64656c417274732d4c61622f663466323732623861393431346531356563386234363038363565393964313236633038316630662f6e6f7465626f6f6b2f444c5f696d6167655f6879706572706172616d657465725f74756e696e672f30335f707265747261696e65645f776569676874732e6970796e62&nwo=huaweicloud/ModelArts-Lab&path=notebook/DL_image_hyperparameter_tuning/03_pretrained_weights.ipynb&repository_id=185701977&repository_type=Repository#使用ImageNet预训练模型权重" target="_blank" rel="noopener"></a></p>
+<p>Keras框架提供了预置好的VGG16模型，并提供使用ImageNet进行大规模训练的权重。我们使用预置的VGG16模型，加载预训练的权重，保留VGG16的卷积网络结构，只在最后的全连接层进行调整，使用GlobalAveragePooling2D将7x7x512的卷积结果进行全局池化，减少训练参数，并加入softmax激活、output shape为2的全连接层进行二分类。</p>
+<p>首先，我们准备数据：</p>
+<p>In [1]:</p>
+<pre><code>!pip install --upgrade keras_applications==1.0.6 keras==2.2.4
+
+import osif os.path.exists(&#39;./data&#39;) == False:
+    from modelarts.session import Session
+    session = Session()
+
+    if session.region_name == &#39;cn-north-1&#39;:
+        bucket_path=&quot;modelarts-labs/notebook/DL_image_recognition/image_recognition.tar.gz&quot;
+    elif session.region_name == &#39;cn-north-4&#39;:
+        bucket_path=&quot;modelarts-labs-bj4/notebook/DL_image_recognition/image_recognition.tar.gz&quot;
+    else:
+        print(&quot;请更换地区到北京一或北京四&quot;)
+
+    session.download_data(
+    bucket_path=bucket_path,
+    path=&quot;./image_recognition.tar.gz&quot;)
+
+    # 使用tar命令解压资源包
+    !tar xf ./image_recognition.tar.gz
+
+    # 清理压缩包
+    !rm -f ./image_recognition.tar.gz```</code></pre><p>Looking in indexes: <a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">http://mirrors.aliyun.com/pypi/simple/</a><br>Requirement already up-to-date: keras_applications==1.0.6 in /opt/anaconda/envs/mask-rcnn/lib/python3.6/site-packages (1.0.6)<br>Requirement already up-to-date: keras==2.2.4 in /opt/anaconda/envs/mask-rcnn/lib/python3.6/site-packages (2.2.4)<br>Requirement already satisfied, skipping upgrade: h5py in /opt/anaconda/envs/mask-rcnn/lib/python3.6/site-packages (from keras_applications==1.0.6) (2.9.0)<br>Requirement already satisfied, skipping upgrade: numpy&gt;=1.9.1 in /opt/anaconda/envs/mask-rcnn/lib/python3.6/site-packages (from keras_applications==1.0.6) (1.15.4)<br>Requirement already satisfied, skipping upgrade: six&gt;=1.9.0 in /opt/anaconda/envs/mask-rcnn/lib/python3.6/site-packages (from keras==2.2.4) (1.12.0)<br>Requirement already satisfied, skipping upgrade: keras-preprocessing&gt;=1.0.5 in /opt/anaconda/envs/mask-rcnn/lib/python3.6/site-packages (from keras==2.2.4) (1.0.5)<br>Requirement already satisfied, skipping upgrade: scipy&gt;=0.14 in /opt/anaconda/envs/mask-rcnn/lib/python3.6/site-packages (from keras==2.2.4) (1.2.0)<br>Requirement already satisfied, skipping upgrade: pyyaml in /opt/anaconda/envs/mask-rcnn/lib/python3.6/site-packages (from keras==2.2.4) (3.13)</p>
+<pre><code>### 导入相关库[](https://render.githubusercontent.com/view/ipynb?commit=f4f272b8a9414e15ec8b460865e99d126c081f0f&amp;enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f687561776569636c6f75642f4d6f64656c417274732d4c61622f663466323732623861393431346531356563386234363038363565393964313236633038316630662f6e6f7465626f6f6b2f444c5f696d6167655f6879706572706172616d657465725f74756e696e672f30335f707265747261696e65645f776569676874732e6970796e62&amp;nwo=huaweicloud/ModelArts-Lab&amp;path=notebook/DL_image_hyperparameter_tuning/03_pretrained_weights.ipynb&amp;repository_id=185701977&amp;repository_type=Repository#导入相关库)
+
+In \[2\]:
+</code></pre><p>from keras.applications.vgg16 import VGG16from keras.preprocessing import imageimport numpy as np</p>
+<p>from keras.preprocessing import imagefrom keras.models import Modelfrom keras.layers import Dense, GlobalAveragePooling2Dfrom keras import backend as Kfrom keras.models import load_model</p>
+<p>from keras.preprocessing.image import ImageDataGenerator```</p>
+<pre><code>Using TensorFlow backend.</code></pre><h3 id="准备数据集"><a href="#准备数据集" class="headerlink" title="准备数据集"></a>准备数据集<a href="https://render.githubusercontent.com/view/ipynb?commit=f4f272b8a9414e15ec8b460865e99d126c081f0f&enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f687561776569636c6f75642f4d6f64656c417274732d4c61622f663466323732623861393431346531356563386234363038363565393964313236633038316630662f6e6f7465626f6f6b2f444c5f696d6167655f6879706572706172616d657465725f74756e696e672f30335f707265747261696e65645f776569676874732e6970796e62&nwo=huaweicloud/ModelArts-Lab&path=notebook/DL_image_hyperparameter_tuning/03_pretrained_weights.ipynb&repository_id=185701977&repository_type=Repository#准备数据集" target="_blank" rel="noopener"></a></h3><p>In [3]:</p>
+<pre><code>import osfrom PIL import Imagedef load_data():
+    dirname = &quot;./data&quot;
+    path = &quot;./data&quot;
+
+    num_train_samples = 25000
+
+    x_train = np.empty((num_train_samples, 224,224,3), dtype=&#39;uint8&#39;)
+    y_train = np.empty((num_train_samples,1), dtype=&#39;uint8&#39;)
+    index = 0
+    for file in os.listdir(&quot;./data&quot;):
+        image = Image.open(os.path.join(dirname,file)).resize((224,224))
+        image = np.array(image)
+        x_train[index,:,:,:] = image
+
+        if &quot;cat&quot; in file:
+            y_train[index,0] =1
+        elif &quot;dog&quot; in file:
+            y_train[index,0] =0
+
+        index += 1
+    return (x_train, y_train)```
+In \[4\]:
+</code></pre><p>(x_train, y_train) = load_data()```<br>In [5]:</p>
+<pre><code>print(x_train.shape)print(y_train.shape)```</code></pre><p>(25000, 224, 224, 3)<br>(25000, 1)</p>
+<pre><code>In \[6\]:
+</code></pre><p>from keras.utils import np_utilsdef process_data(x_train,y_train):<br>    x_train = x_train.astype(np.float32)<br>    x_train /= 255<br>    n_classes = 2<br>    y_train = np_utils.to_categorical(y_train, n_classes)<br>    return x_train,y_train```<br>In [24]:</p>
+<pre><code>def build_model(base_model):
+    x = base_model.output
+    x = GlobalAveragePooling2D()(x)
+    predictions = Dense(2, activation=&#39;softmax&#39;)(x)
+    model = Model(inputs=base_model.input, outputs=predictions)
+    print(type(model))
+    return model```
+In \[8\]:
+</code></pre><p>x_train,y_train= process_data(x_train,y_train)print(x_train.shape)print(y_train.shape)```</p>
+<pre><code>(25000, 224, 224, 3)
+(25000, 2)</code></pre><h3 id="准备模型"><a href="#准备模型" class="headerlink" title="准备模型"></a>准备模型<a href="https://render.githubusercontent.com/view/ipynb?commit=f4f272b8a9414e15ec8b460865e99d126c081f0f&enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f687561776569636c6f75642f4d6f64656c417274732d4c61622f663466323732623861393431346531356563386234363038363565393964313236633038316630662f6e6f7465626f6f6b2f444c5f696d6167655f6879706572706172616d657465725f74756e696e672f30335f707265747261696e65645f776569676874732e6970796e62&nwo=huaweicloud/ModelArts-Lab&path=notebook/DL_image_hyperparameter_tuning/03_pretrained_weights.ipynb&repository_id=185701977&repository_type=Repository#准备模型" target="_blank" rel="noopener"></a></h3><p>我们定义输入数据的维度，并构建VGG16模型，加载ImageNet预训练的权重（如果预训练权重不存在，则从网络下载，并保存到到$HOME目录的.keras/models/路径下）。include_top=False表示只取卷积网络结构中的参数，不包含全连接层和softmax分类层（ImageNet有1000个分类）。</p>
+<p>In [9]:</p>
+<pre><code>base_model = VGG16(weights=&#39;imagenet&#39;, include_top=False)```</code></pre><p>WARNING:tensorflow:From /home/ma-user/anaconda3/envs/TensorFlow-1.13.1/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.<br>Instructions for updating:<br>Colocations handled automatically by placer.</p>
+<pre><code>我们把所有卷基层的trainable设置为False，不进行训练。然后将池化层和全连接的二分类层添加到模型中，输入层不变
+
+In \[10\]:
+</code></pre><p>for layer in base_model.layers:<br>    layer.trainable = False</p>
+<p>model = build_model(base_model)model.summary()```</p>
+<pre><code>&lt;class &#39;keras.engine.training.Model&#39;&gt;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_1 (InputLayer)         (None, None, None, 3)     0         
+_________________________________________________________________
+block1_conv1 (Conv2D)        (None, None, None, 64)    1792      
+_________________________________________________________________
+block1_conv2 (Conv2D)        (None, None, None, 64)    36928     
+_________________________________________________________________
+block1_pool (MaxPooling2D)   (None, None, None, 64)    0         
+_________________________________________________________________
+block2_conv1 (Conv2D)        (None, None, None, 128)   73856     
+_________________________________________________________________
+block2_conv2 (Conv2D)        (None, None, None, 128)   147584    
+_________________________________________________________________
+block2_pool (MaxPooling2D)   (None, None, None, 128)   0         
+_________________________________________________________________
+block3_conv1 (Conv2D)        (None, None, None, 256)   295168    
+_________________________________________________________________
+block3_conv2 (Conv2D)        (None, None, None, 256)   590080    
+_________________________________________________________________
+block3_conv3 (Conv2D)        (None, None, None, 256)   590080    
+_________________________________________________________________
+block3_pool (MaxPooling2D)   (None, None, None, 256)   0         
+_________________________________________________________________
+block4_conv1 (Conv2D)        (None, None, None, 512)   1180160   
+_________________________________________________________________
+block4_conv2 (Conv2D)        (None, None, None, 512)   2359808   
+_________________________________________________________________
+block4_conv3 (Conv2D)        (None, None, None, 512)   2359808   
+_________________________________________________________________
+block4_pool (MaxPooling2D)   (None, None, None, 512)   0         
+_________________________________________________________________
+block5_conv1 (Conv2D)        (None, None, None, 512)   2359808   
+_________________________________________________________________
+block5_conv2 (Conv2D)        (None, None, None, 512)   2359808   
+_________________________________________________________________
+block5_conv3 (Conv2D)        (None, None, None, 512)   2359808   
+_________________________________________________________________
+block5_pool (MaxPooling2D)   (None, None, None, 512)   0         
+_________________________________________________________________
+global_average_pooling2d_1 ( (None, 512)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 2)                 1026      
+=================================================================
+Total params: 14,715,714
+Trainable params: 1,026
+Non-trainable params: 14,714,688
+_________________________________________________________________</code></pre><p>可以看到，训练的参数个数为1026，我们仅训练分类部分。</p>
+<h3 id="设置模型的损失函数和优化器"><a href="#设置模型的损失函数和优化器" class="headerlink" title="设置模型的损失函数和优化器"></a>设置模型的损失函数和优化器<a href="https://render.githubusercontent.com/view/ipynb?commit=f4f272b8a9414e15ec8b460865e99d126c081f0f&enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f687561776569636c6f75642f4d6f64656c417274732d4c61622f663466323732623861393431346531356563386234363038363565393964313236633038316630662f6e6f7465626f6f6b2f444c5f696d6167655f6879706572706172616d657465725f74756e696e672f30335f707265747261696e65645f776569676874732e6970796e62&nwo=huaweicloud/ModelArts-Lab&path=notebook/DL_image_hyperparameter_tuning/03_pretrained_weights.ipynb&repository_id=185701977&repository_type=Repository#设置模型的损失函数和优化器" target="_blank" rel="noopener"></a></h3><p>In [11]:</p>
+<pre><code>import keras 
+opt = keras.optimizers.rmsprop(lr=0.0001, decay=1e-6)model.compile(loss=&#39;binary_crossentropy&#39;,
+              optimizer=opt,
+              metrics=[&#39;accuracy&#39;])```
+### 设置callback并训练模型[](https://render.githubusercontent.com/view/ipynb?commit=f4f272b8a9414e15ec8b460865e99d126c081f0f&amp;enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f687561776569636c6f75642f4d6f64656c417274732d4c61622f663466323732623861393431346531356563386234363038363565393964313236633038316630662f6e6f7465626f6f6b2f444c5f696d6167655f6879706572706172616d657465725f74756e696e672f30335f707265747261696e65645f776569676874732e6970796e62&amp;nwo=huaweicloud/ModelArts-Lab&amp;path=notebook/DL_image_hyperparameter_tuning/03_pretrained_weights.ipynb&amp;repository_id=185701977&amp;repository_type=Repository#设置callback并训练模型)
+
+使用预训练的权重，可以较快提高模型精度。在高性能GPU环境下，每一轮需要几分钟左右，请实践者保持耐心，笔者的实践中训练到第11轮就达到了约90%的精度，耗时约8分钟。
+
+后续训练精度提升开始变慢，在41轮达到约92%的精度，耗时约30分钟。
+
+In \[12\]:
+</code></pre><p>from keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateaues = EarlyStopping(monitor=’val_acc’, baseline=0.9, patience=15, verbose=1, mode=’auto’)cp = ModelCheckpoint(filepath=”./ckpt_vgg16_dog_and_cat.h5”, monitor=”val_acc”, verbose=1, save_best_only=True, mode=”auto”, period=1)lr = ReduceLROnPlateau(monitor=”val_acc”, factor=0.1, patience=10, verbose=1, mode=”auto”, min_lr=0)callbacks = [es,cp,lr]```<br>In [13]:</p>
+<pre><code>history = model.fit(x=x_train, 
+                    y=y_train, 
+                    batch_size=16, 
+                    epochs=100, 
+                    verbose=1, 
+                    callbacks=callbacks, 
+                    validation_split=0.25, 
+                    shuffle=True, 
+                    initial_epoch=0)```</code></pre><p>WARNING:tensorflow:From /home/ma-user/anaconda3/envs/TensorFlow-1.13.1/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.<br>Instructions for updating:<br>Use tf.cast instead.<br>Train on 18750 samples, validate on 6250 samples<br>Epoch 1/100<br>18750/18750 [==============================] - 48s 3ms/step - loss: 0.6284 - acc: 0.6794 - val_loss: 0.5503 - val_acc: 0.7995</p>
+<p>Epoch 00001: val_acc improved from -inf to 0.79952, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 2/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.4959 - acc: 0.8314 - val_loss: 0.4565 - val_acc: 0.8410</p>
+<p>Epoch 00002: val_acc improved from 0.79952 to 0.84096, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 3/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.4233 - acc: 0.8564 - val_loss: 0.4012 - val_acc: 0.8630</p>
+<p>Epoch 00003: val_acc improved from 0.84096 to 0.86304, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 4/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.3789 - acc: 0.8707 - val_loss: 0.3669 - val_acc: 0.8710</p>
+<p>Epoch 00004: val_acc improved from 0.86304 to 0.87104, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 5/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.3493 - acc: 0.8793 - val_loss: 0.3417 - val_acc: 0.8824</p>
+<p>Epoch 00005: val_acc improved from 0.87104 to 0.88240, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 6/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.3274 - acc: 0.8848 - val_loss: 0.3233 - val_acc: 0.8867</p>
+<p>Epoch 00006: val_acc improved from 0.88240 to 0.88672, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 7/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.3105 - acc: 0.8903 - val_loss: 0.3089 - val_acc: 0.8864</p>
+<p>Epoch 00007: val_acc did not improve from 0.88672<br>Epoch 8/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2975 - acc: 0.8933 - val_loss: 0.2966 - val_acc: 0.8909</p>
+<p>Epoch 00008: val_acc improved from 0.88672 to 0.89088, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 9/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2867 - acc: 0.8960 - val_loss: 0.2869 - val_acc: 0.8979</p>
+<p>Epoch 00009: val_acc improved from 0.89088 to 0.89792, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 10/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2778 - acc: 0.8975 - val_loss: 0.2797 - val_acc: 0.8990</p>
+<p>Epoch 00010: val_acc improved from 0.89792 to 0.89904, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 11/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2702 - acc: 0.9004 - val_loss: 0.2721 - val_acc: 0.9016</p>
+<p>Epoch 00011: val_acc improved from 0.89904 to 0.90160, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 12/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2637 - acc: 0.9020 - val_loss: 0.2658 - val_acc: 0.9011</p>
+<p>Epoch 00012: val_acc did not improve from 0.90160<br>Epoch 13/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2581 - acc: 0.9029 - val_loss: 0.2605 - val_acc: 0.9034</p>
+<p>Epoch 00013: val_acc improved from 0.90160 to 0.90336, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 14/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2530 - acc: 0.9045 - val_loss: 0.2559 - val_acc: 0.9045</p>
+<p>Epoch 00014: val_acc improved from 0.90336 to 0.90448, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 15/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2486 - acc: 0.9055 - val_loss: 0.2518 - val_acc: 0.9064</p>
+<p>Epoch 00015: val_acc improved from 0.90448 to 0.90640, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 16/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2445 - acc: 0.9074 - val_loss: 0.2480 - val_acc: 0.9070</p>
+<p>Epoch 00016: val_acc improved from 0.90640 to 0.90704, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 17/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2410 - acc: 0.9084 - val_loss: 0.2447 - val_acc: 0.9083</p>
+<p>Epoch 00017: val_acc improved from 0.90704 to 0.90832, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 18/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2377 - acc: 0.9090 - val_loss: 0.2417 - val_acc: 0.9083</p>
+<p>Epoch 00018: val_acc did not improve from 0.90832<br>Epoch 19/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2346 - acc: 0.9106 - val_loss: 0.2398 - val_acc: 0.9078</p>
+<p>Epoch 00019: val_acc did not improve from 0.90832<br>Epoch 20/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2319 - acc: 0.9115 - val_loss: 0.2362 - val_acc: 0.9107</p>
+<p>Epoch 00020: val_acc improved from 0.90832 to 0.91072, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 21/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2293 - acc: 0.9118 - val_loss: 0.2339 - val_acc: 0.9107</p>
+<p>Epoch 00021: val_acc did not improve from 0.91072<br>Epoch 22/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2270 - acc: 0.9122 - val_loss: 0.2318 - val_acc: 0.9114</p>
+<p>Epoch 00022: val_acc improved from 0.91072 to 0.91136, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 23/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2247 - acc: 0.9132 - val_loss: 0.2299 - val_acc: 0.9114</p>
+<p>Epoch 00023: val_acc did not improve from 0.91136<br>Epoch 24/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2228 - acc: 0.9135 - val_loss: 0.2278 - val_acc: 0.9125</p>
+<p>Epoch 00024: val_acc improved from 0.91136 to 0.91248, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 25/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2209 - acc: 0.9147 - val_loss: 0.2265 - val_acc: 0.9122</p>
+<p>Epoch 00025: val_acc did not improve from 0.91248<br>Epoch 26/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2190 - acc: 0.9151 - val_loss: 0.2243 - val_acc: 0.9120</p>
+<p>Epoch 00026: val_acc did not improve from 0.91248<br>Epoch 27/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2173 - acc: 0.9155 - val_loss: 0.2227 - val_acc: 0.9141</p>
+<p>Epoch 00027: val_acc improved from 0.91248 to 0.91408, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 28/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2158 - acc: 0.9163 - val_loss: 0.2213 - val_acc: 0.9142</p>
+<p>Epoch 00028: val_acc improved from 0.91408 to 0.91424, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 29/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2142 - acc: 0.9166 - val_loss: 0.2199 - val_acc: 0.9139</p>
+<p>Epoch 00029: val_acc did not improve from 0.91424<br>Epoch 30/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2129 - acc: 0.9174 - val_loss: 0.2187 - val_acc: 0.9144</p>
+<p>Epoch 00030: val_acc improved from 0.91424 to 0.91440, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 31/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2114 - acc: 0.9179 - val_loss: 0.2173 - val_acc: 0.9149</p>
+<p>Epoch 00031: val_acc improved from 0.91440 to 0.91488, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 32/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2101 - acc: 0.9169 - val_loss: 0.2170 - val_acc: 0.9154</p>
+<p>Epoch 00032: val_acc improved from 0.91488 to 0.91536, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 33/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2090 - acc: 0.9179 - val_loss: 0.2151 - val_acc: 0.9170</p>
+<p>Epoch 00033: val_acc improved from 0.91536 to 0.91696, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 34/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2079 - acc: 0.9193 - val_loss: 0.2145 - val_acc: 0.9173</p>
+<p>Epoch 00034: val_acc improved from 0.91696 to 0.91728, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 35/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2068 - acc: 0.9182 - val_loss: 0.2130 - val_acc: 0.9171</p>
+<p>Epoch 00035: val_acc did not improve from 0.91728<br>Epoch 36/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2057 - acc: 0.9198 - val_loss: 0.2122 - val_acc: 0.9176</p>
+<p>Epoch 00036: val_acc improved from 0.91728 to 0.91760, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 37/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2047 - acc: 0.9196 - val_loss: 0.2114 - val_acc: 0.9187</p>
+<p>Epoch 00037: val_acc improved from 0.91760 to 0.91872, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 38/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2038 - acc: 0.9199 - val_loss: 0.2103 - val_acc: 0.9182</p>
+<p>Epoch 00038: val_acc did not improve from 0.91872<br>Epoch 39/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2027 - acc: 0.9206 - val_loss: 0.2096 - val_acc: 0.9189</p>
+<p>Epoch 00039: val_acc improved from 0.91872 to 0.91888, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 40/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2019 - acc: 0.9204 - val_loss: 0.2090 - val_acc: 0.9178</p>
+<p>Epoch 00040: val_acc did not improve from 0.91888<br>Epoch 41/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2011 - acc: 0.9205 - val_loss: 0.2082 - val_acc: 0.9202</p>
+<p>Epoch 00041: val_acc improved from 0.91888 to 0.92016, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 42/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.2003 - acc: 0.9218 - val_loss: 0.2072 - val_acc: 0.9195</p>
+<p>Epoch 00042: val_acc did not improve from 0.92016<br>Epoch 43/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.1994 - acc: 0.9220 - val_loss: 0.2068 - val_acc: 0.9202</p>
+<p>Epoch 00043: val_acc did not improve from 0.92016<br>Epoch 44/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.1987 - acc: 0.9216 - val_loss: 0.2059 - val_acc: 0.9184</p>
+<p>Epoch 00044: val_acc did not improve from 0.92016<br>Epoch 45/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.1979 - acc: 0.9214 - val_loss: 0.2065 - val_acc: 0.9189</p>
+<p>Epoch 00045: val_acc did not improve from 0.92016<br>Epoch 46/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.1960 - acc: 0.9229 - val_loss: 0.2033 - val_acc: 0.9194</p>
+<p>Epoch 00048: val_acc did not improve from 0.92048<br>Epoch 49/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.1953 - acc: 0.9226 - val_loss: 0.2037 - val_acc: 0.9192</p>
+<p>Epoch 00049: val_acc did not improve from 0.92048<br>Epoch 50/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.1946 - acc: 0.9226 - val_loss: 0.2029 - val_acc: 0.9189</p>
+<p>Epoch 00050: val_acc did not improve from 0.92048<br>Epoch 51/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.1942 - acc: 0.9232 - val_loss: 0.2021 - val_acc: 0.9211</p>
+<p>Epoch 00051: val_acc improved from 0.92048 to 0.92112, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 52/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.1934 - acc: 0.9231 - val_loss: 0.2015 - val_acc: 0.9211</p>
+<p>Epoch 00052: val_acc did not improve from 0.92112<br>Epoch 53/100<br>13264/18750 [====================&gt;………] - ETA: 9s - loss: 0.1921 - acc: 0.9226```</p>
+<pre><code>IOPub message rate exceeded.
+The notebook server will temporarily stop sending output
+to the client in order to avoid crashing it.
+To change this limit, set the config variable
+`--NotebookApp.iopub_msg_rate_limit`.
+
+Current values:
+NotebookApp.iopub_msg_rate_limit=1000.0 (msgs/sec)
+NotebookApp.rate_limit_window=3.0 (secs)
+</code></pre><pre><code>18750/18750 [==============================] - 44s 2ms/step - loss: 0.1882 - acc: 0.9254 - val_loss: 0.1966 - val_acc: 0.9210
+
+Epoch 00063: val_acc did not improve from 0.92208
+Epoch 64/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1876 - acc: 0.9256 - val_loss: 0.1963 - val_acc: 0.9210
+
+Epoch 00064: val_acc did not improve from 0.92208
+Epoch 65/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1873 - acc: 0.9251 - val_loss: 0.1968 - val_acc: 0.9230
+
+Epoch 00065: val_acc improved from 0.92208 to 0.92304, saving model to ./ckpt_vgg16_dog_and_cat.h5
+Epoch 66/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1870 - acc: 0.9254 - val_loss: 0.1958 - val_acc: 0.9205
+
+Epoch 00066: val_acc did not improve from 0.92304
+Epoch 67/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1866 - acc: 0.9256 - val_loss: 0.1953 - val_acc: 0.9214
+
+Epoch 00067: val_acc did not improve from 0.92304
+Epoch 68/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1862 - acc: 0.9265 - val_loss: 0.1956 - val_acc: 0.9230
+
+Epoch 00068: val_acc did not improve from 0.92304
+Epoch 69/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1858 - acc: 0.9265 - val_loss: 0.1947 - val_acc: 0.9213
+
+Epoch 00069: val_acc did not improve from 0.92304
+Epoch 70/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1854 - acc: 0.9255 - val_loss: 0.1950 - val_acc: 0.9229
+
+Epoch 00070: val_acc did not improve from 0.92304
+Epoch 71/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1852 - acc: 0.9268 - val_loss: 0.1941 - val_acc: 0.9216
+
+Epoch 00071: val_acc did not improve from 0.92304
+Epoch 72/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1848 - acc: 0.9268 - val_loss: 0.1940 - val_acc: 0.9232
+
+Epoch 00072: val_acc improved from 0.92304 to 0.92320, saving model to ./ckpt_vgg16_dog_and_cat.h5
+Epoch 73/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1845 - acc: 0.9274 - val_loss: 0.1937 - val_acc: 0.9230
+
+Epoch 00073: val_acc did not improve from 0.92320
+Epoch 74/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1841 - acc: 0.9266 - val_loss: 0.1933 - val_acc: 0.9206
+
+Epoch 00074: val_acc did not improve from 0.92320
+Epoch 75/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1838 - acc: 0.9268 - val_loss: 0.1930 - val_acc: 0.9218
+
+Epoch 00075: val_acc did not improve from 0.92320
+Epoch 76/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1834 - acc: 0.9266 - val_loss: 0.1928 - val_acc: 0.9227
+
+Epoch 00076: val_acc did not improve from 0.92320
+Epoch 77/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1832 - acc: 0.9273 - val_loss: 0.1926 - val_acc: 0.9224
+
+Epoch 00077: val_acc did not improve from 0.92320
+Epoch 78/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1826 - acc: 0.9273 - val_loss: 0.1924 - val_acc: 0.9237
+
+Epoch 00078: val_acc improved from 0.92320 to 0.92368, saving model to ./ckpt_vgg16_dog_and_cat.h5
+Epoch 79/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1824 - acc: 0.9277 - val_loss: 0.1921 - val_acc: 0.9229
+
+Epoch 00079: val_acc did not improve from 0.92368
+Epoch 80/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1821 - acc: 0.9285 - val_loss: 0.1920 - val_acc: 0.9234
+
+Epoch 00080: val_acc did not improve from 0.92368
+Epoch 81/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1820 - acc: 0.9279 - val_loss: 0.1916 - val_acc: 0.9232
+
+Epoch 00081: val_acc did not improve from 0.92368
+Epoch 82/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1816 - acc: 0.9272 - val_loss: 0.1924 - val_acc: 0.9238
+
+Epoch 00082: val_acc improved from 0.92368 to 0.92384, saving model to ./ckpt_vgg16_dog_and_cat.h5
+Epoch 83/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1814 - acc: 0.9282 - val_loss: 0.1911 - val_acc: 0.9226
+
+Epoch 00083: val_acc did not improve from 0.92384
+Epoch 84/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1811 - acc: 0.9273 - val_loss: 0.1909 - val_acc: 0.9222
+
+Epoch 00084: val_acc did not improve from 0.92384
+Epoch 85/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1808 - acc: 0.9278 - val_loss: 0.1908 - val_acc: 0.9219
+
+Epoch 00085: val_acc did not improve from 0.92384
+Epoch 86/100
+18750/18750 [==============================] - 45s 2ms/step - loss: 0.1804 - acc: 0.9276 - val_loss: 0.1903 - val_acc: 0.9227
+
+Epoch 00087: val_acc did not improve from 0.92384
+Epoch 88/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1801 - acc: 0.9286 - val_loss: 0.1901 - val_acc: 0.9227
+
+Epoch 00088: val_acc did not improve from 0.92384
+Epoch 89/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1797 - acc: 0.9284 - val_loss: 0.1913 - val_acc: 0.9234
+
+Epoch 00089: val_acc did not improve from 0.92384
+Epoch 90/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1795 - acc: 0.9279 - val_loss: 0.1897 - val_acc: 0.9230
+
+Epoch 00090: val_acc did not improve from 0.92384
+Epoch 91/100
+18750/18750 [==============================] - 44s 2ms/step - loss: 0.1795 - acc: 0.9284 - val_loss: 0.1896 - val_acc: 0.9224
+
+Epoch 00091: val_acc did not improve from 0.92384
+Epoch 92/100
+10608/18750 [===============&gt;..............] - ETA: 14s - loss: 0.1796 - acc: 0.9285```</code></pre><p>IOPub message rate exceeded.<br>The notebook server will temporarily stop sending output<br>to the client in order to avoid crashing it.<br>To change this limit, set the config variable<br><code>--NotebookApp.iopub_msg_rate_limit</code>.</p>
+<p>Current values:<br>NotebookApp.iopub_msg_rate_limit=1000.0 (msgs/sec)<br>NotebookApp.rate_limit_window=3.0 (secs)</p>
+<pre><code></code></pre><p>18750/18750 [==============================] - 44s 2ms/step - loss: 0.1779 - acc: 0.9288 - val_loss: 0.1884 - val_acc: 0.9232</p>
+<p>Epoch 00098: val_acc did not improve from 0.92464<br>Epoch 99/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.1776 - acc: 0.9291 - val_loss: 0.1882 - val_acc: 0.9237</p>
+<p>Epoch 00099: val_acc did not improve from 0.92464<br>Epoch 100/100<br>18750/18750 [==============================] - 44s 2ms/step - loss: 0.1774 - acc: 0.9292 - val_loss: 0.1880 - val_acc: 0.9243</p>
+<p>Epoch 00100: val_acc did not improve from 0.92464</p>
+<pre><code>In \[21\]:
+</code></pre><p>import matplotlib.pyplot as pltprint(history.history[‘val_acc’][0])# 绘制训练 &amp; 验证的准确率值plt.plot(history.history[‘acc’])plt.plot(history.history[‘val_acc’])plt.title(‘Model accuracy’)plt.ylabel(‘Accuracy’)plt.xlabel(‘Epoch’)plt.legend([‘Train’, ‘Test’], loc=’upper left’)plt.show()```</p>
+<pre><code>0.7995200000190735</code></pre><p><img src="" alt=""><br>In [22]:</p>
+<pre><code># 绘制训练 &amp; 验证的损失值plt.plot(history.history[&#39;loss&#39;])plt.plot(history.history[&#39;val_loss&#39;])plt.title(&#39;Model loss&#39;)plt.ylabel(&#39;Loss&#39;)plt.xlabel(&#39;Epoch&#39;)plt.legend([&#39;Train&#39;, &#39;Test&#39;], loc=&#39;upper left&#39;)plt.show()```
+![]()
+在上面的训练中，我们使用预训练模型的权重，并保留了卷积网络结构中的参数权重，只训练分类层的参数。可以看到，由于预训练模型已经具备了比较好的特征提取能力，初始时就能获得比较高的准确率。
+
+接下来，我们将卷积网络中的参数也一起加入训练。在预训练模型的特征提取能力的基础上开始训练，找到更适合猫狗二分类任务的参数权重：
+
+In \[31\]:
+</code></pre><p>base_model = VGG16(weights=’imagenet’, include_top=False)model = build_model(base_model)model.compile(loss=’binary_crossentropy’,<br>              optimizer=opt,<br>              metrics=[‘accuracy’])model.summary()```</p>
+<pre><code>&lt;class &#39;keras.engine.training.Model&#39;&gt;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_5 (InputLayer)         (None, None, None, 3)     0         
+_________________________________________________________________
+block1_conv1 (Conv2D)        (None, None, None, 64)    1792      
+_________________________________________________________________
+block1_conv2 (Conv2D)        (None, None, None, 64)    36928     
+_________________________________________________________________
+block1_pool (MaxPooling2D)   (None, None, None, 64)    0         
+_________________________________________________________________
+block2_conv1 (Conv2D)        (None, None, None, 128)   73856     
+_________________________________________________________________
+block2_conv2 (Conv2D)        (None, None, None, 128)   147584    
+_________________________________________________________________
+block2_pool (MaxPooling2D)   (None, None, None, 128)   0         
+_________________________________________________________________
+block3_conv1 (Conv2D)        (None, None, None, 256)   295168    
+_________________________________________________________________
+block3_conv2 (Conv2D)        (None, None, None, 256)   590080    
+_________________________________________________________________
+block3_conv3 (Conv2D)        (None, None, None, 256)   590080    
+_________________________________________________________________
+block3_pool (MaxPooling2D)   (None, None, None, 256)   0         
+_________________________________________________________________
+block4_conv1 (Conv2D)        (None, None, None, 512)   1180160   
+_________________________________________________________________
+block4_conv2 (Conv2D)        (None, None, None, 512)   2359808   
+_________________________________________________________________
+block4_conv3 (Conv2D)        (None, None, None, 512)   2359808   
+_________________________________________________________________
+block4_pool (MaxPooling2D)   (None, None, None, 512)   0         
+_________________________________________________________________
+block5_conv1 (Conv2D)        (None, None, None, 512)   2359808   
+_________________________________________________________________
+block5_conv2 (Conv2D)        (None, None, None, 512)   2359808   
+_________________________________________________________________
+block5_conv3 (Conv2D)        (None, None, None, 512)   2359808   
+_________________________________________________________________
+block5_pool (MaxPooling2D)   (None, None, None, 512)   0         
+_________________________________________________________________
+global_average_pooling2d_5 ( (None, 512)               0         
+_________________________________________________________________
+dense_5 (Dense)              (None, 2)                 1026      
+=================================================================
+Total params: 14,715,714
+Trainable params: 14,715,714
+Non-trainable params: 0
+_________________________________________________________________</code></pre><p>可以看到，这次模型的Non-trainable params个数为0，所有参数都参与训练，相当于我们使用预训练的参数权重初始化了卷积部分。</p>
+<h3 id="训练所有参数"><a href="#训练所有参数" class="headerlink" title="训练所有参数"></a>训练所有参数<a href="https://render.githubusercontent.com/view/ipynb?commit=f4f272b8a9414e15ec8b460865e99d126c081f0f&enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f687561776569636c6f75642f4d6f64656c417274732d4c61622f663466323732623861393431346531356563386234363038363565393964313236633038316630662f6e6f7465626f6f6b2f444c5f696d6167655f6879706572706172616d657465725f74756e696e672f30335f707265747261696e65645f776569676874732e6970796e62&nwo=huaweicloud/ModelArts-Lab&path=notebook/DL_image_hyperparameter_tuning/03_pretrained_weights.ipynb&repository_id=185701977&repository_type=Repository#训练所有参数" target="_blank" rel="noopener"></a></h3><p>直接在预训练权重的基础上进行训练，可以更快的让泛化性较好的权重收敛到适合猫狗二分类的权重，我们仅训练3轮就达到了约95%的精度，耗时约5分钟。</p>
+<p>In [32]:</p>
+<pre><code>history = model.fit(x=x_train, 
+                    y=y_train, 
+                    batch_size=16, 
+                    epochs=5, 
+                    verbose=1, 
+                    callbacks=callbacks, 
+                    validation_split=0.25, 
+                    shuffle=True, 
+                    initial_epoch=0)```</code></pre><p>Train on 18750 samples, validate on 6250 samples<br>Epoch 1/5<br>18750/18750 [==============================] - 103s 5ms/step - loss: 0.4086 - acc: 0.8029 - val_loss: 0.2317 - val_acc: 0.8989</p>
+<p>Epoch 00001: val_acc did not improve from 0.95120<br>Epoch 2/5<br>18750/18750 [==============================] - 102s 5ms/step - loss: 0.2157 - acc: 0.9247 - val_loss: 0.2462 - val_acc: 0.9019</p>
+<p>Epoch 00002: val_acc did not improve from 0.95120<br>Epoch 3/5<br>18750/18750 [==============================] - 101s 5ms/step - loss: 0.1959 - acc: 0.9379 - val_loss: 0.1228 - val_acc: 0.9555</p>
+<p>Epoch 00003: val_acc improved from 0.95120 to 0.95552, saving model to ./ckpt_vgg16_dog_and_cat.h5<br>Epoch 4/5<br>18750/18750 [==============================] - 101s 5ms/step - loss: 0.1849 - acc: 0.9386 - val_loss: 0.3406 - val_acc: 0.9373</p>
+<p>Epoch 00004: val_acc did not improve from 0.95552<br>Epoch 5/5<br>18750/18750 [==============================] - 101s 5ms/step - loss: 0.2295 - acc: 0.9324 - val_loss: 0.1599 - val_acc: 0.9496</p>
+<p>Epoch 00005: val_acc did not improve from 0.95552</p>
+<pre><code>In \[33\]:
+</code></pre><p>import matplotlib.pyplot as pltprint(history.history[‘val_acc’][0])# 绘制训练 &amp; 验证的准确率值plt.plot(history.history[‘acc’])plt.plot(history.history[‘val_acc’])plt.title(‘Model accuracy’)plt.ylabel(‘Accuracy’)plt.xlabel(‘Epoch’)plt.legend([‘Train’, ‘Test’], loc=’upper left’)plt.show();```</p>
+<pre><code>0.8988799999618531</code></pre><p><img src="" alt=""><br>可以看到，模型在开始训练后就得到了较高的精度。在VGG论文中，作者也提到了使用预训练好的浅层VGG模型去初始化深层VGG模型的一部分层，再继续训练的技巧。在上面的实践中，我们使用了泛化性更强的参数权重初始化模型，并针对我们特定的任务进行训练，可以更快的得到较好的精度。</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展<a href="https://render.githubusercontent.com/view/ipynb?commit=f4f272b8a9414e15ec8b460865e99d126c081f0f&enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f687561776569636c6f75642f4d6f64656c417274732d4c61622f663466323732623861393431346531356563386234363038363565393964313236633038316630662f6e6f7465626f6f6b2f444c5f696d6167655f6879706572706172616d657465725f74756e696e672f30335f707265747261696e65645f776569676874732e6970796e62&nwo=huaweicloud/ModelArts-Lab&path=notebook/DL_image_hyperparameter_tuning/03_pretrained_weights.ipynb&repository_id=185701977&repository_type=Repository#扩展" target="_blank" rel="noopener"></a></h3><p>尝试使用更深层的网络，如VGG19, ResNet在ImageNet数据集预训练的权重，并针对猫狗二分类任务进行迁移学习，查看模型训练的效果。</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://huazhixin.gitee.io" rel="external nofollow noreferrer">╯晓~</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://huazhixin.gitee.io/posts/af40.html">http://huazhixin.gitee.io/posts/af40.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="http://huazhixin.gitee.io" target="_blank">╯晓~</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/modelarts/">
+                                    <span class="chip bg-color">modelarts</span>
+                                </a>
+                            
+                                <a href="/tags/tensorflow/">
+                                    <span class="chip bg-color">tensorflow</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/posts/af40.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="使用ImageNet预训练模型权重">
+                        
+                        <span class="card-title">使用ImageNet预训练模型权重</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            使用ImageNet预训练模型权重
+Keras框架提供了预置好的VGG16模型，并提供使用ImageNet进行大规模训练的权重。我们使用预置的VGG16模型，加载预训练的权重，保留VGG16的卷积网络结构，只在最后的全连接层进行调整，使用G
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/modelarts/">
+                        <span class="chip bg-color">modelarts</span>
+                    </a>
+                    
+                    <a href="/tags/tensorflow/">
+                        <span class="chip bg-color">tensorflow</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/abe6.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="数据增广">
+                        
+                        <span class="card-title">数据增广</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            数据增广(Data Augumentation)在VGG论文中，作者提到了数据增广(Data Augumentation)的重要性。在原论文中，作者主要对输入数据的尺寸进行了调整，使用了原始尺寸、较大尺寸和较小尺寸三种规格，并获得了一定的准
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/modelarts/">
+                        <span class="chip bg-color">modelarts</span>
+                    </a>
+                    
+                    <a href="/tags/tensorflow/">
+                        <span class="chip bg-color">tensorflow</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2206814892"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="http://huazhixin.gitee.io" target="_blank">╯晓~</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">14.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "4";
+                    var startDate = "30";
+                    var startHour = "10";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
