@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="小站的更新, blog">
+    <meta name="keywords" content="调用modelarts的API, blog">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>小站的更新 | blog</title>
+    <title>调用modelarts的API | blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/libs/awesome/css/all.css">
@@ -203,12 +203,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">小站的更新</h1>
+                    <h1 class="description center-align post-title">调用modelarts的API</h1>
                 </div>
             </div>
         </div>
@@ -331,25 +331,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/other/" class="post-category">
-                                other
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -358,7 +345,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-30
+                    2020-05-02
                 </div>
                 
 
@@ -367,7 +354,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    77
+                    343
                 </div>
                 
 
@@ -384,21 +371,126 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="V1-3"><a href="#V1-3" class="headerlink" title="V1.3"></a>V1.3</h3><ol>
-<li>加入三篇blog</li>
-</ol>
-<h3 id="V1-2"><a href="#V1-2" class="headerlink" title="V1.2"></a>V1.2</h3><ol>
-<li>电脑端加入音乐功能</li>
-<li>删除banner上的Github链接</li>
-<li>更改一些图片</li>
-</ol>
-<h3 id="V1-1"><a href="#V1-1" class="headerlink" title="V1.1"></a>V1.1</h3><ol>
-<li>加入烟花点击效果</li>
-<li>更改打赏的图片</li>
-</ol>
-<h3 id="V1-0"><a href="#V1-0" class="headerlink" title="V1.0"></a>V1.0</h3><ol>
-<li>小站成功上线啦，由于是静态网页托管在Github上，不足之处还请谅解。</li>
-</ol>
+                <p>代码包含</p>
+<ul>
+<li>use-api.py </li>
+<li>post.py</li>
+<li>get-token.py</li>
+</ul>
+<h3 id="use-api-py"><a href="#use-api-py" class="headerlink" title="use-api.py"></a>use-api.py</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> post
+
+name <span class="token operator">=</span> <span class="token string">"***"</span> 
+password <span class="token operator">=</span> <span class="token string">"***"</span>
+api_url <span class="token operator">=</span> <span class="token string">"***"</span> <span class="token comment" spellcheck="true"># api地址</span>
+image_path <span class="token operator">=</span> r<span class="token string">"timg.jpg"</span>  <span class="token comment" spellcheck="true"># 图像文件完整路径</span>
+
+<span class="token comment" spellcheck="true"># 发送请求</span>
+r <span class="token operator">=</span> post<span class="token punctuation">.</span>main<span class="token punctuation">(</span>name<span class="token punctuation">,</span> password<span class="token punctuation">,</span> api_url<span class="token punctuation">,</span> image_path<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span></code></pre>
+<h3 id="post-py"><a href="#post-py" class="headerlink" title="post.py"></a>post.py</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> get_token
+
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> password<span class="token punctuation">,</span> api_url<span class="token punctuation">,</span> image_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    image_name <span class="token operator">=</span> image_path<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\\'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+    <span class="token comment" spellcheck="true"># 查看本地是否存在token</span>
+    <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token string">"token.txt"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"token.txt"</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            token <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 调用get_token.py中的函数获取token</span>
+        token <span class="token operator">=</span> get_token<span class="token punctuation">.</span>main<span class="token punctuation">(</span>name<span class="token punctuation">,</span> password<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 缓存token以便下次使用</span>
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"token.txt"</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>token<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> token <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"token获取错误"</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        header <span class="token operator">=</span> <span class="token punctuation">{</span>
+                <span class="token string">"X-Auth-Token"</span><span class="token punctuation">:</span> token<span class="token punctuation">,</span>
+                <span class="token punctuation">}</span>
+        files <span class="token operator">=</span> <span class="token punctuation">{</span>
+                <span class="token string">"images"</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>image_name<span class="token punctuation">,</span> open<span class="token punctuation">(</span>image_path<span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'image/png'</span><span class="token punctuation">)</span>
+                <span class="token punctuation">}</span>
+        z <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>
+                    api_url<span class="token punctuation">,</span>
+                    headers <span class="token operator">=</span> header<span class="token punctuation">,</span>
+                    files<span class="token operator">=</span>files<span class="token punctuation">,</span>
+                    verify<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">)</span>
+        <span class="token keyword">if</span> z<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> z<span class="token punctuation">.</span>text
+        <span class="token keyword">elif</span> len<span class="token punctuation">(</span>z<span class="token punctuation">.</span>text<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> z<span class="token punctuation">.</span>text
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token string">"程序错误"</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    name <span class="token operator">=</span> <span class="token string">"***"</span>         <span class="token comment" spellcheck="true"># 用户名</span>
+    password <span class="token operator">=</span> <span class="token string">"***"</span> <span class="token comment" spellcheck="true"># 密码</span>
+    api_url <span class="token operator">=</span> <span class="token string">"***"</span> <span class="token comment" spellcheck="true"># api地址</span>
+    image_path <span class="token operator">=</span> r<span class="token string">"test.jpg"</span>  <span class="token comment" spellcheck="true"># 图像文件完整路径</span>
+    r <span class="token operator">=</span> main<span class="token punctuation">(</span>name<span class="token punctuation">,</span> password<span class="token punctuation">,</span> api_url<span class="token punctuation">,</span> image_path<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="get-token-py"><a href="#get-token-py" class="headerlink" title="get-token.py"></a>get-token.py</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> password<span class="token punctuation">,</span> domain_name<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">,</span> region<span class="token operator">=</span><span class="token string">"cn-north-4"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> domain_name <span class="token operator">==</span> <span class="token string">""</span><span class="token punctuation">:</span>
+        domain_name <span class="token operator">=</span> name
+    urls <span class="token operator">=</span> <span class="token string">"https://iam."</span> <span class="token operator">+</span> region <span class="token operator">+</span> <span class="token string">".myhuaweicloud.com/v3/auth/tokens"</span>
+    header <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"PostmanRuntime/7.24.1"</span><span class="token punctuation">,</span>
+        <span class="token string">"Content-Type"</span><span class="token punctuation">:</span> <span class="token string">"application/json;charset=utf8"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+    json_data <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">"auth"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token string">"identity"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                <span class="token string">"methods"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"password"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token string">"password"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                    <span class="token string">"user"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                        <span class="token string">"name"</span><span class="token punctuation">:</span> name<span class="token punctuation">,</span>
+                        <span class="token string">"password"</span><span class="token punctuation">:</span> password<span class="token punctuation">,</span>
+                        <span class="token string">"domain"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                            <span class="token string">"name"</span><span class="token punctuation">:</span> domain_name<span class="token punctuation">,</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token string">"scope"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                <span class="token string">"project"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                    <span class="token string">"name"</span><span class="token punctuation">:</span> region
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    z <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>
+                    url <span class="token operator">=</span> urls<span class="token punctuation">,</span>
+                    headers <span class="token operator">=</span> header<span class="token punctuation">,</span>
+                    json <span class="token operator">=</span> json_data<span class="token punctuation">,</span>
+                    verify <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> z<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">201</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> z<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">"X-Subject-Token"</span><span class="token punctuation">]</span>
+    <span class="token keyword">elif</span> z<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">401</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>z<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token string">''</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>z<span class="token punctuation">.</span>status_code<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token string">''</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    name <span class="token operator">=</span> <span class="token string">'***'</span>         <span class="token comment" spellcheck="true"># 用户名</span>
+    password <span class="token operator">=</span> <span class="token string">'***'</span>     <span class="token comment" spellcheck="true"># 密码</span>
+<span class="token comment" spellcheck="true">#    domain_name = '***'  # 可选，所属账号，默认为用户名</span>
+<span class="token comment" spellcheck="true">#    region="cn-north-4"     # 可选，使用区域</span>
+    token <span class="token operator">=</span> main<span class="token punctuation">(</span>name<span class="token punctuation">,</span> password<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> token <span class="token operator">!=</span> <span class="token string">''</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>token<span class="token punctuation">)</span></code></pre>
 
             </div>
             <hr/>
@@ -424,7 +516,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://x-varywow.github.io/posts/9280.html">https://x-varywow.github.io/posts/9280.html</a>
+                    <a href="https://x-varywow.github.io/posts/ec3f.html">https://x-varywow.github.io/posts/ec3f.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -461,11 +553,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -631,73 +719,50 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/ea97.html">
+                <a href="/posts/ec3f.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="关于HTTP理解">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="调用modelarts的API">
                         
-                        <span class="card-title">关于HTTP理解</span>
+                        <span class="card-title">调用modelarts的API</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-HTTP是一个请求-响应协议，是两点间传输超文本数据的约定和规范。
+                            代码包含
 
-HTTP状态码
+use-api.py 
+post.py
+get-token.py
 
+use-api.pyimport post
 
-状态码
-描述
-
-
-
-1XX
-表示目前是协议处理中间状态
-
-
-2XX
-成功，报文已接受且正确处理
-
-
-3XX
-重定向，资源位置发生变动
-
-
-4XX
-客
+name = "***" 
+password = "***"
+api_url = "***" # api地址
+im
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-02
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
-                                    计算机网络
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ╯晓~
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/HTTP/">
-                        <span class="chip bg-color">HTTP</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -708,35 +773,38 @@ HTTP状态码
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/6080.html">
+                <a href="/posts/e00a.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="深度学习第一天（pytorch学习笔记）">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/3.jpg" class="responsive-img" alt="一些网站">
                         
-                        <span class="card-title">深度学习第一天（pytorch学习笔记）</span>
+                        <span class="card-title">一些网站</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            入坑（2020.4.29）喜欢深度学习，喜欢python。看起来torch挺好的。
-torch环境准备
-torch  (1.5.0)
-torchvision  (0.6.0)
-cuda  (10.2)输入指令执行代码,速度不行的话复制下载链
+                            
+查看github资源https://nbviewer.jupyter.org/
+
+
+vscode安装c环境https://www.cnblogs.com/czlhxm/p/11794743.html
+
+
+安卓开发者https://deve
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    深度学习
+                            <a href="/categories/other/" class="post-category">
+                                    other
                                 </a>
                             
                             
@@ -746,8 +814,8 @@ cuda  (10.2)输入指令执行代码,速度不行的话复制下载链
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/torch/">
-                        <span class="chip bg-color">torch</span>
+                    <a href="/tags/%E8%B5%84%E6%BA%90/">
+                        <span class="chip bg-color">资源</span>
                     </a>
                     
                 </div>
