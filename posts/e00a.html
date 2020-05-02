@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="深度学习第一天（pytorch学习笔记）, blog">
+    <meta name="keywords" content="一些网站, blog">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>深度学习第一天（pytorch学习笔记） | blog</title>
+    <title>一些网站 | blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/libs/awesome/css/all.css">
@@ -203,12 +203,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">深度学习第一天（pytorch学习笔记）</h1>
+                    <h1 class="description center-align post-title">一些网站</h1>
                 </div>
             </div>
         </div>
@@ -333,8 +333,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/torch/">
-                                <span class="chip bg-color">torch</span>
+                            <a href="/tags/%E8%B5%84%E6%BA%90/">
+                                <span class="chip bg-color">资源</span>
                             </a>
                         
                     </div>
@@ -345,8 +345,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                深度学习
+                            <a href="/categories/other/" class="post-category">
+                                other
                             </a>
                         
                     </div>
@@ -358,7 +358,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-30
+                    2020-05-02
                 </div>
                 
 
@@ -367,14 +367,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    851
+                    43
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    1 分
                 </div>
                 
 
@@ -384,180 +384,18 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="入坑（2020-4-29）"><a href="#入坑（2020-4-29）" class="headerlink" title="入坑（2020.4.29）"></a>入坑（2020.4.29）</h2><p>喜欢深度学习，喜欢python。<br>看起来torch挺好的。</p>
-<h2 id="torch环境准备"><a href="#torch环境准备" class="headerlink" title="torch环境准备"></a>torch环境准备</h2><ul>
-<li>torch  (1.5.0)</li>
-<li>torchvision  (0.6.0)</li>
-<li>cuda  (10.2)<br><img src="https://img-blog.csdnimg.cn/20200429183137908.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""><br>输入指令执行代码,速度不行的话复制下载链接迅雷打开，可能有惊喜<img src="https://img-blog.csdnimg.cn/20200429183453171.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""><br>环境配好后，执行<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> python
-torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-这时应该返回True.</li>
-</ul>
-<h2 id="一次比赛的代码"><a href="#一次比赛的代码" class="headerlink" title="一次比赛的代码"></a>一次比赛的代码</h2><p>不懂的话直接当普通代码执行，当然本人还是纯小白，代码是copy来的，一次比赛的baseline代码</p>
-<h3 id="加载pytorch框架下的依赖项"><a href="#加载pytorch框架下的依赖项" class="headerlink" title="加载pytorch框架下的依赖项"></a>加载pytorch框架下的依赖项</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> __future__ <span class="token keyword">import</span> print_function<span class="token punctuation">,</span> division
-<span class="token keyword">import</span> torch
-<span class="token keyword">import</span> torch<span class="token punctuation">.</span>nn <span class="token keyword">as</span> nn
-<span class="token keyword">import</span> torch<span class="token punctuation">.</span>optim <span class="token keyword">as</span> optim
-<span class="token keyword">from</span> torch<span class="token punctuation">.</span>optim <span class="token keyword">import</span> lr_scheduler
-<span class="token keyword">from</span> torch<span class="token punctuation">.</span>autograd <span class="token keyword">import</span> Variable
-<span class="token keyword">import</span> torchvision
-<span class="token keyword">from</span> torchvision <span class="token keyword">import</span> datasets<span class="token punctuation">,</span> models<span class="token punctuation">,</span> transforms
-<span class="token keyword">import</span> time
-<span class="token keyword">import</span> os</code></pre>
-<h3 id="加载数据集，并分为训练集和测试集"><a href="#加载数据集，并分为训练集和测试集" class="headerlink" title="加载数据集，并分为训练集和测试集"></a>加载数据集，并分为训练集和测试集</h3><pre class=" language-python"><code class="language-python">dataTrans <span class="token operator">=</span> transforms<span class="token punctuation">.</span>Compose<span class="token punctuation">(</span><span class="token punctuation">[</span>
-            transforms<span class="token punctuation">.</span>Resize<span class="token punctuation">(</span><span class="token number">256</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            transforms<span class="token punctuation">.</span>CenterCrop<span class="token punctuation">(</span><span class="token number">224</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            transforms<span class="token punctuation">.</span>ToTensor<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            transforms<span class="token punctuation">.</span>Normalize<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-
-data_dir <span class="token operator">=</span> <span class="token string">'./images'</span>
-
-all_image_datasets <span class="token operator">=</span> datasets<span class="token punctuation">.</span>ImageFolder<span class="token punctuation">(</span>data_dir<span class="token punctuation">,</span> dataTrans<span class="token punctuation">)</span>
-
-trainsize <span class="token operator">=</span> int<span class="token punctuation">(</span><span class="token number">0.8</span><span class="token operator">*</span>len<span class="token punctuation">(</span>all_image_datasets<span class="token punctuation">)</span><span class="token punctuation">)</span>
-testsize <span class="token operator">=</span> len<span class="token punctuation">(</span>all_image_datasets<span class="token punctuation">)</span> <span class="token operator">-</span> trainsize
-train_dataset<span class="token punctuation">,</span> test_dataset <span class="token operator">=</span> torch<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>data<span class="token punctuation">.</span>random_split<span class="token punctuation">(</span>all_image_datasets<span class="token punctuation">,</span><span class="token punctuation">[</span>trainsize<span class="token punctuation">,</span>testsize<span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-image_datasets <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'train'</span><span class="token punctuation">:</span>train_dataset<span class="token punctuation">,</span><span class="token string">'val'</span><span class="token punctuation">:</span>test_dataset<span class="token punctuation">}</span>
-
-dataloders <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> torch<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>data<span class="token punctuation">.</span>DataLoader<span class="token punctuation">(</span>image_datasets<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">,</span>
-                                                 batch_size<span class="token operator">=</span><span class="token number">16</span><span class="token punctuation">,</span>
-                                                 shuffle<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
-                                                 num_workers<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">'train'</span><span class="token punctuation">,</span> <span class="token string">'val'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
-
-dataset_sizes <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> len<span class="token punctuation">(</span>image_datasets<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">'train'</span><span class="token punctuation">,</span> <span class="token string">'val'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
-
-    <span class="token comment" spellcheck="true"># use gpu or not</span>
-use_gpu <span class="token operator">=</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<h3 id="开始训练"><a href="#开始训练" class="headerlink" title="开始训练"></a>开始训练</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">train_model</span><span class="token punctuation">(</span>model<span class="token punctuation">,</span> lossfunc<span class="token punctuation">,</span> optimizer<span class="token punctuation">,</span> scheduler<span class="token punctuation">,</span> num_epochs<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    start_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    best_model_wts <span class="token operator">=</span> model<span class="token punctuation">.</span>state_dict<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    best_acc <span class="token operator">=</span> <span class="token number">0.0</span>
-
-    <span class="token keyword">for</span> epoch <span class="token keyword">in</span> range<span class="token punctuation">(</span>num_epochs<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Epoch {}/{}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>epoch<span class="token punctuation">,</span> num_epochs <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-'</span> <span class="token operator">*</span> <span class="token number">10</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># Each epoch has a training and validation phase</span>
-        <span class="token keyword">for</span> phase <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">'train'</span><span class="token punctuation">,</span> <span class="token string">'val'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> phase <span class="token operator">==</span> <span class="token string">'train'</span><span class="token punctuation">:</span>
-                scheduler<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span>
-                model<span class="token punctuation">.</span>train<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># Set model to training mode</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                model<span class="token punctuation">.</span>train<span class="token punctuation">(</span><span class="token boolean">False</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># Set model to evaluate mode</span>
-
-            running_loss <span class="token operator">=</span> <span class="token number">0.0</span>
-            running_corrects <span class="token operator">=</span> <span class="token number">0.0</span>
-
-            <span class="token comment" spellcheck="true"># Iterate over data.</span>
-            <span class="token keyword">for</span> data <span class="token keyword">in</span> dataloders<span class="token punctuation">[</span>phase<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                <span class="token comment" spellcheck="true"># get the inputs</span>
-                inputs<span class="token punctuation">,</span> labels <span class="token operator">=</span> data
-
-
-                <span class="token comment" spellcheck="true"># wrap them in Variable</span>
-                <span class="token keyword">if</span> use_gpu<span class="token punctuation">:</span>
-                    inputs <span class="token operator">=</span> Variable<span class="token punctuation">(</span>inputs<span class="token punctuation">.</span>cuda<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                    labels <span class="token operator">=</span> Variable<span class="token punctuation">(</span>labels<span class="token punctuation">.</span>cuda<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                <span class="token keyword">else</span><span class="token punctuation">:</span>
-                    inputs<span class="token punctuation">,</span> labels <span class="token operator">=</span> Variable<span class="token punctuation">(</span>inputs<span class="token punctuation">)</span><span class="token punctuation">,</span> Variable<span class="token punctuation">(</span>labels<span class="token punctuation">)</span>
-
-                <span class="token comment" spellcheck="true"># zero the parameter gradients</span>
-                optimizer<span class="token punctuation">.</span>zero_grad<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-                <span class="token comment" spellcheck="true"># forward</span>
-                outputs <span class="token operator">=</span> model<span class="token punctuation">(</span>inputs<span class="token punctuation">)</span>
-                _<span class="token punctuation">,</span> preds <span class="token operator">=</span> torch<span class="token punctuation">.</span>max<span class="token punctuation">(</span>outputs<span class="token punctuation">.</span>data<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
-                loss <span class="token operator">=</span> lossfunc<span class="token punctuation">(</span>outputs<span class="token punctuation">,</span> labels<span class="token punctuation">)</span>
-
-                <span class="token comment" spellcheck="true"># backward + optimize only if in training phase</span>
-                <span class="token keyword">if</span> phase <span class="token operator">==</span> <span class="token string">'train'</span><span class="token punctuation">:</span>
-                    loss<span class="token punctuation">.</span>backward<span class="token punctuation">(</span><span class="token punctuation">)</span>
-                    optimizer<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-                <span class="token comment" spellcheck="true"># statistics</span>
-                running_loss <span class="token operator">+=</span> loss<span class="token punctuation">.</span>data
-                running_corrects <span class="token operator">+=</span> torch<span class="token punctuation">.</span>sum<span class="token punctuation">(</span>preds <span class="token operator">==</span> labels<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">(</span>torch<span class="token punctuation">.</span>float32<span class="token punctuation">)</span>
-
-            epoch_loss <span class="token operator">=</span> running_loss <span class="token operator">/</span> dataset_sizes<span class="token punctuation">[</span>phase<span class="token punctuation">]</span>
-            epoch_acc <span class="token operator">=</span> running_corrects <span class="token operator">/</span> dataset_sizes<span class="token punctuation">[</span>phase<span class="token punctuation">]</span>
-
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'{} Loss: {:.4f} Acc: {:.4f}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>
-                phase<span class="token punctuation">,</span> epoch_loss<span class="token punctuation">,</span> epoch_acc<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-            <span class="token comment" spellcheck="true"># deep copy the model</span>
-            <span class="token keyword">if</span> phase <span class="token operator">==</span> <span class="token string">'val'</span> <span class="token operator">and</span> epoch_acc <span class="token operator">></span> best_acc<span class="token punctuation">:</span>
-                best_acc <span class="token operator">=</span> epoch_acc
-                best_model_wts <span class="token operator">=</span> model<span class="token punctuation">.</span>state_dict<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-    elapsed_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start_time
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Training complete in {:.0f}m {:.0f}s'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>
-        elapsed_time <span class="token operator">//</span> <span class="token number">60</span><span class="token punctuation">,</span> elapsed_time <span class="token operator">%</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Best val Acc: {:4f}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>best_acc<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-    <span class="token comment" spellcheck="true"># load best model weights</span>
-    model<span class="token punctuation">.</span>load_state_dict<span class="token punctuation">(</span>best_model_wts<span class="token punctuation">)</span>
-
-    <span class="token keyword">return</span> model
-
-
-<span class="token comment" spellcheck="true"># get model and replace the original fc layer with your fc layer</span>
-model_ft <span class="token operator">=</span> models<span class="token punctuation">.</span>resnet50<span class="token punctuation">(</span>pretrained<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-num_ftrs <span class="token operator">=</span> model_ft<span class="token punctuation">.</span>fc<span class="token punctuation">.</span>in_features
-model_ft<span class="token punctuation">.</span>fc <span class="token operator">=</span> nn<span class="token punctuation">.</span>Linear<span class="token punctuation">(</span>num_ftrs<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
-
-<span class="token keyword">if</span> use_gpu<span class="token punctuation">:</span>
-    model_ft <span class="token operator">=</span> model_ft<span class="token punctuation">.</span>cuda<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-    <span class="token comment" spellcheck="true"># define loss function</span>
-lossfunc <span class="token operator">=</span> nn<span class="token punctuation">.</span>CrossEntropyLoss<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-    <span class="token comment" spellcheck="true"># setting optimizer and trainable parameters</span>
- <span class="token comment" spellcheck="true">#   params = model_ft.parameters()</span>
- <span class="token comment" spellcheck="true"># list(model_ft.fc.parameters())+list(model_ft.layer4.parameters())</span>
-<span class="token comment" spellcheck="true">#params = list(model_ft.fc.parameters())+list( model_ft.parameters())</span>
-params <span class="token operator">=</span> list<span class="token punctuation">(</span>model_ft<span class="token punctuation">.</span>fc<span class="token punctuation">.</span>parameters<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-optimizer_ft <span class="token operator">=</span> optim<span class="token punctuation">.</span>SGD<span class="token punctuation">(</span>params<span class="token punctuation">,</span> lr<span class="token operator">=</span><span class="token number">0.001</span><span class="token punctuation">,</span> momentum<span class="token operator">=</span><span class="token number">0.9</span><span class="token punctuation">)</span>
-
-    <span class="token comment" spellcheck="true"># Decay LR by a factor of 0.1 every 7 epochs</span>
-exp_lr_scheduler <span class="token operator">=</span> lr_scheduler<span class="token punctuation">.</span>StepLR<span class="token punctuation">(</span>optimizer_ft<span class="token punctuation">,</span> step_size<span class="token operator">=</span><span class="token number">7</span><span class="token punctuation">,</span> gamma<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">)</span>
-
-model_ft <span class="token operator">=</span> train_model<span class="token punctuation">(</span>model<span class="token operator">=</span>model_ft<span class="token punctuation">,</span>
-                           lossfunc<span class="token operator">=</span>lossfunc<span class="token punctuation">,</span>
-                           optimizer<span class="token operator">=</span>optimizer_ft<span class="token punctuation">,</span>
-                           scheduler<span class="token operator">=</span>exp_lr_scheduler<span class="token punctuation">,</span>
-                           num_epochs<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span></code></pre>
-<pre><code>Epoch 0/4
-----------
-
-
-C:\Users\16413\anaconda3\lib\site-packages\torch\optim\lr_scheduler.py:123: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
-  &quot;https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate&quot;, UserWarning)
-
-
-train Loss: 0.0750 Acc: 0.6700
-val Loss: 0.0436 Acc: 0.8200
-Epoch 1/4
-----------
-train Loss: 0.0399 Acc: 0.8250
-val Loss: 0.0345 Acc: 0.8470
-Epoch 2/4
-----------
-train Loss: 0.0330 Acc: 0.8473
-val Loss: 0.0303 Acc: 0.8610
-Epoch 3/4
-----------
-train Loss: 0.0300 Acc: 0.8575
-val Loss: 0.0293 Acc: 0.8650
-Epoch 4/4
-----------
-train Loss: 0.0288 Acc: 0.8643
-val Loss: 0.0281 Acc: 0.8750
-Training complete in 6m 31s
-Best val Acc: 0.875000</code></pre><pre class=" language-python"><code class="language-python">torch<span class="token punctuation">.</span>save<span class="token punctuation">(</span>model_ft<span class="token punctuation">.</span>state_dict<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'./model.pth'</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"done"</span><span class="token punctuation">)</span></code></pre>
-<pre><code>done</code></pre><h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>热爱是一件很美好的事。</p>
-<p>读者有兴趣的话，<br>可以百度或知乎一下，深度学习、神经网络、resnet等一堆概念。</p>
+                <blockquote>
+<p>查看github资源<br><a href="https://nbviewer.jupyter.org/" target="_blank" rel="noopener">https://nbviewer.jupyter.org/</a></p>
+</blockquote>
+<blockquote>
+<p>vscode安装c环境<br><a href="https://www.cnblogs.com/czlhxm/p/11794743.html" target="_blank" rel="noopener">https://www.cnblogs.com/czlhxm/p/11794743.html</a></p>
+</blockquote>
+<blockquote>
+<p>安卓开发者<br><a href="https://developer.android.google.cn/" target="_blank" rel="noopener">https://developer.android.google.cn/</a></p>
+</blockquote>
+<blockquote>
+<p>visual studio文档<br><a href="https://docs.microsoft.com/zh-cn/visualstudio/?view=vs-2019" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/visualstudio/?view=vs-2019</a></p>
+</blockquote>
 
             </div>
             <hr/>
@@ -583,7 +421,7 @@ Best val Acc: 0.875000</code></pre><pre class=" language-python"><code class="la
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://x-varywow.github.io/posts/6080.html">https://x-varywow.github.io/posts/6080.html</a>
+                    <a href="https://x-varywow.github.io/posts/e00a.html">https://x-varywow.github.io/posts/e00a.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -621,8 +459,8 @@ Best val Acc: 0.875000</code></pre><pre class=" language-python"><code class="la
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/torch/">
-                                    <span class="chip bg-color">torch</span>
+                                <a href="/tags/%E8%B5%84%E6%BA%90/">
+                                    <span class="chip bg-color">资源</span>
                                 </a>
                             
                         </div>
@@ -790,90 +628,36 @@ Best val Acc: 0.875000</code></pre><pre class=" language-python"><code class="la
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/9280.html">
+                <a href="/posts/e00a.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="小站的更新">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/3.jpg" class="responsive-img" alt="一些网站">
                         
-                        <span class="card-title">小站的更新</span>
+                        <span class="card-title">一些网站</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            V1.3
-加入三篇blog
+                            
+查看github资源https://nbviewer.jupyter.org/
 
-V1.2
-电脑端加入音乐功能
-删除banner上的Github链接
-更改一些图片
 
-V1.1
-加入烟花点击效果
-更改打赏的图片
+vscode安装c环境https://www.cnblogs.com/czlhxm/p/11794743.html
 
-V1.0
-小站成功上线啦，由于是静态网页托管在Github上，不足之处还请谅解。
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-30
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/other/" class="post-category">
-                                    other
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/3eeb.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+
+安卓开发者https://deve
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-02
                             </span>
                         <span class="publish-author">
                             
@@ -887,11 +671,85 @@ V1.0
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/%E8%B5%84%E6%BA%90/">
+                        <span class="chip bg-color">资源</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/ea97.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="关于HTTP理解">
+                        
+                        <span class="card-title">关于HTTP理解</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+HTTP是一个请求-响应协议，是两点间传输超文本数据的约定和规范。
+
+HTTP状态码
+
+
+状态码
+描述
+
+
+
+1XX
+表示目前是协议处理中间状态
+
+
+2XX
+成功，报文已接受且正确处理
+
+
+3XX
+重定向，资源位置发生变动
+
+
+4XX
+客
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    计算机网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/HTTP/">
+                        <span class="chip bg-color">HTTP</span>
                     </a>
                     
                 </div>

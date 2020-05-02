@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>一些网站</title>
+      <link href="/posts/e00a.html"/>
+      <url>/posts/e00a.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>查看github资源<br><a href="https://nbviewer.jupyter.org/" target="_blank" rel="noopener">https://nbviewer.jupyter.org/</a></p></blockquote><blockquote><p>vscode安装c环境<br><a href="https://www.cnblogs.com/czlhxm/p/11794743.html" target="_blank" rel="noopener">https://www.cnblogs.com/czlhxm/p/11794743.html</a></p></blockquote><blockquote><p>安卓开发者<br><a href="https://developer.android.google.cn/" target="_blank" rel="noopener">https://developer.android.google.cn/</a></p></blockquote><blockquote><p>visual studio文档<br><a href="https://docs.microsoft.com/zh-cn/visualstudio/?view=vs-2019" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/visualstudio/?view=vs-2019</a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> other </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 资源 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于HTTP理解</title>
       <link href="/posts/ea97.html"/>
       <url>/posts/ea97.html</url>
