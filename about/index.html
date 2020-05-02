@@ -228,7 +228,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/banner/5.jpg)');
+    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/banner/6.jpg)');
 </script>
 
 
@@ -244,21 +244,21 @@
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/">3</a></span>
+    <span class="count"><a href="/">4</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">2</a></span>
+    <span class="count"><a href="/categories">3</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">2</a></span>
+    <span class="count"><a href="/tags">3</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -274,21 +274,21 @@
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/">3</a></span>
+    <span class="count"><a href="/">4</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">2</a></span>
+    <span class="count"><a href="/categories">3</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">2</a></span>
+    <span class="count"><a href="/tags">3</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -406,7 +406,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,3,0],
+                data: [0,0,0,0,0,0,0,0,0,0,0,3,1],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -448,7 +448,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"other","value":2},{"name":"深度学习","value":1}],
+                data: [{"name":"other","value":2},{"name":"计算机网络","value":1},{"name":"深度学习","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -472,7 +472,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["hexo","torch"]
+                data: ["hexo","HTTP","torch"]
             }
         ],
         yAxis: [
@@ -485,7 +485,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [2,1],
+                data: [2,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -563,7 +563,18 @@
         <div class="col s12 m6 l6" data-aos="fade-up">
             <div class="skillbar">
                 <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #00BCD4 0%, #80DEEA 100%); width: 30%">
+                     style="background: linear-gradient(to right, #00BCD4 0%, #80DEEA 100%); width: 15%">
+                    <span>AI</span>
+                </div>
+                <div class="skill-bar-percent">15%</div>
+            </div>
+        </div>
+        
+        
+        <div class="col s12 m6 l6" data-aos="fade-up">
+            <div class="skillbar">
+                <div class="skillbar-title"
+                     style="background: linear-gradient(to right, #4CAF50 0%, #81C784 100%); width: 30%">
                     <span>CSS</span>
                 </div>
                 <div class="skill-bar-percent">30%</div>
@@ -574,21 +585,10 @@
         <div class="col s12 m6 l6" data-aos="fade-up">
             <div class="skillbar">
                 <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #4CAF50 0%, #81C784 100%); width: 20%">
-                    <span>AI</span>
+                     style="background: linear-gradient(to right, #FFEB3B 0%, #FFF176 100%); width: 100%">
+                    <span>面向测试用例编程</span>
                 </div>
-                <div class="skill-bar-percent">20%</div>
-            </div>
-        </div>
-        
-        
-        <div class="col s12 m6 l6" data-aos="fade-up">
-            <div class="skillbar">
-                <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #FFEB3B 0%, #FFF176 100%); width: 75%">
-                    <span>程序设计</span>
-                </div>
-                <div class="skill-bar-percent">75%</div>
+                <div class="skill-bar-percent">100%</div>
             </div>
         </div>
         
@@ -605,6 +605,12 @@
             
             <a href="/tags/hexo/">
                 <span class="chip center-align waves-effect waves-light chip-default">hexo</span>
+            </a>
+            
+            
+            
+            <a href="/tags/HTTP/">
+                <span class="chip center-align waves-effect waves-light chip-default">HTTP</span>
             </a>
             
             
@@ -690,7 +696,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">1k</span>&nbsp;字
+                class="white-color">1.3k</span>&nbsp;字
             
             
             
