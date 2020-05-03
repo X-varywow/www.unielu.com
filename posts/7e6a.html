@@ -367,7 +367,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    631
+                    634
                 </div>
                 
 
@@ -402,7 +402,7 @@
         <span class="token keyword">return</span> <span class="token boolean">True</span></code></pre>
 <h3 id="三、绝对差不超过限制的最长连续子数组"><a href="#三、绝对差不超过限制的最长连续子数组" class="headerlink" title="三、绝对差不超过限制的最长连续子数组"></a>三、绝对差不超过限制的最长连续子数组</h3><p>给你一个整数数组 <code>nums</code> ，和一个表示限制的整数 <code>limit</code>，请你返回最长连续子数组的长度，该子数组中的任意两个元素之间的绝对差必须小于或者等于 <code>limit</code> 。<br>如果不存在满足条件的子数组，则返回 <code>0</code> 。</p>
 <blockquote>
-<p>话说dp和双指针好像啊，双指针的话最后一个十几万数的测试用例超时了。。。</p>
+<p>话说dp和双指针好像，双指针的话最后一个十几万数的测试用例超时了。。。</p>
 </blockquote>
 <p>面向测试用例加双指针：</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
@@ -421,6 +421,7 @@
                 <span class="token keyword">else</span><span class="token punctuation">:</span>
                     <span class="token keyword">break</span>
         <span class="token keyword">return</span> ans</code></pre>
+<p>from copy :</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">longestSubarray</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> limit<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
         i <span class="token operator">=</span> j <span class="token operator">=</span> <span class="token number">0</span>
@@ -439,6 +440,7 @@
 <blockquote>
 <p>利用sorted逐行更新。。</p>
 </blockquote>
+<p>from copy:</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">kthSmallest</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> mat<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
         ans <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
