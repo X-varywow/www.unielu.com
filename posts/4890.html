@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="一些网站, blog">
+    <meta name="keywords" content="collections模块, blog">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>一些网站 | blog</title>
+    <title>collections模块 | blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/libs/awesome/css/all.css">
@@ -203,12 +203,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">一些网站</h1>
+                    <h1 class="description center-align post-title">collections模块</h1>
                 </div>
             </div>
         </div>
@@ -333,8 +333,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%B5%84%E6%BA%90/">
-                                <span class="chip bg-color">资源</span>
+                            <a href="/tags/python%E6%A8%A1%E5%9D%97/">
+                                <span class="chip bg-color">python模块</span>
                             </a>
                         
                     </div>
@@ -345,8 +345,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/other/" class="post-category">
-                                other
+                            <a href="/categories/python/" class="post-category">
+                                python
                             </a>
                         
                     </div>
@@ -358,7 +358,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-02
+                    2020-05-04
                 </div>
                 
 
@@ -367,7 +367,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    49
+                    212
                 </div>
                 
 
@@ -384,21 +384,33 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>查看github资源<br><a href="https://nbviewer.jupyter.org/" target="_blank" rel="noopener">https://nbviewer.jupyter.org/</a></p>
-</blockquote>
+                <h3 id="Counter"><a href="#Counter" class="headerlink" title="Counter"></a>Counter</h3><ol>
+<li>一个 <code>Counter</code> 是一个 <code>dict</code> 的子类，用于计数可哈希对象。</li>
+<li>元素从一个 <code>iterable</code> 被计数或从其他的 <code>mapping (or counter)</code>初始化.</li>
+<li>设置一个计数为0不会从计数器中移去一个元素。使用 <code>del</code> 来删除它</li>
+</ol>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#elements()返回一个迭代器</span>
+c <span class="token operator">=</span> Counter<span class="token punctuation">(</span>a<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span>
+sorted<span class="token punctuation">(</span>c<span class="token punctuation">.</span>elements<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
-<p>vscode安装c环境<br><a href="https://www.cnblogs.com/czlhxm/p/11794743.html" target="_blank" rel="noopener">https://www.cnblogs.com/czlhxm/p/11794743.html</a></p>
+<p>[‘a’, ‘a’, ‘a’, ‘a’, ‘b’, ‘b’]</p>
 </blockquote>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#相等个数的元素顺序随机</span>
+Counter<span class="token punctuation">(</span><span class="token string">'abracadabra'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>most_common<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>  </code></pre>
 <blockquote>
-<p>安卓开发者<br><a href="https://developer.android.google.cn/" target="_blank" rel="noopener">https://developer.android.google.cn/</a></p>
+<p>[(‘a’, 5), (‘r’, 2), (‘b’, 2)]</p>
 </blockquote>
+<pre class=" language-python"><code class="language-python">c <span class="token operator">=</span> Counter<span class="token punctuation">(</span>a<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span>
+d <span class="token operator">=</span> Counter<span class="token punctuation">(</span>a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span>
+c<span class="token punctuation">.</span>subtract<span class="token punctuation">(</span>d<span class="token punctuation">)</span>
+c</code></pre>
 <blockquote>
-<p>visual studio文档<br><a href="https://docs.microsoft.com/zh-cn/visualstudio/?view=vs-2019" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/visualstudio/?view=vs-2019</a></p>
+<p>Counter({‘a’: 3, ‘b’: 0, ‘c’: -3, ‘d’: -6})</p>
 </blockquote>
-<blockquote>
-<p>书栈<br><a href="https://www.bookstack.cn/" target="_blank" rel="noopener">https://www.bookstack.cn/</a></p>
-</blockquote>
+<p><code>+c                              # remove zero and negative counts</code></p>
+<h3 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h3><p>类似<code>list</code>的容器，实现了在两端快速<code>append</code>和<code>pop</code></p>
+<h3 id="namedtuple"><a href="#namedtuple" class="headerlink" title="namedtuple()"></a>namedtuple()</h3><p>创建命名元组子类的工厂函数</p>
+<h3 id="defaultdict"><a href="#defaultdict" class="headerlink" title="defaultdict"></a>defaultdict</h3><p>字典的子类，提供了一个工厂函数，为字典查询提供一个默认值</p>
 
             </div>
             <hr/>
@@ -424,7 +436,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://x-varywow.github.io/posts/e00a.html">https://x-varywow.github.io/posts/e00a.html</a>
+                    <a href="https://x-varywow.github.io/posts/4890.html">https://x-varywow.github.io/posts/4890.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -462,8 +474,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%B5%84%E6%BA%90/">
-                                    <span class="chip bg-color">资源</span>
+                                <a href="/tags/python%E6%A8%A1%E5%9D%97/">
+                                    <span class="chip bg-color">python模块</span>
                                 </a>
                             
                         </div>
@@ -631,57 +643,51 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/ec3f.html">
+                <a href="/posts/4890.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="调用modelarts的API">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="collections模块">
                         
-                        <span class="card-title">调用modelarts的API</span>
+                        <span class="card-title">collections模块</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            代码包含
-
-use-api.py 
-post.py
-get-token.py
-
-use-api.pyimport post
-
-name = "***" 
-password = "***"
-api_url = "***" # api地址
-im
+                            Counter
+一个 Counter 是一个 dict 的子类，用于计数可哈希对象。
+元素从一个 iterable 被计数或从其他的 mapping (or counter)初始化.
+设置一个计数为0不会从计数器中移去一个元素。使用 del
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    深度学习
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/modelarts/">
-                        <span class="chip bg-color">modelarts</span>
+                    <a href="/tags/python%E6%A8%A1%E5%9D%97/">
+                        <span class="chip bg-color">python模块</span>
                     </a>
                     
                 </div>
@@ -695,55 +701,37 @@ im
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/ea97.html">
+                <a href="/posts/7dd2.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="关于HTTP理解">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="bisect模块">
                         
-                        <span class="card-title">关于HTTP理解</span>
+                        <span class="card-title">bisect模块</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-HTTP是一个请求-响应协议，是两点间传输超文本数据的约定和规范。
-
-HTTP状态码
+                            bisect
+bisect.bisect_left(a,x,lo=0,hi=len(a))
 
 
-状态码
-描述
-
-
-
-1XX
-表示目前是协议处理中间状态
-
-
-2XX
-成功，报文已接受且正确处理
-
-
-3XX
-重定向，资源位置发生变动
-
-
-4XX
-客
+在 a 中找到 x 合适的插入点以维持有序。
+如果 x 已经在 a 里存在，那么插入点会在已存在元素左边。
+如果 a 是list，则返回值可以是
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
-                                    计算机网络
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
@@ -753,8 +741,8 @@ HTTP状态码
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/HTTP/">
-                        <span class="chip bg-color">HTTP</span>
+                    <a href="/tags/python%E6%A8%A1%E5%9D%97/">
+                        <span class="chip bg-color">python模块</span>
                     </a>
                     
                 </div>

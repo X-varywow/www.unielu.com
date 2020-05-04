@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>collections模块</title>
+      <link href="/posts/4890.html"/>
+      <url>/posts/4890.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="Counter"><a href="#Counter" class="headerlink" title="Counter"></a>Counter</h3><ol><li>一个 <code>Counter</code> 是一个 <code>dict</code> 的子类，用于计数可哈希对象。</li><li>元素从一个 <code>iterable</code> 被计数或从其他的 <code>mapping (or counter)</code>初始化.</li><li>设置一个计数为0不会从计数器中移去一个元素。使用 <code>del</code> 来删除它</li></ol><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#elements()返回一个迭代器</span>c <span class="token operator">=</span> Counter<span class="token punctuation">(</span>a<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span>sorted<span class="token punctuation">(</span>c<span class="token punctuation">.</span>elements<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre><blockquote><p>[‘a’, ‘a’, ‘a’, ‘a’, ‘b’, ‘b’]</p></blockquote><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#相等个数的元素顺序随机</span>Counter<span class="token punctuation">(</span><span class="token string">'abracadabra'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>most_common<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>  </code></pre><blockquote><p>[(‘a’, 5), (‘r’, 2), (‘b’, 2)]</p></blockquote><pre class=" language-python"><code class="language-python">c <span class="token operator">=</span> Counter<span class="token punctuation">(</span>a<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span>d <span class="token operator">=</span> Counter<span class="token punctuation">(</span>a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span>c<span class="token punctuation">.</span>subtract<span class="token punctuation">(</span>d<span class="token punctuation">)</span>c</code></pre><blockquote><p>Counter({‘a’: 3, ‘b’: 0, ‘c’: -3, ‘d’: -6})</p></blockquote><p><code>+c                              # remove zero and negative counts</code></p><h3 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h3><p>类似<code>list</code>的容器，实现了在两端快速<code>append</code>和<code>pop</code></p><h3 id="namedtuple"><a href="#namedtuple" class="headerlink" title="namedtuple()"></a>namedtuple()</h3><p>创建命名元组子类的工厂函数</p><h3 id="defaultdict"><a href="#defaultdict" class="headerlink" title="defaultdict"></a>defaultdict</h3><p>字典的子类，提供了一个工厂函数，为字典查询提供一个默认值</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python模块 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>bisect模块</title>
+      <link href="/posts/7dd2.html"/>
+      <url>/posts/7dd2.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="bisect"><a href="#bisect" class="headerlink" title="bisect"></a>bisect</h3><ul><li><code>bisect.bisect_left(a,x,lo=0,hi=len(a))</code></li></ul><ol><li>在 a 中找到 x 合适的插入点以<strong>维持有序</strong>。</li><li>如果 x 已经在 a 里存在，那么插入点会在已存在元素左边。</li><li>如果 a 是<code>list</code>，则返回值可以是 <code>list.insert()</code> 的第一个参数。</li><li>返回的<code>i</code>可以将数组 a 分成两部分。左侧是 <code>all(val &lt; x for val in a[lo:i])</code> ，右侧是 <code>all(val &gt;= x for val in a[i:hi])</code></li></ol><ul><li><code>bisect.bisect_right(a, x, lo=0, hi=len(a))</code></li><li><code>bisect.bisect(a, x, lo=0, hi=len(a))</code><br>类似于 <code>bisect_left()</code>，但是返回的插入点是 a 中已存在元素 x 的右侧。</li></ul><h3 id="insort"><a href="#insort" class="headerlink" title="insort"></a>insort</h3><ul><li><p><code>bisect.insort_left(a, x, lo=0, hi=len(a))</code></p><ol><li>相当于 a.insert(bisect.bisect_left(a, x, lo, hi), x)</li><li>注意搜索是 O(log n) 的，插入却是 O(n) 的。</li></ol></li><li><p><code>bisect.insort_right(a, x, lo=0, hi=len(a))</code></p></li><li><p><code>bisect.insort(a, x, lo=0, hi=len(a))</code><br>类似于 <code>insort_left()</code>，但是把 x 插入到 a 中已存在元素 x 的右侧。</p></li></ul><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">grade</span><span class="token punctuation">(</span>score<span class="token punctuation">,</span> breakpoints<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">60</span><span class="token punctuation">,</span><span class="token number">90</span><span class="token punctuation">]</span><span class="token punctuation">,</span> grades<span class="token operator">=</span><span class="token string">'FA'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    i <span class="token operator">=</span> bisect<span class="token punctuation">(</span>breakpoints<span class="token punctuation">,</span> score<span class="token punctuation">)</span>    <span class="token keyword">return</span> grades<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>grade<span class="token punctuation">(</span>score<span class="token punctuation">)</span> <span class="token keyword">for</span> score <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">90</span><span class="token punctuation">]</span><span class="token punctuation">]</span></code></pre><blockquote><p>[‘F’,  ‘A’, ‘A’]</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python模块 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode周赛笔记187</title>
       <link href="/posts/7e6a.html"/>
       <url>/posts/7e6a.html</url>
