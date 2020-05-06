@@ -8,7 +8,7 @@
       <link href="/posts/141d.html"/>
       <url>/posts/141d.html</url>
       
-        <content type="html"><![CDATA[<h3 id="人工智能、机器学习、深度学习"><a href="#人工智能、机器学习、深度学习" class="headerlink" title="人工智能、机器学习、深度学习"></a>人工智能、机器学习、深度学习</h3><p><code>人工智能</code>是计算机科学的一个分支，它希望了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等。<br><code>机器学习</code>是一门多领域交叉学科，是人工智能的核心。<br><code>深度学习</code>是机器学习领域中一个新的研究方向，它被引入机器学习使其更接近于最初的目标——人工智能。<br><img src="https://img-blog.csdnimg.cn/202005061919299.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p><h3 id="机器学习模型"><a href="#机器学习模型" class="headerlink" title="机器学习模型"></a>机器学习模型</h3><p><code>机器学习模型</code>是机器学习算法产出的结果，可以将其看作是在给定输入情况下、输出一定结果的函数。<br>机器学习模型不是预先定义好的固定函数，而是从历史数据中推导出来的。<br>机器学习的任务，就是从广阔的映射空间中学习函数</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="人工智能、机器学习、深度学习"><a href="#人工智能、机器学习、深度学习" class="headerlink" title="人工智能、机器学习、深度学习"></a>人工智能、机器学习、深度学习</h3><p><code>人工智能</code>是计算机科学的一个分支，它希望了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等。<br><code>机器学习</code>是一门多领域交叉学科，是人工智能的核心。<br><code>深度学习</code>是机器学习领域中一个新的研究方向，它被引入机器学习使其更接近于最初的目标——人工智能。<br><img src="https://img-blog.csdnimg.cn/202005061919299.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p><h3 id="机器学习模型"><a href="#机器学习模型" class="headerlink" title="机器学习模型"></a>机器学习模型</h3><p><code>机器学习模型</code>是机器学习算法产出的结果，可以将其看作是在给定输入情况下、输出一定结果的函数。<br>机器学习模型不是预先定义好的固定函数，而是从历史数据中推导出来的。<br>机器学习的任务，就是从广阔的映射空间中学习函数。</p>]]></content>
       
       
       <categories>
@@ -183,7 +183,7 @@
       <link href="/posts/9280.html"/>
       <url>/posts/9280.html</url>
       
-        <content type="html"><![CDATA[<h3 id="V1-4"><a href="#V1-4" class="headerlink" title="V1.4"></a>V1.4</h3><ol><li>更改code(橘色-&gt;红色)</li></ol><h3 id="V1-3"><a href="#V1-3" class="headerlink" title="V1.3"></a>V1.3</h3><ol><li>加入几篇blog</li><li>更改一些图片</li><li>删除一些banner颜色</li></ol><h3 id="V1-2"><a href="#V1-2" class="headerlink" title="V1.2"></a>V1.2</h3><ol><li>加入音乐功能</li><li>删除banner上的Github链接</li><li>更改一些图片</li></ol><h3 id="V1-1"><a href="#V1-1" class="headerlink" title="V1.1"></a>V1.1</h3><ol><li>加入烟花点击效果</li><li>更改打赏的图片</li></ol><h3 id="V1-0"><a href="#V1-0" class="headerlink" title="V1.0"></a>V1.0</h3><ol><li>小站成功上线啦，由于是静态网页托管在Github上，不足之处还请谅解。</li></ol>]]></content>
+        <content type="html"><![CDATA[<h3 id="V1-4"><a href="#V1-4" class="headerlink" title="V1.4"></a>V1.4</h3><ol><li>更改code(橘色-&gt;红色)</li></ol><h3 id="V1-3"><a href="#V1-3" class="headerlink" title="V1.3"></a>V1.3</h3><ol><li>加入几篇blog</li><li>更改一些图片</li><li>删除banner中冷紫色调</li></ol><h3 id="V1-2"><a href="#V1-2" class="headerlink" title="V1.2"></a>V1.2</h3><ol><li>加入音乐功能</li><li>删除banner上的Github链接</li><li>更改一些图片</li></ol><h3 id="V1-1"><a href="#V1-1" class="headerlink" title="V1.1"></a>V1.1</h3><ol><li>加入烟花点击效果</li><li>更改打赏的图片</li></ol><h3 id="V1-0"><a href="#V1-0" class="headerlink" title="V1.0"></a>V1.0</h3><ol><li>小站成功上线啦，由于是静态网页托管在Github上，不足之处还请谅解。</li></ol>]]></content>
       
       
       <categories>
