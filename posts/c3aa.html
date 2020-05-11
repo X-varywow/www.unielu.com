@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="bisect模块, blog">
+    <meta name="keywords" content="pandas模块, blog">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>bisect模块 | blog</title>
+    <title>pandas模块 | blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V1.4/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V1.4/libs/awesome/css/all.css">
@@ -203,12 +203,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V1.4/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V1.4/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">bisect模块</h1>
+                    <h1 class="description center-align post-title">pandas模块</h1>
                 </div>
             </div>
         </div>
@@ -358,7 +358,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-04
+                    2020-05-11
                 </div>
                 
 
@@ -367,7 +367,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    260
+                    229
                 </div>
                 
 
@@ -384,40 +384,46 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="bisect"><a href="#bisect" class="headerlink" title="bisect"></a>bisect</h3><ul>
-<li><code>bisect.bisect_left(a,x,lo=0,hi=len(a))</code></li>
-</ul>
-<ol>
-<li>在 a 中找到 x 合适的插入点以<strong>维持有序</strong>。</li>
-<li>如果 x 已经在 a 里存在，那么插入点会在已存在元素左边。</li>
-<li>如果 a 是<code>list</code>，则返回值可以是 <code>list.insert()</code> 的第一个参数。</li>
-<li>返回的<code>i</code>可以将数组 a 分成两部分。左侧是 <code>all(val &lt; x for val in a[lo:i])</code> ，右侧是 <code>all(val &gt;= x for val in a[i:hi])</code></li>
-</ol>
-<ul>
-<li><code>bisect.bisect_right(a, x, lo=0, hi=len(a))</code></li>
-<li><code>bisect.bisect(a, x, lo=0, hi=len(a))</code><br>类似于 <code>bisect_left()</code>，但是返回的插入点是 a 中已存在元素 x 的右侧。</li>
-</ul>
-<h3 id="insort"><a href="#insort" class="headerlink" title="insort"></a>insort</h3><ul>
-<li><p><code>bisect.insort_left(a, x, lo=0, hi=len(a))</code></p>
-<ol>
-<li>相当于 a.insert(bisect.bisect_left(a, x, lo, hi), x)</li>
-<li>注意搜索是 O(log n) 的，插入却是 O(n) 的。</li>
-</ol>
-</li>
-<li><p><code>bisect.insort_right(a, x, lo=0, hi=len(a))</code></p>
-</li>
-<li><p><code>bisect.insort(a, x, lo=0, hi=len(a))</code><br>类似于 <code>insort_left()</code>，但是把 x 插入到 a 中已存在元素 x 的右侧。</p>
-</li>
-</ul>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">grade</span><span class="token punctuation">(</span>score<span class="token punctuation">,</span> breakpoints<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">60</span><span class="token punctuation">,</span><span class="token number">90</span><span class="token punctuation">]</span><span class="token punctuation">,</span> grades<span class="token operator">=</span><span class="token string">'FA'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    i <span class="token operator">=</span> bisect<span class="token punctuation">(</span>breakpoints<span class="token punctuation">,</span> score<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> grades<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-
-<span class="token punctuation">[</span>grade<span class="token punctuation">(</span>score<span class="token punctuation">)</span> <span class="token keyword">for</span> score <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">90</span><span class="token punctuation">]</span><span class="token punctuation">]</span></code></pre>
+                <p><code>Pandas</code> 是 Python 的<strong>核心数据分析支持库</strong>，是 Python 中统计计算生态系统的重要组成部分。</p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>一维的<code>Series</code>和二维的  <code>DataFrame</code></p>
+<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
-<p>[‘F’,  ‘A’, ‘A’]</p>
+<p>0    1<br>1    2<br>2    3<br>dtype: int64</p>
 </blockquote>
-
+<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<blockquote>
+<p>Empty DataFrame<br>Columns: []<br>Index: []</p>
+</blockquote>
+<pre class=" language-python"><code class="language-python">datas<span class="token operator">=</span>pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span><span class="token string">'20200511'</span><span class="token punctuation">,</span>periods<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
+datas</code></pre>
+<blockquote>
+<p>DatetimeIndex([‘2020-05-11’, ‘2020-05-12’, ‘2020-05-13’], dtype=’datetime64[ns]’, freq=’D’)</p>
+</blockquote>
+<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>index<span class="token operator">=</span>dates<span class="token punctuation">,</span>columns<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token string">'abcd'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<blockquote>
+<p>   a    b    c    d<br>2020-05-11    -1.712588    0.403376    -0.152608    -0.428465<br>2020-05-12    -1.259988    -0.310385    -0.816578    0.321397<br>2020-05-13    -0.444678    -1.894342    0.172485    0.717187</p>
+</blockquote>
+<h3 id="查看数据"><a href="#查看数据" class="headerlink" title="查看数据"></a>查看数据</h3><ul>
+<li><code>df.head()</code>，k值默认为5.</li>
+<li><code>df.tail()</code>，k值默认为5</li>
+<li><code>df.index</code></li>
+<li><code>df.columns</code></li>
+</ul>
+<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ol>
+<li>获取单列，<code>df.a</code>与<code>df[&#39;a&#39;]</code>等效</li>
+<li>获取行，用 [ ] 切片行</li>
+<li>按标签选择</li>
+<li>按位置选择</li>
+</ol>
+<h3 id="数据输入，输出"><a href="#数据输入，输出" class="headerlink" title="数据输入，输出"></a>数据输入，输出</h3><h6 id="CSV："><a href="#CSV：" class="headerlink" title="CSV："></a>CSV：</h6><ul>
+<li><code>df.to_csv(&#39;___.csv&#39;)</code></li>
+<li><code>pd.read_csv(&#39;___.csv&#39;)</code></li>
+</ul>
+<h6 id="Excel："><a href="#Excel：" class="headerlink" title="Excel："></a>Excel：</h6><ul>
+<li><code>df.to_excel(&#39;___.xlsx&#39;, sheet_name=&#39;Sheet1&#39;)</code></li>
+<li><code>pd.read_excel(&#39;___.xlsx&#39;, &#39;Sheet1&#39;, index_col=None, na_values=[&#39;NA&#39;])</code></li>
+</ul>
+<h2 id="未完待续"><a href="#未完待续" class="headerlink" title="``````未完待续"></a>``````未完待续</h2>
             </div>
             <hr/>
 
@@ -442,7 +448,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://x-varywow.github.io/posts/7dd2.html">https://x-varywow.github.io/posts/7dd2.html</a>
+                    <a href="https://x-varywow.github.io/posts/c3aa.html">https://x-varywow.github.io/posts/c3aa.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -649,32 +655,34 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/4890.html">
+                <a href="/posts/c3aa.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V1.4/medias/featureimages/5.jpg" class="responsive-img" alt="collections模块">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V1.4/medias/featureimages/23.jpg" class="responsive-img" alt="pandas模块">
                         
-                        <span class="card-title">collections模块</span>
+                        <span class="card-title">pandas模块</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Counter
-一个 Counter 是一个 dict 的子类，用于计数可哈希对象。
-元素从一个 iterable 被计数或从其他的 mapping (or counter)初始化.
-设置一个计数为0不会从计数器中移去一个元素。使用 del
+                            Pandas 是 Python 的核心数据分析支持库，是 Python 中统计计算生态系统的重要组成部分。
+数据结构一维的Series和二维的  DataFrame
+pd.Series([1,2,3])
+
+0    11    22    
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -687,6 +695,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -705,31 +714,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/7e6a.html">
+                <a href="/posts/141d.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V1.4/medias/featureimages/12.jpg" class="responsive-img" alt="leetcode周赛笔记187">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V1.4/medias/featureimages/21.jpg" class="responsive-img" alt="机器学习基本概念">
                         
-                        <span class="card-title">leetcode周赛笔记187</span>
+                        <span class="card-title">机器学习基本概念</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、旅行终点站给你一份旅游线路图，该线路图中的旅行线路用数组 paths 表示，其中 paths[i] = [cityAi, cityBi] 表示该线路将会从 cityAi 直接前往 cityBi 。请你找出这次旅行的终点站，即没有任何可以
+                            人工智能、机器学习、深度学习人工智能是计算机科学的一个分支，它希望了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等。机器学习是一门多领域交叉学科，
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
                                 </a>
                             
                             
@@ -739,8 +748,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>
