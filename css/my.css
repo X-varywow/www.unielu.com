@@ -64,3 +64,7 @@
         transform: translate(0, 0.5px) rotate(1.5deg);
     }
 }
+
+#toc-content .is-active-link::before {
+    background-color: transparent !important;
+}
