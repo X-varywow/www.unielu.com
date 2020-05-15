@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>微观经济学</title>
+      <link href="/posts/bd56.html"/>
+      <url>/posts/bd56.html</url>
+      
+        <content type="html"><![CDATA[<ol><li>经济学：关于资源稀缺性的配置。</li><li>如何定义一个概念：通常用外延更宽的事物来定义。</li><li><strong>机会成本</strong>：为得到某种东西，而放弃的可能收益。</li><li><strong>沉没成本</strong>：指以往发生的，但与当前决策无关的费用。</li><li>禀赋效应：大多数人对于损失和获得的敏感程度不对称。<blockquote><p>假设你现在捡到了100元，你很开心；<br>走着走着，你刚捡到的100元，不知道什么时候掉了。<br>请问，这个时候你的心情？<br>大多数人的心情是痛苦的。<br>可实际上什么都没变。</p></blockquote></li></ol><p>这也适用于销售策略中：减少客户的损失厌恶。<br>7. 博弈论因素：参与者，规则，支付。<br>限制规则来改变博弈。<br>8. 纳什均衡：非合作博弈均衡。<br>如竞争者的商品定价均衡，囚徒困境。</p><blockquote><p>课程最后：<strong>考虑非货币机会成本，忽略沉没成本，对未来行为更加实际。</strong></p></blockquote><p><strong>小结</strong><br>写这篇blog时，总觉得怪怪的，觉得自己没有了天真。<br>随它去吧，😝😝😝<br>每次点滴，每次经历，最后的时候都会连接起来。<br>再分享一句话:人生就像是在每一个刹那，不停地旋转起舞。忽然间，暮然四顾时惊觉：已经到这里了吗？</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> other </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mooc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode potpourri</title>
       <link href="/posts/7786.html"/>
       <url>/posts/7786.html</url>
