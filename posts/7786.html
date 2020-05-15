@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="collections模块, blog">
+    <meta name="keywords" content="leetcode potpourri, blog">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>collections模块 | blog</title>
+    <title>leetcode potpourri | blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.0/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.0/libs/awesome/css/all.css">
@@ -200,7 +200,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">collections模块</h1>
+                    <h1 class="description center-align post-title">leetcode potpourri</h1>
                 </div>
             </div>
         </div>
@@ -325,8 +325,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                                <span class="chip bg-color">python模块</span>
+                            <a href="/tags/leetcode/">
+                                <span class="chip bg-color">leetcode</span>
                             </a>
                         
                     </div>
@@ -337,8 +337,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/python/" class="post-category">
-                                python
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -350,21 +350,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-04
+                    2020-05-15
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-04
+                    2020-05-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    212
+                    390
                 </div>
                 
 
@@ -381,33 +381,62 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Counter"><a href="#Counter" class="headerlink" title="Counter"></a>Counter</h3><ol>
-<li>一个 <code>Counter</code> 是一个 <code>dict</code> 的子类，用于计数可哈希对象。</li>
-<li>元素从一个 <code>iterable</code> 被计数或从其他的 <code>mapping (or counter)</code>初始化.</li>
-<li>设置一个计数为0不会从计数器中移去一个元素。使用 <code>del</code> 来删除它</li>
+                <h3 id="136-只出现1次的数字"><a href="#136-只出现1次的数字" class="headerlink" title="136.只出现1次的数字"></a>136.只出现1次的数字</h3><p>给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。<br><strong>说明</strong>：<br>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">return</span> reduce<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">,</span>y<span class="token punctuation">:</span>x<span class="token operator">^</span>y<span class="token punctuation">,</span>nums<span class="token punctuation">)</span></code></pre>
+<p><strong>小结</strong></p>
+<blockquote>
+<ol>
+<li>任何数与自身<code>^</code>，为0</li>
+<li>任何数<code>^</code>0，为自身</li>
+<li><code>^</code>满足交换律，结合律</li>
 </ol>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#elements()返回一个迭代器</span>
-c <span class="token operator">=</span> Counter<span class="token punctuation">(</span>a<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span>
-sorted<span class="token punctuation">(</span>c<span class="token punctuation">.</span>elements<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<blockquote>
-<p>[‘a’, ‘a’, ‘a’, ‘a’, ‘b’, ‘b’]</p>
 </blockquote>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#相等个数的元素顺序随机</span>
-Counter<span class="token punctuation">(</span><span class="token string">'abracadabra'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>most_common<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>  </code></pre>
+<h3 id="560-和为K的子数组"><a href="#560-和为K的子数组" class="headerlink" title="560.和为K的子数组"></a>560.和为K的子数组</h3><p>给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的连续的子数组的个数。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">subarraySum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        pre <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">#记载所有前缀和</span>
+        ans<span class="token punctuation">,</span>sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span>
+        <span class="token keyword">for</span> num <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+            sum<span class="token operator">+=</span>num
+            need<span class="token operator">=</span>sum<span class="token operator">-</span>k
+            <span class="token keyword">if</span> need <span class="token keyword">in</span> pre<span class="token punctuation">:</span>
+                ans <span class="token operator">+=</span> pre<span class="token punctuation">[</span>need<span class="token punctuation">]</span>
+            <span class="token comment" spellcheck="true">#在hash table里查找key，如果有返回对应的value，反之返回0 </span>
+            pre<span class="token punctuation">[</span>sum<span class="token punctuation">]</span> <span class="token operator">=</span> pre<span class="token punctuation">.</span>get<span class="token punctuation">(</span>sum<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>    
+        <span class="token keyword">return</span> ans</code></pre>
+<p><strong>小结</strong></p>
 <blockquote>
-<p>[(‘a’, 5), (‘r’, 2), (‘b’, 2)]</p>
+<ol>
+<li>前缀和+hash的优化</li>
+<li><code>dict.get(key,default=None)</code></li>
+</ol>
 </blockquote>
-<pre class=" language-python"><code class="language-python">c <span class="token operator">=</span> Counter<span class="token punctuation">(</span>a<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span>
-d <span class="token operator">=</span> Counter<span class="token punctuation">(</span>a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span>
-c<span class="token punctuation">.</span>subtract<span class="token punctuation">(</span>d<span class="token punctuation">)</span>
-c</code></pre>
+<h3 id="876-链表的中间节点"><a href="#876-链表的中间节点" class="headerlink" title="876.链表的中间节点"></a>876.链表的中间节点</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">middleNode</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">:</span> ListNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> ListNode<span class="token punctuation">:</span>
+        slow<span class="token operator">=</span>fast<span class="token operator">=</span>head
+        <span class="token keyword">while</span> fast <span class="token operator">and</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">:</span>
+            slow<span class="token operator">=</span>slow<span class="token punctuation">.</span>next
+            fast<span class="token operator">=</span>fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next
+        <span class="token keyword">return</span> slow</code></pre>
+<p><strong>小结</strong></p>
 <blockquote>
-<p>Counter({‘a’: 3, ‘b’: 0, ‘c’: -3, ‘d’: -6})</p>
+<p>快慢指针</p>
 </blockquote>
-<p><code>+c                              # remove zero and negative counts</code></p>
-<h3 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h3><p>类似<code>list</code>的容器，实现了在两端快速<code>append</code>和<code>pop</code></p>
-<h3 id="namedtuple"><a href="#namedtuple" class="headerlink" title="namedtuple()"></a>namedtuple()</h3><p>创建命名元组子类的工厂函数</p>
-<h3 id="defaultdict"><a href="#defaultdict" class="headerlink" title="defaultdict"></a>defaultdict</h3><p>字典的子类，提供了一个工厂函数，为字典查询提供一个默认值</p>
+<h3 id="172-阶乘后的零"><a href="#172-阶乘后的零" class="headerlink" title="172.阶乘后的零"></a>172.阶乘后的零</h3><p>给定一个整数 n，返回 n! 结果尾数中零的数量。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">trailingZeroes</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        count <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">while</span> n <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+            n <span class="token operator">//=</span> <span class="token number">5</span>
+            count <span class="token operator">+=</span> n
+        <span class="token keyword">return</span> count</code></pre>
+<p><strong>小结</strong></p>
+<blockquote>
+<p>数学</p>
+</blockquote>
+<h3 id="231-2的幂"><a href="#231-2的幂" class="headerlink" title="231.2的幂"></a>231.2的幂</h3><p>给定一个整数，编写一个函数来判断它是否是 2 的幂次方。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">return</span> n<span class="token operator">></span><span class="token number">0</span> <span class="token operator">and</span> n<span class="token operator">&amp;</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span></code></pre>
+<p><strong>小结</strong><br>|n| n-1 | n&amp;(n-1) |<br>|–|–|–|<br>| 0001 | 0000 | 0000 |<br>| 0010 | 0001 | 0000 |<br>| 0100 | 0011 | 0000 |</p>
 
             </div>
             <hr/>
@@ -433,7 +462,7 @@ c</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://x-varywow.github.io/posts/4890.html">https://x-varywow.github.io/posts/4890.html</a>
+                    <a href="https://x-varywow.github.io/posts/7786.html">https://x-varywow.github.io/posts/7786.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -471,8 +500,8 @@ c</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                                    <span class="chip bg-color">python模块</span>
+                                <a href="/tags/leetcode/">
+                                    <span class="chip bg-color">leetcode</span>
                                 </a>
                             
                         </div>
@@ -640,46 +669,49 @@ c</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/141d.html">
+                <a href="/posts/7786.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.0/medias/featureimages/21.jpg" class="responsive-img" alt="机器学习基本概念">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.0/medias/featureimages/5.jpg" class="responsive-img" alt="leetcode potpourri">
                         
-                        <span class="card-title">机器学习基本概念</span>
+                        <span class="card-title">leetcode potpourri</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            人工智能、机器学习、深度学习人工智能是计算机科学的一个分支，它希望了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等。机器学习是一门多领域交叉学科，
+                            136.只出现1次的数字给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。说明：你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？
+return reduce(lambda 
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    深度学习
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">机器学习</span>
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
                     </a>
                     
                 </div>
@@ -693,37 +725,37 @@ c</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/7dd2.html">
+                <a href="/posts/8c51.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.0/medias/featureimages/0.jpg" class="responsive-img" alt="bisect模块">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.0/medias/featureimages/20.jpg" class="responsive-img" alt="KMP算法">
                         
-                        <span class="card-title">bisect模块</span>
+                        <span class="card-title">KMP算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            bisect
-bisect.bisect_left(a,x,lo=0,hi=len(a))
-
-
-在 a 中找到 x 合适的插入点以维持有序。
-如果 x 已经在 a 里存在，那么插入点会在已存在元素左边。
-如果 a 是list，则返回值可以是
+                            关于kmpkmp是一个效率非常高的字符串匹配算法。有问题如下：
+#求b在a中出现次数
+a = "ababacababadababadadda"
+b = "ababad"
+kmp可以将暴力法的O(m*n)降低为O(m+n)
+kmp过程
+计算t
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -733,8 +765,12 @@ bisect.bisect_left(a,x,lo=0,hi=len(a))
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                        <span class="chip bg-color">python模块</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/kmp/">
+                        <span class="chip bg-color">kmp</span>
                     </a>
                     
                 </div>
