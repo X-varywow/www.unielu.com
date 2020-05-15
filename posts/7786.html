@@ -364,7 +364,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    394
+                    397
                 </div>
                 
 
@@ -436,7 +436,35 @@
 </blockquote>
 <h3 id="231-2的幂"><a href="#231-2的幂" class="headerlink" title="231.2的幂"></a>231.2的幂</h3><p>给定一个整数，编写一个函数来判断它是否是 2 的幂次方。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">return</span> n<span class="token operator">></span><span class="token number">0</span> <span class="token operator">and</span> n<span class="token operator">&amp;</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span></code></pre>
-<p><strong>小结</strong><br>| num | n | n-1 | n&amp;(n-1) |<br>|–|–|–|–|<br>| 0 | 0001 | 0000 | 0000 |<br>| 2 | 0010 | 0001 | 0000 |<br>| 4 | 0100 | 0011 | 0000 |</p>
+<p><strong>小结</strong></p>
+<table>
+<thead>
+<tr>
+<th>num</th>
+<th>n</th>
+<th>n-1</th>
+<th>n&amp;(n-1)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2**0</td>
+<td>0001</td>
+<td>0000</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>2**1</td>
+<td>0010</td>
+<td>0001</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>2**2</td>
+<td>0100</td>
+<td>0011</td>
+<td>0000</td>
+</tr>
+</tbody></table>
 
             </div>
             <hr/>
