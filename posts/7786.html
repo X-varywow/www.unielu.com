@@ -364,14 +364,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    890
+                    851
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    3 分
                 </div>
                 
 
@@ -381,10 +381,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><blockquote>
-<p><code># Definition for singly-linked list.</code><br><code># class ListNode:</code><br><code>#     def __init__(self, x):</code><br><code>#         self.val = x</code><br><code>#         self.next = None</code></p>
-</blockquote>
-<h3 id="（1）876-链表的中间节点"><a href="#（1）876-链表的中间节点" class="headerlink" title="（1）876.链表的中间节点"></a>（1）876.链表的中间节点</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+                <h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="（1）876-链表的中间节点"><a href="#（1）876-链表的中间节点" class="headerlink" title="（1）876.链表的中间节点"></a>（1）876.链表的中间节点</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">middleNode</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">:</span> ListNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> ListNode<span class="token punctuation">:</span>
         slow<span class="token operator">=</span>fast<span class="token operator">=</span>head
         <span class="token keyword">while</span> fast <span class="token operator">and</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">:</span>
@@ -405,10 +402,7 @@
 <blockquote>
 <p>rev,rev.next,p赋值那一知半解</p>
 </blockquote>
-<h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><blockquote>
-<p><code># Definition for a binary tree node.</code><br><code># class TreeNode:</code><br><code>#     def __init__(self, x):</code><br><code>#         self.val = x</code><br><code>#         self.left = None</code><br><code>#         self.right = None</code></p>
-</blockquote>
-<h3 id="（1）112-路径总和"><a href="#（1）112-路径总和" class="headerlink" title="（1）112. 路径总和"></a>（1）112. 路径总和</h3><p>给定一个二叉树和一个目标和，判断该树中<code>是否存在</code>根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。<br>说明: 叶子节点是指没有子节点的节点。</p>
+<h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><h3 id="（1）112-路径总和"><a href="#（1）112-路径总和" class="headerlink" title="（1）112. 路径总和"></a>（1）112. 路径总和</h3><p>给定一个二叉树和一个目标和，判断该树中<code>是否存在</code>根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。<br>说明: 叶子节点是指没有子节点的节点。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">hasPathSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">,</span> sum<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
         <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
@@ -438,7 +432,7 @@
 <li><code>stack=[([root.val],root)]</code></li>
 </ol>
 </blockquote>
-<h3 id="（3）437-路径总和III"><a href="#（3）437-路径总和III" class="headerlink" title="（3）437.路径总和III"></a>（3）437.路径总和III</h3><p>给定一个二叉树，它的每个结点都存放着一个整数值。<br>找出路径和等于给定数值的路径总数。<br>路径不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的（只能从父节点到子节点）。</p>
+<h3 id="（3）路径总和III"><a href="#（3）路径总和III" class="headerlink" title="（3）路径总和III"></a>（3）路径总和III</h3><p>给定一个二叉树，它的每个结点都存放着一个整数值。<br>找出路径和等于给定数值的路径总数。<br>路径不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的（只能从父节点到子节点）。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">pathSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">,</span> sum<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
         <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
@@ -769,8 +763,10 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            链表
-# Definition for singly-linked list.# class ListNode:#     def __init__(self, x):#         self.val = x#         self
+                            链表（1）876.链表的中间节点class Solution:
+    def middleNode(self, head: ListNode) -> ListNode:
+        slow=fast=head
+        whi
                         
                     </div>
                     <div class="publish-info">
