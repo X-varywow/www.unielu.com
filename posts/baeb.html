@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="机器学习基本概念, blog">
+    <meta name="keywords" content="leetcode周赛笔记189, blog">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>机器学习基本概念 | blog</title>
+    <title>leetcode周赛笔记189 | blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.0/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.0/libs/awesome/css/all.css">
@@ -195,12 +195,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.0/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.0/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">机器学习基本概念</h1>
+                    <h1 class="description center-align post-title">leetcode周赛笔记189</h1>
                 </div>
             </div>
         </div>
@@ -325,8 +325,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">机器学习</span>
+                            <a href="/tags/leetcode/">
+                                <span class="chip bg-color">leetcode</span>
                             </a>
                         
                     </div>
@@ -337,8 +337,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                深度学习
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -350,28 +350,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-06
+                    2020-05-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-06
+                    2020-05-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    262
+                    717
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -381,8 +381,78 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="人工智能、机器学习、深度学习"><a href="#人工智能、机器学习、深度学习" class="headerlink" title="人工智能、机器学习、深度学习"></a>人工智能、机器学习、深度学习</h3><p><code>人工智能</code>是计算机科学的一个分支，它希望了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等。<br><code>机器学习</code>是一门多领域交叉学科，是人工智能的核心。<br><code>深度学习</code>是机器学习领域中一个新的研究方向，它被引入机器学习使其更接近于最初的目标——人工智能。<br><img src="https://img-blog.csdnimg.cn/202005061919299.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p>
-<h3 id="机器学习模型"><a href="#机器学习模型" class="headerlink" title="机器学习模型"></a>机器学习模型</h3><p><code>机器学习模型</code>是机器学习算法产出的结果，可以将其看作是在给定输入情况下、输出一定结果的函数。<br>机器学习模型不是预先定义好的固定函数，而是从历史数据中推导出来的。<br>机器学习的任务，就是从广阔的映射空间中学习函数。</p>
+                <h3 id="一、在既定时间做作业的学生人数"><a href="#一、在既定时间做作业的学生人数" class="headerlink" title="一、在既定时间做作业的学生人数"></a>一、在既定时间做作业的学生人数</h3><p>给你两个整数数组 <code>startTime</code>（开始时间）和 <code>endTime</code>（结束时间），并指定一个整数 <code>queryTime</code> 作为查询时间。<br>已知，第 <code>i</code> 名学生在 <code>startTime[i]</code> 时开始写作业并于 <code>endTime[i]</code> 时完成作业。<br>请返回在查询时间 <code>queryTime</code> 时正在做作业的学生人数。形式上，返回能够使 <code>queryTime</code> 处于区间 <code>[startTime[i], endTime[i]]</code>（含）的学生人数。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">busyStudent</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> startTime<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> endTime<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> queryTime<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+<span class="token keyword">return</span> sum<span class="token punctuation">(</span>startTime<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> queryTime <span class="token operator">&lt;=</span> endTime<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>startTime<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<h3 id="二、重新排列句子中的单词"><a href="#二、重新排列句子中的单词" class="headerlink" title="二、重新排列句子中的单词"></a>二、重新排列句子中的单词</h3><p>「句子」是一个用空格分隔单词的字符串。给你一个满足下述格式的句子 <code>text</code> :</p>
+<ul>
+<li>句子的首字母大写</li>
+<li><code>text</code> 中的每个单词都用单个空格分隔。</li>
+</ul>
+<p>请你重新排列 <code>text</code> 中的单词，使所有单词按其长度的升序排列。如果两个单词的长度相同，则保留其在原句子中的相对顺序。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">arrangeWords</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> text<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
+        li<span class="token operator">=</span>text<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span>
+        li<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>li<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        li<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span>len<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token string">' '</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>li<span class="token punctuation">)</span><span class="token punctuation">.</span>capitalize<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p><strong>小结</strong></p>
+<blockquote>
+<ol>
+<li><code>str.capitalize()</code></li>
+<li><code>.sort(key=len)</code></li>
+</ol>
+</blockquote>
+<h3 id="三、收藏清单"><a href="#三、收藏清单" class="headerlink" title="三、收藏清单"></a>三、收藏清单</h3><p>给你一个数组 <code>favoriteCompanies</code> ，其中 <code>favoriteCompanies[i]</code> 是第 <code>i</code> 名用户收藏的公司清单（下标从 0 开始）。<br>请找出不是其他任何人收藏的公司清单的子集的收藏清单，并返回该清单下标。下标需要按升序排列。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">peopleIndexes</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> favoriteCompanies<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        ans<span class="token operator">=</span><span class="token punctuation">[</span>_ <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>favoriteCompanies<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>favoriteCompanies<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>favoriteCompanies<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                a<span class="token punctuation">,</span>b<span class="token operator">=</span>set<span class="token punctuation">(</span>favoriteCompanies<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>set<span class="token punctuation">(</span>favoriteCompanies<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <span class="token keyword">if</span> a<span class="token operator">==</span>b <span class="token operator">and</span> i <span class="token keyword">in</span> ans<span class="token punctuation">:</span>
+                    ans<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+                <span class="token keyword">elif</span> a<span class="token punctuation">.</span>issubset<span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token operator">and</span> i <span class="token keyword">in</span> ans<span class="token punctuation">:</span> 
+                    ans<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+                <span class="token keyword">elif</span> b<span class="token punctuation">.</span>issubset<span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">and</span> j <span class="token keyword">in</span> ans<span class="token punctuation">:</span> 
+                    ans<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ans</code></pre>
+<p><strong>小结</strong></p>
+<blockquote>
+<ol>
+<li><code>a.issubset(b)</code>，判断a是否是b子集</li>
+<li><code>.remove(i)</code>，若<code>i</code>不存在会报错</li>
+</ol>
+</blockquote>
+<h3 id="四、圆形靶内的最大飞镖数量"><a href="#四、圆形靶内的最大飞镖数量" class="headerlink" title="四、圆形靶内的最大飞镖数量"></a>四、圆形靶内的最大飞镖数量</h3><p>墙壁上挂着一个圆形的飞镖靶。现在请你蒙着眼睛向靶上投掷飞镖。<br>投掷到墙上的飞镖用二维平面上的点坐标数组表示。飞镖靶的半径为 <code>r</code> 。<br>请返回能够落在 <strong>任意</strong> 半径为 <code>r</code> 的圆形靶内或靶上的最大飞镖数。</p>
+<p>from copy:</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">numPoints</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> points<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> r<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        <span class="token keyword">def</span> <span class="token function">dist2</span><span class="token punctuation">(</span>p1<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> p2<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span>p1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">-</span> p2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token punctuation">(</span>p1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> p2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span>
+
+        <span class="token keyword">def</span> <span class="token function">getCircle</span><span class="token punctuation">(</span>p1<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> p2<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>float<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            mid <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>p1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> p2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>p1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> p2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">]</span>
+            angle <span class="token operator">=</span> math<span class="token punctuation">.</span>atan<span class="token punctuation">(</span><span class="token punctuation">(</span>p1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">-</span> p2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span>p2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> p1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">if</span> p2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> p1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">else</span> math<span class="token punctuation">.</span>pi <span class="token operator">/</span> <span class="token number">2</span>
+            d <span class="token operator">=</span> math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>r2 <span class="token operator">-</span> dist2<span class="token punctuation">(</span>p1<span class="token punctuation">,</span> mid<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token punctuation">[</span>mid<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> d <span class="token operator">*</span> math<span class="token punctuation">.</span>cos<span class="token punctuation">(</span>angle<span class="token punctuation">)</span><span class="token punctuation">,</span> mid<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> d <span class="token operator">*</span> math<span class="token punctuation">.</span>sin<span class="token punctuation">(</span>angle<span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+        n <span class="token operator">=</span> len<span class="token punctuation">(</span>points<span class="token punctuation">)</span>
+        ans <span class="token operator">=</span> <span class="token number">1</span>
+        eps <span class="token operator">=</span> <span class="token number">1e</span><span class="token operator">-</span><span class="token number">6</span>
+        r2 <span class="token operator">=</span> r <span class="token operator">*</span> r
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> dist2<span class="token punctuation">(</span>points<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> points<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">4</span> <span class="token operator">*</span> r2<span class="token punctuation">:</span>
+                    <span class="token keyword">continue</span>
+                center <span class="token operator">=</span> getCircle<span class="token punctuation">(</span>points<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> points<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                count <span class="token operator">=</span> <span class="token number">0</span>
+                <span class="token keyword">for</span> k <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> dist2<span class="token punctuation">(</span>points<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">,</span> center<span class="token punctuation">)</span> <span class="token operator">&lt;</span> r2 <span class="token operator">+</span> eps<span class="token punctuation">:</span>
+                        count <span class="token operator">+=</span> <span class="token number">1</span>
+                ans <span class="token operator">=</span> max<span class="token punctuation">(</span>ans<span class="token punctuation">,</span> count<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ans</code></pre>
 
             </div>
             <hr/>
@@ -408,7 +478,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://x-varywow.github.io/posts/141d.html">https://x-varywow.github.io/posts/141d.html</a>
+                    <a href="https://x-varywow.github.io/posts/baeb.html">https://x-varywow.github.io/posts/baeb.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -446,8 +516,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">机器学习</span>
+                                <a href="/tags/leetcode/">
+                                    <span class="chip bg-color">leetcode</span>
                                 </a>
                             
                         </div>
@@ -615,50 +685,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/c3aa.html">
+                <a href="/posts/baeb.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.0/medias/featureimages/23.jpg" class="responsive-img" alt="pandas模块">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.0/medias/featureimages/14.jpg" class="responsive-img" alt="leetcode周赛笔记189">
                         
-                        <span class="card-title">pandas模块</span>
+                        <span class="card-title">leetcode周赛笔记189</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Pandas 是 Python 的核心数据分析支持库，是 Python 中统计计算生态系统的重要组成部分。
-数据结构一维的Series和二维的  DataFrame
-pd.Series([1,2,3])
-
-0    11    22    
+                            一、在既定时间做作业的学生人数给你两个整数数组 startTime（开始时间）和 endTime（结束时间），并指定一个整数 queryTime 作为查询时间。已知，第 i 名学生在 startTime[i] 时开始写作业并于 endTim
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                        <span class="chip bg-color">python模块</span>
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
                     </a>
                     
                 </div>
@@ -672,34 +740,34 @@ pd.Series([1,2,3])
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/4890.html">
+                <a href="/posts/7786.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.0/medias/featureimages/5.jpg" class="responsive-img" alt="collections模块">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.0/medias/featureimages/5.jpg" class="responsive-img" alt="leetcode potpourri">
                         
-                        <span class="card-title">collections模块</span>
+                        <span class="card-title">leetcode potpourri</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Counter
-一个 Counter 是一个 dict 的子类，用于计数可哈希对象。
-元素从一个 iterable 被计数或从其他的 mapping (or counter)初始化.
-设置一个计数为0不会从计数器中移去一个元素。使用 del
+                            链表（1）876.链表的中间节点class Solution:
+    def middleNode(self, head: ListNode) -> ListNode:
+        slow=fast=head
+        whi
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -709,8 +777,8 @@ pd.Series([1,2,3])
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                        <span class="chip bg-color">python模块</span>
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
                     </a>
                     
                 </div>
