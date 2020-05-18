@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>math模块</title>
+      <link href="/posts/2cb4.html"/>
+      <url>/posts/2cb4.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="（一）数论与表示函数"><a href="#（一）数论与表示函数" class="headerlink" title="（一）数论与表示函数"></a>（一）数论与表示函数</h3><ol><li><p><code>math.ceil(x)</code><br>返回 x 的上限，即大于或者等于 x 的最小整数。</p></li><li><p><code>math.floor(x)</code><br>返回 x 的向下取整，小于或等于 x 的最大整数。</p></li><li><p><code>math.comb(n,k)</code>，<strong>3.8新功能</strong><br>返回不重复且无顺序地从 n 项中选择 k 项的方式总数。<br>当 k &lt;= n 时取值为 n! / (k! * (n - k)!)；当 k &gt; n 时取值为零。<br>也称为二项式系数，因为它等价于表达式 (1 + x) ** n 的多项式展开中第 k 项的系数。</p></li><li><p><code>math.fabs(x)</code><br>返回 x 的绝对值。</p></li><li><p><code>math.factorial(x)</code><br>以一个整数返回 x 的阶乘。如果 x 不是整数或为负数时则将引发ValueError。</p></li><li><p><code>math.gcd(a, b)</code><br>返回整数 a 和 b 的最大公约数。</p></li><li><p><code>math.isclose(a, b, *, rel_tol=1e-09, abs_tol=0.0)</code><br>若 a 和 b 的值比较接近则返回 True，否则返回 False。<br>根据给定的绝对和相对容差确定两个值是否被认为是接近的。</p></li><li><p><code>math.isinf(x)</code><br>如果 x 是正或负无穷大，则返回 True ，否则返回 False 。</p></li><li><p><code>math.modf(x)</code><br>返回 x 的小数和整数部分。两个结果都带有 x 的符号并且是浮点数。</p></li><li><p><code>math.perm(n, k=None)</code>，<strong>3.8新功能</strong><br>排列不重复且无顺序地从 n 项中选择 k 项的方式总数。<br>当 k &lt;= n 时取值为 n! / (n - k)!；当 k &gt; n 时取值为零。<br>如果 k 未指定或为 None，则 k 默认值为 n 并且函数将返回 n!。</p></li></ol><h3 id="（二）幂函数与对数函数"><a href="#（二）幂函数与对数函数" class="headerlink" title="（二）幂函数与对数函数"></a>（二）幂函数与对数函数</h3><ol start="11"><li><p><code>math.exp(x)</code><br>返回 e 次 x 幂。</p></li><li><p><code>math.log(x[, base ])</code><br>使用一个参数时，返回 x 的自然对数（底为 e ）。</p></li></ol><h3 id="（三）三角函数与几何"><a href="#（三）三角函数与几何" class="headerlink" title="（三）三角函数与几何"></a>（三）三角函数与几何</h3><ol start="13"><li><p><code>math.asin(x)</code><br>以弧度为单位返回 x 的反正弦值。<br><code>math.acos(x)</code><br>以弧度为单位返回 x 的反余弦值。<br><code>math.atan(x)</code><br>以弧度为单位返回 x 的反正切值。<br><code>math.sin(x)</code><br>返回 x 弧度的正弦值。<br><code>math.cos(x)</code><br>返回 x 弧度的余弦值。<br><code>math.tan(x)</code><br>返回 x 弧度的正切值。</p></li><li><p><code>math.dist(p, q)</code>，<strong>3.8新功能</strong><br>返回 p 与 q 两点之间的欧几里得距离（两点间直线距离），<code>sqrt(sum((px - qx) ** 2.0 for px, qx in zip(p, q)))</code>。以一个坐标序列（或可迭代对象）的形式给出。两个点必须具有相同的维度。</p></li><li><p><code>math.hypot(*coordinates)</code><br>返回欧几里得范数，<code>sqrt(sum(x**2 for x in coordinates))</code>。这是从原点到坐标给定点的向量长度。</p></li><li><p><code>math.degrees(x)</code><br>将角度 x 从弧度转换为度数。</p></li><li><p><code>math.radians(x)</code><br>将角度 x 从度数转换为弧度。</p></li></ol><h3 id="（四）常数"><a href="#（四）常数" class="headerlink" title="（四）常数"></a>（四）常数</h3><ol start="18"><li><code>math.pi</code><br>数学常数 π = 3.141592…，精确到可用精度。</li><li><code>math.e</code><br>数学常数 e = 2.718281…，精确到可用精度。</li></ol><p><strong>小结</strong><br>本文基本包含math够用的函数。<br>未摘要的部分：</p><ul><li>一些提高精度的函数</li><li>双曲函数</li><li>特殊函数，如伽马函数，统计等</li></ul><p>发现3.8新功能好好啊。</p><p><strong>实践</strong></p><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> math <span class="token keyword">import</span> <span class="token operator">*</span>ceil<span class="token punctuation">(</span><span class="token number">3.9</span><span class="token punctuation">)</span><span class="token punctuation">,</span>floor<span class="token punctuation">(</span><span class="token number">3.9</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#-->4,3</span>gcd<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">)</span>           <span class="token comment" spellcheck="true">#-->3</span>perm<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>，perm<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#-->120,20</span>log<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>         <span class="token comment" spellcheck="true">#-->2.0</span>dist<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#-->2.8284271247461903</span>radians<span class="token punctuation">(</span><span class="token number">180</span><span class="token punctuation">)</span>        <span class="token comment" spellcheck="true">#-->3.141592653589793</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python模块 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode周赛笔记189</title>
       <link href="/posts/baeb.html"/>
       <url>/posts/baeb.html</url>
