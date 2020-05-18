@@ -383,14 +383,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    964
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -513,7 +513,28 @@
 <td>0000</td>
 </tr>
 </tbody></table>
-<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><h3 id="（1）20-有效的括号"><a href="#（1）20-有效的括号" class="headerlink" title="（1）20.有效的括号"></a>（1）20.有效的括号</h3><p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。<br>有效字符串需满足：<br>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。<br>注意空字符串可被认为是有效字符串。</p>
+<h2 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h2><h3 id="（1）53-最大子序和"><a href="#（1）53-最大子序和" class="headerlink" title="（1）53. 最大子序和"></a>（1）53. 最大子序和</h3><p>给定一个整数数组<code>nums</code>，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">maxSubArray</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+=</span>max<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> max<span class="token punctuation">(</span>nums<span class="token punctuation">)</span></code></pre>
+<h3 id="（2）152-乘积最大子数组"><a href="#（2）152-乘积最大子数组" class="headerlink" title="（2）152. 乘积最大子数组"></a>（2）152. 乘积最大子数组</h3><p>给你一个整数数组 <code>nums</code> ，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">maxProduct</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> nums<span class="token operator">==</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
+        res<span class="token operator">=</span>float<span class="token punctuation">(</span><span class="token string">'-inf'</span><span class="token punctuation">)</span>
+        minn<span class="token punctuation">,</span>maxn<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span>
+        <span class="token keyword">for</span> n <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+            a<span class="token operator">=</span>n<span class="token operator">*</span>minn
+            b<span class="token operator">=</span>n<span class="token operator">*</span>maxn
+            maxn<span class="token operator">=</span>max<span class="token punctuation">(</span>n<span class="token punctuation">,</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>
+            minn<span class="token operator">=</span>min<span class="token punctuation">(</span>n<span class="token punctuation">,</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> maxn<span class="token operator">></span>res<span class="token punctuation">:</span>
+                res<span class="token operator">=</span>maxn
+        <span class="token keyword">return</span> res</code></pre>
+<p><strong>小结</strong></p>
+<h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><h3 id="（1）200-岛屿数量"><a href="#（1）200-岛屿数量" class="headerlink" title="（1）200.岛屿数量"></a>（1）200.岛屿数量</h3><h3 id="（2）69"><a href="#（2）69" class="headerlink" title="（2）69"></a>（2）69</h3><h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><h3 id="（1）20-有效的括号"><a href="#（1）20-有效的括号" class="headerlink" title="（1）20.有效的括号"></a>（1）20.有效的括号</h3><p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。<br>有效字符串需满足：<br>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。<br>注意空字符串可被认为是有效字符串。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">isValid</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
         hashmap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'('</span><span class="token punctuation">:</span><span class="token string">')'</span><span class="token punctuation">,</span><span class="token string">'{'</span><span class="token punctuation">:</span><span class="token string">'}'</span><span class="token punctuation">,</span><span class="token string">'['</span><span class="token punctuation">:</span><span class="token string">']'</span><span class="token punctuation">,</span><span class="token string">'?'</span><span class="token punctuation">:</span><span class="token string">'?'</span><span class="token punctuation">}</span>
@@ -1243,7 +1264,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.7k</span>&nbsp;字
+                class="white-color">6.9k</span>&nbsp;字
             
             
             
