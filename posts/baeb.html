@@ -383,7 +383,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    720
+                    718
                 </div>
                 
 
@@ -445,7 +445,6 @@
 </ol>
 </blockquote>
 <h3 id="四、圆形靶内的最大飞镖数量"><a href="#四、圆形靶内的最大飞镖数量" class="headerlink" title="四、圆形靶内的最大飞镖数量"></a>四、圆形靶内的最大飞镖数量</h3><p>墙壁上挂着一个圆形的飞镖靶。现在请你蒙着眼睛向靶上投掷飞镖。<br>投掷到墙上的飞镖用二维平面上的点坐标数组表示。飞镖靶的半径为 <code>r</code> 。<br>请返回能够落在 <strong>任意</strong> 半径为 <code>r</code> 的圆形靶内或靶上的最大飞镖数。</p>
-<p>from copy:</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">numPoints</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> points<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> r<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
         func<span class="token operator">=</span><span class="token keyword">lambda</span> o<span class="token punctuation">:</span>sum<span class="token punctuation">(</span>dist<span class="token punctuation">(</span>p<span class="token punctuation">,</span>o<span class="token punctuation">)</span><span class="token operator">&lt;=</span>r <span class="token keyword">for</span> p <span class="token keyword">in</span> points<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#检查包含</span>
@@ -460,16 +459,11 @@
                     ans<span class="token operator">=</span>max<span class="token punctuation">(</span>ans<span class="token punctuation">,</span> func<span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">)</span>
         <span class="token keyword">return</span> ans</code></pre>
 <p>主要思路：<strong>枚举</strong></p>
-<blockquote>
 <ol>
 <li>枚举points中每两个点，确定圆心。</li>
 <li>更新最大值，输出</li>
 </ol>
-</blockquote>
-<p><strong>小结：</strong></p>
-<blockquote>
-<p>第四题的枚举+math模块+数学，666。<br>每天都要好好学习😄😄</p>
-</blockquote>
+<p><strong>小结：</strong><br> 第四题的<code>枚举</code>+<code>math模块</code>+<code>数学</code>，666。<br> 每天都要好好学习❤❤❤</p>
 
             </div>
             <hr/>
@@ -952,7 +946,7 @@
         avatar: 'mm',
         pageSize: '10',
         lang: 'zh-cn',
-        placeholder: '评论未必能及时回复，所以在主评论区玩玩就行😄'
+        placeholder: '评论未必能及时回复，所以在主评论区玩玩就行🍻'
     });
 </script>
 
