@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于HTTP理解, blog">
+    <meta name="keywords" content="numpy模块, blog">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>关于HTTP理解 | blog</title>
+    <title>numpy模块 | blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/libs/awesome/css/all.css">
@@ -214,12 +214,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/python.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">关于HTTP理解</h1>
+                    <h1 class="description center-align post-title">numpy模块</h1>
                 </div>
             </div>
         </div>
@@ -344,8 +344,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/HTTP/">
-                                <span class="chip bg-color">HTTP</span>
+                            <a href="/tags/python-%E6%A8%A1%E5%9D%97/">
+                                <span class="chip bg-color">python 模块</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                                <span class="chip bg-color">数据分析</span>
                             </a>
                         
                     </div>
@@ -356,8 +360,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
-                                计算机网络
+                            <a href="/categories/python/" class="post-category">
+                                python
                             </a>
                         
                     </div>
@@ -369,28 +373,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-02
+                    2020-05-11
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-02
+                    2020-05-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    316
+                    516
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -400,73 +404,106 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>HTTP是一个请求-响应协议，是两点间传输超文本数据的约定和规范。</p>
-</blockquote>
-<h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><table>
+                <p><code>NumPy</code> is the fundamental package for <strong>scientific computing</strong> in Python.</p>
+<h2 id="ndarray"><a href="#ndarray" class="headerlink" title="ndarray"></a>ndarray</h2><table>
 <thead>
 <tr>
-<th>状态码</th>
-<th>描述</th>
+<th>属性</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>1XX</td>
-<td>表示目前是协议处理中间状态</td>
+<td><code>.ndim</code></td>
+<td>秩，即轴的数量或维度的数量</td>
 </tr>
 <tr>
-<td>2XX</td>
-<td>成功，报文已接受且正确处理</td>
+<td><code>.shape</code></td>
+<td>n行m列</td>
 </tr>
 <tr>
-<td>3XX</td>
-<td>重定向，资源位置发生变动</td>
+<td><code>.size</code></td>
+<td>n*m个数</td>
 </tr>
 <tr>
-<td>4XX</td>
-<td>客户端错误，请求报文有误，服务器无法处理</td>
+<td><code>.dtype</code></td>
+<td>元素类型</td>
 </tr>
 <tr>
-<td>5XX</td>
-<td>服务器处理请求时发生错误</td>
+<td><code>.itemsize</code></td>
+<td>元素大小，单位：字节</td>
 </tr>
 </tbody></table>
-<h2 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h2><pre class=" language-bash"><code class="language-bash">GET /admin_ui/rdx/core/images/close.png HTTP/1.1
-Accept: */*
-Referer: http://xxx.xxx.xxx.xxx/menu/neo
-Accept-Language: en-US
-User-Agent: Mozilla/4.0 <span class="token punctuation">(</span>compatible<span class="token punctuation">;</span> MSIE 7.0<span class="token punctuation">;</span> Windows NT 6.1<span class="token punctuation">;</span> WOW64<span class="token punctuation">;</span> Trident/7.0<span class="token punctuation">;</span> SLCC2<span class="token punctuation">;</span> .NET CLR 2.0.50727<span class="token punctuation">;</span> .NET CLR 3.5.30729<span class="token punctuation">;</span> .NET CLR 3.0.30729<span class="token punctuation">;</span> .NET4.0C<span class="token punctuation">;</span> .NET4.0E<span class="token punctuation">)</span>
-Accept-Encoding: gzip, deflate
-Host: xxx.xxx.xxx.xxx
-Connection: Keep-Alive
-Cookie: startupapp<span class="token operator">=</span>neo<span class="token punctuation">;</span> is_cisco_platform<span class="token operator">=</span>0<span class="token punctuation">;</span> rdx_pagination_size<span class="token operator">=</span>250%20Per%20Page<span class="token punctuation">;</span> SESSID<span class="token operator">=</span>deb31b8eb9ca68a514cf55777744e339</code></pre>
-<h2 id="HTTP版本"><a href="#HTTP版本" class="headerlink" title="HTTP版本"></a>HTTP版本</h2><table>
-<thead>
-<tr>
-<th>版本</th>
-<th>信息</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1.0</td>
-<td>每发起一次请求，都要建立一次TCP链接（三次握手）</td>
-</tr>
-<tr>
-<td>1.1</td>
-<td>①提出了长连接通信方式，减少TCP连接开销 。②管道网络传输，减少整体效应时间</td>
-</tr>
-<tr>
-<td>2.0</td>
-<td></td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>http无状态、明文传输、不安全</p>
-</blockquote>
-<blockquote>
-<p>http无法验证报文完整性、不验证通信方身份</p>
-</blockquote>
-<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2><p>在TCP和HTTP网络层之间加入了SSL/TLS安全协议<br>①加密（Encryption)<br>②身份认证（Authentication)<br>③数据一致性 （Data integrity)</p>
+<p>ndarray数组可以由非同质对象构成。<br>非同质ndarray元素为对象类型，<code>dtype(&#39;O&#39;)</code></p>
+<h4 id="（1）创建方法"><a href="#（1）创建方法" class="headerlink" title="（1）创建方法"></a>（1）创建方法</h4><ol>
+<li><code>np.array(list/tuple,dtype=np.float32)</code></li>
+<li><code>np.arange(n)</code></li>
+<li><code>np.ones(shape)</code></li>
+<li><code>np.zeros(shape)</code></li>
+<li><code>np.full(shape,val)</code></li>
+<li><code>np.eye(n)</code></li>
+<li><code>np.ones_like(a)</code></li>
+<li><code>np.zeros_like(a)</code></li>
+<li><code>np.full_like(a,val)</code></li>
+<li><code>np.linspace(n,m,k,endpoint=True)</code></li>
+<li><code>np.concatenate()</code> </li>
+</ol>
+<h4 id="（2）变换方法"><a href="#（2）变换方法" class="headerlink" title="（2）变换方法"></a>（2）变换方法</h4><ol>
+<li><code>a.reshape(shape)</code>，对a<code>reshape</code>,返回shape形状数组</li>
+<li><code>a.resize(shape)</code>，同<code>reshape</code>，但修改原数组</li>
+<li><code>a.swapaxes(ax1,ax2)</code>，调换维度</li>
+<li><code>a.flatten()</code>，降维，不改变a</li>
+<li><code>new_a=a.astype(new_type)</code></li>
+<li><code>a.tolist()</code></li>
+</ol>
+<h4 id="（3）操作方法"><a href="#（3）操作方法" class="headerlink" title="（3）操作方法"></a>（3）操作方法</h4><ol>
+<li>索引切片同1维，多维间用 <code>,</code> </li>
+<li><code>:</code> 可选取整个维度</li>
+</ol>
+<h4 id="（4）运算方法"><a href="#（4）运算方法" class="headerlink" title="（4）运算方法"></a>（4）运算方法</h4><ol>
+<li><code>a.mean()</code></li>
+<li>元素群运算：<code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>**</code><br><code>np.maxmum(x,y)</code><br><code>np.minimum(x,y)</code><br>算术比较，返回bool值</li>
+<li><code>np.abs()</code>，<code>np.fabs()</code></li>
+<li><code>np.sqrt()</code>，<code>np.square()</code></li>
+<li><code>np.log()</code>，<code>np.log2()</code></li>
+<li><code>np.ceil()</code>，<code>np.floor()</code> </li>
+<li><code>np.rint()</code>，四舍五入</li>
+<li><code>np.sin()</code>···</li>
+<li><code>np.exp()</code>，计算指数</li>
+<li><code>np.sign()</code>，返回1，0，-1 </li>
+</ol>
+<p><strong>实践</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>            <span class="token comment" spellcheck="true">#-->array([0, 1, 2, 3, 4])</span>
+np<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>          <span class="token comment" spellcheck="true">#-->array([[1., 1.],1., 1.]])</span>
+np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">#-->array([ 1.,  4.,  7., 10.])</span></code></pre>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><h4 id="（1）random函数"><a href="#（1）random函数" class="headerlink" title="（1）random函数"></a>（1）random函数</h4><ol>
+<li><code>np.random.uniform(low,high,size)</code><br>产生均匀分布数组</li>
+<li><code>np.random.normal(loc,scale,size)</code><br>产生正态分布数组，<code>loc</code>均值，<code>scale</code>标准差</li>
+<li><code>np.random.poisson(lam,size)</code><br>产生泊松分布数组，<code>lam</code>随机事件发生概率</li>
+</ol>
+<h4 id="（2）统计函数"><a href="#（2）统计函数" class="headerlink" title="（2）统计函数"></a>（2）统计函数</h4><ol>
+<li><code>.sum(a,axis=None)</code></li>
+<li><code>.mean(a,axis=None)</code>，计算期望</li>
+<li><code>.average(a,axis=None,weights=None)</code>，计算加权平均</li>
+<li><code>.std(a,axis=None)</code>，计算标准差</li>
+<li><code>.var(a,axis=None)</code>，计算方差</li>
+</ol>
+<h4 id="（3）梯度函数"><a href="#（3）梯度函数" class="headerlink" title="（3）梯度函数"></a>（3）梯度函数</h4><ol>
+<li><code>np.gradient(f)</code>,计算斜率</li>
+</ol>
+<h4 id="（4）文件读写"><a href="#（4）文件读写" class="headerlink" title="（4）文件读写"></a>（4）文件读写</h4><p><strong>一维或二维</strong></p>
+<ol>
+<li><code>np.savetxt(frame,array,fmt,delimiter=None)</code><br>其中delimiter应该为 <code>,</code><br>eg. <code>np.savetxt(&#39;foo.csv&#39;,a,fmt=&#39;%d&#39;,delimiter=&#39;,&#39;)</code></li>
+<li><code>np.loadtxt(frame,dtype=np.float,delimiter=None,unpack=False)</code></li>
+</ol>
+<p><strong>多维</strong></p>
+<ol>
+<li><code>a.tofile()</code></li>
+<li><code>np.fromfile</code> </li>
+<li><code>np.save()</code>,npy文件</li>
+<li><code>np.load()</code></li>
+</ol>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文是python数据分析与展示（mooc）的学习笔记。<br>感觉学得有问题。。。<br>大一结束后再慢慢整理。</p>
 
             </div>
             <hr/>
@@ -492,7 +529,7 @@ Cookie: startupapp<span class="token operator">=</span>neo<span class="token pun
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://x-varywow.github.io/posts/ea97.html">https://x-varywow.github.io/posts/ea97.html</a>
+                    <a href="https://x-varywow.github.io/posts/48ab.html">https://x-varywow.github.io/posts/48ab.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -530,8 +567,12 @@ Cookie: startupapp<span class="token operator">=</span>neo<span class="token pun
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/HTTP/">
-                                    <span class="chip bg-color">HTTP</span>
+                                <a href="/tags/python-%E6%A8%A1%E5%9D%97/">
+                                    <span class="chip bg-color">python 模块</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                                    <span class="chip bg-color">数据分析</span>
                                 </a>
                             
                         </div>
@@ -840,38 +881,34 @@ Cookie: startupapp<span class="token operator">=</span>neo<span class="token pun
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/e00a.html">
+                <a href="/posts/c3aa.html">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/python.png" class="responsive-img" alt="pandas模块">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/3.jpg" class="responsive-img" alt="一些网站">
-                        
-                        <span class="card-title">一些网站</span>
+                        <span class="card-title">pandas模块</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-查看github资源https://nbviewer.jupyter.org/
+                            Pandas 是 Python 的核心数据分析支持库，是 Python 中统计计算生态系统的重要组成部分。
+数据结构一维的Series和二维的  DataFrame
+pd.Series([1,2,3])
 
-
-vscode安装c环境https://www.cnblogs.com/czlhxm/p/11794743.html
-
-
-安卓开发者https://deve
+0    11    22    
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-02
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-11
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/other/" class="post-category">
-                                    other
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
@@ -881,8 +918,12 @@ vscode安装c环境https://www.cnblogs.com/czlhxm/p/11794743.html
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%B5%84%E6%BA%90/">
-                        <span class="chip bg-color">资源</span>
+                    <a href="/tags/python%E6%A8%A1%E5%9D%97/">
+                        <span class="chip bg-color">python模块</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">数据分析</span>
                     </a>
                     
                 </div>
@@ -896,47 +937,31 @@ vscode安装c环境https://www.cnblogs.com/czlhxm/p/11794743.html
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/9280.html">
+                <a href="/posts/141d.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/6.jpg" class="responsive-img" alt="小站的更新">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/21.jpg" class="responsive-img" alt="机器学习基本概念">
                         
-                        <span class="card-title">小站的更新</span>
+                        <span class="card-title">机器学习基本概念</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            V2.3
-文章配图更新
-更改比较多的样式，以后好好写blog了
-
-V2.1
-试一下评论功能
-
-V2.0
-更改一些样式
-在header.ejs中config.title删除
-
-V1.9
-加入文章更新日期
-更改footer.ejs
-
-V1.8
-
+                            人工智能、机器学习、深度学习人工智能是计算机科学的一个分支，它希望了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等。机器学习是一门多领域交叉学科，
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/other/" class="post-category">
-                                    other
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
                                 </a>
                             
                             
@@ -946,8 +971,8 @@ V1.8
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>

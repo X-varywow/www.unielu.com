@@ -214,7 +214,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/blue.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/python.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -387,7 +387,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    229
+                    253
                 </div>
                 
 
@@ -421,21 +421,52 @@ datas</code></pre>
 </blockquote>
 <pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>index<span class="token operator">=</span>dates<span class="token punctuation">,</span>columns<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token string">'abcd'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
-<p>   a    b    c    d<br>2020-05-11    -1.712588    0.403376    -0.152608    -0.428465<br>2020-05-12    -1.259988    -0.310385    -0.816578    0.321397<br>2020-05-13    -0.444678    -1.894342    0.172485    0.717187</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+<th>d</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2020-05-11</td>
+<td>-1.712588</td>
+<td>0.403376</td>
+<td>-0.152608</td>
+<td>-0.428465</td>
+</tr>
+<tr>
+<td>2020-05-12</td>
+<td>-1.259988</td>
+<td>-0.310385</td>
+<td>-0.816578</td>
+<td>0.321397</td>
+</tr>
+<tr>
+<td>2020-05-13</td>
+<td>-0.444678</td>
+<td>-1.894342</td>
+<td>0.172485</td>
+<td>0.717187</td>
+</tr>
+</tbody></table>
 </blockquote>
-<h3 id="查看数据"><a href="#查看数据" class="headerlink" title="查看数据"></a>查看数据</h3><ul>
+<h4 id="（1）-查看数据"><a href="#（1）-查看数据" class="headerlink" title="（1） 查看数据"></a>（1） 查看数据</h4><ul>
 <li><code>df.head()</code>，k值默认为5.</li>
 <li><code>df.tail()</code>，k值默认为5</li>
 <li><code>df.index</code></li>
 <li><code>df.columns</code></li>
 </ul>
-<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ol>
+<h4 id="（2）选择"><a href="#（2）选择" class="headerlink" title="（2）选择"></a>（2）选择</h4><ol>
 <li>获取单列，<code>df.a</code>与<code>df[&#39;a&#39;]</code>等效</li>
 <li>获取行，用 [ ] 切片行</li>
 <li>按标签选择</li>
 <li>按位置选择</li>
 </ol>
-<h3 id="数据输入，输出"><a href="#数据输入，输出" class="headerlink" title="数据输入，输出"></a>数据输入，输出</h3><h6 id="CSV："><a href="#CSV：" class="headerlink" title="CSV："></a>CSV：</h6><ul>
+<h4 id="（3）数据输入，输出"><a href="#（3）数据输入，输出" class="headerlink" title="（3）数据输入，输出"></a>（3）数据输入，输出</h4><h6 id="CSV："><a href="#CSV：" class="headerlink" title="CSV："></a>CSV：</h6><ul>
 <li><code>df.to_csv(&#39;___.csv&#39;)</code></li>
 <li><code>pd.read_csv(&#39;___.csv&#39;)</code></li>
 </ul>
@@ -443,7 +474,8 @@ datas</code></pre>
 <li><code>df.to_excel(&#39;___.xlsx&#39;, sheet_name=&#39;Sheet1&#39;)</code></li>
 <li><code>pd.read_excel(&#39;___.xlsx&#39;, &#39;Sheet1&#39;, index_col=None, na_values=[&#39;NA&#39;])</code></li>
 </ul>
-<h2 id="未完待续"><a href="#未完待续" class="headerlink" title="``````未完待续"></a>``````未完待续</h2>
+<h2 id="未完待续"><a href="#未完待续" class="headerlink" title="``````未完待续"></a>``````未完待续</h2><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文基于官方文档，和mooc一门课的笔记。</p>
+
             </div>
             <hr/>
 
@@ -874,31 +906,44 @@ kmp过程
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/141d.html">
+                <a href="/posts/48ab.html">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/python.png" class="responsive-img" alt="numpy模块">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/21.jpg" class="responsive-img" alt="机器学习基本概念">
-                        
-                        <span class="card-title">机器学习基本概念</span>
+                        <span class="card-title">numpy模块</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            人工智能、机器学习、深度学习人工智能是计算机科学的一个分支，它希望了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等。机器学习是一门多领域交叉学科，
+                            NumPy is the fundamental package for scientific computing in Python.
+ndarray
+
+
+属性
+说明
+
+
+
+.ndim
+秩，即轴的数量或维度的数量
+
+
+.shape
+n行m
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-11
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    深度学习
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
@@ -908,8 +953,12 @@ kmp过程
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">机器学习</span>
+                    <a href="/tags/python-%E6%A8%A1%E5%9D%97/">
+                        <span class="chip bg-color">python 模块</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">数据分析</span>
                     </a>
                     
                 </div>
@@ -1069,7 +1118,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.9k</span>&nbsp;字
+                class="white-color">7.4k</span>&nbsp;字
             
             
             
