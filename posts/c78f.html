@@ -387,7 +387,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    297
+                    411
                 </div>
                 
 
@@ -426,14 +426,70 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 <li>颜色字符</li>
 <li>风格字符<br><code>&#39;-&#39;</code>，实线<br><code>&#39;--&#39;</code>，破折线<br><code>&#39;-.&#39;</code>，点划线<br><code>&#39;:&#39;</code>，虚线<br><code>&#39;.&#39;</code>，点标记<br><code>&#39;,&#39;</code>，像素标记<br><code>&#39;o&#39;</code>，实心圆标记<br><code>&#39;v&#39;</code> <code>&#39;^&#39;</code>，三角标记<br><code>&#39;x&#39;</code>,<code>&#39;*&#39;</code></li>
 </ol>
-<h2 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h2><h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><ol>
+<h2 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>plt.plot()</code></td>
+<td>绘制一个坐标图</td>
+</tr>
+<tr>
+<td><code>plt.boxplot()</code></td>
+<td>绘制一个箱型图</td>
+</tr>
+<tr>
+<td><code>plt.bar()</code></td>
+<td>绘制一个条形图</td>
+</tr>
+<tr>
+<td><code>plt.barh()</code></td>
+<td>绘制一个横向条形图</td>
+</tr>
+<tr>
+<td><code>plt.hist()</code></td>
+<td>绘制直方图</td>
+</tr>
+<tr>
+<td><code>plt.polar()</code></td>
+<td>绘制极坐标图</td>
+</tr>
+<tr>
+<td><code>plt.pie()</code></td>
+<td>绘制饼图</td>
+</tr>
+<tr>
+<td><code>plt.psd()</code></td>
+<td>绘制功率谱密度图</td>
+</tr>
+<tr>
+<td><code>plt.specgram()</code></td>
+<td>绘制谱图</td>
+</tr>
+<tr>
+<td><code>plt.cohere()</code></td>
+<td>绘制相关性函数</td>
+</tr>
+<tr>
+<td><code>plt.scatter()</code></td>
+<td>绘制散点图</td>
+</tr>
+<tr>
+<td><code>plt.step()</code></td>
+<td>绘制步阶图</td>
+</tr>
+</tbody></table>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><ol>
 <li><code>sorted([f.name for f in matplotlib.font_manager.fontManager.ttflist])</code>，查看电脑字体</li>
 <li>中文显示<br>方法一： <code>plt.rcParams[&#39;font.family&#39;]</code>，<code>font.size</code>，<br>方法二： 在中文输出的地方，添加属性<code>fornproperties=&#39;  &#39;</code>，<code>fontsize</code></li>
 <li><code>plt.savefig(&#39;foo&#39;,dpi=600)</code>，默认输出png文件</li>
 <li><code>plt.subplot(nrows,ncols,plot_number)</code>，在全局绘图区域中创建分区体系,并进入</li>
 <li><code>plt.grid(True)</code>，显示网格</li>
 <li><code>plt.axis([x0,x1,y0,y1])</code>，坐标轴跨度</li>
-<li><code>plt.annotate()</code></li>
+<li><code>plt.annotate()</code>，在图形中增加带箭头的注解</li>
 </ol>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文是python数据分析与展示（mooc）的学习笔记。<br>感觉学得有问题。。。<br>大一结束后再慢慢整理。</p>
 
@@ -1081,7 +1137,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">7.9k</span>&nbsp;字
+                class="white-color">8.1k</span>&nbsp;字
             
             
             
