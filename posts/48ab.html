@@ -387,14 +387,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    516
+                    712
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -504,6 +504,36 @@ np<span class="token punctuation">.</span>linspace<span class="token punctuation
 <li><code>np.load()</code></li>
 </ol>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文是python数据分析与展示（mooc）的学习笔记。<br>感觉学得有问题。。。<br>大一结束后再慢慢整理。</p>
+<p>这是课程代码的copy:</p>
+<blockquote>
+<p>对图片进行手绘风格转变：</p>
+</blockquote>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+
+a <span class="token operator">=</span> np<span class="token punctuation">.</span>asarray<span class="token punctuation">(</span>Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">'./beijing.jpg'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>convert<span class="token punctuation">(</span><span class="token string">'L'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">'float'</span><span class="token punctuation">)</span>
+
+depth <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">.</span>                      <span class="token comment" spellcheck="true"># (0-100)</span>
+grad <span class="token operator">=</span> np<span class="token punctuation">.</span>gradient<span class="token punctuation">(</span>a<span class="token punctuation">)</span>             <span class="token comment" spellcheck="true">#取图像灰度的梯度值</span>
+grad_x<span class="token punctuation">,</span> grad_y <span class="token operator">=</span> grad               <span class="token comment" spellcheck="true">#分别取横纵图像梯度值</span>
+grad_x <span class="token operator">=</span> grad_x<span class="token operator">*</span>depth<span class="token operator">/</span><span class="token number">100</span><span class="token punctuation">.</span>
+grad_y <span class="token operator">=</span> grad_y<span class="token operator">*</span>depth<span class="token operator">/</span><span class="token number">100</span><span class="token punctuation">.</span>
+A <span class="token operator">=</span> np<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>grad_x<span class="token operator">**</span><span class="token number">2</span> <span class="token operator">+</span> grad_y<span class="token operator">**</span><span class="token number">2</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+uni_x <span class="token operator">=</span> grad_x<span class="token operator">/</span>A
+uni_y <span class="token operator">=</span> grad_y<span class="token operator">/</span>A
+uni_z <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token operator">/</span>A
+
+vec_el <span class="token operator">=</span> np<span class="token punctuation">.</span>pi<span class="token operator">/</span><span class="token number">2.2</span>                   <span class="token comment" spellcheck="true"># 光源的俯视角度，弧度值</span>
+vec_az <span class="token operator">=</span> np<span class="token punctuation">.</span>pi<span class="token operator">/</span><span class="token number">4</span><span class="token punctuation">.</span>                    <span class="token comment" spellcheck="true"># 光源的方位角度，弧度值</span>
+dx <span class="token operator">=</span> np<span class="token punctuation">.</span>cos<span class="token punctuation">(</span>vec_el<span class="token punctuation">)</span><span class="token operator">*</span>np<span class="token punctuation">.</span>cos<span class="token punctuation">(</span>vec_az<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#光源对x 轴的影响</span>
+dy <span class="token operator">=</span> np<span class="token punctuation">.</span>cos<span class="token punctuation">(</span>vec_el<span class="token punctuation">)</span><span class="token operator">*</span>np<span class="token punctuation">.</span>sin<span class="token punctuation">(</span>vec_az<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#光源对y 轴的影响</span>
+dz <span class="token operator">=</span> np<span class="token punctuation">.</span>sin<span class="token punctuation">(</span>vec_el<span class="token punctuation">)</span>              <span class="token comment" spellcheck="true">#光源对z 轴的影响</span>
+
+b <span class="token operator">=</span> <span class="token number">255</span><span class="token operator">*</span><span class="token punctuation">(</span>dx<span class="token operator">*</span>uni_x <span class="token operator">+</span> dy<span class="token operator">*</span>uni_y <span class="token operator">+</span> dz<span class="token operator">*</span>uni_z<span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">#光源归一化</span>
+b <span class="token operator">=</span> b<span class="token punctuation">.</span>clip<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">)</span>
+
+im <span class="token operator">=</span> Image<span class="token punctuation">.</span>fromarray<span class="token punctuation">(</span>b<span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">'uint8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#重构图像</span>
+im<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">'./beijingHD.jpg'</span><span class="token punctuation">)</span></code></pre>
 
             </div>
             <hr/>
@@ -894,9 +924,9 @@ np<span class="token punctuation">.</span>linspace<span class="token punctuation
                         
                             Pandas 是 Python 的核心数据分析支持库，是 Python 中统计计算生态系统的重要组成部分。
 数据结构一维的Series和二维的  DataFrame
-pd.Series([1,2,3])
+pd.Series([1,2,3]，index=[0,1,2])
 
-0    11    22    
+0  
                         
                     </div>
                     <div class="publish-info">
@@ -918,8 +948,8 @@ pd.Series([1,2,3])
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                        <span class="chip bg-color">python模块</span>
+                    <a href="/tags/python-%E6%A8%A1%E5%9D%97/">
+                        <span class="chip bg-color">python 模块</span>
                     </a>
                     
                     <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
@@ -1132,7 +1162,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">7.4k</span>&nbsp;字
+                class="white-color">7.9k</span>&nbsp;字
             
             
             

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="小站的更新, blog">
+    <meta name="keywords" content="matplotlib模块, blog">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>小站的更新 | blog</title>
+    <title>matplotlib模块 | blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/libs/awesome/css/all.css">
@@ -214,12 +214,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">小站的更新</h1>
+                    <h1 class="description center-align post-title">matplotlib模块</h1>
                 </div>
             </div>
         </div>
@@ -344,8 +344,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
+                            <a href="/tags/python-%E6%A8%A1%E5%9D%97/">
+                                <span class="chip bg-color">python 模块</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                                <span class="chip bg-color">数据分析</span>
                             </a>
                         
                     </div>
@@ -356,8 +360,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/other/" class="post-category">
-                                other
+                            <a href="/categories/python/" class="post-category">
+                                python
                             </a>
                         
                     </div>
@@ -369,7 +373,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-30
+                    2019-05-11
                 </div>
                 
 
@@ -383,7 +387,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    160
+                    277
                 </div>
                 
 
@@ -400,40 +404,35 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="V2-3"><a href="#V2-3" class="headerlink" title="V2.3"></a>V2.3</h3><ol>
-<li>文章配图更新</li>
-<li>更改比较多的样式，以后好好写blog了</li>
+                <p><code>import matplotlib.pyplot as plt</code></p>
+<p>这是<strong>框架</strong>：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token comment" spellcheck="true">#解决中文乱码问题</span>
+plt<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'font.family'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'Microsoft YaHei'</span><span class="token punctuation">]</span>
+x<span class="token operator">=</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">)</span>
+y<span class="token operator">=</span><span class="token number">2</span><span class="token operator">*</span>x<span class="token operator">+</span><span class="token number">5</span>
+plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'测试'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'哈哈'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<h2 id="最重要的plot"><a href="#最重要的plot" class="headerlink" title="最重要的plot()"></a>最重要的plot()</h2><p><code>plt.plot(x,y,format_string,**kwargs)</code></p>
+<ul>
+<li><code>format_string</code>,控制曲线的格式字符串，可选</li>
+<li><code>**kwargs</code>,第二组或更多<code>(x,y,format_string)</code>，可选</li>
+</ul>
+<p><strong>format_string</strong></p>
+<ol>
+<li>颜色字符</li>
+<li>风格字符<br><code>&#39;-&#39;</code>，实线<br><code>&#39;--&#39;</code>，破折线<br><code>&#39;-.&#39;</code>，点划线<br><code>&#39;:&#39;</code>，虚线<br><code>&#39;.&#39;</code>，点标记<br><code>&#39;,&#39;</code>，像素标记<br><code>&#39;o&#39;</code>，实心圆标记<br><code>&#39;v&#39;</code> <code>&#39;^&#39;</code>，三角标记<br><code>&#39;x&#39;</code>,<code>&#39;*&#39;</code></li>
 </ol>
-<h3 id="V2-1"><a href="#V2-1" class="headerlink" title="V2.1"></a>V2.1</h3><ol>
-<li>试一下评论功能</li>
+<h2 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h2><h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><ol>
+<li><code>sorted([f.name for f in matplotlib.font_manager.fontManager.ttflist])</code>，查看电脑字体</li>
+<li>中文显示<br>方法一： <code>plt.rcParams[&#39;font.family&#39;]</code>，<code>font.size</code>，<br>方法二： 在中文输出的地方，添加属性<code>fornproperties=&#39;  &#39;</code>，<code>fontsize</code></li>
+<li><code>plt.savefig(&#39;foo&#39;,dpi=600)</code>，默认输出png文件</li>
+<li><code>plt.subplot(nrows,ncols,plot_number)</code>，在全局绘图区域中创建分区体系,并进入</li>
 </ol>
-<h3 id="V2-0"><a href="#V2-0" class="headerlink" title="V2.0"></a>V2.0</h3><ol>
-<li>更改一些样式</li>
-<li>在header.ejs中config.title删除</li>
-</ol>
-<h3 id="V1-9"><a href="#V1-9" class="headerlink" title="V1.9"></a>V1.9</h3><ol>
-<li>加入文章更新日期</li>
-<li>更改footer.ejs</li>
-</ol>
-<h3 id="V1-8"><a href="#V1-8" class="headerlink" title="V1.8"></a>V1.8</h3><ol>
-<li>更改移动端的一些问题</li>
-<li>移动端有大白啦</li>
-</ol>
-<h3 id="V1-4"><a href="#V1-4" class="headerlink" title="V1.4"></a>V1.4</h3><ol>
-<li>更改code(橘色-&gt;红色)</li>
-</ol>
-<h3 id="V1-2"><a href="#V1-2" class="headerlink" title="V1.2"></a>V1.2</h3><ol>
-<li>加入音乐功能</li>
-<li>删除banner上的Github链接</li>
-<li>更改一些图片</li>
-</ol>
-<h3 id="V1-1"><a href="#V1-1" class="headerlink" title="V1.1"></a>V1.1</h3><ol>
-<li>尝试烟花点击效果</li>
-<li>尝试樱花动态飘落效果</li>
-</ol>
-<h3 id="V1-0"><a href="#V1-0" class="headerlink" title="V1.0"></a>V1.0</h3><ol>
-<li>小站成功上线啦，由于是静态网页托管在Github上，不足之处还请谅解。</li>
-</ol>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文是python数据分析与展示（mooc）的学习笔记。<br>感觉学得有问题。。。<br>大一结束后再慢慢整理。</p>
 
             </div>
             <hr/>
@@ -459,7 +458,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://x-varywow.github.io/posts/9280.html">https://x-varywow.github.io/posts/9280.html</a>
+                    <a href="https://x-varywow.github.io/posts/c78f.html">https://x-varywow.github.io/posts/c78f.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -497,8 +496,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
+                                <a href="/tags/python-%E6%A8%A1%E5%9D%97/">
+                                    <span class="chip bg-color">python 模块</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                                    <span class="chip bg-color">数据分析</span>
                                 </a>
                             
                         </div>
@@ -807,18 +810,35 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/3eeb.html">
+                <a href="/posts/9280.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/book.jpg" class="responsive-img" alt="hexo文档及建站">
                         
-                        <span class="card-title">hexo文档及建站</span>
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/6.jpg" class="responsive-img" alt="小站的更新">
+                        
+                        <span class="card-title">小站的更新</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            V2.3
+文章配图更新
+更改比较多的样式，以后好好写blog了
+
+V2.1
+试一下评论功能
+
+V2.0
+更改一些样式
+在header.ejs中config.title删除
+
+V1.9
+加入文章更新日期
+更改footer.ejs
+
+V1.8
+
                         
                     </div>
                     <div class="publish-info">
@@ -852,7 +872,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
                 <a href="/posts/c78f.html">
@@ -891,6 +911,7 @@ plt.rcParams['font.fa
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
