@@ -344,12 +344,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python-%E6%A8%A1%E5%9D%97/">
-                                <span class="chip bg-color">python 模块</span>
-                            </a>
-                        
                             <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
                                 <span class="chip bg-color">数据分析</span>
+                            </a>
+                        
+                            <a href="/tags/python-%E6%A8%A1%E5%9D%97/">
+                                <span class="chip bg-color">python 模块</span>
                             </a>
                         
                     </div>
@@ -434,7 +434,7 @@
 </tr>
 </tbody></table>
 <p>ndarray数组可以由非同质对象构成。<br>非同质ndarray元素为对象类型，<code>dtype(&#39;O&#39;)</code></p>
-<h4 id="（1）创建方法"><a href="#（1）创建方法" class="headerlink" title="（1）创建方法"></a>（1）创建方法</h4><ol>
+<h3 id="（1）创建方法"><a href="#（1）创建方法" class="headerlink" title="（1）创建方法"></a>（1）创建方法</h3><ol>
 <li><code>np.array(list/tuple,dtype=np.float32)</code></li>
 <li><code>np.arange(n)</code></li>
 <li><code>np.ones(shape)</code></li>
@@ -447,7 +447,7 @@
 <li><code>np.linspace(n,m,k,endpoint=True)</code></li>
 <li><code>np.concatenate()</code> </li>
 </ol>
-<h4 id="（2）变换方法"><a href="#（2）变换方法" class="headerlink" title="（2）变换方法"></a>（2）变换方法</h4><ol>
+<h3 id="（2）变换方法"><a href="#（2）变换方法" class="headerlink" title="（2）变换方法"></a>（2）变换方法</h3><ol>
 <li><code>a.reshape(shape)</code>，对a<code>reshape</code>,返回shape形状数组</li>
 <li><code>a.resize(shape)</code>，同<code>reshape</code>，但修改原数组</li>
 <li><code>a.swapaxes(ax1,ax2)</code>，调换维度</li>
@@ -455,11 +455,11 @@
 <li><code>new_a=a.astype(new_type)</code></li>
 <li><code>a.tolist()</code></li>
 </ol>
-<h4 id="（3）操作方法"><a href="#（3）操作方法" class="headerlink" title="（3）操作方法"></a>（3）操作方法</h4><ol>
+<h3 id="（3）操作方法"><a href="#（3）操作方法" class="headerlink" title="（3）操作方法"></a>（3）操作方法</h3><ol>
 <li>索引切片同1维，多维间用 <code>,</code> </li>
 <li><code>:</code> 可选取整个维度</li>
 </ol>
-<h4 id="（4）运算方法"><a href="#（4）运算方法" class="headerlink" title="（4）运算方法"></a>（4）运算方法</h4><ol>
+<h3 id="（4）运算方法"><a href="#（4）运算方法" class="headerlink" title="（4）运算方法"></a>（4）运算方法</h3><ol>
 <li><code>a.mean()</code></li>
 <li>元素群运算：<code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>**</code><br><code>np.maxmum(x,y)</code><br><code>np.minimum(x,y)</code><br>算术比较，返回bool值</li>
 <li><code>np.abs()</code>，<code>np.fabs()</code></li>
@@ -476,22 +476,22 @@
 np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>            <span class="token comment" spellcheck="true">#-->array([0, 1, 2, 3, 4])</span>
 np<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>          <span class="token comment" spellcheck="true">#-->array([[1., 1.],1., 1.]])</span>
 np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">#-->array([ 1.,  4.,  7., 10.])</span></code></pre>
-<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><h4 id="（1）random函数"><a href="#（1）random函数" class="headerlink" title="（1）random函数"></a>（1）random函数</h4><ol>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><h3 id="（1）random函数"><a href="#（1）random函数" class="headerlink" title="（1）random函数"></a>（1）random函数</h3><ol>
 <li><code>np.random.uniform(low,high,size)</code><br>产生均匀分布数组</li>
 <li><code>np.random.normal(loc,scale,size)</code><br>产生正态分布数组，<code>loc</code>均值，<code>scale</code>标准差</li>
 <li><code>np.random.poisson(lam,size)</code><br>产生泊松分布数组，<code>lam</code>随机事件发生概率</li>
 </ol>
-<h4 id="（2）统计函数"><a href="#（2）统计函数" class="headerlink" title="（2）统计函数"></a>（2）统计函数</h4><ol>
+<h3 id="（2）统计函数"><a href="#（2）统计函数" class="headerlink" title="（2）统计函数"></a>（2）统计函数</h3><ol>
 <li><code>.sum(a,axis=None)</code></li>
 <li><code>.mean(a,axis=None)</code>，计算期望</li>
 <li><code>.average(a,axis=None,weights=None)</code>，计算加权平均</li>
 <li><code>.std(a,axis=None)</code>，计算标准差</li>
 <li><code>.var(a,axis=None)</code>，计算方差</li>
 </ol>
-<h4 id="（3）梯度函数"><a href="#（3）梯度函数" class="headerlink" title="（3）梯度函数"></a>（3）梯度函数</h4><ol>
+<h3 id="（3）梯度函数"><a href="#（3）梯度函数" class="headerlink" title="（3）梯度函数"></a>（3）梯度函数</h3><ol>
 <li><code>np.gradient(f)</code>,计算斜率</li>
 </ol>
-<h4 id="（4）文件读写"><a href="#（4）文件读写" class="headerlink" title="（4）文件读写"></a>（4）文件读写</h4><p><strong>一维或二维</strong></p>
+<h3 id="（4）文件读写"><a href="#（4）文件读写" class="headerlink" title="（4）文件读写"></a>（4）文件读写</h3><p><strong>一维或二维</strong></p>
 <ol>
 <li><code>np.savetxt(frame,array,fmt,delimiter=None)</code><br>其中delimiter应该为 <code>,</code><br>eg. <code>np.savetxt(&#39;foo.csv&#39;,a,fmt=&#39;%d&#39;,delimiter=&#39;,&#39;)</code></li>
 <li><code>np.loadtxt(frame,dtype=np.float,delimiter=None,unpack=False)</code></li>
@@ -567,12 +567,12 @@ np<span class="token punctuation">.</span>linspace<span class="token punctuation
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python-%E6%A8%A1%E5%9D%97/">
-                                    <span class="chip bg-color">python 模块</span>
-                                </a>
-                            
                                 <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
                                     <span class="chip bg-color">数据分析</span>
+                                </a>
+                            
+                                <a href="/tags/python-%E6%A8%A1%E5%9D%97/">
+                                    <span class="chip bg-color">python 模块</span>
                                 </a>
                             
                         </div>
