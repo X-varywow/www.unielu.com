@@ -376,7 +376,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-20
+                    2020-05-25
                 </div>
                 
 
@@ -460,6 +460,61 @@
         <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
         path<span class="token operator">-=</span>root<span class="token punctuation">.</span>val
         <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token keyword">if</span> path<span class="token operator">==</span><span class="token number">0</span> <span class="token keyword">else</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">+</span>self<span class="token punctuation">.</span>dfs<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span>path<span class="token punctuation">)</span><span class="token operator">+</span>self<span class="token punctuation">.</span>dfs<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span>path<span class="token punctuation">)</span></code></pre>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="（1）53-最大子序和"><a href="#（1）53-最大子序和" class="headerlink" title="（1）53. 最大子序和"></a>（1）53. 最大子序和</h3><p>给定一个整数数组<code>nums</code>，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">maxSubArray</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+=</span>max<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> max<span class="token punctuation">(</span>nums<span class="token punctuation">)</span></code></pre>
+<h3 id="（2）152-乘积最大子数组"><a href="#（2）152-乘积最大子数组" class="headerlink" title="（2）152. 乘积最大子数组"></a>（2）152. 乘积最大子数组</h3><p>给你一个整数数组 <code>nums</code> ，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">maxProduct</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> nums<span class="token operator">==</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
+        res<span class="token operator">=</span>float<span class="token punctuation">(</span><span class="token string">'-inf'</span><span class="token punctuation">)</span>
+        minn<span class="token punctuation">,</span>maxn<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span>
+        <span class="token keyword">for</span> n <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+            a<span class="token operator">=</span>n<span class="token operator">*</span>minn
+            b<span class="token operator">=</span>n<span class="token operator">*</span>maxn
+            maxn<span class="token operator">=</span>max<span class="token punctuation">(</span>n<span class="token punctuation">,</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>
+            minn<span class="token operator">=</span>min<span class="token punctuation">(</span>n<span class="token punctuation">,</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> maxn<span class="token operator">></span>res<span class="token punctuation">:</span>
+                res<span class="token operator">=</span>maxn
+        <span class="token keyword">return</span> res</code></pre>
+<p><strong>小结</strong></p>
+<h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><h3 id="（1）200-岛屿数量"><a href="#（1）200-岛屿数量" class="headerlink" title="（1）200.岛屿数量"></a>（1）200.岛屿数量</h3><h3 id="（2）695-岛屿的最大面积"><a href="#（2）695-岛屿的最大面积" class="headerlink" title="（2）695.岛屿的最大面积"></a>（2）695.岛屿的最大面积</h3><h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><h3 id="（1）20-有效的括号"><a href="#（1）20-有效的括号" class="headerlink" title="（1）20.有效的括号"></a>（1）20.有效的括号</h3><p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘,’]’ 的字符串，判断字符串是否有效。<br>有效字符串需满足：</p>
+<ul>
+<li>左括号必须用相同类型的右括号闭合。</li>
+<li>左括号必须以正确的顺序闭合。</li>
+</ul>
+<p>注意空字符串可被认为是有效字符串。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">isValid</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        hashmap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'('</span><span class="token punctuation">:</span><span class="token string">')'</span><span class="token punctuation">,</span><span class="token string">'{'</span><span class="token punctuation">:</span><span class="token string">'}'</span><span class="token punctuation">,</span><span class="token string">'['</span><span class="token punctuation">:</span><span class="token string">']'</span><span class="token punctuation">,</span><span class="token string">'?'</span><span class="token punctuation">:</span><span class="token string">'?'</span><span class="token punctuation">}</span>
+        stack<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'?'</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> s<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> i <span class="token keyword">in</span> hashmap<span class="token punctuation">:</span> stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+            <span class="token keyword">elif</span> i<span class="token operator">!=</span>hashmap<span class="token punctuation">[</span>stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token keyword">return</span> <span class="token boolean">False</span>
+        <span class="token keyword">return</span> len<span class="token punctuation">(</span>stack<span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span> </code></pre>
+<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><h3 id="（1）560-和为K的子数组"><a href="#（1）560-和为K的子数组" class="headerlink" title="（1）560.和为K的子数组"></a>（1）560.和为K的子数组</h3><p>给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的连续的子数组的个数。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">subarraySum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        pre <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">#记载所有前缀和</span>
+        ans<span class="token punctuation">,</span>sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span>
+        <span class="token keyword">for</span> num <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+            sum<span class="token operator">+=</span>num
+            need<span class="token operator">=</span>sum<span class="token operator">-</span>k
+            <span class="token keyword">if</span> need <span class="token keyword">in</span> pre<span class="token punctuation">:</span>
+                ans <span class="token operator">+=</span> pre<span class="token punctuation">[</span>need<span class="token punctuation">]</span>
+            <span class="token comment" spellcheck="true">#在hash table里查找key，如果有返回对应的value，反之返回0 </span>
+            pre<span class="token punctuation">[</span>sum<span class="token punctuation">]</span> <span class="token operator">=</span> pre<span class="token punctuation">.</span>get<span class="token punctuation">(</span>sum<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>    
+        <span class="token keyword">return</span> ans</code></pre>
+<p><strong>小结</strong></p>
+<blockquote>
+<ol>
+<li>前缀和+hash的优化</li>
+<li><code>dict.get(key,default=None)</code></li>
+</ol>
+</blockquote>
 <h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><h3 id="（1）136-只出现1次的数字"><a href="#（1）136-只出现1次的数字" class="headerlink" title="（1）136.只出现1次的数字"></a>（1）136.只出现1次的数字</h3><p>给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。<br><strong>说明</strong>：<br>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">return</span> reduce<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">,</span>y<span class="token punctuation">:</span>x<span class="token operator">^</span>y<span class="token punctuation">,</span>nums<span class="token punctuation">)</span></code></pre>
 <p><strong>小结</strong></p>
@@ -473,11 +528,11 @@
 <h3 id="（2）172-阶乘后的零"><a href="#（2）172-阶乘后的零" class="headerlink" title="（2）172.阶乘后的零"></a>（2）172.阶乘后的零</h3><p>给定一个整数 n，返回 n! 结果尾数中零的数量。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">trailingZeroes</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        count <span class="token operator">=</span> <span class="token number">0</span>
+        cnt <span class="token operator">=</span> <span class="token number">0</span>
         <span class="token keyword">while</span> n <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
             n <span class="token operator">//=</span> <span class="token number">5</span>
-            count <span class="token operator">+=</span> n
-        <span class="token keyword">return</span> count</code></pre>
+            cnt <span class="token operator">+=</span> n
+        <span class="token keyword">return</span> cnt</code></pre>
 <p><strong>小结</strong></p>
 <blockquote>
 <p>数学观察</p>
@@ -513,60 +568,11 @@
 <td>0000</td>
 </tr>
 </tbody></table>
-<h2 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h2><h3 id="（1）53-最大子序和"><a href="#（1）53-最大子序和" class="headerlink" title="（1）53. 最大子序和"></a>（1）53. 最大子序和</h3><p>给定一个整数数组<code>nums</code>，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">maxSubArray</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+=</span>max<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> max<span class="token punctuation">(</span>nums<span class="token punctuation">)</span></code></pre>
-<h3 id="（2）152-乘积最大子数组"><a href="#（2）152-乘积最大子数组" class="headerlink" title="（2）152. 乘积最大子数组"></a>（2）152. 乘积最大子数组</h3><p>给你一个整数数组 <code>nums</code> ，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">maxProduct</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> nums<span class="token operator">==</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
-        res<span class="token operator">=</span>float<span class="token punctuation">(</span><span class="token string">'-inf'</span><span class="token punctuation">)</span>
-        minn<span class="token punctuation">,</span>maxn<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span>
-        <span class="token keyword">for</span> n <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
-            a<span class="token operator">=</span>n<span class="token operator">*</span>minn
-            b<span class="token operator">=</span>n<span class="token operator">*</span>maxn
-            maxn<span class="token operator">=</span>max<span class="token punctuation">(</span>n<span class="token punctuation">,</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>
-            minn<span class="token operator">=</span>min<span class="token punctuation">(</span>n<span class="token punctuation">,</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>
-            <span class="token keyword">if</span> maxn<span class="token operator">></span>res<span class="token punctuation">:</span>
-                res<span class="token operator">=</span>maxn
-        <span class="token keyword">return</span> res</code></pre>
-<p><strong>小结</strong></p>
-<h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><h3 id="（1）200-岛屿数量"><a href="#（1）200-岛屿数量" class="headerlink" title="（1）200.岛屿数量"></a>（1）200.岛屿数量</h3><h3 id="（2）695-岛屿的最大面积"><a href="#（2）695-岛屿的最大面积" class="headerlink" title="（2）695.岛屿的最大面积"></a>（2）695.岛屿的最大面积</h3><h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><h3 id="（1）20-有效的括号"><a href="#（1）20-有效的括号" class="headerlink" title="（1）20.有效的括号"></a>（1）20.有效的括号</h3><p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘,’]’ 的字符串，判断字符串是否有效。<br>有效字符串需满足：</p>
-<ul>
-<li>左括号必须用相同类型的右括号闭合。</li>
-<li>左括号必须以正确的顺序闭合。</li>
-</ul>
-<p>注意空字符串可被认为是有效字符串。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">isValid</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
-        hashmap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'('</span><span class="token punctuation">:</span><span class="token string">')'</span><span class="token punctuation">,</span><span class="token string">'{'</span><span class="token punctuation">:</span><span class="token string">'}'</span><span class="token punctuation">,</span><span class="token string">'['</span><span class="token punctuation">:</span><span class="token string">']'</span><span class="token punctuation">,</span><span class="token string">'?'</span><span class="token punctuation">:</span><span class="token string">'?'</span><span class="token punctuation">}</span>
-        stack<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'?'</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> s<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> i <span class="token keyword">in</span> hashmap<span class="token punctuation">:</span> stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-            <span class="token keyword">elif</span> i<span class="token operator">!=</span>hashmap<span class="token punctuation">[</span>stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token keyword">return</span> <span class="token boolean">False</span>
-        <span class="token keyword">return</span> len<span class="token punctuation">(</span>stack<span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span> </code></pre>
-<h3 id="（2）560-和为K的子数组"><a href="#（2）560-和为K的子数组" class="headerlink" title="（2）560.和为K的子数组"></a>（2）560.和为K的子数组</h3><p>给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的连续的子数组的个数。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">subarraySum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        pre <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">#记载所有前缀和</span>
-        ans<span class="token punctuation">,</span>sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span>
-        <span class="token keyword">for</span> num <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
-            sum<span class="token operator">+=</span>num
-            need<span class="token operator">=</span>sum<span class="token operator">-</span>k
-            <span class="token keyword">if</span> need <span class="token keyword">in</span> pre<span class="token punctuation">:</span>
-                ans <span class="token operator">+=</span> pre<span class="token punctuation">[</span>need<span class="token punctuation">]</span>
-            <span class="token comment" spellcheck="true">#在hash table里查找key，如果有返回对应的value，反之返回0 </span>
-            pre<span class="token punctuation">[</span>sum<span class="token punctuation">]</span> <span class="token operator">=</span> pre<span class="token punctuation">.</span>get<span class="token punctuation">(</span>sum<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>    
-        <span class="token keyword">return</span> ans</code></pre>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><h3 id="（1）面试题64-求1-2-…-n"><a href="#（1）面试题64-求1-2-…-n" class="headerlink" title="（1）面试题64. 求1+2+…+n"></a>（1）面试题64. 求1+2+…+n</h3><p>求 <code>1+2+...+n</code>，要求<strong>不能使用</strong>乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">return</span> n <span class="token operator">and</span> n<span class="token operator">+</span>self<span class="token punctuation">.</span>sumNums<span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span></code></pre>
 <p><strong>小结</strong></p>
 <blockquote>
-<ol>
-<li>前缀和+hash的优化</li>
-<li><code>dict.get(key,default=None)</code></li>
-</ol>
+<p><code>a and b</code>返回<code>b</code>, <code>a and 0</code>返回<code>a</code>.</p>
 </blockquote>
 
             </div>
@@ -1190,7 +1196,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.1k</span>&nbsp;字
+                class="white-color">10.2k</span>&nbsp;字
             
             
             
