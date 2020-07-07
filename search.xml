@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>一些网站</title>
+      <link href="/posts/e00a.html"/>
+      <url>/posts/e00a.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><a href="https://www.jianshu.com/p/6310420e9a5f" target="_blank" rel="noopener">学习powershell</a></p></blockquote><blockquote><p><a href="https://nbviewer.jupyter.org/" target="_blank" rel="noopener">查看github资源</a></p></blockquote><blockquote><p><a href="https://www.cnblogs.com/czlhxm/p/11794743.html" target="_blank" rel="noopener">vscode安装c环境</a></p></blockquote><blockquote><p><a href="https://developer.android.google.cn/" target="_blank" rel="noopener">安卓开发者</a></p></blockquote><blockquote><p><a href="https://www.bookstack.cn/" target="_blank" rel="noopener">书栈</a></p></blockquote><blockquote><p><a href="https://www.runoob.com/" target="_blank" rel="noopener">菜鸟</a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> other </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 资源 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>小站的更新</title>
+      <link href="/posts/9280.html"/>
+      <url>/posts/9280.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="V2-3"><a href="#V2-3" class="headerlink" title="V2.3"></a>V2.3</h3><ol><li>文章配图更新</li><li>更改比较多的样式，以后好好写blog了</li></ol><h3 id="V2-1"><a href="#V2-1" class="headerlink" title="V2.1"></a>V2.1</h3><ol><li>试一下评论功能</li></ol><h3 id="V2-0"><a href="#V2-0" class="headerlink" title="V2.0"></a>V2.0</h3><ol><li>更改一些样式</li><li>在header.ejs中config.title删除</li></ol><h3 id="V1-9"><a href="#V1-9" class="headerlink" title="V1.9"></a>V1.9</h3><ol><li>加入文章更新日期</li><li>更改footer.ejs</li></ol><h3 id="V1-8"><a href="#V1-8" class="headerlink" title="V1.8"></a>V1.8</h3><ol><li>更改移动端的一些问题</li><li>移动端有大白啦</li></ol><h3 id="V1-4"><a href="#V1-4" class="headerlink" title="V1.4"></a>V1.4</h3><ol><li>更改code(橘色-&gt;红色)</li></ol><h3 id="V1-2"><a href="#V1-2" class="headerlink" title="V1.2"></a>V1.2</h3><ol><li>加入音乐功能</li><li>删除banner上的Github链接</li><li>更改一些图片</li></ol><h3 id="V1-1"><a href="#V1-1" class="headerlink" title="V1.1"></a>V1.1</h3><ol><li>尝试烟花点击效果</li><li>尝试樱花动态飘落效果</li></ol><h3 id="V1-0"><a href="#V1-0" class="headerlink" title="V1.0"></a>V1.0</h3><ol><li>小站成功上线啦，由于是静态网页托管在Github上，不足之处还请谅解。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> other </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode周赛笔记185</title>
       <link href="/posts/bfeb.html"/>
       <url>/posts/bfeb.html</url>
@@ -385,31 +435,6 @@
     
     
     <entry>
-      <title>网站推荐</title>
-      <link href="/posts/e00a.html"/>
-      <url>/posts/e00a.html</url>
-      
-        <content type="html"><![CDATA[<blockquote><p><a href="https://www.jianshu.com/p/6310420e9a5f" target="_blank" rel="noopener">学习powershell</a></p></blockquote><blockquote><p><a href="https://nbviewer.jupyter.org/" target="_blank" rel="noopener">查看github资源</a></p></blockquote><blockquote><p><a href="https://www.cnblogs.com/czlhxm/p/11794743.html" target="_blank" rel="noopener">vscode安装c环境</a></p></blockquote><blockquote><p><a href="https://developer.android.google.cn/" target="_blank" rel="noopener">安卓开发者</a></p></blockquote><blockquote><p><a href="https://www.bookstack.cn/" target="_blank" rel="noopener">书栈</a></p></blockquote><blockquote><p><a href="https://www.runoob.com/" target="_blank" rel="noopener">菜鸟</a></p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> other </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 资源 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>关于HTTP理解</title>
       <link href="/posts/ea97.html"/>
       <url>/posts/ea97.html</url>
@@ -465,31 +490,6 @@
       <url>/posts/3eeb.html</url>
       
         <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p><blockquote><p>以上为官方文档<br><strong>想建站的，可以参考：</strong><br><a href="https://www.jianshu.com/p/0a8d738a5620" target="_blank" rel="noopener">https://www.jianshu.com/p/0a8d738a5620</a><br><strong>这是装修教程：</strong><br><a href="https://yafine66.gitee.io/" target="_blank" rel="noopener">https://yafine66.gitee.io/</a></p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> other </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>小站的更新</title>
-      <link href="/posts/9280.html"/>
-      <url>/posts/9280.html</url>
-      
-        <content type="html"><![CDATA[<h3 id="V2-3"><a href="#V2-3" class="headerlink" title="V2.3"></a>V2.3</h3><ol><li>文章配图更新</li><li>更改比较多的样式，以后好好写blog了</li></ol><h3 id="V2-1"><a href="#V2-1" class="headerlink" title="V2.1"></a>V2.1</h3><ol><li>试一下评论功能</li></ol><h3 id="V2-0"><a href="#V2-0" class="headerlink" title="V2.0"></a>V2.0</h3><ol><li>更改一些样式</li><li>在header.ejs中config.title删除</li></ol><h3 id="V1-9"><a href="#V1-9" class="headerlink" title="V1.9"></a>V1.9</h3><ol><li>加入文章更新日期</li><li>更改footer.ejs</li></ol><h3 id="V1-8"><a href="#V1-8" class="headerlink" title="V1.8"></a>V1.8</h3><ol><li>更改移动端的一些问题</li><li>移动端有大白啦</li></ol><h3 id="V1-4"><a href="#V1-4" class="headerlink" title="V1.4"></a>V1.4</h3><ol><li>更改code(橘色-&gt;红色)</li></ol><h3 id="V1-2"><a href="#V1-2" class="headerlink" title="V1.2"></a>V1.2</h3><ol><li>加入音乐功能</li><li>删除banner上的Github链接</li><li>更改一些图片</li></ol><h3 id="V1-1"><a href="#V1-1" class="headerlink" title="V1.1"></a>V1.1</h3><ol><li>尝试烟花点击效果</li><li>尝试樱花动态飘落效果</li></ol><h3 id="V1-0"><a href="#V1-0" class="headerlink" title="V1.0"></a>V1.0</h3><ol><li>小站成功上线啦，由于是静态网页托管在Github上，不足之处还请谅解。</li></ol>]]></content>
       
       
       <categories>
