@@ -4,31 +4,6 @@
   
     
     <entry>
-      <title>小站的更新</title>
-      <link href="/posts/9280.html"/>
-      <url>/posts/9280.html</url>
-      
-        <content type="html"><![CDATA[<h3 id="V2-3"><a href="#V2-3" class="headerlink" title="V2.3"></a>V2.3</h3><ol><li>文章配图更新</li><li>更改比较多的样式，以后好好写blog了</li></ol><h3 id="V2-1"><a href="#V2-1" class="headerlink" title="V2.1"></a>V2.1</h3><ol><li>试一下评论功能</li></ol><h3 id="V2-0"><a href="#V2-0" class="headerlink" title="V2.0"></a>V2.0</h3><ol><li>更改一些样式</li><li>在header.ejs中config.title删除</li></ol><h3 id="V1-9"><a href="#V1-9" class="headerlink" title="V1.9"></a>V1.9</h3><ol><li>加入文章更新日期</li><li>更改footer.ejs</li></ol><h3 id="V1-8"><a href="#V1-8" class="headerlink" title="V1.8"></a>V1.8</h3><ol><li>更改移动端的一些问题</li><li>移动端有大白啦</li></ol><h3 id="V1-4"><a href="#V1-4" class="headerlink" title="V1.4"></a>V1.4</h3><ol><li>更改code(橘色-&gt;红色)</li></ol><h3 id="V1-2"><a href="#V1-2" class="headerlink" title="V1.2"></a>V1.2</h3><ol><li>加入音乐功能</li><li>删除banner上的Github链接</li><li>更改一些图片</li></ol><h3 id="V1-1"><a href="#V1-1" class="headerlink" title="V1.1"></a>V1.1</h3><ol><li>尝试烟花点击效果</li><li>尝试樱花动态飘落效果</li></ol><h3 id="V1-0"><a href="#V1-0" class="headerlink" title="V1.0"></a>V1.0</h3><ol><li>小站成功上线啦，由于是静态网页托管在Github上，不足之处还请谅解。</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> other </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>一些网站</title>
       <link href="/posts/e00a.html"/>
       <url>/posts/e00a.html</url>
@@ -54,11 +29,36 @@
     
     
     <entry>
+      <title>小站的更新</title>
+      <link href="/posts/9280.html"/>
+      <url>/posts/9280.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="V2-4-2020-7-14"><a href="#V2-4-2020-7-14" class="headerlink" title="V2.4 2020.7.14"></a>V2.4 <code>2020.7.14</code></h3><ol><li>更改banner图片</li><li>去掉rainbow-framework</li><li>去掉dynamic-ribbon</li><li>更改配色</li><li>更改某些字体</li></ol><h3 id="V2-3"><a href="#V2-3" class="headerlink" title="V2.3"></a>V2.3</h3><ol><li>文章配图更新</li><li>更改比较多的样式，以后好好写blog了</li></ol><h3 id="V2-1"><a href="#V2-1" class="headerlink" title="V2.1"></a>V2.1</h3><ol><li>试一下评论功能</li></ol><h3 id="V2-0"><a href="#V2-0" class="headerlink" title="V2.0"></a>V2.0</h3><ol><li>更改一些样式</li><li>在header.ejs中config.title删除</li></ol><h3 id="V1-9"><a href="#V1-9" class="headerlink" title="V1.9"></a>V1.9</h3><ol><li>加入文章更新日期</li><li>更改footer.ejs</li></ol><h3 id="V1-8"><a href="#V1-8" class="headerlink" title="V1.8"></a>V1.8</h3><ol><li>更改移动端的一些问题</li><li>移动端有大白啦</li></ol><h3 id="V1-4"><a href="#V1-4" class="headerlink" title="V1.4"></a>V1.4</h3><ol><li>更改code(橘色-&gt;红色)</li></ol><h3 id="V1-2"><a href="#V1-2" class="headerlink" title="V1.2"></a>V1.2</h3><ol><li>加入音乐功能</li><li>删除banner上的Github链接</li><li>更改一些图片</li></ol><h3 id="V1-1"><a href="#V1-1" class="headerlink" title="V1.1"></a>V1.1</h3><ol><li>尝试烟花点击效果</li><li>尝试樱花动态飘落效果</li></ol><h3 id="V1-0"><a href="#V1-0" class="headerlink" title="V1.0"></a>V1.0</h3><ol><li>小站成功上线啦，由于是静态网页托管在Github上，不足之处还请谅解。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> other </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2020七月下</title>
       <link href="/posts/412e.html"/>
       <url>/posts/412e.html</url>
       
-        <content type="html"><![CDATA[<h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h1><p>终于有些解脱了，等着科目二考试。。。<br>在这段时间里，我得去做些有意义的事，<br>所以写下这篇文章，每天更新一次，用来记录七月下这段时间以及自己的一些感受。</p><h1 id="1-开始吧"><a href="#1-开始吧" class="headerlink" title="1.开始吧"></a>1.开始吧</h1><p><strong>DO</strong></p><ol><li>试试别踩白块物理外挂</li><li>试试OPENCV做OW脚本</li></ol><p><strong>DONE</strong></p><ol><li>···</li><li>···</li></ol><p><code>7.14晚</code><br>观看<a href="https://space.bilibili.com/20259914?from=search&seid=5994959373714429448" target="_blank" rel="noopener">B站稚晖君的视频</a><br>看<a href="http://www.woshicver.com/FirstSection/0_OpenCV-Python%20Tutorials/" target="_blank" rel="noopener">opencv教程</a><br>改一波本站样式。。。。。。。cdn推到3.0<br>·································分割线</p><blockquote><p>电位器：是具有三个引出端、阻值可按某种变化规律调节的电阻元件。</p><ol><li>用作分压器</li><li>用作变阻器</li><li>用作电流控制器</li></ol></blockquote>]]></content>
+        <content type="html"><![CDATA[<h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h1><p>终于有些解脱了，等着科目二考试。。。<br>在这段时间里，我得去做些有意义的事，<br>所以写下这篇文章，每天更新一次，用来记录七月下这段时间以及自己的一些感受。</p><h1 id="1-开始吧"><a href="#1-开始吧" class="headerlink" title="1.开始吧"></a>1.开始吧</h1><p><strong>DO</strong></p><ol><li>试试别踩白块物理外挂</li><li>试试OPENCV做OW脚本</li></ol><p><strong>DONE</strong></p><ol><li>···</li><li>···</li></ol><p><code>7.14晚</code><br>观看<a href="https://space.bilibili.com/20259914?from=search&seid=5994959373714429448" target="_blank" rel="noopener">B站稚晖君的视频</a><br>看<a href="http://www.woshicver.com/FirstSection/0_OpenCV-Python%20Tutorials/" target="_blank" rel="noopener">opencv教程</a><br>更改本站样式</p><blockquote><p>电位器：是具有三个引出端、阻值可按某种变化规律调节的电阻元件。</p><ol><li>用作分压器</li><li>用作变阻器</li><li>用作电流控制器</li></ol></blockquote><p><code>7.15早</code><br>上课<a href="https://www.icourse163.org/course/XJTU-1001647001" target="_blank" rel="noopener">微机原理与接口技术</a></p><blockquote><p>硬件系统</p><ul><li>外部设备：通过输入输出接口与计算机进行信息交互的电子设备</li><li>主机系统：CPU、存储器、输入输出接口、总线</li></ul></blockquote>]]></content>
       
       
       <categories>
