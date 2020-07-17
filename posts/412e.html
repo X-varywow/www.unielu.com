@@ -354,21 +354,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-15
+                    2020-07-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    423
+                    676
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -426,6 +426,39 @@
 <li>采用并行流水线【通过设置指令预取队列实现】</li>
 <li>对内存空间实行分段管理【实模式存储器寻址】</li>
 <li>支持协处理器</li>
+</ul>
+</blockquote>
+<p><code>7.17早</code><br>上课<a href="https://www.icourse163.org/course/XJTU-1001647001" target="_blank" rel="noopener">微机原理与接口技术</a></p>
+<blockquote>
+<p>实模型下的存储器寻址</p>
+<ul>
+<li>内存物理地址=<strong>段基地址</strong>x16+<strong>偏移地址</strong></li>
+<li>段首的偏移地址：0000H</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>段寄存器</strong> （Segment Register）（8088为4个）</p>
+<ul>
+<li>作用：用于存放相应逻辑段(便于分时复用吧)的段基地址</li>
+<li>分类：代码段CS，数据段DS，附加段ES，堆栈段SS</li>
+<li>每类逻辑段的数量最多为64k</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>小结</p>
+<ul>
+<li>对1MB内存空间的访问需要20位物理地址，而8088内部的16位编码通过内存地址变换变成20位</li>
+<li>内存的分段是逻辑分段，不是物理段。每个内存单元的物理地址唯一，逻辑地址不唯一</li>
+<li>EU 是 8086/8088 微处理器的执行部件(Execution Unit)</li>
+<li>BIU 是 8086/8088 微处理器的总线接口部件(Bus Interface Unit)</li>
+</ul>
+</blockquote>
+<p><img src="http://www.elecfans.com/uploads/allimg/110712/182555-110G2160I5496.jpg" alt=""></p>
+<blockquote>
+<p>指令系统</p>
+<ul>
+<li>指令格式： <strong>操作码</strong> &emsp;<strong>[操作数]</strong> ，<strong>[操作数]</strong></li>
+<li>三种操作数：立即数，寄存器操作数，存储器操作数(带[ ])</li>
 </ul>
 </blockquote>
 
@@ -1043,7 +1076,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">11k</span>&nbsp;字
+                class="white-color">11.3k</span>&nbsp;字
             
             
             
