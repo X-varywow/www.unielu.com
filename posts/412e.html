@@ -361,14 +361,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    676
+                    917
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -455,10 +455,43 @@
 </blockquote>
 <p><img src="http://www.elecfans.com/uploads/allimg/110712/182555-110G2160I5496.jpg" alt=""></p>
 <blockquote>
-<p>指令系统</p>
+<p><strong>【指令系统】</strong></p>
 <ul>
 <li>指令格式： <strong>操作码</strong> &emsp;<strong>[操作数]</strong> ，<strong>[操作数]</strong></li>
 <li>三种操作数：立即数，寄存器操作数，存储器操作数(带[ ])</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>操作数的寻址方式</p>
+<ul>
+<li>立即寻址</li>
+<li>寄存器直接寻址</li>
+<li>寄存器间接寻址，通过间址寄存器【BX，BP，SI，DI】(带[ ])</li>
+<li>寄存器相对寻址</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>一般指令对操作数的要求：</p>
+<ul>
+<li>两操作数字长必须相同</li>
+<li>两操作数不允许同时为存储器操作数（在内存中）</li>
+<li>两操作数不允许同时为段寄存器</li>
+<li>源操作数是立即数时，目标操作数不能是段寄存器</li>
+<li>IP和CS不作为目标操作数，FLAGS一般不作为操作数</li>
+</ul>
+</blockquote>
+<p>一个汇编题目：将（*）的ASCII码2AH送入内存数据段1000H开始的100个单元中<br>代码如下：</p>
+<pre><code>       MOV DI, 1000H    ；间址寄存器DI,赋给首地址
+       MOV CX, 64H      ；通用寄存器CX,计算count
+       MOV AL, 2AH      ; 通用寄存器AL,存入符号
+AGAIN: MOV [DI], AL
+       INC DI           ；DI+1
+       DEC CX           ；CX-1
+       JNZ AGAIN        ; CX！=0继续
+       HLT</code></pre><blockquote>
+<p>通用指令系统</p>
+<ul>
+<li>一般数据传输指令<strong>MOV</strong>,</li>
 </ul>
 </blockquote>
 
@@ -1076,7 +1109,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">11.3k</span>&nbsp;字
+                class="white-color">11.5k</span>&nbsp;字
             
             
             
