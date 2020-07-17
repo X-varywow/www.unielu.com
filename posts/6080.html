@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="深度学习第一天（pytorch学习笔记）, blog">
+    <meta name="keywords" content="机器学习, blog">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>深度学习第一天（pytorch学习笔记） | blog</title>
+    <title>机器学习 | blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.4/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.4/libs/awesome/css/all.css">
@@ -192,12 +192,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.4/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/blue.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">深度学习第一天（pytorch学习笔记）</h1>
+                    <h1 class="description center-align post-title diyFont">机器学习</h1>
                 </div>
             </div>
         </div>
@@ -354,21 +354,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-07
+                    2020-07-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    851
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -378,16 +378,16 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="入坑（2020-4-29）"><a href="#入坑（2020-4-29）" class="headerlink" title="入坑（2020.4.29）"></a>入坑（2020.4.29）</h2><p>喜欢深度学习，喜欢python。<br>看起来torch挺好的。</p>
-<h2 id="torch环境准备"><a href="#torch环境准备" class="headerlink" title="torch环境准备"></a>torch环境准备</h2><ul>
+                <h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h1><h2 id="人工智能、机器学习、深度学习"><a href="#人工智能、机器学习、深度学习" class="headerlink" title="人工智能、机器学习、深度学习"></a>人工智能、机器学习、深度学习</h2><p><code>人工智能</code>是计算机科学的一个分支，它希望了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等。<br><code>机器学习</code>是一门多领域交叉学科，是人工智能的核心。<br><code>深度学习</code>是机器学习领域中一个新的研究方向，它被引入机器学习使其更接近于最初的目标——人工智能。<br><img src="https://img-blog.csdnimg.cn/202005061919299.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p>
+<h2 id="机器学习模型"><a href="#机器学习模型" class="headerlink" title="机器学习模型"></a>机器学习模型</h2><p><code>机器学习模型</code>是机器学习算法产出的结果，可以将其看作是在给定输入情况下、输出一定结果的函数。<br>机器学习模型不是预先定义好的固定函数，而是从历史数据中推导出来的。<br>机器学习的任务，就是从广阔的映射空间中学习函数。</p>
+<h1 id="1-torch环境准备"><a href="#1-torch环境准备" class="headerlink" title="1.torch环境准备"></a>1.torch环境准备</h1><ul>
 <li>torch  (1.5.0)</li>
 <li>torchvision  (0.6.0)</li>
 <li>cuda  (10.2)<br><img src="https://img-blog.csdnimg.cn/20200429183137908.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""><br>输入指令执行代码,速度不行的话复制下载链接迅雷打开，可能有惊喜<img src="https://img-blog.csdnimg.cn/20200429183453171.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""><br>环境配好后，执行<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> python
 torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 这时应该返回True.</li>
 </ul>
-<h2 id="一次比赛的代码"><a href="#一次比赛的代码" class="headerlink" title="一次比赛的代码"></a>一次比赛的代码</h2><p>不懂的话直接当普通代码执行，当然本人还是纯小白，代码是copy来的，一次比赛的baseline代码</p>
-<h3 id="加载pytorch框架下的依赖项"><a href="#加载pytorch框架下的依赖项" class="headerlink" title="加载pytorch框架下的依赖项"></a>加载pytorch框架下的依赖项</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> __future__ <span class="token keyword">import</span> print_function<span class="token punctuation">,</span> division
+<h1 id="2-一次baseline代码😫"><a href="#2-一次baseline代码😫" class="headerlink" title="2.一次baseline代码😫"></a>2.一次baseline代码😫</h1><h2 id="加载pytorch框架下的依赖项"><a href="#加载pytorch框架下的依赖项" class="headerlink" title="加载pytorch框架下的依赖项"></a>加载pytorch框架下的依赖项</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> __future__ <span class="token keyword">import</span> print_function<span class="token punctuation">,</span> division
 <span class="token keyword">import</span> torch
 <span class="token keyword">import</span> torch<span class="token punctuation">.</span>nn <span class="token keyword">as</span> nn
 <span class="token keyword">import</span> torch<span class="token punctuation">.</span>optim <span class="token keyword">as</span> optim
@@ -397,7 +397,7 @@ torch<span class="token punctuation">.</span>cuda<span class="token punctuation"
 <span class="token keyword">from</span> torchvision <span class="token keyword">import</span> datasets<span class="token punctuation">,</span> models<span class="token punctuation">,</span> transforms
 <span class="token keyword">import</span> time
 <span class="token keyword">import</span> os</code></pre>
-<h3 id="加载数据集，并分为训练集和测试集"><a href="#加载数据集，并分为训练集和测试集" class="headerlink" title="加载数据集，并分为训练集和测试集"></a>加载数据集，并分为训练集和测试集</h3><pre class=" language-python"><code class="language-python">dataTrans <span class="token operator">=</span> transforms<span class="token punctuation">.</span>Compose<span class="token punctuation">(</span><span class="token punctuation">[</span>
+<h2 id="加载数据集，并分为训练集和测试集"><a href="#加载数据集，并分为训练集和测试集" class="headerlink" title="加载数据集，并分为训练集和测试集"></a>加载数据集，并分为训练集和测试集</h2><pre class=" language-python"><code class="language-python">dataTrans <span class="token operator">=</span> transforms<span class="token punctuation">.</span>Compose<span class="token punctuation">(</span><span class="token punctuation">[</span>
             transforms<span class="token punctuation">.</span>Resize<span class="token punctuation">(</span><span class="token number">256</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
             transforms<span class="token punctuation">.</span>CenterCrop<span class="token punctuation">(</span><span class="token number">224</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
             transforms<span class="token punctuation">.</span>ToTensor<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -424,7 +424,7 @@ dataset_sizes <span class="token operator">=</span> <span class="token punctuati
 
     <span class="token comment" spellcheck="true"># use gpu or not</span>
 use_gpu <span class="token operator">=</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<h3 id="开始训练"><a href="#开始训练" class="headerlink" title="开始训练"></a>开始训练</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">train_model</span><span class="token punctuation">(</span>model<span class="token punctuation">,</span> lossfunc<span class="token punctuation">,</span> optimizer<span class="token punctuation">,</span> scheduler<span class="token punctuation">,</span> num_epochs<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<h2 id="开始训练"><a href="#开始训练" class="headerlink" title="开始训练"></a>开始训练</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">train_model</span><span class="token punctuation">(</span>model<span class="token punctuation">,</span> lossfunc<span class="token punctuation">,</span> optimizer<span class="token punctuation">,</span> scheduler<span class="token punctuation">,</span> num_epochs<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     start_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
     best_model_wts <span class="token operator">=</span> model<span class="token punctuation">.</span>state_dict<span class="token punctuation">(</span><span class="token punctuation">)</span>
     best_acc <span class="token operator">=</span> <span class="token number">0.0</span>
@@ -521,6 +521,7 @@ model_ft <span class="token operator">=</span> train_model<span class="token pun
                            optimizer<span class="token operator">=</span>optimizer_ft<span class="token punctuation">,</span>
                            scheduler<span class="token operator">=</span>exp_lr_scheduler<span class="token punctuation">,</span>
                            num_epochs<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span></code></pre>
+<p>这是训练过程产生的输出：</p>
 <pre><code>Epoch 0/4
 ----------
 
@@ -550,8 +551,6 @@ val Loss: 0.0281 Acc: 0.8750
 Training complete in 6m 31s
 Best val Acc: 0.875000</code></pre><pre class=" language-python"><code class="language-python">torch<span class="token punctuation">.</span>save<span class="token punctuation">(</span>model_ft<span class="token punctuation">.</span>state_dict<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'./model.pth'</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"done"</span><span class="token punctuation">)</span></code></pre>
-<pre><code>done</code></pre><h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>热爱是一件很美好的事。</p>
-<p>读者有兴趣的话，<br>可以百度或知乎一下，深度学习、神经网络、resnet等一堆概念。</p>
 
             </div>
             <hr/>
@@ -985,7 +984,7 @@ Best val Acc: 0.875000</code></pre><pre class=" language-python"><code class="la
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            hello world和建站教程链接
                         
                     </div>
                     <div class="publish-info">
@@ -1168,7 +1167,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">11.5k</span>&nbsp;字
+                class="white-color">11.4k</span>&nbsp;字
             
             
             
