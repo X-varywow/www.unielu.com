@@ -354,21 +354,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-31
+                    2020-08-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    336
+                    457
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -403,10 +403,7 @@
         <span class="token keyword">return</span> a<span class="token operator">*</span>n</code></pre>
 <h3 id="面试题-08-03-魔术索引-7-31"><a href="#面试题-08-03-魔术索引-7-31" class="headerlink" title="面试题 08.03. 魔术索引(7.31)"></a>面试题 08.03. 魔术索引(<code>7.31</code>)</h3><p>魔术索引。 在数组<code>A[0...n-1]</code>中，有所谓的魔术索引，满足条件<code>A[i] = i</code>。给定一个有序整数数组，编写一种方法找出魔术索引，若有的话，在数组<code>A</code>中找出一个魔术索引，如果没有，则返回<code>-1</code>。若有多个魔术索引，返回索引值最小的一个。</p>
 <blockquote>
-<ul>
-<li>如果暴力遍历的话，时间复杂度O(n)</li>
-<li>官方解答说要二分剪枝，尽可能O(logn)</li>
-</ul>
+<p>如果暴力遍历的话，时间复杂度O(n)<br>官方解答说要二分剪枝，尽可能O(logn)</p>
 </blockquote>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">findMagicIndex</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
@@ -418,6 +415,15 @@
             <span class="token keyword">elif</span> nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token operator">==</span>mid<span class="token punctuation">:</span> <span class="token keyword">return</span> mid
             <span class="token keyword">return</span> getans<span class="token punctuation">(</span>nums<span class="token punctuation">,</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">)</span>
         <span class="token keyword">return</span> getans<span class="token punctuation">(</span>nums<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span></code></pre>
+<h3 id="632-最小区间-8-1"><a href="#632-最小区间-8-1" class="headerlink" title="632. 最小区间(8.1)"></a>632. 最小区间(<code>8.1</code>)</h3><p>你有 <code>k</code> 个升序排列的整数数组。找到一个最小区间，使得 k 个列表中的每个列表至少有一个数包含在其中。<br>我们定义如果 <code>b-a &lt; d-c</code> ,或者在 <code>b-a == d-c</code> 且<code>a &lt; c</code>时，则区间 [a,b] 比 [c,d] 小。</p>
+<ul>
+<li>给定的列表可能包含重复元素，所以在这里升序表示 &gt;= 。</li>
+<li>1 &lt;= k &lt;= 3500</li>
+<li>-105 &lt;= 元素的值 &lt;= 105</li>
+</ul>
+<blockquote>
+<p>不会</p>
+</blockquote>
 
             </div>
             <hr/>
@@ -932,7 +938,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('3'),
+            collapseDepth: Number('2'),
             headingSelector: 'h1,h2, h3, h4,h5'
         });
 
@@ -1033,7 +1039,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">13.5k</span>&nbsp;字
+                class="white-color">14.6k</span>&nbsp;字
             
             
             

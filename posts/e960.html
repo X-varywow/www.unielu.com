@@ -354,21 +354,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-30
+                    2020-08-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    145
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -388,15 +388,22 @@
 <li>pytorch</li>
 <li>pyinstaller</li>
 </ul>
-<h1 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1.基础知识"></a>1.基础知识</h1><hr>
-<h3 id="关于requests"><a href="#关于requests" class="headerlink" title="关于requests"></a>关于requests</h3><p><strong>第一步：</strong></p>
-<pre class=" language-python"><code class="language-python">  <span class="token keyword">import</span> requests
+<h1 id="1-探究过程"><a href="#1-探究过程" class="headerlink" title="1.探究过程"></a>1.探究过程</h1><hr>
+<p><strong>第一个难题</strong>：<br>所谓查看网页源代码，就是别人服务器发送到浏览器的原封不动的代码。这是爬虫获得的代码<br>你那些在源码中找不到的代码（元素），那是在浏览器执行js动态生成的，这些能在审查元素中看到<br>通过审查元素就,,,,看到就是浏览器处理过的最终的html代码。</p>
+<blockquote>
+<p>然后试了试更换头信息，</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200801184047452.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p>
+<blockquote>
+<p>就离谱，requests.get过来的基本没找到<code>&lt;div&gt;</code>标签，F12检查元素全是<code>&lt;div&gt;</code>标签<br>感觉：爬到的和F12到的是两个东西</p>
+</blockquote>
+<h1 id="2-基础知识"><a href="#2-基础知识" class="headerlink" title="2.基础知识"></a>2.基础知识</h1><hr>
+<h2 id="2-1-关于requests"><a href="#2-1-关于requests" class="headerlink" title="2.1 关于requests"></a>2.1 关于requests</h2><h3 id="开始使用第一步："><a href="#开始使用第一步：" class="headerlink" title="开始使用第一步："></a>开始使用第一步：</h3><pre class=" language-python"><code class="language-python">  <span class="token keyword">import</span> requests
   r<span class="token operator">=</span>requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://"</span><span class="token punctuation">)</span>
   r<span class="token punctuation">.</span>status_code                     <span class="token comment" spellcheck="true">#en,返回200表示成功</span></code></pre>
-<p><strong>第二步：</strong></p>
-<pre class=" language-python"><code class="language-python">  r<span class="token punctuation">.</span>encoding <span class="token operator">=</span> <span class="token string">'utf-8'</span>
+<h3 id="开始使用第二步："><a href="#开始使用第二步：" class="headerlink" title="开始使用第二步："></a>开始使用第二步：</h3><pre class=" language-python"><code class="language-python">  r<span class="token punctuation">.</span>encoding <span class="token operator">=</span> <span class="token string">'utf-8'</span>
   r<span class="token punctuation">.</span>text                            <span class="token comment" spellcheck="true">#en,返回网站的html</span></code></pre>
-<p><strong>其它：</strong><br><code>r.apparent_encoding</code>  【从内容分析出响应内容编码方式，返回一个编码方式字符串】<br><code>r.raise_for_status</code>   【如果不是200，返回异常码】</p>
+<h3 id="其它："><a href="#其它：" class="headerlink" title="其它："></a>其它：</h3><p><code>r.apparent_encoding</code>  【从内容分析出响应内容编码方式，返回一个编码方式字符串】<br><code>r.raise_for_status</code>   【如果不是200，返回异常码】</p>
 <blockquote>
 <p>七个主要方法：</p>
 <ul>
@@ -409,8 +416,109 @@
 <li>requests.delete()</li>
 </ul>
 </blockquote>
-<h1 id="2-代码实现"><a href="#2-代码实现" class="headerlink" title="2.代码实现"></a>2.代码实现</h1><hr>
-<h1 id="3-小结"><a href="#3-小结" class="headerlink" title="3.小结"></a>3.小结</h1><hr>
+<h2 id="2-2-关于re"><a href="#2-2-关于re" class="headerlink" title="2.2 关于re"></a>2.2 关于re</h2><h3 id="开始吧"><a href="#开始吧" class="headerlink" title="开始吧"></a>开始吧</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> re
+<span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">.</span>match<span class="token punctuation">(</span><span class="token string">"h"</span><span class="token punctuation">,</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<blockquote>
+<p><strong>结果说明：</strong></p>
+<ul>
+<li>返回<code>&lt;re.Match object; span=(0, 1), match=&#39;h&#39;&gt;</code></li>
+<li><code>re.match(&quot;h&quot;,&quot;hello&quot;).span()</code>返回<code>(0,1)</code></li>
+<li>如果没有<strong>从开始</strong>匹配成功，返回None</li>
+</ul>
+</blockquote>
+<p><code>re.search()</code> 扫描整个字符串并返回第一个成功的匹配。<br><code>re.compile()</code> 用于编译正则表达式，生成一个正则表达式（ Pattern ）对象，供 match() 和 search() 这两个函数使用。<br><code>re.findall()</code>在字符串中找到正则表达式所匹配的所有子串，并返回一个列表，如果没有找到匹配的，则返回空列表。</p>
+<h3 id="pattern的写法"><a href="#pattern的写法" class="headerlink" title="pattern的写法"></a>pattern的写法</h3><p>1、<code>[ ]</code>：方括号。匹配需要的字符集合，如[1-3]或[123]都是匹配1、2或者3。</p>
+<p>2、<code>^</code>：脱字符号。方括号中加入脱字符号，就是匹配未列出的所有其他字符，如[^a]匹配除a以外的所有其他字符。</p>
+<p>3、<code>\</code>：反斜杠。和python字符串使用规则一样，可以匹配特殊字符本身，如\d表示匹配0到9的任意一个数字字符，而<code>\\d</code>则表示匹配\d本身。</p>
+<p>4、<code>*</code>：星号。匹配前一个字符0到n次，如pytho*n可以匹配pythn、pytoon、pythooooon等。还有其它匹配重复字符的如<code>？（匹配0或1次）</code>、<code>+（匹配1次或多次）</code>或{n,m}，其中{n,m}可以灵活使用，它表示匹配n次到m次。</p>
+<p>5、<code>|</code>: 相当于或</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>\s</code></td>
+<td>匹配任意空白字符，等价于 [\t\n\r\f]。</td>
+</tr>
+<tr>
+<td><code>\S</code></td>
+<td>匹配任意非空字符</td>
+</tr>
+<tr>
+<td><code>\d</code></td>
+<td>匹配任意数字，等价于 [0-9]。</td>
+</tr>
+<tr>
+<td><code>\D</code></td>
+<td>匹配任意非数字</td>
+</tr>
+</tbody></table>
+<h3 id="写代码暂时记住用法"><a href="#写代码暂时记住用法" class="headerlink" title="写代码暂时记住用法"></a>写代码暂时记住用法</h3><p>控制变量。。😫</p>
+<pre class=" language-python"><code class="language-python">re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"d(ds)*"</span><span class="token punctuation">,</span><span class="token string">"askldjasaddsa"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#-->['', 'ds']</span>
+re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"d[ds]*"</span><span class="token punctuation">,</span><span class="token string">"askldjasaddsa"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#-->['d', 'dds']</span>
+re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"d{ds}*"</span><span class="token punctuation">,</span><span class="token string">"askldjasaddsa"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#-->[]</span>
+re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"d{ds}"</span><span class="token punctuation">,</span><span class="token string">"askldjasad{ds}a"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#-->['d{ds}']</span>
+re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"ds?"</span><span class="token punctuation">,</span><span class="token string">"askldjasad{dsssssss}a"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#-->['d', 'd', 'ds']</span></code></pre>
+<p>非贪婪模式与贪婪模式：</p>
+<pre class=" language-python"><code class="language-python">re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">"/(\S*?)/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"//asd/sdsa/asda"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#-->['', 'sdsa']</span>
+re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">"/(\S*)/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"//asd/sdsa/asda"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#-->['/asd/sdsa']</span></code></pre>
+<p>正则匹配修饰符<code>re.S</code>使 <code>.</code> 匹配包括换行在内的所有字符</p>
+<p>唔，整了好久~</p>
+<h1 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3.代码实现"></a>3.代码实现</h1><hr>
+<p>1.0版本代码：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> re
+<span class="token keyword">import</span> requests
+<span class="token keyword">import</span> os
+
+pwd<span class="token operator">=</span><span class="token string">"C:/temp/temp/temp"</span>
+url <span class="token operator">=</span> <span class="token string">"https://huaban.com/search/?q=%E5%96%9C%E7%BE%8A%E7%BE%8A"</span> <span class="token comment" spellcheck="true">#这是你要爬取的页面url</span>
+url_img <span class="token operator">=</span> <span class="token string">"https://hbimg.huabanimg.com/"</span> <span class="token comment" spellcheck="true">#这是它放图片的url前缀</span>
+num<span class="token operator">=</span><span class="token number">0</span>
+
+<span class="token comment" spellcheck="true">#伪装头信息</span>
+head <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'User-Agent'</span><span class="token punctuation">:</span><span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36 Edg/84.0.522.49'</span><span class="token punctuation">}</span>
+
+<span class="token keyword">def</span> <span class="token function">download</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"开始下载："</span><span class="token punctuation">,</span>file<span class="token punctuation">,</span>url<span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span>stream<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span>file<span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fd<span class="token punctuation">:</span>
+            <span class="token keyword">for</span> chunk <span class="token keyword">in</span> r<span class="token punctuation">.</span>iter_content<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                fd<span class="token punctuation">.</span>write<span class="token punctuation">(</span>chunk<span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"下载失败了"</span><span class="token punctuation">,</span>e<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">global</span> num
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"*******************************************"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"你的请求网址是："</span><span class="token punctuation">,</span>url<span class="token punctuation">)</span>
+
+    r<span class="token operator">=</span>requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>head<span class="token punctuation">)</span>
+    pattern<span class="token operator">=</span>re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">'{"pin_id":(\d*?),.*?"key":"(.*?)",.*?"like_count":(\d*?),.*?"repin_count":(\d*?),.*?}'</span><span class="token punctuation">,</span>re<span class="token punctuation">.</span>S<span class="token punctuation">)</span>
+    pid<span class="token operator">=</span><span class="token number">0</span>
+    items<span class="token operator">=</span>re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span>r<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> item <span class="token keyword">in</span> items<span class="token punctuation">:</span>
+        pid<span class="token punctuation">,</span>key<span class="token punctuation">,</span>like_cnt<span class="token punctuation">,</span>repin_cnt<span class="token operator">=</span>item
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"开始下载第{}张图片"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+        pic_url<span class="token operator">=</span>url_img<span class="token operator">+</span>key    <span class="token comment" spellcheck="true">#图片的url地址</span>
+        filename<span class="token operator">=</span>pwd<span class="token operator">+</span>str<span class="token punctuation">(</span>pid<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">".jpg"</span>  <span class="token comment" spellcheck="true">#文件保存的名字</span>
+
+        <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>isfile<span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"文件存在："</span><span class="token punctuation">,</span>filename<span class="token punctuation">)</span>
+            <span class="token keyword">continue</span>
+
+        download<span class="token punctuation">(</span>filename<span class="token punctuation">,</span>pic_url<span class="token punctuation">)</span>
+        num<span class="token operator">+=</span><span class="token number">1</span>
+
+<span class="token keyword">if</span> <span class="token operator">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>pwd<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>pwd<span class="token punctuation">)</span>
+main<span class="token punctuation">(</span>url<span class="token punctuation">)</span></code></pre>
+<h1 id="4-小结"><a href="#4-小结" class="headerlink" title="4.小结"></a>4.小结</h1><hr>
 
             </div>
             <hr/>
@@ -925,7 +1033,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('3'),
+            collapseDepth: Number('2'),
             headingSelector: 'h1,h2, h3, h4,h5'
         });
 
@@ -1026,7 +1134,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">13.5k</span>&nbsp;字
+                class="white-color">14.6k</span>&nbsp;字
             
             
             
