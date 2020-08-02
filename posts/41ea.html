@@ -354,14 +354,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-01
+                    2020-08-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    457
+                    590
                 </div>
                 
 
@@ -424,6 +424,21 @@
 <blockquote>
 <p>不会</p>
 </blockquote>
+<h3 id="114-二叉树展开为链表（8-2"><a href="#114-二叉树展开为链表（8-2" class="headerlink" title="114. 二叉树展开为链表（8.2)"></a>114. 二叉树展开为链表（<code>8.2</code>)</h3><p>给定一个二叉树，<strong>原地</strong>将它展开为一个单链表。<br>If you notice carefully in the flattened tree, each node’s right child points to the next node of a pre-order traversal.</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">flatten</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        Do not return anything, modify root in-place instead.
+        """</span>
+        cur<span class="token operator">=</span>root
+        <span class="token keyword">while</span> cur<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> cur<span class="token punctuation">.</span>left<span class="token punctuation">:</span>
+                p<span class="token operator">=</span>cur<span class="token punctuation">.</span>left    <span class="token comment" spellcheck="true">#向左子树移动</span>
+                <span class="token keyword">while</span> p<span class="token punctuation">.</span>right<span class="token punctuation">:</span> p<span class="token operator">=</span>p<span class="token punctuation">.</span>right <span class="token comment" spellcheck="true">#找到root左子树的最右节点</span>
+                p<span class="token punctuation">.</span>right<span class="token operator">=</span>cur<span class="token punctuation">.</span>right <span class="token comment" spellcheck="true">#将root右子树连到找到的节点</span>
+                cur<span class="token punctuation">.</span>right<span class="token operator">=</span>cur<span class="token punctuation">.</span>left <span class="token comment" spellcheck="true">#再移回来</span>
+                cur<span class="token punctuation">.</span>left<span class="token operator">=</span>None
+            cur<span class="token operator">=</span>cur<span class="token punctuation">.</span>right</code></pre>
 
             </div>
             <hr/>
@@ -1039,7 +1054,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15.1k</span>&nbsp;字
+                class="white-color">15.3k</span>&nbsp;字
             
             
             
