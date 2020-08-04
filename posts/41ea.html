@@ -354,21 +354,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-02
+                    2020-08-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    590
+                    865
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -378,7 +378,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="343-整数拆分（7-30）"><a href="#343-整数拆分（7-30）" class="headerlink" title="343. 整数拆分（7.30）"></a>343. 整数拆分（<code>7.30</code>）</h3><p>给定一个正整数 n(n&gt;=2)，将其拆分为至少两个正整数的和，并使这些整数的乘积最大化。 返回你可以获得的最大乘积。</p>
+                <blockquote>
+<p><strong>本文仅仅作为个人的记录</strong>，<br>ennnn，还是建议去看leetcode题解，官方的讲解视频挺好的</p>
+</blockquote>
+<h3 id="343-整数拆分（7-30）"><a href="#343-整数拆分（7-30）" class="headerlink" title="343. 整数拆分（7.30）"></a>343. 整数拆分（<code>7.30</code>）</h3><p>给定一个正整数 n(n&gt;=2)，将其拆分为至少两个正整数的和，并使这些整数的乘积最大化。 返回你可以获得的最大乘积。</p>
 <blockquote>
 <p>dp做法：</p>
 </blockquote>
@@ -439,6 +442,38 @@
                 cur<span class="token punctuation">.</span>right<span class="token operator">=</span>cur<span class="token punctuation">.</span>left <span class="token comment" spellcheck="true">#再移回来</span>
                 cur<span class="token punctuation">.</span>left<span class="token operator">=</span>None
             cur<span class="token operator">=</span>cur<span class="token punctuation">.</span>right</code></pre>
+<h3 id="207-课程表（8-4"><a href="#207-课程表（8-4" class="headerlink" title="207. 课程表（8.4)"></a>207. 课程表（<code>8.4</code>)</h3><p>你这个学期必须选修 <code>numCourse</code> 门课程，记为 <code>0</code> 到 <code>numCourse-1</code> 。</p>
+<p>在选修某些课程之前需要一些先修课程。 例如，想要学习课程 <code>0</code> ，你需要先完成课程 <code>1</code> ，我们用一个匹配来表示他们：<code>[0,1]</code></p>
+<p>给定课程总量以及它们的先决条件，请你判断是否可能完成所有课程的学习？</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">canFinish</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> numCourses<span class="token punctuation">:</span> int<span class="token punctuation">,</span> prerequisites<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        relation<span class="token operator">=</span>collections<span class="token punctuation">.</span>defaultdict<span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+        indegree<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span>numCourses   <span class="token comment" spellcheck="true">#入度值列表</span>
+
+        <span class="token keyword">for</span> info <span class="token keyword">in</span> prerequisites<span class="token punctuation">:</span>
+            relation<span class="token punctuation">[</span>info<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>info<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#基础：[进阶]关系字典</span>
+            indegree<span class="token punctuation">[</span>info<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+=</span><span class="token number">1</span>
+
+        <span class="token comment" spellcheck="true">#先建一个入度为0的队列</span>
+        q <span class="token operator">=</span> collections<span class="token punctuation">.</span>deque<span class="token punctuation">(</span><span class="token punctuation">[</span>c <span class="token keyword">for</span> c <span class="token keyword">in</span> range<span class="token punctuation">(</span>numCourses<span class="token punctuation">)</span> <span class="token keyword">if</span> indegree<span class="token punctuation">[</span>c<span class="token punctuation">]</span> <span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        visited <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">while</span> q<span class="token punctuation">:</span>
+            visited <span class="token operator">+=</span> <span class="token number">1</span>
+            u <span class="token operator">=</span> q<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> relation<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                indegree<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-=</span> <span class="token number">1</span>
+                <span class="token keyword">if</span> indegree<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                    q<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> visited <span class="token operator">==</span> numCourses</code></pre>
+<blockquote>
+<p><strong>小结：</strong></p>
+<ul>
+<li>核心思想：以入度进行BFS</li>
+<li>入度：图中的一个节点，多少个节点指向它</li>
+</ul>
+<p>唔，经典拓扑图的算法，学到了。</p>
+</blockquote>
 
             </div>
             <hr/>
@@ -812,30 +847,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/e00a.html">
+                <a href="/posts/4890.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/magic.png" class="responsive-img" alt="一些网站">
                         
-                        <span class="card-title">一些网站</span>
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.4/medias/featureimages/5.jpg" class="responsive-img" alt="collections模块">
+                        
+                        <span class="card-title">collections模块</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            参照官方文档
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-08
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-04
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/other/" class="post-category">
-                                    other
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
@@ -845,8 +881,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%B5%84%E6%BA%90/">
-                        <span class="chip bg-color">资源</span>
+                    <a href="/tags/python%E6%A8%A1%E5%9D%97/">
+                        <span class="chip bg-color">python模块</span>
                     </a>
                     
                 </div>
@@ -1054,7 +1090,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15.3k</span>&nbsp;字
+                class="white-color">15.4k</span>&nbsp;字
             
             
             

@@ -354,21 +354,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-31
+                    2020-08-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    4 分
                 </div>
                 
 
@@ -503,62 +503,7 @@ AGAIN: MOV [DI], AL
 </ul>
 </blockquote>
 <blockquote>
-<p>漏了指令系统这部分没学，漏了运算操作、串操作，程序控制类【CS,IP会改变执行方向】，感觉这门课远离了我想要的实践。<br>课程最后还是有些东西，芯片组合，汇编实现程序，一些芯片的引脚······<br>三态门，模电，数电，8253，D/A，A/D都是问题。。。<br>ya的，感觉知识传输得有问题（打个比方，教你做菜，给你讲PPT，上面写着盐的组成成分）。</p>
-</blockquote>
-<blockquote>
-<p><strong>leetcode</strong>198</p>
-<ol>
-<li><strong>换酒问题</strong><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-<span class="token keyword">def</span> <span class="token function">numWaterBottles</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nb<span class="token punctuation">:</span> int<span class="token punctuation">,</span> ne<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-    ans<span class="token operator">=</span>nb
-    <span class="token keyword">while</span> nb<span class="token operator">>=</span>ne<span class="token punctuation">:</span>
-        ans<span class="token operator">+=</span>nb<span class="token operator">//</span>ne
-        nb<span class="token operator">=</span>nb<span class="token operator">%</span>ne<span class="token operator">+</span>nb<span class="token operator">//</span>ne
-    <span class="token keyword">return</span> ans</code></pre>
-</li>
-<li><strong>子树中标签相同的节点数</strong></li>
-</ol>
-<p><strong>输入</strong>：<code>n = 7</code>, <code>edges = [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]]</code>, <code>labels = &quot;abaedcd&quot;</code><br><strong>输出</strong>：<code>[2,1,1,1,1,1,1]</code><br><strong>解释</strong>：节点 0 的标签为 ‘a’ ，以 ‘a’ 为根节点的子树中，节点 2 的标签也是 ‘a’ ，因此答案为 2 。注意树中的每个节点都是这棵子树的一部分。</p>
-<hr>
-<p>本以为可以写出这个DFS，无向图这。。。。😂</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-   <span class="token keyword">def</span> <span class="token function">countSubTrees</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">,</span> edges<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> labels<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
-       ans<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span>n
-
-       <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>label<span class="token punctuation">,</span>const_i<span class="token punctuation">)</span><span class="token punctuation">:</span>
-           <span class="token keyword">for</span> edge <span class="token keyword">in</span> edges<span class="token punctuation">:</span>
-               <span class="token keyword">if</span> edge<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">==</span>i<span class="token punctuation">:</span>
-                   <span class="token keyword">if</span> label<span class="token operator">==</span>labels<span class="token punctuation">[</span>edge<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-                       ans<span class="token punctuation">[</span>const_i<span class="token punctuation">]</span><span class="token operator">+=</span><span class="token number">1</span>
-                   dfs<span class="token punctuation">(</span>edge<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>label<span class="token punctuation">,</span>const_i<span class="token punctuation">)</span>
-
-       <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-           dfs<span class="token punctuation">(</span>i<span class="token punctuation">,</span>labels<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span>
-       <span class="token keyword">return</span> ans</code></pre>
-<p>其他大佬写的：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-   <span class="token keyword">def</span> <span class="token function">countSubTrees</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">,</span> ed<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> lab<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
-       g <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span>
-       <span class="token keyword">for</span> u<span class="token punctuation">,</span>v <span class="token keyword">in</span> ed <span class="token punctuation">:</span>
-           g<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>v<span class="token punctuation">)</span>
-           g<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>u<span class="token punctuation">)</span>
-
-       res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> n
-       <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>u<span class="token punctuation">,</span>f<span class="token punctuation">)</span> <span class="token punctuation">:</span>
-           r1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">26</span>
-           ir <span class="token operator">=</span> ord<span class="token punctuation">(</span>lab<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">-</span>ord<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span>
-           r1<span class="token punctuation">[</span>ir<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
-           <span class="token keyword">for</span> v <span class="token keyword">in</span> g<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token punctuation">:</span>
-               <span class="token keyword">if</span> v <span class="token operator">==</span> f <span class="token punctuation">:</span>
-                   <span class="token keyword">continue</span>
-               r2 <span class="token operator">=</span> dfs<span class="token punctuation">(</span>v<span class="token punctuation">,</span>u<span class="token punctuation">)</span>
-               <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">26</span><span class="token punctuation">)</span> <span class="token punctuation">:</span>
-                   r1<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> r2<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-           res<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">=</span> r1<span class="token punctuation">[</span>ir<span class="token punctuation">]</span>
-           <span class="token keyword">return</span> r1
-
-       dfs<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>        
-       <span class="token keyword">return</span> res</code></pre>
+<p>漏了指令系统这部分没学，漏了运算操作、串操作，程序控制类【CS,IP会改变执行方向】，感觉这门课远离了我想要的实践。<br>课程最后还是有些东西，芯片组合，汇编实现程序，一些芯片的引脚······<br>三态门，模电，数电，8253，D/A，A/D都是问题。。。</p>
 </blockquote>
 <h2 id="7-19晚"><a href="#7-19晚" class="headerlink" title="7.19晚"></a><code>7.19晚</code></h2><p>读书《人类群星闪耀时》</p>
 <blockquote>
@@ -570,10 +515,9 @@ AGAIN: MOV [DI], AL
 <p>c中，大小写没看清，编辑器还不给提示，是真的……<br>emmm,漏掉&amp;也是坑。。</p>
 </blockquote>
 <h2 id="7-22早"><a href="#7-22早" class="headerlink" title="7.22早"></a><code>7.22早</code></h2><p>学硬件设计<br>写<a href="https://x-varywow.github.io/posts/d6d.html">硬件设计</a>这篇blog</p>
-<h2 id="7-23早"><a href="#7-23早" class="headerlink" title="7.23早"></a><code>7.23早</code></h2><p>啊，单片机太神奇了，好像给了我创造世界的积木。<br>我知道，现在还好菜，OS、C、高数、英语、软件、GUI都是问题。<br>能学的时候，先把手上的做好。<br>。。。27考科二，明天又要练车了。<br>等8月下去甘南</p>
 <h2 id="7-30晚"><a href="#7-30晚" class="headerlink" title="7.30晚"></a><code>7.30晚</code></h2><p>&emsp;一生是漫长又瑰奇的瞬息；<br>&emsp;&emsp;&emsp;&emsp;何谓枯荣又何谓云泥；<br>&emsp;像孤舟巡游，不为逝水追惜；<br>&emsp;&emsp;&emsp;&emsp;在初逢灯火，在别时钟磬；<br>&emsp;自在随心~<br>&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;     &emsp;&emsp;             ——–摘自歌曲《琉璃》</p>
 <blockquote>
-<p>ennnn,完结啦💖<br>还行吧</p>
+<p>ennnn,完结啦💖</p>
 </blockquote>
 <p><img src="https://img-blog.csdnimg.cn/20200730223606549.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""><br><img src="https://img-blog.csdnimg.cn/2020073021573846.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p>
 
@@ -1191,7 +1135,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15.3k</span>&nbsp;字
+                class="white-color">15.4k</span>&nbsp;字
             
             
             
