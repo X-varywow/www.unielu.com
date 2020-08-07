@@ -354,21 +354,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-05
+                    2020-08-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -488,6 +488,14 @@
 
 <span class="token comment" spellcheck="true">#树形DP，从树的左下构成一个表。</span>
 <span class="token comment" spellcheck="true">#helper函数返回列表[不含此节点最大值，含此节点最大值]</span></code></pre>
+<h3 id="100-相同的树（8-7"><a href="#100-相同的树（8-7" class="headerlink" title="100. 相同的树（8.7)"></a>100. 相同的树（<code>8.7</code>)</h3><p>给定两个二叉树，编写一个函数来检验它们是否相同。</p>
+<p>如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">isSameTree</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> p<span class="token punctuation">:</span> TreeNode<span class="token punctuation">,</span> q<span class="token punctuation">:</span> TreeNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> p<span class="token operator">==</span>None <span class="token operator">and</span> q<span class="token operator">==</span>None<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">True</span>
+        <span class="token keyword">if</span> p<span class="token operator">==</span>None <span class="token operator">or</span> q<span class="token operator">==</span>None<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
+        <span class="token keyword">if</span> p<span class="token punctuation">.</span>val<span class="token operator">!=</span>q<span class="token punctuation">.</span>val<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>isSameTree<span class="token punctuation">(</span>p<span class="token punctuation">.</span>left<span class="token punctuation">,</span>q<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token operator">and</span> self<span class="token punctuation">.</span>isSameTree<span class="token punctuation">(</span>p<span class="token punctuation">.</span>right<span class="token punctuation">,</span>q<span class="token punctuation">.</span>right<span class="token punctuation">)</span> </code></pre>
 
             </div>
             <hr/>
@@ -1104,7 +1112,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15.7k</span>&nbsp;字
+                class="white-color">15.8k</span>&nbsp;字
             
             
             
