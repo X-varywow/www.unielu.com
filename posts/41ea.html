@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="leetcode每日一题, blog">
+    <meta name="keywords" content="每日一题, blog">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>leetcode每日一题 | blog</title>
+    <title>每日一题 | blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/libs/awesome/css/all.css">
@@ -197,7 +197,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">leetcode每日一题</h1>
+                    <h1 class="description center-align post-title diyFont">每日一题</h1>
                 </div>
             </div>
         </div>
@@ -354,21 +354,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-08
+                    2020-08-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -530,6 +530,28 @@
 <span class="token comment" spellcheck="true"># 空间复杂度O(n)</span>
 <span class="token comment" spellcheck="true"># 那个常数空间的莫里斯遍历不懂</span>
 <span class="token comment" spellcheck="true"># 在这种遍历情况下，二叉搜索树的值从小到大</span></code></pre>
+<h2 id="93-复原IP地址（8-9"><a href="#93-复原IP地址（8-9" class="headerlink" title="93. 复原IP地址（8.9)"></a>93. 复原IP地址（<code>8.9</code>)</h2><p>给定一个只包含数字的字符串，复原它并返回所有可能的 IP 地址格式。</p>
+<p>有效的 IP 地址正好由四个整数（每个整数位于 0 到 255 之间组成），整数之间用 <code>.</code> 分隔。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">restoreIpAddresses</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+        <span class="token keyword">def</span> <span class="token function">backtrack</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> tmp<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> len<span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">and</span> len<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>res<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span>
+            <span class="token keyword">if</span> len<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">:</span>
+                <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>min<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    p<span class="token punctuation">,</span> n <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token punctuation">:</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> s<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+                    <span class="token keyword">if</span> p <span class="token operator">and</span> <span class="token number">0</span> <span class="token operator">&lt;=</span> int<span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">255</span> <span class="token operator">and</span> str<span class="token punctuation">(</span>int<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> p<span class="token punctuation">:</span>
+                        backtrack<span class="token punctuation">(</span>n<span class="token punctuation">,</span> tmp <span class="token operator">+</span> <span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#截取</span>
+
+        backtrack<span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>res
+<span class="token comment" spellcheck="true"># CV过来的</span>
+<span class="token comment" spellcheck="true"># 传参可以传[]</span>
+<span class="token comment" spellcheck="true"># 回溯还没理解透</span>
+<span class="token comment" spellcheck="true"># str(int(p))==p排除前缀0</span></code></pre>
 
             </div>
             <hr/>
@@ -1146,7 +1168,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">16k</span>&nbsp;字
+                class="white-color">17.7k</span>&nbsp;字
             
             
             
