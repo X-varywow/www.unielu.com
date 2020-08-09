@@ -361,14 +361,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    715
+                    898
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -378,9 +378,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、整理字符串"><a href="#一、整理字符串" class="headerlink" title="一、整理字符串"></a>一、整理字符串</h2><p>给你一个由大小写英文字母组成的字符串 s 。</p>
-<p>一个整理好的字符串中，两个相邻字符 s[i] 和 s[i + 1] 不会同时满足下述条件：</p>
-<p>0 &lt;= i &lt;= s.length - 2<br>s[i] 是小写字符，但 s[i + 1] 是相同的大写字符；反之亦然 。<br>请你将字符串整理好，每次你都可以从字符串中选出满足上述条件的 两个相邻 字符并删除，直到字符串整理好为止。</p>
+                <h2 id="一、整理字符串"><a href="#一、整理字符串" class="headerlink" title="一、整理字符串"></a>一、整理字符串</h2><p>给你一个由大小写英文字母组成的字符串 <code>s</code> 。</p>
+<p>一个整理好的字符串中，两个相邻字符 <code>s[i]</code> 和 <code>s[i + 1]</code> 不会同时满足下述条件：</p>
+<ul>
+<li><code>0</code> &lt;= <code>i</code> &lt;= <code>s.length - 2</code></li>
+<li><code>s[i]</code> 是小写字符，但 <code>s[i + 1]</code> 是相同的大写字符；反之亦然 。</li>
+</ul>
+<p>请你将字符串整理好，每次你都可以从字符串中选出满足上述条件的两个相邻字符并删除，直到字符串整理好为止。</p>
 <p>请返回整理好的 字符串 。题目保证在给出的约束条件下，测试样例对应的答案是唯一的。</p>
 <p>注意：空字符串也属于整理好的字符串，尽管其中没有任何字符</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
@@ -394,9 +398,11 @@
                 <span class="token keyword">continue</span>
             <span class="token keyword">else</span><span class="token punctuation">:</span>
                 stack<span class="token punctuation">.</span>extend<span class="token punctuation">(</span><span class="token punctuation">[</span>last<span class="token punctuation">,</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> stack <span class="token keyword">if</span> i<span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+        <span class="token keyword">return</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> stack <span class="token keyword">if</span> i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#熟悉了stack，ord()与32，list.extend()</span></code></pre>
 <h2 id="二、找出第-N-个二进制字符串中的第-K-位"><a href="#二、找出第-N-个二进制字符串中的第-K-位" class="headerlink" title="二、找出第 N 个二进制字符串中的第 K 位"></a>二、找出第 N 个二进制字符串中的第 K 位</h2><p>给你两个正整数 n 和 k，二进制字符串  Sn 的形成规则如下：</p>
-<p>S1 = “0”<br>当 i &gt; 1 时，Si = Si-1 + “1” + reverse(invert(Si-1))<br>其中 + 表示串联操作，reverse(x) 返回反转 x 后得到的字符串，而 invert(x) 则会翻转 x 中的每一位（0 变为 1，而 1 变为 0）</p>
+<p><code>S1 = &quot;0&quot;</code><br>当 <code>i &gt; 1</code> 时，<code>Si = Si-1 + &quot;1&quot; + reverse(invert(Si-1))</code><br>其中 <code>+</code>表示串联操作，<code>reverse(x)</code> 返回反转 x 后得到的字符串，而 <code>invert(x)</code> 则会翻转 x 中的每一位（0 变为 1，而 1 变为 0）</p>
 <p>例如，符合上述描述的序列的前 4 个字符串依次是：</p>
 <p>S1 = “0”<br>S2 = “011”<br>S3 = “0111001”<br>S4 = “011100110110001”<br>请你返回  Sn 的 第 k 位字符 ，题目数据保证 k 一定在 Sn 长度范围以内。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
@@ -404,15 +410,53 @@
         s<span class="token operator">=</span><span class="token string">'0'</span>
         <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
             s<span class="token operator">=</span>s<span class="token operator">+</span><span class="token string">'1'</span><span class="token operator">+</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>str<span class="token punctuation">(</span>int<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> s<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
-        <span class="token keyword">return</span> s<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span></code></pre>
+        <span class="token keyword">return</span> s<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># 熟悉了 ^1 操作</span></code></pre>
 <h2 id="三、和为目标值的非空不重叠子数组最大数目"><a href="#三、和为目标值的非空不重叠子数组最大数目" class="headerlink" title="三、和为目标值的非空不重叠子数组最大数目"></a>三、和为目标值的非空不重叠子数组最大数目</h2><p>给你一个数组 <code>nums</code> 和一个整数 <code>target</code> 。</p>
 <p>请你返回 非空不重叠 子数组的最大数目，且每个子数组中数字和都为 <code>target</code> 。</p>
-<pre class=" language-python"><code class="language-python"></code></pre>
-<h2 id="四、切棍子的最小成本"><a href="#四、切棍子的最小成本" class="headerlink" title="四、切棍子的最小成本"></a>四、切棍子的最小成本</h2><p>有一根长度为 n 个单位的木棍，棍上从 0 到 n 标记了若干位置。例如，长度为 6 的棍子可以标记如下：</p>
-<p>给你一个整数数组 cuts ，其中 cuts[i] 表示你需要将棍子切开的位置。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">maxNonOverlapping</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        res <span class="token operator">=</span> <span class="token number">0</span>
+        pre <span class="token operator">=</span> set<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#这是一个前缀和的集合</span>
+
+        sum <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> num <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+            sum <span class="token operator">+=</span> num
+            <span class="token keyword">if</span> sum <span class="token operator">-</span> target <span class="token keyword">in</span> pre<span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#有一段和满足要求</span>
+                res <span class="token operator">+=</span> <span class="token number">1</span>
+                sum <span class="token operator">=</span> <span class="token number">0</span>
+                pre <span class="token operator">=</span> set<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                pre<span class="token punctuation">.</span>add<span class="token punctuation">(</span>sum<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> res
+
+<span class="token comment" spellcheck="true"># 像560.和为k的子数组,忘了</span>
+<span class="token comment" spellcheck="true"># 一遍就出来了,思路都固定死了，就是前缀和</span></code></pre>
+<h2 id="四、切棍子的最小成本"><a href="#四、切棍子的最小成本" class="headerlink" title="四、切棍子的最小成本"></a>四、切棍子的最小成本</h2><p>有一根长度为 <code>n</code> 个单位的木棍，棍上从 <code>0</code> 到 <code>n</code> 标记了若干位置。<br>给你一个整数数组 <code>cuts</code> ，其中 <code>cuts[i]</code> 表示你需要将棍子切开的位置。</p>
 <p>你可以按顺序完成切割，也可以根据需要更改切割的顺序。</p>
 <p>每次切割的成本都是当前要切割的棍子的长度，切棍子的总成本是历次切割成本的总和。对棍子进行切割将会把一根木棍分成两根较小的木棍（这两根木棍的长度和就是切割前木棍的长度）。请参阅第一个示例以获得更直观的解释。</p>
-<p>返回切棍子的 最小总成本 。</p>
+<p>返回切棍子的 <code>最小总成本</code> 。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">minCost</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">,</span> cuts<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        <span class="token keyword">import</span> sys   
+        sys<span class="token punctuation">.</span>setrecursionlimit<span class="token punctuation">(</span><span class="token number">10000000</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#改一下递归深度</span>
+
+        <span class="token keyword">import</span> functools
+        @functools<span class="token punctuation">.</span>lru_cache<span class="token punctuation">(</span>None<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#用一下缓存</span>
+
+        <span class="token keyword">def</span> <span class="token function">dp</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            res <span class="token operator">=</span> float<span class="token punctuation">(</span><span class="token string">'inf'</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> c <span class="token keyword">in</span> cuts<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> c <span class="token operator">></span> i <span class="token operator">and</span> c <span class="token operator">&lt;</span> j<span class="token punctuation">:</span>
+                    res <span class="token operator">=</span> min<span class="token punctuation">(</span>res<span class="token punctuation">,</span> dp<span class="token punctuation">(</span>i<span class="token punctuation">,</span> c<span class="token punctuation">)</span> <span class="token operator">+</span> dp<span class="token punctuation">(</span>c<span class="token punctuation">,</span> j<span class="token punctuation">)</span> <span class="token operator">+</span> j <span class="token operator">-</span> i<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> res <span class="token operator">==</span> float<span class="token punctuation">(</span><span class="token string">'inf'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token number">0</span>
+            <span class="token keyword">return</span> res
+
+        <span class="token keyword">return</span> dp<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 懂了一些，dp的不是表，是函数了，厉害</span></code></pre>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>唔，只做了两道题</p>
 
             </div>
@@ -1029,7 +1073,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.7k</span>&nbsp;字
+                class="white-color">18.2k</span>&nbsp;字
             
             
             
