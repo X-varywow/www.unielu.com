@@ -361,14 +361,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    779
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    8 分
                 </div>
                 
 
@@ -380,7 +380,7 @@
             <div id="articleContent">
                 <p>本文基于<a href="https://readthedocs.org/projects/intermediatepythongithubio/downloads/pdf/latest/" target="_blank" rel="noopener"><em>Intermediate Python</em></a>学习过程中摘要与实践。<br>感谢此书作者，书的更新日期：Jul 11, 2020.</p>
 <blockquote>
-<p><em>blueprint</em>-(伪代码)<br><em>parentheses</em>-(括号)</p>
+<p><em>blueprint</em>-(伪代码)<br><em>parentheses</em>-(括号)<br><em>clause</em>-(从句)</p>
 </blockquote>
 <h2 id="args-and-kwargs"><a href="#args-and-kwargs" class="headerlink" title="*args and **kwargs"></a><em>*args and **kwargs</em></h2><p>When you do not know beforehand how many arguments can be passed to your function,<br>use it:</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test_var_args</span><span class="token punctuation">(</span>f_arg<span class="token punctuation">,</span><span class="token operator">*</span>argv<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -506,8 +506,174 @@ greet <span class="token operator">=</span> hi
 <span class="token keyword">print</span><span class="token punctuation">(</span>greet<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true">#outputs: 'hi yasoob'</span>
 
-<span class="token comment" spellcheck="true"># Everything in python is a object</span></code></pre>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>本文漏掉了<code>set结构</code> <code>Ternary Operators(三元运算符）</code></p>
+<span class="token comment" spellcheck="true"># ======Everything in python is a object=====</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">hi</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"yasoob"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"now you are in the greet() function"</span>
+    <span class="token keyword">def</span> <span class="token function">welcome</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"now you are in the welcome() function"</span>
+    <span class="token keyword">if</span> name <span class="token operator">==</span> <span class="token string">"yasoob"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> greet
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> welcome
+a <span class="token operator">=</span> hi<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#-->function greet at 0x7f2143c01500></span>
+<span class="token comment" spellcheck="true">#上⾯清晰地展示了`a`现在指向到hi()函数中的greet()函数</span>
+<span class="token comment" spellcheck="true">#现在试试这个</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#-->now you are in the greet() function</span>
+
+<span class="token comment" spellcheck="true">#=====在函数中定义函数，返回函数=====</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">hi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token string">"hi yasoob!"</span>
+<span class="token keyword">def</span> <span class="token function">doSomethingBeforeHi</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"I am doing some boring work before executing hi()"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>func<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+doSomethingBeforeHi<span class="token punctuation">(</span>hi<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#-->I am doing some boring work before executing hi()</span>
+<span class="token comment" spellcheck="true"># hi yasoob!</span>
+
+<span class="token comment" spellcheck="true">#=====将函数作为参数传给另一个函数=====</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">a_new_decorator</span><span class="token punctuation">(</span>a_func<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">wrapTheFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"I am doing some boring work before executing a_func()"</span><span class="token punctuation">)</span>
+        a_func<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"I am doing some boring work after executing a_func()"</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> wrapTheFunction
+<span class="token keyword">def</span> <span class="token function">a_function_requiring_decoration</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"I am the function which needs some decoration"</span><span class="token punctuation">)</span>
+
+a_function_requiring_decoration<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#outputs: "I am the function which needs some decoration"</span>
+a_function_requiring_decoration <span class="token operator">=</span> a_new_decorator<span class="token punctuation">(</span>a_function_requiring_decoration<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#now a_function_requiring_decoration is wrapped by wrapTheFunction()</span>
+a_function_requiring_decoration<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#outputs:I am doing some boring work before executing a_func()</span>
+<span class="token comment" spellcheck="true"># I am the function which needs some decoration</span>
+<span class="token comment" spellcheck="true"># I am doing some boring work after executing a_func()</span>
+
+<span class="token comment" spellcheck="true">###一个简单的装饰器，相当于赋给函数一个经修饰的函数</span></code></pre>
+<pre class=" language-python"><code class="language-python">@a_new_decorator
+<span class="token keyword">def</span> <span class="token function">a_function_requiring_decoration</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"I am the function which needs some decoration"</span><span class="token punctuation">)</span>
+a_function_requiring_decoration<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#outputs: I am doing some boring work before executing a_func()</span>
+<span class="token comment" spellcheck="true"># I am the function which needs some decoration to remove my foul smell</span>
+<span class="token comment" spellcheck="true"># I am doing some boring work after executing a_func()</span>
+
+<span class="token comment" spellcheck="true">#重点理解一下 @ 符号</span>
+
+<span class="token comment" spellcheck="true">#但此时a_function_requiring_decoration.__name__变成了wrapTheFunction</span>
+<span class="token comment" spellcheck="true">#这时就有了functools.wraps，下面是蓝本：</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># blueprint</span>
+<span class="token keyword">from</span> functools <span class="token keyword">import</span> wraps
+<span class="token keyword">def</span> <span class="token function">decorator_name</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    @wraps<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">decorated</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> can_run<span class="token punctuation">:</span> 
+            <span class="token keyword">return</span> <span class="token string">"Function will not run"</span>
+        <span class="token keyword">return</span> f<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> decorated
+@decorator_name
+<span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token string">"Function is running"</span><span class="token punctuation">)</span>
+
+can_run <span class="token operator">=</span> <span class="token boolean">True</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>func<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Output: Function is running</span>
+can_run <span class="token operator">=</span> <span class="token boolean">False</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>func<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Output: Function will not run</span>
+</code></pre>
+<h2 id="Mutation"><a href="#Mutation" class="headerlink" title="Mutation"></a><em>Mutation</em></h2><pre class=" language-python"><code class="language-python">foo <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'hi'</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#-->['hi']</span>
+
+bar <span class="token operator">=</span> foo
+bar <span class="token operator">+=</span> <span class="token punctuation">[</span><span class="token string">'bye'</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#-->['hi', 'bye']</span>
+
+<span class="token comment" spellcheck="true">#将一个变量赋值为另一个可变类型变量时，对数据的改动会反映在两个变量上</span>
+
+<span class="token comment" spellcheck="true">#python可变类型（mutable）：列表，字典</span>
+<span class="token comment" spellcheck="true">#python不可变类型：数字，字符串，元组</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">add_to</span><span class="token punctuation">(</span>num<span class="token punctuation">,</span> target<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    target<span class="token punctuation">.</span>append<span class="token punctuation">(</span>num<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> target
+add_to<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Output: [1]</span>
+add_to<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Output: [1, 2]</span>
+add_to<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Output: [1, 2, 3]</span>
+
+<span class="token comment" spellcheck="true">#在Python中当函数被定义时，默认参数只会运算⼀次</span></code></pre>
+<h2 id="Enumerate"><a href="#Enumerate" class="headerlink" title="Enumerate"></a><em>Enumerate</em></h2><pre class=" language-python"><code class="language-python">my_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'apple'</span><span class="token punctuation">,</span> <span class="token string">'banana'</span><span class="token punctuation">,</span> <span class="token string">'grapes'</span><span class="token punctuation">,</span> <span class="token string">'pear'</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> index<span class="token punctuation">,</span>name <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>my_list<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span> index<span class="token punctuation">,</span>name
+
+<span class="token comment" spellcheck="true"># Output:</span>
+<span class="token comment" spellcheck="true"># 1 apple</span>
+<span class="token comment" spellcheck="true"># 2 banana</span>
+<span class="token comment" spellcheck="true"># 3 grapes</span>
+<span class="token comment" spellcheck="true"># 4 pear</span></code></pre>
+<h2 id="Object-introspection"><a href="#Object-introspection" class="headerlink" title="Object introspection"></a><em>Object introspection</em></h2><pre class=" language-python"><code class="language-python">dir<span class="token punctuation">(</span>object<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># It returns a list of attributes and methods belonging to an object</span>
+
+type<span class="token punctuation">(</span>object<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># It returns the type of an object.</span>
+
+id<span class="token punctuation">(</span>object<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># It returns the unique ids of various objects.</span></code></pre>
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a><em>异常处理</em></h2><pre class=" language-python"><code class="language-python"><span class="token keyword">try</span><span class="token punctuation">:</span>
+    file <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">'test.txt'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span>
+<span class="token keyword">except</span> Exception<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 打印⼀些异常⽇志，如果你想要的话</span>
+    <span class="token keyword">raise</span>
+
+<span class="token comment" spellcheck="true"># try/else 在try不出现异常时触发</span></code></pre>
+<h2 id="Classes"><a href="#Classes" class="headerlink" title="Classes"></a><em>Classes</em></h2><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Cal</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># pi is a class variable</span>
+    pi <span class="token operator">=</span> <span class="token number">3.142</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> radius<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># self.radius is an instance variable</span>
+        self<span class="token punctuation">.</span>radius <span class="token operator">=</span> radius
+    <span class="token keyword">def</span> <span class="token function">area</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>pi <span class="token operator">*</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>radius <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span>
+
+a <span class="token operator">=</span> Cal<span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span>
+a<span class="token punctuation">.</span>area<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Output: 3217.408</span>
+a<span class="token punctuation">.</span>pi
+<span class="token comment" spellcheck="true"># Output: 3.142</span>
+a<span class="token punctuation">.</span>pi <span class="token operator">=</span> <span class="token number">43</span>
+a<span class="token punctuation">.</span>pi
+<span class="token comment" spellcheck="true"># Output: 43</span>
+
+b <span class="token operator">=</span> Cal<span class="token punctuation">(</span><span class="token number">44</span><span class="token punctuation">)</span>
+b<span class="token punctuation">.</span>area<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Output: 6082.912</span>
+b<span class="token punctuation">.</span>pi
+<span class="token comment" spellcheck="true"># Output: 3.142</span>
+b<span class="token punctuation">.</span>pi <span class="token operator">=</span> <span class="token number">50</span>
+b<span class="token punctuation">.</span>pi
+<span class="token comment" spellcheck="true"># Output: 50</span></code></pre>
+<h2 id="Function-caching"><a href="#Function-caching" class="headerlink" title="Function caching"></a><em>Function caching</em></h2><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> functools <span class="token keyword">import</span> lru_cache
+@lru_cache<span class="token punctuation">(</span>maxsize<span class="token operator">=</span><span class="token number">32</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">fib</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> n<span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token keyword">return</span> n
+    <span class="token keyword">return</span> fib<span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">+</span>fib<span class="token punctuation">(</span>n<span class="token number">-2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">[</span>fib<span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token keyword">for</span> n <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+fib<span class="token punctuation">.</span>cache_clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token comment" spellcheck="true">#这是一个被相同参数频繁调用的I/O密集的函数</span>
+<span class="token comment" spellcheck="true">#使用lru_cache可以使这段代码的运行时间从53.6s变为0s(笔者自测)</span></code></pre>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>本文漏掉了<code>set结构</code> <code>Ternary Operators(三元运算符）</code> <code>装饰器的高级应用</code><br><code>Global &amp; Return</code>(尽量return多值代替global)<br><code>__slots__魔法</code> <code>Virtual Environment</code> <code>Collections</code><br><code>推导式</code> <code>lambda 参数:操作</code> <code>Python C extensions</code><br><code>for/else</code>(else会在for循环正常结束时执行)<br><code>open函数</code> <code>Targeting Python 2+3</code> <code>Coroutines(协程)</code><br><code>上下文管理器</code></p>
+<p>唔，终于弄完了😀————————<em><code>2020.8.9</code></em></p>
 
             </div>
             <hr/>
@@ -1123,7 +1289,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.2k</span>&nbsp;字
+                class="white-color">19k</span>&nbsp;字
             
             
             
