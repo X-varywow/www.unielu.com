@@ -408,7 +408,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    656
+                    518
                 </div>
                 
 
@@ -425,25 +425,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="开始使用第一步："><a href="#开始使用第一步：" class="headerlink" title="开始使用第一步："></a>开始使用第一步：</h3><pre class=" language-python"><code class="language-python">  <span class="token keyword">import</span> requests
-  r<span class="token operator">=</span>requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://"</span><span class="token punctuation">)</span>
-  r<span class="token punctuation">.</span>status_code                     <span class="token comment" spellcheck="true">#en,返回200表示成功</span></code></pre>
-<h3 id="开始使用第二步："><a href="#开始使用第二步：" class="headerlink" title="开始使用第二步："></a>开始使用第二步：</h3><pre class=" language-python"><code class="language-python">  r<span class="token punctuation">.</span>encoding <span class="token operator">=</span> <span class="token string">'utf-8'</span>
-  r<span class="token punctuation">.</span>text                            <span class="token comment" spellcheck="true">#en,返回网站的html</span></code></pre>
-<h3 id="其它："><a href="#其它：" class="headerlink" title="其它："></a>其它：</h3><p><code>r.apparent_encoding</code>  【从内容分析出响应内容编码方式，返回一个编码方式字符串】<br><code>r.raise_for_status</code>   【如果不是200，返回异常码】</p>
-<blockquote>
-<p>七个主要方法：</p>
-<ul>
-<li><code>requests.request(method,url,**kwargs)</code></li>
-<li><code>requests.get(url,**kwargs)</code>, headers中伪装头信息</li>
-<li>requests.post()</li>
-<li>requests.put()</li>
-<li>requests.patch()</li>
-<li>requests.head()</li>
-<li>requests.delete()</li>
-</ul>
-</blockquote>
-<h2 id="2-2-关于re"><a href="#2-2-关于re" class="headerlink" title="2.2 关于re"></a>2.2 关于re</h2><h3 id="开始吧"><a href="#开始吧" class="headerlink" title="开始吧"></a>开始吧</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> re
+                <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> re
 <span class="token keyword">print</span><span class="token punctuation">(</span>re<span class="token punctuation">.</span>match<span class="token punctuation">(</span><span class="token string">"h"</span><span class="token punctuation">,</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p><strong>结果说明：</strong></p>
@@ -454,7 +436,7 @@
 </ul>
 </blockquote>
 <p><code>re.search()</code> 扫描整个字符串并返回第一个成功的匹配。<br><code>re.compile()</code> 用于编译正则表达式，生成一个正则表达式（ Pattern ）对象，供 match() 和 search() 这两个函数使用。<br><code>re.findall()</code>在字符串中找到正则表达式所匹配的所有子串，并返回一个列表，如果没有找到匹配的，则返回空列表。</p>
-<h3 id="pattern的写法"><a href="#pattern的写法" class="headerlink" title="pattern的写法"></a>pattern的写法</h3><p>1、<code>[ ]</code>：方括号。匹配需要的字符集合，如[1-3]或[123]都是匹配1、2或者3。</p>
+<p>1、<code>[ ]</code>：方括号。匹配需要的字符集合，如[1-3]或[123]都是匹配1、2或者3。</p>
 <p>2、<code>^</code>：脱字符号。方括号中加入脱字符号，就是匹配未列出的所有其他字符，如[^a]匹配除a以外的所有其他字符。</p>
 <p>3、<code>\</code>：反斜杠。和python字符串使用规则一样，可以匹配特殊字符本身，如\d表示匹配0到9的任意一个数字字符，而<code>\\d</code>则表示匹配\d本身。</p>
 <p>4、<code>*</code>：星号。匹配前一个字符0到n次，如pytho*n可以匹配pythn、pytoon、pythooooon等。还有其它匹配重复字符的如<code>？（匹配0或1次）</code>、<code>+（匹配1次或多次）</code>或{n,m}，其中{n,m}可以灵活使用，它表示匹配n次到m次。</p>
@@ -483,7 +465,7 @@
 <td>匹配任意非数字</td>
 </tr>
 </tbody></table>
-<h3 id="写代码暂时记住用法"><a href="#写代码暂时记住用法" class="headerlink" title="写代码暂时记住用法"></a>写代码暂时记住用法</h3><p>控制变量法。。😫</p>
+<p><strong>实例</strong><br>控制变量法。。😫</p>
 <pre class=" language-python"><code class="language-python">re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"d(ds)*"</span><span class="token punctuation">,</span><span class="token string">"askldjasaddsa"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#-->['', 'ds']</span>
 re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"d[ds]*"</span><span class="token punctuation">,</span><span class="token string">"askldjasaddsa"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#-->['d', 'dds']</span>
 re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"d{ds}*"</span><span class="token punctuation">,</span><span class="token string">"askldjasaddsa"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#-->[]</span>
@@ -493,7 +475,7 @@ re<span class="token punctuation">.</span>findall<span class="token punctuation"
 <pre class=" language-python"><code class="language-python">re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">"/(\S*?)/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"//asd/sdsa/asda"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#-->['', 'sdsa']</span>
 re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">"/(\S*)/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"//asd/sdsa/asda"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#-->['/asd/sdsa']</span></code></pre>
 <p>正则匹配修饰符<code>re.S</code>使 <code>.</code> 匹配包括换行在内的所有字符</p>
-<p>唔，整了好久~<br>一个正则表达式在线测试网站：<br><a href="http://c.runoob.com/front-end/854" target="_blank" rel="noopener">http://c.runoob.com/front-end/854</a><br>(还有许多常用正则表达式)</p>
+<p>一个正则表达式在线测试网站：<br><a href="http://c.runoob.com/front-end/854" target="_blank" rel="noopener">http://c.runoob.com/front-end/854</a><br>(还有许多常用正则表达式)</p>
 
             </div>
             <hr/>

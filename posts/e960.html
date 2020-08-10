@@ -408,14 +408,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -462,7 +462,25 @@
 <li>虽然（翻页后的）url，用浏览器无法访问，但get可以爬到</li>
 </ul>
 <h1 id="2-基础知识"><a href="#2-基础知识" class="headerlink" title="2.基础知识"></a>2.基础知识</h1><hr>
-<h2 id="2-1-关于requests"><a href="#2-1-关于requests" class="headerlink" title="2.1 关于requests"></a>2.1 关于requests</h2><p>https:/x-varywow.github.io/posts/10df.html</p>
+<h2 id="2-1-关于requests"><a href="#2-1-关于requests" class="headerlink" title="2.1 关于requests"></a>2.1 关于requests</h2><h3 id="开始使用第一步："><a href="#开始使用第一步：" class="headerlink" title="开始使用第一步："></a>开始使用第一步：</h3><pre class=" language-python"><code class="language-python">  <span class="token keyword">import</span> requests
+  r<span class="token operator">=</span>requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://"</span><span class="token punctuation">)</span>
+  r<span class="token punctuation">.</span>status_code                     <span class="token comment" spellcheck="true">#en,返回200表示成功</span></code></pre>
+<h3 id="开始使用第二步："><a href="#开始使用第二步：" class="headerlink" title="开始使用第二步："></a>开始使用第二步：</h3><pre class=" language-python"><code class="language-python">  r<span class="token punctuation">.</span>encoding <span class="token operator">=</span> <span class="token string">'utf-8'</span>
+  r<span class="token punctuation">.</span>text                            <span class="token comment" spellcheck="true">#en,返回网站的html</span></code></pre>
+<h3 id="其它："><a href="#其它：" class="headerlink" title="其它："></a>其它：</h3><p><code>r.apparent_encoding</code>  【从内容分析出响应内容编码方式，返回一个编码方式字符串】<br><code>r.raise_for_status</code>   【如果不是200，返回异常码】</p>
+<blockquote>
+<p>七个主要方法：</p>
+<ul>
+<li><code>requests.request(method,url,**kwargs)</code></li>
+<li><code>requests.get(url,**kwargs)</code>, headers中伪装头信息</li>
+<li>requests.post()</li>
+<li>requests.put()</li>
+<li>requests.patch()</li>
+<li>requests.head()</li>
+<li>requests.delete()</li>
+</ul>
+</blockquote>
+<h2 id="2-2-关于re"><a href="#2-2-关于re" class="headerlink" title="2.2 关于re"></a>2.2 关于re</h2><p>https:/x-varywow.github.io/posts/10df.html</p>
 <h2 id="2-3-关于面向对象"><a href="#2-3-关于面向对象" class="headerlink" title="2.3 关于面向对象"></a>2.3 关于面向对象</h2><p><code>if __name__ == &#39;__main__&#39;</code><br>表示：只有当该文件作为一个独立的脚本运行时才会被调用。<br>换句话说，如果在其它文件中导入此文件，那么条件中的语句不被执行。</p>
 <h1 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3.代码实现"></a>3.代码实现</h1><hr>
 <p>1.0版本代码：</p>
