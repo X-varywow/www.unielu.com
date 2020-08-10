@@ -58,23 +58,46 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/categories" class="waves-effect waves-light">
+    <a href="/navigate" class="waves-effect waves-light">
       
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      <i class="fas fa-paper-plane" style="zoom: 0.6;"></i>
       
-      <span>分类</span>
+      <span>导航</span>
     </a>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
+    <a href="" class="waves-effect waves-light">
+
       
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
       
-      <span>标签</span>
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
     </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+    </ul>
     
   </li>
   
@@ -134,23 +157,47 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/categories" class="waves-effect waves-light">
+		<a href="/navigate" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-bookmark"></i>
+			    <i class="fa-fw fas fa-paper-plane"></i>
 			
-			分类
+			导航
 		</a>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
+		<a href="javascript:;">
 			
-			    <i class="fa-fw fas fa-tags"></i>
+				<i class="fa-fw fas fa-list"></i>
 			
-			标签
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+            </ul>
           
         </li>
         
@@ -238,19 +285,28 @@
                 </a>
                 
                 
-                <a href="/tags/python%E6%A8%A1%E5%9D%97/" title="python模块: 7">
+                <a href="/tags/kmp/" title="kmp: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="python模块" style="background-color: #F5EEF8;">python模块
-                        <span class="tag-length">7</span>
+                            data-tagname="kmp" style="background-color: #F5EEF8;">kmp
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/kmp/" title="kmp: 1">
+                <a href="/tags/python%E6%A8%A1%E5%9D%97/" title="python模块: 8">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="kmp" style="background-color: #D5F5E3;">kmp
+                            data-tagname="python模块" style="background-color: #D5F5E3;">python模块
+                        <span class="tag-length">8</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E8%A3%85%E9%A5%B0%E5%99%A8/" title="装饰器: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="装饰器" style="background-color: #E8F8F5;">装饰器
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -259,26 +315,8 @@
                 <a href="/tags/hexo/" title="hexo: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="hexo" style="background-color: #E8F8F5;">hexo
+                            data-tagname="hexo" style="background-color: #FEF9E7;">hexo
                         <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E8%A3%85%E9%A5%B0%E5%99%A8/" title="装饰器: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="装饰器" style="background-color: #FEF9E7;">装饰器
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/leetcode%E5%91%A8%E8%B5%9B/" title="leetcode周赛: 5">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="leetcode周赛" style="background-color: #F8F9F9;">leetcode周赛
-                        <span class="tag-length">5</span>
                     </span>
                 </a>
                 
@@ -286,8 +324,17 @@
                 <a href="/tags/leetcode/" title="leetcode: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="leetcode" style="background-color: #82E0AA;">leetcode
+                            data-tagname="leetcode" style="background-color: #F8F9F9;">leetcode
                         <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/leetcode%E5%91%A8%E8%B5%9B/" title="leetcode周赛: 5">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="leetcode周赛" style="background-color: #82E0AA;">leetcode周赛
+                        <span class="tag-length">5</span>
                     </span>
                 </a>
                 
@@ -310,19 +357,10 @@
                 </a>
                 
                 
-                <a href="/tags/%E8%B5%84%E6%BA%90/" title="资源: 1">
+                <a href="/tags/torch/" title="torch: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="资源" style="background-color: #85C1E9;">资源
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/mooc/" title="mooc: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="mooc" style="background-color: #F8C471;">mooc
+                             chip-active "
+                            data-tagname="torch" style="background-color: #85C1E9;">torch
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -331,16 +369,16 @@
                 <a href="/tags/modelarts/" title="modelarts: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="modelarts" style="background-color: #F9E79F;">modelarts
+                            data-tagname="modelarts" style="background-color: #F8C471;">modelarts
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/torch/" title="torch: 1">
+                <a href="/tags/mooc/" title="mooc: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="torch" style="background-color: #D7BDE2;">torch
+                             chip-default "
+                            data-tagname="mooc" style="background-color: #F9E79F;">mooc
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -453,7 +491,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19k</span>&nbsp;字
+                class="white-color">19.1k</span>&nbsp;字
             
             
             
