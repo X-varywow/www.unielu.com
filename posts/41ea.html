@@ -401,14 +401,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-11
+                    2020-08-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    2.1k
                 </div>
                 
 
@@ -646,6 +646,24 @@
             <span class="token keyword">for</span> c <span class="token keyword">in</span> range<span class="token punctuation">(</span>cols<span class="token punctuation">)</span><span class="token punctuation">:</span>
                 <span class="token keyword">if</span> board<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">"O"</span><span class="token punctuation">:</span> board<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"X"</span>
                 <span class="token keyword">elif</span> board<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">"A"</span><span class="token punctuation">:</span> board<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"O"</span></code></pre>
+<h3 id="133-克隆图（8-12"><a href="#133-克隆图（8-12" class="headerlink" title="133. 克隆图（8.12)"></a>133. 克隆图（<code>8.12</code>)</h3><p>给你无向 连通 图中一个节点的引用，请你返回该图的 深拷贝（克隆）。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>visited<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">#新node字典</span>
+    <span class="token keyword">def</span> <span class="token function">cloneGraph</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> node<span class="token punctuation">:</span> <span class="token keyword">return</span> node
+        <span class="token keyword">if</span> node <span class="token keyword">in</span> self<span class="token punctuation">.</span>visited<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> self<span class="token punctuation">.</span>visited<span class="token punctuation">[</span>node<span class="token punctuation">]</span>
+
+        clone_node<span class="token operator">=</span>Node<span class="token punctuation">(</span>node<span class="token punctuation">.</span>val<span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>visited<span class="token punctuation">[</span>node<span class="token punctuation">]</span><span class="token operator">=</span>clone_node
+
+        clone_node<span class="token punctuation">.</span>neighbors<span class="token operator">=</span><span class="token punctuation">[</span>self<span class="token punctuation">.</span>cloneGraph<span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token keyword">for</span> n <span class="token keyword">in</span> node<span class="token punctuation">.</span>neighbors<span class="token punctuation">]</span>
+
+        <span class="token keyword">return</span> clone_node
+
+<span class="token comment" spellcheck="true"># 对于一张图而言，它的深拷贝即构建一张与原图结构，值均一样的图，但是其中的节点不再是原来图节点的引用.</span>
+<span class="token comment" spellcheck="true"># 或者用copy.deepcopy</span></code></pre>
 
             </div>
             <hr/>
@@ -1262,7 +1280,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.6k</span>&nbsp;字
+                class="white-color">19.7k</span>&nbsp;字
             
             
             
