@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="KMP算法, blog">
+    <meta name="keywords" content="杂货区, blog">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>KMP算法 | blog</title>
+    <title>杂货区 | blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/libs/awesome/css/all.css">
@@ -239,12 +239,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/20181119.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/medias/featureimages/geek.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">KMP算法</h1>
+                    <h1 class="description center-align post-title diyFont">杂货区</h1>
                 </div>
             </div>
         </div>
@@ -369,8 +369,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/kmp/">
-                                <span class="chip bg-color">kmp</span>
+                            <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                <span class="chip bg-color">数学</span>
+                            </a>
+                        
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C</span>
                             </a>
                         
                     </div>
@@ -381,8 +385,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/other/" class="post-category">
+                                other
                             </a>
                         
                     </div>
@@ -394,28 +398,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-14
+                    2020-04-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-07
+                    2020-08-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    438
+                    10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -425,63 +429,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="关于kmp"><a href="#关于kmp" class="headerlink" title="关于kmp"></a>关于kmp</h2><p>kmp是一个效率非常高的<strong>字符串匹配</strong>算法。<br>有问题如下：</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#求b在a中出现次数</span>
-a <span class="token operator">=</span> <span class="token string">"ababacababadababadadda"</span>
-b <span class="token operator">=</span> <span class="token string">"ababad"</span></code></pre>
-<p>kmp可以将暴力法的<code>O(m*n)</code>降低为<code>O(m+n)</code></p>
-<h2 id="kmp过程"><a href="#kmp过程" class="headerlink" title="kmp过程"></a>kmp过程</h2><ol>
-<li><strong>计算temp数组</strong><br>temp数组可理解为一组b中相同前后缀的标记(不能为本身长度)<blockquote>
-<p><code>b = &quot;ababad&quot;</code><br>对第一位<code>&#39;a&#39;</code>，没有相同前后缀，<code>temp[0] = 0</code><br>对第二位<code>&#39;ab&#39;</code>，<code>temp[1] = 0</code><br>对第三位<code>’aba&#39;</code>，<code>temp[2] = 1</code><br>以此类推，<code>temp= [0,0,1,2,3,0]</code></p>
-</blockquote>
-</li>
-</ol>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">cal_temp</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true">#K是一个对相同前后缀的标记</span>
-    temp<span class="token punctuation">,</span>k<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">0</span>
-    <span class="token comment" spellcheck="true">#从索引1处开始遍历</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">while</span> k<span class="token operator">></span><span class="token number">0</span> <span class="token operator">and</span> b<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">!=</span>b<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            k<span class="token operator">=</span>temp<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span>
-        <span class="token keyword">if</span> b<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span>b<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            k<span class="token operator">+=</span><span class="token number">1</span>
-        temp<span class="token punctuation">.</span>append<span class="token punctuation">(</span>k<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> temp</code></pre>
-<p>分析一下代码：</p>
-<blockquote>
-<ul>
-<li><code>i=1</code>时，’ab’，b[1]!=b[0]，temp.append(0)</li>
-<li><code>i=2</code>时，’aba’，b[2]==b[0]，temp.append(1)</li>
-<li><code>i=3</code>时，’abab’，b[3]==b[1]，temp.append(2)</li>
-<li><code>i=4</code>时，’ababa’，b[4]==b[2]，temp.append(3)</li>
-<li><code>i=5</code>时，’ababad’，temp=[0,0,1,2,3]<br>b[5]!=b[3]，k=temp[3-1]=1<br>b[5]!=b[1]，k=temp[1-1]=0<br>temp.append(0)</li>
-</ul>
-</blockquote>
-<p>发现比较难理解的是那个回溯的地方：<code>k=temp[k-1]</code><br>没事，把<code>i=5</code>的情况再分析一下：</p>
-<blockquote>
-<p><code>i=5</code>时，’ababad’，temp=[0,0,1,2,3]，k=3</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20200514161345927.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70" alt=""></p>
-<blockquote>
-<p>aba and aba can match,k=3<br>a and a can match,k=(aba的匹配数1,即temp[k-1])<br>more explain: aba can see as a and a,the first <code>a</code> can match the fourth <code>a</code></p>
-</blockquote>
-<ol start="2">
-<li><strong>kmp</strong><br>打完上面的怪，就可以直接写kmp了</li>
-</ol>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">kmp</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    temp<span class="token operator">=</span>cal_temp<span class="token punctuation">(</span>b<span class="token punctuation">)</span>
-    ans<span class="token punctuation">,</span>k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">while</span> k<span class="token operator">></span><span class="token number">0</span> <span class="token operator">and</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">!=</span>b<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            k<span class="token operator">=</span>temp<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span>
-        <span class="token keyword">if</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span>b<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            k<span class="token operator">+=</span><span class="token number">1</span>
-        <span class="token keyword">if</span> k<span class="token operator">==</span>len<span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            ans<span class="token operator">+=</span><span class="token number">1</span>
-            k<span class="token operator">=</span>temp<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span>
-    <span class="token keyword">return</span> num</code></pre>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>利用已匹配的信息，迈出比较大的步子。</p>
-
+                <h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a><em>数学</em></h2><h2 id="C语言"><a href="#C语言" class="headerlink" title="C语言"></a><em>C语言</em></h2><h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a><em>计算机网络</em></h2>
             </div>
             <hr/>
 
@@ -506,7 +454,7 @@ b <span class="token operator">=</span> <span class="token string">"ababad"</spa
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://x-varywow.github.io/posts/8c51.html">https://x-varywow.github.io/posts/8c51.html</a>
+                    <a href="https://x-varywow.github.io/posts/5bf8.html">https://x-varywow.github.io/posts/5bf8.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -544,8 +492,12 @@ b <span class="token operator">=</span> <span class="token string">"ababad"</spa
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/kmp/">
-                                    <span class="chip bg-color">kmp</span>
+                                <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                    <span class="chip bg-color">数学</span>
+                                </a>
+                            
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C</span>
                                 </a>
                             
                         </div>
@@ -854,31 +806,30 @@ b <span class="token operator">=</span> <span class="token string">"ababad"</spa
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/bd56.html">
+                <a href="/posts/6080.html">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/medias/featureimages/17.jpg" class="responsive-img" alt="机器学习">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/medias/featureimages/13.jpg" class="responsive-img" alt="微观经济学">
-                        
-                        <span class="card-title">微观经济学</span>
+                        <span class="card-title">机器学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一门慕课笔记
+                            无
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-15
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-01
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/e-class/" class="post-category">
-                                    e-class
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
                                 </a>
                             
                             
@@ -888,8 +839,8 @@ b <span class="token operator">=</span> <span class="token string">"ababad"</spa
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/mooc/">
-                        <span class="chip bg-color">mooc</span>
+                    <a href="/tags/torch/">
+                        <span class="chip bg-color">torch</span>
                     </a>
                     
                 </div>
@@ -903,30 +854,30 @@ b <span class="token operator">=</span> <span class="token string">"ababad"</spa
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/c3aa.html">
+                <a href="/posts/3eeb.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/python.png" class="responsive-img" alt="pandas模块">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/book.jpg" class="responsive-img" alt="hexo文档及建站">
                         
-                        <span class="card-title">pandas模块</span>
+                        <span class="card-title">hexo文档及建站</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            hello world和建站教程链接
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/other/" class="post-category">
+                                    other
                                 </a>
                             
                             
@@ -936,12 +887,8 @@ b <span class="token operator">=</span> <span class="token string">"ababad"</spa
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                        <span class="chip bg-color">python模块</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                        <span class="chip bg-color">数据分析</span>
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
                 </div>
