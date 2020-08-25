@@ -31,6 +31,13 @@
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css"></head>
 
+<script type="text/javascript">
+    //只在桌面版网页启用特效
+    var windowWidth = $(window).width();
+    if (windowWidth > 768) {
+        document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+    }
+</script>
 <body>
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
@@ -401,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-18
+                    2020-08-25
                 </div>
                 
 
@@ -615,6 +622,10 @@
 <tr>
 <td><code>strstr(s1, s2)</code></td>
 <td>返回一个指针，指向字符串 s1 中字符串 s2 的第一次出现的位置。</td>
+</tr>
+<tr>
+<td><code>void *memset(void * str,int c,size_t n)</code></td>
+<td>复制字符c 到str所指向的的前n个字符</td>
 </tr>
 </tbody></table>
 <h2 id="stdio-h"><a href="#stdio-h" class="headerlink" title="stdio.h"></a><em>stdio.h</em></h2><table>
