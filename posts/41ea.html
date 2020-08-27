@@ -31,13 +31,6 @@
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css"></head>
 
-<script type="text/javascript">
-    //只在桌面版网页启用特效
-    var windowWidth = $(window).width();
-    if (windowWidth > 768) {
-        document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
-    }
-</script>
 <body>
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
@@ -401,28 +394,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-08
+                    2020-08-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-14
+                    2020-08-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    3.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    13 分
                 </div>
                 
 
@@ -701,6 +694,73 @@
             <span class="token keyword">if</span> c <span class="token keyword">in</span> dic<span class="token punctuation">:</span> stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>c<span class="token punctuation">)</span>
             <span class="token keyword">elif</span> dic<span class="token punctuation">[</span>stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">!=</span> c<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span> 
         <span class="token keyword">return</span> len<span class="token punctuation">(</span>stack<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span></code></pre>
+<h3 id="17-电话号码的字母组合（8-26"><a href="#17-电话号码的字母组合（8-26" class="headerlink" title="17. 电话号码的字母组合（8.26)"></a>17. 电话号码的字母组合（<code>8.26</code>)</h3><p>给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。</p>
+<p>给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">letterCombinations</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> digits<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        map<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'2'</span><span class="token punctuation">:</span><span class="token string">"abc"</span><span class="token punctuation">,</span><span class="token string">'3'</span><span class="token punctuation">:</span><span class="token string">"def"</span><span class="token punctuation">,</span><span class="token string">'4'</span><span class="token punctuation">:</span><span class="token string">"ghi"</span><span class="token punctuation">,</span><span class="token string">'5'</span><span class="token punctuation">:</span><span class="token string">"jkl"</span><span class="token punctuation">,</span><span class="token string">'6'</span><span class="token punctuation">:</span><span class="token string">"mno"</span><span class="token punctuation">,</span><span class="token string">'7'</span><span class="token punctuation">:</span><span class="token string">"pqrs"</span><span class="token punctuation">,</span><span class="token string">'8'</span><span class="token punctuation">:</span><span class="token string">"tuv"</span><span class="token punctuation">,</span><span class="token string">'9'</span><span class="token punctuation">:</span><span class="token string">"wxyz"</span><span class="token punctuation">}</span>
+        <span class="token keyword">if</span> digits<span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        ans<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">''</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true">#注意[]和['']的区别,''!=None</span>
+        <span class="token keyword">for</span> digit <span class="token keyword">in</span> digits<span class="token punctuation">:</span>
+            ans<span class="token operator">=</span><span class="token punctuation">[</span>pre<span class="token operator">+</span>suf <span class="token keyword">for</span> pre <span class="token keyword">in</span> ans <span class="token keyword">for</span> suf <span class="token keyword">in</span> map<span class="token punctuation">[</span>digit<span class="token punctuation">]</span><span class="token punctuation">]</span>
+        <span class="token keyword">return</span> ans</code></pre>
+<h3 id="322-重新安排行程（8-27"><a href="#322-重新安排行程（8-27" class="headerlink" title="322.重新安排行程（8.27)"></a>322.重新安排行程（<code>8.27</code>)</h3><p>给定一个机票的字符串二维数组 [from, to]，子数组中的两个成员分别表示飞机出发和降落的机场地点，对该行程进行重新规划排序。所有这些机票都属于一个从 JFK（肯尼迪国际机场）出发的先生，所以该行程必须从 JFK 开始。</p>
+<p>说明:</p>
+<ul>
+<li>如果存在多种有效的行程，你可以按字符自然排序返回最小的行程组合。例如，行程 [“JFK”, “LGA”] 与 [“JFK”, “LGB”] 相比就更小，排序更靠前</li>
+<li>所有的机场都用三个大写字母表示（机场代码）。</li>
+<li>假定所有机票至少存在一种合理的行程。</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#map硬套不行啊，会在图里死循环。</span>
+
+<span class="token comment" spellcheck="true">#什么是欧拉路径？欧拉路径就是一条能够不重不漏地经过图上的**每一条边**的路径，</span>
+<span class="token comment" spellcheck="true">#即小学奥数中的一笔画问题。而若这条路径的起点和终点相同，则将这条路径称为欧拉回路。</span>
+
+<span class="token comment" spellcheck="true">#如何判断一个图是否有欧拉路径呢？显然，与一笔画问题相同，一个图有欧拉路径需要以下几个条件：</span>
+
+<span class="token comment" spellcheck="true"># 1. 首先，这是一个连通图</span>
+<span class="token comment" spellcheck="true"># 2. 若是无向图，则这个图的度数为奇数的点的个数必须是0或2；</span>
+<span class="token comment" spellcheck="true">#    若是有向图，则要么所有点的入度和出度相等，要么有且只有两个点的入度分别比出度大1和少1</span>
+
+<span class="token comment" spellcheck="true">#具有欧拉回路的无向图称为欧拉图。</span>
+
+<span class="token comment" spellcheck="true">#具有欧拉通路但不具有欧拉回路的无向图称为半欧拉图。</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">findItinerary</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> tickets<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>curr<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">while</span> vec<span class="token punctuation">[</span>curr<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                <span class="token comment" spellcheck="true">#pop出最小值</span>
+                tmp<span class="token operator">=</span> heapq<span class="token punctuation">.</span>heappop<span class="token punctuation">(</span>vec<span class="token punctuation">[</span>curr<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                dfs<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span>
+            stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>curr<span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true">#一个{depart:[arrive...]}的字典</span>
+        vec<span class="token operator">=</span>collections<span class="token punctuation">.</span>defaultdict<span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+
+        <span class="token keyword">for</span> depart<span class="token punctuation">,</span>arrive <span class="token keyword">in</span> tickets<span class="token punctuation">:</span>
+            vec<span class="token punctuation">[</span>depart<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>arrive<span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true">#便于排序</span>
+        <span class="token keyword">for</span> key <span class="token keyword">in</span> vec<span class="token punctuation">:</span>
+            heapq<span class="token punctuation">.</span>heapify<span class="token punctuation">(</span>vec<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#heapq是一个标准库模块,优先队列算法</span>
+        <span class="token comment" spellcheck="true">#heapify转换列表成为堆结构</span>
+
+        stack<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        dfs<span class="token punctuation">(</span><span class="token string">"JFK"</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> stack<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true">#dfs和逆序那块迷糊</span></code></pre>
+<blockquote>
+<ol>
+<li>由于题目中说必然存在一条有效路径(至少是半欧拉图)，所以算法不需要回溯（既加入到结果集里的元素不需要删除）</li>
+<li>整个图最多存在一个死胡同(出度和入度相差1），且这个死胡同一定是最后一个访问到的，否则无法完成一笔画。</li>
+<li>DFS的调用其实是一个拆边的过程（既每次调用删除一条边），一定是递归到这个死胡同（无边可拆）后递归函数开始返回。所以死胡同是第一个加入栈中的元素。</li>
+<li>最后逆序的输出即可。</li>
+</ol>
+</blockquote>
 
             </div>
             <hr/>
@@ -1074,30 +1134,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/2e8f.html">
+                <a href="/posts/9280.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/medias/featureimages/python.png" class="responsive-img" alt="intermediate">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/medias/featureimages/new-5.jpg" class="responsive-img" alt="小站的更新">
                         
-                        <span class="card-title">intermediate</span>
+                        <span class="card-title">小站的更新</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一本书的笔记与总结
+                            介绍更新的内容
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-09
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-09
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/other/" class="post-category">
+                                    other
                                 </a>
                             
                             
@@ -1107,8 +1167,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%A3%85%E9%A5%B0%E5%99%A8/">
-                        <span class="chip bg-color">装饰器</span>
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
                 </div>
@@ -1122,31 +1182,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/4890.html">
+                <a href="/posts/f3a1.html">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/medias/featureimages/new-2.jpg" class="responsive-img" alt="2020开学初">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/medias/featureimages/5.jpg" class="responsive-img" alt="collections模块">
-                        
-                        <span class="card-title">collections模块</span>
+                        <span class="card-title">2020开学初</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            参照官方文档
+                            无
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/other/" class="post-category">
+                                    other
                                 </a>
                             
                             
@@ -1156,8 +1215,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                        <span class="chip bg-color">python模块</span>
+                    <a href="/tags/%E5%B7%A5%E7%A8%8B/">
+                        <span class="chip bg-color">工程</span>
                     </a>
                     
                 </div>
@@ -1317,7 +1376,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">22.7k</span>&nbsp;字
+                class="white-color">23.7k</span>&nbsp;字
             
             
             
