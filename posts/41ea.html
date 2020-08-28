@@ -401,21 +401,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-27
+                    2020-08-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    14 分
                 </div>
                 
 
@@ -761,6 +761,19 @@
 <li>最后逆序的输出即可。</li>
 </ol>
 </blockquote>
+<h3 id="657-机器人能否返回原点（8-28"><a href="#657-机器人能否返回原点（8-28" class="headerlink" title="657. 机器人能否返回原点（8.28)"></a>657. 机器人能否返回原点（<code>8.28</code>)</h3><p>在二维平面上，有一个机器人从原点 (0, 0) 开始。给出它的移动顺序，判断这个机器人在完成移动后是否在 (0, 0) 处结束。</p>
+<p>移动顺序由字符串表示。字符 move[i] 表示其第 i 次移动。机器人的有效动作有 R（右），L（左），U（上）和 D（下）。如果机器人在完成所有动作后返回原点，则返回 true。否则，返回 false。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">judgeCircle</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> moves<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        pos<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> move <span class="token keyword">in</span> moves<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> move<span class="token operator">==</span><span class="token string">"U"</span><span class="token punctuation">:</span> pos<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+=</span><span class="token number">1</span>
+            <span class="token keyword">elif</span> move<span class="token operator">==</span><span class="token string">"D"</span><span class="token punctuation">:</span> pos<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-=</span><span class="token number">1</span>
+            <span class="token keyword">elif</span> move<span class="token operator">==</span><span class="token string">"L"</span><span class="token punctuation">:</span> pos<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">-=</span><span class="token number">1</span>
+            <span class="token keyword">elif</span> move<span class="token operator">==</span><span class="token string">"R"</span><span class="token punctuation">:</span> pos<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+=</span><span class="token number">1</span>
+        <span class="token keyword">return</span> pos<span class="token operator">==</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># or return moves.count('L') == moves.count('R') and moves.count('U') == moves.count('D')</span></code></pre>
 
             </div>
             <hr/>
@@ -1215,8 +1228,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%B7%A5%E7%A8%8B/">
-                        <span class="chip bg-color">工程</span>
+                    <a href="/tags/%E5%A4%A7%E4%BA%8C/">
+                        <span class="chip bg-color">大二</span>
                     </a>
                     
                 </div>
@@ -1376,7 +1389,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">23.7k</span>&nbsp;字
+                class="white-color">23.8k</span>&nbsp;字
             
             
             
