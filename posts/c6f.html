@@ -401,7 +401,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-25
+                    2020-08-29
                 </div>
                 
 
@@ -468,6 +468,11 @@
 <span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">//可以看见定义时*符号可以在type与p间随意放</span>
 <span class="token comment" spellcheck="true">//解引用会访问指针类型相关的字节</span></code></pre>
+<pre class=" language-c"><code class="language-c">    <span class="token keyword">char</span><span class="token operator">*</span> pstr<span class="token operator">=</span><span class="token string">"hello"</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">*</span>pstr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c\n"</span><span class="token punctuation">,</span><span class="token operator">*</span>string<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
 <hr>
 <h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><blockquote>
 <p>为什么要用指针：</p>
