@@ -405,14 +405,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-07
+                    2020-09-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    597
+                    598
                 </div>
                 
 
@@ -431,26 +431,27 @@
             <div id="articleContent">
                 <p><code>Pandas</code> 是 Python 的<strong>核心数据分析支持库</strong>，是 Python 中统计计算生态系统的重要组成部分。</p>
 <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>一维的<code>Series</code>和二维的  <code>DataFrame</code></p>
-<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>，index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-<blockquote>
-<p>0    1<br>1    2<br>2    3<br>dtype: int64</p>
-</blockquote>
-<p><strong>创建方法</strong></p>
+<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>，index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 0    1</span>
+<span class="token comment" spellcheck="true"># 1    2</span>
+<span class="token comment" spellcheck="true"># 2    3</span>
+<span class="token comment" spellcheck="true"># dtype: int64</span></code></pre>
+<p><strong>创建方法:</strong></p>
 <ol>
 <li>同上</li>
 <li>字典</li>
 </ol>
-<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<blockquote>
-<p>Empty DataFrame<br>Columns: []<br>Index: []</p>
-</blockquote>
+<pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># Empty DataFrame</span>
+<span class="token comment" spellcheck="true"># Columns: []</span>
+<span class="token comment" spellcheck="true"># Index: []</span></code></pre>
 <pre class=" language-python"><code class="language-python">dates<span class="token operator">=</span>pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span><span class="token string">'20200511'</span><span class="token punctuation">,</span>periods<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
-dates</code></pre>
-<blockquote>
-<p>DatetimeIndex([‘2020-05-11’, ‘2020-05-12’, ‘2020-05-13’], dtype=’datetime64[ns]’, freq=’D’)</p>
-</blockquote>
+dates
+
+<span class="token comment" spellcheck="true"># DatetimeIndex(['2020-05-11', '2020-05-12', '2020-05-13'], dtype='datetime64[ns]', freq='D')</span></code></pre>
 <pre class=" language-python"><code class="language-python">pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>index<span class="token operator">=</span>dates<span class="token punctuation">,</span>columns<span class="token operator">=</span>list<span class="token punctuation">(</span><span class="token string">'abcd'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<blockquote>
 <table>
 <thead>
 <tr>
@@ -483,7 +484,6 @@ dates</code></pre>
 <td>0.717187</td>
 </tr>
 </tbody></table>
-</blockquote>
 <h3 id="1-查看数据"><a href="#1-查看数据" class="headerlink" title="(1)查看数据"></a>(1)查看数据</h3><ul>
 <li><code>df.head()</code>，k值默认为5.</li>
 <li><code>df.tail()</code>，k值默认为5</li>
@@ -623,7 +623,7 @@ b<span class="token punctuation">.</span>describe<span class="token punctuation"
 </table>
 </div>
 
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文基于官方文档，和mooc一门课的笔记。<br>还很杂乱，大一结束后有需要再整理。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文基于官方文档，和mooc一门课的笔记。<br>还很杂乱，需要重学时再整理。</p>
 
             </div>
             <hr/>
@@ -1248,7 +1248,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">25.4k</span>&nbsp;字
+                class="white-color">27k</span>&nbsp;字
             
             
             
