@@ -401,21 +401,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-29
+                    2020-09-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    9 分
                 </div>
                 
 
@@ -844,6 +844,65 @@
     <span class="token function">fclose</span><span class="token punctuation">(</span>fp<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//关闭文件</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
+<h2 id="预处理器"><a href="#预处理器" class="headerlink" title="预处理器"></a><em>预处理器</em></h2><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>#define</code></td>
+<td>定义宏</td>
+</tr>
+<tr>
+<td><code>#include</code></td>
+<td>包含一个源代码文件</td>
+</tr>
+<tr>
+<td><code>#undef</code></td>
+<td>取消已定义的宏</td>
+</tr>
+<tr>
+<td><code>#ifdef</code></td>
+<td>如果宏已经定义，则返回真</td>
+</tr>
+<tr>
+<td><code>#ifndef</code></td>
+<td>如果宏没有定义，则返回真</td>
+</tr>
+<tr>
+<td><code>#if</code></td>
+<td>如果给定条件为真，则编译下面代码</td>
+</tr>
+<tr>
+<td><code>#else</code></td>
+<td>#if 的替代方案</td>
+</tr>
+<tr>
+<td><code>#elif</code></td>
+<td>如果前面的 #if 给定条件不为真，当前条件为真，则编译下面代码</td>
+</tr>
+<tr>
+<td><code>#endif</code></td>
+<td>结束一个 #if……#else 条件编译块</td>
+</tr>
+<tr>
+<td><code>#error</code></td>
+<td>当遇到标准错误时，输出错误消息</td>
+</tr>
+<tr>
+<td><code>#pragma</code></td>
+<td>使用标准化方法，向编译器发布特殊的命令到编译器中</td>
+</tr>
+</tbody></table>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//一个课堂上的例子，避免函数库的嵌套调用</span>
+
+<span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
+<span class="token macro property">#<span class="token directive keyword">ifndef</span> __slnname__g_A__</span>
+<span class="token macro property">#<span class="token directive keyword">define</span>  __slnname_g_A__</span>
+<span class="token keyword">int</span> g_A <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span></code></pre>
 <h2 id="all-fine"><a href="#all-fine" class="headerlink" title="all fine"></a><em>all fine</em></h2><p>理一理，清晰好多。</p>
 
             </div>
@@ -1460,7 +1519,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">27k</span>&nbsp;字
+                class="white-color">27.2k</span>&nbsp;字
             
             
             
