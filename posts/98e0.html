@@ -408,14 +408,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    558
+                    803
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -425,7 +425,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1-矩阵对角线元素的和"><a href="#1-矩阵对角线元素的和" class="headerlink" title="(1)矩阵对角线元素的和"></a>(1)矩阵对角线元素的和</h3><p>给你一个正方形矩阵 <code>mat</code>，请你返回矩阵对角线元素的和。</p>
+                <blockquote>
+<p>第一题：<a href="https://leetcode-cn.com/problems/matrix-diagonal-sum/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/matrix-diagonal-sum/</a><br>第二题：<a href="https://leetcode-cn.com/problems/number-of-ways-to-split-a-string/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/number-of-ways-to-split-a-string/</a><br>第三题：<a href="https://leetcode-cn.com/problems/shortest-subarray-to-be-removed-to-make-array-sorted/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/shortest-subarray-to-be-removed-to-make-array-sorted/</a><br>第四题：<a href="https://leetcode-cn.com/problems/count-all-possible-routes/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/count-all-possible-routes/</a></p>
+</blockquote>
+<h3 id="1-矩阵对角线元素的和"><a href="#1-矩阵对角线元素的和" class="headerlink" title="(1)矩阵对角线元素的和"></a>(1)矩阵对角线元素的和</h3><p>给你一个正方形矩阵 <code>mat</code>，请你返回矩阵对角线元素的和。</p>
 <p>输入：<code>mat = [[1,2,3],[4,5,6],[7,8,9]]</code><br>输出：<code>25</code></p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">diagonalSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> mat<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
@@ -457,13 +460,61 @@
 <h3 id="3-删除最短的子数组使剩余数组有序"><a href="#3-删除最短的子数组使剩余数组有序" class="headerlink" title="(3)删除最短的子数组使剩余数组有序"></a>(3)删除最短的子数组使剩余数组有序</h3><p>给你一个整数数组 <code>arr</code> ，请你删除一个子数组（可以为空），使得 <code>arr</code> 中剩下的元素是 非递减 的。</p>
 <p>一个子数组指的是原数组中连续的一个子序列。</p>
 <p>请你返回满足题目要求的最短子数组的长度。</p>
-<pre class=" language-python"><code class="language-python"></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">findLengthOfShortestSubarray</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> arr<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        len_arr<span class="token operator">=</span>len<span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># k 用于计算非递减的个数</span>
+        k<span class="token operator">=</span>len_arr<span class="token number">-1</span>
+        <span class="token keyword">while</span> k<span class="token operator">></span><span class="token number">0</span> <span class="token operator">and</span> arr<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span>arr<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">:</span> k<span class="token operator">-=</span><span class="token number">1</span>
+        <span class="token keyword">if</span> k<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
+
+        r<span class="token operator">=</span>k
+        j<span class="token operator">=</span><span class="token number">0</span>
+        <span class="token keyword">while</span> j<span class="token operator">&lt;</span>len_arr<span class="token number">-1</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># j 从0到倒数第二个元素</span>
+            ci<span class="token operator">=</span>bisect_left<span class="token punctuation">(</span>arr<span class="token punctuation">[</span>k<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            t<span class="token operator">=</span>len_arr<span class="token operator">-</span><span class="token punctuation">(</span><span class="token punctuation">(</span>len_arr<span class="token operator">-</span>k<span class="token operator">-</span>ci<span class="token punctuation">)</span><span class="token operator">+</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> r<span class="token operator">></span>t<span class="token punctuation">:</span> r<span class="token operator">=</span>t
+            <span class="token keyword">if</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">></span>arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">break</span>
+            j<span class="token operator">+=</span><span class="token number">1</span>
+        <span class="token keyword">return</span> r
+
+<span class="token comment" spellcheck="true"># 不懂</span></code></pre>
 <h3 id="4-统计所有可行路径"><a href="#4-统计所有可行路径" class="headerlink" title="(4)统计所有可行路径"></a>(4)统计所有可行路径</h3><p>给你一个 <strong>互不相同</strong> 的整数数组，其中 <code>locations[i]</code> 表示第 <code>i</code> 个城市的位置。同时给你 <code>start</code>，<code>finish</code> 和 <code>fuel</code> 分别表示出发城市、目的地城市和你初始拥有的汽油总量</p>
 <p>每一步中，如果你在城市 <code>i</code> ，你可以选择任意一个城市 <code>j</code> ，满足  <code>j != i</code> 且 <code>0 &lt;= j &lt; locations.length</code> ，并移动到城市 <code>j</code> 。从城市 <code>i</code> 移动到 <code>j</code> 消耗的汽油量为 <code>|locations[i] - locations[j]|</code>，<code>|x|</code> 表示 <code>x</code> 的绝对值。</p>
 <p>请注意， <code>fuel</code> 任何时刻都 <strong>不能</strong> 为负，且你 <strong>可以</strong> 经过任意城市超过一次（包括 start 和 finish ）。</p>
 <p>请你返回从 <code>start</code> 到 <code>finish</code> 所有可能路径的数目。</p>
 <p>由于答案可能很大， 请将它对 <code>10^9 + 7</code> 取余后返回。</p>
-<pre class=" language-python"><code class="language-python"></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">countRoutes</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> locations<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> start<span class="token punctuation">:</span> int<span class="token punctuation">,</span> finish<span class="token punctuation">:</span> int<span class="token punctuation">,</span> fuel<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        dp <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        n <span class="token operator">=</span> len<span class="token punctuation">(</span>locations<span class="token punctuation">)</span>
+        mod <span class="token operator">=</span> <span class="token number">10</span><span class="token operator">**</span><span class="token number">9</span><span class="token operator">+</span><span class="token number">7</span>
+
+        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> c<span class="token operator">==</span><span class="token number">0</span> <span class="token operator">and</span> s<span class="token operator">==</span>finish<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">1</span>
+            k <span class="token operator">=</span> <span class="token punctuation">(</span>c<span class="token punctuation">,</span> s<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> k <span class="token keyword">in</span> dp<span class="token punctuation">:</span> <span class="token keyword">return</span> dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span>
+            <span class="token keyword">if</span> s<span class="token operator">==</span>finish<span class="token punctuation">:</span>
+                r<span class="token operator">=</span><span class="token number">1</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                r<span class="token operator">=</span><span class="token number">0</span>
+
+            i <span class="token operator">=</span> <span class="token number">0</span>
+            <span class="token keyword">while</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> i<span class="token operator">!=</span>s<span class="token punctuation">:</span>
+                    d <span class="token operator">=</span> locations<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span>locations<span class="token punctuation">[</span>s<span class="token punctuation">]</span>
+                    <span class="token keyword">if</span> d<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">:</span> d<span class="token operator">=</span><span class="token operator">-</span>d
+                    <span class="token keyword">if</span> c<span class="token operator">>=</span>d<span class="token punctuation">:</span>
+                        r <span class="token operator">+=</span> dfs<span class="token punctuation">(</span>c<span class="token operator">-</span>d<span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+                        r <span class="token operator">%=</span> mod
+                i<span class="token operator">+=</span><span class="token number">1</span>
+            dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> r
+            <span class="token keyword">return</span> r
+
+        <span class="token keyword">return</span> dfs<span class="token punctuation">(</span>fuel<span class="token punctuation">,</span> start<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#不懂</span></code></pre>
 
             </div>
             <hr/>
@@ -1079,7 +1130,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">29k</span>&nbsp;字
+                class="white-color">29.3k</span>&nbsp;字
             
             
             

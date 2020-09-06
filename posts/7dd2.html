@@ -408,7 +408,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    261
+                    278
                 </div>
                 
 
@@ -434,6 +434,11 @@
 <li>如果 a 是<code>list</code>，则返回值可以是 <code>list.insert()</code> 的第一个参数。</li>
 <li>返回的<code>i</code>可以将数组 a 分成两部分。左侧是 <code>all(val &lt; x for val in a[lo:i])</code> ，右侧是 <code>all(val &gt;= x for val in a[i:hi])</code></li>
 </ol>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> bisect
+arr<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">]</span>
+x<span class="token operator">=</span><span class="token number">8</span>
+bisect<span class="token punctuation">.</span>bisect_left<span class="token punctuation">(</span>arr<span class="token punctuation">,</span>x<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># --> 3</span></code></pre>
 <ul>
 <li><code>bisect.bisect_right(a, x, lo=0, hi=len(a))</code></li>
 <li><code>bisect.bisect(a, x, lo=0, hi=len(a))</code><br>类似于 <code>bisect_left()</code>，但是返回的插入点是 a 中已存在元素 x 的右侧。</li>
@@ -1076,7 +1081,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">29k</span>&nbsp;字
+                class="white-color">29.3k</span>&nbsp;字
             
             
             
