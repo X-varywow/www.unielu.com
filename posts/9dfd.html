@@ -401,14 +401,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-05
+                    2020-09-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    446
+                    518
                 </div>
                 
 
@@ -425,7 +425,20 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h1><p>刷<strong>leetcode</strong></p>
+                <h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h1><p>leetcode初级算法：<a href="https://leetcode-cn.com/leetbook/read/top-interview-questions-easy" target="_blank" rel="noopener">https://leetcode-cn.com/leetbook/read/top-interview-questions-easy</a></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>nums<span class="token operator">=</span>nums
+    <span class="token keyword">def</span> <span class="token function">reset</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>nums
+    <span class="token keyword">def</span> <span class="token function">shuffle</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        arr<span class="token operator">=</span>copy<span class="token punctuation">.</span>copy<span class="token punctuation">(</span>self<span class="token punctuation">.</span>nums<span class="token punctuation">)</span>
+        n<span class="token operator">=</span>len<span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#Fisher-Yates 洗牌算法 </span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            rnum<span class="token operator">=</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span>i<span class="token punctuation">,</span>n<span class="token number">-1</span><span class="token punctuation">)</span>
+            arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span>rnum<span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>rnum<span class="token punctuation">]</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+        <span class="token keyword">return</span> arr</code></pre>
 <h1 id="1-基础"><a href="#1-基础" class="headerlink" title="1.基础"></a>1.基础</h1><h1 id="3-其它"><a href="#3-其它" class="headerlink" title="3.其它"></a>3.其它</h1><h2 id="kmp"><a href="#kmp" class="headerlink" title="kmp"></a><em>kmp</em></h2><p>kmp是一个效率非常高的<strong>字符串匹配</strong>算法。<br>有问题如下：</p>
 <pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#求b在a中出现次数</span>
 a <span class="token operator">=</span> <span class="token string">"ababacababadababadadda"</span>
