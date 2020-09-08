@@ -401,21 +401,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-07
+                    2020-09-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    518
+                    941
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
 
@@ -438,7 +438,110 @@
         <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
             rnum<span class="token operator">=</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span>i<span class="token punctuation">,</span>n<span class="token number">-1</span><span class="token punctuation">)</span>
             arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span>rnum<span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>rnum<span class="token punctuation">]</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-        <span class="token keyword">return</span> arr</code></pre>
+        <span class="token keyword">return</span> arr
+
+<span class="token comment" spellcheck="true">#设计问题-打乱数组</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#移动数组，原地操作</span>
+
+<span class="token comment" spellcheck="true">#一种错误：</span>
+<span class="token keyword">for</span> i<span class="token punctuation">,</span>num <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> num<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span> nums<span class="token punctuation">.</span>append<span class="token punctuation">(</span>nums<span class="token punctuation">.</span>pop<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#方法一，引入0的cnt</span>
+
+<span class="token comment" spellcheck="true">#方法二：双指针</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">moveZeroes</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> nums<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
+        j<span class="token operator">=</span><span class="token number">0</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+                j<span class="token operator">+=</span><span class="token number">1</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>j<span class="token punctuation">,</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">twoSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        hashmap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+        <span class="token keyword">for</span> i<span class="token punctuation">,</span>num <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            need<span class="token operator">=</span>target<span class="token operator">-</span>num
+            <span class="token keyword">if</span> need <span class="token keyword">in</span> hashmap<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token punctuation">[</span>i<span class="token punctuation">,</span>hashmap<span class="token punctuation">[</span>need<span class="token punctuation">]</span><span class="token punctuation">]</span>
+            hashmap<span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token operator">=</span>i
+
+<span class="token comment" spellcheck="true">#两数之和，哈希优化</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">rotate</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> matrix<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        n<span class="token operator">=</span>len<span class="token punctuation">(</span>matrix<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>i<span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>matrix<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>matrix<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+        <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            matrix<span class="token punctuation">[</span>_<span class="token punctuation">]</span><span class="token punctuation">.</span>reverse<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#旋转图像，原地操作</span>
+<span class="token comment" spellcheck="true">#先转置，再反向</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">countPrimes</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> n<span class="token operator">&lt;</span><span class="token number">3</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
+        ans<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span>n
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span>int<span class="token punctuation">(</span>n<span class="token operator">**</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            ans<span class="token punctuation">[</span><span class="token number">2</span><span class="token operator">*</span>i<span class="token punctuation">:</span><span class="token punctuation">:</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span>len<span class="token punctuation">(</span>ans<span class="token punctuation">[</span><span class="token number">2</span><span class="token operator">*</span>i<span class="token punctuation">:</span><span class="token punctuation">:</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> sum<span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">2</span>
+
+<span class="token comment" spellcheck="true">#计数质数，埃氏筛</span>
+<span class="token comment" spellcheck="true">#那个i的范围还是没懂</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">romanToInt</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        hashmap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'I'</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'V'</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token string">'X'</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token string">'L'</span><span class="token punctuation">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">:</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token string">'D'</span><span class="token punctuation">:</span><span class="token number">500</span><span class="token punctuation">,</span><span class="token string">'M'</span><span class="token punctuation">:</span><span class="token number">1000</span><span class="token punctuation">}</span>
+        ans<span class="token operator">=</span><span class="token number">0</span>
+        nums<span class="token operator">=</span>list<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> hashmap<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">>=</span>hashmap<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                ans<span class="token operator">+=</span>hashmap<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                ans<span class="token operator">-=</span>hashmap<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span>
+        <span class="token keyword">return</span> ans<span class="token operator">+</span>hashmap<span class="token punctuation">[</span>nums<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true">#罗马数字转整数，核心思想抽象</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#最小栈，线性阶做法:</span>
+<span class="token keyword">class</span> <span class="token class-name">MinStack</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>stack<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">def</span> <span class="token function">push</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">pop</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">top</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>stack<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">def</span> <span class="token function">getMin</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> min<span class="token punctuation">(</span>self<span class="token punctuation">.</span>stack<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#常数阶做法：</span>
+<span class="token keyword">class</span> <span class="token class-name">MinStack</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>stack<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+        self<span class="token punctuation">.</span>min_stack<span class="token operator">=</span><span class="token punctuation">[</span>math<span class="token punctuation">.</span>inf<span class="token punctuation">]</span>
+
+    <span class="token keyword">def</span> <span class="token function">push</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>min_stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>min<span class="token punctuation">(</span>self<span class="token punctuation">.</span>min_stack<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">pop</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>min_stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">top</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>stack<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">def</span> <span class="token function">getMin</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>min_stack<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span></code></pre>
 <h1 id="1-基础"><a href="#1-基础" class="headerlink" title="1.基础"></a>1.基础</h1><h1 id="3-其它"><a href="#3-其它" class="headerlink" title="3.其它"></a>3.其它</h1><h2 id="kmp"><a href="#kmp" class="headerlink" title="kmp"></a><em>kmp</em></h2><p>kmp是一个效率非常高的<strong>字符串匹配</strong>算法。<br>有问题如下：</p>
 <pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#求b在a中出现次数</span>
 a <span class="token operator">=</span> <span class="token string">"ababacababadababadadda"</span>
@@ -1112,7 +1215,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">29.6k</span>&nbsp;字
+                class="white-color">30.3k</span>&nbsp;字
             
             
             
