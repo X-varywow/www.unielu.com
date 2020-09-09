@@ -239,7 +239,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/20181119.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/medias/featureimages/20181119.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -401,14 +401,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-08
+                    2020-09-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    941
+                    1.1k
                 </div>
                 
 
@@ -542,7 +542,29 @@
 
     <span class="token keyword">def</span> <span class="token function">getMin</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
         <span class="token keyword">return</span> self<span class="token punctuation">.</span>min_stack<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span></code></pre>
-<h1 id="1-基础"><a href="#1-基础" class="headerlink" title="1.基础"></a>1.基础</h1><h1 id="3-其它"><a href="#3-其它" class="headerlink" title="3.其它"></a>3.其它</h1><h2 id="kmp"><a href="#kmp" class="headerlink" title="kmp"></a><em>kmp</em></h2><p>kmp是一个效率非常高的<strong>字符串匹配</strong>算法。<br>有问题如下：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">isValidSudoku</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> board<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        rows<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        cols<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        boxs<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                num<span class="token operator">=</span>board<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+                <span class="token keyword">if</span> num<span class="token operator">!=</span><span class="token string">'.'</span><span class="token punctuation">:</span>
+                    box_index<span class="token operator">=</span><span class="token punctuation">(</span>i<span class="token operator">//</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">3</span><span class="token operator">+</span>j<span class="token operator">//</span><span class="token number">3</span>
+                    rows<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token operator">=</span>rows<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>num<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span>
+                    cols<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token operator">=</span>cols<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>num<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span>
+                    boxs<span class="token punctuation">[</span>box_index<span class="token punctuation">]</span><span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token operator">=</span>boxs<span class="token punctuation">[</span>box_index<span class="token punctuation">]</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>num<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span>
+                    <span class="token keyword">if</span> rows<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token operator">></span><span class="token number">1</span> <span class="token operator">or</span> cols<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token operator">></span><span class="token number">1</span> <span class="token operator">or</span> boxs<span class="token punctuation">[</span>box_index<span class="token punctuation">]</span><span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token operator">></span><span class="token number">1</span><span class="token punctuation">:</span>
+                        <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+
+<span class="token comment" spellcheck="true">#有效的数独</span></code></pre>
+<pre class=" language-python"><code class="language-python"></code></pre>
+<h1 id="1-基础"><a href="#1-基础" class="headerlink" title="1.基础"></a>1.基础</h1><p>学堂在线《数据结构》课</p>
+<h1 id="3-其它"><a href="#3-其它" class="headerlink" title="3.其它"></a>3.其它</h1><h2 id="kmp"><a href="#kmp" class="headerlink" title="kmp"></a><em>kmp</em></h2><p>kmp是一个效率非常高的<strong>字符串匹配</strong>算法。<br>有问题如下：</p>
 <pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#求b在a中出现次数</span>
 a <span class="token operator">=</span> <span class="token string">"ababacababadababadadda"</span>
 b <span class="token operator">=</span> <span class="token string">"ababad"</span></code></pre>
@@ -1215,7 +1237,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">30.3k</span>&nbsp;字
+                class="white-color">30.1k</span>&nbsp;字
             
             
             
