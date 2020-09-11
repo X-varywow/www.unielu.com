@@ -401,14 +401,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-09
+                    2020-09-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.7k
+                    3.8k
                 </div>
                 
 
@@ -428,6 +428,23 @@
                 <blockquote>
 <p><strong>本文仅仅作为个人的记录</strong>，<br>ennnn，还是建议去看leetcode题解，官方的讲解视频挺好的</p>
 </blockquote>
+<h3 id="216-组合总和-III（9-11）"><a href="#216-组合总和-III（9-11）" class="headerlink" title="216. 组合总和 III（9.11）"></a>216. 组合总和 III（<code>9.11</code>）</h3><p>找出所有相加之和为 n 的 k 个数的组合。组合中只允许含有 1 - 9 的正整数，并且每种组合中<strong>不存在重复的数字</strong>。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">combinationSum3</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        ans<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">def</span> <span class="token function">backtrack</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span>index<span class="token punctuation">,</span>n<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> n<span class="token operator">==</span><span class="token number">0</span> <span class="token operator">and</span> k<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+                ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>path<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span>
+            <span class="token keyword">if</span> k<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">return</span>  
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>index<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                path<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+                backtrack<span class="token punctuation">(</span>path<span class="token punctuation">,</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token operator">-</span>i<span class="token punctuation">,</span>k<span class="token number">-1</span><span class="token punctuation">)</span>
+                path<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        backtrack<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">,</span>k<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ans
+
+<span class="token comment" spellcheck="true">#秀啊，回溯长这样，那个append,pop有东西</span></code></pre>
 <h3 id="60-第k个排列（9-5"><a href="#60-第k个排列（9-5" class="headerlink" title="60. 第k个排列（9.5)"></a>60. 第k个排列（<code>9.5</code>)</h3><p>给出集合 [1,2,3,…,n]，其所有元素共有 n! 种排列。</p>
 <p>按大小顺序列出所有排列情况，并一一标记，当 n = 3 时, 所有排列如下：</p>
 <p>“123”，”132”，”213”，”231”，”312”，”321”</p>
@@ -1444,7 +1461,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">30.3k</span>&nbsp;字
+                class="white-color">30.4k</span>&nbsp;字
             
             
             
