@@ -401,21 +401,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-11
+                    2020-09-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.8k
+                    3.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    17 分
                 </div>
                 
 
@@ -428,6 +428,22 @@
                 <blockquote>
 <p><strong>本文仅仅作为个人的记录</strong>，<br>ennnn，还是建议去看leetcode题解，官方的讲解视频挺好的</p>
 </blockquote>
+<h3 id="637-二叉树的层平均值（9-12）"><a href="#637-二叉树的层平均值（9-12）" class="headerlink" title="637. 二叉树的层平均值（9.12）"></a>637. 二叉树的层平均值（<code>9.12</code>）</h3><p>给定一个非空二叉树, 返回一个由每层节点平均值组成的数组。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">averageOfLevels</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>float<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        ans<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span>depth<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> node<span class="token punctuation">:</span> <span class="token keyword">return</span> 
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">not</span> ans<span class="token punctuation">)</span> <span class="token operator">or</span> len<span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span class="token operator">==</span>depth<span class="token punctuation">:</span>
+                ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span>node<span class="token punctuation">.</span>val<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                ans<span class="token punctuation">[</span>depth<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>node<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+            dfs<span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span>depth<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+            dfs<span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span>depth<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+        dfs<span class="token punctuation">(</span>root<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>sum<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token operator">/</span>len<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> ans<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># 自己写出的，开心~~</span></code></pre>
 <h3 id="216-组合总和-III（9-11）"><a href="#216-组合总和-III（9-11）" class="headerlink" title="216. 组合总和 III（9.11）"></a>216. 组合总和 III（<code>9.11</code>）</h3><p>找出所有相加之和为 n 的 k 个数的组合。组合中只允许含有 1 - 9 的正整数，并且每种组合中<strong>不存在重复的数字</strong>。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">combinationSum3</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
@@ -1461,7 +1477,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">30.4k</span>&nbsp;字
+                class="white-color">30.5k</span>&nbsp;字
             
             
             
