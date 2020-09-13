@@ -401,21 +401,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-06
+                    2020-09-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    837
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    5 分
                 </div>
                 
 
@@ -591,7 +591,125 @@
 <p><code>chmod  [-R]  XXX  目录名</code><br>–&gt;修改文件夹的属性，这里-R参数指示递归修改，将目录下所有文件的属性均修改为xxx</p>
 </blockquote>
 <p>更多信息：<a href="https://www.runoob.com/linux/linux-file-attr-permission.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-file-attr-permission.html</a></p>
-<h3 id="课堂作业："><a href="#课堂作业：" class="headerlink" title="课堂作业："></a>课堂作业：</h3><p>写出在Linux终端下，如下操作序列的命令行</p>
+<h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><p>安装vim: <code>sudo apt-get install vim</code></p>
+<p>vim 文件名：<br>直接打开或新建一个文件</p>
+<p>三种工作模式：</p>
+<ul>
+<li>查看模式</li>
+<li>编辑模式，在查看模式下按下<code>i</code> or <code>o</code> or <code>q</code>进入，<code>Esc</code>退出</li>
+<li>命令模式，在查看模式下按下<code>:</code>进入</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>查看模式下</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>0</code></td>
+<td>移动到当前行开头</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>移动到当前行末尾</td>
+</tr>
+<tr>
+<td><code>gg</code></td>
+<td>移动到文件开头</td>
+</tr>
+<tr>
+<td><code>G</code></td>
+<td>移动到文件末尾</td>
+</tr>
+<tr>
+<td><code>[n]G</code></td>
+<td>移动到第n行</td>
+</tr>
+<tr>
+<td><code>[n]space</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>[n]Enter</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>dd</code> <code>[n]dd</code></td>
+<td>删除行</td>
+</tr>
+<tr>
+<td><code>yy</code> <code>[n]yy</code></td>
+<td>复制行</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td>粘贴</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td>撤销</td>
+</tr>
+</tbody></table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>命令模式下</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>w</code></td>
+<td>保存</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td>退出</td>
+</tr>
+<tr>
+<td><code>wq</code></td>
+<td>保存退出</td>
+</tr>
+<tr>
+<td><code>set nu</code></td>
+<td>显示行号</td>
+</tr>
+<tr>
+<td><code>set nonu</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>syntax on</code></td>
+<td>显示语法高亮</td>
+</tr>
+</tbody></table>
+<h3 id="shell基础"><a href="#shell基础" class="headerlink" title="shell基础"></a>shell基础</h3><p>shell: 提供了用户与内核交互的接口</p>
+<p>一般情况下 vim建立的文本文件属性值为<code>644</code>，需要添加<code>x</code>属性 <code>chmod 755 ~~~</code></p>
+<p>变量是一个名字，不是一个值，用<code>$</code>来取值</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>echo</code></td>
+<td>打印一行，自动换行</td>
+</tr>
+<tr>
+<td><code>printf</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>var=num</code></td>
+<td>变量不区分类型，<code>=</code>前后不能有空格</td>
+</tr>
+</tbody></table>
+<p>运行shell脚本</p>
+<pre><code>chmod +x ./test.sh  #使脚本具有执行权限
+./test.sh  #执行脚本</code></pre><h3 id="课堂作业："><a href="#课堂作业：" class="headerlink" title="课堂作业："></a>课堂作业：</h3><p>一、写出在Linux终端下，如下操作序列的命令行</p>
 <p>（1）回到家目录<br>&emsp;&emsp;&emsp;<code>cd /home</code></p>
 <p>（2）在家目录下建立test目录<br>&emsp;&emsp;&emsp;<code>mkdir test</code></p>
 <p>（3）在其中建立t.txt文件（touch   t.txt），建立目录m<br>&emsp;&emsp;&emsp;<code>touch t.txt &amp;&amp; mkdir m</code></p>
@@ -600,6 +718,18 @@
 <p>（6）去掉m目录的三个x属性，出现什么情况？描述一下，再修改回来<br>&emsp;&emsp;&emsp;<code>chmod 644 m</code><br>&emsp;&emsp;&emsp;<code>文件无法打开</code><br>&emsp;&emsp;&emsp;<code>chmod 755 m</code><br>&emsp;说明：<code>rwxr-xr-x</code>的755变成644 </p>
 <p>（7）修改n目录属性，使其及其下面的所有文件均具有最大权限（777）。<br>&emsp;&emsp;&emsp;<code>chmod -R 777 n</code><br>&emsp;注意：那个R区分大小写</p>
 <p>（8）进入/tmp目录，选取一个文件，cp到你的m目录<br>&emsp;&emsp;&emsp;<code>cp /tmp/temp.txt m</code></p>
+<hr>
+<p>二、用shell写一个猜价格脚本</p>
+<p>提示用户输入一个价格上限，然后根据上限数值产生一个合适的随机数价格。</p>
+<p>然后提示用户输入猜测值。提示用户输入的猜测值与真实值的高低，直到用户猜中为止。</p>
+<p>注：shell中，可以使用$RANDOM获得一个随机整数。<br><img src="https://img-blog.csdnimg.cn/20200913130551384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" alt="代码"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200913130551391.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" alt="结果"></p>
+<p><strong>注意：</strong> </p>
+<ul>
+<li><code>[</code> <code>]</code>左右要有空格</li>
+<li><code>&quot;$num&quot;</code>，<code>&quot;$x&quot;</code> 的双引号都可以去掉</li>
+<li>shell算术运算符有<code>==</code>，没有<code>&gt;</code> <code>&lt;</code></li>
+</ul>
 
             </div>
             <hr/>
@@ -1216,7 +1346,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">32.6k</span>&nbsp;字
+                class="white-color">33k</span>&nbsp;字
             
             
             
