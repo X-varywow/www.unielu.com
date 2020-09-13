@@ -412,7 +412,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    821
+                    847
                 </div>
                 
 
@@ -429,14 +429,19 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="(0)前言"></a>(0)前言</h2><p><strong>leetcode官方:</strong> </p>
-<blockquote>
-<p>回溯算法实际上一个类似枚举的<strong>搜索尝试</strong>过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就 “回溯” 返回，尝试别的路径。回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。</p>
-</blockquote>
-<p><strong>其它：</strong> </p>
-<blockquote>
-<p>核心思想就是<strong>递归</strong>，逻辑清楚，抽象性高</p>
-</blockquote>
+                <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="(0)前言"></a>(0)前言</h2><p>回溯算法实际上一个类似枚举的<strong>搜索尝试</strong>过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就 “回溯” 返回，尝试别的路径。</p>
+<p>回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。</p>
+<p><strong>代码框架：</strong> </p>
+<pre class=" language-python"><code class="language-python">result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">def</span> <span class="token function">backtrack</span><span class="token punctuation">(</span>路径<span class="token punctuation">,</span> 选择列表<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> 满足结束条件<span class="token punctuation">:</span>
+        result<span class="token punctuation">.</span>add<span class="token punctuation">(</span>路径<span class="token punctuation">)</span>
+        <span class="token keyword">return</span>
+
+    <span class="token keyword">for</span> 选择 <span class="token keyword">in</span> 选择列表<span class="token punctuation">:</span>
+        做选择
+        backtrack<span class="token punctuation">(</span>路径<span class="token punctuation">,</span> 选择列表<span class="token punctuation">)</span>
+        撤销选择</code></pre>
 <h2 id="1-22-括号生成"><a href="#1-22-括号生成" class="headerlink" title="(1)22. 括号生成"></a>(1)22. 括号生成</h2><p>数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 <strong>有效的</strong> 括号组合。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">generateParenthesis</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">:</span>
@@ -1172,7 +1177,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">33.9k</span>&nbsp;字
+                class="white-color">34k</span>&nbsp;字
             
             
             
