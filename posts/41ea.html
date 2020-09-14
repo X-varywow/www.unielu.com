@@ -401,14 +401,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-12
+                    2020-09-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    4k
                 </div>
                 
 
@@ -428,6 +428,20 @@
                 <blockquote>
 <p><strong>本文仅仅作为个人的记录</strong>，<br>ennnn，还是建议去看leetcode题解，官方的讲解视频挺好的</p>
 </blockquote>
+<h3 id="94-二叉树的中序遍历（9-14）"><a href="#94-二叉树的中序遍历（9-14）" class="headerlink" title="94. 二叉树的中序遍历（9.14）"></a>94. 二叉树的中序遍历（<code>9.14</code>）</h3><p>给定一个二叉树，返回它的中序遍历。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">inorderTraversal</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        ans<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">def</span> <span class="token function">inorder</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> node<span class="token operator">==</span>None<span class="token punctuation">:</span> <span class="token keyword">return</span> 
+            <span class="token keyword">if</span> node<span class="token punctuation">.</span>left<span class="token punctuation">:</span> inorder<span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span>ans<span class="token punctuation">)</span>
+            ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>node<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> node<span class="token punctuation">.</span>right<span class="token punctuation">:</span> inorder<span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span>ans<span class="token punctuation">)</span>
+        inorder<span class="token punctuation">(</span>root<span class="token punctuation">,</span>ans<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ans
+
+<span class="token comment" spellcheck="true"># 中序遍历：</span>
+<span class="token comment" spellcheck="true"># -->走左边-->记录-->走右边</span></code></pre>
 <h3 id="637-二叉树的层平均值（9-12）"><a href="#637-二叉树的层平均值（9-12）" class="headerlink" title="637. 二叉树的层平均值（9.12）"></a>637. 二叉树的层平均值（<code>9.12</code>）</h3><p>给定一个非空二叉树, 返回一个由每层节点平均值组成的数组。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">averageOfLevels</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>float<span class="token punctuation">]</span><span class="token punctuation">:</span>
