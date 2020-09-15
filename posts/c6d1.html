@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="leetcode potpourri, blog">
+    <meta name="keywords" content="数学, blog">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>leetcode potpourri | blog</title>
+    <title>数学 | blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/libs/awesome/css/all.css">
@@ -244,7 +244,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">leetcode potpourri</h1>
+                    <h1 class="description center-align post-title diyFont">数学</h1>
                 </div>
             </div>
         </div>
@@ -373,6 +373,10 @@
                                 <span class="chip bg-color">leetcode</span>
                             </a>
                         
+                            <a href="/tags/%E7%BD%AE%E5%BA%95/">
+                                <span class="chip bg-color">置底</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -394,28 +398,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-16
+                    2019-11-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-13
+                    2020-09-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    320
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    1 分
                 </div>
                 
 
@@ -425,153 +429,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="（1）876-链表的中间节点"><a href="#（1）876-链表的中间节点" class="headerlink" title="（1）876.链表的中间节点"></a>（1）876.链表的中间节点</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">middleNode</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">:</span> ListNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> ListNode<span class="token punctuation">:</span>
-        slow<span class="token operator">=</span>fast<span class="token operator">=</span>head
-        <span class="token keyword">while</span> fast <span class="token operator">and</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">:</span>
-            slow<span class="token operator">=</span>slow<span class="token punctuation">.</span>next
-            fast<span class="token operator">=</span>fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next
-        <span class="token keyword">return</span> slow</code></pre>
-<p><strong>小结</strong></p>
-<blockquote>
-<p>快慢指针</p>
-</blockquote>
-<h3 id="（2）206-反转链表"><a href="#（2）206-反转链表" class="headerlink" title="（2）206.反转链表"></a>（2）206.反转链表</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">reverseList</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">:</span> ListNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> ListNode<span class="token punctuation">:</span>
-        p<span class="token punctuation">,</span>rev<span class="token operator">=</span>head<span class="token punctuation">,</span>None
-        <span class="token keyword">while</span> p<span class="token punctuation">:</span>
-            rev<span class="token punctuation">,</span>rev<span class="token punctuation">.</span>next<span class="token punctuation">,</span>p<span class="token operator">=</span>p<span class="token punctuation">,</span>rev<span class="token punctuation">,</span>p<span class="token punctuation">.</span>next
-        <span class="token keyword">return</span> rev</code></pre>
-<p><strong>小结</strong></p>
-<blockquote>
-<p>rev,rev.next,p赋值那一知半解</p>
-</blockquote>
-<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><h3 id="（1）560-和为K的子数组"><a href="#（1）560-和为K的子数组" class="headerlink" title="（1）560.和为K的子数组"></a>（1）560.和为K的子数组</h3><p>给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的连续的子数组的个数。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">subarraySum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        pre <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">#记载所有前缀和</span>
-        ans<span class="token punctuation">,</span>sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span>
-        <span class="token keyword">for</span> num <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
-            sum<span class="token operator">+=</span>num
-            need<span class="token operator">=</span>sum<span class="token operator">-</span>k
-            <span class="token keyword">if</span> need <span class="token keyword">in</span> pre<span class="token punctuation">:</span>
-                ans <span class="token operator">+=</span> pre<span class="token punctuation">[</span>need<span class="token punctuation">]</span>
-            <span class="token comment" spellcheck="true">#在hash table里查找key，如果有返回对应的value，反之返回0 </span>
-            pre<span class="token punctuation">[</span>sum<span class="token punctuation">]</span> <span class="token operator">=</span> pre<span class="token punctuation">.</span>get<span class="token punctuation">(</span>sum<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>    
-        <span class="token keyword">return</span> ans</code></pre>
-<p><strong>小结</strong></p>
-<blockquote>
-<ol>
-<li>前缀和+hash的优化</li>
-<li><code>dict.get(key,default=None)</code></li>
-</ol>
-</blockquote>
-<h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><h3 id="（1）112-路径总和"><a href="#（1）112-路径总和" class="headerlink" title="（1）112. 路径总和"></a>（1）112. 路径总和</h3><p>给定一个二叉树和一个目标和，判断该树中<code>是否存在</code>根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。<br>说明: 叶子节点是指没有子节点的节点。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">hasPathSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">,</span> sum<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
-        sum<span class="token operator">-=</span>root<span class="token punctuation">.</span>val
-        <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">.</span>left <span class="token operator">and</span> <span class="token operator">not</span> root<span class="token punctuation">.</span>right <span class="token punctuation">:</span>
-            <span class="token keyword">return</span> sum<span class="token operator">==</span><span class="token number">0</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>hasPathSum<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span>sum<span class="token punctuation">)</span> <span class="token operator">or</span> self<span class="token punctuation">.</span>hasPathSum<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span>sum<span class="token punctuation">)</span></code></pre>
-<h3 id="（2）113-路径总和II"><a href="#（2）113-路径总和II" class="headerlink" title="（2）113.路径总和II"></a>（2）113.路径总和II</h3><p>给定一个二叉树和一个目标和，<code>找到所有</code>从根节点到叶子节点路径总和等于给定目标和的路径。<br>说明: 叶子节点是指没有子节点的节点。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">pathSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">,</span> sum_<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> root <span class="token punctuation">:</span><span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        stack<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token punctuation">[</span>root<span class="token punctuation">.</span>val<span class="token punctuation">]</span><span class="token punctuation">,</span>root<span class="token punctuation">)</span><span class="token punctuation">]</span>
-        ans<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token keyword">while</span> stack<span class="token punctuation">:</span>
-            val<span class="token punctuation">,</span>node<span class="token operator">=</span>stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">if</span> <span class="token operator">not</span> node<span class="token punctuation">.</span>left <span class="token operator">and</span> <span class="token operator">not</span> node<span class="token punctuation">.</span>right <span class="token operator">and</span> sum<span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token operator">==</span>sum_<span class="token punctuation">:</span>
-                ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>val<span class="token punctuation">)</span>
-            <span class="token keyword">if</span> node<span class="token punctuation">.</span>left<span class="token punctuation">:</span>
-                stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>val<span class="token operator">+</span><span class="token punctuation">[</span>node<span class="token punctuation">.</span>left<span class="token punctuation">.</span>val<span class="token punctuation">]</span><span class="token punctuation">,</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token keyword">if</span> node<span class="token punctuation">.</span>right<span class="token punctuation">:</span>
-                stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>val<span class="token operator">+</span><span class="token punctuation">[</span>node<span class="token punctuation">.</span>right<span class="token punctuation">.</span>val<span class="token punctuation">]</span><span class="token punctuation">,</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> ans</code></pre>
-<p><strong>小结</strong></p>
-<blockquote>
-<ol>
-<li>DFS</li>
-<li><code>stack=[([root.val],root)]</code></li>
-</ol>
-</blockquote>
-<h3 id="（3）437-路径总和III"><a href="#（3）437-路径总和III" class="headerlink" title="（3）437.路径总和III"></a>（3）437.路径总和III</h3><p>给定一个二叉树，它的每个结点都存放着一个整数值。<br>找出路径和等于给定数值的路径总数。<br>路径不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的（只能从父节点到子节点）。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">pathSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">,</span> sum<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>dfs<span class="token punctuation">(</span>root<span class="token punctuation">,</span>sum<span class="token punctuation">)</span><span class="token operator">+</span>self<span class="token punctuation">.</span>pathSum<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span>sum<span class="token punctuation">)</span><span class="token operator">+</span>self<span class="token punctuation">.</span>pathSum<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span>sum<span class="token punctuation">)</span>
-    <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>root<span class="token punctuation">,</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
-        path<span class="token operator">-=</span>root<span class="token punctuation">.</span>val
-        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token keyword">if</span> path<span class="token operator">==</span><span class="token number">0</span> <span class="token keyword">else</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">+</span>self<span class="token punctuation">.</span>dfs<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span>path<span class="token punctuation">)</span><span class="token operator">+</span>self<span class="token punctuation">.</span>dfs<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span>path<span class="token punctuation">)</span></code></pre>
-<h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="（1）53-最大子序和"><a href="#（1）53-最大子序和" class="headerlink" title="（1）53. 最大子序和"></a>（1）53. 最大子序和</h3><p>给定一个整数数组<code>nums</code>，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">maxSubArray</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+=</span>max<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> max<span class="token punctuation">(</span>nums<span class="token punctuation">)</span></code></pre>
-<h3 id="（2）152-乘积最大子数组"><a href="#（2）152-乘积最大子数组" class="headerlink" title="（2）152. 乘积最大子数组"></a>（2）152. 乘积最大子数组</h3><p>给你一个整数数组 <code>nums</code> ，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">maxProduct</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> nums<span class="token operator">==</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
-        res<span class="token operator">=</span>float<span class="token punctuation">(</span><span class="token string">'-inf'</span><span class="token punctuation">)</span>
-        minn<span class="token punctuation">,</span>maxn<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span>
-        <span class="token keyword">for</span> n <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
-            a<span class="token operator">=</span>n<span class="token operator">*</span>minn
-            b<span class="token operator">=</span>n<span class="token operator">*</span>maxn
-            maxn<span class="token operator">=</span>max<span class="token punctuation">(</span>n<span class="token punctuation">,</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>
-            minn<span class="token operator">=</span>min<span class="token punctuation">(</span>n<span class="token punctuation">,</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span>
-            <span class="token keyword">if</span> maxn<span class="token operator">></span>res<span class="token punctuation">:</span>
-                res<span class="token operator">=</span>maxn
-        <span class="token keyword">return</span> res</code></pre>
-<h3 id="（3）198-打家劫舍"><a href="#（3）198-打家劫舍" class="headerlink" title="（3）198. 打家劫舍"></a>（3）198. 打家劫舍</h3><p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。<br>给定一个代表每个房屋存放金额的非负整数数组，计算你在不触动警报装置的情况下，能够偷窃到的最高金额。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">rob</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        a<span class="token operator">=</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> a<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token keyword">return</span> <span class="token number">0</span>
-        dp<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token punctuation">(</span>a<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-        dp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span>a<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>max<span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>i<span class="token number">-2</span><span class="token punctuation">]</span><span class="token operator">+</span>nums<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> dp<span class="token punctuation">[</span>a<span class="token punctuation">]</span></code></pre>
-<p><strong>小结</strong></p>
-<blockquote>
-<p>DP方程：<code>dp[i]=max(dp[i-1],dp[i-2]+nums[i-1])</code></p>
-</blockquote>
-<h3 id="（4）213-打家劫舍-II"><a href="#（4）213-打家劫舍-II" class="headerlink" title="（4）213. 打家劫舍 II"></a>（4）213. 打家劫舍 II</h3><p>你是一个专业的小偷，计划偷窃沿街的房屋，每间房内都藏有一定的现金。这个地方所有的房屋都围成一圈，这意味着第一个房屋和最后一个房屋是紧挨着的。同时，相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。<br>给定一个代表每个房屋存放金额的非负整数数组，计算你在不触动警报装置的情况下，能够偷窃到的最高金额。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">rob</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> nums<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
-        cnt<span class="token operator">=</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> cnt<span class="token operator">&lt;</span><span class="token number">3</span><span class="token punctuation">:</span> <span class="token keyword">return</span> max<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
-        dp1<span class="token punctuation">,</span>dp2<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span>cnt<span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span>cnt
-        dp1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-        dp2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>nums<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span>cnt<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            dp1<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>max<span class="token punctuation">(</span>dp1<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>dp1<span class="token punctuation">[</span>i<span class="token number">-2</span><span class="token punctuation">]</span><span class="token operator">+</span>nums<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span>cnt<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            dp2<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">=</span>max<span class="token punctuation">(</span>dp2<span class="token punctuation">[</span>i<span class="token number">-2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>dp2<span class="token punctuation">[</span>i<span class="token number">-3</span><span class="token punctuation">]</span><span class="token operator">+</span>nums<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> max<span class="token punctuation">(</span>dp1<span class="token operator">+</span>dp2<span class="token punctuation">)</span></code></pre>
-<p><strong>小结</strong></p>
-<blockquote>
-<p>照着问题一试过的。</p>
-</blockquote>
-<h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><h3 id="（1）200-岛屿数量"><a href="#（1）200-岛屿数量" class="headerlink" title="（1）200.岛屿数量"></a>（1）200.岛屿数量</h3><h3 id="（2）695-岛屿的最大面积"><a href="#（2）695-岛屿的最大面积" class="headerlink" title="（2）695.岛屿的最大面积"></a>（2）695.岛屿的最大面积</h3><h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><h3 id="（1）20-有效的括号"><a href="#（1）20-有效的括号" class="headerlink" title="（1）20.有效的括号"></a>（1）20.有效的括号</h3><p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘,’]’ 的字符串，判断字符串是否有效。<br>有效字符串需满足：</p>
-<ul>
-<li>左括号必须用相同类型的右括号闭合。</li>
-<li>左括号必须以正确的顺序闭合。</li>
-</ul>
-<p>注意空字符串可被认为是有效字符串。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">isValid</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
-        hashmap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'('</span><span class="token punctuation">:</span><span class="token string">')'</span><span class="token punctuation">,</span><span class="token string">'{'</span><span class="token punctuation">:</span><span class="token string">'}'</span><span class="token punctuation">,</span><span class="token string">'['</span><span class="token punctuation">:</span><span class="token string">']'</span><span class="token punctuation">,</span><span class="token string">'?'</span><span class="token punctuation">:</span><span class="token string">'?'</span><span class="token punctuation">}</span>
-        stack<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'?'</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> s<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> i <span class="token keyword">in</span> hashmap<span class="token punctuation">:</span> stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-            <span class="token keyword">elif</span> i<span class="token operator">!=</span>hashmap<span class="token punctuation">[</span>stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token keyword">return</span> <span class="token boolean">False</span>
-        <span class="token keyword">return</span> len<span class="token punctuation">(</span>stack<span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span> </code></pre>
-<h2 id="特殊"><a href="#特殊" class="headerlink" title="特殊"></a>特殊</h2><h3 id="（1）面试题64-求1-2-…-n"><a href="#（1）面试题64-求1-2-…-n" class="headerlink" title="（1）面试题64. 求1+2+…+n"></a>（1）面试题64. 求1+2+…+n</h3><p>求 <code>1+2+...+n</code>，要求<strong>不能使用</strong>乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。</p>
+                <h3 id="（1）面试题64-求1-2-…-n"><a href="#（1）面试题64-求1-2-…-n" class="headerlink" title="（1）面试题64. 求1+2+…+n"></a>（1）面试题64. 求1+2+…+n</h3><p>求 <code>1+2+...+n</code>，要求<strong>不能使用</strong>乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">sumNums</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
         <span class="token keyword">return</span> n <span class="token operator">and</span> n<span class="token operator">+</span>self<span class="token punctuation">.</span>sumNums<span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span>
@@ -650,7 +508,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://x-varywow.github.io/posts/7786.html">https://x-varywow.github.io/posts/7786.html</a>
+                    <a href="https://x-varywow.github.io/posts/c6d1.html">https://x-varywow.github.io/posts/c6d1.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -690,6 +548,10 @@
                             
                                 <a href="/tags/leetcode/">
                                     <span class="chip bg-color">leetcode</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BD%AE%E5%BA%95/">
+                                    <span class="chip bg-color">置底</span>
                                 </a>
                             
                         </div>
@@ -998,12 +860,12 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/baeb.html">
+                <a href="/posts/41d3.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/20181114.jpg" class="responsive-img" alt="leetcode周赛笔记189">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/medias/featureimages/leetcode.png" class="responsive-img" alt="哈希表">
                         
-                        <span class="card-title">leetcode周赛笔记189</span>
+                        <span class="card-title">哈希表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1014,7 +876,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-17
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-30
                         </span>
                         <span class="publish-author">
                             
@@ -1031,8 +893,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
-                        <span class="chip bg-color">leetcode比赛</span>
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%AE%E5%BA%95/">
+                        <span class="chip bg-color">置底</span>
                     </a>
                     
                 </div>
@@ -1046,31 +912,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/bd56.html">
+                <a href="/posts/5b58.html">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/medias/featureimages/leetcode.png" class="responsive-img" alt="树">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/medias/featureimages/13.jpg" class="responsive-img" alt="微观经济学">
-                        
-                        <span class="card-title">微观经济学</span>
+                        <span class="card-title">树</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一门慕课笔记
+                            无
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/e-class/" class="post-category">
-                                    e-class
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -1080,8 +945,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/mooc/">
-                        <span class="chip bg-color">mooc</span>
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%AE%E5%BA%95/">
+                        <span class="chip bg-color">置底</span>
                     </a>
                     
                 </div>
@@ -1241,7 +1110,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">34k</span>&nbsp;字
+                class="white-color">34.2k</span>&nbsp;字
             
             
             

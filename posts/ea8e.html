@@ -405,21 +405,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-13
+                    2020-09-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    847
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -546,6 +546,37 @@
 
     <span class="token keyword">return</span> ans
 main<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span></code></pre>
+<h2 id="5-解数独"><a href="#5-解数独" class="headerlink" title="(5)解数独"></a>(5)解数独</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">solveSudoku</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> board<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        <span class="token keyword">def</span> <span class="token function">backtrack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> board<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">!=</span> <span class="token string">'.'</span><span class="token punctuation">:</span> <span class="token keyword">continue</span>
+                    <span class="token keyword">for</span> num <span class="token keyword">in</span> <span class="token string">"123456789"</span><span class="token punctuation">:</span>
+                        <span class="token keyword">if</span> check<span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">,</span>num<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                            board<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>num
+                            <span class="token keyword">if</span> backtrack<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">True</span>
+                            board<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">'.'</span>
+                    <span class="token keyword">return</span> <span class="token boolean">False</span>
+            <span class="token keyword">return</span> <span class="token boolean">True</span>
+
+        <span class="token keyword">def</span> <span class="token function">check</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>num<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> board<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span>num<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
+                <span class="token keyword">if</span> board<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">==</span>num<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> board<span class="token punctuation">[</span>x<span class="token operator">//</span><span class="token number">3</span><span class="token operator">*</span><span class="token number">3</span><span class="token operator">+</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token operator">//</span><span class="token number">3</span><span class="token operator">*</span><span class="token number">3</span><span class="token operator">+</span>j<span class="token punctuation">]</span><span class="token operator">==</span>num<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
+            <span class="token keyword">return</span> <span class="token boolean">True</span>
+
+        backtrack<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#回溯，，6</span>
+<span class="token comment" spellcheck="true">#这种暴力回溯，时间复杂度太高了</span>
+<span class="token comment" spellcheck="true">#尝试了一下引入参数，回溯不回来了，好菜</span></code></pre>
+<h2 id="6-47-全排列-II"><a href="#6-47-全排列-II" class="headerlink" title="(6)47. 全排列 II"></a>(6)47. 全排列 II</h2><p>给定一个可包含重复数字的序列，返回所有不重复的全排列。</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 方法一：用库：</span>
+<span class="token keyword">return</span> <span class="token punctuation">[</span>list<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token punctuation">(</span>set<span class="token punctuation">(</span>permutations<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span></code></pre>
 <h2 id="X-其它："><a href="#X-其它：" class="headerlink" title="(X)其它："></a>(X)其它：</h2><blockquote>
 <p>leetcode题：<a href="https://leetcode-cn.com/tag/backtracking/" target="_blank" rel="noopener">https://leetcode-cn.com/tag/backtracking/</a><br>心得：<a href="https://zhuanlan.zhihu.com/p/51882471" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/51882471</a></p>
 </blockquote>
@@ -1177,7 +1208,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">34k</span>&nbsp;字
+                class="white-color">34.2k</span>&nbsp;字
             
             
             

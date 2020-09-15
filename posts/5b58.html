@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="leetcode周赛笔记187, blog">
+    <meta name="keywords" content="树, blog">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>leetcode周赛笔记187 | blog</title>
+    <title>树 | blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/libs/awesome/css/all.css">
@@ -239,12 +239,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/medias/featureimages/20181114.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/medias/featureimages/leetcode.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">leetcode周赛笔记187</h1>
+                    <h1 class="description center-align post-title diyFont">树</h1>
                 </div>
             </div>
         </div>
@@ -369,8 +369,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
-                                <span class="chip bg-color">leetcode比赛</span>
+                            <a href="/tags/leetcode/">
+                                <span class="chip bg-color">leetcode</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BD%AE%E5%BA%95/">
+                                <span class="chip bg-color">置底</span>
                             </a>
                         
                     </div>
@@ -394,28 +398,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-03
+                    2019-11-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-12
+                    2020-09-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    615
+                    401
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -425,67 +429,45 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一、旅行终点站"><a href="#一、旅行终点站" class="headerlink" title="一、旅行终点站"></a>一、旅行终点站</h3><p>给你一份旅游线路图，该线路图中的旅行线路用数组 <code>paths</code> 表示，其中 <code>paths[i] = [cityAi, cityBi]</code> 表示该线路将会从 <code>cityAi</code> 直接前往 <code>cityBi</code> 。请你找出这次旅行的终点站，即没有任何可以通往其他城市的线路的城市。<br>题目数据保证线路图会形成一条不存在循环的线路，因此只会有一个旅行终点站。</p>
+                <h2 id="（0）前言"><a href="#（0）前言" class="headerlink" title="（0）前言"></a>（0）前言</h2><h2 id="（1）112-路径总和"><a href="#（1）112-路径总和" class="headerlink" title="（1）112. 路径总和"></a>（1）112. 路径总和</h2><p>给定一个二叉树和一个目标和，判断该树中<code>是否存在</code>根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。<br>说明: 叶子节点是指没有子节点的节点。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">destCity</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> paths<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
-        lista<span class="token operator">=</span><span class="token punctuation">[</span>i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> paths<span class="token punctuation">]</span>
-        listb<span class="token operator">=</span><span class="token punctuation">[</span>i<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> paths<span class="token punctuation">]</span>
-        <span class="token keyword">return</span> <span class="token punctuation">(</span>set<span class="token punctuation">(</span>listb<span class="token punctuation">)</span><span class="token operator">-</span>set<span class="token punctuation">(</span>lista<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<h3 id="二、是否所有-1-都至少相隔-k-个元素"><a href="#二、是否所有-1-都至少相隔-k-个元素" class="headerlink" title="二、是否所有 1 都至少相隔 k 个元素"></a>二、是否所有 1 都至少相隔 k 个元素</h3><p>给你一个由若干 <code>0</code> 和 <code>1</code> 组成的数组 <code>nums</code> 以及整数 <code>k</code>。如果所有 <code>1</code> 都至少相隔 <code>k</code> 个元素，则返回 <code>True</code> ；否则，返回 <code>False</code> 。</p>
+    <span class="token keyword">def</span> <span class="token function">hasPathSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">,</span> sum<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
+        sum<span class="token operator">-=</span>root<span class="token punctuation">.</span>val
+        <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">.</span>left <span class="token operator">and</span> <span class="token operator">not</span> root<span class="token punctuation">.</span>right <span class="token punctuation">:</span>
+            <span class="token keyword">return</span> sum<span class="token operator">==</span><span class="token number">0</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>hasPathSum<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span>sum<span class="token punctuation">)</span> <span class="token operator">or</span> self<span class="token punctuation">.</span>hasPathSum<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span>sum<span class="token punctuation">)</span></code></pre>
+<h2 id="（2）113-路径总和II"><a href="#（2）113-路径总和II" class="headerlink" title="（2）113.路径总和II"></a>（2）113.路径总和II</h2><p>给定一个二叉树和一个目标和，<code>找到所有</code>从根节点到叶子节点路径总和等于给定目标和的路径。<br>说明: 叶子节点是指没有子节点的节点。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">kLengthApart</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
-        temp<span class="token operator">=</span>float<span class="token punctuation">(</span><span class="token string">'-inf'</span><span class="token punctuation">)</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> i<span class="token operator">-</span>temp<span class="token operator">&lt;=</span>k<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
-                <span class="token keyword">else</span><span class="token punctuation">:</span>temp<span class="token operator">=</span>i
-        <span class="token keyword">return</span> <span class="token boolean">True</span></code></pre>
-<h3 id="三、绝对差不超过限制的最长连续子数组"><a href="#三、绝对差不超过限制的最长连续子数组" class="headerlink" title="三、绝对差不超过限制的最长连续子数组"></a>三、绝对差不超过限制的最长连续子数组</h3><p>给你一个整数数组 <code>nums</code> ，和一个表示限制的整数 <code>limit</code>，请你返回最长连续子数组的长度，该子数组中的任意两个元素之间的绝对差必须小于或者等于 <code>limit</code> 。<br>如果不存在满足条件的子数组，则返回 <code>0</code> 。</p>
-<blockquote>
-<p>话说dp和双指针好像，双指针的话最后一个十几万数的测试用例超时了。。。</p>
-</blockquote>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">longestSubarray</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> limit<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> nums<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
-        ans<span class="token operator">=</span><span class="token number">1</span>
-        a<span class="token operator">=</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
-        <span class="token keyword">for</span> l <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>a<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            minnum<span class="token punctuation">,</span>maxnum<span class="token operator">=</span><span class="token number">10</span><span class="token operator">**</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">1</span>
-            <span class="token keyword">for</span> r <span class="token keyword">in</span> range<span class="token punctuation">(</span>l<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                minnum<span class="token operator">=</span>min<span class="token punctuation">(</span><span class="token punctuation">[</span>nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">,</span>minnum<span class="token punctuation">]</span><span class="token punctuation">)</span>
-                maxnum<span class="token operator">=</span>max<span class="token punctuation">(</span><span class="token punctuation">[</span>nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">,</span>maxnum<span class="token punctuation">]</span><span class="token punctuation">)</span>
-                <span class="token keyword">if</span> maxnum<span class="token operator">-</span>minnum<span class="token operator">&lt;=</span>limit<span class="token punctuation">:</span>
-                    ans<span class="token operator">=</span>max<span class="token punctuation">(</span>ans<span class="token punctuation">,</span>r<span class="token operator">-</span>l<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-                <span class="token keyword">else</span><span class="token punctuation">:</span>
-                    <span class="token keyword">break</span>
+    <span class="token keyword">def</span> <span class="token function">pathSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">,</span> sum_<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> root <span class="token punctuation">:</span><span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        stack<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token punctuation">[</span>root<span class="token punctuation">.</span>val<span class="token punctuation">]</span><span class="token punctuation">,</span>root<span class="token punctuation">)</span><span class="token punctuation">]</span>
+        ans<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">while</span> stack<span class="token punctuation">:</span>
+            val<span class="token punctuation">,</span>node<span class="token operator">=</span>stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> node<span class="token punctuation">.</span>left <span class="token operator">and</span> <span class="token operator">not</span> node<span class="token punctuation">.</span>right <span class="token operator">and</span> sum<span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token operator">==</span>sum_<span class="token punctuation">:</span>
+                ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> node<span class="token punctuation">.</span>left<span class="token punctuation">:</span>
+                stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>val<span class="token operator">+</span><span class="token punctuation">[</span>node<span class="token punctuation">.</span>left<span class="token punctuation">.</span>val<span class="token punctuation">]</span><span class="token punctuation">,</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> node<span class="token punctuation">.</span>right<span class="token punctuation">:</span>
+                stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>val<span class="token operator">+</span><span class="token punctuation">[</span>node<span class="token punctuation">.</span>right<span class="token punctuation">.</span>val<span class="token punctuation">]</span><span class="token punctuation">,</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span>
         <span class="token keyword">return</span> ans</code></pre>
-<p>from copy :</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">longestSubarray</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> limit<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        i <span class="token operator">=</span> j <span class="token operator">=</span> <span class="token number">0</span>
-        st <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        ans <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token keyword">while</span> j <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            bisect<span class="token punctuation">.</span>insort<span class="token punctuation">(</span>st<span class="token punctuation">,</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            <span class="token keyword">while</span> st<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> st<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">></span> limit<span class="token punctuation">:</span>
-                st<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-                i <span class="token operator">+=</span> <span class="token number">1</span>
-            j <span class="token operator">+=</span> <span class="token number">1</span>
-            ans <span class="token operator">=</span> max<span class="token punctuation">(</span>ans<span class="token punctuation">,</span> len<span class="token punctuation">(</span>st<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> ans
-</code></pre>
-<h3 id="四、有序矩阵中的第-k-个最小数组和"><a href="#四、有序矩阵中的第-k-个最小数组和" class="headerlink" title="四、有序矩阵中的第 k 个最小数组和"></a>四、有序矩阵中的第 k 个最小数组和</h3><p>给你一个 <code>m * n</code> 的矩阵 <code>mat</code>，以及一个整数 <code>k</code> ，矩阵中的每一行都以非递减的顺序排列。<br>你可以从每一行中选出 1 个元素形成一个数组。返回所有可能数组中的第 k 个最小数组和。</p>
+<p><strong>小结</strong></p>
 <blockquote>
-<p>利用sorted逐行更新。。</p>
+<ol>
+<li>DFS</li>
+<li><code>stack=[([root.val],root)]</code></li>
+</ol>
 </blockquote>
-<p>from copy:</p>
+<h2 id="（3）437-路径总和III"><a href="#（3）437-路径总和III" class="headerlink" title="（3）437.路径总和III"></a>（3）437.路径总和III</h2><p>给定一个二叉树，它的每个结点都存放着一个整数值。<br>找出路径和等于给定数值的路径总数。<br>路径不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的（只能从父节点到子节点）。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">kthSmallest</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> mat<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        ans <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> row <span class="token keyword">in</span> mat<span class="token punctuation">:</span>
-            ans <span class="token operator">=</span> sorted<span class="token punctuation">(</span><span class="token punctuation">[</span>a <span class="token operator">+</span> r <span class="token keyword">for</span> a <span class="token keyword">in</span> ans <span class="token keyword">for</span> r <span class="token keyword">in</span> row<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span> k<span class="token punctuation">]</span>
-        <span class="token keyword">return</span> ans<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span></code></pre>
+    <span class="token keyword">def</span> <span class="token function">pathSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">,</span> sum<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>dfs<span class="token punctuation">(</span>root<span class="token punctuation">,</span>sum<span class="token punctuation">)</span><span class="token operator">+</span>self<span class="token punctuation">.</span>pathSum<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span>sum<span class="token punctuation">)</span><span class="token operator">+</span>self<span class="token punctuation">.</span>pathSum<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span>sum<span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>root<span class="token punctuation">,</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
+        path<span class="token operator">-=</span>root<span class="token punctuation">.</span>val
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token keyword">if</span> path<span class="token operator">==</span><span class="token number">0</span> <span class="token keyword">else</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">+</span>self<span class="token punctuation">.</span>dfs<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span>path<span class="token punctuation">)</span><span class="token operator">+</span>self<span class="token punctuation">.</span>dfs<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span>path<span class="token punctuation">)</span></code></pre>
 
             </div>
             <hr/>
@@ -511,7 +493,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://x-varywow.github.io/posts/7e6a.html">https://x-varywow.github.io/posts/7e6a.html</a>
+                    <a href="https://x-varywow.github.io/posts/5b58.html">https://x-varywow.github.io/posts/5b58.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -549,8 +531,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
-                                    <span class="chip bg-color">leetcode比赛</span>
+                                <a href="/tags/leetcode/">
+                                    <span class="chip bg-color">leetcode</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BD%AE%E5%BA%95/">
+                                    <span class="chip bg-color">置底</span>
                                 </a>
                             
                         </div>
@@ -859,30 +845,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/7dd2.html">
+                <a href="/posts/c6d1.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/medias/featureimages/python.png" class="responsive-img" alt="bisect模块">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/medias/featureimages/leetcode.png" class="responsive-img" alt="数学">
                         
-                        <span class="card-title">bisect模块</span>
+                        <span class="card-title">数学</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            数组二分查找算法
+                            无
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-04
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-30
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -892,8 +878,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                        <span class="chip bg-color">python模块</span>
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%AE%E5%BA%95/">
+                        <span class="chip bg-color">置底</span>
                     </a>
                     
                 </div>
@@ -907,12 +897,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/ec3f.html">
+                <a href="/posts/d64e.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.3/medias/featureimages/20181119.jpg" class="responsive-img" alt="调用modelarts的API">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/X-varywow.github.io@V2.5/medias/featureimages/leetcode.png" class="responsive-img" alt="链表">
                         
-                        <span class="card-title">调用modelarts的API</span>
+                        <span class="card-title">链表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -923,14 +913,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    深度学习
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -940,8 +930,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/modelarts/">
-                        <span class="chip bg-color">modelarts</span>
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%AE%E5%BA%95/">
+                        <span class="chip bg-color">置底</span>
                     </a>
                     
                 </div>
