@@ -405,21 +405,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-15
+                    2020-09-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    401
+                    438
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -429,7 +429,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="（0）前言"><a href="#（0）前言" class="headerlink" title="（0）前言"></a>（0）前言</h2><h2 id="（1）112-路径总和"><a href="#（1）112-路径总和" class="headerlink" title="（1）112. 路径总和"></a>（1）112. 路径总和</h2><p>给定一个二叉树和一个目标和，判断该树中<code>是否存在</code>根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。<br>说明: 叶子节点是指没有子节点的节点。</p>
+                <h2 id="（1）112-路径总和"><a href="#（1）112-路径总和" class="headerlink" title="（1）112. 路径总和"></a>（1）112. 路径总和</h2><p>给定一个二叉树和一个目标和，判断该树中<code>是否存在</code>根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。<br>说明: 叶子节点是指没有子节点的节点。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">hasPathSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">,</span> sum<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
         <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
@@ -468,6 +468,15 @@
         <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
         path<span class="token operator">-=</span>root<span class="token punctuation">.</span>val
         <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token keyword">if</span> path<span class="token operator">==</span><span class="token number">0</span> <span class="token keyword">else</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">+</span>self<span class="token punctuation">.</span>dfs<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span>path<span class="token punctuation">)</span><span class="token operator">+</span>self<span class="token punctuation">.</span>dfs<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span>path<span class="token punctuation">)</span></code></pre>
+<h2 id="（4）226-翻转二叉树"><a href="#（4）226-翻转二叉树" class="headerlink" title="（4）226. 翻转二叉树"></a>（4）226. 翻转二叉树</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">invertTree</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> TreeNode<span class="token punctuation">:</span>
+        <span class="token keyword">def</span> <span class="token function">invert</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span> <span class="token keyword">return</span> 
+            root<span class="token punctuation">.</span>left<span class="token punctuation">,</span>root<span class="token punctuation">.</span>right<span class="token operator">=</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span>root<span class="token punctuation">.</span>left
+            invert<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span>
+            invert<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+        invert<span class="token punctuation">(</span>root<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> root</code></pre>
 
             </div>
             <hr/>
@@ -1095,7 +1104,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">34.2k</span>&nbsp;字
+                class="white-color">34.9k</span>&nbsp;字
             
             
             
