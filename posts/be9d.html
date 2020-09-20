@@ -408,7 +408,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.2k
                 </div>
                 
 
@@ -497,7 +497,7 @@
 <blockquote>
 <p>记录一下报错:</p>
 <ol>
-<li>ans 不加self在这里会<code>error：referenced before assignment</code></li>
+<li>ans 不加self在这里会<code>error：referenced before assignment</code><br>&emsp;还有一种改法：把ans弄成列表，子函数中用ans[0]更改</li>
 </ol>
 </blockquote>
 <h2 id="四、连通两组点的最小成本"><a href="#四、连通两组点的最小成本" class="headerlink" title="四、连通两组点的最小成本"></a>四、连通两组点的最小成本</h2><p>给你两组点，其中第一组中有 <code>size1</code> 个点，第二组中有 <code>size2</code> 个点，且 <code>size1 &gt;= size2</code> 。</p>
@@ -505,52 +505,46 @@
 <p>返回连通两组点所需的最小成本。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">connectTwoGroups</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> cost<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-
-        ans <span class="token operator">=</span> <span class="token punctuation">[</span>float<span class="token punctuation">(</span><span class="token string">'inf'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-
-        n<span class="token punctuation">,</span> m <span class="token operator">=</span> len<span class="token punctuation">(</span>cost<span class="token punctuation">)</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>cost<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>ans<span class="token operator">=</span>float<span class="token punctuation">(</span><span class="token string">'inf'</span><span class="token punctuation">)</span>
+        rows<span class="token punctuation">,</span>cols<span class="token operator">=</span>len<span class="token punctuation">(</span>cost<span class="token punctuation">)</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>cost<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
         <span class="token keyword">def</span> <span class="token function">argmin</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            minv<span class="token punctuation">,</span> mini <span class="token operator">=</span> float<span class="token punctuation">(</span><span class="token string">'inf'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span>
-            <span class="token keyword">for</span> i<span class="token punctuation">,</span> v <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> v <span class="token operator">&lt;</span> minv<span class="token punctuation">:</span>
-                    minv <span class="token operator">=</span> v
-                    mini <span class="token operator">=</span> i
-
+            mini<span class="token punctuation">,</span>minv<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>float<span class="token punctuation">(</span><span class="token string">'inf'</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> i<span class="token punctuation">,</span>v <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> v<span class="token operator">&lt;</span>minv<span class="token punctuation">:</span>
+                    mini<span class="token punctuation">,</span>minv<span class="token punctuation">,</span><span class="token operator">=</span>i<span class="token punctuation">,</span>v
             <span class="token keyword">return</span> mini
 
-        mina <span class="token operator">=</span> <span class="token punctuation">[</span>argmin<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> cost<span class="token punctuation">]</span>
-        minb <span class="token operator">=</span> <span class="token punctuation">[</span>argmin<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>cost<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span> <span class="token keyword">for</span> r <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token keyword">for</span> c <span class="token keyword">in</span> range<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+        mina<span class="token operator">=</span><span class="token punctuation">[</span>argmin<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> cost<span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#横排最小值索引表</span>
+        minb<span class="token operator">=</span><span class="token punctuation">[</span>argmin<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>cost<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span> <span class="token keyword">for</span> r <span class="token keyword">in</span> range<span class="token punctuation">(</span>rows<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token keyword">for</span> c <span class="token keyword">in</span> range<span class="token punctuation">(</span>cols<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+        <span class="token comment" spellcheck="true">#竖列最小值的索引表</span>
 
-
-
-        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> vis<span class="token punctuation">,</span> pre<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> index <span class="token operator">>=</span> n<span class="token punctuation">:</span>
-                <span class="token keyword">if</span> len<span class="token punctuation">(</span>vis<span class="token punctuation">)</span> <span class="token operator">==</span> m<span class="token punctuation">:</span>
-                    ans<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> min<span class="token punctuation">(</span>ans<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pre<span class="token punctuation">)</span>
+        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span>vis<span class="token punctuation">,</span>pre<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> index <span class="token operator">>=</span>rows<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> len<span class="token punctuation">(</span>vis<span class="token punctuation">)</span><span class="token operator">==</span>cols<span class="token punctuation">:</span>
+                    self<span class="token punctuation">.</span>ans<span class="token operator">=</span>min<span class="token punctuation">(</span>self<span class="token punctuation">.</span>ans<span class="token punctuation">,</span>pre<span class="token punctuation">)</span>
                 <span class="token keyword">else</span><span class="token punctuation">:</span>
-                    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>cols<span class="token punctuation">)</span><span class="token punctuation">:</span>
                         <span class="token keyword">if</span> i <span class="token operator">not</span> <span class="token keyword">in</span> vis<span class="token punctuation">:</span>
-                            j <span class="token operator">=</span> minb<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-                            pre <span class="token operator">+=</span> cost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-                    ans<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> min<span class="token punctuation">(</span>ans<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pre<span class="token punctuation">)</span>
-                <span class="token keyword">return</span>
+                            j<span class="token operator">=</span>minb<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+                            pre<span class="token operator">+=</span>cost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+                    self<span class="token punctuation">.</span>ans<span class="token operator">=</span>min<span class="token punctuation">(</span>self<span class="token punctuation">.</span>ans<span class="token punctuation">,</span>pre<span class="token punctuation">)</span>
+                <span class="token keyword">return</span> 
 
-            <span class="token keyword">if</span> pre <span class="token operator">></span> ans<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-                <span class="token keyword">return</span>
+            <span class="token keyword">if</span> pre<span class="token operator">></span>self<span class="token punctuation">.</span>ans<span class="token punctuation">:</span> <span class="token keyword">return</span> 
 
-            x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>cost<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">]</span>
-            x<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">for</span> c<span class="token punctuation">,</span> i <span class="token keyword">in</span> x<span class="token punctuation">:</span>
-                dfs<span class="token punctuation">(</span>index<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> vis<span class="token operator">|</span><span class="token punctuation">{</span>i<span class="token punctuation">}</span><span class="token punctuation">,</span> pre<span class="token operator">+</span>c<span class="token punctuation">)</span>
+            x<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">(</span>cost<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>cols<span class="token punctuation">)</span><span class="token punctuation">]</span>
+            x<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>                  <span class="token comment" spellcheck="true"># sort()不能直接写在上面，机制不懂</span>
 
-        dfs<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> set<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> c<span class="token punctuation">,</span>i <span class="token keyword">in</span> x<span class="token punctuation">:</span>
+                dfs<span class="token punctuation">(</span>index<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>vis<span class="token operator">|</span><span class="token punctuation">{</span>i<span class="token punctuation">}</span><span class="token punctuation">,</span>pre<span class="token operator">+</span>c<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 集合中 | 表示或运算</span>
 
-        <span class="token keyword">return</span> ans<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-
+        dfs<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>set<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>ans
 
 <span class="token comment" spellcheck="true"># from copy</span>
-<span class="token comment" spellcheck="true"># km</span></code></pre>
+<span class="token comment" spellcheck="true"># km</span>
+<span class="token comment" spellcheck="true"># 不懂</span></code></pre>
 <p><img src="https://img-blog.csdnimg.cn/20200920123941686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" alt="离内推最近的一次"></p>
 
             </div>
@@ -1171,7 +1165,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">35.7k</span>&nbsp;字
+                class="white-color">35.9k</span>&nbsp;字
             
             
             
