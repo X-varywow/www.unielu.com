@@ -401,14 +401,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-12
+                    2020-09-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.9k
                 </div>
                 
 
@@ -481,8 +481,8 @@
 
         <span class="token keyword">return</span> dp<span class="token punctuation">[</span>n<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
 
-<span class="token comment" spellcheck="true"># 参照第一名大佬的代码</span>
-<span class="token comment" spellcheck="true"># 第三题就把我看呆了——2020.9.12</span></code></pre>
+<span class="token comment" spellcheck="true"># 3种模式下的状态转移方程，可以的</span>
+<span class="token comment" spellcheck="true"># DP厉害啊，从无到有</span></code></pre>
 <h2 id="四、快速公交"><a href="#四、快速公交" class="headerlink" title="四、快速公交"></a>四、快速公交</h2><p>小扣打算去秋日市集，由于游客较多，小扣的移动速度受到了人流影响：</p>
 <p>小扣从 x 号站点移动至 x + 1 号站点需要花费的时间为 <code>inc</code>；<br>小扣从 x 号站点移动至 x - 1 号站点需要花费的时间为 <code>dec</code>。</p>
 <p>现有 <code>m</code> 辆公交车，编号为 <code>0</code> 到 <code>m-1</code>。小扣也可以通过搭乘编号为 <code>i</code> 的公交车，从 <code>x</code> 号站点移动至 <code>jump[i]*x</code> 号站点，耗时仅为 <code>cost[i]</code>。小扣可以搭乘任意编号的公交车且搭乘公交次数不限。</p>
@@ -495,19 +495,25 @@
         <span class="token keyword">def</span> <span class="token function">min_cost</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">:</span>
             <span class="token keyword">if</span> target <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
                 <span class="token keyword">return</span> <span class="token number">0</span>
-            cur_cost <span class="token operator">=</span> inc <span class="token operator">*</span> target
+            cur_cost <span class="token operator">=</span> inc <span class="token operator">*</span> target  <span class="token comment" spellcheck="true"># 1.直接走回站点</span>
+
             <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>jump<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
                 <span class="token keyword">if</span> target <span class="token operator">%</span> jump<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
                     cur_cost <span class="token operator">=</span> min<span class="token punctuation">(</span>cur_cost<span class="token punctuation">,</span> min_cost<span class="token punctuation">(</span>target <span class="token operator">//</span> jump<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> cost<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-                    <span class="token keyword">continue</span>
+                    <span class="token keyword">continue</span>  
+                <span class="token comment" spellcheck="true"># 2.刚好有公交</span>
                 cur_cost <span class="token operator">=</span> min<span class="token punctuation">(</span>cur_cost<span class="token punctuation">,</span> min_cost<span class="token punctuation">(</span>target <span class="token operator">//</span> jump<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> cost<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">(</span>target <span class="token operator">%</span> jump<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">*</span> inc<span class="token punctuation">)</span>
+                <span class="token comment" spellcheck="true"># 3.往前走再公交</span>
                 <span class="token keyword">if</span> target <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">:</span>
                     cur_cost <span class="token operator">=</span> min<span class="token punctuation">(</span>cur_cost<span class="token punctuation">,</span> min_cost<span class="token punctuation">(</span>target <span class="token operator">//</span> jump<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> cost<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">(</span>jump<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> target <span class="token operator">%</span> jump<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">*</span> dec<span class="token punctuation">)</span>
+                <span class="token comment" spellcheck="true"># 4. 往后走再公交</span>
             <span class="token keyword">return</span> cur_cost
-        p <span class="token operator">=</span> <span class="token number">10</span> <span class="token operator">**</span> <span class="token number">9</span> <span class="token operator">+</span> <span class="token number">7</span>
-        <span class="token keyword">return</span> min_cost<span class="token punctuation">(</span>target<span class="token punctuation">)</span> <span class="token operator">%</span> p
+        mod <span class="token operator">=</span> <span class="token number">10</span> <span class="token operator">**</span> <span class="token number">9</span> <span class="token operator">+</span> <span class="token number">7</span>
+        <span class="token keyword">return</span> min_cost<span class="token punctuation">(</span>target<span class="token punctuation">)</span> <span class="token operator">%</span> mod
 
-<span class="token comment" spellcheck="true"># from copy</span></code></pre>
+<span class="token comment" spellcheck="true"># from copy</span>
+<span class="token comment" spellcheck="true"># 核心思想：记忆化递归</span>
+<span class="token comment" spellcheck="true"># 从终点回到起点，4种方式</span></code></pre>
 <h2 id="五、追逐游戏"><a href="#五、追逐游戏" class="headerlink" title="五、追逐游戏"></a>五、追逐游戏</h2><p>秋游中的小力和小扣设计了一个追逐游戏。他们选了秋日市集景区中的 <code>N</code> 个景点，景点编号为 <code>1~N</code>。此外，他们还选择了 <code>N</code> 条小路，满足任意两个景点之间都可以通过小路互相到达，且不存在两条连接景点相同的小路。整个游戏场景可视作一个无向连通图，记作二维数组 <code>edges</code>，数组中以 <code>[a,b]</code> 形式表示景点 a 与景点 b 之间有一条小路连通。</p>
 <p>小力和小扣只能沿景点间的小路移动。小力的目标是在最快时间内追到小扣，小扣的目标是尽可能延后被小力追到的时间。游戏开始前，两人分别站在两个不同的景点 <code>startA</code> 和 <code>startB</code>。每一回合，小力先行动，小扣观察到小力的行动后再行动。小力和小扣在每回合可选择以下行动之一：</p>
 <ul>
