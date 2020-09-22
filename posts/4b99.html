@@ -401,14 +401,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-07
+                    2020-09-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    174
+                    226
                 </div>
                 
 
@@ -431,7 +431,9 @@
 <li><code>copy.copy()</code></li>
 <li><code>copy.deepcopy()</code></li>
 </ul>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> copy
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 关于拷贝的机制</span>
+
+<span class="token keyword">import</span> copy
 a<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#原始对象</span>
 b<span class="token operator">=</span>a                 <span class="token comment" spellcheck="true">#赋值，传对象的引用</span>
 c<span class="token operator">=</span>copy<span class="token punctuation">.</span>copy<span class="token punctuation">(</span>a<span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">#浅拷贝</span>
@@ -451,6 +453,18 @@ a<span class="token punctuation">[</span><span class="token number">3</span><spa
 
 <span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true"># -->[1, 2, 3, ['a', 'b']]</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#关于同数据，字符串+=</span>
+
+a<span class="token operator">=</span><span class="token string">"abc"</span>
+b<span class="token operator">=</span>a
+<span class="token keyword">print</span><span class="token punctuation">(</span>id<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span>id<span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#-->1652389179952 1652389179952</span>
+c<span class="token operator">=</span><span class="token string">"abc"</span>
+d<span class="token operator">=</span><span class="token string">""</span>
+d<span class="token operator">+=</span>c
+<span class="token keyword">print</span><span class="token punctuation">(</span>id<span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">,</span>id<span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#-->1652389179952 1652389179952</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>            <span class="token comment" spellcheck="true">#-->abc</span>
+d<span class="token operator">+=</span>c
+<span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">,</span>id<span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">,</span>id<span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#-->abcabc 1652431257904 1652389179952</span></code></pre>
 
             </div>
             <hr/>
@@ -1066,7 +1080,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">35.9k</span>&nbsp;字
+                class="white-color">35.5k</span>&nbsp;字
             
             
             

@@ -405,21 +405,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-15
+                    2020-09-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    320
+                    462
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -429,13 +429,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="（1）面试题64-求1-2-…-n"><a href="#（1）面试题64-求1-2-…-n" class="headerlink" title="（1）面试题64. 求1+2+…+n"></a>（1）面试题64. 求1+2+…+n</h3><p>求 <code>1+2+...+n</code>，要求<strong>不能使用</strong>乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。</p>
+                <h2 id="面试题64-求1-2-…-n"><a href="#面试题64-求1-2-…-n" class="headerlink" title="面试题64. 求1+2+…+n"></a>面试题64. 求1+2+…+n</h2><p>求 <code>1+2+...+n</code>，要求<strong>不能使用</strong>乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">sumNums</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
         <span class="token keyword">return</span> n <span class="token operator">and</span> n<span class="token operator">+</span>self<span class="token punctuation">.</span>sumNums<span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true"># 学会了and的特性</span>
 <span class="token comment" spellcheck="true"># a and b 返回 b, a and 0 返回 a</span></code></pre>
-<h3 id="（2）136-只出现一次的数字"><a href="#（2）136-只出现一次的数字" class="headerlink" title="（2）136.只出现一次的数字"></a>（2）136.只出现一次的数字</h3><p>给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均<strong>出现两次</strong>。找出那个只出现了一次的元素。</p>
+<h2 id="136-只出现一次的数字"><a href="#136-只出现一次的数字" class="headerlink" title="136.只出现一次的数字"></a>136.只出现一次的数字</h2><p>给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均<strong>出现两次</strong>。找出那个只出现了一次的元素。</p>
 <p>说明：</p>
 <p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
@@ -443,7 +443,7 @@
         <span class="token keyword">return</span> reduce<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">,</span> y<span class="token punctuation">:</span> x <span class="token operator">^</span> y<span class="token punctuation">,</span> nums<span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true">#reduce(function, iterable[, initializer])内置函数</span>
 <span class="token comment" spellcheck="true">#异或（在二进制基础上）的特性：a^a=0，a^0=a</span></code></pre>
-<h3 id="（3）172-阶乘后的零"><a href="#（3）172-阶乘后的零" class="headerlink" title="（3）172.阶乘后的零"></a>（3）172.阶乘后的零</h3><p>给定一个整数 n，返回 n! 结果尾数中零的数量。</p>
+<h2 id="172-阶乘后的零"><a href="#172-阶乘后的零" class="headerlink" title="172.阶乘后的零"></a>172.阶乘后的零</h2><p>给定一个整数 n，返回 n! 结果尾数中零的数量。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">trailingZeroes</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
         cnt <span class="token operator">=</span> <span class="token number">0</span>
@@ -452,7 +452,7 @@
             cnt <span class="token operator">+=</span> n
         <span class="token keyword">return</span> cnt
 <span class="token comment" spellcheck="true"># 数学观察</span></code></pre>
-<h3 id="（4）231-2的幂"><a href="#（4）231-2的幂" class="headerlink" title="（4）231.2的幂"></a>（4）231.2的幂</h3><p>给定一个整数，编写一个函数来判断它是否是 2 的幂次方。</p>
+<h2 id="231-2的幂"><a href="#231-2的幂" class="headerlink" title="231.2的幂"></a>231.2的幂</h2><p>给定一个整数，编写一个函数来判断它是否是 2 的幂次方。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">return</span> n<span class="token operator">></span><span class="token number">0</span> <span class="token operator">and</span> n<span class="token operator">&amp;</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span></code></pre>
 <p>说明：</p>
 <table>
@@ -483,6 +483,31 @@
 <td>0000</td>
 </tr>
 </tbody></table>
+<h2 id="60-第k个排列"><a href="#60-第k个排列" class="headerlink" title="60.第k个排列"></a>60.第k个排列</h2><p>给出集合 [1,2,3,…,n]，其所有元素共有 n! 种排列。</p>
+<p>按大小顺序列出所有排列情况，并一一标记，当 n = 3 时, 所有排列如下：<br>“123”，”132”，”213”，”231”，”312”，”321”</p>
+<p>给定 <code>n</code> 和 <code>k</code>，返回第 <code>k</code> 个排列。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">getPermutation</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
+        ans<span class="token operator">=</span><span class="token string">""</span>
+        factroial<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            factroial<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token operator">*</span>factroial<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        valid<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+        k<span class="token operator">-=</span><span class="token number">1</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            order<span class="token operator">=</span>k<span class="token operator">//</span>factroial<span class="token punctuation">[</span>n<span class="token operator">-</span>i<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                order<span class="token operator">-=</span>valid<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+                <span class="token keyword">if</span> order<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+                    ans<span class="token operator">+=</span>str<span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+                    valid<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span>
+                    <span class="token keyword">break</span>
+            k <span class="token operator">%=</span> factroial<span class="token punctuation">[</span>n<span class="token operator">-</span>i<span class="token punctuation">]</span>
+
+        <span class="token keyword">return</span> ans
+
+<span class="token comment" spellcheck="true">#康托展开，不懂</span></code></pre>
 
             </div>
             <hr/>
@@ -1110,7 +1135,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">35.9k</span>&nbsp;字
+                class="white-color">35.5k</span>&nbsp;字
             
             
             

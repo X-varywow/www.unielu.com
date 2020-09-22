@@ -405,21 +405,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-20
+                    2020-09-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    862
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    6 分
                 </div>
                 
 
@@ -538,6 +538,59 @@
         <span class="token keyword">return</span> self<span class="token punctuation">.</span>ans
 
 <span class="token comment" spellcheck="true">#左叶子没有子节点</span></code></pre>
+<h2 id="10-二叉树的所有路径"><a href="#10-二叉树的所有路径" class="headerlink" title="(10)二叉树的所有路径"></a>(10)二叉树的所有路径</h2><p>给定一个二叉树，返回所有从根节点到叶子节点的路径。<br>用<code>[&quot;1-&gt;2-&gt;5&quot;, &quot;1-&gt;3&quot;]</code>的类型表示</p>
+<p>说明: 叶子节点是指没有子节点的节点。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">binaryTreePaths</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        ans<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span> <span class="token keyword">return</span> ans
+        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            path<span class="token operator">+=</span>str<span class="token punctuation">(</span>node<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> node<span class="token punctuation">.</span>left <span class="token operator">and</span> <span class="token operator">not</span> node<span class="token punctuation">.</span>right<span class="token punctuation">:</span> ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> node<span class="token punctuation">.</span>left<span class="token punctuation">:</span> dfs<span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span>path<span class="token operator">+</span><span class="token string">"->"</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> node<span class="token punctuation">.</span>right<span class="token punctuation">:</span> dfs<span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span>path<span class="token operator">+</span><span class="token string">"->"</span><span class="token punctuation">)</span>
+        dfs<span class="token punctuation">(</span>root<span class="token punctuation">,</span><span class="token string">""</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ans</code></pre>
+<h2 id="11-恢复二叉搜索树"><a href="#11-恢复二叉搜索树" class="headerlink" title="(11)恢复二叉搜索树"></a>(11)恢复二叉搜索树</h2><p>二叉搜索树中的两个节点被错误地交换。</p>
+<p>请在不改变其结构的情况下，恢复这棵树。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">recoverTree</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        nodes<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>      
+        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true">#中序遍历</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span> <span class="token keyword">return</span> 
+            dfs<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span>
+            nodes<span class="token punctuation">.</span>append<span class="token punctuation">(</span>root<span class="token punctuation">)</span>
+            dfs<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+        dfs<span class="token punctuation">(</span>root<span class="token punctuation">)</span>
+
+        pre<span class="token operator">=</span>nodes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        x<span class="token punctuation">,</span>y<span class="token operator">=</span>None<span class="token punctuation">,</span>None
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>nodes<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> pre<span class="token punctuation">.</span>val <span class="token operator">></span> nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>val<span class="token punctuation">:</span>
+                y<span class="token operator">=</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+                <span class="token keyword">if</span> <span class="token operator">not</span> x<span class="token punctuation">:</span> x<span class="token operator">=</span>pre  <span class="token comment" spellcheck="true"># x为第一个出错的位置</span>
+            pre<span class="token operator">=</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span>   <span class="token comment" spellcheck="true">#准备下一次遍历</span>
+        <span class="token keyword">if</span> x <span class="token operator">and</span> y<span class="token punctuation">:</span> 
+            x<span class="token punctuation">.</span>val<span class="token punctuation">,</span> y<span class="token punctuation">.</span>val<span class="token operator">=</span>y<span class="token punctuation">.</span>val<span class="token punctuation">,</span> x<span class="token punctuation">.</span>val
+<span class="token comment" spellcheck="true">#说明： </span>
+<span class="token comment" spellcheck="true"># 空间复杂度O(n)</span>
+<span class="token comment" spellcheck="true"># 那个常数空间的莫里斯遍历不懂</span>
+<span class="token comment" spellcheck="true"># 在这种遍历情况下，二叉搜索树的值从小到大</span></code></pre>
+<h2 id="12-二叉树展开为链表"><a href="#12-二叉树展开为链表" class="headerlink" title="(12)二叉树展开为链表"></a>(12)二叉树展开为链表</h2><p>给定一个二叉树，<strong>原地</strong>将它展开为一个单链表。<br>If you notice carefully in the flattened tree, each node’s right child points to the next node of a pre-order traversal.</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">flatten</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        Do not return anything, modify root in-place instead.
+        """</span>
+        cur<span class="token operator">=</span>root
+        <span class="token keyword">while</span> cur<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> cur<span class="token punctuation">.</span>left<span class="token punctuation">:</span>
+                p<span class="token operator">=</span>cur<span class="token punctuation">.</span>left    <span class="token comment" spellcheck="true">#向左子树移动</span>
+                <span class="token keyword">while</span> p<span class="token punctuation">.</span>right<span class="token punctuation">:</span> p<span class="token operator">=</span>p<span class="token punctuation">.</span>right <span class="token comment" spellcheck="true">#找到root左子树的最右节点</span>
+                p<span class="token punctuation">.</span>right<span class="token operator">=</span>cur<span class="token punctuation">.</span>right <span class="token comment" spellcheck="true">#将root右子树连到找到的节点</span>
+                cur<span class="token punctuation">.</span>right<span class="token operator">=</span>cur<span class="token punctuation">.</span>left <span class="token comment" spellcheck="true">#再移回来</span>
+                cur<span class="token punctuation">.</span>left<span class="token operator">=</span>None
+            cur<span class="token operator">=</span>cur<span class="token punctuation">.</span>right</code></pre>
 
             </div>
             <hr/>
@@ -1165,7 +1218,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">35.9k</span>&nbsp;字
+                class="white-color">35.5k</span>&nbsp;字
             
             
             
