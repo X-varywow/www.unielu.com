@@ -405,21 +405,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-22
+                    2020-09-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    9 分
                 </div>
                 
 
@@ -616,7 +616,35 @@ main<span class="token punctuation">(</span><span class="token number">8</span><
 
 <span class="token comment" spellcheck="true"># 后期试错出来的，</span>
 <span class="token comment" spellcheck="true"># 回溯神奇啊</span></code></pre>
-<h2 id="8-组合总和-III"><a href="#8-组合总和-III" class="headerlink" title="(8)组合总和 III"></a>(8)组合总和 III</h2><p>找出所有相加之和为 n 的 k 个数的组合。组合中只允许含有 1 - 9 的正整数，并且每种组合中<strong>不存在重复的数字</strong>。</p>
+<h2 id="8-组合总和-II"><a href="#8-组合总和-II" class="headerlink" title="(8)组合总和 II"></a>(8)组合总和 II</h2><p>给定一个数组 <code>candidates</code> 和一个目标数 <code>target</code> ，找出 <code>candidates</code> 中所有可以使数字和为 <code>target</code> 的组合。</p>
+<p><code>candidates</code> 中的每个数字在每个组合中只能使用一次。</p>
+<p>说明：</p>
+<ul>
+<li>所有数字（包括目标数）都是正整数。</li>
+<li>解集不能包含重复的组合。 </li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">combinationSum2</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> candidates<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        ans<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+        candidates<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> <span class="token function">bk</span><span class="token punctuation">(</span>tmp<span class="token punctuation">,</span>l<span class="token punctuation">,</span>r<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> sum<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span><span class="token operator">==</span>target<span class="token punctuation">:</span>
+                ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>tmp<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span>
+            <span class="token keyword">if</span> sum<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span><span class="token operator">></span>target<span class="token punctuation">:</span> <span class="token keyword">return</span> 
+
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>l<span class="token punctuation">,</span>r<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> i<span class="token operator">></span>l <span class="token operator">and</span> candidates<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span>candidates<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                    <span class="token keyword">continue</span>   <span class="token comment" spellcheck="true">#这种回溯中去重。。。</span>
+                tmp<span class="token punctuation">.</span>append<span class="token punctuation">(</span>candidates<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                bk<span class="token punctuation">(</span>tmp<span class="token punctuation">,</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">)</span>
+                tmp<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        bk<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>candidates<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ans
+
+<span class="token comment" spellcheck="true"># 记录报错：unhashble type: 'list',列表中列表不能集合去重</span>
+<span class="token comment" spellcheck="true"># 回溯之前，sort优化，并方便去重</span></code></pre>
+<h2 id="9-组合总和-III"><a href="#9-组合总和-III" class="headerlink" title="(9)组合总和 III"></a>(9)组合总和 III</h2><p>找出所有相加之和为 n 的 k 个数的组合。组合中只允许含有 1 - 9 的正整数，并且每种组合中<strong>不存在重复的数字</strong>。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">combinationSum3</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
         ans<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
@@ -634,7 +662,7 @@ main<span class="token punctuation">(</span><span class="token number">8</span><
         <span class="token keyword">return</span> ans
 
 <span class="token comment" spellcheck="true"># if剪枝 if结束</span></code></pre>
-<h2 id="9-复原IP地址"><a href="#9-复原IP地址" class="headerlink" title="(9)复原IP地址"></a>(9)复原IP地址</h2><p>给定一个只包含数字的字符串，复原它并返回所有可能的 IP 地址格式。</p>
+<h2 id="10-复原IP地址"><a href="#10-复原IP地址" class="headerlink" title="(10)复原IP地址"></a>(10)复原IP地址</h2><p>给定一个只包含数字的字符串，复原它并返回所有可能的 IP 地址格式。</p>
 <p>有效的 IP 地址正好由四个整数（每个整数位于 0 到 255 之间组成），整数之间用 <code>.</code> 分隔。</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">restoreIpAddresses</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">:</span>
@@ -653,6 +681,44 @@ main<span class="token punctuation">(</span><span class="token number">8</span><
 
 <span class="token comment" spellcheck="true"># 一棵递归树</span>
 <span class="token comment" spellcheck="true"># str(int(i))==i排除前缀0</span></code></pre>
+<h2 id="11-不同路径-III"><a href="#11-不同路径-III" class="headerlink" title="(11)不同路径 III"></a>(11)不同路径 III</h2><p><a href="https://leetcode-cn.com/problems/unique-paths-iii/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/unique-paths-iii/</a></p>
+<p>在二维网格 grid 上，有 4 种类型的方格：</p>
+<ul>
+<li><code>1</code> 表示起始方格。且只有一个起始方格。</li>
+<li><code>2</code> 表示结束方格，且只有一个结束方格。</li>
+<li><code>0</code> 表示我们可以走过的空方格。</li>
+<li><code>-1</code> 表示我们无法跨越的障碍。</li>
+<li>返回在四个方向（上、下、左、右）上行走时，从起始方格到结束方格的不同路径的数目。</li>
+</ul>
+<p>每一个无障碍方格都要通过一次，但是一条路径中不能重复通过同一个方格。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">uniquePathsIII</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> grid<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        rows<span class="token punctuation">,</span>cols<span class="token operator">=</span>len<span class="token punctuation">(</span>grid<span class="token punctuation">)</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>grid<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        cnt<span class="token operator">=</span><span class="token number">0</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>rows<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>cols<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span> cnt<span class="token operator">+=</span><span class="token number">1</span>
+                <span class="token keyword">elif</span> grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span> start<span class="token operator">=</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span>
+
+        <span class="token keyword">def</span> <span class="token function">bk</span><span class="token punctuation">(</span>cur<span class="token punctuation">,</span>steps<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            x<span class="token punctuation">,</span>y<span class="token operator">=</span>cur
+            <span class="token keyword">if</span> x<span class="token operator">&lt;</span><span class="token number">0</span> <span class="token operator">or</span> x<span class="token operator">>=</span>rows <span class="token operator">or</span> y<span class="token operator">&lt;</span><span class="token number">0</span> <span class="token operator">or</span> y<span class="token operator">>=</span>cols<span class="token punctuation">:</span> 
+                <span class="token keyword">return</span> <span class="token number">0</span>
+            <span class="token keyword">if</span> grid<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token number">0</span>
+            <span class="token keyword">if</span> grid<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token number">1</span> <span class="token keyword">if</span> steps<span class="token operator">==</span><span class="token number">0</span> <span class="token keyword">else</span> <span class="token number">0</span>
+            ans<span class="token operator">=</span><span class="token number">0</span>
+            grid<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span>
+            ans<span class="token operator">+=</span>bk<span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token number">-1</span><span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">,</span>steps<span class="token number">-1</span><span class="token punctuation">)</span>
+            ans<span class="token operator">+=</span>bk<span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">,</span>steps<span class="token number">-1</span><span class="token punctuation">)</span>
+            ans<span class="token operator">+=</span>bk<span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>steps<span class="token number">-1</span><span class="token punctuation">)</span>
+            ans<span class="token operator">+=</span>bk<span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>steps<span class="token number">-1</span><span class="token punctuation">)</span>
+            grid<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span>
+            <span class="token keyword">return</span> ans
+        <span class="token keyword">return</span> bk<span class="token punctuation">(</span>start<span class="token punctuation">,</span>cnt<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#回溯神仙</span></code></pre>
 <h2 id="X-其它："><a href="#X-其它：" class="headerlink" title="(X)其它："></a>(X)其它：</h2><p>这种树形回溯或递归的思想666</p>
 <blockquote>
 <p>leetcode题：<a href="https://leetcode-cn.com/tag/backtracking/" target="_blank" rel="noopener">https://leetcode-cn.com/tag/backtracking/</a><br>心得：<a href="https://zhuanlan.zhihu.com/p/51882471" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/51882471</a></p>
@@ -1285,7 +1351,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">35.5k</span>&nbsp;字
+                class="white-color">36.6k</span>&nbsp;字
             
             
             

@@ -405,21 +405,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-22
+                    2020-09-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    518
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
 
@@ -429,7 +429,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1219-黄金矿工"><a href="#1219-黄金矿工" class="headerlink" title="1219.黄金矿工"></a>1219.黄金矿工</h2><p>你要开发一座金矿，地质勘测学家已经探明了这座金矿中的资源分布，并用大小为 <code>m * n</code> 的网格 <code>grid</code> 进行了标注。每个单元格中的整数就表示这一单元格中的黄金数量；如果该单元格是空的，那么就是 <code>0</code>。</p>
+                <h2 id="1-1219-黄金矿工"><a href="#1-1219-黄金矿工" class="headerlink" title="(1)1219.黄金矿工"></a>(1)1219.黄金矿工</h2><p>你要开发一座金矿，地质勘测学家已经探明了这座金矿中的资源分布，并用大小为 <code>m * n</code> 的网格 <code>grid</code> 进行了标注。每个单元格中的整数就表示这一单元格中的黄金数量；如果该单元格是空的，那么就是 <code>0</code>。</p>
 <p>为了使收益最大化，矿工需要按以下规则来开采黄金：</p>
 <ul>
 <li>每当矿工进入一个单元，就会收集该单元格中的所有黄金。</li>
@@ -458,7 +458,7 @@
         <span class="token keyword">return</span> ans
 
 <span class="token comment" spellcheck="true"># dfs带上回溯</span></code></pre>
-<h2 id="841-钥匙和房间"><a href="#841-钥匙和房间" class="headerlink" title="841.钥匙和房间"></a>841.钥匙和房间</h2><p>有 <code>N</code> 个房间，开始时你位于 <code>0</code> 号房间。每个房间有不同的号码：<code>0，1，2，...，N-1</code>，并且房间里可能有一些钥匙能使你进入下一个房间。</p>
+<h2 id="2-841-钥匙和房间"><a href="#2-841-钥匙和房间" class="headerlink" title="(2)841.钥匙和房间"></a>(2)841.钥匙和房间</h2><p>有 <code>N</code> 个房间，开始时你位于 <code>0</code> 号房间。每个房间有不同的号码：<code>0，1，2，...，N-1</code>，并且房间里可能有一些钥匙能使你进入下一个房间。</p>
 <p>在形式上，对于每个房间 <code>i</code> 都有一个钥匙列表 <code>rooms[i]</code>，每个钥匙 <code>rooms[i][j]</code> 由 <code>[0,1，...，N-1]</code> 中的一个整数表示，其中 <code>N = rooms.length</code>。 钥匙<code>rooms[i][j] = v</code> 可以打开编号为 <code>v</code> 的房间。</p>
 <p>最初，除 <code>0</code> 号房间外的其余所有房间都被锁住。</p>
 <p>你可以自由地在房间之间来回走动。</p>
@@ -476,6 +476,84 @@
         dfs<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
 
         <span class="token keyword">return</span> len<span class="token punctuation">(</span>list<span class="token punctuation">(</span>visited<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">==</span>len<span class="token punctuation">(</span>rooms<span class="token punctuation">)</span></code></pre>
+<h2 id="3-扫雷游戏"><a href="#3-扫雷游戏" class="headerlink" title="(3)扫雷游戏"></a>(3)扫雷游戏</h2><p><a href="https://leetcode-cn.com/problems/minesweeper/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/minesweeper/</a></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">updateBoard</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> board<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> click<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        rows<span class="token punctuation">,</span>cols<span class="token operator">=</span>len<span class="token punctuation">(</span>board<span class="token punctuation">)</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>board<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> board<span class="token punctuation">[</span>click<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">[</span>click<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">"M"</span><span class="token punctuation">:</span>
+            board<span class="token punctuation">[</span>click<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">[</span>click<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"X"</span>
+            <span class="token keyword">return</span> board
+
+        <span class="token keyword">def</span> <span class="token function">check</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            cnt<span class="token operator">=</span><span class="token number">0</span>
+            <span class="token keyword">for</span> i<span class="token punctuation">,</span>j <span class="token keyword">in</span><span class="token punctuation">[</span><span class="token punctuation">(</span>x<span class="token number">-1</span><span class="token punctuation">,</span>y<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token number">-1</span><span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token number">-1</span><span class="token punctuation">,</span>y<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> <span class="token number">0</span><span class="token operator">&lt;=</span>i<span class="token operator">&lt;</span>rows <span class="token operator">and</span> <span class="token number">0</span><span class="token operator">&lt;=</span>j<span class="token operator">&lt;</span>cols<span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> board<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">"M"</span><span class="token punctuation">:</span> cnt<span class="token operator">+=</span><span class="token number">1</span>
+            <span class="token keyword">return</span> cnt
+
+        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> x<span class="token operator">&lt;</span><span class="token number">0</span> <span class="token operator">or</span> x<span class="token operator">>=</span>rows <span class="token operator">or</span> y<span class="token operator">&lt;</span><span class="token number">0</span> <span class="token operator">or</span> y<span class="token operator">>=</span>cols<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> 
+            <span class="token keyword">if</span> board<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">"E"</span><span class="token punctuation">:</span>
+                tmp<span class="token operator">=</span>check<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> tmp<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+                    board<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"B"</span>
+                    <span class="token keyword">for</span> i<span class="token punctuation">,</span>j <span class="token keyword">in</span><span class="token punctuation">[</span><span class="token punctuation">(</span>x<span class="token number">-1</span><span class="token punctuation">,</span>y<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token number">-1</span><span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token number">-1</span><span class="token punctuation">,</span>y<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                        dfs<span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    board<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">=</span>str<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span>
+
+        dfs<span class="token punctuation">(</span>click<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>click<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> board
+
+<span class="token comment" spellcheck="true"># 看起来抽象的东西不一定难</span></code></pre>
+<h2 id="3-200-岛屿数量"><a href="#3-200-岛屿数量" class="headerlink" title="(3)200. 岛屿数量"></a>(3)200. 岛屿数量</h2><p>给你一个由 <code>&#39;1&#39;</code>（陆地）和 <code>&#39;0&#39;</code>（水）组成的的二维网格，请你计算网格中岛屿的数量。</p>
+<p>岛屿总是被水包围，并且每座岛屿只能由水平方向或竖直方向上相邻的陆地连接形成。</p>
+<p>此外，你可以假设该网格的四条边均被水包围。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">numIslands</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> grid<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> grid<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span> <span class="token comment" spellcheck="true">#有个index(0) out of的bug</span>
+        rows<span class="token punctuation">,</span>cols<span class="token operator">=</span>len<span class="token punctuation">(</span>grid<span class="token punctuation">)</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>grid<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        ans<span class="token operator">=</span><span class="token number">0</span>
+        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> x<span class="token operator">&lt;</span><span class="token number">0</span> <span class="token operator">or</span> x<span class="token operator">>=</span>rows <span class="token operator">or</span> y<span class="token operator">&lt;</span><span class="token number">0</span> <span class="token operator">or</span> y<span class="token operator">>=</span>cols<span class="token punctuation">:</span> <span class="token keyword">return</span> 
+            <span class="token keyword">if</span> grid<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">'0'</span><span class="token punctuation">:</span> <span class="token keyword">return</span>
+            grid<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">'0'</span>
+            dfs<span class="token punctuation">(</span>x<span class="token number">-1</span><span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+            dfs<span class="token punctuation">(</span>x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+            dfs<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token number">-1</span><span class="token punctuation">)</span>
+            dfs<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>rows<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>cols<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">"1"</span><span class="token punctuation">:</span>
+                    dfs<span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span>
+                    ans<span class="token operator">+=</span><span class="token number">1</span>
+        <span class="token keyword">return</span> ans
+
+<span class="token comment" spellcheck="true"># wa~,可以瞎写这个原来觉得神奇的题了。</span>
+<span class="token comment" spellcheck="true"># 2020-09-23</span></code></pre>
+<h2 id="4-695-岛屿的最大面积"><a href="#4-695-岛屿的最大面积" class="headerlink" title="(4)695. 岛屿的最大面积"></a>(4)695. 岛屿的最大面积</h2><p>给定一个包含了一些 <code>0</code> 和 <code>1</code> 的非空二维数组 <code>grid</code> 。</p>
+<p>一个 岛屿 是由一些相邻的 <code>1</code> (代表土地) 构成的组合，这里的「相邻」要求两个 <code>1</code> 必须在水平或者竖直方向上相邻。你可以假设 <code>grid</code> 的四个边缘都被 <code>0</code>（代表水）包围着。</p>
+<p>找到给定的二维数组中最大的岛屿面积。(如果没有岛屿，则返回面积为 <code>0</code> 。)</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">maxAreaOfIsland</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> grid<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> grid<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
+        rows<span class="token punctuation">,</span>cols<span class="token operator">=</span>len<span class="token punctuation">(</span>grid<span class="token punctuation">)</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>grid<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        ans<span class="token operator">=</span><span class="token number">0</span>
+
+        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> x<span class="token operator">&lt;</span><span class="token number">0</span> <span class="token operator">or</span> x<span class="token operator">>=</span>rows <span class="token operator">or</span> y<span class="token operator">&lt;</span><span class="token number">0</span> <span class="token operator">or</span> y<span class="token operator">>=</span>cols<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
+            <span class="token keyword">if</span> grid<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
+            grid<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span>
+            <span class="token keyword">return</span> <span class="token number">1</span><span class="token operator">+</span>dfs<span class="token punctuation">(</span>x<span class="token number">-1</span><span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token operator">+</span>dfs<span class="token punctuation">(</span>x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token operator">+</span>dfs<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">+</span>dfs<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>rows<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>cols<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span>
+                    ans<span class="token operator">=</span>max<span class="token punctuation">(</span>ans<span class="token punctuation">,</span>dfs<span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ans
+
+<span class="token comment" spellcheck="true"># 这1不是“1”了...</span></code></pre>
 
             </div>
             <hr/>
@@ -1103,7 +1181,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">35.5k</span>&nbsp;字
+                class="white-color">36.6k</span>&nbsp;字
             
             
             
