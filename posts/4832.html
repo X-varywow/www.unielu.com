@@ -405,21 +405,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-23
+                    2020-09-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -554,6 +554,35 @@
         <span class="token keyword">return</span> ans
 
 <span class="token comment" spellcheck="true"># 这1不是“1”了...</span></code></pre>
+<h2 id="5-N叉树的层序遍历"><a href="#5-N叉树的层序遍历" class="headerlink" title="(5)N叉树的层序遍历"></a>(5)N叉树的层序遍历</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">levelOrder</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> <span class="token string">'Node'</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        ans<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span>depth<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> node<span class="token punctuation">:</span> <span class="token keyword">return</span>
+            <span class="token keyword">if</span> len<span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span class="token operator">&lt;=</span>depth<span class="token punctuation">:</span> ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            ans<span class="token punctuation">[</span>depth<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>node<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> node<span class="token punctuation">.</span>children<span class="token punctuation">:</span>
+                dfs<span class="token punctuation">(</span>i<span class="token punctuation">,</span>depth<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+        dfs<span class="token punctuation">(</span>root<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ans</code></pre>
+<h2 id="6-二叉树的堂兄弟节点"><a href="#6-二叉树的堂兄弟节点" class="headerlink" title="(6)二叉树的堂兄弟节点"></a>(6)二叉树的堂兄弟节点</h2><p>在二叉树中，根节点位于深度 <code>0</code> 处，每个深度为 <code>k</code> 的节点的子节点位于深度 <code>k+1</code> 处。</p>
+<p>如果二叉树的两个节点深度相同，但父节点不同，则它们是一对堂兄弟节点。</p>
+<p>我们给出了具有唯一值的二叉树的根节点 <code>root</code>，以及树中两个不同节点的值 <code>x</code> 和 <code>y</code>。</p>
+<p>只有与值 <code>x</code> 和 <code>y</code> 对应的节点是堂兄弟节点时，才返回 <code>true</code>。否则，返回 <code>false</code>。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">isCousins</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">,</span> x<span class="token punctuation">:</span> int<span class="token punctuation">,</span> y<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>x<span class="token punctuation">,</span>self<span class="token punctuation">.</span>y<span class="token operator">=</span>None<span class="token punctuation">,</span>None
+        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span>pre<span class="token punctuation">,</span>depth<span class="token punctuation">,</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> node<span class="token punctuation">:</span> <span class="token keyword">return</span> 
+            <span class="token keyword">if</span> node<span class="token punctuation">.</span>val<span class="token operator">==</span>x<span class="token punctuation">:</span> self<span class="token punctuation">.</span>x<span class="token operator">=</span><span class="token punctuation">[</span>pre<span class="token punctuation">,</span>depth<span class="token punctuation">]</span>
+            <span class="token keyword">if</span> node<span class="token punctuation">.</span>val<span class="token operator">==</span>y<span class="token punctuation">:</span> self<span class="token punctuation">.</span>y<span class="token operator">=</span><span class="token punctuation">[</span>pre<span class="token punctuation">,</span>depth<span class="token punctuation">]</span>
+            dfs<span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span>node<span class="token punctuation">,</span>depth<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+            dfs<span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span>node<span class="token punctuation">,</span>depth<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+        dfs<span class="token punctuation">(</span>root<span class="token punctuation">,</span>None<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>x<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">!=</span>self<span class="token punctuation">.</span>y<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">and</span> self<span class="token punctuation">.</span>x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">==</span>self<span class="token punctuation">.</span>y<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true">###</span>
+<span class="token comment" spellcheck="true">###</span></code></pre>
 
             </div>
             <hr/>
@@ -1181,7 +1210,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">36.6k</span>&nbsp;字
+                class="white-color">38.1k</span>&nbsp;字
             
             
             

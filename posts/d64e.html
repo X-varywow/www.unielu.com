@@ -405,14 +405,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-15
+                    2020-09-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    41
+                    267
                 </div>
                 
 
@@ -429,7 +429,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="（0）前言"><a href="#（0）前言" class="headerlink" title="（0）前言"></a>（0）前言</h2><h2 id="（1）876-链表的中间节点"><a href="#（1）876-链表的中间节点" class="headerlink" title="（1）876.链表的中间节点"></a>（1）876.链表的中间节点</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+                <h2 id="1-链表的中间节点"><a href="#1-链表的中间节点" class="headerlink" title="(1)链表的中间节点"></a>(1)链表的中间节点</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">middleNode</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">:</span> ListNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> ListNode<span class="token punctuation">:</span>
         slow<span class="token operator">=</span>fast<span class="token operator">=</span>head
         <span class="token keyword">while</span> fast <span class="token operator">and</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">:</span>
@@ -437,7 +437,45 @@
             fast<span class="token operator">=</span>fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next
         <span class="token keyword">return</span> slow
 
-<span class="token comment" spellcheck="true">#快慢指针</span></code></pre>
+<span class="token comment" spellcheck="true"># 快慢指针</span></code></pre>
+<h2 id="2-合并两个有序链表"><a href="#2-合并两个有序链表" class="headerlink" title="(2)合并两个有序链表"></a>(2)合并两个有序链表</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> l1<span class="token punctuation">:</span> ListNode<span class="token punctuation">,</span> l2<span class="token punctuation">:</span> ListNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> ListNode<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> l1<span class="token punctuation">:</span> <span class="token keyword">return</span> l2
+        <span class="token keyword">if</span> <span class="token operator">not</span> l2<span class="token punctuation">:</span> <span class="token keyword">return</span> l1
+        <span class="token keyword">if</span> l1<span class="token punctuation">.</span>val<span class="token operator">&lt;</span>l2<span class="token punctuation">.</span>val<span class="token punctuation">:</span>
+            l1<span class="token punctuation">.</span>next<span class="token operator">=</span>self<span class="token punctuation">.</span>mergeTwoLists<span class="token punctuation">(</span>l1<span class="token punctuation">.</span>next<span class="token punctuation">,</span>l2<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> l1
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            l2<span class="token punctuation">.</span>next<span class="token operator">=</span>self<span class="token punctuation">.</span>mergeTwoLists<span class="token punctuation">(</span>l1<span class="token punctuation">,</span>l2<span class="token punctuation">.</span>next<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> l2
+
+<span class="token comment" spellcheck="true"># 递归</span></code></pre>
+<h2 id="3-445-两数相加-II"><a href="#3-445-两数相加-II" class="headerlink" title="(3)445.两数相加 II"></a>(3)445.两数相加 II</h2><p>给你两个 非空 链表来代表两个非负整数。数字最高位位于链表开始位置。它们的每个节点只存储一位数字。将这两数相加会返回一个新的链表。</p>
+<p>你可以假设除了数字 <code>0</code> 之外，这两个数字都不会以零开头。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">addTwoNumbers</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> l1<span class="token punctuation">:</span> ListNode<span class="token punctuation">,</span> l2<span class="token punctuation">:</span> ListNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> ListNode<span class="token punctuation">:</span>
+        s1<span class="token punctuation">,</span>s2<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">while</span> l1<span class="token punctuation">:</span>
+            s1<span class="token punctuation">.</span>append<span class="token punctuation">(</span>l1<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+            l1<span class="token operator">=</span>l1<span class="token punctuation">.</span>next
+        <span class="token keyword">while</span> l2<span class="token punctuation">:</span>
+            s2<span class="token punctuation">.</span>append<span class="token punctuation">(</span>l2<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+            l2<span class="token operator">=</span>l2<span class="token punctuation">.</span>next
+        ans<span class="token punctuation">,</span>carry<span class="token operator">=</span>None<span class="token punctuation">,</span><span class="token number">0</span>
+
+        <span class="token keyword">while</span> s1 <span class="token operator">or</span> s2 <span class="token operator">or</span> carry <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            a <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">if</span> <span class="token operator">not</span> s1 <span class="token keyword">else</span> s1<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            b <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">if</span> <span class="token operator">not</span> s2 <span class="token keyword">else</span> s2<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            cur <span class="token operator">=</span> a <span class="token operator">+</span> b <span class="token operator">+</span> carry
+            cur<span class="token punctuation">,</span>carry<span class="token operator">=</span>cur<span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">,</span>cur<span class="token operator">//</span><span class="token number">10</span>
+
+            curnode <span class="token operator">=</span> ListNode<span class="token punctuation">(</span>cur<span class="token punctuation">)</span>
+
+            curnode<span class="token punctuation">.</span>next <span class="token operator">=</span> ans 
+            ans <span class="token operator">=</span> curnode           <span class="token comment" spellcheck="true">#头部接入</span>
+        <span class="token keyword">return</span> ans
+
+<span class="token comment" spellcheck="true"># 栈，链表</span></code></pre>
 
             </div>
             <hr/>
@@ -1065,7 +1103,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">36.6k</span>&nbsp;字
+                class="white-color">38.1k</span>&nbsp;字
             
             
             
