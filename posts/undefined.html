@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="copy模块, -- blog --">
+    <meta name="keywords" content="数据库, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>copy模块 | -- blog --</title>
+    <title>数据库 | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/awesome/css/all.css">
@@ -301,12 +301,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/27.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">copy模块</h1>
+                    <h1 class="description center-align post-title diyFont">数据库</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                                <span class="chip bg-color">python模块</span>
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/python/" class="post-category">
-                                python
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                大二
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-31
+                    2020-12-07
                 </div>
                 
 
@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    226
+                    1.5k
                 </div>
                 
 
@@ -482,47 +482,233 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Python 中赋值语句<strong>不复制对象</strong>，而是在目标和对象之间创建**绑定 (bindings)**关系。对于自身可变或者包含可变项的集合对象，开发者有时会需要生成其副本用于改变操作，进而避免改变原对象。</p>
-<p>本模块提供了通用的浅层复制和深层复制操作:</p>
+                <h1 id="一、数据库系统概述"><a href="#一、数据库系统概述" class="headerlink" title="一、数据库系统概述"></a>一、数据库系统概述</h1><p><code>1.4</code></p>
+<p><strong>外模式</strong>   –&gt;   用户级</p>
 <ul>
-<li><code>copy.copy()</code></li>
-<li><code>copy.deepcopy()</code></li>
+<li><p>数据库用户能看到并允许使用的那部分局部数据的逻辑结构和特征的描述 </p>
+<p>||   <code>外模式/模式映像</code><br>||    保证了数据与程序间的逻辑一致性</p>
+</li>
 </ul>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 关于拷贝的机制</span>
+<p><strong>模式</strong>     –&gt;   概念级</p>
+<ul>
+<li><p>数据库中全体数据的逻辑结构和特征的描述</p>
+</li>
+<li><p>一个数据库只有一个模式</p>
+<p>||   <code>模式/内模式映像</code><br>||    保证了数据的物理一致性</p>
+</li>
+</ul>
+<p><strong>内模式</strong>   –&gt;   物理级</p>
+<ul>
+<li>它是对数据库存储结构的描述，是数据在数据库内部的表示方式 </li>
+</ul>
+<blockquote>
+<p>三级模式和二级映像的优点：</p>
+<ul>
+<li>保证数据独立性</li>
+<li>简化用户接口</li>
+<li>有利于数据共享</li>
+<li>有利于数据的安全保密</li>
+</ul>
+</blockquote>
+<p><code>1.3</code></p>
+<p>数据库系统（DBS）的组成：</p>
+<ul>
+<li>DB（是存储在计算机内、有组织的、可共享的数据和数据对象的集合）</li>
+<li>用户</li>
+<li>软件系统</li>
+<li>硬件系统</li>
+</ul>
+<p><code>1.6</code></p>
+<p>数据库系统的<strong>核心软件</strong>：DBMS</p>
+<p>数据库管理系统（DBMS）的主要功能：</p>
+<ul>
+<li>数据定义</li>
+<li>数据操纵</li>
+<li>数据库运行管理</li>
+<li>数据库的建立和维护</li>
+<li>数据通信接口</li>
+<li>数据存储、组织和管理</li>
+</ul>
+<p>数据库管理系统（DBMS）的组成：</p>
+<ul>
+<li>语言编译处理程序</li>
+<li>系统运行控制程序</li>
+<li>系统建立、维护程序</li>
+<li>数据字典</li>
+</ul>
+<p><code>1.9</code></p>
+<ul>
+<li>层次模型</li>
+<li>网状模型</li>
+<li>关系模型<ul>
+<li>一个关系实例对应一张由行和列组成的二维表</li>
+<li>每<strong>一行元组</strong>对应的列的属性值叫<strong>分量</strong></li>
+<li>一个关系数据库文件中个条记录，前后顺序可颠倒</li>
+<li>关系模式的任何属性不可再分</li>
+</ul>
+</li>
+<li>面向对象模型</li>
+</ul>
+<h1 id="二、关系数据库"><a href="#二、关系数据库" class="headerlink" title="二、关系数据库"></a>二、关系数据库</h1><p><strong>候选码</strong>，能唯一标识关系中元组的一个属性或属性集</p>
+<ul>
+<li>唯一性</li>
+<li>最小性</li>
+</ul>
+<p><strong>主码</strong>，被选用的候选码</p>
+<hr>
+<p>关系模型中的三类<strong>完整性约束</strong>：</p>
+<ul>
+<li>实体完整性</li>
+<li>参照完整性</li>
+<li>用户自定义完整性</li>
+</ul>
+<hr>
+<p><strong>关系代数运算符</strong>：</p>
+<ul>
+<li>1.集合运算符<ul>
+<li><code>∪</code> <code>-</code> <code>∩</code> 和 广义笛卡尔积<code>x</code></li>
+</ul>
+</li>
+<li>2.专门的关系运算符<ul>
+<li>选取、投影、连接</li>
+</ul>
+</li>
+<li>3.算术比较运算符</li>
+<li>4.逻辑运算符</li>
+</ul>
+<h2 id="关系代数练习"><a href="#关系代数练习" class="headerlink" title="关系代数练习"></a>关系代数练习</h2><p>基于以下三个关系:  </p>
+<ul>
+<li>学生S(SNO, SNAME, AGE)</li>
+<li>课程C(CNO, CNAME, CT)</li>
+<li>选修SC(SNO, CNO, SCORE)</li>
+</ul>
+<p>其中SNO, SNAME, AGE, CNO, CNAME, CT, SCORE分别代表学号、学生姓名、年龄、课程编号、课程名称、课时、成绩。</p>
+<p>用关系代数完成下列操作：</p>
+<p>(1)    查询年龄小于17或者大于23的学生选修的课程编号。<br><code>ΠCNO((σage&lt;17 or age&gt;23(S)) ⋈SC)</code></p>
+<p>(2)    给出重名的名字。<br><code>ΠS.SNAME(σS.NAME=S1.NAME AND S.SNO!=S1.SNO (S☓ρS1(S)))</code></p>
+<p>(3)    查询“张三”同学不学的课程编号。<br><code>ΠCNO(C) -ΠCNO(SC⋈σSNAME=&#39;张三&#39; (S))</code></p>
+<p>(4)    给出既选修“高等数学”又选修“线性代数”的学生学号。<br><code>ΠSNO(SC⋈(σCNAME=&#39;高等数学&#39; (C)))∩ ΠSNO(SC⋈(σCNAME=&#39;线性代数&#39; (C)))</code></p>
+<p>(5)    给出“数据库”课程成绩最高的学生学号。<br><code>R1:= ΠSNO,SCORE(SC⋈(σCNAME=&#39;数据库&#39; (C)))</code> (先将数据库成绩提出来，后面会简洁一些)<br><code>(ΠSNO ( R1 - ΠR1.SNO, R1.SCORE(σR1.SCORE&lt;R2.SCORE (R1☓ρR2(R1)))))</code></p>
+<h1 id="三、SQL"><a href="#三、SQL" class="headerlink" title="三、SQL"></a>三、SQL</h1><h2 id="实验一：sql初步"><a href="#实验一：sql初步" class="headerlink" title="实验一：sql初步"></a>实验一：sql初步</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 查询1986年出生的</span>
 
-<span class="token keyword">import</span> copy
-a<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#原始对象</span>
-b<span class="token operator">=</span>a                 <span class="token comment" spellcheck="true">#赋值，传对象的引用</span>
-c<span class="token operator">=</span>copy<span class="token punctuation">.</span>copy<span class="token punctuation">(</span>a<span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">#浅拷贝</span>
-d<span class="token operator">=</span>copy<span class="token punctuation">.</span>deepcopy<span class="token punctuation">(</span>a<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#深拷贝</span>
+<span class="token keyword">select</span> sno<span class="token punctuation">,</span>sn<span class="token punctuation">,</span>birth
+<span class="token keyword">from</span> s
+<span class="token keyword">where</span> birth <span class="token operator">like</span><span class="token string">'1986%'</span>
 
-a<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
-a<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">-- 或者 where year(birth)=1986</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--选取3次作业总分前三</span>
 
-<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># -->[1, 2, 3, ['a', 'b', 'c'], 5]</span>
+<span class="token keyword">select</span> top3 sno<span class="token punctuation">,</span>cno<span class="token punctuation">,</span>hw1<span class="token operator">+</span>hw2<span class="token operator">+</span>hw3 <span class="token keyword">as</span> total
+<span class="token keyword">from</span> homework
+<span class="token keyword">order</span> <span class="token keyword">by</span> total <span class="token keyword">desc</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="实验二：sql子查询"><a href="#实验二：sql子查询" class="headerlink" title="实验二：sql子查询"></a>实验二：sql子查询</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--查询与xxx同一班级的其他学生信息</span>
 
-<span class="token keyword">print</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># -->[1, 2, 3, ['a', 'b', 'c'], 5]</span>
+<span class="token comment" spellcheck="true">--连接查询</span>
+<span class="token keyword">select</span> s<span class="token punctuation">.</span><span class="token operator">*</span>
+<span class="token keyword">from</span> s<span class="token punctuation">,</span> s <span class="token keyword">as</span> s1
+<span class="token keyword">where</span> s<span class="token punctuation">.</span>class<span class="token operator">=</span>s1<span class="token punctuation">.</span>class <span class="token operator">and</span> s1<span class="token punctuation">.</span>sn<span class="token operator">=</span>xxx <span class="token operator">and</span> s<span class="token punctuation">.</span>sn<span class="token operator">!=</span>xxx
 
-<span class="token keyword">print</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># -->[1, 2, 3, ['a', 'b', 'c']]</span>
+<span class="token comment" spellcheck="true">--子查询</span>
+<span class="token keyword">select</span> s<span class="token punctuation">.</span><span class="token operator">*</span>
+<span class="token keyword">from</span> s
+<span class="token keyword">where</span> class<span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">select</span> class <span class="token keyword">from</span> s <span class="token keyword">where</span> sn<span class="token operator">=</span>xxx<span class="token punctuation">)</span> <span class="token operator">and</span> s<span class="token punctuation">.</span>sn<span class="token operator">!=</span>xxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 查询K001和M001都没有选修的学生信息</span>
 
-<span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># -->[1, 2, 3, ['a', 'b']]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#关于同数据，字符串+=</span>
+<span class="token keyword">select</span> sno<span class="token punctuation">,</span>cno<span class="token punctuation">,</span>hw1<span class="token punctuation">,</span>hw2<span class="token punctuation">,</span>hw3
+<span class="token keyword">from</span> homework
+<span class="token keyword">where</span> sno <span class="token operator">not</span> <span class="token operator">in</span> <span class="token punctuation">(</span>
+    <span class="token keyword">select</span> sno
+    <span class="token keyword">from</span> homework
+    <span class="token keyword">where</span> cno<span class="token operator">=</span><span class="token string">'K001'</span> <span class="token operator">or</span> cno<span class="token operator">=</span><span class="token string">'M001'</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 查询学时最少的课程</span>
 
-a<span class="token operator">=</span><span class="token string">"abc"</span>
-b<span class="token operator">=</span>a
-<span class="token keyword">print</span><span class="token punctuation">(</span>id<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span>id<span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#-->1652389179952 1652389179952</span>
-c<span class="token operator">=</span><span class="token string">"abc"</span>
-d<span class="token operator">=</span><span class="token string">""</span>
-d<span class="token operator">+=</span>c
-<span class="token keyword">print</span><span class="token punctuation">(</span>id<span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">,</span>id<span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#-->1652389179952 1652389179952</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>            <span class="token comment" spellcheck="true">#-->abc</span>
-d<span class="token operator">+=</span>c
-<span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">,</span>id<span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">,</span>id<span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#-->abcabc 1652431257904 1652389179952</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">select</span> cn
+<span class="token keyword">from</span> <span class="token number">c</span>
+<span class="token keyword">where</span> ct <span class="token operator">&lt;=</span><span class="token keyword">all</span><span class="token punctuation">(</span><span class="token keyword">select</span> ct <span class="token keyword">from</span> <span class="token number">c</span><span class="token punctuation">)</span>
 
+<span class="token comment" spellcheck="true">--或</span>
+
+<span class="token keyword">select</span> cn
+<span class="token keyword">from</span> <span class="token number">c</span>
+<span class="token keyword">where</span> <span class="token operator">not</span> <span class="token keyword">exists</span><span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token number">c</span> <span class="token keyword">as</span> <span class="token number">c1</span> <span class="token keyword">where</span> <span class="token number">c</span><span class="token punctuation">.</span>ct<span class="token operator">></span><span class="token number">c1</span><span class="token punctuation">.</span>ct<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="实验三：sql聚合函数"><a href="#实验三：sql聚合函数" class="headerlink" title="实验三：sql聚合函数"></a>实验三：sql聚合函数</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 查询学生人数</span>
+
+<span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span>
+<span class="token keyword">from</span> homework
+<span class="token keyword">where</span> cno<span class="token operator">=</span><span class="token string">'K001'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 查询多少个不同的班级</span>
+
+<span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> class<span class="token punctuation">)</span>
+<span class="token keyword">from</span> s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 查询作业平均分</span>
+
+<span class="token keyword">select</span> <span class="token function">avg</span><span class="token punctuation">(</span>hw1<span class="token punctuation">)</span>
+<span class="token keyword">from</span> <span class="token number">c</span> <span class="token keyword">join</span> homework <span class="token keyword">on</span> <span class="token number">c</span><span class="token punctuation">.</span>cno<span class="token operator">=</span>homework<span class="token punctuation">.</span>cno <span class="token operator">and</span> cn<span class="token operator">=</span><span class="token string">'python'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 查询选课人数最多的两名课程，给出课程号</span>
+
+<span class="token keyword">select</span> <span class="token keyword">top</span> <span class="token number">2</span> cno
+<span class="token keyword">from</span> homework
+<span class="token keyword">group</span> <span class="token keyword">by</span> cno
+<span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token function">count</span><span class="token punctuation">(</span>sno<span class="token punctuation">)</span> <span class="token keyword">desc</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 查询两个以上男生选修的课程编号。（包含两个）</span>
+<span class="token comment" spellcheck="true">-- 因为一个SN对应多个SNo时出错</span>
+<span class="token keyword">select</span> CNO
+<span class="token keyword">from</span> s <span class="token keyword">join</span> homework <span class="token keyword">on</span> s<span class="token punctuation">.</span>sno<span class="token operator">=</span>homework<span class="token punctuation">.</span>sno <span class="token operator">and</span> sex<span class="token operator">=</span><span class="token string">'男'</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> CNO
+<span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">>=</span><span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 9. 查询每个同学的选课门数，如果没有选修则选课门数为0。</span>
+
+<span class="token keyword">select</span> s<span class="token punctuation">.</span>sno<span class="token punctuation">,</span>sn<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span>cno<span class="token punctuation">)</span> <span class="token keyword">as</span> 选课数
+<span class="token keyword">from</span> s <span class="token keyword">left</span> <span class="token keyword">join</span> homework <span class="token keyword">on</span> s<span class="token punctuation">.</span>sno<span class="token operator">=</span>homework<span class="token punctuation">.</span>sno
+<span class="token keyword">group</span> <span class="token keyword">by</span> s<span class="token punctuation">.</span>sno<span class="token punctuation">,</span>sn
+<span class="token keyword">order</span> <span class="token keyword">by</span> 选课数 <span class="token keyword">desc</span>
+
+<span class="token comment" spellcheck="true">-- 方法二：</span>
+
+<span class="token keyword">select</span> s<span class="token punctuation">.</span>sno<span class="token punctuation">,</span>sn<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span>cno<span class="token punctuation">)</span> <span class="token keyword">as</span> 选课数
+<span class="token keyword">from</span> s <span class="token keyword">join</span> homework <span class="token keyword">on</span> s<span class="token punctuation">.</span>sno<span class="token operator">=</span>homework<span class="token punctuation">.</span>sno
+<span class="token keyword">group</span> <span class="token keyword">by</span> s<span class="token punctuation">.</span>sno<span class="token punctuation">,</span>sn
+
+<span class="token keyword">union</span>
+
+<span class="token keyword">select</span> sno<span class="token punctuation">,</span>sn<span class="token punctuation">,</span> <span class="token number">0</span> <span class="token keyword">as</span> 选课数
+<span class="token keyword">from</span> s
+<span class="token keyword">where</span> sno <span class="token operator">not</span> <span class="token operator">in</span>
+<span class="token punctuation">(</span><span class="token keyword">select</span> sno <span class="token keyword">from</span> homework<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="实验四：数据更新与约束"><a href="#实验四：数据更新与约束" class="headerlink" title="实验四：数据更新与约束"></a>实验四：数据更新与约束</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 创表，约束，主外键</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> Book<span class="token punctuation">(</span>
+    BNo CHAR<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+    BName    nVARCHAR<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    Publish    nVARCHAR<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    PDate    <span class="token keyword">datetime</span><span class="token punctuation">,</span>
+    BAuth    nVARCHAR<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    bprice    <span class="token keyword">NUMERIC</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    binprice    <span class="token keyword">NUMERIC</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    BCount    <span class="token keyword">INT</span> <span class="token keyword">check</span><span class="token punctuation">(</span>Bcount<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">check</span><span class="token punctuation">(</span>binprice<span class="token operator">&lt;</span>bprice<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> BookSell<span class="token punctuation">(</span>
+    SDate    <span class="token keyword">datetime</span><span class="token punctuation">,</span>
+    BNO    CHAR<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span> <span class="token keyword">foreign</span> <span class="token keyword">key</span> <span class="token keyword">references</span> Book<span class="token punctuation">(</span>bno<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    SCount    <span class="token keyword">int</span><span class="token punctuation">,</span>
+    SMoney    smallmoney
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">--新进图书</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> Book <span class="token keyword">values</span> <span class="token punctuation">(</span><span class="token string">'9787115457004'</span><span class="token punctuation">,</span><span class="token string">'数据库原理及应用教程'</span><span class="token punctuation">,</span><span class="token string">'人民邮电出版社'</span><span class="token punctuation">,</span><span class="token string">'2017-11-1'</span><span class="token punctuation">,</span><span class="token string">'陈志泊'</span><span class="token punctuation">,</span><span class="token number">49.5</span><span class="token punctuation">,</span><span class="token number">35</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">--卖书退书</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> booksell <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token string">'2020-2-1'</span><span class="token punctuation">,</span><span class="token string">'9787115457004'</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">800</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">update</span> book  <span class="token keyword">set</span> bcount<span class="token operator">-</span><span class="token operator">=</span><span class="token number">20</span> <span class="token keyword">where</span> bno<span class="token operator">=</span><span class="token string">'9787115457004'</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> booksell <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token string">'2020-2-2'</span><span class="token punctuation">,</span><span class="token string">'9787115457004'</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">132</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">update</span> book  <span class="token keyword">set</span> bcount<span class="token operator">-</span><span class="token operator">=</span><span class="token number">3</span> <span class="token keyword">where</span> bno<span class="token operator">=</span><span class="token string">'9787115457004'</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> booksell <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token string">'2020-2-3'</span><span class="token punctuation">,</span><span class="token string">'9787115457004'</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">select</span> smoney<span class="token operator">/</span>scount<span class="token operator">*</span><span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">from</span> booksell <span class="token keyword">where</span> scount<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">update</span> book  <span class="token keyword">set</span> bcount<span class="token operator">+</span><span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">where</span> bno<span class="token operator">=</span><span class="token string">'9787115457004'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="四、关系数据库理论"><a href="#四、关系数据库理论" class="headerlink" title="四、关系数据库理论"></a>四、关系数据库理论</h1><p>关系模式的<strong>范式</strong></p>
+<h1 id="五、数据库安全保护"><a href="#五、数据库安全保护" class="headerlink" title="五、数据库安全保护"></a>五、数据库安全保护</h1><h2 id="实验五：数据库安全管理"><a href="#实验五：数据库安全管理" class="headerlink" title="实验五：数据库安全管理"></a>实验五：数据库安全管理</h2><p>安全性控制、完整性控制、并发性控制、数据恢复</p>
+<h1 id="六、数据库设计"><a href="#六、数据库设计" class="headerlink" title="六、数据库设计"></a>六、数据库设计</h1><h1 id="七、高级应用"><a href="#七、高级应用" class="headerlink" title="七、高级应用"></a>七、高级应用</h1><h2 id="实验六：Transaction-sql"><a href="#实验六：Transaction-sql" class="headerlink" title="实验六：Transaction-sql"></a>实验六：Transaction-sql</h2><h2 id="实验七：存储过程-amp-触发器"><a href="#实验七：存储过程-amp-触发器" class="headerlink" title="实验七：存储过程&amp;触发器"></a>实验七：存储过程&amp;触发器</h2><h2 id="实验八：备份-amp-还原"><a href="#实验八：备份-amp-还原" class="headerlink" title="实验八：备份&amp;还原"></a>实验八：备份&amp;还原</h2>
             </div>
             <hr/>
 
@@ -547,7 +733,7 @@ d<span class="token operator">+=</span>c
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/4b99.html">https://www.unielu.com/posts/4b99.html</a>
+                    <a href="https://www.unielu.com/posts/undefined.html">https://www.unielu.com/posts/undefined.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -585,8 +771,8 @@ d<span class="token operator">+=</span>c
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                                    <span class="chip bg-color">python模块</span>
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -895,30 +1081,30 @@ d<span class="token operator">+=</span>c
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/9ba5.html">
+                <a href="/posts/9280.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/5.jpg" class="responsive-img" alt="itertools模块">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/new-5.jpg" class="responsive-img" alt="小站的更新">
                         
-                        <span class="card-title">itertools模块</span>
+                        <span class="card-title">小站的更新</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            参照官方文档
+                            介绍更新的内容
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-31
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-09
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/other/" class="post-category">
+                                    other
                                 </a>
                             
                             
@@ -928,8 +1114,12 @@ d<span class="token operator">+=</span>c
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                        <span class="chip bg-color">python模块</span>
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%AE%E9%A1%B6/">
+                        <span class="chip bg-color">置顶</span>
                     </a>
                     
                 </div>
@@ -943,30 +1133,30 @@ d<span class="token operator">+=</span>c
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/4890.html">
+                <a href="/posts/ee30.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/5.jpg" class="responsive-img" alt="collections模块">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/23.jpg" class="responsive-img" alt="2020十二月">
                         
-                        <span class="card-title">collections模块</span>
+                        <span class="card-title">2020十二月</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            参照官方文档
+                            崭新的征程。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/%E6%97%A5%E8%AE%B0/" class="post-category">
+                                    日记
                                 </a>
                             
                             
@@ -976,8 +1166,8 @@ d<span class="token operator">+=</span>c
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                        <span class="chip bg-color">python模块</span>
+                    <a href="/tags/%E5%A4%A7%E4%BA%8C/">
+                        <span class="chip bg-color">大二</span>
                     </a>
                     
                 </div>
