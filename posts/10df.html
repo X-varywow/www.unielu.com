@@ -29,7 +29,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body>
@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    826
+                    790
                 </div>
                 
 
@@ -506,9 +506,9 @@
 <ul>
 <li><code>*</code> : 匹配前一个字符0到n次，如pytho*n可以匹配pythn、pytoon、pythooooon等。</li>
 <li><code>?</code> : 匹配前一个字符0或1次。</li>
-<li><code>+</code> : 匹配前一个字符1到n次。等价于<code>&#123;1,&#125;</code></li>
-<li><code>&#123;n,m&#125;</code> : 匹配前一个字符n次到m次。</li>
-<li><code>&#123;n&#125;</code>: 匹配前一个字符n次。</li>
+<li><code>+</code> : 匹配前一个字符1到n次。等价于<code>{1,}</code></li>
+<li><code>{n,m}</code> : 匹配前一个字符n次到m次。</li>
+<li><code>{n}</code>: 匹配前一个字符n次。</li>
 </ul>
 <hr>
 <table>
@@ -570,9 +570,9 @@
 <p>正则匹配修饰符<code>re.S</code>使 <code>.</code> 匹配包括换行在内的所有字符</p>
 <h2 id="python实践"><a href="#python实践" class="headerlink" title="python实践"></a><em>python实践</em></h2><pre class="line-numbers language-python"><code class="language-python">re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"d(ds)*"</span><span class="token punctuation">,</span><span class="token string">"askldjasaddsa"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#-->['', 'ds']</span>
 re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"d[ds]*"</span><span class="token punctuation">,</span><span class="token string">"askldjasaddsa"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#-->['d', 'dds']</span>
-re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"d&amp;#123;ds&amp;#125;*"</span><span class="token punctuation">,</span><span class="token string">"askldjasaddsa"</span><span class="token punctuation">)</span> #<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">></span><span class="token punctuation">[</span><span class="token punctuation">]</span>
-re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"d&amp;#123;ds&amp;#125;"</span><span class="token punctuation">,</span><span class="token string">"askldjasad&amp;#123;ds&amp;#125;a"</span><span class="token punctuation">)</span> #<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">></span><span class="token punctuation">[</span><span class="token string">'d&amp;#123;ds&amp;#125;'</span><span class="token punctuation">]</span>
-re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"ds?"</span><span class="token punctuation">,</span><span class="token string">"askldjasad&amp;#123;dsssssss&amp;#125;a"</span><span class="token punctuation">)</span> #<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">></span><span class="token punctuation">[</span><span class="token string">'d'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">,</span> <span class="token string">'ds'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"d{ds}*"</span><span class="token punctuation">,</span><span class="token string">"askldjasaddsa"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#-->[]</span>
+re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"d{ds}"</span><span class="token punctuation">,</span><span class="token string">"askldjasad{ds}a"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#-->['d{ds}']</span>
+re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"ds?"</span><span class="token punctuation">,</span><span class="token string">"askldjasad{dsssssss}a"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#-->['d', 'd', 'ds']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>非贪婪模式与贪婪模式：</p>
 <pre class="line-numbers language-python"><code class="language-python">re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">"/(\S*?)/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"//asd/sdsa/asda"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#-->['', 'sdsa']</span>
 re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">"/(\S*)/"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"//asd/sdsa/asda"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#-->['/asd/sdsa']</span>
@@ -583,18 +583,18 @@ re<span class="token punctuation">.</span>compile<span class="token punctuation"
 <hr>
 <p><code>http.*/$</code> 匹配以http开头,以/结尾的数据</p>
 <hr>
-<p><code>^\d&#123;n&#125;$</code>  匹配n位的数字</p>
+<p><code>^\d{n}$</code>  匹配n位的数字</p>
 <hr>
 <p><code>^(?!(xx+)\1+$)x*</code> 匹配质数个x,不懂</p>
 <hr>
-<p>从<code>2002-1-2</code> <code>2020-01-02</code> <code>2020.01.02</code> <code>2020 01 02</code> <code>20200102</code> <code>2020/01/02</code>提取年月日的数据<br><code>(\d&#123;4&#125;)[\-/\s]?(\d&#123;1,2&#125;)[\-/\s]?&#123;\d&#123;1,2&#125;&#125;</code></p>
+<p>从<code>2002-1-2</code> <code>2020-01-02</code> <code>2020.01.02</code> <code>2020 01 02</code> <code>20200102</code> <code>2020/01/02</code>提取年月日的数据<br><code>(\d{4})[\-/\s]?(\d{1,2})[\-/\s]?{\d{1,2}}</code></p>
 <hr>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a><em>小结</em></h2><p>ennn，入门应该够了，漏掉了<code>先行断言</code>,<code>(?.....)</code>等等<br>正则表达式太强了，还能密码强度认证</p>
 <blockquote>
 <ul>
-<li>正则表达式在线测试：<br><a target="_blank" rel="noopener" href="http://c.runoob.com/front-end/854">http://c.runoob.com/front-end/854</a></li>
-<li>python官方re文档：<br><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/re.html">https://docs.python.org/zh-cn/3/library/re.html</a></li>
-<li><strong>推荐的正则课程</strong>：<br><a target="_blank" rel="noopener" href="https://codejiaonang.com/#/courses">https://codejiaonang.com/#/courses</a></li>
+<li>正则表达式在线测试：<br><a href="http://c.runoob.com/front-end/854" target="_blank" rel="noopener">http://c.runoob.com/front-end/854</a></li>
+<li>python官方re文档：<br><a href="https://docs.python.org/zh-cn/3/library/re.html" target="_blank" rel="noopener">https://docs.python.org/zh-cn/3/library/re.html</a></li>
+<li><strong>推荐的正则课程</strong>：<br><a href="https://codejiaonang.com/#/courses" target="_blank" rel="noopener">https://codejiaonang.com/#/courses</a></li>
 </ul>
 </blockquote>
 
@@ -1164,7 +1164,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.5k</span>&nbsp;字
+                class="white-color">50.6k</span>&nbsp;字
             
             
             

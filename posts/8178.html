@@ -29,7 +29,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body>
@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    670
+                    634
                 </div>
                 
 
@@ -478,7 +478,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h1><p>感谢学长，老师</p>
-<h1 id="1-基础"><a href="#1-基础" class="headerlink" title="1.基础"></a>1.基础</h1><h2 id="python模块"><a href="#python模块" class="headerlink" title="python模块"></a>python模块</h2><p>httpserver: <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.8/library/http.server.html">https://docs.python.org/zh-cn/3.8/library/http.server.html</a></p>
+<h1 id="1-基础"><a href="#1-基础" class="headerlink" title="1.基础"></a>1.基础</h1><h2 id="python模块"><a href="#python模块" class="headerlink" title="python模块"></a>python模块</h2><p>httpserver: <a href="https://docs.python.org/zh-cn/3.8/library/http.server.html" target="_blank" rel="noopener">https://docs.python.org/zh-cn/3.8/library/http.server.html</a></p>
 <h2 id="树莓派"><a href="#树莓派" class="headerlink" title="树莓派"></a>树莓派</h2><p>系统配置–&gt;网络配置–&gt;环境搭建–&gt;开发</p>
 <p><code>ifconfig</code> ——查看IP地址 <code>eth0</code> <code>lo</code> <code>wlan0</code></p>
 <p>连接方式：</p>
@@ -566,75 +566,75 @@ ser<span class="token operator">=</span>serial<span class="token punctuation">.<
         <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a><em>index.html</em></h2><pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
-    <span class="token keyword">function</span> <span class="token function">directionBtnDown</span><span class="token punctuation">(</span>direction<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">directionBtnDown</span><span class="token punctuation">(</span>direction<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">var</span> url <span class="token operator">=</span> <span class="token string">"requestAddress"</span>
         <span class="token keyword">var</span> request <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         request<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"POST"</span><span class="token punctuation">,</span> url<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         request<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>direction<span class="token punctuation">)</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="token keyword">function</span> <span class="token function">directionBtnUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">directionBtnUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">var</span> url <span class="token operator">=</span> <span class="token string">"requestAddress"</span>
         <span class="token keyword">var</span> request <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         request<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"POST"</span><span class="token punctuation">,</span> url<span class="token punctuation">)</span><span class="token punctuation">;</span>
         request<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">"S"</span><span class="token punctuation">)</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
-    span<span class="token number">.</span>car &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+    <span class="token selector">span<span class="token class">.car</span> </span><span class="token punctuation">{</span>
         <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
         <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">30%</span><span class="token punctuation">;</span>
         <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">480</span>px<span class="token punctuation">;</span>   
-    &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    span<span class="token number">.</span>camera &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+    <span class="token selector">span<span class="token class">.camera</span> </span><span class="token punctuation">{</span>
         <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
         <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">5%</span><span class="token punctuation">;</span>
         <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token number">290</span>px<span class="token punctuation">;</span>
         <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">480</span>px<span class="token punctuation">;</span>
         <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">640</span>px<span class="token punctuation">;</span>
         <span class="token property">background-color</span><span class="token punctuation">:</span> blue
-    &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    span<span class="token number">.</span>camera_control &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+    <span class="token selector">span<span class="token class">.camera_control</span> </span><span class="token punctuation">{</span>
         <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
         <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">30%</span><span class="token punctuation">;</span>
         <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token number">950</span>px<span class="token punctuation">;</span>
         <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">480</span>px<span class="token punctuation">;</span>
         <span class="token property">background-color</span><span class="token punctuation">:</span> blue
-    &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
 
-    button<span class="token number">.</span>top &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+    <span class="token selector">button<span class="token class">.top</span> </span><span class="token punctuation">{</span>
         <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
         <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">50</span>px<span class="token punctuation">;</span>
         <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">90</span>px<span class="token punctuation">;</span>
         <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token number">90</span>px
-    &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    button<span class="token number">.</span>left &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+    <span class="token selector">button<span class="token class">.left</span> </span><span class="token punctuation">{</span>
         <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
         <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">50</span>px<span class="token punctuation">;</span>
         <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">90</span>px<span class="token punctuation">;</span>
         <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">50</span>px<span class="token punctuation">;</span>
-    &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    button<span class="token number">.</span>right &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+    <span class="token selector">button<span class="token class">.right</span> </span><span class="token punctuation">{</span>
         <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
         <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">50</span>px<span class="token punctuation">;</span>
         <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">90</span>px<span class="token punctuation">;</span>
         <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">50</span>px<span class="token punctuation">;</span>
         <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token number">180</span>px
-    &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    button<span class="token number">.</span>bottom &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+    <span class="token selector">button<span class="token class">.bottom</span> </span><span class="token punctuation">{</span>
         <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
         <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">50</span>px<span class="token punctuation">;</span>
         <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">90</span>px<span class="token punctuation">;</span>
         <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
         <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token number">90</span>px
-    &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
@@ -1222,7 +1222,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.5k</span>&nbsp;字
+                class="white-color">50.6k</span>&nbsp;字
             
             
             

@@ -29,7 +29,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body>
@@ -455,14 +455,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    8 分
                 </div>
                 
 
@@ -501,9 +501,9 @@
 </li>
 <li><p><code>main.cpp</code> 执行链表的操作</p>
 <pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"l.h"</span></span>
-<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><p>分为不带头，带头，无说明则代码通用。 <code>***</code>说明通用</p>
@@ -512,10 +512,10 @@
 <li><code>nodep</code> 指向该节点的指针</li>
 </ul>
 <pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">int</span> elemtype<span class="token punctuation">;</span>
-<span class="token keyword">typedef</span> <span class="token keyword">struct</span> lnode <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> lnode <span class="token punctuation">{</span>
     elemtype data<span class="token punctuation">;</span>
     <span class="token keyword">struct</span> lnode <span class="token operator">*</span>next<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>node<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>node<span class="token punctuation">;</span>
 
 <span class="token keyword">typedef</span> node<span class="token operator">*</span> nodep<span class="token punctuation">;</span>
 
@@ -529,11 +529,11 @@
 <span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">void</span> <span class="token function">del</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">void</span> <span class="token function">clear</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="init"><a href="#init" class="headerlink" title="init ***"></a><em>init</em> ***</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> p<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<h3 id="init"><a href="#init" class="headerlink" title="init ***"></a><em>init</em> ***</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     p <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="create"><a href="#create" class="headerlink" title="create"></a><em>create</em></h3><p>带头：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">create_h</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">create_h</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     head <span class="token operator">=</span> new node<span class="token punctuation">;</span>
     head<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
 
@@ -541,15 +541,15 @@
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the node num:\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         nodep tmp <span class="token operator">=</span> new node<span class="token punctuation">;</span>
         <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>tmp<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
         tmp<span class="token operator">-></span>next <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span>
         head<span class="token operator">-></span>next <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>不带头：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">create_h</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">create_h</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     head <span class="token operator">=</span> new node<span class="token punctuation">;</span>
     head<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
 
@@ -558,87 +558,87 @@
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>head<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         nodep tmp <span class="token operator">=</span> new node<span class="token punctuation">;</span>
         <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>tmp<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
         tmp<span class="token operator">-></span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//步骤一：将新建的节点连上去</span>
         head <span class="token operator">=</span> tmp<span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">//步骤二：改变头指针的位置</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">//多了在首处填值的步骤</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="free"><a href="#free" class="headerlink" title="free ***"></a><em>free</em> ***</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">free</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<h3 id="free"><a href="#free" class="headerlink" title="free ***"></a><em>free</em> ***</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">free</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         nodep tmp <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span>
         delete head<span class="token punctuation">;</span>
         head <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="travel"><a href="#travel" class="headerlink" title="travel"></a><em>travel</em></h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">travel</span><span class="token punctuation">(</span><span class="token keyword">const</span> nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="travel"><a href="#travel" class="headerlink" title="travel"></a><em>travel</em></h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">travel</span><span class="token punctuation">(</span><span class="token keyword">const</span> nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     nodep tmp <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//带头，不带头的将tmp指向头</span>
     <span class="token keyword">int</span> cnt <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d: %d\n"</span><span class="token punctuation">,</span> cnt<span class="token punctuation">,</span> tmp<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
         tmp <span class="token operator">=</span> tmp<span class="token operator">-></span>next<span class="token punctuation">;</span>
         cnt<span class="token operator">++</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="len"><a href="#len" class="headerlink" title="len"></a><em>len</em></h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">len</span><span class="token punctuation">(</span><span class="token keyword">const</span> nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="len"><a href="#len" class="headerlink" title="len"></a><em>len</em></h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">len</span><span class="token punctuation">(</span><span class="token keyword">const</span> nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> cnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
     nodep tmp <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//带头，不带头的将tmp指向头</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         cnt <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
         tmp <span class="token operator">=</span> tmp<span class="token operator">-></span>next<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token keyword">return</span> cnt<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="locate"><a href="#locate" class="headerlink" title="locate"></a><em>locate</em></h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">locate</span><span class="token punctuation">(</span><span class="token keyword">const</span> nodep<span class="token operator">&amp;</span> head<span class="token punctuation">,</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="locate"><a href="#locate" class="headerlink" title="locate"></a><em>locate</em></h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">locate</span><span class="token punctuation">(</span><span class="token keyword">const</span> nodep<span class="token operator">&amp;</span> head<span class="token punctuation">,</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     nodep tmp <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//带头，不带头的将tmp指向头</span>
     <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>tmp<span class="token operator">-></span>data<span class="token punctuation">)</span> <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token keyword">return</span> i<span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
             tmp <span class="token operator">=</span> tmp<span class="token operator">-></span>next<span class="token punctuation">;</span>
             i <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="insert"><a href="#insert" class="headerlink" title="insert"></a><em>insert</em></h3><p>不带头：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> n<span class="token punctuation">,</span> num<span class="token punctuation">,</span>i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the address:\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the num:\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         nodep m <span class="token operator">=</span> new node<span class="token punctuation">;</span>
         m<span class="token operator">-></span>data <span class="token operator">=</span> num<span class="token punctuation">;</span>
         m<span class="token operator">-></span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
         head <span class="token operator">=</span> m<span class="token punctuation">;</span>
         <span class="token keyword">return</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
     nodep p <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             nodep m <span class="token operator">=</span> new node<span class="token punctuation">;</span>
             m<span class="token operator">-></span>data <span class="token operator">=</span> num<span class="token punctuation">;</span>
             m<span class="token operator">-></span>next <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
             p<span class="token operator">-></span>next <span class="token operator">=</span> m<span class="token punctuation">;</span>
             <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"complete\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
             i <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
             p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"error input\n "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>带头：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> n<span class="token punctuation">,</span> num<span class="token punctuation">,</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the address:\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -646,90 +646,90 @@
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     nodep p <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             nodep m <span class="token operator">=</span> new node<span class="token punctuation">;</span>
             m<span class="token operator">-></span>data <span class="token operator">=</span> num<span class="token punctuation">;</span>
             m<span class="token operator">-></span>next <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
             p<span class="token operator">-></span>next <span class="token operator">=</span> m<span class="token punctuation">;</span>
             <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"complete\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
             i <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
             p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"error input\n "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="del"><a href="#del" class="headerlink" title="del"></a><em>del</em></h3><p>不带头：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">del</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">del</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> n<span class="token punctuation">,</span>i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the num should del:\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     nodep p<span class="token punctuation">,</span> q<span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         q <span class="token operator">=</span> head<span class="token punctuation">;</span>
         head <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
         p <span class="token operator">=</span> head<span class="token punctuation">;</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> i <span class="token operator">&lt;</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> i <span class="token operator">&lt;</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
             i<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token operator">||</span> p<span class="token operator">-></span>next <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token operator">||</span> p<span class="token operator">-></span>next <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
             q <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
             p<span class="token operator">-></span>next <span class="token operator">=</span> q<span class="token operator">-></span>next<span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
         delete q<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>带头：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">del</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">del</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> n<span class="token punctuation">,</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the num should del:\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     nodep p<span class="token punctuation">,</span> q<span class="token punctuation">;</span>
     p <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> i <span class="token operator">&lt;</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> i <span class="token operator">&lt;</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
         i<span class="token operator">++</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token operator">||</span> p<span class="token operator">-></span>next <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token operator">||</span> p<span class="token operator">-></span>next <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
         q <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
         p<span class="token operator">-></span>next <span class="token operator">=</span> q<span class="token operator">-></span>next<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     delete q<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="clear"><a href="#clear" class="headerlink" title="clear"></a><em>clear</em></h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">clear</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="clear"><a href="#clear" class="headerlink" title="clear"></a><em>clear</em></h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">clear</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     nodep p <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//带头，不带头的将p指向头</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         p<span class="token operator">-></span>data <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="双向循环链表"><a href="#双向循环链表" class="headerlink" title="双向循环链表"></a>双向循环链表</h2><p>分为不带头，带头，无说明则代码通用。 <code>***</code>说明通用</p>
 <h3 id="l-h-1"><a href="#l-h-1" class="headerlink" title="l.h"></a><em>l.h</em></h3><ul>
 <li><code>node</code> 链表的节点</li>
 <li><code>nodep</code> 指向该节点的指针</li>
 </ul>
 <pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">int</span> elemtype<span class="token punctuation">;</span>
-<span class="token keyword">typedef</span> <span class="token keyword">struct</span> lnode <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> lnode <span class="token punctuation">{</span>
     elemtype data<span class="token punctuation">;</span>
     <span class="token keyword">struct</span> lnode <span class="token operator">*</span>next<span class="token punctuation">,</span> <span class="token operator">*</span>pre<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>node<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>node<span class="token punctuation">;</span>
 
 <span class="token keyword">typedef</span> node<span class="token operator">*</span> nodep<span class="token punctuation">;</span>
 
@@ -743,23 +743,23 @@
 <span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">void</span> <span class="token function">del</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">void</span> <span class="token function">clear</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="init-1"><a href="#init-1" class="headerlink" title="init ***"></a><em>init</em> ***</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> p<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<h3 id="init-1"><a href="#init-1" class="headerlink" title="init ***"></a><em>init</em> ***</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     p <span class="token operator">=</span> new node<span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     p<span class="token operator">-></span>next <span class="token operator">=</span> p<span class="token operator">-></span>pre <span class="token operator">=</span> p<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="create-1"><a href="#create-1" class="headerlink" title="create"></a><em>create</em></h3><p>不带头：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">create_t</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">create_t</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     nodep p <span class="token operator">=</span> head<span class="token punctuation">,</span> q<span class="token punctuation">;</span>
     <span class="token keyword">int</span> n<span class="token punctuation">;</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the node num:\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
     n <span class="token operator">-</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>head<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         q <span class="token operator">=</span> new node<span class="token punctuation">;</span>
         <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>q<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
         p<span class="token operator">-></span>next <span class="token operator">=</span> q<span class="token punctuation">;</span>
@@ -767,15 +767,15 @@
         q<span class="token operator">-></span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
         head<span class="token operator">-></span>pre <span class="token operator">=</span> q<span class="token punctuation">;</span>
         p <span class="token operator">=</span> q<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>带头：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">create_t</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">create_t</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     nodep p <span class="token operator">=</span> head<span class="token punctuation">,</span> q<span class="token punctuation">;</span>
     <span class="token keyword">int</span> n<span class="token punctuation">;</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the node num:\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         q <span class="token operator">=</span> new node<span class="token punctuation">;</span>
         <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>q<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
         p<span class="token operator">-></span>next <span class="token operator">=</span> q<span class="token punctuation">;</span>
@@ -783,74 +783,74 @@
         q<span class="token operator">-></span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
         head<span class="token operator">-></span>pre <span class="token operator">=</span> q<span class="token punctuation">;</span>
         p <span class="token operator">=</span> q<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="free-1"><a href="#free-1" class="headerlink" title="free ***"></a><em>free</em> ***</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">free</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="free-1"><a href="#free-1" class="headerlink" title="free ***"></a><em>free</em> ***</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">free</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     nodep p<span class="token punctuation">;</span>
     head<span class="token operator">-></span>pre<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//设置断点</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>head<span class="token operator">-></span>next<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>head<span class="token operator">-></span>next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         p <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span>
         head<span class="token operator">-></span>next <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
         delete p<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="travel-1"><a href="#travel-1" class="headerlink" title="travel"></a><em>travel</em></h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">travel</span><span class="token punctuation">(</span><span class="token keyword">const</span> nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="travel-1"><a href="#travel-1" class="headerlink" title="travel"></a><em>travel</em></h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">travel</span><span class="token punctuation">(</span><span class="token keyword">const</span> nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     nodep tmp <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//带头，不带头的将tmp指向头</span>
     <span class="token keyword">int</span> cnt <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">do</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">do</span> <span class="token punctuation">{</span>
         <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d: %d\n"</span><span class="token punctuation">,</span> cnt<span class="token punctuation">,</span> tmp<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
         tmp <span class="token operator">=</span> tmp<span class="token operator">-></span>next<span class="token punctuation">;</span>
         cnt<span class="token operator">++</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp <span class="token operator">!=</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp <span class="token operator">!=</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="len-1"><a href="#len-1" class="headerlink" title="len"></a><em>len</em></h3><p>不带头：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">len</span><span class="token punctuation">(</span><span class="token keyword">const</span> nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">len</span><span class="token punctuation">(</span><span class="token keyword">const</span> nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> cnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
     nodep tmp <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    <span class="token keyword">do</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">do</span> <span class="token punctuation">{</span>
         cnt <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
         tmp <span class="token operator">=</span> tmp<span class="token operator">-></span>next<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp <span class="token operator">!=</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp <span class="token operator">!=</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> cnt<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>带头：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">len</span><span class="token punctuation">(</span><span class="token keyword">const</span> nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">len</span><span class="token punctuation">(</span><span class="token keyword">const</span> nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> cnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
     nodep tmp <span class="token operator">=</span> head<span class="token operator">-></span>pre<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp <span class="token operator">!=</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp <span class="token operator">!=</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         cnt<span class="token operator">++</span><span class="token punctuation">;</span>
         tmp <span class="token operator">=</span> tmp<span class="token operator">-></span>pre<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token keyword">return</span> cnt<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="locate-1"><a href="#locate-1" class="headerlink" title="locate"></a><em>locate</em></h3><p>不带头：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">locate</span><span class="token punctuation">(</span><span class="token keyword">const</span> nodep<span class="token operator">&amp;</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">locate</span><span class="token punctuation">(</span><span class="token keyword">const</span> nodep<span class="token operator">&amp;</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     nodep tmp <span class="token operator">=</span> head<span class="token punctuation">;</span>
     <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">do</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">do</span> <span class="token punctuation">{</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>tmp<span class="token operator">-></span>data<span class="token punctuation">)</span> <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token keyword">return</span> i<span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
             tmp <span class="token operator">=</span> tmp<span class="token operator">-></span>next<span class="token punctuation">;</span>
             i<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp <span class="token operator">!=</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp <span class="token operator">!=</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>带头：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">locate</span><span class="token punctuation">(</span><span class="token keyword">const</span> nodep<span class="token operator">&amp;</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">locate</span><span class="token punctuation">(</span><span class="token keyword">const</span> nodep<span class="token operator">&amp;</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     nodep tmp <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span>
     <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp <span class="token operator">!=</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp <span class="token operator">!=</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>tmp<span class="token operator">-></span>data<span class="token punctuation">)</span> <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token keyword">return</span> i<span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
             tmp <span class="token operator">=</span> tmp<span class="token operator">-></span>next<span class="token punctuation">;</span>
             i<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="insert-1"><a href="#insert-1" class="headerlink" title="insert"></a><em>insert</em></h3><p>不带头：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> n<span class="token punctuation">,</span> num<span class="token punctuation">,</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the address where insert:\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -858,7 +858,7 @@
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     nodep p <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         nodep m <span class="token operator">=</span> new node<span class="token punctuation">;</span>
         m<span class="token operator">-></span>data <span class="token operator">=</span> num<span class="token punctuation">;</span>
         m<span class="token operator">-></span>pre <span class="token operator">=</span> head<span class="token operator">-></span>pre<span class="token punctuation">;</span>
@@ -867,9 +867,9 @@
         head<span class="token operator">-></span>pre <span class="token operator">=</span> m<span class="token punctuation">;</span>
         head <span class="token operator">=</span> m<span class="token punctuation">;</span> 
         <span class="token keyword">return</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             nodep m <span class="token operator">=</span> new node<span class="token punctuation">;</span>
             m<span class="token operator">-></span>data <span class="token operator">=</span> num<span class="token punctuation">;</span>
             m<span class="token operator">-></span>pre <span class="token operator">=</span> p<span class="token punctuation">;</span>
@@ -878,17 +878,17 @@
             p<span class="token operator">-></span>next <span class="token operator">=</span> m<span class="token punctuation">;</span>
             <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"complete\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
             i <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
             p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"error input\n "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>带头：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> n<span class="token punctuation">,</span> num<span class="token punctuation">,</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the address where to insert:\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -896,8 +896,8 @@
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     nodep p <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             nodep m <span class="token operator">=</span> new node<span class="token punctuation">;</span>
             m<span class="token operator">-></span>data <span class="token operator">=</span> num<span class="token punctuation">;</span>
 
@@ -907,58 +907,58 @@
             p<span class="token operator">-></span>next <span class="token operator">=</span> m<span class="token punctuation">;</span>
             <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"complete\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
             i <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
             p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"error input\n "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="del-1"><a href="#del-1" class="headerlink" title="del"></a><em>del</em></h3><p>不带头：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">del</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">del</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> n<span class="token punctuation">,</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the address of num should del:\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     nodep p <span class="token operator">=</span> head<span class="token punctuation">,</span> q<span class="token punctuation">;</span>
-    <span class="token keyword">do</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">do</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             p<span class="token operator">-></span>pre<span class="token operator">-></span>next <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
             p<span class="token operator">-></span>next<span class="token operator">-></span>pre <span class="token operator">=</span> p<span class="token operator">-></span>pre<span class="token punctuation">;</span>
             delete p<span class="token punctuation">;</span>
             <span class="token keyword">return</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
         i<span class="token operator">++</span><span class="token punctuation">;</span> 
         p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>带头：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">del</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">del</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> n<span class="token punctuation">,</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the address of num should del:\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     nodep p <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             p<span class="token operator">-></span>pre<span class="token operator">-></span>next <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
             p<span class="token operator">-></span>next<span class="token operator">-></span>pre <span class="token operator">=</span> p<span class="token operator">-></span>pre<span class="token punctuation">;</span>
             delete p<span class="token punctuation">;</span>
             <span class="token keyword">return</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
         i<span class="token operator">++</span><span class="token punctuation">;</span>
         p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="clear-1"><a href="#clear-1" class="headerlink" title="clear"></a><em>clear</em></h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">clear</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="clear-1"><a href="#clear-1" class="headerlink" title="clear"></a><em>clear</em></h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">clear</span><span class="token punctuation">(</span>nodep<span class="token operator">&amp;</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     nodep p <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//带头，不带头的将p指向头</span>
-    <span class="token keyword">do</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">do</span> <span class="token punctuation">{</span>
         p<span class="token operator">-></span>data <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>c语言真累。。。</p>
 
             </div>
@@ -1527,7 +1527,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.5k</span>&nbsp;字
+                class="white-color">50.6k</span>&nbsp;字
             
             
             

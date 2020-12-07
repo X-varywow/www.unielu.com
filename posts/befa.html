@@ -29,7 +29,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body>
@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    362
+                    354
                 </div>
                 
 
@@ -479,16 +479,16 @@
             <div id="articleContent">
                 <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p><code>HEXO</code>是一个由 node.js 提供动力的静态站点生成器。它为 web 开发提供了强大的 API 来集成现有的 npm 包，并通过编程将某些内容插入到文章中。</p>
 <h2 id="1-EJS-是什么？"><a href="#1-EJS-是什么？" class="headerlink" title="1.EJS 是什么？"></a>1.EJS 是什么？</h2><p>“E” 代表什么？可以表示 “可嵌入（Embedded）”，也可以是“高效（Effective）”、“优雅（Elegant）”或者是“简单（Easy）”。EJS 是一套简单的模板语言，帮你利用普通的 JavaScript 代码生成 HTML 页面。EJS 没有如何组织内容的教条；也没有再造一套迭代和控制流语法；有的只是普通的 JavaScript 代码而已。</p>
-<h2 id="2-图标"><a href="#2-图标" class="headerlink" title="2.图标"></a>2.图标</h2><p><a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/faicons/">http://www.fontawesome.com.cn/faicons/</a></p>
+<h2 id="2-图标"><a href="#2-图标" class="headerlink" title="2.图标"></a>2.图标</h2><p><a href="http://www.fontawesome.com.cn/faicons/" target="_blank" rel="noopener">http://www.fontawesome.com.cn/faicons/</a></p>
 <p>直接 <code>fas fa-name</code> 就可以应用图标了</p>
 <h2 id="部分代码"><a href="#部分代码" class="headerlink" title="部分代码"></a><em>部分代码</em></h2><p>以下为ejs,</p>
-<pre class="line-numbers language-js"><code class="language-js">    <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>site<span class="token punctuation">.</span>categories <span class="token operator">&amp;&amp;</span> site<span class="token punctuation">.</span>categories<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> <span class="token operator">%</span><span class="token operator">></span>
+<pre class="line-numbers language-js"><code class="language-js">    <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>site<span class="token punctuation">.</span>categories <span class="token operator">&amp;&amp;</span> site<span class="token punctuation">.</span>categories<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">%</span><span class="token operator">></span>
     <span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token function">partial</span><span class="token punctuation">(</span><span class="token string">'_widget/category-radar'</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">%</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token punctuation">}</span> <span class="token operator">%</span><span class="token operator">></span>
 
-    <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>site<span class="token punctuation">.</span>tags <span class="token operator">&amp;&amp;</span> site<span class="token punctuation">.</span>tags<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> <span class="token operator">%</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>site<span class="token punctuation">.</span>tags <span class="token operator">&amp;&amp;</span> site<span class="token punctuation">.</span>tags<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">%</span><span class="token operator">></span>
     <span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token function">partial</span><span class="token punctuation">(</span><span class="token string">'_widget/tag-wordcloud'</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">%</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token punctuation">}</span> <span class="token operator">%</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-网站重构"><a href="#3-网站重构" class="headerlink" title="3.网站重构"></a>3.网站重构</h2><p>//2020.11.30 hexo更新，改动改崩了，所以重构一个，wuwuwu~</p>
 <p>//以后好好写博客，不再整了，够用就行。</p>
 <blockquote>
@@ -496,9 +496,9 @@
 </blockquote>
 <p>参考网站：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0a8d738a5620">https://www.jianshu.com/p/0a8d738a5620</a></li>
-<li><a target="_blank" rel="noopener" href="https://hexo.io/">https://hexo.io/</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery">https://github.com/blinkfox/hexo-theme-matery</a></li>
+<li><a href="https://www.jianshu.com/p/0a8d738a5620" target="_blank" rel="noopener">https://www.jianshu.com/p/0a8d738a5620</a></li>
+<li><a href="https://hexo.io/" target="_blank" rel="noopener">https://hexo.io/</a></li>
+<li><a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener">https://github.com/blinkfox/hexo-theme-matery</a></li>
 </ul>
 <p>步骤：</p>
 <ol>
@@ -1081,7 +1081,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.5k</span>&nbsp;字
+                class="white-color">50.6k</span>&nbsp;字
             
             
             

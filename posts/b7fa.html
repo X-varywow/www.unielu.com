@@ -29,7 +29,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body>
@@ -513,7 +513,7 @@
                 dfs<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span>
             stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>curr<span class="token punctuation">)</span>
 
-        <span class="token comment" spellcheck="true">#一个&amp;#123;depart:[arrive...]&amp;#125;的字典</span>
+        <span class="token comment" spellcheck="true">#一个{depart:[arrive...]}的字典</span>
         vec<span class="token operator">=</span>collections<span class="token punctuation">.</span>defaultdict<span class="token punctuation">(</span>list<span class="token punctuation">)</span>
 
         <span class="token keyword">for</span> depart<span class="token punctuation">,</span>arrive <span class="token keyword">in</span> tickets<span class="token punctuation">:</span>
@@ -541,7 +541,7 @@
 <h3 id="133-克隆图（8-12"><a href="#133-克隆图（8-12" class="headerlink" title="133. 克隆图（8.12)"></a>133. 克隆图（<code>8.12</code>)</h3><p>给你无向 连通 图中一个节点的引用，请你返回该图的 深拷贝（克隆）。</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>visited<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#125; #新node字典</span>
+        self<span class="token punctuation">.</span>visited<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">#新node字典</span>
     <span class="token keyword">def</span> <span class="token function">cloneGraph</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">if</span> <span class="token operator">not</span> node<span class="token punctuation">:</span> <span class="token keyword">return</span> node
         <span class="token keyword">if</span> node <span class="token keyword">in</span> self<span class="token punctuation">.</span>visited<span class="token punctuation">:</span>
@@ -1167,7 +1167,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.5k</span>&nbsp;字
+                class="white-color">50.6k</span>&nbsp;字
             
             
             

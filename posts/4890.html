@@ -29,7 +29,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body>
@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    423
+                    415
                 </div>
                 
 
@@ -485,7 +485,7 @@
 <h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化:"></a><em>初始化:</em></h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> collections <span class="token keyword">import</span> <span class="token operator">*</span>
 c <span class="token operator">=</span> Counter<span class="token punctuation">(</span><span class="token punctuation">)</span>                           <span class="token comment" spellcheck="true"># a new, empty counter</span>
 c <span class="token operator">=</span> Counter<span class="token punctuation">(</span><span class="token string">'gallahad'</span><span class="token punctuation">)</span>                 <span class="token comment" spellcheck="true"># a new counter from an iterable</span>
-c <span class="token operator">=</span> Counter<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'red': 4, 'blue': 2&amp;#125;)      # a new counter from a mapping</span>
+c <span class="token operator">=</span> Counter<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'red'</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'blue'</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true"># a new counter from a mapping</span>
 c <span class="token operator">=</span> Counter<span class="token punctuation">(</span>cats<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> dogs<span class="token operator">=</span><span class="token number">8</span><span class="token punctuation">)</span>             <span class="token comment" spellcheck="true"># a new counter from keyword args</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="elements"><a href="#elements" class="headerlink" title="elements()"></a><em>elements()</em></h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#elements()返回一个迭代器</span>
 c <span class="token operator">=</span> Counter<span class="token punctuation">(</span>a<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span>
@@ -495,7 +495,7 @@ Counter<span class="token punctuation">(</span><span class="token string">'abrac
 <h2 id="subtract"><a href="#subtract" class="headerlink" title="subtract()"></a><em>subtract()</em></h2><pre class="line-numbers language-python"><code class="language-python">c <span class="token operator">=</span> Counter<span class="token punctuation">(</span>a<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span>
 d <span class="token operator">=</span> Counter<span class="token punctuation">(</span>a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> c<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span>
 c<span class="token punctuation">.</span>subtract<span class="token punctuation">(</span>d<span class="token punctuation">)</span>
-c            <span class="token comment" spellcheck="true">#-->Counter(&amp;#123;'a': 3, 'b': 0, 'c': -3, 'd': -6&amp;#125;)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+c            <span class="token comment" spellcheck="true">#-->Counter({'a': 3, 'b': 0, 'c': -3, 'd': -6})</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="一些用法："><a href="#一些用法：" class="headerlink" title="一些用法："></a><em>一些用法：</em></h2><pre class="line-numbers language-python"><code class="language-python">sum<span class="token punctuation">(</span>c<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>                 <span class="token comment" spellcheck="true"># total of all counts</span>
 c<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>                       <span class="token comment" spellcheck="true"># reset all counts</span>
 list<span class="token punctuation">(</span>c<span class="token punctuation">)</span>                         <span class="token comment" spellcheck="true"># list unique elements</span>
@@ -1096,7 +1096,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.5k</span>&nbsp;字
+                class="white-color">50.6k</span>&nbsp;字
             
             
             

@@ -29,7 +29,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body>
@@ -459,7 +459,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    194
+                    176
                 </div>
                 
 
@@ -481,7 +481,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-20-有效的括号"><a href="#1-20-有效的括号" class="headerlink" title="(1)20.有效的括号"></a>(1)20.有效的括号</h2><p>给定一个只包括 <code>&#39;(&#39;</code>，<code>&#39;)&#39;</code>，<code>&#39;&#123;&#39;</code>，<code>&#39;&#125;&#39;</code>，<code>&#39;[&#39;</code>，<code>&#39;]&#39;</code> 的字符串，判断字符串是否有效。</p>
+                <h2 id="1-20-有效的括号"><a href="#1-20-有效的括号" class="headerlink" title="(1)20.有效的括号"></a>(1)20.有效的括号</h2><p>给定一个只包括 <code>&#39;(&#39;</code>，<code>&#39;)&#39;</code>，<code>&#39;{&#39;</code>，<code>&#39;}&#39;</code>，<code>&#39;[&#39;</code>，<code>&#39;]&#39;</code> 的字符串，判断字符串是否有效。</p>
 <p>有效字符串需满足：</p>
 <ul>
 <li>左括号必须用相同类型的右括号闭合。</li>
@@ -490,7 +490,7 @@
 </ul>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">isValid</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
-        hashmap<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'(':')','&amp;#123;':'&amp;#125;','[':']'&amp;#125;</span>
+        hashmap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'('</span><span class="token punctuation">:</span><span class="token string">')'</span><span class="token punctuation">,</span><span class="token string">'{'</span><span class="token punctuation">:</span><span class="token string">'}'</span><span class="token punctuation">,</span><span class="token string">'['</span><span class="token punctuation">:</span><span class="token string">']'</span><span class="token punctuation">}</span>
         stack<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
         <span class="token keyword">for</span> i <span class="token keyword">in</span> s<span class="token punctuation">:</span>
             <span class="token keyword">if</span> i <span class="token keyword">in</span> hashmap<span class="token punctuation">:</span> stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
@@ -505,7 +505,7 @@
 
 <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">isValid</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
-        dic <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'&amp;#123;': '&amp;#125;',  '[': ']', '(': ')', '?': '?'&amp;#125;</span>
+        dic <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'{'</span><span class="token punctuation">:</span> <span class="token string">'}'</span><span class="token punctuation">,</span>  <span class="token string">'['</span><span class="token punctuation">:</span> <span class="token string">']'</span><span class="token punctuation">,</span> <span class="token string">'('</span><span class="token punctuation">:</span> <span class="token string">')'</span><span class="token punctuation">,</span> <span class="token string">'?'</span><span class="token punctuation">:</span> <span class="token string">'?'</span><span class="token punctuation">}</span>
         stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'?'</span><span class="token punctuation">]</span>
         <span class="token keyword">for</span> c <span class="token keyword">in</span> s<span class="token punctuation">:</span>
             <span class="token keyword">if</span> c <span class="token keyword">in</span> dic<span class="token punctuation">:</span> stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>c<span class="token punctuation">)</span>
@@ -1090,7 +1090,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.5k</span>&nbsp;字
+                class="white-color">50.6k</span>&nbsp;字
             
             
             

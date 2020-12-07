@@ -29,7 +29,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body>
@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1k
                 </div>
                 
 
@@ -515,14 +515,14 @@ trainsize <span class="token operator">=</span> int<span class="token punctuatio
 testsize <span class="token operator">=</span> len<span class="token punctuation">(</span>all_image_datasets<span class="token punctuation">)</span> <span class="token operator">-</span> trainsize
 train_dataset<span class="token punctuation">,</span> test_dataset <span class="token operator">=</span> torch<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>data<span class="token punctuation">.</span>random_split<span class="token punctuation">(</span>all_image_datasets<span class="token punctuation">,</span><span class="token punctuation">[</span>trainsize<span class="token punctuation">,</span>testsize<span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-image_datasets <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'train':train_dataset,'val':test_dataset&amp;#125;</span>
+image_datasets <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'train'</span><span class="token punctuation">:</span>train_dataset<span class="token punctuation">,</span><span class="token string">'val'</span><span class="token punctuation">:</span>test_dataset<span class="token punctuation">}</span>
 
-dataloders <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;x: torch.utils.data.DataLoader(image_datasets[x],</span>
+dataloders <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> torch<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>data<span class="token punctuation">.</span>DataLoader<span class="token punctuation">(</span>image_datasets<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">,</span>
                                                  batch_size<span class="token operator">=</span><span class="token number">16</span><span class="token punctuation">,</span>
                                                  shuffle<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
-                                                 num_workers<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">'train'</span><span class="token punctuation">,</span> <span class="token string">'val'</span><span class="token punctuation">]</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+                                                 num_workers<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">'train'</span><span class="token punctuation">,</span> <span class="token string">'val'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
 
-dataset_sizes <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;x: len(image_datasets[x]) for x in ['train', 'val']&amp;#125;</span>
+dataset_sizes <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> len<span class="token punctuation">(</span>image_datasets<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">'train'</span><span class="token punctuation">,</span> <span class="token string">'val'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
 
     <span class="token comment" spellcheck="true"># use gpu or not</span>
 use_gpu <span class="token operator">=</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -532,7 +532,7 @@ use_gpu <span class="token operator">=</span> torch<span class="token punctuatio
     best_acc <span class="token operator">=</span> <span class="token number">0.0</span>
 
     <span class="token keyword">for</span> epoch <span class="token keyword">in</span> range<span class="token punctuation">(</span>num_epochs<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Epoch &amp;#123;&amp;#125;/&amp;#123;&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>epoch<span class="token punctuation">,</span> num_epochs <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Epoch {}/{}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>epoch<span class="token punctuation">,</span> num_epochs <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-'</span> <span class="token operator">*</span> <span class="token number">10</span><span class="token punctuation">)</span>
         <span class="token comment" spellcheck="true"># Each epoch has a training and validation phase</span>
         <span class="token keyword">for</span> phase <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">'train'</span><span class="token punctuation">,</span> <span class="token string">'val'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
@@ -578,7 +578,7 @@ use_gpu <span class="token operator">=</span> torch<span class="token punctuatio
             epoch_loss <span class="token operator">=</span> running_loss <span class="token operator">/</span> dataset_sizes<span class="token punctuation">[</span>phase<span class="token punctuation">]</span>
             epoch_acc <span class="token operator">=</span> running_corrects <span class="token operator">/</span> dataset_sizes<span class="token punctuation">[</span>phase<span class="token punctuation">]</span>
 
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'&amp;#123;&amp;#125; Loss: &amp;#123;:.4f&amp;#125; Acc: &amp;#123;:.4f&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'{} Loss: {:.4f} Acc: {:.4f}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>
                 phase<span class="token punctuation">,</span> epoch_loss<span class="token punctuation">,</span> epoch_acc<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
             <span class="token comment" spellcheck="true"># deep copy the model</span>
@@ -587,9 +587,9 @@ use_gpu <span class="token operator">=</span> torch<span class="token punctuatio
                 best_model_wts <span class="token operator">=</span> model<span class="token punctuation">.</span>state_dict<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
     elapsed_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start_time
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Training complete in &amp;#123;:.0f&amp;#125;m &amp;#123;:.0f&amp;#125;s'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Training complete in {:.0f}m {:.0f}s'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>
         elapsed_time <span class="token operator">//</span> <span class="token number">60</span><span class="token punctuation">,</span> elapsed_time <span class="token operator">%</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Best val Acc: &amp;#123;:4f&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>best_acc<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Best val Acc: {:4f}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>best_acc<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
     <span class="token comment" spellcheck="true"># load best model weights</span>
     model<span class="token punctuation">.</span>load_state_dict<span class="token punctuation">(</span>best_model_wts<span class="token punctuation">)</span>
@@ -1229,7 +1229,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.5k</span>&nbsp;字
+                class="white-color">50.6k</span>&nbsp;字
             
             
             

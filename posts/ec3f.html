@@ -29,7 +29,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body>
@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    449
+                    405
                 </div>
                 
 
@@ -513,12 +513,12 @@ r <span class="token operator">=</span> post<span class="token punctuation">.</s
     <span class="token keyword">if</span> token <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span>
         <span class="token keyword">return</span> <span class="token string">"token获取错误"</span>
     <span class="token keyword">else</span><span class="token punctuation">:</span>
-        header <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+        header <span class="token operator">=</span> <span class="token punctuation">{</span>
                 <span class="token string">"X-Auth-Token"</span><span class="token punctuation">:</span> token<span class="token punctuation">,</span>
-                <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
-        files <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+                <span class="token punctuation">}</span>
+        files <span class="token operator">=</span> <span class="token punctuation">{</span>
                 <span class="token string">"images"</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>image_name<span class="token punctuation">,</span> open<span class="token punctuation">(</span>image_path<span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'image/png'</span><span class="token punctuation">)</span>
-                <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+                <span class="token punctuation">}</span>
         z <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>
                     api_url<span class="token punctuation">,</span>
                     headers <span class="token operator">=</span> header<span class="token punctuation">,</span>
@@ -547,31 +547,31 @@ r <span class="token operator">=</span> post<span class="token punctuation">.</s
     <span class="token keyword">if</span> domain_name <span class="token operator">==</span> <span class="token string">""</span><span class="token punctuation">:</span>
         domain_name <span class="token operator">=</span> name
     urls <span class="token operator">=</span> <span class="token string">"https://iam."</span> <span class="token operator">+</span> region <span class="token operator">+</span> <span class="token string">".myhuaweicloud.com/v3/auth/tokens"</span>
-    header <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+    header <span class="token operator">=</span> <span class="token punctuation">{</span>
         <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"PostmanRuntime/7.24.1"</span><span class="token punctuation">,</span>
         <span class="token string">"Content-Type"</span><span class="token punctuation">:</span> <span class="token string">"application/json;charset=utf8"</span><span class="token punctuation">,</span>
-    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
-    json_data <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
-        <span class="token string">"auth"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
-            <span class="token string">"identity"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+    <span class="token punctuation">}</span>
+    json_data <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">"auth"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token string">"identity"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
                 <span class="token string">"methods"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"password"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                <span class="token string">"password"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
-                    <span class="token string">"user"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+                <span class="token string">"password"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                    <span class="token string">"user"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
                         <span class="token string">"name"</span><span class="token punctuation">:</span> name<span class="token punctuation">,</span>
                         <span class="token string">"password"</span><span class="token punctuation">:</span> password<span class="token punctuation">,</span>
-                        <span class="token string">"domain"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+                        <span class="token string">"domain"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
                             <span class="token string">"name"</span><span class="token punctuation">:</span> domain_name<span class="token punctuation">,</span>
-                        <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
-                    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
-                <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
-            <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;,</span>
-            <span class="token string">"scope"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
-                <span class="token string">"project"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token string">"scope"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                <span class="token string">"project"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
                     <span class="token string">"name"</span><span class="token punctuation">:</span> region
-                <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
-            <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
-        <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
-    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
     z <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>
                     url <span class="token operator">=</span> urls<span class="token punctuation">,</span>
                     headers <span class="token operator">=</span> header<span class="token punctuation">,</span>
@@ -1174,7 +1174,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.5k</span>&nbsp;字
+                class="white-color">50.6k</span>&nbsp;字
             
             
             
