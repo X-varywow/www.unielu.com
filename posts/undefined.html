@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-07
+                    2020-12-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.9k
                 </div>
                 
 
@@ -706,9 +706,56 @@
 <span class="token keyword">update</span> book  <span class="token keyword">set</span> bcount<span class="token operator">-</span><span class="token operator">=</span><span class="token number">3</span> <span class="token keyword">where</span> bno<span class="token operator">=</span><span class="token string">'9787115457004'</span><span class="token punctuation">;</span>
 <span class="token keyword">insert</span> <span class="token keyword">into</span> booksell <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token string">'2020-2-3'</span><span class="token punctuation">,</span><span class="token string">'9787115457004'</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">select</span> smoney<span class="token operator">/</span>scount<span class="token operator">*</span><span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">from</span> booksell <span class="token keyword">where</span> scount<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">update</span> book  <span class="token keyword">set</span> bcount<span class="token operator">+</span><span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">where</span> bno<span class="token operator">=</span><span class="token string">'9787115457004'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="四、关系数据库理论"><a href="#四、关系数据库理论" class="headerlink" title="四、关系数据库理论"></a>四、关系数据库理论</h1><p>关系模式的<strong>范式</strong></p>
+<h1 id="四、关系数据库理论"><a href="#四、关系数据库理论" class="headerlink" title="四、关系数据库理论"></a>四、关系数据库理论</h1><p>关系模式的<strong>范式</strong><br><strong>1NF</strong> :关系中每个属性都是不可再分的原子项<br><strong>2NF</strong> :每个非主属性都完全依赖于主码<br><strong>3NF</strong> :每个非主属性都不传递函数依赖于主码<br><strong>BCNF</strong> :如果关系模式R∈1NF，且对于R的每个函数依赖X→Y（Y不属于X），决定因数X都包含了R的一个候选码，那么R∈BCNF。</p>
 <h1 id="五、数据库安全保护"><a href="#五、数据库安全保护" class="headerlink" title="五、数据库安全保护"></a>五、数据库安全保护</h1><h2 id="实验五：数据库安全管理"><a href="#实验五：数据库安全管理" class="headerlink" title="实验五：数据库安全管理"></a>实验五：数据库安全管理</h2><p>安全性控制、完整性控制、并发性控制、数据恢复</p>
-<h1 id="六、数据库设计"><a href="#六、数据库设计" class="headerlink" title="六、数据库设计"></a>六、数据库设计</h1><h1 id="七、高级应用"><a href="#七、高级应用" class="headerlink" title="七、高级应用"></a>七、高级应用</h1><h2 id="实验六：Transaction-sql"><a href="#实验六：Transaction-sql" class="headerlink" title="实验六：Transaction-sql"></a>实验六：Transaction-sql</h2><h2 id="实验七：存储过程-amp-触发器"><a href="#实验七：存储过程-amp-触发器" class="headerlink" title="实验七：存储过程&amp;触发器"></a>实验七：存储过程&amp;触发器</h2><h2 id="实验八：备份-amp-还原"><a href="#实验八：备份-amp-还原" class="headerlink" title="实验八：备份&amp;还原"></a>实验八：备份&amp;还原</h2>
+<h1 id="六、数据库设计"><a href="#六、数据库设计" class="headerlink" title="六、数据库设计"></a>六、数据库设计</h1><h1 id="七、高级应用"><a href="#七、高级应用" class="headerlink" title="七、高级应用"></a>七、高级应用</h1><h2 id="实验六：Transaction-sql"><a href="#实验六：Transaction-sql" class="headerlink" title="实验六：Transaction-sql"></a>实验六：Transaction-sql</h2><p><code>事务练习</code></p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--zhang转账给li</span>
+<span class="token keyword">use</span> <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span>
+<span class="token keyword">begin</span> <span class="token keyword">transaction</span>
+    <span class="token keyword">declare</span> <span class="token variable">@num</span><span class="token operator">=</span>balance <span class="token keyword">from</span> account <span class="token keyword">where</span> name<span class="token operator">=</span><span class="token string">'zhang'</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">@ba</span><span class="token operator">></span><span class="token number">100</span><span class="token punctuation">)</span>
+        <span class="token keyword">begin</span>
+        <span class="token keyword">update</span> account <span class="token keyword">set</span> balance<span class="token operator">+</span><span class="token operator">=</span><span class="token number">100</span> <span class="token keyword">where</span> name<span class="token operator">=</span><span class="token string">'li'</span>
+        <span class="token keyword">update</span> account <span class="token keyword">set</span> balance<span class="token operator">-</span><span class="token operator">=</span><span class="token number">100</span> <span class="token keyword">where</span> name<span class="token operator">=</span><span class="token string">'wang'</span>
+        <span class="token keyword">commit</span>
+        <span class="token keyword">end</span>
+    <span class="token keyword">else</span>
+        <span class="token keyword">rollback</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>case练习</code></p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> name<span class="token punctuation">,</span>balance<span class="token punctuation">,</span>
+    <span class="token keyword">case</span>
+        <span class="token keyword">when</span> balance<span class="token operator">></span><span class="token number">1000</span> <span class="token keyword">then</span> <span class="token string">'high'</span>
+        <span class="token keyword">when</span> balance<span class="token operator">&lt;</span><span class="token number">1000</span> <span class="token operator">and</span> balance<span class="token operator">></span><span class="token number">0</span> the <span class="token string">'low'</span>
+        <span class="token keyword">else</span> <span class="token string">'other'</span>
+    <span class="token keyword">end</span> <span class="token keyword">as</span> 分类
+<span class="token keyword">from</span> account<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>时间函数练习</code></p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 明年十月一星期几？</span>
+<span class="token keyword">select</span> datename<span class="token punctuation">(</span>weekday<span class="token punctuation">,</span>cast<span class="token punctuation">(</span>year<span class="token punctuation">(</span>getdate<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span> <span class="token keyword">as</span> <span class="token keyword">varchar</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">'-10-01'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><code>保留两位小数</code></p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> sno<span class="token punctuation">,</span><span class="token keyword">convert</span><span class="token punctuation">(</span><span class="token keyword">decimal</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>score<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">from</span> sc
+<span class="token keyword">group</span> <span class="token keyword">by</span> sno<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><code>自定义函数</code></p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--查询成绩在XY之间的信息</span>
+<span class="token keyword">create</span> <span class="token keyword">function</span> query<span class="token punctuation">(</span><span class="token variable">@x</span> <span class="token keyword">int</span><span class="token punctuation">,</span><span class="token variable">@y</span> <span class="token keyword">int</span><span class="token punctuation">)</span>
+<span class="token keyword">returns</span> <span class="token keyword">table</span>
+<span class="token keyword">as</span> <span class="token keyword">return</span><span class="token punctuation">(</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> sc
+<span class="token keyword">where</span> score<span class="token operator">>=</span><span class="token variable">@x</span> <span class="token operator">and</span> score<span class="token operator">&lt;=</span><span class="token variable">@y</span><span class="token operator">></span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">--执行</span>
+<span class="token keyword">declare</span> <span class="token variable">@x</span> <span class="token keyword">int</span><span class="token punctuation">,</span><span class="token variable">@y</span> <span class="token keyword">int</span>
+<span class="token keyword">set</span> <span class="token variable">@x</span><span class="token operator">=</span><span class="token number">60</span>
+<span class="token keyword">set</span> <span class="token variable">@y</span><span class="token operator">=</span><span class="token number">80</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> query<span class="token punctuation">(</span><span class="token variable">@x</span><span class="token punctuation">,</span><span class="token variable">@y</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="实验七：存储过程-amp-触发器"><a href="#实验七：存储过程-amp-触发器" class="headerlink" title="实验七：存储过程&amp;触发器"></a>实验七：存储过程&amp;触发器</h2><h2 id="实验八：备份-amp-还原"><a href="#实验八：备份-amp-还原" class="headerlink" title="实验八：备份&amp;还原"></a>实验八：备份&amp;还原</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--完整恢复模式，需要备份和还原事务日志</span>
+<span class="token keyword">alter</span> <span class="token keyword">database</span> <span class="token number">abc</span> <span class="token keyword">set</span> recovery <span class="token keyword">full</span>
+
+<span class="token keyword">restore</span> <span class="token keyword">database</span> tmp <span class="token keyword">from</span> <span class="token keyword">disk</span><span class="token operator">=</span><span class="token string">'c:\blog\tmpfull1.bak'</span> <span class="token keyword">with</span> norecovery
+<span class="token keyword">restore</span> log tmp <span class="token keyword">from</span> <span class="token keyword">disk</span><span class="token operator">=</span><span class="token string">'c:\blog\tmplog1.bak'</span> <span class="token keyword">with</span> norecovery
+<span class="token keyword">restore</span> log tmp <span class="token keyword">from</span> <span class="token keyword">disk</span><span class="token operator">=</span><span class="token string">'c:\blog\tmplog2.bak'</span> <span class="token keyword">with</span> stopat<span class="token operator">=</span><span class="token string">'2020-12-08 22:29:27'</span><span class="token punctuation">,</span>recovery<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
             </div>
             <hr/>
 
@@ -1279,7 +1326,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.7k</span>&nbsp;字
+                class="white-color">52.3k</span>&nbsp;字
             
             
             

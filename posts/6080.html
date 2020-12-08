@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="递归, -- blog --">
+    <meta name="keywords" content="机器学习, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>递归 | -- blog --</title>
+    <title>机器学习 | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/awesome/css/all.css">
@@ -301,12 +301,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/sometimes_we_are_infinite.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/25.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">递归</h1>
+                    <h1 class="description center-align post-title diyFont">机器学习</h1>
                 </div>
             </div>
         </div>
@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-07
+                    2020-12-08
                 </div>
                 
 
@@ -629,34 +629,34 @@ model_ft <span class="token operator">=</span> train_model<span class="token pun
                            scheduler<span class="token operator">=</span>exp_lr_scheduler<span class="token punctuation">,</span>
                            num_epochs<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这是训练过程产生的输出：</p>
-<pre><code>Epoch 0/4
-----------
+<pre class="line-numbers language-python"><code class="language-python">    Epoch <span class="token number">0</span><span class="token operator">/</span><span class="token number">4</span>
+    <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
 
 
-C:\Users\16413\anaconda3\lib\site-packages\torch\optim\lr_scheduler.py:123: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
-  &quot;https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate&quot;, UserWarning)
+    C<span class="token punctuation">:</span>\Users\<span class="token number">16413</span>\anaconda3\lib\site<span class="token operator">-</span>packages\torch\optim\lr_scheduler<span class="token punctuation">.</span>py<span class="token punctuation">:</span><span class="token number">123</span><span class="token punctuation">:</span> UserWarning<span class="token punctuation">:</span> Detected call of `lr_scheduler<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span>` before `optimizer<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span>`<span class="token punctuation">.</span> In PyTorch <span class="token number">1.1</span><span class="token punctuation">.</span><span class="token number">0</span> <span class="token operator">and</span> later<span class="token punctuation">,</span> you should call them <span class="token keyword">in</span> the opposite order<span class="token punctuation">:</span> `optimizer<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span>` before `lr_scheduler<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span>`<span class="token punctuation">.</span>  Failure to do this will result <span class="token keyword">in</span> PyTorch skipping the first value of the learning rate schedule<span class="token punctuation">.</span> See more details at https<span class="token punctuation">:</span><span class="token operator">//</span>pytorch<span class="token punctuation">.</span>org<span class="token operator">/</span>docs<span class="token operator">/</span>stable<span class="token operator">/</span>optim<span class="token punctuation">.</span>html<span class="token comment" spellcheck="true">#how-to-adjust-learning-rate</span>
+      <span class="token string">"https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate"</span><span class="token punctuation">,</span> UserWarning<span class="token punctuation">)</span>
 
 
-train Loss: 0.0750 Acc: 0.6700
-val Loss: 0.0436 Acc: 0.8200
-Epoch 1/4
-----------
-train Loss: 0.0399 Acc: 0.8250
-val Loss: 0.0345 Acc: 0.8470
-Epoch 2/4
-----------
-train Loss: 0.0330 Acc: 0.8473
-val Loss: 0.0303 Acc: 0.8610
-Epoch 3/4
-----------
-train Loss: 0.0300 Acc: 0.8575
-val Loss: 0.0293 Acc: 0.8650
-Epoch 4/4
-----------
-train Loss: 0.0288 Acc: 0.8643
-val Loss: 0.0281 Acc: 0.8750
-Training complete in 6m 31s
-Best val Acc: 0.875000</code></pre>
+    train Loss<span class="token punctuation">:</span> <span class="token number">0.0750</span> Acc<span class="token punctuation">:</span> <span class="token number">0.6700</span>
+    val Loss<span class="token punctuation">:</span> <span class="token number">0.0436</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8200</span>
+    Epoch <span class="token number">1</span><span class="token operator">/</span><span class="token number">4</span>
+    <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+    train Loss<span class="token punctuation">:</span> <span class="token number">0.0399</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8250</span>
+    val Loss<span class="token punctuation">:</span> <span class="token number">0.0345</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8470</span>
+    Epoch <span class="token number">2</span><span class="token operator">/</span><span class="token number">4</span>
+    <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+    train Loss<span class="token punctuation">:</span> <span class="token number">0.0330</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8473</span>
+    val Loss<span class="token punctuation">:</span> <span class="token number">0.0303</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8610</span>
+    Epoch <span class="token number">3</span><span class="token operator">/</span><span class="token number">4</span>
+    <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+    train Loss<span class="token punctuation">:</span> <span class="token number">0.0300</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8575</span>
+    val Loss<span class="token punctuation">:</span> <span class="token number">0.0293</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8650</span>
+    Epoch <span class="token number">4</span><span class="token operator">/</span><span class="token number">4</span>
+    <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+    train Loss<span class="token punctuation">:</span> <span class="token number">0.0288</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8643</span>
+    val Loss<span class="token punctuation">:</span> <span class="token number">0.0281</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8750</span>
+    Training complete <span class="token keyword">in</span> 6m 31s
+    Best val Acc<span class="token punctuation">:</span> <span class="token number">0.875000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-python"><code class="language-python">torch<span class="token punctuation">.</span>save<span class="token punctuation">(</span>model_ft<span class="token punctuation">.</span>state_dict<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'./model.pth'</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"done"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
@@ -1234,7 +1234,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.7k</span>&nbsp;字
+                class="white-color">52.3k</span>&nbsp;字
             
             
             
