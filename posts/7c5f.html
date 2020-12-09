@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="functools模块, -- blog --">
+    <meta name="keywords" content="电路分析, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>functools模块 | -- blog --</title>
+    <title>电路分析 | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/awesome/css/all.css">
@@ -301,12 +301,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/24.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">functools模块</h1>
+                    <h1 class="description center-align post-title diyFont">电路分析</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                                <span class="chip bg-color">python模块</span>
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/python/" class="post-category">
-                                python
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                大二
                             </a>
                         
                     </div>
@@ -456,21 +456,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-06
+                    2020-12-09
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-07
+                    2020-12-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    130
+                    658
                 </div>
                 
 
@@ -482,10 +482,46 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="lru-cache"><a href="#lru-cache" class="headerlink" title="_lru_cache_"></a>_lru_cache_</h2><p><code>@functools.lru_cache(maxsize=128, typed=False)</code><br>一个为函数提供缓存功能的装饰器，缓存 maxsize 组传入参数，在下次以相同参数调用时直接返回上一次的结果。用以<strong>节约高开销或I/O函数的调用时间</strong>。</p>
+                <h1 id="一、总论及电阻电路的分析"><a href="#一、总论及电阻电路的分析" class="headerlink" title="一、总论及电阻电路的分析"></a>一、总论及电阻电路的分析</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>集总假设</strong>是指在电路分析过程中，各电器元件视为‘集总参数元件’（实际电路的尺寸远小于使用时最高工作频率对应的波长）。</p>
+<p><strong>KCL</strong>：对于集总电路中的任一节点，在任意时刻，流进（或流出）该节点的所有支路电流的代数和为0。<br><strong>推广</strong>：对于任一集总电路的任一割集，在任一时刻，该割集的所有支路电流的代数和为零。</p>
+<p><strong>KVL</strong>：对于集总参数电路的任一回路，在任一时刻，沿该回路全部支路电压的代数和等于零。</p>
+<p><strong>特勒根定理</strong>：电路各元件吸收功率的代数和为0。</p>
+<p><strong>受控源</strong>：输出电压或电流受到电路中其它部分的电压或电流控制的电源。</p>
+<p><strong>割集</strong>：有支路集S，在连通图G中移去支路集S，G变成两个互不连通的子图，少移去一条支路都不行。</p>
+<hr>
+<h2 id="分析方法"><a href="#分析方法" class="headerlink" title="分析方法"></a>分析方法</h2><ul>
+<li>支路电流法(PPT3)、支路电压法</li>
+<li>网孔分析法PPT4</li>
+<li>节点分析法</li>
+<li>回路电流法PPT5</li>
+</ul>
+<hr>
+<h2 id="电路定理"><a href="#电路定理" class="headerlink" title="电路定理"></a>电路定理</h2><ul>
+<li>叠加定理(PPT6)</li>
+<li>替代定理</li>
+<li>戴维宁定理</li>
+<li>诺顿定理</li>
+<li>PPT7</li>
+</ul>
+<h1 id="二、动态电路时域分析"><a href="#二、动态电路时域分析" class="headerlink" title="二、动态电路时域分析"></a>二、动态电路时域分析</h1><p><strong>时域</strong>（正弦函数集合）–&gt;相量域（相量集合）</p>
 <ul>
-<li>如果 maxsize 设为 None，LRU 特性将被禁用且缓存可无限增长。</li>
-<li>如果 typed 设置为true，不同类型的函数参数将被分别缓存。例如， f(3) 和 f(3.0) 将被视为不同而分别缓存。</li>
+<li>PPT8：动态时域分析</li>
+<li>PPT9：一阶动态电路</li>
+<li>PPT10：三要素法</li>
+</ul>
+<h1 id="三、动态电路相量分析"><a href="#三、动态电路相量分析" class="headerlink" title="三、动态电路相量分析"></a>三、动态电路相量分析</h1><p><strong>正弦量</strong>：大小和方向随时间按正弦规律变化的电压、电流等电学量统称为正弦交流电或正弦量。.<br><strong>三要素</strong>：幅值（Um,Im），角频率（w），初相位（θ）</p>
+<blockquote>
+<p><strong>相量</strong><br>电路理论中，包括电气工程和电子信息工程等给出的相量的定义是恒定频率下的量，是复数，对应复数空间。<br>分析正弦稳态的有效方法是相量法，相量法的基础是用一个称为相量的向量或复数来表示正弦电压和电流。相量由正弦电压的有效值U和初相ψ构成，复数的模表示电压的最大值，其辐角表示电压的初相。（百度百科）</p>
+</blockquote>
+<ul>
+<li>复数的运算</li>
+<li>旋转因子</li>
+</ul>
+<p>加一个小圆点是用来和普通的复数相区别(强调它与正弦量的联系)，同时也改用“相量”，而不用“向量”，是因为它表示的不是一般意义的向量，而是表示一个正弦量。</p>
+<ul>
+<li>阻抗和导纳</li>
+<li>类比电阻电路进行分析PPT13</li>
+<li>单口网络PPT14</li>
 </ul>
 
             </div>
@@ -512,7 +548,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/e9cc.html">https://www.unielu.com/posts/e9cc.html</a>
+                    <a href="https://www.unielu.com/posts/7c5f.html">https://www.unielu.com/posts/7c5f.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -550,8 +586,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                                    <span class="chip bg-color">python模块</span>
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -860,30 +896,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/9568.html">
+                <a href="/posts/9280.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/5.jpg" class="responsive-img" alt="heapq模块">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/new-5.jpg" class="responsive-img" alt="小站的更新">
                         
-                        <span class="card-title">heapq模块</span>
+                        <span class="card-title">小站的更新</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            优先队列算法
+                            介绍更新的内容
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-09
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/other/" class="post-category">
+                                    other
                                 </a>
                             
                             
@@ -893,8 +929,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                        <span class="chip bg-color">python模块</span>
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%AE%E9%A1%B6/">
+                        <span class="chip bg-color">置顶</span>
                     </a>
                     
                 </div>
@@ -908,30 +948,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/6db0.html">
+                <a href="/posts/database.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/luff-7.jpg" class="responsive-img" alt="Electron之旅">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/27.jpg" class="responsive-img" alt="数据库">
                         
-                        <span class="card-title">Electron之旅</span>
+                        <span class="card-title">数据库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            复习专用
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" class="post-category">
-                                    应用开发
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
                                 </a>
                             
                             
@@ -941,8 +981,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/electron/">
-                        <span class="chip bg-color">electron</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
