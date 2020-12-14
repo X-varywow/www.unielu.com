@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="周赛笔记211, -- blog --">
+    <meta name="keywords" content="语言学基础, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>周赛笔记211 | -- blog --</title>
+    <title>语言学基础 | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/awesome/css/all.css">
@@ -301,12 +301,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/20181114.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">周赛笔记211</h1>
+                    <h1 class="description center-align post-title diyFont">语言学基础</h1>
                 </div>
             </div>
         </div>
@@ -431,14 +431,23 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
-                                <span class="chip bg-color">leetcode比赛</span>
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                大二
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -447,21 +456,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-06
+                    2020-12-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-07
+                    2020-12-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    688
+                    0
                 </div>
                 
 
@@ -473,83 +482,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>第一题：<a href="https://leetcode-cn.com/problems/largest-substring-between-two-equal-characters/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/largest-substring-between-two-equal-characters/</a><br>第二题：<a href="https://leetcode-cn.com/problems/lexicographically-smallest-string-after-applying-operations/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/lexicographically-smallest-string-after-applying-operations/</a><br>第三题：<a href="https://leetcode-cn.com/problems/best-team-with-no-conflicts/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/best-team-with-no-conflicts/</a><br>第四题：<a href="https://leetcode-cn.com/problems/graph-connectivity-with-threshold/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/graph-connectivity-with-threshold/</a></p>
-</blockquote>
-<h2 id="一、两个相同字符之间的最长子字符串"><a href="#一、两个相同字符之间的最长子字符串" class="headerlink" title="一、两个相同字符之间的最长子字符串"></a>一、两个相同字符之间的最长子字符串</h2><p>给你一个字符串 <code>s</code>，请你返回 两个相同字符之间的最长子字符串的长度 ，计算长度时不含这两个字符。如果不存在这样的子字符串，返回 <code>-1</code> 。</p>
-<p>子字符串 是字符串中的一个连续字符序列。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">maxLengthBetweenEqualCharacters</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        d<span class="token operator">=</span>defaultdict<span class="token punctuation">(</span>list<span class="token punctuation">)</span>
-        ans<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span>
-        <span class="token keyword">for</span> i<span class="token punctuation">,</span>x <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            d<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> d<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            nums<span class="token operator">=</span>i<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-            <span class="token keyword">if</span> len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">1</span><span class="token punctuation">:</span>
-                ans<span class="token operator">=</span>max<span class="token punctuation">(</span>ans<span class="token punctuation">,</span>nums<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span>nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="二、执行操作后字典序最小的字符串"><a href="#二、执行操作后字典序最小的字符串" class="headerlink" title="二、执行操作后字典序最小的字符串"></a>二、执行操作后字典序最小的字符串</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#暴力</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">findLexSmallestString</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">,</span> a<span class="token punctuation">:</span> int<span class="token punctuation">,</span> b<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
-        b <span class="token operator">=</span> b<span class="token operator">%</span>len<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-        <span class="token keyword">def</span> <span class="token function">f1</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            tmp<span class="token operator">=</span><span class="token string">""</span>
-            <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> i<span class="token operator">%</span><span class="token number">2</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span> tmp<span class="token operator">+=</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-                <span class="token keyword">else</span><span class="token punctuation">:</span> tmp<span class="token operator">+=</span>str<span class="token punctuation">(</span><span class="token punctuation">(</span>int<span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span>a<span class="token punctuation">)</span><span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">)</span>
-            <span class="token keyword">return</span> tmp
-        <span class="token keyword">def</span> <span class="token function">f2</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> s<span class="token punctuation">[</span><span class="token operator">-</span>b<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token operator">+</span>s<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span>b<span class="token punctuation">]</span>
-        ans<span class="token operator">=</span><span class="token punctuation">{</span>s<span class="token punctuation">}</span>
-        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            ans<span class="token punctuation">.</span>add<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-            s1<span class="token punctuation">,</span>s2<span class="token operator">=</span>f1<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">,</span>f2<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token punctuation">(</span>s1<span class="token punctuation">,</span>s2<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> i <span class="token operator">not</span> <span class="token keyword">in</span> ans<span class="token punctuation">:</span> dfs<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-        dfs<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> min<span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="三、无矛盾的最佳球队"><a href="#三、无矛盾的最佳球队" class="headerlink" title="三、无矛盾的最佳球队"></a>三、无矛盾的最佳球队</h2><p>假设你是球队的经理。对于即将到来的锦标赛，你想组合一支总体得分最高的球队。球队的得分是球队中所有球员的分数 总和 。</p>
-<p>然而，球队中的矛盾会限制球员的发挥，所以必须选出一支 没有矛盾 的球队。如果一名年龄较小球员的分数 严格大于 一名年龄较大的球员，则存在矛盾。同龄球员之间不会发生矛盾。</p>
-<p>给你两个列表 <code>scores</code> 和 <code>ages</code>，其中每组 <code>scores[i]</code> 和 <code>ages[i]</code> 表示第 <code>i</code> 名球员的分数和年龄。请你返回 <strong>所有可能的无矛盾球队中得分最高那支的分数</strong> 。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">bestTeamScore</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> scores<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> ages<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        n <span class="token operator">=</span> len<span class="token punctuation">(</span>scores<span class="token punctuation">)</span>
-        arr <span class="token operator">=</span> list<span class="token punctuation">(</span>zip<span class="token punctuation">(</span>ages<span class="token punctuation">,</span> scores<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        arr<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 按年龄递增排序，年龄相同的按分数递增排序</span>
-        <span class="token comment" spellcheck="true">#print(arr)</span>
-        dp <span class="token operator">=</span> <span class="token punctuation">[</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>              <span class="token comment" spellcheck="true">#类似最长上升子序列问题</span>
-            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">>=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-                    dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> max<span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> max<span class="token punctuation">(</span>dp<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># DPxiu</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 优化版：</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">bestTeamScore</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> scores<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> ages<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        <span class="token keyword">import</span> bisect
-        d <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>score<span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token keyword">for</span> age<span class="token punctuation">,</span> score <span class="token keyword">in</span> zip<span class="token punctuation">(</span>ages<span class="token punctuation">,</span> scores<span class="token punctuation">)</span><span class="token punctuation">]</span>
-        d<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        n <span class="token operator">=</span> len<span class="token punctuation">(</span>d<span class="token punctuation">)</span>
-        res <span class="token operator">=</span> <span class="token number">0</span>
-        stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-        <span class="token comment" spellcheck="true"># print(d)</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            score<span class="token punctuation">,</span> age <span class="token operator">=</span> d<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-            idx <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_right<span class="token punctuation">(</span>stack<span class="token punctuation">,</span> <span class="token punctuation">(</span>age<span class="token punctuation">,</span>float<span class="token punctuation">(</span><span class="token string">'inf'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            s <span class="token operator">=</span> stack<span class="token punctuation">[</span>idx<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-            res <span class="token operator">=</span> max<span class="token punctuation">(</span>res<span class="token punctuation">,</span> s<span class="token operator">+</span>score<span class="token punctuation">)</span>
-            <span class="token keyword">while</span> idx <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>stack<span class="token punctuation">)</span> <span class="token operator">and</span> stack<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span> s<span class="token operator">+</span>score<span class="token punctuation">:</span>
-                stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span>idx<span class="token punctuation">)</span>
-            stack<span class="token punctuation">[</span>idx<span class="token punctuation">:</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>age<span class="token punctuation">,</span> s<span class="token operator">+</span>score<span class="token punctuation">)</span><span class="token punctuation">]</span>
-            <span class="token keyword">while</span> len<span class="token punctuation">(</span>stack<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">2</span> <span class="token operator">and</span> stack<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span> stack<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-                stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># print(stack)</span>
-        <span class="token keyword">return</span> res<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="四、带阈值的图连通性"><a href="#四、带阈值的图连通性" class="headerlink" title="四、带阈值的图连通性"></a>四、带阈值的图连通性</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 并查集</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+                
             </div>
             <hr/>
 
@@ -574,7 +507,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/efe4.html">https://www.unielu.com/posts/efe4.html</a>
+                    <a href="https://www.unielu.com/posts/yuyan.html">https://www.unielu.com/posts/yuyan.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -612,8 +545,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
-                                    <span class="chip bg-color">leetcode比赛</span>
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -922,28 +855,32 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/2f25.html">
+                <a href="/posts/9280.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/20181114.jpg" class="responsive-img" alt="周赛笔记210">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/new-5.jpg" class="responsive-img" alt="小站的更新">
                         
-                        <span class="card-title">周赛笔记210</span>
+                        <span class="card-title">小站的更新</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            介绍更新的内容
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-09
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            ╯晓~
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/other/" class="post-category">
+                                    other
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -951,8 +888,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
-                        <span class="chip bg-color">leetcode比赛</span>
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%AE%E9%A1%B6/">
+                        <span class="chip bg-color">置顶</span>
                     </a>
                     
                 </div>
@@ -966,12 +907,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/2e65.html">
+                <a href="/posts/contest2019.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/20181114.jpg" class="responsive-img" alt="周赛笔记213">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/20181114.jpg" class="responsive-img" alt="周赛笔记217">
                         
-                        <span class="card-title">周赛笔记213</span>
+                        <span class="card-title">周赛笔记217</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -982,7 +923,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-13
                             </span>
                         <span class="publish-author">
                             

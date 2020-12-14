@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-09
+                    2020-12-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2.3k
                 </div>
                 
 
@@ -554,7 +554,8 @@
 <li>唯一性</li>
 <li>最小性</li>
 </ul>
-<p><strong>主码</strong>，被选用的候选码</p>
+<p><strong>主码</strong>，被选用的候选码。</p>
+<p><strong>超码</strong>，能够决定所有属性，其中可以包含候选码外其他属性。</p>
 <hr>
 <p>关系模型中的三类<strong>完整性约束</strong>：</p>
 <ul>
@@ -589,7 +590,21 @@
 <p>(3)    查询“张三”同学不学的课程编号。<br><code>ΠCNO(C) -ΠCNO(SC⋈σSNAME=&#39;张三&#39; (S))</code></p>
 <p>(4)    给出既选修“高等数学”又选修“线性代数”的学生学号。<br><code>ΠSNO(SC⋈(σCNAME=&#39;高等数学&#39; (C)))∩ ΠSNO(SC⋈(σCNAME=&#39;线性代数&#39; (C)))</code></p>
 <p>(5)    给出“数据库”课程成绩最高的学生学号。<br><code>R1:= ΠSNO,SCORE(SC⋈(σCNAME=&#39;数据库&#39; (C)))</code> (先将数据库成绩提出来，后面会简洁一些)<br><code>(ΠSNO ( R1 - ΠR1.SNO, R1.SCORE(σR1.SCORE&lt;R2.SCORE (R1☓ρR2(R1)))))</code></p>
-<h1 id="三、SQL"><a href="#三、SQL" class="headerlink" title="三、SQL"></a>三、SQL</h1><h2 id="实验一：sql初步"><a href="#实验一：sql初步" class="headerlink" title="实验一：sql初步"></a>实验一：sql初步</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 查询1986年出生的</span>
+<h1 id="三、SQL"><a href="#三、SQL" class="headerlink" title="三、SQL"></a>三、SQL</h1><p>一个数据库至少包含：</p>
+<ul>
+<li>数据文件 <code>.mdf</code></li>
+<li>事务日志文件 <code>.ldf</code></li>
+</ul>
+<hr>
+<p>SQL功能：</p>
+<ul>
+<li>数据<strong>查询</strong> <code>select</code></li>
+<li>数据<strong>定义</strong> <code>create</code> <code>drop</code> <code>alter</code></li>
+<li>数据<strong>操纵</strong> <code>insert</code> <code>update</code> <code>delete</code></li>
+<li>数据<strong>控制</strong>  <code>grant</code> <code>revoke</code></li>
+</ul>
+<hr>
+<h2 id="实验一：sql初步"><a href="#实验一：sql初步" class="headerlink" title="实验一：sql初步"></a>实验一：sql初步</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 查询1986年出生的</span>
 
 <span class="token keyword">select</span> sno<span class="token punctuation">,</span>sn<span class="token punctuation">,</span>birth
 <span class="token keyword">from</span> s
@@ -676,7 +691,7 @@
 <span class="token keyword">from</span> s
 <span class="token keyword">where</span> sno <span class="token operator">not</span> <span class="token operator">in</span>
 <span class="token punctuation">(</span><span class="token keyword">select</span> sno <span class="token keyword">from</span> homework<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="实验四：数据更新与约束"><a href="#实验四：数据更新与约束" class="headerlink" title="实验四：数据更新与约束"></a>实验四：数据更新与约束</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 创表，约束，主外键</span>
+<h2 id="实验四：数据更新与约束⭐"><a href="#实验四：数据更新与约束⭐" class="headerlink" title="实验四：数据更新与约束⭐"></a>实验四：数据更新与约束⭐</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 创表，约束，主外键</span>
 <span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> Book<span class="token punctuation">(</span>
     BNo CHAR<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
     BName    nVARCHAR<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -705,9 +720,58 @@
 <span class="token keyword">insert</span> <span class="token keyword">into</span> booksell <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token string">'2020-2-2'</span><span class="token punctuation">,</span><span class="token string">'9787115457004'</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">132</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">update</span> book  <span class="token keyword">set</span> bcount<span class="token operator">-</span><span class="token operator">=</span><span class="token number">3</span> <span class="token keyword">where</span> bno<span class="token operator">=</span><span class="token string">'9787115457004'</span><span class="token punctuation">;</span>
 <span class="token keyword">insert</span> <span class="token keyword">into</span> booksell <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token string">'2020-2-3'</span><span class="token punctuation">,</span><span class="token string">'9787115457004'</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">select</span> smoney<span class="token operator">/</span>scount<span class="token operator">*</span><span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">from</span> booksell <span class="token keyword">where</span> scount<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">update</span> book  <span class="token keyword">set</span> bcount<span class="token operator">+</span><span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">where</span> bno<span class="token operator">=</span><span class="token string">'9787115457004'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="四、关系数据库理论"><a href="#四、关系数据库理论" class="headerlink" title="四、关系数据库理论"></a>四、关系数据库理论</h1><p>关系模式的<strong>范式</strong><br><strong>1NF</strong> :关系中每个属性都是不可再分的原子项<br><strong>2NF</strong> :每个非主属性都完全依赖于主码<br><strong>3NF</strong> :每个非主属性都不传递函数依赖于主码<br><strong>BCNF</strong> :如果关系模式R∈1NF，且对于R的每个函数依赖X→Y（Y不属于X），决定因数X都包含了R的一个候选码，那么R∈BCNF。</p>
-<h1 id="五、数据库安全保护"><a href="#五、数据库安全保护" class="headerlink" title="五、数据库安全保护"></a>五、数据库安全保护</h1><h2 id="实验五：数据库安全管理"><a href="#实验五：数据库安全管理" class="headerlink" title="实验五：数据库安全管理"></a>实验五：数据库安全管理</h2><p>安全性控制、完整性控制、并发性控制、数据恢复</p>
+<span class="token keyword">update</span> book  <span class="token keyword">set</span> bcount<span class="token operator">+</span><span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">where</span> bno<span class="token operator">=</span><span class="token string">'9787115457004'</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">-- 补充：delete from&lt;表名> [where&lt;条件>]</span>
+
+<span class="token comment" spellcheck="true">-- 不加where可以修改多行</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="四、关系数据库理论⭐"><a href="#四、关系数据库理论⭐" class="headerlink" title="四、关系数据库理论⭐"></a>四、关系数据库理论⭐</h1><p>关系模式中各属性之间相互依赖，相互制约的联系称为数据依赖。数据依赖一般分为 <strong>函数依赖</strong> 和 <strong>多值依赖</strong>。</p>
+<p><strong>函数依赖</strong> 是关系模式中属性之间的一种逻辑依赖关系。</p>
+<ul>
+<li>完全函数依赖：属性集 <code>X</code> 的任何真子集都推不出 <code>Y</code>。</li>
+<li>部分函数依赖：属性集 <code>X</code> 的某个真子集推出了 <code>Y</code>。</li>
+</ul>
+<blockquote>
+<p><strong>求解最小函数依赖集</strong>：</p>
+<ol>
+<li>将每个函数依赖的右边变成单属性</li>
+<li>去掉每个函数依赖左边的冗余属性</li>
+<li>去掉冗余的函数依赖</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><code>F+</code> = <code>G+</code> 时, 函数依赖集 <code>F</code> 和 <code>G</code> 等价</p>
+</blockquote>
+<hr>
+<p><strong>闭包</strong>：<code>F+</code> 是被 <code>F</code> 逻辑蕴涵的全部函数依赖集合（字面意思）。</p>
+<blockquote>
+<p>若 <code>X+</code>包含了 <code>R</code> 的全部属性，则属性集 <code>X</code> 是 <code>R</code> 的一个码。</p>
+</blockquote>
+<hr>
+<p><strong>1NF</strong> ：关系中每个属性都是不可再分的原子项</p>
+<p><strong>2NF</strong> ：不存在非主属性对主码部分函数依赖（每个非主属性都完全函数依赖于主码）</p>
+<p><strong>3NF</strong> ：每个非主属性都不传递函数依赖于主码.(无损连接性和函数依赖保持性)</p>
+<p><strong>BCNF</strong> ：如果关系模式R∈1NF，且对于R的每个函数依赖X→Y（Y不属于X），决定因数X都包含了R的一个候选码，那么R∈BCNF。</p>
+<hr>
+<p>书上例题:</p>
+<ul>
+<li>求函数依赖集的闭包 <code>4-2</code></li>
+<li>求解候选码 <code>4-3</code> <code>4-4</code> <code>4-5</code></li>
+<li>求最小函数依赖集 <code>4-6</code> <code>4-7</code> <code>4-8</code> <code>4-9</code></li>
+<li>关系模式的分解 <code>4-10~14</code></li>
+<li>范式 <code>4-15~21</code></li>
+</ul>
+<h1 id="五、数据库安全保护"><a href="#五、数据库安全保护" class="headerlink" title="五、数据库安全保护"></a>五、数据库安全保护</h1><ul>
+<li>安全性控制</li>
+<li>完整性控制</li>
+<li>并发性控制<ul>
+<li>封锁技术</li>
+<li>时标技术</li>
+</ul>
+</li>
+<li>数据恢复</li>
+</ul>
+<h2 id="实验五：数据库安全管理"><a href="#实验五：数据库安全管理" class="headerlink" title="实验五：数据库安全管理"></a>实验五：数据库安全管理</h2><pre class="line-numbers language-sql"><code class="language-sql"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h1 id="六、数据库设计"><a href="#六、数据库设计" class="headerlink" title="六、数据库设计"></a>六、数据库设计</h1><h1 id="七、高级应用"><a href="#七、高级应用" class="headerlink" title="七、高级应用"></a>七、高级应用</h1><h2 id="实验六：Transaction-sql"><a href="#实验六：Transaction-sql" class="headerlink" title="实验六：Transaction-sql"></a>实验六：Transaction-sql</h2><p><code>事务练习</code></p>
 <pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--zhang转账给li</span>
 <span class="token keyword">use</span> <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span>
@@ -749,12 +813,15 @@
 <span class="token keyword">set</span> <span class="token variable">@x</span><span class="token operator">=</span><span class="token number">60</span>
 <span class="token keyword">set</span> <span class="token variable">@y</span><span class="token operator">=</span><span class="token number">80</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> query<span class="token punctuation">(</span><span class="token variable">@x</span><span class="token punctuation">,</span><span class="token variable">@y</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="实验七：存储过程-amp-触发器"><a href="#实验七：存储过程-amp-触发器" class="headerlink" title="实验七：存储过程&amp;触发器"></a>实验七：存储过程&amp;触发器</h2><h2 id="实验八：备份-amp-还原"><a href="#实验八：备份-amp-还原" class="headerlink" title="实验八：备份&amp;还原"></a>实验八：备份&amp;还原</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--完整恢复模式，需要备份和还原事务日志</span>
+<h2 id="实验七：存储过程-amp-触发器"><a href="#实验七：存储过程-amp-触发器" class="headerlink" title="实验七：存储过程&amp;触发器"></a>实验七：存储过程&amp;触发器</h2><pre class="line-numbers language-sql"><code class="language-sql"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="实验八：备份-amp-还原"><a href="#实验八：备份-amp-还原" class="headerlink" title="实验八：备份&amp;还原"></a>实验八：备份&amp;还原</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--完整恢复模式，需要备份和还原事务日志</span>
 <span class="token keyword">alter</span> <span class="token keyword">database</span> <span class="token number">abc</span> <span class="token keyword">set</span> recovery <span class="token keyword">full</span>
 
 <span class="token keyword">restore</span> <span class="token keyword">database</span> tmp <span class="token keyword">from</span> <span class="token keyword">disk</span><span class="token operator">=</span><span class="token string">'c:\blog\tmpfull1.bak'</span> <span class="token keyword">with</span> norecovery
 <span class="token keyword">restore</span> log tmp <span class="token keyword">from</span> <span class="token keyword">disk</span><span class="token operator">=</span><span class="token string">'c:\blog\tmplog1.bak'</span> <span class="token keyword">with</span> norecovery
 <span class="token keyword">restore</span> log tmp <span class="token keyword">from</span> <span class="token keyword">disk</span><span class="token operator">=</span><span class="token string">'c:\blog\tmplog2.bak'</span> <span class="token keyword">with</span> stopat<span class="token operator">=</span><span class="token string">'2020-12-08 22:29:27'</span><span class="token punctuation">,</span>recovery<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<p><strong>遗漏了</strong>：视图，索引</p>
 
             </div>
             <hr/>
@@ -1139,7 +1206,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            复习专用
+                            复习
                         
                     </div>
                     <div class="publish-info">
@@ -1322,7 +1389,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">53k</span>&nbsp;字
+                class="white-color">54.2k</span>&nbsp;字
             
             
             
