@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.4k
                 </div>
                 
 
@@ -749,17 +749,24 @@
 </blockquote>
 <hr>
 <p><strong>1NF</strong> ：关系中每个属性都是不可再分的原子项</p>
+<p>&emsp;&emsp;<code>1NF</code> -&gt; <code>2NF</code> 【消除了非主属性对主码 <strong>部分函数依赖</strong>】</p>
 <p><strong>2NF</strong> ：不存在非主属性对主码部分函数依赖（每个非主属性都完全函数依赖于主码）</p>
-<p><strong>3NF</strong> ：每个非主属性都不传递函数依赖于主码.(无损连接性和函数依赖保持性)</p>
+<p>&emsp;&emsp;<code>2NF</code> -&gt; <code>3NF</code> 【消除非主属性对主码的 <strong>传递函数依赖</strong>】</p>
+<p><strong>3NF</strong> ：每个非主属性都不传递函数依赖于主码.</p>
 <p><strong>BCNF</strong> ：如果关系模式R∈1NF，且对于R的每个函数依赖X→Y（Y不属于X），决定因数X都包含了R的一个候选码，那么R∈BCNF。</p>
 <hr>
-<p>书上例题:</p>
+<p><strong>书上例题</strong>：</p>
 <ul>
 <li>求函数依赖集的闭包 <code>4-2</code></li>
 <li>求解候选码 <code>4-3</code> <code>4-4</code> <code>4-5</code></li>
 <li>求最小函数依赖集 <code>4-6</code> <code>4-7</code> <code>4-8</code> <code>4-9</code></li>
 <li>关系模式的分解 <code>4-10~14</code></li>
 <li>范式 <code>4-15~21</code></li>
+</ul>
+<p><strong>其他问题</strong>：</p>
+<ul>
+<li><code>无损连接性判定</code><br>①画表格（行是单个属性，列是分解的属性集）<br>②属性存在于属性集中的、能函数依赖推导出来的<br>③若一行都满足②，则是无损连接分解<br>④特殊判定，R1 ∩ R2 -&gt; （R1-R2 或 R2-R1)</li>
+<li><code>函数依赖保持性判定</code><br>看看每个分解的部分得出的依赖，能不能凑齐总的函数依赖</li>
 </ul>
 <h1 id="五、数据库安全保护"><a href="#五、数据库安全保护" class="headerlink" title="五、数据库安全保护"></a>五、数据库安全保护</h1><ul>
 <li>安全性控制</li>
@@ -771,7 +778,14 @@
 </li>
 <li>数据恢复</li>
 </ul>
-<h2 id="实验五：数据库安全管理"><a href="#实验五：数据库安全管理" class="headerlink" title="实验五：数据库安全管理"></a>实验五：数据库安全管理</h2><pre class="line-numbers language-sql"><code class="language-sql"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="实验五：数据库安全管理"><a href="#实验五：数据库安全管理" class="headerlink" title="实验五：数据库安全管理"></a>实验五：数据库安全管理</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 授权权限</span>
+<span class="token keyword">use</span> test
+go
+<span class="token keyword">grant</span> <span class="token keyword">insert</span> <span class="token keyword">on</span> dbo<span class="token punctuation">.</span>t1 <span class="token keyword">to</span> zhang <span class="token keyword">with</span> <span class="token keyword">grant</span> <span class="token keyword">option</span>
+go
+
+<span class="token comment" spellcheck="true">--收回权限(级连)</span>
+<span class="token keyword">revoke</span> <span class="token keyword">insert</span> <span class="token keyword">on</span> bdo<span class="token punctuation">.</span>t1 <span class="token keyword">from</span> zhang <span class="token keyword">cascade</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="六、数据库设计"><a href="#六、数据库设计" class="headerlink" title="六、数据库设计"></a>六、数据库设计</h1><h1 id="七、高级应用"><a href="#七、高级应用" class="headerlink" title="七、高级应用"></a>七、高级应用</h1><h2 id="实验六：Transaction-sql"><a href="#实验六：Transaction-sql" class="headerlink" title="实验六：Transaction-sql"></a>实验六：Transaction-sql</h2><p><code>事务练习</code></p>
 <pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--zhang转账给li</span>
 <span class="token keyword">use</span> <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span>
@@ -821,7 +835,7 @@
 <span class="token keyword">restore</span> log tmp <span class="token keyword">from</span> <span class="token keyword">disk</span><span class="token operator">=</span><span class="token string">'c:\blog\tmplog1.bak'</span> <span class="token keyword">with</span> norecovery
 <span class="token keyword">restore</span> log tmp <span class="token keyword">from</span> <span class="token keyword">disk</span><span class="token operator">=</span><span class="token string">'c:\blog\tmplog2.bak'</span> <span class="token keyword">with</span> stopat<span class="token operator">=</span><span class="token string">'2020-12-08 22:29:27'</span><span class="token punctuation">,</span>recovery<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
-<p><strong>遗漏了</strong>：视图，索引</p>
+<p><strong>遗漏了</strong>：视图，索引，第五章安全保护，第六章ER图</p>
 
             </div>
             <hr/>
@@ -1389,7 +1403,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">54.2k</span>&nbsp;字
+                class="white-color">55.1k</span>&nbsp;字
             
             
             

@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-08
+                    2020-12-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    265
+                    595
                 </div>
                 
 
@@ -482,8 +482,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="稀疏矩阵的转置"><a href="#稀疏矩阵的转置" class="headerlink" title="稀疏矩阵的转置"></a>稀疏矩阵的转置</h2><pre class="line-numbers language-c"><code class="language-c"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="哈希表的实现及链地址法处理冲突"><a href="#哈希表的实现及链地址法处理冲突" class="headerlink" title="哈希表的实现及链地址法处理冲突"></a>哈希表的实现及链地址法处理冲突</h2><p>理解：<br>哈希可以理解为一种<strong>映射关系</strong>，这样会查找得快一些<br>但哈希可能带来<strong>key冲突</strong>的问题，于是有了冲突处理</p>
+                <h2 id="哈希表的实现及链地址法处理冲突"><a href="#哈希表的实现及链地址法处理冲突" class="headerlink" title="哈希表的实现及链地址法处理冲突"></a>哈希表的实现及链地址法处理冲突</h2><p>理解：<br>哈希可以理解为一种<strong>映射关系</strong>，这样会查找得快一些<br>但哈希可能带来<strong>key冲突</strong>的问题，于是有了冲突处理</p>
 <pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdlib.h></span></span>
 <span class="token macro property">#<span class="token directive keyword">pragma</span> warning(disable:4996)</span>
@@ -548,6 +547,72 @@
 
     <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"pause"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="稀疏矩阵的转置"><a href="#稀疏矩阵的转置" class="headerlink" title="稀疏矩阵的转置"></a>稀疏矩阵的转置</h2><pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdlib.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> warning(disable:4996)</span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> row<span class="token punctuation">,</span> col<span class="token punctuation">,</span> val<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>trituple<span class="token punctuation">;</span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    trituple <span class="token operator">*</span>terms<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> cols<span class="token punctuation">,</span> rows<span class="token punctuation">,</span> cnt<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>sparsematrix<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//int rowsize[a.cols] 报错：表达式必须含有常量值</span>
+<span class="token keyword">void</span> <span class="token function">transpose_fast</span><span class="token punctuation">(</span><span class="token keyword">const</span> sparsematrix<span class="token operator">&amp;</span>a<span class="token punctuation">,</span> sparsematrix<span class="token operator">&amp;</span>b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> <span class="token operator">*</span>rowsize <span class="token operator">=</span> new <span class="token keyword">int</span><span class="token punctuation">[</span>a<span class="token punctuation">.</span>cols<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token operator">*</span>rowstart <span class="token operator">=</span> new <span class="token keyword">int</span><span class="token punctuation">[</span>a<span class="token punctuation">.</span>cols<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    b<span class="token punctuation">.</span>rows <span class="token operator">=</span> a<span class="token punctuation">.</span>cols<span class="token punctuation">;</span>
+    b<span class="token punctuation">.</span>cols <span class="token operator">=</span> a<span class="token punctuation">.</span>rows<span class="token punctuation">;</span>
+    b<span class="token punctuation">.</span>cnt <span class="token operator">=</span> a<span class="token punctuation">.</span>cnt<span class="token punctuation">;</span>
+    b<span class="token punctuation">.</span>terms <span class="token operator">=</span> new trituple<span class="token punctuation">[</span>a<span class="token punctuation">.</span>cnt<span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//忘了初始化，报错：写入位置 0xCCCCCCD8 时发生访问冲突。</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>cnt <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> a<span class="token punctuation">.</span>cols<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            rowsize<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> a<span class="token punctuation">.</span>cnt<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            rowsize<span class="token punctuation">[</span>a<span class="token punctuation">.</span>terms<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>col<span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        rowstart<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> a<span class="token punctuation">.</span>cols<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+            rowstart<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> rowstart<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> rowsize<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//for (int i = 0; i &lt; a.cols; i++) {</span>
+        <span class="token comment" spellcheck="true">//    printf("%d %d\n", rowsize[i], rowstart[i]);</span>
+        <span class="token comment" spellcheck="true">//}</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> a<span class="token punctuation">.</span>cnt<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> j <span class="token operator">=</span> rowstart<span class="token punctuation">[</span>a<span class="token punctuation">.</span>terms<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>col<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            b<span class="token punctuation">.</span>terms<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>row <span class="token operator">=</span> a<span class="token punctuation">.</span>terms<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>col<span class="token punctuation">;</span>
+            b<span class="token punctuation">.</span>terms<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>col <span class="token operator">=</span> a<span class="token punctuation">.</span>terms<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>row<span class="token punctuation">;</span>
+            b<span class="token punctuation">.</span>terms<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>val <span class="token operator">=</span> a<span class="token punctuation">.</span>terms<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>val<span class="token punctuation">;</span>
+            rowstart<span class="token punctuation">[</span>a<span class="token punctuation">.</span>terms<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>col<span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    delete<span class="token punctuation">[</span><span class="token punctuation">]</span> rowsize<span class="token punctuation">;</span>
+    delete<span class="token punctuation">[</span><span class="token punctuation">]</span> rowstart<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    sparsematrix a<span class="token punctuation">,</span>b<span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"input the rows,cols and count:\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d %d %d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">.</span>rows<span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">.</span>cols<span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">.</span>cnt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    a<span class="token punctuation">.</span>terms <span class="token operator">=</span> new trituple<span class="token punctuation">[</span>a<span class="token punctuation">.</span>cnt<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\ninput the row,col and val for every items (index begin from 0) :\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> a<span class="token punctuation">.</span>cnt<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">.</span>terms<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>row<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">.</span>terms<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>col<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">.</span>terms<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">transpose_fast</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"the ans:\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> b<span class="token punctuation">.</span>cnt<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %d %d\n"</span><span class="token punctuation">,</span> b<span class="token punctuation">.</span>terms<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>row<span class="token punctuation">,</span> b<span class="token punctuation">.</span>terms<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>col<span class="token punctuation">,</span> b<span class="token punctuation">.</span>terms<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"pause"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1115,7 +1180,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">54.2k</span>&nbsp;字
+                class="white-color">55.1k</span>&nbsp;字
             
             
             
