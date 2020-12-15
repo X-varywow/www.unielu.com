@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-14
+                    2020-12-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    668
+                    729
                 </div>
                 
 
@@ -487,10 +487,16 @@
 <p><strong>KVL</strong>：对于集总参数电路的任一回路，在任一时刻，沿该回路全部支路电压的代数和等于零。</p>
 <p><strong>特勒根定理</strong>：电路各元件吸收功率的代数和为0。</p>
 <p><strong>受控源</strong>：输出电压或电流受到电路中其它部分的电压或电流控制的电源。</p>
+<ul>
+<li>VCVS、VCCS 的 <code>i1</code> 为0</li>
+<li>CCVS、CCCS 的 <code>u1</code> 为0</li>
+</ul>
 <p><strong>割集</strong>：有支路集S，在连通图G中移去支路集S，G变成两个互不连通的子图，少移去一条支路都不行。</p>
+<p><strong>树</strong>：树T是连通图G的一个子图且满足:（联通）（包含所有节点）（不含闭合路径）</p>
 <hr>
 <h2 id="分析方法"><a href="#分析方法" class="headerlink" title="分析方法"></a>分析方法</h2><ul>
-<li>支路电流法(PPT3)、支路电压法</li>
+<li>2b法，<code>n-1</code>个独立KCL方程，<code>b-n-1</code>个独立KVL方程，<code>b</code>个VCR方程</li>
+<li>支路电流法、支路电压法</li>
 <li>网孔分析法PPT4</li>
 <li>节点分析法</li>
 <li>回路电流法PPT5</li>
