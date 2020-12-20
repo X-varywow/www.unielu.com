@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-14
+                    2020-12-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.6k
                 </div>
                 
 
@@ -827,7 +827,36 @@ go
 <span class="token keyword">set</span> <span class="token variable">@x</span><span class="token operator">=</span><span class="token number">60</span>
 <span class="token keyword">set</span> <span class="token variable">@y</span><span class="token operator">=</span><span class="token number">80</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> query<span class="token punctuation">(</span><span class="token variable">@x</span><span class="token punctuation">,</span><span class="token variable">@y</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="实验七：存储过程-amp-触发器"><a href="#实验七：存储过程-amp-触发器" class="headerlink" title="实验七：存储过程&amp;触发器"></a>实验七：存储过程&amp;触发器</h2><pre class="line-numbers language-sql"><code class="language-sql"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="实验七：存储过程-amp-触发器"><a href="#实验七：存储过程-amp-触发器" class="headerlink" title="实验七：存储过程&amp;触发器"></a>实验七：存储过程&amp;触发器</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 存储过程，返回及格率</span>
+<span class="token keyword">create</span> <span class="token keyword">procedure</span> query
+<span class="token variable">@vcno</span> char<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token variable">@vi</span> <span class="token keyword">float</span> output
+<span class="token keyword">as</span>
+<span class="token keyword">declare</span> <span class="token variable">@a</span> <span class="token keyword">float</span><span class="token punctuation">,</span><span class="token variable">@b</span> <span class="token keyword">float</span>
+<span class="token keyword">select</span> <span class="token variable">@a</span><span class="token operator">=</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">from</span> sc <span class="token keyword">where</span> cno<span class="token operator">=</span><span class="token variable">@vcno</span> <span class="token operator">and</span> grade<span class="token operator">>=</span><span class="token number">60</span>
+<span class="token keyword">select</span> <span class="token variable">@b</span><span class="token operator">=</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">from</span> sc <span class="token keyword">where</span> cno<span class="token operator">=</span><span class="token variable">@vcno</span>
+<span class="token keyword">set</span> <span class="token variable">@vi</span><span class="token operator">=</span><span class="token variable">@a</span><span class="token operator">/</span><span class="token variable">@b</span>
+<span class="token keyword">print</span> <span class="token variable">@a</span>
+<span class="token keyword">print</span> <span class="token variable">@b</span>
+<span class="token keyword">print</span> <span class="token variable">@vi</span>
+
+<span class="token keyword">declare</span> <span class="token variable">@ans</span> <span class="token keyword">float</span>
+<span class="token keyword">exec</span> query <span class="token string">'cs'</span><span class="token punctuation">,</span> <span class="token variable">@ans</span> output
+<span class="token keyword">select</span> cast<span class="token punctuation">(</span><span class="token variable">@ans</span><span class="token operator">*</span><span class="token number">100</span> <span class="token keyword">as</span> <span class="token keyword">varchar</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">'%'</span> <span class="token keyword">as</span> <span class="token string">'及格率'</span>
+
+<span class="token comment" spellcheck="true">-- 触发器</span>
+<span class="token keyword">create</span> <span class="token keyword">trigger</span> del_s <span class="token keyword">on</span> dbo<span class="token punctuation">.</span>s
+<span class="token keyword">after</span> <span class="token keyword">delete</span>
+<span class="token keyword">as</span>
+<span class="token keyword">declare</span> <span class="token variable">@s</span> char<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token keyword">select</span> <span class="token variable">@s</span> <span class="token operator">=</span>sno <span class="token keyword">from</span> deleted
+<span class="token keyword">if</span> <span class="token variable">@s</span> <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">select</span> sno <span class="token keyword">from</span> sc<span class="token punctuation">)</span>
+<span class="token keyword">begin</span>
+    <span class="token keyword">print</span> <span class="token string">'该生已有成绩，不能删除'</span>
+    <span class="token keyword">print</span> <span class="token variable">@s</span>
+    <span class="token keyword">rollback</span>
+<span class="token keyword">end</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="实验八：备份-amp-还原"><a href="#实验八：备份-amp-还原" class="headerlink" title="实验八：备份&amp;还原"></a>实验八：备份&amp;还原</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--完整恢复模式，需要备份和还原事务日志</span>
 <span class="token keyword">alter</span> <span class="token keyword">database</span> <span class="token number">abc</span> <span class="token keyword">set</span> recovery <span class="token keyword">full</span>
 
@@ -1403,7 +1432,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">55.9k</span>&nbsp;字
+                class="white-color">56k</span>&nbsp;字
             
             
             
