@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-16
+                    2020-12-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    730
+                    1.1k
                 </div>
                 
 
@@ -497,38 +497,75 @@
 <h2 id="分析方法"><a href="#分析方法" class="headerlink" title="分析方法"></a>分析方法</h2><ul>
 <li>2b法，<code>n-1</code>个独立KCL方程，<code>b-n-1</code>个独立KVL方程，<code>b</code>个VCR方程</li>
 <li>支路电流法、支路电压法</li>
-<li>网孔分析法PPT4</li>
-<li>节点分析法PPT4</li>
-<li>回路电流法PPT5</li>
+<li>网孔分析法（画圈圈，逐个KVL）</li>
+<li>节点分析法</li>
+<li>回路分析法（选定树，逐个连接支路）</li>
 </ul>
 <hr>
 <h2 id="电路定理"><a href="#电路定理" class="headerlink" title="电路定理"></a>电路定理</h2><ul>
-<li>叠加定理(PPT6)</li>
-<li>替代定理（利用理想电源替代支路）</li>
-<li>戴维宁定理</li>
-<li>诺顿定理</li>
-<li>PPT7</li>
+<li>叠加定理(PPT6)<ul>
+<li><code>内容</code>【线性电路中，任一支路电流(或电压)都是电路中各个独电源单独作用时，在该支路产生的电流(或电压)的代数和】</li>
 </ul>
-<h1 id="二、动态电路时域分析"><a href="#二、动态电路时域分析" class="headerlink" title="二、动态电路时域分析"></a>二、动态电路时域分析</h1><p><strong>时域</strong>（正弦函数集合）–&gt;相量域（相量集合）</p>
+</li>
+<li>替代定理（利用理想电源替代支路）</li>
+<li>戴维南定理<ul>
+<li><code>内容</code>【含电源、线性电阻、受控源的单口网络（含源线性单口网络），就其端口而言，可等效为一个电压源串联电阻支路】，参考<code>例题4-12</code></li>
+</ul>
+</li>
+<li>诺顿定理<ul>
+<li><code>内容</code>【含源线性单口网络，就其端口而言，可等效为一个电流源并联电阻支路】，参考<code>例题4-16</code></li>
+</ul>
+</li>
+<li>等效电源定理(PPT7)</li>
+<li>最大功率传输定理（PPT7）</li>
+</ul>
+<h1 id="二、动态电路时域分析"><a href="#二、动态电路时域分析" class="headerlink" title="二、动态电路时域分析"></a>二、动态电路时域分析</h1><p><strong>动态元件</strong>：</p>
+<ul>
+<li>电容 ( <code>q(t)=C·u(t)</code> <code>i(t)=C·du/dt</code> <code>W=cu^2/2</code> )<ul>
+<li>串联时：<code>1/C = 各个倒数相加</code></li>
+<li>并联时：<code>C = 各个相加</code></li>
+</ul>
+</li>
+<li>电感 ( <code>磁链</code> <code>Ψ(t)=L·i(t)</code> )<ul>
+<li>串联时：<code>L = 各个相加</code></li>
+<li>并联时：<code>1/L = 各个倒数相加</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>动态电路</strong>：至少包含一个动态元件的电路</p>
+<p><strong>时域</strong>（正弦函数集合）–&gt;相量域（相量集合）</p>
 <ul>
 <li>PPT8：动态时域分析</li>
 <li>PPT9：一阶动态电路</li>
-<li>PPT10：三要素法</li>
+<li>PPT10：三要素法⭐</li>
 </ul>
-<h1 id="三、动态电路相量分析"><a href="#三、动态电路相量分析" class="headerlink" title="三、动态电路相量分析"></a>三、动态电路相量分析</h1><p><strong>正弦量</strong>：大小和方向随时间按正弦规律变化的电压、电流等电学量统称为正弦交流电或正弦量。.<br><strong>三要素</strong>：幅值（Um,Im），角频率（w），初相位（θ）</p>
+<p>零输入响应？</p>
+<h1 id="三、动态电路相量分析"><a href="#三、动态电路相量分析" class="headerlink" title="三、动态电路相量分析"></a>三、动态电路相量分析</h1><p><strong>正弦量</strong>：大小和方向随时间按正弦规律变化的电压、电流等电学量统称为正弦交流电或正弦量。</p>
+<p><strong>三要素</strong>：</p>
+<ul>
+<li>幅值（Um,Im），反映正弦量变化幅度的大小</li>
+<li>角频率（w），反映正弦量变化快慢</li>
+<li>初相位（θ），反映正弦量的计时起点</li>
+</ul>
 <blockquote>
 <p><strong>相量</strong><br>电路理论中，包括电气工程和电子信息工程等给出的相量的定义是恒定频率下的量，是复数，对应复数空间。<br>分析正弦稳态的有效方法是相量法，相量法的基础是用一个称为相量的向量或复数来表示正弦电压和电流。相量由正弦电压的有效值U和初相ψ构成，复数的模表示电压的最大值，其辐角表示电压的初相。（百度百科）</p>
 </blockquote>
 <ul>
 <li>复数的运算</li>
 <li>旋转因子</li>
+<li>相量图⭐</li>
 </ul>
 <p>加一个小圆点是用来和普通的复数相区别(强调它与正弦量的联系)，同时也改用“相量”，而不用“向量”，是因为它表示的不是一般意义的向量，而是表示一个正弦量。</p>
 <ul>
-<li>阻抗和导纳</li>
-<li>类比电阻电路进行分析PPT13</li>
-<li>单口网络PPT14</li>
+<li>阻抗和导纳 PPT13</li>
+<li>类比电阻电路进行分析 PPT13</li>
+<li>功率问题、单口网络 PPT14</li>
+<li>最大功率传输定理 PPT15</li>
 </ul>
+<hr>
+<p><strong>题目</strong>：<br>6·6分，简答题<br>6-64分，计算题</p>
+<p><code>12-23 14:30</code> <code>主南316</code> ，答疑</p>
+<p><code>12-24 10:10</code> <code>主北158</code> ，考试</p>
 
             </div>
             <hr/>
@@ -1092,7 +1129,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">56.5k</span>&nbsp;字
+                class="white-color">57.4k</span>&nbsp;字
             
             
             
