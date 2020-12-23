@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-22
+                    2020-12-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    2.1k
                 </div>
                 
 
@@ -482,10 +482,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、总论及电阻电路的分析"><a href="#一、总论及电阻电路的分析" class="headerlink" title="一、总论及电阻电路的分析"></a>一、总论及电阻电路的分析</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>集总假设</strong>是指在电路分析过程中，各电器元件视为‘集总参数元件’（实际电路的尺寸远小于使用时最高工作频率对应的波长）。</p>
-<p><strong>KCL</strong>：对于集总电路中的任一节点，在任意时刻，流进（或流出）该节点的所有支路电流的代数和为0。<br><strong>推广</strong>：对于任一集总电路的任一割集，在任一时刻，该割集的所有支路电流的代数和为零。</p>
-<p><strong>KVL</strong>：对于集总参数电路的任一回路，在任一时刻，沿该回路全部支路电压的代数和等于零。</p>
+                <h1 id="一、总论及电阻电路的分析"><a href="#一、总论及电阻电路的分析" class="headerlink" title="一、总论及电阻电路的分析"></a>一、总论及电阻电路的分析</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>集总电路</strong>：由电容、电感、电阻等集总参数元件组成的电路。<br><strong>集总假设</strong>：在电路分析过程中，各电器元件视为‘集总参数元件’（实际电路的尺寸远小于使用时最高工作频率对应的波长）。</p>
+<p><strong>电阻电路</strong>：只含电阻元件和电源元件的电路。</p>
+<p><strong>直流电路</strong>：电路中所含电源都是直流电源。</p>
+<hr>
+<p><strong>KCL</strong>：对于集总电路中的 <strong>任一节点</strong> ，在任意时刻，流进（或流出）该节点的所有支路电流的代数和为0。<br><strong>推广</strong>：对于任一集总电路的任一割集，在任一时刻，该割集的所有支路电流的代数和为零。</p>
+<p><strong>KVL</strong>：对于集总电路中的 <strong>任一回路</strong> ，在任一时刻，沿该回路全部支路电压的代数和等于零。</p>
 <p><strong>特勒根定理</strong>：电路各元件吸收功率的代数和为0。</p>
+<hr>
 <p><strong>受控源</strong>：输出电压或电流受到电路中其它部分的电压或电流控制的电源。</p>
 <ul>
 <li>VCVS、VCCS 的 <code>i1</code> 为0</li>
@@ -494,52 +498,119 @@
 <p><strong>割集</strong>：有支路集S，在连通图G中移去支路集S，G变成两个互不连通的子图，少移去一条支路都不行。</p>
 <p><strong>树</strong>：树T是连通图G的一个子图且满足:（联通）（包含所有节点）（不含闭合路径）</p>
 <hr>
+<p><strong>电导</strong>：<code>G = 1/R</code>，单位：<code>S</code></p>
+<p><strong>网络函数</strong>：对单一激励的线性、时不变电路，指定响应与激励之比，记为 <code>H</code> <code>H = 响应/激励</code></p>
+<p><strong>单口网络</strong>：对外只有两个端口的网络整体。</p>
+<hr>
 <h2 id="分析方法"><a href="#分析方法" class="headerlink" title="分析方法"></a>分析方法</h2><ul>
 <li>2b法，<code>n-1</code>个独立KCL方程，<code>b-n-1</code>个独立KVL方程，<code>b</code>个VCR方程</li>
 <li>支路电流法、支路电压法</li>
-<li>网孔分析法（画圈圈，逐个KVL）</li>
-<li>节点分析法</li>
-<li>回路分析法（选定树，逐个连接支路）</li>
-</ul>
-<hr>
-<h2 id="电路定理"><a href="#电路定理" class="headerlink" title="电路定理"></a>电路定理</h2><ul>
-<li>叠加定理(PPT6)<ul>
-<li><code>内容</code>【线性电路中，任一支路电流(或电压)都是电路中各个独电源单独作用时，在该支路产生的电流(或电压)的代数和】</li>
+<li>网孔分析法<ul>
+<li><code>内容</code>【网孔电流间的KVL】</li>
+<li><strong>网孔</strong>：在回路内部不另含支路的回路。</li>
+<li>参考例题： <code>2-1</code> <code>2-2</code> <code>2-3</code>（电流源两端有电压，设为U） <code>2-4</code></li>
 </ul>
 </li>
-<li>替代定理（利用理想电源替代支路）</li>
+<li>节点分析法⭐<ul>
+<li><code>内容</code>【节点电压降间的电流平衡】</li>
+<li><code>说明</code>：<ul>
+<li><code>G11·u1+G12·u2+···=i11</code></li>
+<li><code>G12</code>称为互电导，连接两个节点之间的电导，取负号。</li>
+<li><code>i11</code>是电源输送给节点1的电流的代数和。</li>
+</ul>
+</li>
+<li><strong>节点电压</strong>：节点到参考节点的电压降</li>
+<li>参考例题： <code>2-5</code> <code>2-6</code> <code>2-7</code> <code>2-8</code></li>
+</ul>
+</li>
+<li>回路分析法<ul>
+<li><code>内容</code>【选定树，逐个连接支路，其余类似网孔分析】</li>
+<li>参考例题： <code>2-12</code>   <a href="https://img-blog.csdnimg.cn/20201223104402687.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" target="_blank" rel="noopener">课堂例题</a></li>
+</ul>
+</li>
+</ul>
+<p>简化法则1：节点数少时，选择节点法，且设法选择电压源负极为参考电位。<br>简化法则2：网孔数少时，选择网孔法或回路法，且设法选择电流源为连支。</p>
+<hr>
+<h2 id="电路定理"><a href="#电路定理" class="headerlink" title="电路定理"></a>电路定理</h2><ul>
+<li>线性电阻电路解答的存在性与唯一性定理<ul>
+<li><code>内容</code>【由正电阻及独立电源组成且不含纯电压源回路及纯电流源割集的电路，其解答存在且唯一】</li>
+</ul>
+</li>
+<li>齐次定理<ul>
+<li><code>内容</code>【当一个激励源（独立电压源或电流源）作用于线性电路时，其任意支路的响应（电压或电流）与该激励源成正比】</li>
+<li>参考例题：<a href="https://img-blog.csdnimg.cn/2020122311142034.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" target="_blank" rel="noopener">课堂例题</a></li>
+</ul>
+</li>
+<li>叠加定理<ul>
+<li><code>内容</code>【线性电路中，任一支路电流(或电压)都是电路中各个独立电源单独作用时，在该支路产生的电流(或电压)的代数和】</li>
+<li><strong>电压源短路</strong>，<strong>电流源开路</strong>(去掉符号表示的圈圈)，受控源不变</li>
+<li>参考例题： <code>3-3</code> <code>3-4</code>(受控源不参与叠加)  <code>3-6</code>(叠加定理简化了电路激励与响应的关系)</li>
+<li>当N中含有电源时，假设该电源产生的U为恒值，<code>作业3-14</code></li>
+</ul>
+</li>
+<li>置换定理<ul>
+<li><code>内容</code>【利用理想电源替代支路】</li>
+<li>参考例题：<code>4-4</code></li>
+</ul>
+</li>
 <li>戴维南定理<ul>
-<li><code>内容</code>【含电源、线性电阻、受控源的单口网络（含源线性单口网络），就其端口而言，可等效为一个电压源串联电阻支路】，参考<code>例题4-12</code></li>
+<li><code>内容</code>【含电源、线性电阻、受控源的单口网络（含源线性单口网络），就其端口而言，可等效为一个电压源串联电阻支路】</li>
+<li>参考例题：<code>4-12</code> <code>4-13</code>( <strong>戴维南等效电阻</strong> = 开路电压/短路电流 ) <code>4-14</code>(VCR: u = u0-R0·i)</li>
 </ul>
 </li>
 <li>诺顿定理<ul>
-<li><code>内容</code>【含源线性单口网络，就其端口而言，可等效为一个电流源并联电阻支路】，参考<code>例题4-16</code></li>
+<li><code>内容</code>【含源线性单口网络，就其端口而言，可等效为一个电流源并联电阻支路】</li>
+<li>参考例题：<code>4-16</code>(叠加求Isc，电源去圈求R0，等效电路解决问题)</li>
+<li>端口短路求Isc，电源去圈求R0，等效电路解决问题，<code>作业4-45</code></li>
 </ul>
 </li>
-<li>等效电源定理(PPT7)</li>
-<li>最大功率传输定理（PPT7）</li>
+<li>最大功率传输定理<ul>
+<li><code>内容</code>【含源线性单口网络传递给可变负载R的功率最大的条件：负载R应与戴维南（或诺顿）等效电阻相等】</li>
+<li>说明：单口网络和它的等效电路，就内部功率而言是不等效的，效率不一定是50%</li>
+<li>参考例题：<code>4-17</code></li>
 </ul>
-<h1 id="二、动态电路时域分析"><a href="#二、动态电路时域分析" class="headerlink" title="二、动态电路时域分析"></a>二、动态电路时域分析</h1><p><strong>动态元件</strong>：</p>
+</li>
+</ul>
+<h1 id="二、动态电路时域分析"><a href="#二、动态电路时域分析" class="headerlink" title="二、动态电路时域分析"></a>二、动态电路时域分析</h1><h2 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>动态元件</strong>：</p>
 <ul>
-<li>电容 ( <code>q(t)=C·u(t)</code> <code>i(t)=C·du/dt</code> <code>W=cu^2/2</code> )<ul>
+<li>电容 ( <code>q(t)=C·u(t)</code> <code>i(t)=C·du/dt</code> <code>W=C·u^2/2</code> )<ul>
 <li>串联时：<code>1/C = 各个倒数相加</code></li>
 <li>并联时：<code>C = 各个相加</code></li>
+<li><strong>反电阻</strong></li>
 </ul>
 </li>
-<li>电感 ( <code>磁链</code> <code>Ψ(t)=L·i(t)</code> )<ul>
+<li>电感 ( <code>磁链</code> <code>Ψ(t)=L·i(t)</code> <code>u(t)=L·di/dt</code> <code>W=L·i^2/2</code> )<ul>
 <li>串联时：<code>L = 各个相加</code></li>
 <li>并联时：<code>1/L = 各个倒数相加</code></li>
+<li><strong>类电阻</strong></li>
 </ul>
 </li>
 </ul>
+<p><a href="https://img-blog.csdnimg.cn/20201223145557770.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" target="_blank" rel="noopener">课堂例题：练习电容、电感微积分特性</a></p>
+<hr>
 <p><strong>动态电路</strong>：至少包含一个动态元件的电路</p>
+<p><strong>一阶电路</strong>：用一阶微分方程描述的电路。</p>
+<p><strong>状态变量</strong>：电容电压和电感电流。</p>
+<p><strong>状态方程</strong>：基于状态变量建立的电路方程。</p>
+<hr>
+<p><strong>换路</strong>：电路中开关的接通、断开或元件参数突然变化。</p>
+<p><strong>换路定理</strong>：再换路期间，电容电压和电感电流不发生跃变。</p>
 <p><strong>时域</strong>（正弦函数集合）–&gt;相量域（相量集合）</p>
-<ul>
-<li>PPT8：动态时域分析</li>
-<li>PPT9：一阶动态电路</li>
-<li>PPT10：三要素法⭐</li>
+<hr>
+<p><strong>零输入响应</strong>：在 <code>t&gt;=t0</code> 时，没有外加输入，仅由 <code>t0</code> 时刻非零初始状态引起的响应。</p>
+<p><strong>零状态响应</strong>：在零初始状态时，仅由 <code>t0</code> 时刻施加于电路的输入引起的响应。</p>
+<p><strong>全响应</strong>：零输入响应 + 零状态响应</p>
+<hr>
+<p>独立初始值的求解，电容：U(0+)=U(0-)，电感：I(0+)=I(0-) <a href="https://img-blog.csdnimg.cn/20201223154120211.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">例题</a></p>
+<p>非独立初始值的求解，电容用电压源代替，电感用电流源代替。<a href="https://img-blog.csdnimg.cn/20201223154120212.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">例题</a></p>
+<p>电容电路时间常数：RC<br>电感电路时间常数：L/R</p>
+<h2 id="三要素法⭐"><a href="#三要素法⭐" class="headerlink" title="三要素法⭐"></a>三要素法⭐</h2><ul>
+<li>y(0-)</li>
+<li>y(∞)</li>
+<li>时间常数</li>
 </ul>
-<p>零输入响应？</p>
+<p><a href="https://img-blog.csdnimg.cn/20201223155324701.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" target="_blank" rel="noopener">三要素法分析电路的基本步骤</a></p>
+<p>PPT10中的：<a href="https://img-blog.csdnimg.cn/20201223160143552.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">例题1</a> <a href="https://img-blog.csdnimg.cn/20201223160143561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">例题2(1)</a> <a href="https://img-blog.csdnimg.cn/20201223160143559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">例题2(2)</a><br>PPT11中第一个题</p>
 <h1 id="三、动态电路相量分析"><a href="#三、动态电路相量分析" class="headerlink" title="三、动态电路相量分析"></a>三、动态电路相量分析</h1><p><strong>正弦量</strong>：大小和方向随时间按正弦规律变化的电压、电流等电学量统称为正弦交流电或正弦量。</p>
 <p><strong>三要素</strong>：</p>
 <ul>
@@ -561,6 +632,20 @@
 <li>类比电阻电路进行分析 PPT13</li>
 <li>功率问题、单口网络 PPT14</li>
 <li>最大功率传输定理 PPT15</li>
+</ul>
+<h1 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h1><p>三大基本方法：叠加、分解、变换域<br>两类约束：元件约束，基尔霍夫约束<br>一个集总假设</p>
+<hr>
+<p>其它：</p>
+<ul>
+<li>多画图</li>
+<li>看清电路再解答</li>
+<li>数学我真的没好好学啊</li>
+</ul>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li>《简明电路分析基础》-李瀚荪</li>
+<li>课堂PPT</li>
 </ul>
 <hr>
 <p><strong>题目</strong>：<br>6·6分，简答题<br>6-64分，计算题</p>
@@ -1129,7 +1214,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">57.4k</span>&nbsp;字
+                class="white-color">58.4k</span>&nbsp;字
             
             
             
