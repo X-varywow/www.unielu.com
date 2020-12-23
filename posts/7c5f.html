@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.2k
                 </div>
                 
 
@@ -501,6 +501,7 @@
 <p><strong>电导</strong>：<code>G = 1/R</code>，单位：<code>S</code></p>
 <p><strong>网络函数</strong>：对单一激励的线性、时不变电路，指定响应与激励之比，记为 <code>H</code> <code>H = 响应/激励</code></p>
 <p><strong>单口网络</strong>：对外只有两个端口的网络整体。</p>
+<p><strong>等效</strong>：两个单口网络的电压、电流关系完全相同。</p>
 <hr>
 <h2 id="分析方法"><a href="#分析方法" class="headerlink" title="分析方法"></a>分析方法</h2><ul>
 <li>2b法，<code>n-1</code>个独立KCL方程，<code>b-n-1</code>个独立KVL方程，<code>b</code>个VCR方程</li>
@@ -595,7 +596,6 @@
 <hr>
 <p><strong>换路</strong>：电路中开关的接通、断开或元件参数突然变化。</p>
 <p><strong>换路定理</strong>：再换路期间，电容电压和电感电流不发生跃变。</p>
-<p><strong>时域</strong>（正弦函数集合）–&gt;相量域（相量集合）</p>
 <hr>
 <p><strong>零输入响应</strong>：在 <code>t&gt;=t0</code> 时，没有外加输入，仅由 <code>t0</code> 时刻非零初始状态引起的响应。</p>
 <p><strong>零状态响应</strong>：在零初始状态时，仅由 <code>t0</code> 时刻施加于电路的输入引起的响应。</p>
@@ -611,29 +611,69 @@
 </ul>
 <p><a href="https://img-blog.csdnimg.cn/20201223155324701.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" target="_blank" rel="noopener">三要素法分析电路的基本步骤</a></p>
 <p>PPT10中的：<a href="https://img-blog.csdnimg.cn/20201223160143552.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">例题1</a> <a href="https://img-blog.csdnimg.cn/20201223160143561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">例题2(1)</a> <a href="https://img-blog.csdnimg.cn/20201223160143559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">例题2(2)</a><br>PPT11中第一个题</p>
-<h1 id="三、动态电路相量分析"><a href="#三、动态电路相量分析" class="headerlink" title="三、动态电路相量分析"></a>三、动态电路相量分析</h1><p><strong>正弦量</strong>：大小和方向随时间按正弦规律变化的电压、电流等电学量统称为正弦交流电或正弦量。</p>
+<h1 id="三、动态电路相量分析"><a href="#三、动态电路相量分析" class="headerlink" title="三、动态电路相量分析"></a>三、动态电路相量分析</h1><p>时域（正弦函数集合）–&gt;相量域（相量集合）</p>
+<p><strong>正弦量</strong>：大小和方向随时间按正弦规律变化的电压、电流等电学量统称为正弦交流电或正弦量。</p>
 <p><strong>三要素</strong>：</p>
 <ul>
 <li>幅值（Um,Im），反映正弦量变化幅度的大小</li>
 <li>角频率（w），反映正弦量变化快慢</li>
 <li>初相位（θ），反映正弦量的计时起点</li>
 </ul>
-<blockquote>
-<p><strong>相量</strong><br>电路理论中，包括电气工程和电子信息工程等给出的相量的定义是恒定频率下的量，是复数，对应复数空间。<br>分析正弦稳态的有效方法是相量法，相量法的基础是用一个称为相量的向量或复数来表示正弦电压和电流。相量由正弦电压的有效值U和初相ψ构成，复数的模表示电压的最大值，其辐角表示电压的初相。（百度百科）</p>
-</blockquote>
+<hr>
+<p>相量的表示：<strong>加一个小圆点</strong> 用来和普通的复数相区别(强调它与正弦量的联系)，它表示的不是一般意义的向量，而是表示一个正弦量。 <strong>振幅相量</strong> 的表示比有效值相量多m</p>
 <ul>
-<li>复数的运算</li>
+<li>复数的运算<ul>
+<li>加减法-图解</li>
+<li>乘法：模相乘，角相加</li>
+<li>除法：模相除，角相减</li>
+<li>参考例题：<code>9-1</code></li>
+</ul>
+</li>
 <li>旋转因子</li>
-<li>相量图⭐</li>
+<li>相量图<ul>
+<li>同频率的相量才能画在同一复平面</li>
 </ul>
-<p>加一个小圆点是用来和普通的复数相区别(强调它与正弦量的联系)，同时也改用“相量”，而不用“向量”，是因为它表示的不是一般意义的向量，而是表示一个正弦量。</p>
+</li>
+</ul>
+<p><a href="https://img-blog.csdnimg.cn/20201223184652211.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" target="_blank" rel="noopener">电感和电容的对偶关系</a></p>
+<hr>
+<p><strong>关于阻抗的理解</strong>：<code>ZL = jwL</code>，交流电越难以通过线圈，说明电感量越大，电感的阻碍作用就越大；交流电的频率越高，也难以通过线圈，说明电感的阻碍作用也大。</p>
+<p><strong>关于电感电流滞后电压的理解</strong>：<br>对于电感，先施加电压，之后才会产生电流。</p>
+<p><strong>关于电容电压滞后电流的理解</strong>：<br>先施加电流，之后才会逐渐产生电压。</p>
+<hr>
 <ul>
-<li>阻抗和导纳 PPT13</li>
-<li>类比电阻电路进行分析 PPT13</li>
-<li>功率问题、单口网络 PPT14</li>
-<li>最大功率传输定理 PPT15</li>
+<li>阻抗<ul>
+<li><code>定义</code>【元件在正弦稳态时电压相量与电流相量之比】</li>
+<li><code>Zr = R</code> <code>Zc = 1/jwC = -j/wC</code> <code>ZL = jwL</code></li>
 </ul>
-<h1 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h1><p>三大基本方法：叠加、分解、变换域<br>两类约束：元件约束，基尔霍夫约束<br>一个集总假设</p>
+</li>
+<li>导纳<ul>
+<li><code>定义</code>【阻抗的倒数】</li>
+<li><code>Yr= 1/R= G</code> <code>Yc = jwC</code> <code>YL = 1/jwL</code></li>
+</ul>
+</li>
+<li>感抗：<ul>
+<li><code>XL = wL</code></li>
+</ul>
+</li>
+<li>容抗：<ul>
+<li><code>XC = -1/wC</code></li>
+</ul>
+</li>
+<li><strong>分析方法</strong>：<ul>
+<li>画相量模型图，求出阻抗，类比电阻电路进行分析</li>
+<li>相量图分析法</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>PPT14中：利用相量图来解决问题，动态元件功率问题<br>PPT15中：最大功率传输定理，一些复习题</p>
+<h1 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h1><p>总结：</p>
+<ul>
+<li>一个假设：集总假设</li>
+<li>两类约束：元件约束，基尔霍夫约束</li>
+<li>三大基本方法：叠加、分解、变换域</li>
+</ul>
 <hr>
 <p>其它：</p>
 <ul>
@@ -647,10 +687,6 @@
 <li>《简明电路分析基础》-李瀚荪</li>
 <li>课堂PPT</li>
 </ul>
-<hr>
-<p><strong>题目</strong>：<br>6·6分，简答题<br>6-64分，计算题</p>
-<p><code>12-23 14:30</code> <code>主南316</code> ，答疑</p>
-<p><code>12-24 10:10</code> <code>主北158</code> ，考试</p>
 
             </div>
             <hr/>
@@ -1214,7 +1250,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">58.4k</span>&nbsp;字
+                class="white-color">59k</span>&nbsp;字
             
             
             
