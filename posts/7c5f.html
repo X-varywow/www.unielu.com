@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-23
+                    2020-12-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.5k
                 </div>
                 
 
@@ -495,6 +495,9 @@
 <li>VCVS、VCCS 的 <code>i1</code> 为0</li>
 <li>CCVS、CCCS 的 <code>u1</code> 为0</li>
 </ul>
+<p><strong>理想电压源</strong>：一个二端元件当它接入任一电路时，如果其两端电压始终 <strong>保持规定的值或一定的时间函数</strong> ，而与其电流无关，则称为理想电压源。</p>
+<p><strong>理想电流源</strong>：一个二端元件当它接入任一电路时，如果其两端电流始终 <strong>保持规定的值或一定的时间函数</strong> ，而与其电压无关，则称为理想电流源。</p>
+<hr>
 <p><strong>割集</strong>：有支路集S，在连通图G中移去支路集S，G变成两个互不连通的子图，少移去一条支路都不行。</p>
 <p><strong>树</strong>：树T是连通图G的一个子图且满足:（联通）（包含所有节点）（不含闭合路径）</p>
 <hr>
@@ -644,12 +647,16 @@
 <ul>
 <li>阻抗<ul>
 <li><code>定义</code>【元件在正弦稳态时电压相量与电流相量之比】</li>
-<li><code>Zr = R</code> <code>Zc = 1/jwC = -j/wC</code> <code>ZL = jwL</code></li>
+<li><code>Zr = R</code></li>
+<li><code>Zc = 1/jwC = -j/wC</code> </li>
+<li><code>ZL = jwL</code></li>
 </ul>
 </li>
 <li>导纳<ul>
 <li><code>定义</code>【阻抗的倒数】</li>
-<li><code>Yr= 1/R= G</code> <code>Yc = jwC</code> <code>YL = 1/jwL</code></li>
+<li><code>Yr= 1/R= G</code> </li>
+<li><code>Yc = jwC</code> </li>
+<li><code>YL = 1/jwL</code></li>
 </ul>
 </li>
 <li>感抗：<ul>
@@ -667,11 +674,34 @@
 </li>
 </ul>
 <hr>
-<p><strong>有功功率</strong>：<code>P = UIcosθ</code> 平均功率实际上是电阻消耗的功率，亦成为有功功率。 <code>cosθ</code> 称为<strong>功率因素</strong>。</p>
+<p><strong>有功功率</strong>：<code>P = UIcosθ</code> 有功功率实际上是电阻消耗的功率，亦称为平均功率。</p>
 <p><strong>无功功率</strong>：<code>Q = UIsinθ</code> 表示交换功率的最大值，单位：<code>var</code></p>
+<ul>
+<li>由储能元件LC决定，表示电抗的瞬时功率的最大值</li>
+</ul>
 <p><strong>视在功率</strong>：<code>S = UI</code> 单位：<code>VA</code></p>
-<p><a href="https://img-blog.csdnimg.cn/20201223232201601.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" target="_blank" rel="noopener">例题1</a></p>
-<p><a href="https://img-blog.csdnimg.cn/20201223232016653.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" target="_blank" rel="noopener">复功率</a> <a href="https://img-blog.csdnimg.cn/20201223231817701.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">共轭匹配</a> <a href="https://img-blog.csdnimg.cn/20201223231817702.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">模值匹配</a></p>
+<ul>
+<li>反映电子设备的最大容量</li>
+</ul>
+<p><a href="https://img-blog.csdnimg.cn/20201223232016653.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" target="_blank" rel="noopener">复功率</a>  <a href="https://img-blog.csdnimg.cn/20201223232201601.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center" target="_blank" rel="noopener">例题1</a></p>
+<hr>
+<p><code>cosθ</code> 称为<strong>功率因素</strong></p>
+<ul>
+<li>功率因素低下引起的问题：<ul>
+<li>电源设备的容量不能充分利用（无功功率占用容量）</li>
+<li>增加线路和发动机绕组的功率损耗</li>
+</ul>
+</li>
+<li>功率因素低的原因：<ul>
+<li>日常生活中多为感性负载</li>
+</ul>
+</li>
+<li>功率因素的提高：<ul>
+<li>在感性负载两端并联电容</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://img-blog.csdnimg.cn/20201223231817701.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">共轭匹配</a> <a href="https://img-blog.csdnimg.cn/20201223231817702.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">模值匹配</a></p>
 <hr>
 <p>PPT14中：利用相量图来解决问题，动态元件功率问题<br>PPT15中：<strong>功率问题</strong>，一些复习题</p>
 <h1 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h1><p>总结：</p>
@@ -1256,7 +1286,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">59.1k</span>&nbsp;字
+                class="white-color">59.3k</span>&nbsp;字
             
             
             
