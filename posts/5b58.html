@@ -467,7 +467,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-07
+                    2020-12-24
                 </div>
                 
 
@@ -737,6 +737,17 @@
             <span class="token keyword">if</span> i<span class="token operator">&lt;=</span>pre<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
             pre<span class="token operator">=</span>i
         <span class="token keyword">return</span> <span class="token boolean">True</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">isBalanced</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
+            left<span class="token operator">=</span>dfs<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> left<span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
+            right<span class="token operator">=</span>dfs<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> right<span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
+            <span class="token keyword">return</span> max<span class="token punctuation">(</span>left<span class="token punctuation">,</span>right<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span> <span class="token keyword">if</span> abs<span class="token punctuation">(</span>left<span class="token operator">-</span>right<span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">1</span> <span class="token keyword">else</span> <span class="token operator">-</span><span class="token number">1</span>      
+
+        <span class="token keyword">return</span> dfs<span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token operator">!=</span><span class="token operator">-</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1316,7 +1327,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">59.3k</span>&nbsp;字
+                class="white-color">59.8k</span>&nbsp;字
             
             
             
