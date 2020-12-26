@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="栈, -- blog --">
+    <meta name="keywords" content="2020寒假, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>栈 | -- blog --</title>
+    <title>2020寒假 | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/awesome/css/all.css">
@@ -301,12 +301,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/leetcode.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/book.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">栈</h1>
+                    <h1 class="description center-align post-title diyFont">2020寒假</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/leetcode/">
-                                <span class="chip bg-color">leetcode</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%BD%AE%E5%BA%95/">
-                                <span class="chip bg-color">置底</span>
+                            <a href="/tags/%E5%A4%A7%E4%BA%8C/">
+                                <span class="chip bg-color">大二</span>
                             </a>
                         
                     </div>
@@ -447,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/%E6%97%A5%E8%AE%B0/" class="post-category">
+                                日记
                             </a>
                         
                     </div>
@@ -460,21 +456,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-30
+                    2020-12-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-07
+                    2020-12-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    176
+                    110
                 </div>
                 
 
@@ -486,36 +482,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-20-有效的括号"><a href="#1-20-有效的括号" class="headerlink" title="(1)20.有效的括号"></a>(1)20.有效的括号</h2><p>给定一个只包括 <code>&#39;(&#39;</code>，<code>&#39;)&#39;</code>，<code>&#39;{&#39;</code>，<code>&#39;}&#39;</code>，<code>&#39;[&#39;</code>，<code>&#39;]&#39;</code> 的字符串，判断字符串是否有效。</p>
-<p>有效字符串需满足：</p>
-<ul>
-<li>左括号必须用相同类型的右括号闭合。</li>
-<li>左括号必须以正确的顺序闭合。</li>
-<li>注意空字符串可被认为是有效字符串。</li>
-</ul>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">isValid</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
-        hashmap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'('</span><span class="token punctuation">:</span><span class="token string">')'</span><span class="token punctuation">,</span><span class="token string">'{'</span><span class="token punctuation">:</span><span class="token string">'}'</span><span class="token punctuation">,</span><span class="token string">'['</span><span class="token punctuation">:</span><span class="token string">']'</span><span class="token punctuation">}</span>
-        stack<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> s<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> i <span class="token keyword">in</span> hashmap<span class="token punctuation">:</span> stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> <span class="token operator">not</span> stack<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
-                <span class="token keyword">elif</span> i<span class="token operator">!=</span>hashmap<span class="token punctuation">[</span>stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
-        <span class="token keyword">return</span> <span class="token operator">not</span> stack
-
-<span class="token comment" spellcheck="true">#注意：not stack是stack为空，不是stack==None</span>
-
-<span class="token comment" spellcheck="true">#其它版本：</span>
-
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">isValid</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
-        dic <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'{'</span><span class="token punctuation">:</span> <span class="token string">'}'</span><span class="token punctuation">,</span>  <span class="token string">'['</span><span class="token punctuation">:</span> <span class="token string">']'</span><span class="token punctuation">,</span> <span class="token string">'('</span><span class="token punctuation">:</span> <span class="token string">')'</span><span class="token punctuation">,</span> <span class="token string">'?'</span><span class="token punctuation">:</span> <span class="token string">'?'</span><span class="token punctuation">}</span>
-        stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'?'</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> c <span class="token keyword">in</span> s<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> c <span class="token keyword">in</span> dic<span class="token punctuation">:</span> stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>c<span class="token punctuation">)</span>
-            <span class="token keyword">elif</span> dic<span class="token punctuation">[</span>stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">!=</span> c<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span> 
-        <span class="token keyword">return</span> len<span class="token punctuation">(</span>stack<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h1><p><font face="myfont" size=5>有了想要守护的事物；加油，做个顶天立地的男子汉。</font></p>
+<h1 id="1-日记"><a href="#1-日记" class="headerlink" title="1.日记"></a>1.日记</h1><h2 id="12-26"><a href="#12-26" class="headerlink" title="12.26"></a><code>12.26</code></h2><p>我想要什么？<br>现实是什么样子？<br>那你该怎么做？</p>
+<p>我想30岁前财务自由，之后陪心爱的人旅行，或为人类做些事情。<br>现实，我菜的很，还懒，还不爱说话。</p>
+<p>所以，我要好好努力，戒掉无聊的事情，去守护该守护的东西。</p>
 
             </div>
             <hr/>
@@ -541,7 +511,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/9199.html">https://www.unielu.com/posts/9199.html</a>
+                    <a href="https://www.unielu.com/posts/shouhu.html">https://www.unielu.com/posts/shouhu.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -579,12 +549,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/leetcode/">
-                                    <span class="chip bg-color">leetcode</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%BD%AE%E5%BA%95/">
-                                    <span class="chip bg-color">置底</span>
+                                <a href="/tags/%E5%A4%A7%E4%BA%8C/">
+                                    <span class="chip bg-color">大二</span>
                                 </a>
                             
                         </div>
@@ -893,30 +859,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/95d1.html">
+                <a href="/posts/9280.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/leetcode.png" class="responsive-img" alt="字符串&amp;数组">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/new-5.jpg" class="responsive-img" alt="小站的更新">
                         
-                        <span class="card-title">字符串&amp;数组</span>
+                        <span class="card-title">小站的更新</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            介绍更新的内容
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-30
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-09
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/other/" class="post-category">
+                                    other
                                 </a>
                             
                             
@@ -926,12 +892,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
-                    <a href="/tags/%E7%BD%AE%E5%BA%95/">
-                        <span class="chip bg-color">置底</span>
+                    <a href="/tags/%E7%BD%AE%E9%A1%B6/">
+                        <span class="chip bg-color">置顶</span>
                     </a>
                     
                 </div>
@@ -945,30 +911,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/b7fa.html">
+                <a href="/posts/yuyan.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/leetcode.png" class="responsive-img" alt="图">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/new-8.jpg" class="responsive-img" alt="语言学基础">
                         
-                        <span class="card-title">图</span>
+                        <span class="card-title">语言学基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            复习
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
                                 </a>
                             
                             
@@ -978,12 +944,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%BD%AE%E5%BA%95/">
-                        <span class="chip bg-color">置底</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
