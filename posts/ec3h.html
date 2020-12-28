@@ -1,0 +1,1397 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="记一次深度学习, -- blog --">
+    <meta name="description" content="诗性买酒醉，逐影取月走">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>记一次深度学习 | -- blog --</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo diyFont">
+                <a href="/" class="waves-effect waves-light">
+                    <span class="logo-span">将心晴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+          
+          <span>leetcode比赛</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags/python%E6%A8%A1%E5%9D%97/">
+          
+          <span>python模块</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/categories/%E5%A4%A7%E4%BA%8C/">
+          
+          <span>大二</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/%E6%97%A5%E8%AE%B0/">
+          
+          <span>日记</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/%E7%A1%AC%E4%BB%B6/">
+          
+          <span>硬件</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/%E7%AE%97%E6%B3%95/">
+          
+          <span>算法</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name diyFont">welcome!</div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-tags"></i>
+			
+			标签
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/ " style="margin-left:75px">
+				  
+		          <span>leetcode比赛</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/tags/python%E6%A8%A1%E5%9D%97/ " style="margin-left:75px">
+				  
+		          <span>python模块</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/categories/%E5%A4%A7%E4%BA%8C/ " style="margin-left:75px">
+				  
+		          <span>大二</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/%E6%97%A5%E8%AE%B0/ " style="margin-left:75px">
+				  
+		          <span>日记</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/%E7%A1%AC%E4%BB%B6/ " style="margin-left:75px">
+				  
+		          <span>硬件</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/%E7%AE%97%E6%B3%95/ " style="margin-left:75px">
+				  
+		          <span>算法</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/new-4.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title diyFont">记一次深度学习</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    .toc-fixed .toc-link::before{
+        position: fixed!important;/*当toc的位置改为fixed时，.toc-link::before也要改为fixed*/
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/modelarts/">
+                                <span class="chip bg-color">modelarts</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                深度学习
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-05-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-12-28
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h1><h2 id="人工智能、机器学习、深度学习"><a href="#人工智能、机器学习、深度学习" class="headerlink" title="人工智能、机器学习、深度学习"></a>人工智能、机器学习、深度学习</h2><p><code>人工智能</code>是计算机科学的一个分支，它希望了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等。<br><code>机器学习</code>是一门多领域交叉学科，是人工智能的核心。<br><code>深度学习</code>是机器学习领域中一个新的研究方向，它被引入机器学习使其更接近于最初的目标——人工智能。<br><img src="https://img-blog.csdnimg.cn/202005061919299.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center"></p>
+<h2 id="机器学习模型"><a href="#机器学习模型" class="headerlink" title="机器学习模型"></a>机器学习模型</h2><p><code>机器学习模型</code>是机器学习算法产出的结果，可以将其看作是在给定输入情况下、输出一定结果的函数。<br>机器学习模型不是预先定义好的固定函数，而是从历史数据中推导出来的。<br>机器学习的任务，就是从广阔的映射空间中学习函数。</p>
+<h1 id="1-torch环境准备"><a href="#1-torch环境准备" class="headerlink" title="1.torch环境准备"></a>1.torch环境准备</h1><ul>
+<li>torch  (1.6.0)</li>
+<li>torchvision  (0.7.0)</li>
+<li>cuda  (10.2)<br><img src="https://img-blog.csdnimg.cn/20200429183137908.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center"><br>输入指令执行代码,速度不行的话复制下载链接迅雷打开，可能有惊喜<img src="https://img-blog.csdnimg.cn/20200429183453171.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70#pic_center"></li>
+</ul>
+<p><strong>对whl文件的安装</strong>，进入文件位置，pip install <strong>____</strong>.whl</p>
+<p>环境配好后，执行:</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> python
+torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>这时应该返回True.</p>
+<h1 id="2-一次baseline代码"><a href="#2-一次baseline代码" class="headerlink" title="2.一次baseline代码"></a>2.一次baseline代码</h1><h2 id="加载pytorch框架下的依赖项"><a href="#加载pytorch框架下的依赖项" class="headerlink" title="加载pytorch框架下的依赖项"></a>加载pytorch框架下的依赖项</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> __future__ <span class="token keyword">import</span> print_function<span class="token punctuation">,</span> division
+<span class="token keyword">import</span> torch
+<span class="token keyword">import</span> torch<span class="token punctuation">.</span>nn <span class="token keyword">as</span> nn
+<span class="token keyword">import</span> torch<span class="token punctuation">.</span>optim <span class="token keyword">as</span> optim
+<span class="token keyword">from</span> torch<span class="token punctuation">.</span>optim <span class="token keyword">import</span> lr_scheduler
+<span class="token keyword">from</span> torch<span class="token punctuation">.</span>autograd <span class="token keyword">import</span> Variable
+<span class="token keyword">import</span> torchvision
+<span class="token keyword">from</span> torchvision <span class="token keyword">import</span> datasets<span class="token punctuation">,</span> models<span class="token punctuation">,</span> transforms
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> os<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="加载数据集，并分为训练集和测试集"><a href="#加载数据集，并分为训练集和测试集" class="headerlink" title="加载数据集，并分为训练集和测试集"></a>加载数据集，并分为训练集和测试集</h2><pre class="line-numbers language-python"><code class="language-python">dataTrans <span class="token operator">=</span> transforms<span class="token punctuation">.</span>Compose<span class="token punctuation">(</span><span class="token punctuation">[</span>
+            transforms<span class="token punctuation">.</span>Resize<span class="token punctuation">(</span><span class="token number">256</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            transforms<span class="token punctuation">.</span>CenterCrop<span class="token punctuation">(</span><span class="token number">224</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            transforms<span class="token punctuation">.</span>ToTensor<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            transforms<span class="token punctuation">.</span>Normalize<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+data_dir <span class="token operator">=</span> <span class="token string">'./images'</span>
+
+all_image_datasets <span class="token operator">=</span> datasets<span class="token punctuation">.</span>ImageFolder<span class="token punctuation">(</span>data_dir<span class="token punctuation">,</span> dataTrans<span class="token punctuation">)</span>
+
+trainsize <span class="token operator">=</span> int<span class="token punctuation">(</span><span class="token number">0.8</span><span class="token operator">*</span>len<span class="token punctuation">(</span>all_image_datasets<span class="token punctuation">)</span><span class="token punctuation">)</span>
+testsize <span class="token operator">=</span> len<span class="token punctuation">(</span>all_image_datasets<span class="token punctuation">)</span> <span class="token operator">-</span> trainsize
+train_dataset<span class="token punctuation">,</span> test_dataset <span class="token operator">=</span> torch<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>data<span class="token punctuation">.</span>random_split<span class="token punctuation">(</span>all_image_datasets<span class="token punctuation">,</span><span class="token punctuation">[</span>trainsize<span class="token punctuation">,</span>testsize<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+image_datasets <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'train'</span><span class="token punctuation">:</span>train_dataset<span class="token punctuation">,</span><span class="token string">'val'</span><span class="token punctuation">:</span>test_dataset<span class="token punctuation">}</span>
+
+dataloders <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> torch<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>data<span class="token punctuation">.</span>DataLoader<span class="token punctuation">(</span>image_datasets<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                                                 batch_size<span class="token operator">=</span><span class="token number">16</span><span class="token punctuation">,</span>
+                                                 shuffle<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+                                                 num_workers<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">'train'</span><span class="token punctuation">,</span> <span class="token string">'val'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+
+dataset_sizes <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> len<span class="token punctuation">(</span>image_datasets<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">'train'</span><span class="token punctuation">,</span> <span class="token string">'val'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true"># use gpu or not</span>
+use_gpu <span class="token operator">=</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="开始训练"><a href="#开始训练" class="headerlink" title="开始训练"></a>开始训练</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">train_model</span><span class="token punctuation">(</span>model<span class="token punctuation">,</span> lossfunc<span class="token punctuation">,</span> optimizer<span class="token punctuation">,</span> scheduler<span class="token punctuation">,</span> num_epochs<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    start_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    best_model_wts <span class="token operator">=</span> model<span class="token punctuation">.</span>state_dict<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    best_acc <span class="token operator">=</span> <span class="token number">0.0</span>
+
+    <span class="token keyword">for</span> epoch <span class="token keyword">in</span> range<span class="token punctuation">(</span>num_epochs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Epoch {}/{}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>epoch<span class="token punctuation">,</span> num_epochs <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-'</span> <span class="token operator">*</span> <span class="token number">10</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># Each epoch has a training and validation phase</span>
+        <span class="token keyword">for</span> phase <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">'train'</span><span class="token punctuation">,</span> <span class="token string">'val'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> phase <span class="token operator">==</span> <span class="token string">'train'</span><span class="token punctuation">:</span>
+                scheduler<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                model<span class="token punctuation">.</span>train<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># Set model to training mode</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                model<span class="token punctuation">.</span>train<span class="token punctuation">(</span><span class="token boolean">False</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># Set model to evaluate mode</span>
+
+            running_loss <span class="token operator">=</span> <span class="token number">0.0</span>
+            running_corrects <span class="token operator">=</span> <span class="token number">0.0</span>
+
+            <span class="token comment" spellcheck="true"># Iterate over data.</span>
+            <span class="token keyword">for</span> data <span class="token keyword">in</span> dataloders<span class="token punctuation">[</span>phase<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                <span class="token comment" spellcheck="true"># get the inputs</span>
+                inputs<span class="token punctuation">,</span> labels <span class="token operator">=</span> data
+
+
+                <span class="token comment" spellcheck="true"># wrap them in Variable</span>
+                <span class="token keyword">if</span> use_gpu<span class="token punctuation">:</span>
+                    inputs <span class="token operator">=</span> Variable<span class="token punctuation">(</span>inputs<span class="token punctuation">.</span>cuda<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    labels <span class="token operator">=</span> Variable<span class="token punctuation">(</span>labels<span class="token punctuation">.</span>cuda<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    inputs<span class="token punctuation">,</span> labels <span class="token operator">=</span> Variable<span class="token punctuation">(</span>inputs<span class="token punctuation">)</span><span class="token punctuation">,</span> Variable<span class="token punctuation">(</span>labels<span class="token punctuation">)</span>
+
+                <span class="token comment" spellcheck="true"># zero the parameter gradients</span>
+                optimizer<span class="token punctuation">.</span>zero_grad<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+                <span class="token comment" spellcheck="true"># forward</span>
+                outputs <span class="token operator">=</span> model<span class="token punctuation">(</span>inputs<span class="token punctuation">)</span>
+                _<span class="token punctuation">,</span> preds <span class="token operator">=</span> torch<span class="token punctuation">.</span>max<span class="token punctuation">(</span>outputs<span class="token punctuation">.</span>data<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+                loss <span class="token operator">=</span> lossfunc<span class="token punctuation">(</span>outputs<span class="token punctuation">,</span> labels<span class="token punctuation">)</span>
+
+                <span class="token comment" spellcheck="true"># backward + optimize only if in training phase</span>
+                <span class="token keyword">if</span> phase <span class="token operator">==</span> <span class="token string">'train'</span><span class="token punctuation">:</span>
+                    loss<span class="token punctuation">.</span>backward<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                    optimizer<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+                <span class="token comment" spellcheck="true"># statistics</span>
+                running_loss <span class="token operator">+=</span> loss<span class="token punctuation">.</span>data
+                running_corrects <span class="token operator">+=</span> torch<span class="token punctuation">.</span>sum<span class="token punctuation">(</span>preds <span class="token operator">==</span> labels<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">(</span>torch<span class="token punctuation">.</span>float32<span class="token punctuation">)</span>
+
+            epoch_loss <span class="token operator">=</span> running_loss <span class="token operator">/</span> dataset_sizes<span class="token punctuation">[</span>phase<span class="token punctuation">]</span>
+            epoch_acc <span class="token operator">=</span> running_corrects <span class="token operator">/</span> dataset_sizes<span class="token punctuation">[</span>phase<span class="token punctuation">]</span>
+
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'{} Loss: {:.4f} Acc: {:.4f}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>
+                phase<span class="token punctuation">,</span> epoch_loss<span class="token punctuation">,</span> epoch_acc<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+            <span class="token comment" spellcheck="true"># deep copy the model</span>
+            <span class="token keyword">if</span> phase <span class="token operator">==</span> <span class="token string">'val'</span> <span class="token operator">and</span> epoch_acc <span class="token operator">></span> best_acc<span class="token punctuation">:</span>
+                best_acc <span class="token operator">=</span> epoch_acc
+                best_model_wts <span class="token operator">=</span> model<span class="token punctuation">.</span>state_dict<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    elapsed_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start_time
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Training complete in {:.0f}m {:.0f}s'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>
+        elapsed_time <span class="token operator">//</span> <span class="token number">60</span><span class="token punctuation">,</span> elapsed_time <span class="token operator">%</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Best val Acc: {:4f}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>best_acc<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># load best model weights</span>
+    model<span class="token punctuation">.</span>load_state_dict<span class="token punctuation">(</span>best_model_wts<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> model
+
+
+<span class="token comment" spellcheck="true"># get model and replace the original fc layer with your fc layer</span>
+model_ft <span class="token operator">=</span> models<span class="token punctuation">.</span>resnet50<span class="token punctuation">(</span>pretrained<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+num_ftrs <span class="token operator">=</span> model_ft<span class="token punctuation">.</span>fc<span class="token punctuation">.</span>in_features
+model_ft<span class="token punctuation">.</span>fc <span class="token operator">=</span> nn<span class="token punctuation">.</span>Linear<span class="token punctuation">(</span>num_ftrs<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> use_gpu<span class="token punctuation">:</span>
+    model_ft <span class="token operator">=</span> model_ft<span class="token punctuation">.</span>cuda<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># define loss function</span>
+lossfunc <span class="token operator">=</span> nn<span class="token punctuation">.</span>CrossEntropyLoss<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># setting optimizer and trainable parameters</span>
+ <span class="token comment" spellcheck="true">#   params = model_ft.parameters()</span>
+ <span class="token comment" spellcheck="true"># list(model_ft.fc.parameters())+list(model_ft.layer4.parameters())</span>
+<span class="token comment" spellcheck="true">#params = list(model_ft.fc.parameters())+list( model_ft.parameters())</span>
+params <span class="token operator">=</span> list<span class="token punctuation">(</span>model_ft<span class="token punctuation">.</span>fc<span class="token punctuation">.</span>parameters<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+optimizer_ft <span class="token operator">=</span> optim<span class="token punctuation">.</span>SGD<span class="token punctuation">(</span>params<span class="token punctuation">,</span> lr<span class="token operator">=</span><span class="token number">0.001</span><span class="token punctuation">,</span> momentum<span class="token operator">=</span><span class="token number">0.9</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># Decay LR by a factor of 0.1 every 7 epochs</span>
+exp_lr_scheduler <span class="token operator">=</span> lr_scheduler<span class="token punctuation">.</span>StepLR<span class="token punctuation">(</span>optimizer_ft<span class="token punctuation">,</span> step_size<span class="token operator">=</span><span class="token number">7</span><span class="token punctuation">,</span> gamma<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">)</span>
+
+model_ft <span class="token operator">=</span> train_model<span class="token punctuation">(</span>model<span class="token operator">=</span>model_ft<span class="token punctuation">,</span>
+                           lossfunc<span class="token operator">=</span>lossfunc<span class="token punctuation">,</span>
+                           optimizer<span class="token operator">=</span>optimizer_ft<span class="token punctuation">,</span>
+                           scheduler<span class="token operator">=</span>exp_lr_scheduler<span class="token punctuation">,</span>
+                           num_epochs<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这是训练过程产生的输出：</p>
+<pre class="line-numbers language-python"><code class="language-python">Epoch <span class="token number">0</span><span class="token operator">/</span><span class="token number">4</span>
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+C<span class="token punctuation">:</span>\Users\<span class="token number">16413</span>\anaconda3\lib\site<span class="token operator">-</span>packages\torch\optim\lr_scheduler<span class="token punctuation">.</span>py<span class="token punctuation">:</span><span class="token number">123</span><span class="token punctuation">:</span> UserWarning<span class="token punctuation">:</span> Detected call of `lr_scheduler<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span>` before `optimizer<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span>`<span class="token punctuation">.</span> In PyTorch <span class="token number">1.1</span><span class="token punctuation">.</span><span class="token number">0</span> <span class="token operator">and</span> later<span class="token punctuation">,</span> you should call them <span class="token keyword">in</span> the opposite order<span class="token punctuation">:</span> `optimizer<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span>` before `lr_scheduler<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span>`<span class="token punctuation">.</span>  Failure to do this will result <span class="token keyword">in</span> PyTorch skipping the first value of the learning rate schedule<span class="token punctuation">.</span> See more details at https<span class="token punctuation">:</span><span class="token operator">//</span>pytorch<span class="token punctuation">.</span>org<span class="token operator">/</span>docs<span class="token operator">/</span>stable<span class="token operator">/</span>optim<span class="token punctuation">.</span>html<span class="token comment" spellcheck="true">#how-to-adjust-learning-rate</span>
+    <span class="token string">"https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate"</span><span class="token punctuation">,</span> UserWarning<span class="token punctuation">)</span>
+train Loss<span class="token punctuation">:</span> <span class="token number">0.0750</span> Acc<span class="token punctuation">:</span> <span class="token number">0.6700</span>
+val Loss<span class="token punctuation">:</span> <span class="token number">0.0436</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8200</span>
+Epoch <span class="token number">1</span><span class="token operator">/</span><span class="token number">4</span>
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+train Loss<span class="token punctuation">:</span> <span class="token number">0.0399</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8250</span>
+val Loss<span class="token punctuation">:</span> <span class="token number">0.0345</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8470</span>
+Epoch <span class="token number">2</span><span class="token operator">/</span><span class="token number">4</span>
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+train Loss<span class="token punctuation">:</span> <span class="token number">0.0330</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8473</span>
+val Loss<span class="token punctuation">:</span> <span class="token number">0.0303</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8610</span>
+Epoch <span class="token number">3</span><span class="token operator">/</span><span class="token number">4</span>
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+train Loss<span class="token punctuation">:</span> <span class="token number">0.0300</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8575</span>
+val Loss<span class="token punctuation">:</span> <span class="token number">0.0293</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8650</span>
+Epoch <span class="token number">4</span><span class="token operator">/</span><span class="token number">4</span>
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+train Loss<span class="token punctuation">:</span> <span class="token number">0.0288</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8643</span>
+val Loss<span class="token punctuation">:</span> <span class="token number">0.0281</span> Acc<span class="token punctuation">:</span> <span class="token number">0.8750</span>
+Training complete <span class="token keyword">in</span> 6m 31s
+Best val Acc<span class="token punctuation">:</span> <span class="token number">0.875000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>保存模型，任务完成：</p>
+<pre class="line-numbers language-python"><code class="language-python">torch<span class="token punctuation">.</span>save<span class="token punctuation">(</span>model_ft<span class="token punctuation">.</span>state_dict<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'./model.pth'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"done"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.unielu.com" rel="external nofollow noreferrer">╯晓~</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.unielu.com/posts/ec3h.html">https://www.unielu.com/posts/ec3h.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://www.unielu.com" target="_blank">╯晓~</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/modelarts/">
+                                    <span class="chip bg-color">modelarts</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/null") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'TV3EkoT1RWDBdxhLtw7jpybV-gzGzoHsz',
+        appKey: 'thELHO0ibHB36uJM5nV6Ufpq',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '评论未必能及时回复，所以在主评论区玩玩就行🍻'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/bd56.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/new-8.jpg" class="responsive-img" alt="微观经济学">
+                        
+                        <span class="card-title">微观经济学</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一门慕课笔记
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/e-class/" class="post-category">
+                                    e-class
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/mooc/">
+                        <span class="chip bg-color">mooc</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/ec3f.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/new-4.jpg" class="responsive-img" alt="调用API">
+                        
+                        <span class="card-title">调用API</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            仅包含调用modelarts的参考代码
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/modelarts/">
+                        <span class="chip bg-color">modelarts</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('2'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="https://www.unielu.com" target="_blank"></a>╯晓~</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">62.2k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "4";
+                    var startDate = "30";
+                    var startHour = "10";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,0"
+        pointColor="0,0,0" opacity='0.7'
+        zIndex="-1" count="99"
+        src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/instantpage/instantpage.js" type="module"></script>
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>
