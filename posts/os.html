@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-28
+                    2020-12-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    2.3k
                 </div>
                 
 
@@ -482,8 +482,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h1><p>课程进度:<br>12.28-<code>7/69</code></p>
-<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p><strong>操作系统</strong> 是指控制和管理整个计算机系统的硬件和软件资源，并合理地组织调度计算机的工作和资源的分配，以提供给用户和其他软件方便的接口和环境，它是计算机系统中最基本的系统软件。</p>
+                <h1 id="一、操作系统"><a href="#一、操作系统" class="headerlink" title="一、操作系统"></a>一、操作系统</h1><p><strong>操作系统</strong> 是指控制和管理整个计算机系统的硬件和软件资源，并合理地组织调度计算机的工作和资源的分配，以提供给用户和其他软件方便的接口和环境，它是计算机系统中最基本的系统软件。</p>
 <ul>
 <li>负责管理和协调硬件、软件等计算机资源的工作<ul>
 <li>处理机管理</li>
@@ -645,7 +644,137 @@
 <li>系统调用发生在用户态，对系统调用的处理发生在核心态</li>
 <li>执行陷入指令会产生内中断，使处理器从用户态 <code>-&gt;</code> 核心态</li>
 </ul>
-<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><h1 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h1>
+<h1 id="二、进程管理"><a href="#二、进程管理" class="headerlink" title="二、进程管理"></a>二、进程管理</h1><p>进程实体（进程映像）的<strong>组成</strong>:</p>
+<ul>
+<li><code>PCB</code><ul>
+<li>进程描述信息（进程标识符<code>PID</code>，用户标识符<code>UID</code>）</li>
+<li>进程控制和管理信息（进程当前状态，进程优先级）</li>
+<li>资源分配清单（程序段指针，数据段指针，键鼠）</li>
+<li>处理机相关信息（各种寄存器值）</li>
+</ul>
+</li>
+<li>数据段</li>
+<li>程序段</li>
+</ul>
+<p>系统为每个运行的程序配置一个数据结构，称为 <strong>进程控制块</strong>（PCB），用来描述进程的各种信息（如程序代码存放位置）.</p>
+<p>一般情况下，把进程实体简称为进程。<br>所谓创建进程，实质上是创建进程实体中的PCB；而撤销进程，实质上是撤销进程实体中的PCB。</p>
+<p>PCB是进程存在的 <strong>唯一标志</strong></p>
+<ul>
+<li>进程是程序的<code>一次执行过程</code></li>
+<li>进程是【进程实体的运行过程，是系统进行资源分配和调度的一个独立单位】（进程是 <strong>动态</strong> 的）</li>
+</ul>
+<hr>
+<p>进程的<strong>组织方式</strong>：</p>
+<ul>
+<li>链接方式<ul>
+<li>按照进程状态将PCB分为多个队列</li>
+<li>组成：执行指针、就绪队列指针、阻塞队列指针</li>
+</ul>
+</li>
+<li>索引方式<ul>
+<li>按照进程状态的不同，建立几张索引表</li>
+<li>组成：执行指针、就绪表指针、阻塞表指针</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>进程的<strong>特征</strong>：</p>
+<ul>
+<li>动态性（进程是动态地产生变化消亡的）</li>
+<li>并发性（各进程可并发执行）</li>
+<li>独立性（进程是资源分配、接受调度的基本单位）</li>
+<li>异步性（各进程按各自独立的、不可预知的速度向前推进）</li>
+<li>结构性（每个进程都会配备一个PCB）</li>
+</ul>
+<hr>
+<p>进程的<strong>状态</strong>：</p>
+<ul>
+<li>运行态（在CPU上运行）</li>
+<li>就绪态（已具备运行条件）</li>
+<li>阻塞态（等待某一事件的发生）</li>
+<li>创建态（操作系统为其分配资源，初始化PCB）</li>
+<li>终止态（操作系统回收资源，撤销PCB）</li>
+</ul>
+<p>进程状态的切换，就是<strong>进程控制</strong>，用原语实现。</p>
+<hr>
+<p><strong>进程通信</strong>【进程之间的信息交换】：</p>
+<ul>
+<li>共享存储<ul>
+<li>【要互斥地访问共享空间】</li>
+<li>基于数据结构的共享【低级】</li>
+<li>基于存储区的共享【高级】</li>
+</ul>
+</li>
+<li>消息传递<ul>
+<li>直接通信方式</li>
+<li>间接通信方式</li>
+</ul>
+</li>
+<li>管道通信<ul>
+<li>【一个管道只能实现半双工通信】</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><code>线程</code> 是一个基本的CPU执行单元，也是程序执行流的最小单元。</p>
+<p>线程，可以理解为轻量级进程。</p>
+<ul>
+<li>引入线程后：<ul>
+<li>进程只作为除CPU外系统资源的分配单元。</li>
+<li>线程是资源调度的基本单位。</li>
+<li>进程内的各线程也可以并发，提高了并发度。</li>
+<li>进程内线程切换，减小系统开销。</li>
+</ul>
+</li>
+<li>线程的实现方式：<ul>
+<li>用户级线程</li>
+<li>内核级线程</li>
+<li>【操作系统只”看得见”内核级线程，因此只有内核级线程才是处理机分配的单位】</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>处理机调度</strong>：</p>
+<ul>
+<li>【从就绪队列中按照一定的算法选择一个进程并将处理机分配给它运行，并实现进程的并发执行】</li>
+<li>三个层次：<ul>
+<li>高级调度（作业调度）<ul>
+<li>对进程状态的影响：无 <code>-&gt;</code> 创建态 <code>-&gt;</code> 就绪态</li>
+<li>是外存与内存之间的调度</li>
+</ul>
+</li>
+<li>中级调度（内存调度）<ul>
+<li>对进程状态的影响：挂起态 <code>-&gt;</code> 就绪态</li>
+<li>【决定哪个处于挂起状态的进程重新调入内存】</li>
+</ul>
+</li>
+<li>低级调度（进程调度）<ul>
+<li>最基本的一种调度，发生频率最高</li>
+<li>对进程状态的影响：就绪态 <code>-&gt;</code> 运行态</li>
+<li>【按照某种算法从就绪队列中选取一个进程，将处理机分配给它】</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>挂起</code> 和 <code>阻塞</code> 都是暂时不能获得CPU的服务，但 <code>挂起</code> 是将进程映像调到外存去了。</p>
+<h1 id="三、内存管理"><a href="#三、内存管理" class="headerlink" title="三、内存管理"></a>三、内存管理</h1><h1 id="四、文件管理"><a href="#四、文件管理" class="headerlink" title="四、文件管理"></a>四、文件管理</h1><h1 id="五、设备管理"><a href="#五、设备管理" class="headerlink" title="五、设备管理"></a>五、设备管理</h1><p>IO设备：</p>
+<ul>
+<li>【将数据输入输出计算机的外部设备】</li>
+<li>按使用特性分类：<ul>
+<li>人机交互类设备（数据传输速度慢）</li>
+<li>存储设备（数据船速速度块）</li>
+<li>网络通信设备</li>
+</ul>
+</li>
+<li>按信息交换的单位分类：<ul>
+<li>块设备（传输快，可寻址）</li>
+<li>字符设备（传输慢，不可寻址，常采用中断驱动方式）</li>
+</ul>
+</li>
+</ul>
+<hr>
+
             </div>
             <hr/>
 
@@ -1216,7 +1345,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">62.4k</span>&nbsp;字
+                class="white-color">63.4k</span>&nbsp;字
             
             
             
