@@ -456,21 +456,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-28
+                    2020-12-29
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-28
+                    2020-12-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    83
+                    111
                 </div>
                 
 
@@ -487,39 +487,52 @@
 <li>北理工-pthon机器学习应用</li>
 <li>吴恩达-机器学习</li>
 </ul>
-<blockquote>
-<p>常用函数：</p>
-</blockquote>
 <table>
 <thead>
 <tr>
-<th></th>
-<th>应用</th>
-<th>算法</th>
+<th>sklearn</th>
+<th>applications</th>
+<th>algorithms</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>分类</td>
-<td>异常检测，图像识别</td>
-<td>KNN，SVM…</td>
+<td><code>classification</code></td>
+<td>spam detection, image recognition</td>
+<td>SVM, nearest neighbors, random forest…</td>
 </tr>
 <tr>
-<td>聚类</td>
-<td>图像分割，群体划分</td>
-<td>K-Means，谱聚类…</td>
+<td><code>regression</code></td>
+<td>drug response, stock prices</td>
+<td>SVR, nearest neighbors, random forest…</td>
 </tr>
 <tr>
-<td>回归</td>
-<td>价格预测，趋势分析</td>
-<td>线性回归，SVR…</td>
+<td><code>clustering</code></td>
+<td>customer segmentation, grouping experiment outcomes</td>
+<td>K-means, spectral clustering…</td>
 </tr>
 <tr>
-<td>降维</td>
-<td>可视化</td>
-<td>PAC，NMF…</td>
+<td><code>dimensionality reduction</code></td>
+<td>visualization</td>
+<td>K-means, feature selecion…</td>
+</tr>
+<tr>
+<td><code>model selection</code></td>
+<td>Improved accuracy via parameter tuning</td>
+<td>grid search…</td>
+</tr>
+<tr>
+<td><code>preprocessing</code></td>
+<td>Transforming input data such as text for use with machine learning algorithms.</td>
+<td>preprocessing</td>
 </tr>
 </tbody></table>
-<h1 id="unsupervised-learning"><a href="#unsupervised-learning" class="headerlink" title="unsupervised learning"></a><em>unsupervised learning</em></h1><h1 id="supervised-learning"><a href="#supervised-learning" class="headerlink" title="supervised learning"></a><em>supervised learning</em></h1><h1 id="reinforcement-learning"><a href="#reinforcement-learning" class="headerlink" title="reinforcement learning"></a><em>reinforcement learning</em></h1>
+<h1 id="unsupervised-learning"><a href="#unsupervised-learning" class="headerlink" title="unsupervised learning"></a><em>unsupervised learning</em></h1><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#使用 sklearn 标准数据集</span>
+
+<span class="token keyword">import</span> sklearn
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_boston
+boston<span class="token operator">=</span>load_boston<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>boston<span class="token punctuation">.</span>data<span class="token punctuation">.</span>shape<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="supervised-learning"><a href="#supervised-learning" class="headerlink" title="supervised learning"></a><em>supervised learning</em></h1><h1 id="reinforcement-learning"><a href="#reinforcement-learning" class="headerlink" title="reinforcement learning"></a><em>reinforcement learning</em></h1>
             </div>
             <hr/>
 
@@ -1090,7 +1103,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">63.5k</span>&nbsp;字
+                class="white-color">63.9k</span>&nbsp;字
             
             
             

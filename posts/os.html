@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-29
+                    2020-12-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.7k
                 </div>
                 
 
@@ -546,7 +546,7 @@
 </ul>
 </li>
 <li>批处理阶段–单道批处理系统<ul>
-<li>【引入脱机输入/输出技术（磁带），并监督程序负责控制作业的输入/输出】</li>
+<li>【引入<code>脱机</code>输入/输出技术，并监督程序负责控制作业的输入/输出】</li>
 </ul>
 </li>
 <li>批处理阶段–多道批处理系统<ul>
@@ -566,6 +566,7 @@
 </ul>
 </li>
 </ul>
+<p><code>脱机</code>：外围控制机+更高速的设备（磁带）<br><code>作用</code>：缓解设备与CPU速度矛盾，实现预输入、预输出</p>
 <hr>
 <p>操作系统的<strong>运行机制</strong>：</p>
 <ul>
@@ -758,12 +759,12 @@
 </li>
 </ul>
 <p><code>挂起</code> 和 <code>阻塞</code> 都是暂时不能获得CPU的服务，但 <code>挂起</code> 是将进程映像调到外存去了。</p>
-<h1 id="三、内存管理"><a href="#三、内存管理" class="headerlink" title="三、内存管理"></a>三、内存管理</h1><h1 id="四、文件管理"><a href="#四、文件管理" class="headerlink" title="四、文件管理"></a>四、文件管理</h1><h1 id="五、设备管理"><a href="#五、设备管理" class="headerlink" title="五、设备管理"></a>五、设备管理</h1><p>IO设备：</p>
+<h1 id="三、内存管理"><a href="#三、内存管理" class="headerlink" title="三、内存管理"></a>三、内存管理</h1><h1 id="四、文件管理"><a href="#四、文件管理" class="headerlink" title="四、文件管理"></a>四、文件管理</h1><h1 id="五、设备管理"><a href="#五、设备管理" class="headerlink" title="五、设备管理"></a>五、设备管理</h1><p><strong>I/O设备</strong>：</p>
 <ul>
 <li>【将数据输入输出计算机的外部设备】</li>
 <li>按使用特性分类：<ul>
 <li>人机交互类设备（数据传输速度慢）</li>
-<li>存储设备（数据船速速度块）</li>
+<li>存储设备（数据传输速度快）</li>
 <li>网络通信设备</li>
 </ul>
 </li>
@@ -772,8 +773,82 @@
 <li>字符设备（传输慢，不可寻址，常采用中断驱动方式）</li>
 </ul>
 </li>
+<li>组成：<ul>
+<li>机械部件</li>
+<li>电子部件（I/O控制器）</li>
+</ul>
+</li>
 </ul>
 <hr>
+<p><strong>I/O控制器</strong>：</p>
+<ul>
+<li>主要功能：<ul>
+<li>接受和识别CPU发出的命令（控制寄存器）</li>
+<li>向CPU报告设备的状态（状态寄存器）</li>
+<li>数据交换（数据寄存器）</li>
+<li>地址识别（由I/O逻辑实现）</li>
+</ul>
+</li>
+<li>组成：<ul>
+<li>CPU与控制器间的接口</li>
+<li>I/O逻辑</li>
+<li>控制器与设备间的接口</li>
+</ul>
+</li>
+<li>寄存器编址方式：<ul>
+<li>内存映射I/O<ul>
+<li>控制器中的寄存器与内存同一编制</li>
+</ul>
+</li>
+<li>寄存器独立编址<ul>
+<li>需要设置专门的指令来操作控制器</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>I/O控制方式</strong>：</p>
+<ul>
+<li>程序直接控制方式<ul>
+<li>在等待I/O完成的过程中需要CPU不断轮询检查</li>
+<li>优点：实现简单</li>
+<li>缺点：CPU利用率低</li>
+</ul>
+</li>
+<li>中断驱动方式<ul>
+<li>优点：CPU和I/O设备可并行工作</li>
+</ul>
+</li>
+<li>DMA方式（direct memory access）<ul>
+<li>数据的传送单位是块</li>
+</ul>
+</li>
+<li>通道控制方式<ul>
+<li>识别并执行一系列通道指令</li>
+<li>优点：CPU、通道、I/O设备可并行工作，资源利用率很高</li>
+<li>缺点：实现复杂，需要专门的通道硬件支持</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>I/O软件的层次</strong>：</p>
+<ul>
+<li>用户层软件【实现了与用户交互的接口】:<ul>
+<li>功能：【假脱机技术】</li>
+</ul>
+</li>
+<li>I/O系统【属于操作系统的内核部分】：<ul>
+<li>设备独立性软件<ul>
+<li>功能：【I/O调度、设备保护、设备分配与回收、缓冲区管理】</li>
+</ul>
+</li>
+<li>设备驱动程序</li>
+<li>中断处理程序</li>
+</ul>
+</li>
+</ul>
+<p><code>假脱机技术</code>，又称<code>SPOOLing技术</code>，用软件的方式模拟脱机技术。<br>在内存中建立缓冲区，在磁盘中建立输入/输出井。</p>
 
             </div>
             <hr/>
@@ -1163,7 +1238,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-28
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-29
                         </span>
                         <span class="publish-author">
                             
@@ -1341,7 +1416,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">63.5k</span>&nbsp;字
+                class="white-color">63.9k</span>&nbsp;字
             
             
             
