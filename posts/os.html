@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-30
+                    2020-12-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.7k
+                    3k
                 </div>
                 
 
@@ -735,6 +735,16 @@
 </li>
 </ul>
 <hr>
+<p>一些说明：</p>
+<ul>
+<li><code>进程</code> 与 <code>作业</code>：一个作业通常包括几个进程，几个进程共同完成一个任务，即作业。</li>
+<li><code>进程</code> 与 <code>线程</code>：做个简单的比喻，进程=火车，线程=车厢<ul>
+<li>线程在进程下行进</li>
+<li>同一进程下不同线程间，数据容易共享</li>
+</ul>
+</li>
+</ul>
+<hr>
 <p><strong>处理机调度</strong>：</p>
 <ul>
 <li>【从就绪队列中按照一定的算法选择一个进程并将处理机分配给它运行，并实现进程的并发执行】</li>
@@ -749,16 +759,40 @@
 <li>【决定哪个处于挂起状态的进程重新调入内存】</li>
 </ul>
 </li>
-<li>低级调度（进程调度）<ul>
+<li>低级调度（ <strong>进程调度</strong> ）<ul>
 <li>最基本的一种调度，发生频率最高</li>
 <li>对进程状态的影响：就绪态 <code>-&gt;</code> 运行态</li>
-<li>【按照某种算法从就绪队列中选取一个进程，将处理机分配给它】</li>
+<li><code>内容</code>【按照某种算法从就绪队列中选择一个进程为其分配处理机】</li>
+<li><code>方式</code><ul>
+<li>非剥夺调度方式【只允许进程主动放弃处理机】</li>
+<li>剥夺调度方式【又称抢占方式，可优先处理紧急进程】</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 <p><code>挂起</code> 和 <code>阻塞</code> 都是暂时不能获得CPU的服务，但 <code>挂起</code> 是将进程映像调到外存去了。</p>
+<hr>
+<p>调度算法的评价指标：</p>
+<ul>
+<li><strong>CPU利用率</strong> = 忙碌的时间 / 总时间</li>
+<li><strong>系统吞吐量</strong>：单位时间内完成作业的数量</li>
+<li><strong>周转时间</strong> = 作业完成时间 - 作业提交时间</li>
+<li><strong>等待时间</strong>：指进程/作业处于等待处理机状态时间之和</li>
+<li><strong>响应时间</strong>：从用户提交请求到首次产生响应所用时间</li>
+</ul>
+<hr>
+<p><strong>调度算法</strong>：</p>
+<ul>
+<li>先来先服务（FCFS）</li>
+<li>短作业优先（SJF）</li>
+<li>高响应比优先（HRRN）</li>
+<li>时间片轮转调度算法（RR）</li>
+<li>优先级调度算法</li>
+<li>多级反馈队列调度算法</li>
+</ul>
 <h1 id="三、内存管理"><a href="#三、内存管理" class="headerlink" title="三、内存管理"></a>三、内存管理</h1><h1 id="四、文件管理"><a href="#四、文件管理" class="headerlink" title="四、文件管理"></a>四、文件管理</h1><h1 id="五、设备管理"><a href="#五、设备管理" class="headerlink" title="五、设备管理"></a>五、设备管理</h1><p><strong>I/O设备</strong>：</p>
 <ul>
 <li>【将数据输入输出计算机的外部设备】</li>
@@ -1416,7 +1450,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">63.7k</span>&nbsp;字
+                class="white-color">63.9k</span>&nbsp;字
             
             
             
