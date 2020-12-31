@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.9k
                 </div>
                 
 
@@ -697,6 +697,7 @@
 <li>终止态（操作系统回收资源，撤销PCB）</li>
 </ul>
 <p>进程状态的切换，就是<strong>进程控制</strong>，用原语实现。</p>
+<p><code>挂起态</code>：进程暂时换出外存进行等待。</p>
 <hr>
 <p><strong>进程通信</strong>【进程之间的信息交换】：</p>
 <ul>
@@ -793,7 +794,143 @@
 <li>优先级调度算法</li>
 <li>多级反馈队列调度算法</li>
 </ul>
-<h1 id="三、内存管理"><a href="#三、内存管理" class="headerlink" title="三、内存管理"></a>三、内存管理</h1><h1 id="四、文件管理"><a href="#四、文件管理" class="headerlink" title="四、文件管理"></a>四、文件管理</h1><h1 id="五、设备管理"><a href="#五、设备管理" class="headerlink" title="五、设备管理"></a>五、设备管理</h1><p><strong>I/O设备</strong>：</p>
+<hr>
+<p>临界资源：一个时间段内只允许一个进程使用。</p>
+<ul>
+<li><strong>进程同步</strong><ul>
+<li>【并发性带来了异步性，有时需要进程同步来解决异步问题】</li>
+</ul>
+</li>
+<li><strong>进程互斥</strong><ul>
+<li>【对临界资源的访问，需要互斥地进行】</li>
+<li>四个部分<ul>
+<li>进入区【检查并进入临界区，需要“上锁”】</li>
+<li>临界区【访问临界资源地代码】</li>
+<li>退出区【负责“解锁”】</li>
+<li>剩余区【其余代码部分】</li>
+</ul>
+</li>
+<li>遵循原则：<ul>
+<li>【空闲让进】【忙则等待】【有限等待】【让权等待】</li>
+</ul>
+</li>
+<li>软件实现方法：<code>？？？</code><ul>
+<li>单标志法</li>
+<li>双标志先检查</li>
+<li>双标志后检查</li>
+<li>Peterson算法</li>
+</ul>
+</li>
+<li>硬件实现方法：<code>？？？</code><ul>
+<li>中断屏蔽方法</li>
+<li>TestAndSet（TS指令/TSL指令）</li>
+<li>Swap指令（XCHG指令）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>用户进程可以通过使用操作系统提供的一对原语对<code>信号量</code>进行操作，从而方便实现进程互斥、同步。<br><code>信号量</code> 是种表示系统资源的变量。<br><code>wait</code>、<code>signal</code> 原语的操作简称 <code>PV操作</code></p>
+<h1 id="三、内存管理"><a href="#三、内存管理" class="headerlink" title="三、内存管理"></a>三、内存管理</h1><p>逻辑地址：相对地址；物理地址：绝对地址</p>
+<p><code>从写程序到程序运行</code>：</p>
+<ul>
+<li>编辑源代码文件</li>
+<li>编译<ul>
+<li>【由源代码生成目标模块，高级语言-&gt;机器语言】</li>
+</ul>
+</li>
+<li>链接<ul>
+<li>【由目标模块生成装入模块，链接后形成完整的逻辑地址】</li>
+</ul>
+</li>
+<li>装入<ul>
+<li>【将装入模块装入内存，装入后形成物理地址】</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><code>内存管理</code>：</p>
+<ul>
+<li>内存空间的<strong>分配与回收</strong></li>
+<li>内存空间的<strong>扩充</strong>（实现虚拟性）<ul>
+<li>覆盖技术<ul>
+<li>【将程序分为多个段，常用的段常驻内存，不常用的段在需要时调入内存】</li>
+<li>缺点：对用户不透明，增加了用户编程负担。</li>
+</ul>
+</li>
+<li>交换技术<ul>
+<li>【进程在内存与磁盘之间动态调度，但PCB会常驻内存】</li>
+</ul>
+</li>
+<li><strong>虚拟内存</strong><ul>
+<li>【程序不需装入即可运行，运行时根据需要动态调入数据，若内存不够，还需换出一些数据】</li>
+<li><code>多次性</code>：允许作业多次调入内存</li>
+<li><code>对换性</code>：允许作业运行过程中，将作业换入、换出</li>
+<li><code>虚拟性</code>：从逻辑上扩充了内存的容量</li>
+<li>实现方式：<ul>
+<li>请求分页存储管理</li>
+<li>请求分段存储管理</li>
+<li>请求段页式存储管理</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>地址转换</strong><ul>
+<li>【操作系统负责实现逻辑地址到物理地址的转换】</li>
+<li>三种方式：<ul>
+<li>绝对装入【编译器负责地址转换】（单道程序阶段）</li>
+<li>可重定位装入【装入程序负责地址转换】（早期多道批处理系统）</li>
+<li>动态运行时装入【运行时进行地址转换】（现代操作系统）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>存储保护</strong><ul>
+<li>【保证各进程在自己的内存空间内运行】</li>
+<li>两种方式：<ul>
+<li>设置上下限寄存器</li>
+<li>利用重定位寄存器、界地址寄存器进行判断</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><code>内存空间的分配与回收</code>：</p>
+<ul>
+<li>连续分配管理方式<ul>
+<li>单一连续分配</li>
+<li>固定分区分配</li>
+<li>动态分区分配</li>
+</ul>
+</li>
+<li>非连续分配管理方式<ul>
+<li>基本分页存储管理</li>
+<li>基本分段存储管理</li>
+<li>段页式存储管理</li>
+</ul>
+</li>
+</ul>
+<p>页表机制的地址变换过程 <code>？？？</code></p>
+<p>页面置换算法、页面分配策略 <code>？？？</code></p>
+<h1 id="四、文件管理"><a href="#四、文件管理" class="headerlink" title="四、文件管理"></a>四、文件管理</h1><p>文件的逻辑结构：</p>
+<ul>
+<li>无结构文件<ul>
+<li>【文件内部的数据就是一系列二进制流或字符流，如<code>txt</code>文件】</li>
+</ul>
+</li>
+<li>有结构文件<ul>
+<li>顺序文件</li>
+<li>索引文件</li>
+<li>索引顺序文件</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>文件的物理结构</p>
+<h1 id="五、设备管理"><a href="#五、设备管理" class="headerlink" title="五、设备管理"></a>五、设备管理</h1><p><strong>I/O设备</strong>：</p>
 <ul>
 <li>【将数据输入输出计算机的外部设备】</li>
 <li>按使用特性分类：<ul>
@@ -1450,7 +1587,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">63.9k</span>&nbsp;字
+                class="white-color">64.8k</span>&nbsp;字
             
             
             
