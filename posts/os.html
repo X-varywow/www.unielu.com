@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-31
+                    2021-01-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    4.4k
                 </div>
                 
 
@@ -898,7 +898,7 @@
 </li>
 </ul>
 <hr>
-<p><code>内存空间的分配与回收</code>：</p>
+<p><strong>内存空间的分配与回收</strong>：</p>
 <ul>
 <li>连续分配管理方式<ul>
 <li>单一连续分配</li>
@@ -915,7 +915,16 @@
 </ul>
 <p>页表机制的地址变换过程 <code>？？？</code></p>
 <p>页面置换算法、页面分配策略 <code>？？？</code></p>
-<h1 id="四、文件管理"><a href="#四、文件管理" class="headerlink" title="四、文件管理"></a>四、文件管理</h1><p>文件的逻辑结构：</p>
+<h1 id="四、文件管理"><a href="#四、文件管理" class="headerlink" title="四、文件管理"></a>四、文件管理</h1><p><strong>文件系统</strong>（由上至下）：</p>
+<ul>
+<li>用户接口</li>
+<li>文件目录系统</li>
+<li>存取控制模块</li>
+<li>逻辑文件系统和文件信息缓冲区</li>
+<li>物理文件系统</li>
+</ul>
+<hr>
+<p><strong>文件的逻辑结构</strong>：</p>
 <ul>
 <li>无结构文件<ul>
 <li>【文件内部的数据就是一系列二进制流或字符流，如<code>txt</code>文件】</li>
@@ -928,8 +937,71 @@
 </ul>
 </li>
 </ul>
+<p><code>目录</code> 本身就是一个有结构文件，由一条条记录组成；每条记录对应一个在该目录下的文件。</p>
 <hr>
-<p>文件的物理结构</p>
+<p><strong>文件的物理结构</strong>（文件分配方式）：</p>
+<ul>
+<li>连续分配<ul>
+<li>【每个文件在磁盘上占有一组连续的块】</li>
+</ul>
+</li>
+<li>链接分配<ul>
+<li>隐式链接<ul>
+<li>【磁盘块含有指针，对用户透明，只能顺序访问】</li>
+</ul>
+</li>
+<li>显式链接<ul>
+<li>【把用于链接文件各物理块的指针显式地存放在一张表中，即<code>FAT</code>(file allocation table)】</li>
+<li>【一个磁盘仅设置一张 <code>FAT</code>，开机时将 <code>FAT</code> 读入内存，并常驻内存。】</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>索引分配<ul>
+<li>【系统为每个文件建立一张索引表，索引表记录了文件地各个逻辑块对应的物理块】</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>文件存储空间管理</strong>：</p>
+<ul>
+<li>存储空间的划分和初始化<ul>
+<li><code>划分</code>【将物理磁盘划分为一个个文件卷（逻辑卷，逻辑盘）】</li>
+<li><code>初始化</code>【将各个文件卷划分为目录区、文件区】</li>
+</ul>
+</li>
+<li>管理方法：<ul>
+<li>空闲表法</li>
+<li>空闲链表法</li>
+<li>位示图法</li>
+<li>成组链接法</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>文件的基本操作</strong>：<code>create</code> <code>delete</code> <code>read</code> <code>write</code> <code>open</code> <code>close</code>系统调用</p>
+<ul>
+<li><code>create</code>：分配外存空间，创建目录项</li>
+<li>进程打开文件表时特有属性：读写指针、访问权限</li>
+</ul>
+<hr>
+<ul>
+<li><strong>文件共享</strong>：<ul>
+<li>基于索引结点的共享方式（硬链接）<ul>
+<li>【各个用户的目录项指向同一个索引结点】</li>
+</ul>
+</li>
+<li>基于符号链的共享方式（软链接）<ul>
+<li>【相当于创建索引结点的快捷方式】</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>文件保护</strong>：口令保护，加密保护，访问控制</li>
+</ul>
+<hr>
+<p><code>磁盘</code> 由表面涂有磁性物质的圆形盘片组成，每个盘片被划分为一个个磁道，每个磁道又划分为一个个扇区。</p>
+<p>磁盘的物理地址：（柱面号，盘面号，扇区号），磁盘的调度算法<code>？？？</code></p>
 <h1 id="五、设备管理"><a href="#五、设备管理" class="headerlink" title="五、设备管理"></a>五、设备管理</h1><p><strong>I/O设备</strong>：</p>
 <ul>
 <li>【将数据输入输出计算机的外部设备】</li>
@@ -1587,7 +1659,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">64.9k</span>&nbsp;字
+                class="white-color">65.4k</span>&nbsp;字
             
             
             
