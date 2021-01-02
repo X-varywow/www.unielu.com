@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类, -- blog --">
+    <meta name="keywords" content="分类: 读书, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分类 | -- blog --</title>
+    <title>分类: 读书 | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/awesome/css/all.css">
@@ -449,7 +449,7 @@
                 
                 <a href="/categories/%E8%AF%BB%E4%B9%A6/" title="读书: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
+                             chip-active "
                             style="background-color: #D7BDE2;">读书
                         <span class="tag-length">1</span>
                     </span>
@@ -463,65 +463,64 @@
 
 
     
-    <style type="text/css">
-    #category-radar {
-        width: 100%;
-        height: 360px;
-    }
-</style>
 
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="category-radar" class="card-content"></div>
-    </div>
-</div>
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/hackers_and_painters.html">
+                        <div class="card-image tag-image">
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/luff-5.jpg" class="responsive-img" alt="黑客与画家">
+                            
+                            <span class="card-title">黑客与画家</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Paul Graham，阮一峰译
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%AF%BB%E4%B9%A6/" class="post-category">
+                                    读书
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/echarts/echarts.min.js"></script>
-<script type="text/javascript">
-    let radarChart = echarts.init(document.getElementById('category-radar'));
-
-    
-
-    let option = {
-        title: {
-            left: 'center',
-            text: '文章分类雷达图',
-            textStyle: {
-                fontWeight: 500,
-                fontSize: 22
-            }
-        },
-        tooltip: {},
-        radar: {
-            name: {
-                textStyle: {
-                    color: '#3C4858'
-                }
-            },
-            indicator: [{"name":"日记","max":16},{"name":"C语言","max":16},{"name":"算法","max":16},{"name":"硬件","max":16},{"name":"应用开发","max":16},{"name":"python","max":16},{"name":"前端","max":16},{"name":"计算机网络","max":16},{"name":"大二","max":16},{"name":"other","max":16},{"name":"e-class","max":16},{"name":"深度学习","max":16},{"name":"读书","max":16}],
-            nameGap: 5,
-            center: ['50%','55%'],
-            radius: '66%'
-        },
-        series: [{
-            type: 'radar',
-            color: ['#3ecf8e'],
-            itemStyle: {normal: {areaStyle: {type: 'default'}}},
-            data : [
-                {
-                    value : [5,4,13,3,2,15,2,1,6,3,1,2,1],
-                    name : '文章分类数量'
-                }
-            ]
-        }]
-    };
-
-    radarChart.setOption(option);
-</script>
-
-    
-
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E7%BD%AE%E5%BA%95/">
+                            <span class="chip bg-color">置底</span>
+                        </a>
+                        
+                        <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                            <span class="chip bg-color">笔记</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
 </main>
+
+
 
 
     <footer class="page-footer bg-color">
