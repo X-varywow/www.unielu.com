@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-05
+                    2021-01-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    49
+                    1k
                 </div>
                 
 
@@ -484,8 +484,49 @@
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a href="https://www.jianshu.com/u/9dcb33c9d805" target="_blank" rel="noopener">https://www.jianshu.com/u/9dcb33c9d805</a></p>
 <h2 id="开发板"><a href="#开发板" class="headerlink" title="开发板"></a>开发板</h2><p>Arduino Uno R3：<a href="https://www.jianshu.com/p/afe07479b2c2" target="_blank" rel="noopener">https://www.jianshu.com/p/afe07479b2c2</a></p>
-<h2 id="基础器件"><a href="#基础器件" class="headerlink" title="基础器件"></a>基础器件</h2><p>红外遥控的使用：<a href="https://www.jianshu.com/p/5add4c666983" target="_blank" rel="noopener">https://www.jianshu.com/p/5add4c666983</a></p>
-<p>蜂鸣器的使用：<a href="https://www.jianshu.com/p/eae823cc343a" target="_blank" rel="noopener">https://www.jianshu.com/p/eae823cc343a</a></p>
+<h2 id="基础器件"><a href="#基础器件" class="headerlink" title="基础器件"></a>基础器件</h2><p><code>1</code>红外遥控的使用：<a href="https://www.jianshu.com/p/5add4c666983" target="_blank" rel="noopener">https://www.jianshu.com/p/5add4c666983</a></p>
+<p><code>2</code>蜂鸣器的使用：<a href="https://www.jianshu.com/p/eae823cc343a" target="_blank" rel="noopener">https://www.jianshu.com/p/eae823cc343a</a></p>
+<hr>
+<p><code>3</code>MPU6050的使用：<a href="https://www.cnblogs.com/zhoug2020/p/7636742.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhoug2020/p/7636742.html</a></p>
+<p>MPU6050的数据获取、分析与处理：<a href="https://blog.csdn.net/jickjiang/article/details/84237863" target="_blank" rel="noopener">https://blog.csdn.net/jickjiang/article/details/84237863</a></p>
+<p>扫盲：<a href="https://blog.csdn.net/zuoheizhu/article/details/96697274" target="_blank" rel="noopener">https://blog.csdn.net/zuoheizhu/article/details/96697274</a></p>
+<p>MPU6050是一种非常流行的空间运动传感器芯片，可以获取器件当前的三个加速度分量和三个旋转角速度。</p>
+<p>使用集成的MPU6050模块。MPU6050的数据接口用的是I2C总线协议，因此我们需要Wire程序库的帮助来实现Arduino与MPU6050之间的通信。</p>
+<hr>
+<p><strong>陀螺仪</strong>（Gyroscope、GYRO-Sensor）也叫地感器，传统结构是内部有个陀螺，如下图所示（三轴陀螺），三轴陀螺仪的工作原理是通过测量三维坐标系内陀螺转子的垂直轴与设备之间的夹角，并计算角速度，通过夹角和角速度来判别物体在三维空间的运动状态。三轴陀螺仪可以同时测定上、下、左、右、前、后等6个方向（合成方向同样可分解为三轴坐标），最终可判断出设备的移动轨迹和加速度。</p>
+<p>也就是说陀螺仪通过测量自身的旋转状态，判断出设备当前运动状态，是向前、向后、向上、向下、向左还是向右呢，是加速（角速度）还是减速（角速度）呢，都可以实现，但是要判断出设备的方位（东西南北），陀螺仪就没有办法。</p>
+<p><strong>加速计</strong>（Accelerometer、G-Sensor）也叫重力感应器，实际上是可以感知任意方向上的加速度（重力加速度则只是地表垂直方向加速度），加速计通过测量组件在某个轴向的受力情况来得到结果，表现形式为轴向的加速度大小和方向（XYZ），这一点又有点类似于陀螺仪，但陀螺仪的更多关注自身旋转情况（原位运动），加速计则主要是测量设备的受力情况，也就是三轴运动情况，尽管加速计也可能在某个小范围换算出角速度的可能，但设计原理决定似乎更适合于空间运动判断。</p>
+<p>两者看起来很接近，不过加速度计只能侦测物体的移动行为，并不具备精确侦测物体角度改变的能力，陀螺仪可以侦测物体水平改变的状态，但无法计算物体移动的激烈程度。</p>
+<hr>
+<p>数据格式：</p>
+<ul>
+<li>0x3B，加速度计的X轴分量ACC_X</li>
+<li>0x3D，加速度计的Y轴分量ACC_Y</li>
+<li>0x3F，加速度计的Z轴分量ACC_Z</li>
+<li>0x41，当前温度TEMP</li>
+<li>0x43，绕X轴旋转的角速度GYR_X</li>
+<li>0x45，绕Y轴旋转的角速度GYR_Y</li>
+<li>0x47，绕Z轴旋转的角速度GYR_Z</li>
+</ul>
+<hr>
+<p><code>4</code>舵机控制：<a href="https://www.jianshu.com/p/f3fee0082519" target="_blank" rel="noopener">https://www.jianshu.com/p/f3fee0082519</a></p>
+<p><code>5</code>步进电机：<a href="https://www.jianshu.com/p/877006ab4859" target="_blank" rel="noopener">https://www.jianshu.com/p/877006ab4859</a></p>
+<p><code>7</code>继电器控制：<a href="https://www.jianshu.com/p/81ff85cbd82e" target="_blank" rel="noopener">https://www.jianshu.com/p/81ff85cbd82e</a></p>
+<hr>
+<p><code>6</code> L9110s四路直流电机驱动板</p>
+<p>arduino上数字引脚动不了直流减速电机<br>试一下用驱动板控制，没</p>
+<hr>
+<p><code>7</code> 超声波模块</p>
+<p><a href="https://www.arduino.cn/thread-3194-1-1.html" target="_blank" rel="noopener">https://www.arduino.cn/thread-3194-1-1.html</a></p>
+<p>关于gnd没接时有数据：<br>GND作为参考电平在系统互联通讯时是一定要接的<br>也可能是某些信号线和GND之间的耦合代替了GND的作用<br>但这绝对是不正确的接法</p>
+<p><code>8</code>编码器（encoder）是将信号（如比特流）或数据进行编制、转换为可用以通讯、传输和存储的信号形式的设备。编码器把角位移或直线位移转换成电信号，前者称为码盘，后者称为码尺。</p>
+<hr>
+<p><code>9</code> 语音识别模块 LD3320</p>
+<p>淘宝地址：<a href="https://detail.tmall.com/item.htm?id=41365254224&amp;spm=a1z09.2.0.0.67932e8dIj7xuu&amp;_u=62029c35dmffd0" target="_blank" rel="noopener">https://detail.tmall.com/item.htm?id=41365254224&amp;spm=a1z09.2.0.0.67932e8dIj7xuu&amp;_u=62029c35dmffd0</a></p>
+<p>供电电压：5V<br>IO口输出：高电平3.3V<br>通信方式：串口通信（不支持max232，RS485）</p>
+<p>+继电器=语音开关，可用于智能家居</p>
+<hr>
+<p><code>HC06</code>蓝牙模块</p>
 
             </div>
             <hr/>
@@ -859,54 +900,6 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/d6d0.html">
-                    <div class="card-image">
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/20181118.jpg" class="responsive-img" alt="硬件">
-                        
-                        <span class="card-title">硬件</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            alicia
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-15
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%A1%AC%E4%BB%B6/" class="post-category">
-                                    硬件
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%B7%A5%E7%A8%8B/">
-                        <span class="chip bg-color">工程</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/posts/2199.html">
                     <div class="card-image">
                         
@@ -922,9 +915,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-14
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-14
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -942,6 +935,50 @@
                     
                     <a href="/tags/arduino/">
                         <span class="chip bg-color">arduino</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/contest219.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/20181114.jpg" class="responsive-img" alt="周赛笔记219">
+                        
+                        <span class="card-title">周赛笔记219</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            无
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ╯晓~
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">leetcode比赛</span>
                     </a>
                     
                 </div>
@@ -1053,7 +1090,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">68.4k</span>&nbsp;字
+                class="white-color">70.1k</span>&nbsp;字
             
             
             
