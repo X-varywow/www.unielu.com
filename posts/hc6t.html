@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-06
+                    2021-01-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.1k
                 </div>
                 
 
@@ -629,6 +629,31 @@
 <span class="token comment" spellcheck="true"># 如果键不存在于字典中，将会添加键并将值设为默认值。</span>
 
 <span class="token comment" spellcheck="true"># 并查集不懂</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="547-省份数量"><a href="#547-省份数量" class="headerlink" title="547.省份数量"></a>547.省份数量</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">findCircleNum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> isConnected<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        dic<span class="token operator">=</span>collections<span class="token punctuation">.</span>defaultdict<span class="token punctuation">(</span>set<span class="token punctuation">)</span>
+        n<span class="token operator">=</span>len<span class="token punctuation">(</span>isConnected<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>                 <span class="token comment" spellcheck="true">#建立图</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> i<span class="token operator">!=</span>j <span class="token operator">and</span> isConnected<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span>
+                    dic<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>add<span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+                    dic<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>add<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        visited<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+        ans<span class="token operator">=</span><span class="token number">0</span>
+        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> i <span class="token operator">not</span> <span class="token keyword">in</span> visited<span class="token punctuation">:</span>
+                visited<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+                <span class="token keyword">for</span> j <span class="token keyword">in</span> dic<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                    dfs<span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#查找省份</span>
+            <span class="token keyword">if</span> i <span class="token operator">not</span> <span class="token keyword">in</span> visited<span class="token punctuation">:</span>
+                dfs<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+                ans<span class="token operator">+=</span><span class="token number">1</span>
+        <span class="token comment" spellcheck="true">#print(visited)</span>
+        <span class="token comment" spellcheck="true">#print([i for i in dic.items()])</span>
+        <span class="token keyword">return</span> ans
+
+<span class="token comment" spellcheck="true"># hh~</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="11-20"><a href="#11-20" class="headerlink" title="11-20"></a><code>11-20</code></h2><h2 id="21-31"><a href="#21-31" class="headerlink" title="21-31"></a><code>21-31</code></h2><h2 id="wuliao"><a href="#wuliao" class="headerlink" title="wuliao"></a>wuliao</h2><h3 id="3-无重复字符的最长子串"><a href="#3-无重复字符的最长子串" class="headerlink" title="3.无重复字符的最长子串"></a>3.无重复字符的最长子串</h3><p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
@@ -1237,7 +1262,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">70.1k</span>&nbsp;字
+                class="white-color">70.5k</span>&nbsp;字
             
             
             
