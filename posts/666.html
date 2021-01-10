@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="字符串&amp;数组, -- blog --">
+    <meta name="keywords" content="大创, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>字符串&amp;数组 | -- blog --</title>
+    <title>大创 | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/awesome/css/all.css">
@@ -301,7 +301,7 @@
 <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '';
+        let pwd = '2fe98face8187bcd9a099889cbb3d02c4a80b9fc72ec9f9f5e121c8d4aa8645d';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -314,12 +314,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/leetcode.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/26.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">字符串&amp;数组</h1>
+                    <h1 class="description center-align post-title diyFont">大创</h1>
                 </div>
             </div>
         </div>
@@ -444,12 +444,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/leetcode/">
-                                <span class="chip bg-color">leetcode</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%BD%AE%E5%BA%95/">
-                                <span class="chip bg-color">置底</span>
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -460,8 +456,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                大二
                             </a>
                         
                     </div>
@@ -473,21 +469,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-30
+                    2021-01-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-07
+                    2021-01-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    587
+                    523
                 </div>
                 
 
@@ -499,63 +495,48 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="17-电话号码的字母组合"><a href="#17-电话号码的字母组合" class="headerlink" title="17.电话号码的字母组合"></a>17.电话号码的字母组合</h2><p>给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。</p>
-<p>给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">letterCombinations</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> digits<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">:</span>
-        map<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'2'</span><span class="token punctuation">:</span><span class="token string">"abc"</span><span class="token punctuation">,</span><span class="token string">'3'</span><span class="token punctuation">:</span><span class="token string">"def"</span><span class="token punctuation">,</span><span class="token string">'4'</span><span class="token punctuation">:</span><span class="token string">"ghi"</span><span class="token punctuation">,</span><span class="token string">'5'</span><span class="token punctuation">:</span><span class="token string">"jkl"</span><span class="token punctuation">,</span><span class="token string">'6'</span><span class="token punctuation">:</span><span class="token string">"mno"</span><span class="token punctuation">,</span><span class="token string">'7'</span><span class="token punctuation">:</span><span class="token string">"pqrs"</span><span class="token punctuation">,</span><span class="token string">'8'</span><span class="token punctuation">:</span><span class="token string">"tuv"</span><span class="token punctuation">,</span><span class="token string">'9'</span><span class="token punctuation">:</span><span class="token string">"wxyz"</span><span class="token punctuation">}</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> digits<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        ans<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">""</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> digits<span class="token punctuation">:</span>
-            ans<span class="token operator">=</span><span class="token punctuation">[</span>pre<span class="token operator">+</span>suf <span class="token keyword">for</span> pre <span class="token keyword">in</span> ans <span class="token keyword">for</span> suf <span class="token keyword">in</span> map<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span>
-        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="696-计数二进制子串"><a href="#696-计数二进制子串" class="headerlink" title="696.计数二进制子串"></a>696.计数二进制子串</h2><p>给定一个字符串 <code>s</code>，计算具有相同数量0和1的非空(连续)子字符串的数量，并且这些子字符串中的所有0和所有1都是组合在一起的。</p>
-<p>重复出现的子串要计算它们出现的次数。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">countBinarySubstrings</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        temp<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-        ans<span class="token operator">=</span><span class="token number">0</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span>s<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-                temp<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+=</span><span class="token number">1</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                temp<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            ans<span class="token operator">+=</span>min<span class="token punctuation">(</span>temp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>temp<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> ans
-
-<span class="token comment" spellcheck="true"># 计算相邻数的频数</span>
-<span class="token comment" spellcheck="true"># 看着有些抽象</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="605-种花问题"><a href="#605-种花问题" class="headerlink" title="605.种花问题"></a>605.种花问题</h2><p>假设你有一个很长的花坛，一部分地块种植了花，另一部分却没有。可是，花卉不能种植在相邻的地块上，它们会争夺水源，两者都会死去。</p>
-<p>给定一个花坛（表示为一个数组包含<code>0</code>和<code>1</code>，其中<code>0</code>表示没种植花，<code>1</code>表示种植了花），和一个数 <code>n</code> 。能否在不打破种植规则的情况下种入 <code>n</code> 朵花？能则返回<code>True</code>，不能则返回<code>False</code>。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">canPlaceFlowers</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> f<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
-        f<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span>f<span class="token operator">+</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span>
-        ans<span class="token punctuation">,</span>cnt<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> f<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> i<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span> cnt<span class="token operator">+=</span><span class="token number">1</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span> 
-                ans<span class="token operator">+=</span><span class="token punctuation">(</span>cnt<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span>
-                cnt<span class="token operator">=</span><span class="token number">0</span>
-        <span class="token comment" spellcheck="true">#print(ans,n)</span>
-        <span class="token keyword">return</span> ans<span class="token operator">>=</span>n
-
-<span class="token comment" spellcheck="true"># 数组，两端加值便于解题。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="75-颜色分类"><a href="#75-颜色分类" class="headerlink" title="75.颜色分类"></a>75.颜色分类</h2><p>给定一个包含红色、白色和蓝色，一共 <code>n</code> 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。</p>
-<p>此题中，我们使用整数 <code>0</code>、 <code>1</code> 和 <code>2</code> 分别表示红色、白色和蓝色。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#荷兰国旗问题，快速排序基础</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">sortColors</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
-        i<span class="token punctuation">,</span>l<span class="token punctuation">,</span>r<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
-        <span class="token keyword">while</span> i<span class="token operator">&lt;=</span>r<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
-                nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token operator">=</span>nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-                l<span class="token operator">+=</span><span class="token number">1</span>
-                i<span class="token operator">+=</span><span class="token number">1</span>
-            <span class="token keyword">elif</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">:</span>
-                nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token operator">=</span>nums<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-                r<span class="token operator">-=</span><span class="token number">1</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span> i<span class="token operator">+=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="preface"><a href="#preface" class="headerlink" title="preface"></a><em>preface</em></h2><p>关于<strong>报销</strong>，目前是大概率申报成功+报销</p>
+<p>关于这个<strong>项目命题</strong>，</p>
+<p>关于学校资源，NLP也是要靠自己学啊，反正互联网能给的已经超过老师了，没有大佬带的情况下，自己动手丰衣足食。。。</p>
+<p>关于<strong>这个项目</strong></p>
+<ul>
+<li>硬件先做个基本模型够了，（淘宝也有那种自平衡小玩具，可以实现），以后的（精度）以后再说</li>
+<li>软件：手机用小爱同学（小米物联网）或蓝牙APP(自己做)控制</li>
+</ul>
+<h2 id="1-项目大概"><a href="#1-项目大概" class="headerlink" title="1.项目大概"></a>1.项目大概</h2><p><strong>开发目的</strong>（创新点）：</p>
+<ol>
+<li>自平衡系统的初步应用</li>
+<li>让手机能够动起来，语音的控制实现运动，更加智能</li>
+<li>先实现小爱同学的语音控制，默认自平衡的话，小爱实现运动</li>
+</ol>
+<p><strong>需要的技术</strong>：</p>
+<ol>
+<li>自平衡</li>
+<li>小米物联网嵌入式开发（当前用小米语音、智能家居的解决方案）</li>
+</ol>
+<p><strong>实际可以实现功能</strong>：</p>
+<ol>
+<li>手机可以立起来，cool</li>
+<li>手机可以旋转，平面运动</li>
+<li>手机或许可以更像个机器人</li>
+</ol>
+<p><strong>未来研究</strong>：</p>
+<ol>
+<li>与智能手机更多地协同开发，例如，让手机公司设计API，令手机壳能够共享手机的硬件资源和软件资源，让智能手机成为更智能的机器人</li>
+<li>与人机交互更多地协同开发，例如，加上传感器防摔，加上智能手机不能带上的(影响轻薄的)</li>
+<li>手机架本身技术的迭代，更加精密，更加小巧灵活</li>
+</ol>
+<h2 id="2-需要的硬件"><a href="#2-需要的硬件" class="headerlink" title="2.需要的硬件"></a>2.需要的硬件</h2><ul>
+<li>带减速<strong>电机</strong>（带编码器可测速）的<strong>底盘</strong>，<a href="https://item.taobao.com/item.htm?spm=a1z0d.6639537.1997196601.28.1fd17484vCftIy&id=587401653487" target="_blank" rel="noopener">淘宝地址1</a></li>
+<li><strong>MPU6050</strong>（陀螺仪加速度传感器），<a href="https://detail.tmall.com/item.htm?spm=a1z0d.6639537.1997196601.4.ead47484Y2yrYs&id=21261751847" target="_blank" rel="noopener">淘宝地址1</a></li>
+<li>arduino<strong>主芯片</strong>，<a href="https://detail.tmall.com/item.htm?spm=a1z0d.6639537.1997196601.70.1fd17484vCftIy&id=595282328171" target="_blank" rel="noopener">淘宝地址1</a></li>
+<li>其它：电线、</li>
+</ul>
+<h2 id="3-目前的问题"><a href="#3-目前的问题" class="headerlink" title="3.目前的问题"></a>3.目前的问题</h2><p>目前先收集资料，，，，</p>
+<h2 id="4-参考资料"><a href="#4-参考资料" class="headerlink" title="4.参考资料"></a>4.参考资料</h2><p>平衡小机器人：<a href="http://www.pengzhihui.xyz/2015/12/09/nano/" target="_blank" rel="noopener">http://www.pengzhihui.xyz/2015/12/09/nano/</a></p>
+<p>一个论文：<a href="https://wenku.baidu.com/view/c9ff0ffd770bf78a652954e4.html?rec_flag=default" target="_blank" rel="noopener">https://wenku.baidu.com/view/c9ff0ffd770bf78a652954e4.html?rec_flag=default</a></p>
+<p>小米物联网开发者平台：<a href="https://iot.mi.com/vela" target="_blank" rel="noopener">https://iot.mi.com/vela</a></p>
+<h2 id="我们会的"><a href="#我们会的" class="headerlink" title="我们会的"></a>我们会的</h2><p>1.计算机基础<br>2.查找资料</p>
 
             </div>
             <hr/>
@@ -581,7 +562,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/95d1.html">https://www.unielu.com/posts/95d1.html</a>
+                    <a href="https://www.unielu.com/posts/666.html">https://www.unielu.com/posts/666.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -619,12 +600,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/leetcode/">
-                                    <span class="chip bg-color">leetcode</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%BD%AE%E5%BA%95/">
-                                    <span class="chip bg-color">置底</span>
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -933,30 +910,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/8ca6.html">
+                <a href="/posts/9280.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/leetcode.png" class="responsive-img" alt="贪心">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/new-5.jpg" class="responsive-img" alt="小站的更新">
                         
-                        <span class="card-title">贪心</span>
+                        <span class="card-title">小站的更新</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            介绍更新的内容
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-30
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-09
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/other/" class="post-category">
+                                    other
                                 </a>
                             
                             
@@ -966,12 +943,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
-                    <a href="/tags/%E7%BD%AE%E5%BA%95/">
-                        <span class="chip bg-color">置底</span>
+                    <a href="/tags/%E7%BD%AE%E9%A1%B6/">
+                        <span class="chip bg-color">置顶</span>
                     </a>
                     
                 </div>
@@ -985,23 +962,23 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/9199.html">
+                <a href="/posts/hc6t.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/leetcode.png" class="responsive-img" alt="栈">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/medias/featureimages/leetcode.png" class="responsive-img" alt="每日一题(1月)">
                         
-                        <span class="card-title">栈</span>
+                        <span class="card-title">每日一题(1月)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            2021年加油！
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-01
                             </span>
                         <span class="publish-author">
                             
@@ -1020,10 +997,6 @@
                     
                     <a href="/tags/leetcode/">
                         <span class="chip bg-color">leetcode</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%BD%AE%E5%BA%95/">
-                        <span class="chip bg-color">置底</span>
                     </a>
                     
                 </div>
