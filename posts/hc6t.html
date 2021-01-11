@@ -476,14 +476,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-10
+                    2021-01-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    2.2k
                 </div>
                 
 
@@ -733,7 +733,67 @@
         <span class="token keyword">return</span> ans
 
 <span class="token comment" spellcheck="true"># （两个while）+（right指针放区间内的右侧），解决了：后面读不出来，或者list访问越界</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="11-20"><a href="#11-20" class="headerlink" title="11-20"></a><code>11-20</code></h2><h2 id="21-31"><a href="#21-31" class="headerlink" title="21-31"></a><code>21-31</code></h2><h2 id="wuliao"><a href="#wuliao" class="headerlink" title="wuliao"></a>wuliao</h2><h3 id="3-无重复字符的最长子串"><a href="#3-无重复字符的最长子串" class="headerlink" title="3.无重复字符的最长子串"></a>3.无重复字符的最长子串</h3><p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。</p>
+<h2 id="11-20"><a href="#11-20" class="headerlink" title="11-20"></a><code>11-20</code></h2><h3 id="1202-交换字符串中的元素⭐"><a href="#1202-交换字符串中的元素⭐" class="headerlink" title="1202.交换字符串中的元素⭐"></a>1202.交换字符串中的元素⭐</h3><p>给你一个字符串 <code>s</code>，以及该字符串中的一些「索引对」数组 <code>pairs</code>，其中 <code>pairs[i] = [a, b]</code> 表示字符串中的两个索引（编号从 0 开始）。</p>
+<p>你可以 <strong>任意多次交换</strong> 在 <code>pairs</code> 中任意一对索引处的字符。</p>
+<p>返回在经过若干次交换后，<code>s</code> 可以变成的按字典序最小的字符串。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">smallestStringWithSwaps</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">,</span> pairs<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
+        length<span class="token operator">=</span>len<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+        p<span class="token operator">=</span><span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>length<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#初始化，只记录根节点</span>
+
+        <span class="token keyword">def</span> <span class="token function">find</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">while</span> x<span class="token operator">!=</span>p<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                p<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">=</span>p<span class="token punctuation">[</span>p<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">]</span>
+                x<span class="token operator">=</span>p<span class="token punctuation">[</span>x<span class="token punctuation">]</span>
+            <span class="token keyword">return</span> x
+
+        <span class="token keyword">for</span> a_id<span class="token punctuation">,</span>b_id <span class="token keyword">in</span> pairs<span class="token punctuation">:</span>   <span class="token comment" spellcheck="true">#开始合并</span>
+            roota <span class="token operator">=</span> find<span class="token punctuation">(</span>a_id<span class="token punctuation">)</span>
+            rootb <span class="token operator">=</span> find<span class="token punctuation">(</span>b_id<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> roota <span class="token operator">==</span> rootb<span class="token punctuation">:</span>
+                <span class="token keyword">continue</span>
+            p<span class="token punctuation">[</span>rootb<span class="token punctuation">]</span> <span class="token operator">=</span> roota
+
+        <span class="token comment" spellcheck="true"># tmp是相同根的容器</span>
+        tmp<span class="token operator">=</span>collections<span class="token punctuation">.</span>defaultdict<span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>length<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            root<span class="token operator">=</span>find<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+            tmp<span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+
+        ans<span class="token operator">=</span>list<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> same_idxs <span class="token keyword">in</span> tmp<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            same_idxs<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            select_str<span class="token operator">=</span><span class="token punctuation">[</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> same_idxs<span class="token punctuation">]</span>
+            select_str<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> i<span class="token punctuation">,</span>idx <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>same_idxs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                ans<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token operator">=</span>select_str<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+
+        <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>ans<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#关于本题：</span>
+<span class="token comment" spellcheck="true">#1.当成一个图问题</span>
+<span class="token comment" spellcheck="true">#2.索引对的交换具有传递性</span>
+<span class="token comment" spellcheck="true">#3.对于连通的索引直接排序，不连通的不能变动</span>
+
+<span class="token comment" spellcheck="true">#关于并查集：</span>
+<span class="token comment" spellcheck="true">#并查集解决一些元素分组问题，利用合并查询处理不相交的集合</span>
+<span class="token comment" spellcheck="true">#路径压缩：把节点的父节点设为根节点</span>
+<span class="token comment" spellcheck="true">#参考：https://zhuanlan.zhihu.com/p/93647900/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#暴力超时：</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">smallestStringWithSwaps</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">,</span> pairs<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
+        q<span class="token operator">=</span>deque<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> s<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        ans<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">while</span> q<span class="token punctuation">:</span>
+            tmp<span class="token operator">=</span>q<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span>
+            <span class="token keyword">for</span> i<span class="token punctuation">,</span>j <span class="token keyword">in</span> pairs<span class="token punctuation">:</span>
+                t<span class="token operator">=</span>tmp<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                t<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>t<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>t<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>t<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+                <span class="token keyword">if</span> t <span class="token operator">not</span> <span class="token keyword">in</span> ans<span class="token punctuation">:</span> 
+                    q<span class="token punctuation">.</span>append<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> min<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> ans<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="21-31"><a href="#21-31" class="headerlink" title="21-31"></a><code>21-31</code></h2><h2 id="wuliao"><a href="#wuliao" class="headerlink" title="wuliao"></a>wuliao</h2><h3 id="3-无重复字符的最长子串"><a href="#3-无重复字符的最长子串" class="headerlink" title="3.无重复字符的最长子串"></a>3.无重复字符的最长子串</h3><p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
         n<span class="token operator">=</span>len<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
@@ -796,6 +856,33 @@
             <span class="token keyword">return</span> max<span class="token punctuation">(</span>l<span class="token punctuation">,</span>r<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span>   <span class="token comment" spellcheck="true">#当前结点最大深度</span>
         depth<span class="token punctuation">(</span>root<span class="token punctuation">)</span>
         <span class="token keyword">return</span> self<span class="token punctuation">.</span>ans<span class="token number">-1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="二叉树镜像"><a href="#二叉树镜像" class="headerlink" title="二叉树镜像"></a>二叉树镜像</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">mirrorTree</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> TreeNode<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">:</span> <span class="token keyword">return</span> 
+        tmp<span class="token operator">=</span>root<span class="token punctuation">.</span>left
+        root<span class="token punctuation">.</span>left<span class="token operator">=</span>self<span class="token punctuation">.</span>mirrorTree<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+        root<span class="token punctuation">.</span>right<span class="token operator">=</span>self<span class="token punctuation">.</span>mirrorTree<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="混一下"><a href="#混一下" class="headerlink" title="混一下"></a>混一下</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">ParkingSystem</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> big<span class="token punctuation">:</span> int<span class="token punctuation">,</span> medium<span class="token punctuation">:</span> int<span class="token punctuation">,</span> small<span class="token punctuation">:</span> int<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>big<span class="token operator">=</span>big
+        self<span class="token punctuation">.</span>medium<span class="token operator">=</span>medium
+        self<span class="token punctuation">.</span>small<span class="token operator">=</span>small
+    <span class="token keyword">def</span> <span class="token function">addCar</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> carType<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> carType<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>big<span class="token operator">-=</span><span class="token number">1</span>
+            <span class="token keyword">return</span> self<span class="token punctuation">.</span>big<span class="token operator">>=</span><span class="token number">0</span>
+        <span class="token keyword">elif</span> carType<span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>medium<span class="token operator">-=</span><span class="token number">1</span>
+            <span class="token keyword">return</span> self<span class="token punctuation">.</span>medium<span class="token operator">>=</span><span class="token number">0</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>small<span class="token operator">-=</span><span class="token number">1</span>
+            <span class="token keyword">return</span> self<span class="token punctuation">.</span>small<span class="token operator">>=</span><span class="token number">0</span>
+
+<span class="token comment" spellcheck="true">#1.复习一下类...</span>
+<span class="token comment" spellcheck="true">#2.python str 还有replace()</span>
+<span class="token comment" spellcheck="true">#3.zip打包，一个for里多做点事</span>
+<span class="token comment" spellcheck="true">#4.col = [max(i) for i in zip(*matrix)]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1363,7 +1450,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">71.9k</span>&nbsp;字
+                class="white-color">72.4k</span>&nbsp;字
             
             
             
