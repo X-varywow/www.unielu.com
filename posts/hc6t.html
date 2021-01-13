@@ -476,14 +476,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-12
+                    2021-01-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.3k
                 </div>
                 
 
@@ -793,6 +793,21 @@
                 <span class="token keyword">if</span> t <span class="token operator">not</span> <span class="token keyword">in</span> ans<span class="token punctuation">:</span> 
                     q<span class="token punctuation">.</span>append<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
         <span class="token keyword">return</span> min<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> ans<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="684-冗余连接"><a href="#684-冗余连接" class="headerlink" title="684.冗余连接"></a>684.冗余连接</h3><p><a href="https://leetcode-cn.com/problems/redundant-connection/submissions/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/redundant-connection/submissions/</a></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">findRedundantConnection</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> edges<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        dic<span class="token operator">=</span>collections<span class="token punctuation">.</span>defaultdict<span class="token punctuation">(</span>set<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>edges<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            dic<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>add<span class="token punctuation">(</span>i<span class="token punctuation">)</span>           <span class="token comment" spellcheck="true">#并查集初始化</span>
+        <span class="token keyword">for</span> x<span class="token punctuation">,</span>y <span class="token keyword">in</span> edges<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> dic<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">!=</span>dic<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                dic<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">|</span><span class="token operator">=</span>dic<span class="token punctuation">[</span>y<span class="token punctuation">]</span>      <span class="token comment" spellcheck="true">#合并集合</span>
+                <span class="token keyword">for</span> z <span class="token keyword">in</span> dic<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                    dic<span class="token punctuation">[</span>z<span class="token punctuation">]</span><span class="token operator">=</span>dic<span class="token punctuation">[</span>x<span class="token punctuation">]</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>                   <span class="token comment" spellcheck="true">#x,y会形成闭环</span>
+                <span class="token keyword">return</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span>y<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true">#无向图</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="21-31"><a href="#21-31" class="headerlink" title="21-31"></a><code>21-31</code></h2><h2 id="wuliao"><a href="#wuliao" class="headerlink" title="wuliao"></a>wuliao</h2><h3 id="3-无重复字符的最长子串"><a href="#3-无重复字符的最长子串" class="headerlink" title="3.无重复字符的最长子串"></a>3.无重复字符的最长子串</h3><p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
@@ -1450,7 +1465,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">72.5k</span>&nbsp;字
+                class="white-color">72.6k</span>&nbsp;字
             
             
             
