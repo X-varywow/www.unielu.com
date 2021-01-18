@@ -476,14 +476,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-17
+                    2021-01-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    664
+                    748
                 </div>
                 
 
@@ -495,14 +495,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="preface"><a href="#preface" class="headerlink" title="preface"></a><em>preface</em></h2><p>关于<strong>报销</strong>，目前大概率申报成功+报销，听说报销好麻烦，最坏打算吧，当作自己的创业训练项目，把别人的破事加在自己身上是真的憨憨。</p>
+                <h2 id="preface"><a href="#preface" class="headerlink" title="preface"></a><em>preface</em></h2><p>关于<strong>报销</strong>，目前大概率申报成功+报销，听说报销好麻烦，最坏打算吧，当作自己的创业训练项目，把别人的破事加在自己身上是真的憨憨。<br>开票还是开的，<strong>发票抬头</strong>：北京语言大学，<strong>公司税号</strong>：12100000400883084R</p>
 <p>关于学校资源，NLP也是要靠自己学啊，反正互联网能给的已经超过老师了，没有业界大佬带的情况下，自己动手吧。</p>
 <p>关于<strong>这个项目</strong></p>
 <ul>
 <li>硬件先做个基本模型够了，以后的（精度）以后再说</li>
 <li>软件：手机用小爱同学（小米物联网）或蓝牙APP(自己做)控制</li>
 </ul>
-<h2 id="1-项目概述"><a href="#1-项目概述" class="headerlink" title="1.项目概述"></a>1.项目概述</h2><p><strong>开发目的</strong>（创新点）：</p>
+<h2 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h2><p><strong>开发目的</strong>（创新点）：</p>
 <ol>
 <li>自平衡系统的初步应用</li>
 <li>让手机能够动起来，语音的控制实现运动，更加智能</li>
@@ -526,27 +526,26 @@
 <li>与人机交互更多地协同开发，例如，加上传感器防摔，加上智能手机不能带上的(影响轻薄的)</li>
 <li>手机架本身技术的迭代，更加精密，更加小巧灵活</li>
 </ol>
-<h2 id="3-目前的问题"><a href="#3-目前的问题" class="headerlink" title="3.目前的问题"></a>3.目前的问题</h2><p>目前先收集资料，，，，</p>
+<h2 id="目前的问题"><a href="#目前的问题" class="headerlink" title="目前的问题"></a>目前的问题</h2><p>小车重心高低的问题，众说纷纭。。。低些好吧。</p>
 <h2 id="项目历程"><a href="#项目历程" class="headerlink" title="项目历程"></a>项目历程</h2><p><code>Alicia 1.0</code></p>
 <p>先实现基本模型，及平衡</p>
 <ul>
-<li>主控芯片，<a href="https://item.taobao.com/item.htm?spm=a230r.1.14.46.4996a7399YC4gC&id=587405046926&ns=1&abbucket=16#detail" target="_blank" rel="noopener">淘宝地址</a></li>
-<li>带减速<strong>电机</strong>（带编码器可测速）的<strong>底盘</strong>，<a href="https://item.taobao.com/item.htm?spm=a1z0d.6639537.1997196601.28.1fd17484vCftIy&id=587401653487" target="_blank" rel="noopener">淘宝地址1</a></li>
+<li>主控芯片BLE-NANO，<a href="https://item.taobao.com/item.htm?spm=a230r.1.14.46.4996a7399YC4gC&id=587405046926&ns=1&abbucket=16#detail" target="_blank" rel="noopener">淘宝地址</a></li>
+<li><strong>减速电机</strong>（带编码器可测速），<a href="https://item.taobao.com/item.htm?spm=a1z0d.6639537.1997196601.15.3a987484urDYqx&id=622178634021" target="_blank" rel="noopener">淘宝地址</a>【参考一下他人的，选择了DC 6V A06型 减速比1：30 额定转速为300rpm 43mm轮子】</li>
 <li><strong>MPU6050</strong>（陀螺仪加速度传感器），<a href="https://detail.tmall.com/item.htm?spm=a1z0d.6639537.1997196601.4.ead47484Y2yrYs&id=21261751847" target="_blank" rel="noopener">淘宝地址1</a></li>
+<li>电池，<a href="https://item.taobao.com/item.htm?spm=a1z0d.6639537.1997196601.4.3a987484urDYqx&id=573013194357" target="_blank" rel="noopener">淘宝地址</a>，12V，串联两个电机</li>
+<li>电机驱动，目前还没弄明白</li>
+<li>其它东西，超声波模块，arduino屏幕（以前留下来的），电线，胶带</li>
 </ul>
-<p>正在实践中，PID实现自平衡即可告一段落</p>
-<h2 id="4-参考资料"><a href="#4-参考资料" class="headerlink" title="4.参考资料"></a>4.参考资料</h2><p>平衡小机器人：<a href="http://www.pengzhihui.xyz/2015/12/09/nano/" target="_blank" rel="noopener">http://www.pengzhihui.xyz/2015/12/09/nano/</a></p>
-<p>一个论文：<a href="https://wenku.baidu.com/view/c9ff0ffd770bf78a652954e4.html?rec_flag=default" target="_blank" rel="noopener">https://wenku.baidu.com/view/c9ff0ffd770bf78a652954e4.html?rec_flag=default</a></p>
-<p>小米物联网开发者平台：<a href="https://iot.mi.com/vela" target="_blank" rel="noopener">https://iot.mi.com/vela</a></p>
+<p>还是要弄一个3D模式去打印一下</p>
+<p>正在实践中，东西固定在纸板上，PID实现自平衡即可告一段落</p>
 <h2 id="参考项目"><a href="#参考项目" class="headerlink" title="参考项目"></a>参考项目</h2><p>① <a href="http://www.pengzhihui.xyz/2015/12/09/nano/" target="_blank" rel="noopener">蛋黄与nano —— 一个小巧的自平衡机器</a></p>
 <p>② <a href="http://nicekwell.net/blog/20180118/zi-xing-che-ping-heng-yuan-li.html" target="_blank" rel="noopener">平衡自行车</a></p>
 <p>③<a href="http://www.elecfans.com/d/1047572.html" target="_blank" rel="noopener">自平衡</a></p>
 <p>④<a href="http://www.pengzhihui.xyz/2019/07/15/pico/" target="_blank" rel="noopener">语音助手Pico</a></p>
-<p>自平衡教程1：<a href="https://blog.csdn.net/jsgaobiao/article/details/50643037" target="_blank" rel="noopener">https://blog.csdn.net/jsgaobiao/article/details/50643037</a><br><a href="https://blog.csdn.net/jsgaobiao/article/details/50640523?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-11.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-11.control" target="_blank" rel="noopener">自平衡教程2</a><br><a href="https://blog.csdn.net/jsgaobiao/article/details/50759878?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-2&spm=1001.2101.3001.4242" target="_blank" rel="noopener">自平衡教程3</a></p>
-<p><a href="https://blog.csdn.net/zhaoyuaiweide/article/details/54573676" target="_blank" rel="noopener">位置PID分析即调参</a></p>
-<p>仿：<a href="https://zhuanlan.zhihu.com/p/105208598" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/105208598</a></p>
-<p>磁悬浮。。。</p>
-<p>一些论文：<br><a href="https://wenku.baidu.com/view/c9ff0ffd770bf78a652954e4.html?rec_flag=default" target="_blank" rel="noopener">https://wenku.baidu.com/view/c9ff0ffd770bf78a652954e4.html?rec_flag=default</a></p>
+<p>⑤<a href="https://blog.csdn.net/jsgaobiao/article/details/50643037" target="_blank" rel="noopener">自平衡教程1</a> <a href="https://blog.csdn.net/jsgaobiao/article/details/50640523?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-11.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-11.control" target="_blank" rel="noopener">自平衡教程2</a> <a href="https://blog.csdn.net/jsgaobiao/article/details/50759878?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-2&spm=1001.2101.3001.4242" target="_blank" rel="noopener">自平衡教程3</a></p>
+<p>⑥知乎自制平衡车：<a href="https://zhuanlan.zhihu.com/p/105208598" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/105208598</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>①<a href="https://blog.csdn.net/zhaoyuaiweide/article/details/54573676" target="_blank" rel="noopener">位置PID分析及调参</a><br>②<a href="https://wenku.baidu.com/view/c9ff0ffd770bf78a652954e4.html?rec_flag=default" target="_blank" rel="noopener">自平衡论文1</a><br>③小米物联网开发者平台：<a href="https://iot.mi.com/vela" target="_blank" rel="noopener">https://iot.mi.com/vela</a></p>
 
             </div>
             <hr/>
@@ -1114,7 +1113,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">73.8k</span>&nbsp;字
+                class="white-color">74.2k</span>&nbsp;字
             
             
             

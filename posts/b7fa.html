@@ -480,14 +480,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-07
+                    2021-01-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.2k
                 </div>
                 
 
@@ -499,7 +499,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="322-重新安排行程（8-27"><a href="#322-重新安排行程（8-27" class="headerlink" title="322.重新安排行程（8.27)"></a>322.重新安排行程（<code>8.27</code>)</h3><p>给定一个机票的字符串二维数组 [from, to]，子数组中的两个成员分别表示飞机出发和降落的机场地点，对该行程进行重新规划排序。所有这些机票都属于一个从 JFK（肯尼迪国际机场）出发的先生，所以该行程必须从 JFK 开始。</p>
+                <h2 id="preface"><a href="#preface" class="headerlink" title="preface"></a><em>preface</em></h2><p>在无向图中，如果从顶点<code>vi</code>到顶点<code>vj</code>有路径，则称<code>vi</code>和<code>vj</code>连通。如果图中任意两个顶点之间都连通，则称该图为<strong>连通图</strong>，否则，称该图为非连通图，则其中的极大连通子图称为<strong>连通分量</strong>，这里所谓的极大是指子图中包含的顶点个数极大。在有向图中，如果对于每一对顶点vi和vj，从<code>vi</code>到<code>vj</code>和从<code>vj</code>到<code>vi</code>都有路径，则称该图为<strong>强连通图</strong>；否则，将其中的极大强连通子图称为<strong>强连通分量</strong>。</p>
+<hr>
+<p>算法笔记（并查集）：<a href="https://zhuanlan.zhihu.com/p/93647900" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/93647900</a></p>
+<h2 id="322-重新安排行程（8-27"><a href="#322-重新安排行程（8-27" class="headerlink" title="322.重新安排行程（8.27)"></a>322.重新安排行程（<code>8.27</code>)</h2><p>给定一个机票的字符串二维数组 [from, to]，子数组中的两个成员分别表示飞机出发和降落的机场地点，对该行程进行重新规划排序。所有这些机票都属于一个从 JFK（肯尼迪国际机场）出发的先生，所以该行程必须从 JFK 开始。</p>
 <p>说明:</p>
 <ul>
 <li>如果存在多种有效的行程，你可以按字符自然排序返回最小的行程组合。例如，行程 [“JFK”, “LGA”] 与 [“JFK”, “LGB”] 相比就更小，排序更靠前</li>
@@ -556,7 +559,7 @@
 <li>最后逆序的输出即可。</li>
 </ol>
 </blockquote>
-<h3 id="133-克隆图（8-12"><a href="#133-克隆图（8-12" class="headerlink" title="133. 克隆图（8.12)"></a>133. 克隆图（<code>8.12</code>)</h3><p>给你无向 连通 图中一个节点的引用，请你返回该图的 深拷贝（克隆）。</p>
+<h2 id="133-克隆图（8-12"><a href="#133-克隆图（8-12" class="headerlink" title="133.克隆图（8.12)"></a>133.克隆图（<code>8.12</code>)</h2><p>给你无向 连通 图中一个节点的引用，请你返回该图的 深拷贝（克隆）。</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>visited<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">#新node字典</span>
@@ -574,7 +577,7 @@
 
 <span class="token comment" spellcheck="true"># 对于一张图而言，它的深拷贝即构建一张与原图结构，值均一样的图，但是其中的节点不再是原来图节点的引用.</span>
 <span class="token comment" spellcheck="true"># 或者用copy.deepcopy</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="207-课程表（8-4"><a href="#207-课程表（8-4" class="headerlink" title="207. 课程表（8.4)"></a>207. 课程表（<code>8.4</code>)</h3><p>你这个学期必须选修 <code>numCourse</code> 门课程，记为 <code>0</code> 到 <code>numCourse-1</code> 。</p>
+<h2 id="207-课程表（8-4"><a href="#207-课程表（8-4" class="headerlink" title="207.课程表（8.4)"></a>207.课程表（<code>8.4</code>)</h2><p>你这个学期必须选修 <code>numCourse</code> 门课程，记为 <code>0</code> 到 <code>numCourse-1</code> 。</p>
 <p>在选修某些课程之前需要一些先修课程。 例如，想要学习课程 <code>0</code> ，你需要先完成课程 <code>1</code> ，我们用一个匹配来表示他们：<code>[0,1]</code></p>
 <p>给定课程总量以及它们的先决条件，请你判断是否可能完成所有课程的学习？</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
@@ -1185,7 +1188,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">73.8k</span>&nbsp;字
+                class="white-color">74.2k</span>&nbsp;字
             
             
             

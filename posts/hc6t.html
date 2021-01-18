@@ -476,14 +476,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-17
+                    2021-01-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.5k
                 </div>
                 
 
@@ -817,6 +817,38 @@
             <span class="token keyword">if</span> <span class="token punctuation">(</span>yi<span class="token operator">-</span>y1<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>x2<span class="token operator">-</span>x1<span class="token punctuation">)</span><span class="token operator">!=</span><span class="token punctuation">(</span>y2<span class="token operator">-</span>y1<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>xi<span class="token operator">-</span>x1<span class="token punctuation">)</span><span class="token punctuation">:</span>
                 <span class="token keyword">return</span> <span class="token boolean">False</span>
         <span class="token keyword">return</span> <span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="721-账户合并"><a href="#721-账户合并" class="headerlink" title="721.账户合并"></a>721.账户合并</h3><p><a href="https://leetcode-cn.com/problems/accounts-merge/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/accounts-merge/</a></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#思路：建立并查集，将可以连接的account合并。</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">accountsMerge</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> accounts<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        f<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+        <span class="token keyword">def</span> <span class="token function">find</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            f<span class="token punctuation">.</span>setdefault<span class="token punctuation">(</span>x<span class="token punctuation">,</span>x<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#不存在 key=x 就初始化</span>
+            <span class="token keyword">while</span> f<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">!=</span>x<span class="token punctuation">:</span>
+                f<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">=</span>f<span class="token punctuation">[</span>f<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">]</span>
+                x<span class="token operator">=</span>f<span class="token punctuation">[</span>x<span class="token punctuation">]</span>
+            <span class="token keyword">return</span> x
+
+        <span class="token keyword">def</span> <span class="token function">union</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            f<span class="token punctuation">[</span>find<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token operator">=</span>find<span class="token punctuation">(</span>y<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#将x连到y的根上</span>
+
+        visited<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+        n<span class="token operator">=</span>len<span class="token punctuation">(</span>accounts<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i<span class="token punctuation">,</span>account <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>accounts<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true">#进行连接</span>
+            name<span class="token punctuation">,</span>email<span class="token operator">=</span>account<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>account<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+            <span class="token keyword">for</span> e <span class="token keyword">in</span> email<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> e <span class="token keyword">in</span> visited<span class="token punctuation">:</span>
+                    union<span class="token punctuation">(</span>i<span class="token punctuation">,</span>visited<span class="token punctuation">[</span>e<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    visited<span class="token punctuation">[</span>e<span class="token punctuation">]</span><span class="token operator">=</span>i
+
+        disjointSet<span class="token operator">=</span>collections<span class="token punctuation">.</span>defaultdict<span class="token punctuation">(</span>set<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            root<span class="token operator">=</span>find<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+            <span class="token keyword">for</span> es <span class="token keyword">in</span> accounts<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                disjointSet<span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token punctuation">.</span>add<span class="token punctuation">(</span>es<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#print(disjointSet)</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>accounts<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span>list<span class="token punctuation">(</span>sorted<span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> key<span class="token punctuation">,</span>val <span class="token keyword">in</span> disjointSet<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="21-31"><a href="#21-31" class="headerlink" title="21-31"></a><code>21-31</code></h2><h2 id="wuliao"><a href="#wuliao" class="headerlink" title="wuliao"></a>wuliao</h2><h3 id="3-无重复字符的最长子串"><a href="#3-无重复字符的最长子串" class="headerlink" title="3.无重复字符的最长子串"></a>3.无重复字符的最长子串</h3><p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
@@ -1474,7 +1506,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">73.8k</span>&nbsp;字
+                class="white-color">74.2k</span>&nbsp;字
             
             
             
