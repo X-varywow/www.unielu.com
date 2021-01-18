@@ -298,19 +298,6 @@
 </header>
 
     
-<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.0/libs/cryptojs/crypto-js.min.js"></script>
-<script>
-    (function() {
-        let pwd = '2fe98face8187bcd9a099889cbb3d02c4a80b9fc72ec9f9f5e121c8d4aa8645d';
-        if (pwd && pwd.length > 0) {
-            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
-                alert('密码错误，将返回主页！');
-                location.href = '/';
-            }
-        }
-    })();
-</script>
-
 
 
 
@@ -483,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    748
+                    777
                 </div>
                 
 
@@ -535,7 +522,8 @@
 <li><strong>MPU6050</strong>（陀螺仪加速度传感器），<a href="https://detail.tmall.com/item.htm?spm=a1z0d.6639537.1997196601.4.ead47484Y2yrYs&id=21261751847" target="_blank" rel="noopener">淘宝地址1</a></li>
 <li>电池，<a href="https://item.taobao.com/item.htm?spm=a1z0d.6639537.1997196601.4.3a987484urDYqx&id=573013194357" target="_blank" rel="noopener">淘宝地址</a>，12V，串联两个电机</li>
 <li>电机驱动，目前还没弄明白</li>
-<li>其它东西，超声波模块，arduino屏幕（以前留下来的），电线，胶带</li>
+<li>其它：超声波模块，arduino屏幕（以前留下来的），直角固定架（暂时用的纸板，以后3D打印时不需要了）</li>
+<li>耗材：电线，胶带，热熔枪，电烙铁，纸板</li>
 </ul>
 <p>还是要弄一个3D模式去打印一下</p>
 <p>正在实践中，东西固定在纸板上，PID实现自平衡即可告一段落</p>
