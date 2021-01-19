@@ -16,7 +16,7 @@
 /*大屏幕下(桌面类)的样式*/
 @media only screen and (min-width: 993px) {
     .container {
-        width: 100%;
+        width: 90%;
         max-width: 1125px;
     }
 
@@ -37,6 +37,8 @@ body {
     background-color: #eaeaea;
     margin: 0;
     color: #34495e;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 h1 {
@@ -266,7 +268,7 @@ mark {
     position: fixed;
     bottom: 0;
     z-index: 300;
-    background: linear-gradient(to right, rgb(64, 224, 208), rgb(255, 140, 0), rgb(255, 0, 128));
+    background: linear-gradient(to right, #74EBD5, #ACB6E5);
     opacity: 0.8;
 }
 
@@ -1090,9 +1092,14 @@ article .article-tags .chip {
 
 #articleContent a {
     padding: 0 2px;
-    color: #ff461f;
+    color: #2323cc;
+    text-decoration:underline;
     font-weight: 500;
     word-wrap: break-word;
+}
+
+#articleContent a:hover{
+    color:#6c6cee;
 }
 
 #articleContent .img-item {
