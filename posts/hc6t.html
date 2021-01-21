@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-20
+                    2021-01-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.2k
+                    3.8k
                 </div>
                 
 
@@ -902,7 +902,136 @@
     <span class="token keyword">def</span> <span class="token function">maximumProduct</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
         nums<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token keyword">return</span> max<span class="token punctuation">(</span>nums<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span>nums<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">*</span>nums<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span>nums<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span>nums<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="21-31"><a href="#21-31" class="headerlink" title="21-31"></a><code>21-31</code></h2><h2 id="wuliao"><a href="#wuliao" class="headerlink" title="wuliao"></a>wuliao</h2><h3 id="3-无重复字符的最长子串"><a href="#3-无重复字符的最长子串" class="headerlink" title="3.无重复字符的最长子串"></a>3.无重复字符的最长子串</h3><p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。</p>
+<h2 id="21-31"><a href="#21-31" class="headerlink" title="21-31"></a><code>21-31</code></h2><h3 id="1489-找到最小生成树里的关键边和伪关键边"><a href="#1489-找到最小生成树里的关键边和伪关键边" class="headerlink" title="1489.找到最小生成树里的关键边和伪关键边"></a>1489.找到最小生成树里的关键边和伪关键边</h3><p>给定n个点的带权无向连通图。<br>求关键边（每种最小生成树都有的边）<br>伪关键边（出现在最小生成树中，但不必全部出现）</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 并查集模板</span>
+<span class="token keyword">class</span> <span class="token class-name">UnionFind</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>parent <span class="token operator">=</span> list<span class="token punctuation">(</span>range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>size <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> n
+        self<span class="token punctuation">.</span>n <span class="token operator">=</span> n
+        <span class="token comment" spellcheck="true"># 当前连通分量数目</span>
+        self<span class="token punctuation">.</span>setCount <span class="token operator">=</span> n
+
+    <span class="token keyword">def</span> <span class="token function">findset</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>parent<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">==</span> x<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> x
+        self<span class="token punctuation">.</span>parent<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> self<span class="token punctuation">.</span>findset<span class="token punctuation">(</span>self<span class="token punctuation">.</span>parent<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>parent<span class="token punctuation">[</span>x<span class="token punctuation">]</span>
+
+    <span class="token keyword">def</span> <span class="token function">unite</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">:</span> int<span class="token punctuation">,</span> y<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        x<span class="token punctuation">,</span> y <span class="token operator">=</span> self<span class="token punctuation">.</span>findset<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>findset<span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> x <span class="token operator">==</span> y<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>size<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">&lt;</span> self<span class="token punctuation">.</span>size<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            x<span class="token punctuation">,</span> y <span class="token operator">=</span> y<span class="token punctuation">,</span> x
+        self<span class="token punctuation">.</span>parent<span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> x
+        self<span class="token punctuation">.</span>size<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">+=</span> self<span class="token punctuation">.</span>size<span class="token punctuation">[</span>y<span class="token punctuation">]</span>
+        self<span class="token punctuation">.</span>setCount <span class="token operator">-=</span> <span class="token number">1</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+
+    <span class="token keyword">def</span> <span class="token function">connected</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">:</span> int<span class="token punctuation">,</span> y<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        x<span class="token punctuation">,</span> y <span class="token operator">=</span> self<span class="token punctuation">.</span>findset<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>findset<span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> x <span class="token operator">==</span> y
+
+<span class="token comment" spellcheck="true"># Tarjan 算法求桥边模版</span>
+<span class="token keyword">class</span> <span class="token class-name">TarjanSCC</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">,</span> edges<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> edgesId<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>n <span class="token operator">=</span> n
+        self<span class="token punctuation">.</span>edges <span class="token operator">=</span> edges
+        self<span class="token punctuation">.</span>edgesId <span class="token operator">=</span> edgesId
+        self<span class="token punctuation">.</span>low <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> n
+        self<span class="token punctuation">.</span>dfn <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> n
+        self<span class="token punctuation">.</span>ans <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>ts <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+
+    <span class="token keyword">def</span> <span class="token function">getCuttingEdge</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>self<span class="token punctuation">.</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>dfn<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>pGetCuttingEdge<span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>ans
+
+    <span class="token keyword">def</span> <span class="token function">pGetCuttingEdge</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> u<span class="token punctuation">:</span> int<span class="token punctuation">,</span> parentEdgeId<span class="token punctuation">:</span> int<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>ts <span class="token operator">+=</span> <span class="token number">1</span>
+        self<span class="token punctuation">.</span>low<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">=</span> self<span class="token punctuation">.</span>dfn<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">=</span> self<span class="token punctuation">.</span>ts
+        <span class="token keyword">for</span> v<span class="token punctuation">,</span> iden <span class="token keyword">in</span> zip<span class="token punctuation">(</span>self<span class="token punctuation">.</span>edges<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>edgesId<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>dfn<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>pGetCuttingEdge<span class="token punctuation">(</span>v<span class="token punctuation">,</span> iden<span class="token punctuation">)</span>
+                self<span class="token punctuation">.</span>low<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">=</span> min<span class="token punctuation">(</span>self<span class="token punctuation">.</span>low<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>low<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <span class="token keyword">if</span> self<span class="token punctuation">.</span>low<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">></span> self<span class="token punctuation">.</span>dfn<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                    self<span class="token punctuation">.</span>ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>iden<span class="token punctuation">)</span>
+            <span class="token keyword">elif</span> iden <span class="token operator">!=</span> parentEdgeId<span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>low<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">=</span> min<span class="token punctuation">(</span>self<span class="token punctuation">.</span>low<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>dfn<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">findCriticalAndPseudoCriticalEdges</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">,</span> edges<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        m <span class="token operator">=</span> len<span class="token punctuation">(</span>edges<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i<span class="token punctuation">,</span> edge <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>edges<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            edge<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        edges<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+        uf <span class="token operator">=</span> UnionFind<span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+        ans0 <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        label <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> m
+
+        i <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">while</span> i <span class="token operator">&lt;</span> m<span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># 找出所有权值为 w 的边，下标范围为 [i, j)</span>
+            w <span class="token operator">=</span> edges<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+            j <span class="token operator">=</span> i
+            <span class="token keyword">while</span> j <span class="token operator">&lt;</span> m <span class="token operator">and</span> edges<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">==</span> edges<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                j <span class="token operator">+=</span> <span class="token number">1</span>
+
+            <span class="token comment" spellcheck="true"># 存储每个连通分量在图 G 中的编号</span>
+            compToId <span class="token operator">=</span> dict<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true"># 图 G 的节点数</span>
+            gn <span class="token operator">=</span> <span class="token number">0</span>
+
+            <span class="token keyword">for</span> k <span class="token keyword">in</span> range<span class="token punctuation">(</span>i<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                x <span class="token operator">=</span> uf<span class="token punctuation">.</span>findset<span class="token punctuation">(</span>edges<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                y <span class="token operator">=</span> uf<span class="token punctuation">.</span>findset<span class="token punctuation">(</span>edges<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <span class="token keyword">if</span> x <span class="token operator">!=</span> y<span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> x <span class="token operator">not</span> <span class="token keyword">in</span> compToId<span class="token punctuation">:</span>
+                        compToId<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> gn
+                        gn <span class="token operator">+=</span> <span class="token number">1</span>
+                    <span class="token keyword">if</span> y <span class="token operator">not</span> <span class="token keyword">in</span> compToId<span class="token punctuation">:</span>
+                        compToId<span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> gn
+                        gn <span class="token operator">+=</span> <span class="token number">1</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    <span class="token comment" spellcheck="true"># 将自环边标记为 -1</span>
+                    label<span class="token punctuation">[</span>edges<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+
+            <span class="token comment" spellcheck="true"># 图 G 的边</span>
+            gm <span class="token operator">=</span> collections<span class="token punctuation">.</span>defaultdict<span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+            gmid <span class="token operator">=</span> collections<span class="token punctuation">.</span>defaultdict<span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+
+            <span class="token keyword">for</span> k <span class="token keyword">in</span> range<span class="token punctuation">(</span>i<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                x <span class="token operator">=</span> uf<span class="token punctuation">.</span>findset<span class="token punctuation">(</span>edges<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                y <span class="token operator">=</span> uf<span class="token punctuation">.</span>findset<span class="token punctuation">(</span>edges<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <span class="token keyword">if</span> x <span class="token operator">!=</span> y<span class="token punctuation">:</span>
+                    idx<span class="token punctuation">,</span> idy <span class="token operator">=</span> compToId<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">,</span> compToId<span class="token punctuation">[</span>y<span class="token punctuation">]</span>
+                    gm<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>idy<span class="token punctuation">)</span>
+                    gmid<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>edges<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                    gm<span class="token punctuation">[</span>idy<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>idx<span class="token punctuation">)</span>
+                    gmid<span class="token punctuation">[</span>idy<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>edges<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+            bridges <span class="token operator">=</span> TarjanSCC<span class="token punctuation">(</span>gn<span class="token punctuation">,</span> gm<span class="token punctuation">,</span> gmid<span class="token punctuation">)</span><span class="token punctuation">.</span>getCuttingEdge<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true"># 将桥边（关键边）标记为 1</span>
+            ans0<span class="token punctuation">.</span>extend<span class="token punctuation">(</span>bridges<span class="token punctuation">)</span>
+            <span class="token keyword">for</span> iden <span class="token keyword">in</span> bridges<span class="token punctuation">:</span>
+                label<span class="token punctuation">[</span>iden<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+
+            <span class="token keyword">for</span> k <span class="token keyword">in</span> range<span class="token punctuation">(</span>i<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                uf<span class="token punctuation">.</span>unite<span class="token punctuation">(</span>edges<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> edges<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+            i <span class="token operator">=</span> j
+
+        <span class="token comment" spellcheck="true"># 未标记的边即为非桥边（伪关键边）</span>
+        ans1 <span class="token operator">=</span> <span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>m<span class="token punctuation">)</span> <span class="token keyword">if</span> label<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">]</span>
+
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>ans0<span class="token punctuation">,</span> ans1<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true">#copy,溜了溜了</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="wuliao"><a href="#wuliao" class="headerlink" title="wuliao"></a>wuliao</h2><h3 id="3-无重复字符的最长子串"><a href="#3-无重复字符的最长子串" class="headerlink" title="3.无重复字符的最长子串"></a>3.无重复字符的最长子串</h3><p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
         n<span class="token operator">=</span>len<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
@@ -1588,7 +1717,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">76.7k</span>&nbsp;字
+                class="white-color">77.7k</span>&nbsp;字
             
             
             
