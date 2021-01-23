@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-21
+                    2021-01-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.3k
                 </div>
                 
 
@@ -489,16 +489,18 @@
 <li>硬件先做个基本模型够了，以后的（精度）以后再说</li>
 <li>软件：手机用小爱同学（小米物联网）或蓝牙APP(自己做)控制</li>
 </ul>
+<p>人们会因为看不到价值而否定，但并不代表你做的事没有价值。</p>
 <h2 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h2><p><strong>开发目的</strong>（创新点）：</p>
 <ol>
 <li>自平衡系统的初步应用</li>
-<li>让手机能够动起来，语音的控制实现运动，更加智能</li>
-<li>先实现小爱同学的语音控制，默认自平衡的话，小爱实现运动</li>
-<li>不想扯啊，如果面向应用的话，人脸跟随（直播）。。。如果非要广告口号的话：让手机更加智能</li>
+<li>让手机能够运动，更加智能</li>
+<li>先看能否小爱同学实现语音控制</li>
 </ol>
 <p><strong>需要的技术</strong>：</p>
 <ol>
 <li>自平衡</li>
+<li>电子基础</li>
+<li>安卓开发</li>
 <li>小米物联网嵌入式开发（当前用小米语音、xiaomi-vela的解决方案）</li>
 </ol>
 <p><strong>实际可以实现功能</strong>：</p>
@@ -514,6 +516,7 @@
 <li>手机架本身技术的迭代，更加精密，更加小巧灵活</li>
 </ol>
 <h2 id="目前的问题"><a href="#目前的问题" class="headerlink" title="目前的问题"></a>目前的问题</h2><p>小车重心高低的问题，众说纷纭。。。低些好吧。</p>
+<p>小米物联网方案有效性问题…企业开发组认证…</p>
 <h2 id="项目历程"><a href="#项目历程" class="headerlink" title="项目历程"></a>项目历程</h2><p><code>Alicia 1.0</code></p>
 <p>先实现基本模型，及平衡</p>
 <ul>
@@ -521,7 +524,7 @@
 <li><strong>减速电机</strong>（带编码器可测速），<a href="https://item.taobao.com/item.htm?spm=a1z0d.6639537.1997196601.15.3a987484urDYqx&id=622178634021" target="_blank" rel="noopener">淘宝地址</a>【参考一下他人的，选择了DC 6V A06型 减速比1：30 额定转速为300rpm 43mm轮子】</li>
 <li><strong>MPU6050</strong>（3轴陀螺仪3轴加速计传感器），<a href="https://detail.tmall.com/item.htm?spm=a1z0d.6639537.1997196601.4.ead47484Y2yrYs&id=21261751847" target="_blank" rel="noopener">淘宝地址</a> 【GY-521，IIC通信】</li>
 <li>电池，<a href="https://item.taobao.com/item.htm?spm=a1z0d.6639537.1997196601.4.3a987484urDYqx&id=573013194357" target="_blank" rel="noopener">淘宝地址</a>，12V，串联两个电机</li>
-<li>电机驱动，TB6612电机驱动，<a href="https://detail.tmall.com/item.htm?id=41248562401&spm=a1z09.2.0.0.e5952e8dA6V6DY&_u=j2029c35dm3076" target="_blank" rel="noopener">淘宝地址</a></li>
+<li>电机驱动，TB6612FNG电机驱动板模块，<a href="https://detail.tmall.com/item.htm?id=41248562401&spm=a1z09.2.0.0.e5952e8dA6V6DY&_u=j2029c35dm3076" target="_blank" rel="noopener">淘宝地址</a></li>
 <li>其它：超声波模块，直角固定架（暂时用的纸板，以后3D打印时不需要了）</li>
 <li>耗材：电线，胶带，热熔枪，电烙铁，纸板</li>
 </ul>
@@ -535,16 +538,22 @@
 <p>⑥<a href="https://www.bilibili.com/video/BV1ar4y1F77f" target="_blank" rel="noopener">25分钟平衡小车</a></p>
 <p>⑦<a href="https://zhuanlan.zhihu.com/p/105208598" target="_blank" rel="noopener">自制平衡车-来自知乎</a></p>
 <p>⑧<a href="https://blog.csdn.net/q296264785/article/details/106297909" target="_blank" rel="noopener">蓝牙控制小车</a></p>
-<p>⑩<a href="https://www.jianshu.com/p/4ecc99679451" target="_blank" rel="noopener">android蓝牙开发</a>⭐</p>
-<p><a href="https://blog.csdn.net/c10wtiybq1ye3/article/details/106416257" target="_blank" rel="noopener">android蓝牙串口开发</a></p>
+<p>⑨<a href="https://www.jianshu.com/p/4ecc99679451" target="_blank" rel="noopener">android蓝牙开发</a>⭐</p>
+<p>⑩<a href="https://blog.csdn.net/c10wtiybq1ye3/article/details/106416257" target="_blank" rel="noopener">android蓝牙串口开发</a></p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>①<a href="https://www.bilibili.com/video/BV1et4y1i7Gm" target="_blank" rel="noopener">PID控制算法解释视频</a></p>
 <p>①<a href="https://blog.csdn.net/zhaoyuaiweide/article/details/54573676" target="_blank" rel="noopener">位置PID分析及调参</a><br>②<a href="https://wenku.baidu.com/view/c9ff0ffd770bf78a652954e4.html?rec_flag=default" target="_blank" rel="noopener">自平衡论文1</a></p>
 <p>③<a href="https://iot.mi.com/vela" target="_blank" rel="noopener">小米物联网开发者平台</a><br>④<a href="https://blog.csdn.net/chungle2011/article/details/76832813" target="_blank" rel="noopener">步进电机和减速电机的区别</a></p>
 <p>⑤<a href="https://zhuanlan.zhihu.com/p/20082486" target="_blank" rel="noopener">Arduino教程：MPU6050的数据获取、分析与处理</a>⭐</p>
+<p>⑥<a href="https://iot.mi.com/new/doc/guidelines-for-access/direct-access/overview#BLE" target="_blank" rel="noopener">使用BLE（低功耗蓝牙技术）进行小米物联网开发</a></p>
+<p><a href="https://blog.csdn.net/qq_39400113/article/details/107578869" target="_blank" rel="noopener">TB6612FNG与直流电机控制</a></p>
 <p>altium designer PCB板的设计<br>上位机的制作</p>
+<hr>
+<p>关于模型，DIY的效果总是不理想，<strong>CAD建模</strong></p>
+<p>目前使用的中望3D2021，跟着自带的教程学。</p>
 <hr>
 <p>关于<strong>电机驱动</strong>，查阅到arduino uno的IO引脚支持电流20ma，3.3V引脚支持电流50ma，仅能驱动LED等小功率负载设备。大功率驱动不了，还可能烧板子。</p>
 <p>驱动电机需要较大电流，单片机的作用在于高低点平控制电机而不是直接驱动。</p>
+<p>其它: 空心杯电机，<a href="https://detail.tmall.com/item.htm?id=548244181238" target="_blank" rel="noopener">买着玩玩</a>，35000~50000转速，转起来有点吓人…</p>
 <hr>
 <p><strong>PID</strong>：一种应用广泛的控制算法。</p>
 <ul>
@@ -695,6 +704,15 @@ byte comdata<span class="token punctuation">;</span>
 </ul>
 </li>
 </ul>
+<hr>
+<p><strong>安卓控制应用开发</strong></p>
+<hr>
+<p><strong>关于小米物联网</strong><br>目的：①更好调用手机的功能②了解IOT，软硬件开发<br><code>Xiaomi Vela</code> 是小米基于NuttX（RTOS实时操作系统）打造的物联网嵌入式软件平台，Vela在各种物联网硬件平台上提供统一的软件服务。</p>
+<ul>
+<li>Xiaomi Vela对系统资源的要求远小于Linux，但是可以提供和Linux系统相近的功能和性能，可以被看作很多低端Linux系统的替代方案，切换到Xiaomi Vela以后，可以降低硬件成本，提升产品整体的性价比。</li>
+</ul>
+<p>…企业开发组认证中</p>
+<p>企业好像可以白嫖小米智能模组，<a href="https://iot.mi.com/new/doc/introduction/module?keywords=%E5%B0%8F%E7%B1%B3%E6%99%BA%E8%83%BD%E6%A8%A1%E7%BB%84#%E9%87%87%E8%B4%AD%E5%89%8D%E9%A1%BB%E7%9F%A5" target="_blank" rel="noopener">采购前须知</a></p>
 
             </div>
             <hr/>
@@ -1068,32 +1086,28 @@ byte comdata<span class="token punctuation">;</span>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/milot.html">
+                <a href="/posts/contest224.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/medias/featureimages/book.jpg" class="responsive-img" alt="小米iot开发">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/medias/featureimages/20181114.jpg" class="responsive-img" alt="周赛笔记224">
                         
-                        <span class="card-title">小米iot开发</span>
+                        <span class="card-title">周赛笔记224</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            整理中
+                            无
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-11
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-17
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%89%A9%E8%81%94%E7%BD%91/" class="post-category">
-                                    物联网
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ╯晓~
                             
                         </span>
                     </div>
@@ -1101,8 +1115,8 @@ byte comdata<span class="token punctuation">;</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/iot/">
-                        <span class="chip bg-color">iot</span>
+                    <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">leetcode比赛</span>
                     </a>
                     
                 </div>
@@ -1262,7 +1276,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">77.7k</span>&nbsp;字
+                class="white-color">78.2k</span>&nbsp;字
             
             
             

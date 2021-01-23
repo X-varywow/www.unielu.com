@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-19
+                    2021-01-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.5k
                 </div>
                 
 
@@ -482,8 +482,34 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a><em>指针</em></h2><hr>
-<h3 id="指针变量"><a href="#指针变量" class="headerlink" title="指针变量"></a>指针变量</h3><p><strong>指针是个变量，存放内存单元的地址。</strong></p>
+                <hr>
+<p>存储类定义了程序中变量、函数的可见性和生命周期。</p>
+<table>
+<thead>
+<tr>
+<th>存储类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>auto</code></td>
+<td>是<strong>局部变量的默认存储类</strong>, 限定变量只能在函数内部使用；</td>
+</tr>
+<tr>
+<td><code>register</code></td>
+<td>代表了寄存器变量，不在内存中使用；</td>
+</tr>
+<tr>
+<td><code>static</code></td>
+<td>是全局变量的默认存储类,表示变量在程序生命周期内可见；</td>
+</tr>
+<tr>
+<td><code>extern</code></td>
+<td>表示全局变量，即对程序内所有文件可见，类似于Java中的public关键字；</td>
+</tr>
+</tbody></table>
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a><em>指针</em></h2><hr>
+<h5 id="指针变量"><a href="#指针变量" class="headerlink" title="指针变量"></a>指针变量</h5><p><strong>指针是个变量，存放内存单元的地址。</strong></p>
 <pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span> </span>
 <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    
     <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//在内存中开辟一块空间    </span>
@@ -494,7 +520,7 @@
 <p><strong>空指针</strong>——指针的值为NULL。</p>
 </blockquote>
 <hr>
-<h3 id="指针类型"><a href="#指针类型" class="headerlink" title="指针类型"></a>指针类型</h3><p><strong>指针类型，决定了指针每移动一次所跨越的字节。</strong></p>
+<h5 id="指针类型"><a href="#指针类型" class="headerlink" title="指针类型"></a>指针类型</h5><p><strong>指针类型，决定了指针每移动一次所跨越的字节。</strong></p>
 <pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
 <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">int</span> a<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
@@ -516,7 +542,7 @@
 
 <span class="token comment" spellcheck="true">//(type *)是指针的类型转变</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
-<h3 id="指针解引用，是在访问内存"><a href="#指针解引用，是在访问内存" class="headerlink" title="指针解引用，是在访问内存"></a>指针解引用，是在访问内存</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<h5 id="指针解引用，是在访问内存"><a href="#指针解引用，是在访问内存" class="headerlink" title="指针解引用，是在访问内存"></a>指针解引用，是在访问内存</h5><pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">int</span> a<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
     <span class="token keyword">int</span><span class="token operator">*</span>      p<span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">;</span>
@@ -531,10 +557,7 @@
     <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
-<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><blockquote>
-<p>为什么要用指针：</p>
-</blockquote>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">nicejob</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<h5 id="为什么要用指针？"><a href="#为什么要用指针？" class="headerlink" title="为什么要用指针？"></a>为什么要用指针？</h5><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">nicejob</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span><span class="token punctuation">{</span>
     a<span class="token operator">=</span>a<span class="token operator">*</span><span class="token number">2</span>
 <span class="token punctuation">}</span>
 
@@ -550,14 +573,10 @@
 <p>随便找个变量放地址是可行的，如 <code>int p=&amp;a;</code><br>但为什么，还麻烦的用<code> int * p</code>呢？</p>
 </blockquote>
 <blockquote>
-<p>为什么使用指针类型：</p>
-<ol>
-<li> 不容易混淆</li>
-<li> 指针类型给出了指针改变的实际字节偏移量</li>
-</ol>
+<p>为什么使用指针类型：<br>1.不容易混淆<br>2.指针类型给出了指针改变的实际字节偏移量</p>
 </blockquote>
 <hr>
-<h3 id="二级指针，函数指针"><a href="#二级指针，函数指针" class="headerlink" title="二级指针，函数指针"></a>二级指针，函数指针</h3><p><strong>一级指针</strong>用途：</p>
+<h5 id="二级指针，函数指针"><a href="#二级指针，函数指针" class="headerlink" title="二级指针，函数指针"></a>二级指针，函数指针</h5><p><strong>一级指针</strong>用途：</p>
 <ul>
 <li>可以利用一级指针改变函数外部的变量，还可以跨进程改变变量（外挂就是这么搞的）。</li>
 <li>一级指针可以存储数组的首地址，并通过指针或者下标访问元素。</li>
@@ -591,7 +610,7 @@
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
-<h3 id="结构指针"><a href="#结构指针" class="headerlink" title="结构指针"></a>结构指针</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<h5 id="结构指针"><a href="#结构指针" class="headerlink" title="结构指针"></a>结构指针</h5><pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
 <span class="token macro property">#<span class="token directive keyword">define</span> LEN 20</span>
 <span class="token keyword">struct</span> names <span class="token punctuation">{</span>          <span class="token comment" spellcheck="true">//结构声明</span>
     <span class="token keyword">char</span> first<span class="token punctuation">[</span>LEN<span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -625,26 +644,6 @@
 <span class="token comment" spellcheck="true">// him->income is $12000.00</span>
 <span class="token comment" spellcheck="true">// (*him).income is $12000.00</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="存储类"><a href="#存储类" class="headerlink" title="存储类"></a><em>存储类</em></h2><p><strong>auto</strong> 是局部变量的默认存储类, 限定变量只能在函数内部使用；</p>
-<p><strong>register</strong> 代表了寄存器变量，不在内存中使用；</p>
-<p><strong>static</strong> 是全局变量的默认存储类,表示变量在程序生命周期内可见；</p>
-<p><strong>extern</strong> 表示全局变量，即对程序内所有文件可见，类似于Java中的public关键字；</p>
-<h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a><em>枚举</em></h2><p>1、先定义枚举类型，再定义枚举变量</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">enum</span> DAY
-<span class="token punctuation">{</span>
-      MON<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> TUE<span class="token punctuation">,</span> WED<span class="token punctuation">,</span> THU<span class="token punctuation">,</span> FRI<span class="token punctuation">,</span> SAT<span class="token punctuation">,</span> SUN
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">enum</span> DAY day<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>2、定义枚举类型的同时定义枚举变量</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">enum</span> DAY
-<span class="token punctuation">{</span>
-      MON<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> TUE<span class="token punctuation">,</span> WED<span class="token punctuation">,</span> THU<span class="token punctuation">,</span> FRI<span class="token punctuation">,</span> SAT<span class="token punctuation">,</span> SUN
-<span class="token punctuation">}</span> day<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>3、省略枚举名称，直接定义枚举变量</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">enum</span>
-<span class="token punctuation">{</span>
-      MON<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> TUE<span class="token punctuation">,</span> WED<span class="token punctuation">,</span> THU<span class="token punctuation">,</span> FRI<span class="token punctuation">,</span> SAT<span class="token punctuation">,</span> SUN
-<span class="token punctuation">}</span> day<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a><em>字符串</em></h2><p><strong>定义</strong>：以 <code>null</code> 字符 <code>&#39;\0&#39;</code> 终止的一维字符数组。</p>
 <p><code>&lt;string.h&gt;</code>中常用函数</p>
 <table>
@@ -901,7 +900,8 @@
     <span class="token function">fclose</span><span class="token punctuation">(</span>fp<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//关闭文件</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="预处理器"><a href="#预处理器" class="headerlink" title="预处理器"></a><em>预处理器</em></h2><table>
+<h2 id="预处理器"><a href="#预处理器" class="headerlink" title="预处理器"></a><em>预处理器</em></h2><p>C预处理器不是编译器的组成部分，而是一个文本替换的工具</p>
+<table>
 <thead>
 <tr>
 <th>指令</th>
@@ -1019,7 +1019,7 @@
     <span class="token punctuation">}</span>
     <span class="token function">fclose</span><span class="token punctuation">(</span>fpout<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="all-fine"><a href="#all-fine" class="headerlink" title="all fine"></a><em>all fine</em></h2>
+
             </div>
             <hr/>
 
@@ -1586,7 +1586,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">77.7k</span>&nbsp;字
+                class="white-color">78.2k</span>&nbsp;字
             
             
             
