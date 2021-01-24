@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.8k
+                    3.9k
                 </div>
                 
 
@@ -786,7 +786,7 @@
                 <span class="token keyword">return</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span>y<span class="token punctuation">]</span>
 
 <span class="token comment" spellcheck="true">#无向图</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="803-打砖块"><a href="#803-打砖块" class="headerlink" title="803.打砖块"></a>803.打砖块</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#并查集，或DFS</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="803-打砖块"><a href="#803-打砖块" class="headerlink" title="803.打砖块"></a><a href="https://leetcode-cn.com/problems/bricks-falling-when-hit/" target="_blank" rel="noopener">803.打砖块</a></h3><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#并查集，或DFS</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="1232-缀点成线"><a href="#1232-缀点成线" class="headerlink" title="1232.缀点成线"></a>1232.缀点成线</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">checkStraightLine</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> coordinates<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
         x1<span class="token punctuation">,</span>y1<span class="token operator">=</span>coordinates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>coordinates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
@@ -826,7 +826,7 @@
                 disjointSet<span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token punctuation">.</span>add<span class="token punctuation">(</span>es<span class="token punctuation">)</span>
         <span class="token comment" spellcheck="true">#print(disjointSet)</span>
         <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>accounts<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span>list<span class="token punctuation">(</span>sorted<span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> key<span class="token punctuation">,</span>val <span class="token keyword">in</span> disjointSet<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="1584-连接所有点的最小费用⭐"><a href="#1584-连接所有点的最小费用⭐" class="headerlink" title="1584.连接所有点的最小费用⭐"></a>1584.连接所有点的最小费用⭐</h3><p>给你一个 <code>points</code> 数组，表示 2D 平面上的一些点，其中 <code>points[i] = [xi, yi]</code> 。</p>
+<h3 id="1584-连接所有点的最小费用⭐"><a href="#1584-连接所有点的最小费用⭐" class="headerlink" title="1584.连接所有点的最小费用⭐"></a><a href="https://leetcode-cn.com/problems/min-cost-to-connect-all-points" target="_blank" rel="noopener">1584.连接所有点的最小费用</a>⭐</h3><p>给你一个 <code>points</code> 数组，表示 2D 平面上的一些点，其中 <code>points[i] = [xi, yi]</code> 。</p>
 <p>连接点 <code>[xi, yi]</code> 和点 <code>[xj, yj]</code> 的费用为它们之间的 <strong>曼哈顿距离</strong> ：<code>|xi - xj| + |yi - yj|</code> ，其中 |val| 表示 val 的绝对值。</p>
 <p>请你返回将所有点连接的最小总费用。只有任意两点之间 <strong>有且仅有</strong> 一条简单路径时，才认为所有点都已连接。</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#方法一：最小生成树prim算法</span>
@@ -1042,6 +1042,15 @@
             union<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
             n<span class="token operator">-=</span><span class="token number">1</span>  <span class="token comment" spellcheck="true">#需要的边减少了</span>
         <span class="token keyword">return</span> n<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="674-最长连续递增序列"><a href="#674-最长连续递增序列" class="headerlink" title="674.最长连续递增序列"></a><a href="https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence/" target="_blank" rel="noopener">674.最长连续递增序列</a></h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">findLengthOfLCIS</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        ans<span class="token operator">=</span><span class="token number">0</span>
+        start<span class="token operator">=</span><span class="token number">0</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> i <span class="token operator">and</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;=</span>nums<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                start<span class="token operator">=</span>i
+            ans<span class="token operator">=</span>max<span class="token punctuation">(</span>ans<span class="token punctuation">,</span>i<span class="token operator">-</span>start<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="wuliao"><a href="#wuliao" class="headerlink" title="wuliao"></a>wuliao</h2><h3 id="3-无重复字符的最长子串"><a href="#3-无重复字符的最长子串" class="headerlink" title="3.无重复字符的最长子串"></a>3.无重复字符的最长子串</h3><p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
@@ -1728,7 +1737,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">78k</span>&nbsp;字
+                class="white-color">78.1k</span>&nbsp;字
             
             
             
