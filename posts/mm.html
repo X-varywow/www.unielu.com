@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="调用API, -- blog --">
+    <meta name="keywords" content="数学建模, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>调用API | -- blog --</title>
+    <title>数学建模 | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/libs/awesome/css/all.css">
@@ -301,12 +301,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/medias/featureimages/new-4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/medias/featureimages/magic.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">调用API</h1>
+                    <h1 class="description center-align post-title diyFont">数学建模</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/modelarts/">
-                                <span class="chip bg-color">modelarts</span>
+                            <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
+                                <span class="chip bg-color">数学建模</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                深度学习
+                            <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
+                                数学
                             </a>
                         
                     </div>
@@ -456,21 +456,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-23
+                    2021-01-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-24
+                    2021-01-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    405
+                    558
                 </div>
                 
 
@@ -482,136 +482,61 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>代码包含</p>
+                <p>参考资料：</p>
 <ul>
-<li>use-api.py </li>
-<li>post.py</li>
-<li>get-token.py</li>
+<li>知乎</li>
+<li>《大学生数学建模竞赛指南》</li>
+<li>《钉钉课程》:<ul>
+<li>18号的课程，<a href="https://www.bilibili.com/video/BV14E411E76h?from=search&seid=12721809646315956867" target="_blank" rel="noopener">matlab语言基础_北邮</a></li>
+<li>19号的课程，p4-p11，<a href="https://www.bilibili.com/video/BV13i4y1u7MN?p=2" target="_blank" rel="noopener">建模美赛培训</a></li>
+<li>21号，第四天，p19-p24</li>
+<li>第五天，<a href="https://www.bilibili.com/video/BV1Gh411o7sK?from=search&seid=11898562224319092745" target="_blank" rel="noopener">资料</a>，p19-22,p24,p32-37,p46-49</li>
 </ul>
-<h3 id="use-api-py"><a href="#use-api-py" class="headerlink" title="use-api.py"></a>use-api.py</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> post
-
-name <span class="token operator">=</span> <span class="token string">" "</span> 
-password <span class="token operator">=</span> <span class="token string">" "</span>
-api_url <span class="token operator">=</span> <span class="token string">" "</span> <span class="token comment" spellcheck="true"># api地址</span>
-image_path <span class="token operator">=</span> r<span class="token string">"timg.jpg"</span>  <span class="token comment" spellcheck="true"># 图像文件完整路径</span>
-
-<span class="token comment" spellcheck="true"># 发送请求</span>
-r <span class="token operator">=</span> post<span class="token punctuation">.</span>main<span class="token punctuation">(</span>name<span class="token punctuation">,</span> password<span class="token punctuation">,</span> api_url<span class="token punctuation">,</span> image_path<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="post-py"><a href="#post-py" class="headerlink" title="post.py"></a>post.py</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
-<span class="token keyword">import</span> os
-<span class="token keyword">import</span> get_token
-
-
-<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> password<span class="token punctuation">,</span> api_url<span class="token punctuation">,</span> image_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    image_name <span class="token operator">=</span> image_path<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\\'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
-    <span class="token comment" spellcheck="true"># 查看本地是否存在token</span>
-    <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token string">"token.txt"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"token.txt"</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-            token <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 调用get_token.py中的函数获取token</span>
-        token <span class="token operator">=</span> get_token<span class="token punctuation">.</span>main<span class="token punctuation">(</span>name<span class="token punctuation">,</span> password<span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 缓存token以便下次使用</span>
-        <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"token.txt"</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>token<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> token <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token string">"token获取错误"</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        header <span class="token operator">=</span> <span class="token punctuation">{</span>
-                <span class="token string">"X-Auth-Token"</span><span class="token punctuation">:</span> token<span class="token punctuation">,</span>
-                <span class="token punctuation">}</span>
-        files <span class="token operator">=</span> <span class="token punctuation">{</span>
-                <span class="token string">"images"</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>image_name<span class="token punctuation">,</span> open<span class="token punctuation">(</span>image_path<span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'image/png'</span><span class="token punctuation">)</span>
-                <span class="token punctuation">}</span>
-        z <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>
-                    api_url<span class="token punctuation">,</span>
-                    headers <span class="token operator">=</span> header<span class="token punctuation">,</span>
-                    files<span class="token operator">=</span>files<span class="token punctuation">,</span>
-                    verify<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
-                    <span class="token punctuation">)</span>
-        <span class="token keyword">if</span> z<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> z<span class="token punctuation">.</span>text
-        <span class="token keyword">elif</span> len<span class="token punctuation">(</span>z<span class="token punctuation">.</span>text<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> z<span class="token punctuation">.</span>text
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token string">"程序错误"</span>
-
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    name <span class="token operator">=</span> <span class="token string">" "</span>         <span class="token comment" spellcheck="true"># 用户名</span>
-    password <span class="token operator">=</span> <span class="token string">" "</span> <span class="token comment" spellcheck="true"># 密码</span>
-    api_url <span class="token operator">=</span> <span class="token string">" "</span> <span class="token comment" spellcheck="true"># api地址</span>
-    image_path <span class="token operator">=</span> r<span class="token string">"test.jpg"</span>  <span class="token comment" spellcheck="true"># 图像文件完整路径</span>
-    r <span class="token operator">=</span> main<span class="token punctuation">(</span>name<span class="token punctuation">,</span> password<span class="token punctuation">,</span> api_url<span class="token punctuation">,</span> image_path<span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="get-token-py"><a href="#get-token-py" class="headerlink" title="get-token.py"></a>get-token.py</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
-
-<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> password<span class="token punctuation">,</span> domain_name<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">,</span> region<span class="token operator">=</span><span class="token string">"cn-north-4"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> domain_name <span class="token operator">==</span> <span class="token string">""</span><span class="token punctuation">:</span>
-        domain_name <span class="token operator">=</span> name
-    urls <span class="token operator">=</span> <span class="token string">"https://iam."</span> <span class="token operator">+</span> region <span class="token operator">+</span> <span class="token string">".myhuaweicloud.com/v3/auth/tokens"</span>
-    header <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"PostmanRuntime/7.24.1"</span><span class="token punctuation">,</span>
-        <span class="token string">"Content-Type"</span><span class="token punctuation">:</span> <span class="token string">"application/json;charset=utf8"</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span>
-    json_data <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token string">"auth"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            <span class="token string">"identity"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                <span class="token string">"methods"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"password"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                <span class="token string">"password"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                    <span class="token string">"user"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                        <span class="token string">"name"</span><span class="token punctuation">:</span> name<span class="token punctuation">,</span>
-                        <span class="token string">"password"</span><span class="token punctuation">:</span> password<span class="token punctuation">,</span>
-                        <span class="token string">"domain"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                            <span class="token string">"name"</span><span class="token punctuation">:</span> domain_name<span class="token punctuation">,</span>
-                        <span class="token punctuation">}</span>
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token string">"scope"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                <span class="token string">"project"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                    <span class="token string">"name"</span><span class="token punctuation">:</span> region
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    z <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>
-                    url <span class="token operator">=</span> urls<span class="token punctuation">,</span>
-                    headers <span class="token operator">=</span> header<span class="token punctuation">,</span>
-                    json <span class="token operator">=</span> json_data<span class="token punctuation">,</span>
-                    verify <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
-                    <span class="token punctuation">)</span>
-
-    <span class="token keyword">if</span> z<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">201</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> z<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">"X-Subject-Token"</span><span class="token punctuation">]</span>
-    <span class="token keyword">elif</span> z<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">401</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>z<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token string">''</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>z<span class="token punctuation">.</span>status_code<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token string">''</span>
-
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    name <span class="token operator">=</span> <span class="token string">' '</span>         <span class="token comment" spellcheck="true"># 用户名</span>
-    password <span class="token operator">=</span> <span class="token string">' '</span>     <span class="token comment" spellcheck="true"># 密码</span>
-<span class="token comment" spellcheck="true">#    domain_name = ' '  # 可选，所属账号，默认为用户名</span>
-<span class="token comment" spellcheck="true">#    region="cn-north-4"     # 可选，使用区域</span>
-    token <span class="token operator">=</span> main<span class="token punctuation">(</span>name<span class="token punctuation">,</span> password<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> token <span class="token operator">!=</span> <span class="token string">''</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>token<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><blockquote>
-<ol>
-<li>将name,password,api_url更改，即可进行API的调用。</li>
-<li>一段代码：<pre class="line-numbers language-python"><code class="language-python">z<span class="token operator">=</span>request<span class="token punctuation">.</span>post<span class="token punctuation">(</span>api_url<span class="token punctuation">,</span>headers<span class="token operator">=</span>header<span class="token punctuation">,</span>files<span class="token operator">=</span>files<span class="token punctuation">,</span>verify<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
-<span class="token keyword">if</span> z<span class="token punctuation">.</span>status_code <span class="token operator">==</span><span class="token number">200</span><span class="token punctuation">:</span>
-   <span class="token keyword">return</span> z<span class="token punctuation">.</span>text<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
-<li>比较难理解的是那个get-token，查阅Modelarts文档的json格式。<br>再利用requests进行post</li>
-</ol>
-</blockquote>
+</ul>
+<hr>
+<p><strong>环境准备</strong></p>
+<ul>
+<li>matlab</li>
+</ul>
+<p><strong>老师说：</strong></p>
+<p>Matlab基础、英文写作，统计，优化，方程，图论</p>
+<p>最后是真题讲解，和实战模拟。</p>
+<hr>
+<h2 id="关于美赛："><a href="#关于美赛：" class="headerlink" title="关于美赛："></a>关于美赛：</h2><p>2021年MCM/ICM <strong>比赛时间</strong>： <code>2月5日6:00 ~ 2月9日10:00</code> ，4天左右</p>
+<p>MCM/ICM的 <strong>宗旨</strong> 是鼓励大学师生对范围并不固定的各种实际问题予以阐明、分析并提出解法，通过这样一种结构鼓励师生积极参与并强调实现完整的模型构造的过程。</p>
+<p>美国大学生数学建模竞赛分为 6 种题型：<code>MCM</code>(A：连续型B：离散型C：大数据)、<code>ICM</code>(D:运筹学/网络科学E：环境科学F：政策)，<a href="https://www.zhihu.com/question/38647928" target="_blank" rel="noopener">MCM和ICM的区别</a></p>
+<p><strong>竞赛题目</strong>来源于工程技术、管理科学等领域的实际问题，题目有较大的灵活性、开放型。参赛者应根据赛题要求，完成一篇包括模型的假设、建立和求解、计算方法的设计和计算机实现、结果的分析和检验、模型的改进等方面的论文（即答卷）。</p>
+<p><strong>竞赛评奖</strong>以假设的合理性、建模的创造性、结果的正确性和文字表述的清晰程度为主要标准。<br>特等奖（Outstanding Winner） 0.14%，特等奖提名奖（Finalist） 0.17%，一等奖（Meritorious Winner）10%左右，二等奖（Honorable Mentioned） 30%左右，成功参与奖也叫三等奖（Successful Participant）</p>
+<hr>
+<h2 id="关于流程："><a href="#关于流程：" class="headerlink" title="关于流程："></a>关于流程：</h2><p>建模 -&gt; 编程 -&gt; 中文概要 -&gt; 英文套模板</p>
+<p>建模问题：</p>
+<ul>
+<li>优化问题：线性规划</li>
+<li>分类问题：聚类</li>
+<li>预测问题：逻辑回归</li>
+<li>评价问题：层次分析法</li>
+</ul>
+<p>Sensitivity Analysis，模型评估与分析</p>
+<p><a href="https://zhuanlan.zhihu.com/p/273497896?utm_source=wechat_session" target="_blank" rel="noopener">如何准备建模美赛</a></p>
+<p>论文：</p>
+<ul>
+<li>摘要</li>
+<li>问题重述</li>
+<li>问题分析</li>
+<li>模型假设</li>
+<li>符号说明</li>
+<li>模型建立及求解</li>
+<li>模型评价</li>
+<li>参考文献</li>
+<li>代码</li>
+</ul>
+<h2 id="关于分工"><a href="#关于分工" class="headerlink" title="关于分工"></a>关于分工</h2><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ul>
+<li>选择MCM还是ICM？</li>
+<li>建模方法？</li>
+<li>多读些论文</li>
+<li>多学些建模</li>
+</ul>
 
             </div>
             <hr/>
@@ -637,7 +562,7 @@ r <span class="token operator">=</span> post<span class="token punctuation">.</s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/ec3f.html">https://www.unielu.com/posts/ec3f.html</a>
+                    <a href="https://www.unielu.com/posts/mm.html">https://www.unielu.com/posts/mm.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -675,8 +600,8 @@ r <span class="token operator">=</span> post<span class="token punctuation">.</s
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/modelarts/">
-                                    <span class="chip bg-color">modelarts</span>
+                                <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
+                                    <span class="chip bg-color">数学建模</span>
                                 </a>
                             
                         </div>
@@ -981,45 +906,47 @@ r <span class="token operator">=</span> post<span class="token punctuation">.</s
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/ec3h.html">
+                <a href="/posts/mm.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/medias/featureimages/new-4.jpg" class="responsive-img" alt="记一次深度学习">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/medias/featureimages/magic.png" class="responsive-img" alt="数学建模">
                         
-                        <span class="card-title">记一次深度学习</span>
+                        <span class="card-title">数学建模</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            初次的训练，基于modelarts
+                            无
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    深度学习
+                            <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
+                                    数学
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/modelarts/">
-                        <span class="chip bg-color">modelarts</span>
+                    <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
+                        <span class="chip bg-color">数学建模</span>
                     </a>
                     
                 </div>
@@ -1033,12 +960,12 @@ r <span class="token operator">=</span> post<span class="token punctuation">.</s
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/c78f.html">
+                <a href="/posts/contest225.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/medias/featureimages/python.png" class="responsive-img" alt="matplotlib模块">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/medias/featureimages/20181114.jpg" class="responsive-img" alt="周赛笔记225">
                         
-                        <span class="card-title">matplotlib模块</span>
+                        <span class="card-title">周赛笔记225</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1049,16 +976,12 @@ r <span class="token operator">=</span> post<span class="token punctuation">.</s
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-24
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/python/" class="post-category">
-                                    python
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ╯晓~
                             
                         </span>
                     </div>
@@ -1066,12 +989,8 @@ r <span class="token operator">=</span> post<span class="token punctuation">.</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                        <span class="chip bg-color">python模块</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                        <span class="chip bg-color">数据分析</span>
+                    <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">leetcode比赛</span>
                     </a>
                     
                 </div>
