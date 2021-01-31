@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-30
+                    2021-01-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    631
+                    1.2k
                 </div>
                 
 
@@ -482,13 +482,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>环境准备</strong></p>
-<ul>
-<li>matlab</li>
-<li>word</li>
-</ul>
-<hr>
-<h2 id="关于美赛："><a href="#关于美赛：" class="headerlink" title="关于美赛："></a>关于美赛：</h2><p>2021年MCM/ICM <strong>比赛时间</strong>： <code>2月5日6:00 ~ 2月9日10:00</code> ，4天左右</p>
+                <h2 id="关于美赛："><a href="#关于美赛：" class="headerlink" title="关于美赛："></a>关于美赛：</h2><p>2021年MCM/ICM <strong>比赛时间</strong>： <code>2月5日6:00 ~ 2月9日10:00</code> ，4天左右</p>
 <p>MCM/ICM的 <strong>宗旨</strong> 是鼓励大学师生对范围并不固定的各种实际问题予以阐明、分析并提出解法，通过这样一种结构鼓励师生积极参与并强调实现完整的模型构造的过程。</p>
 <p>美国大学生数学建模竞赛分为 6 种题型：<code>MCM</code>(A：连续型B：离散型C：大数据)、<code>ICM</code>(D:运筹学/网络科学E：环境科学F：政策)，<a href="https://www.zhihu.com/question/38647928" target="_blank" rel="noopener">MCM和ICM的区别</a></p>
 <p><strong>竞赛题目</strong>来源于工程技术、管理科学等领域的实际问题，题目有较大的灵活性、开放型。参赛者应根据赛题要求，完成一篇包括模型的假设、建立和求解、计算方法的设计和计算机实现、结果的分析和检验、模型的改进等方面的论文（即答卷）。</p>
@@ -515,7 +509,7 @@
 </ul>
 <h2 id="关于分工"><a href="#关于分工" class="headerlink" title="关于分工"></a>关于分工</h2><ul>
 <li>建模人</li>
-<li>程序员，hzx</li>
+<li>程序员，hzx，被提供csv数据及需要运算的指标，用python运算和画图都行</li>
 <li>写手</li>
 </ul>
 <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ul>
@@ -523,9 +517,65 @@
 <li>多学些建模</li>
 </ul>
 <h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><p>如何混奖？</p>
-<p>多看往年论文，套模型，图文并茂<br>摘要清晰且信息量充分</p>
+<p>多看往年论文，<br>摘要清晰且信息量充分</p>
+<p>图要清晰<br>模型是找的</p>
 <p>Sensitivity Analysis，模型评估与分析</p>
-<p><strong>模拟训练</strong><br>2月2 20:00交论文到<a href="mailto:&#115;&#x68;&#x75;&#120;&#x75;&#101;&#106;&#x69;&#97;&#x6e;&#109;&#111;&#99;&#117;&#x67;&#x62;&#64;&#49;&#54;&#51;&#x2e;&#99;&#x6f;&#x6d;">&#115;&#x68;&#x75;&#120;&#x75;&#101;&#106;&#x69;&#97;&#x6e;&#109;&#111;&#99;&#117;&#x67;&#x62;&#64;&#49;&#54;&#51;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+<h2 id="模拟训练⭐"><a href="#模拟训练⭐" class="headerlink" title="模拟训练⭐"></a>模拟训练⭐</h2><p><strong>要求</strong>：<br>2月2 20:00交论文到<a href="mailto:&#x73;&#104;&#117;&#120;&#x75;&#101;&#106;&#105;&#97;&#x6e;&#x6d;&#x6f;&#99;&#x75;&#x67;&#x62;&#x40;&#49;&#x36;&#51;&#x2e;&#99;&#111;&#x6d;">&#x73;&#104;&#117;&#120;&#x75;&#101;&#106;&#105;&#97;&#x6e;&#x6d;&#x6f;&#99;&#x75;&#x67;&#x62;&#x40;&#49;&#x36;&#51;&#x2e;&#99;&#111;&#x6d;</a></p>
+<hr>
+<p><strong>题目解读：</strong></p>
+<p><code>E题</code>【环境科学】</p>
+<ul>
+<li>你必须制定一个计划，来⼤⼤减少（如果不能消除）一次性使⽤和一次性塑料产品的浪费。</li>
+<li><code>Q1</code>：建立一个模型来<strong>估计一次性使用或一次性塑料产品废物的最大水平</strong>，这些安全废物可以在没有进一步环境破坏的情况下安全地减轻。<ul>
+<li>在众多因素中，您可能需要考虑这些废物的来源、当前废物问题的严重程度以及处理废物所需资源的可⽤性。</li>
+</ul>
+</li>
+<li><code>Q2</code>：<strong>讨论在何种程度上可以减少塑料废料，以达到环境安全水平。</strong><ul>
+<li>这可能涉及考虑影响塑料废物⽔平的因素，包括但不限于一次性或一次性塑料的来源和⽤途、塑料替代品的可⽤性、对公⺠⽣活的影响，或城市、地区、国家的政策，以及各⼤洲减少一次性或一次性塑料的使⽤和此类政策的有效性。</li>
+<li>这些因素可能因地区⽽异，因此考虑地区的具体制约因素，可能会使一些政策更为实际和有效。</li>
+</ul>
+</li>
+<li><code>Q3</code>：利⽤你的模型和讨论，为全球一次性或一次性塑料产品的使⽤可达到的最低⽔平<strong>设定一个⽬标，并讨论达到这一⽔平的影响。</strong><ul>
+<li>你可以考虑改变⼈类⽣活的⽅式，环境影响，或者对价值数万亿美元的塑料⼯业的影响。</li>
+</ul>
+</li>
+<li><code>Q4</code>：讨论全球危机引发的公平问题和你的预期解决⽅案。您建议 ICM 如何解决这些问题？<ul>
+<li>虽然这是一个全球性的问题，但其原因和影响并不是在每个国家或地区之间都相同。</li>
+</ul>
+</li>
+<li><code>Q5</code>：向 ICM 写一份两⻚的<strong>备忘录</strong>，<strong>说明全球一次性或一次性塑料制品废物可达到实际最低⽬标水平、达到该水平的时间，以及可能加速或阻碍实现⽬标和时间线的任何情况。</strong></li>
+</ul>
+<hr>
+<p><strong>论文总结</strong></p>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>概述（关键字）</th>
+<th>模型概要</th>
+<th>分析</th>
+<th>其它</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2010035</td>
+<td>PWH模型、AHP方法、K-means算法</td>
+<td>。。。</td>
+<td></td>
+<td>python画图，给个csv给个指标的话，hzx可以画</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>背景总结</strong></p>
+<hr>
+<p><strong>时间安排</strong><br>31号，中文模型及概要出来<br>1号，英文框架出来<br>2号，继续填空，改改论文</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
 <li><a href="https://www.zhihu.com/topic/20745755/top-answers" target="_blank" rel="noopener">知乎话题——建模美赛</a></li>
 <li>《大学生数学建模竞赛指南》</li>
@@ -1104,7 +1154,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">80.1k</span>&nbsp;字
+                class="white-color">80.9k</span>&nbsp;字
             
             
             
