@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="机器学习, -- blog --">
+    <meta name="keywords" content="每日一题(2月), -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>机器学习 | -- blog --</title>
+    <title>每日一题(2月) | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/libs/awesome/css/all.css">
@@ -301,12 +301,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/medias/featureimages/new-8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/medias/featureimages/leetcode.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">机器学习</h1>
+                    <h1 class="description center-align post-title diyFont">每日一题(2月)</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
+                            <a href="/tags/leetcode/">
+                                <span class="chip bg-color">leetcode</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
-                                大二
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -456,21 +456,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-29
+                    2021-02-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-24
+                    2021-02-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    127
+                    63
                 </div>
                 
 
@@ -482,58 +482,17 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="preface"><a href="#preface" class="headerlink" title="preface"></a><em>preface</em></h2><p>参考课程：</p>
-<ul>
-<li>北理工-pthon机器学习应用</li>
-<li>吴恩达-机器学习</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>sklearn</th>
-<th>applications</th>
-<th>algorithms</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>classification</code></td>
-<td>spam detection, image recognition</td>
-<td>SVM, nearest neighbors, random forest…</td>
-</tr>
-<tr>
-<td><code>regression</code></td>
-<td>drug response, stock prices</td>
-<td>SVR, nearest neighbors, random forest…</td>
-</tr>
-<tr>
-<td><code>clustering</code></td>
-<td>customer segmentation, grouping experiment outcomes</td>
-<td>K-means, spectral clustering…</td>
-</tr>
-<tr>
-<td><code>dimensionality reduction</code></td>
-<td>visualization</td>
-<td>K-means, feature selecion…</td>
-</tr>
-<tr>
-<td><code>model selection</code></td>
-<td>Improved accuracy via parameter tuning</td>
-<td>grid search…</td>
-</tr>
-<tr>
-<td><code>preprocessing</code></td>
-<td>Transforming input data such as text for use with machine learning algorithms.</td>
-<td>preprocessing</td>
-</tr>
-</tbody></table>
-<h2 id="unsupervised-learning"><a href="#unsupervised-learning" class="headerlink" title="unsupervised learning"></a><em>unsupervised learning</em></h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#使用 sklearn 标准数据集</span>
+                <h2 id="1-10"><a href="#1-10" class="headerlink" title="1-10"></a><code>1-10</code></h2><h3 id="888-公平的糖果棒交换"><a href="#888-公平的糖果棒交换" class="headerlink" title="888.公平的糖果棒交换"></a><a href="https://leetcode-cn.com/problems/fair-candy-swap/" target="_blank" rel="noopener">888.公平的糖果棒交换</a></h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">fairCandySwap</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> A<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> B<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        a<span class="token punctuation">,</span>b<span class="token operator">=</span>sum<span class="token punctuation">(</span>A<span class="token punctuation">)</span><span class="token punctuation">,</span>sum<span class="token punctuation">(</span>B<span class="token punctuation">)</span>
+        B<span class="token operator">=</span>set<span class="token punctuation">(</span>B<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> x <span class="token keyword">in</span> A<span class="token punctuation">:</span>
+            target<span class="token operator">=</span>x<span class="token operator">+</span><span class="token punctuation">(</span>b<span class="token operator">-</span>a<span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span>
+            <span class="token keyword">if</span> target <span class="token keyword">in</span> B<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span>target<span class="token punctuation">]</span>
 
-<span class="token keyword">import</span> sklearn
-<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_boston
-boston<span class="token operator">=</span>load_boston<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>boston<span class="token punctuation">.</span>data<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#-->(506, 13)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="K-means聚类算法"><a href="#K-means聚类算法" class="headerlink" title="K-means聚类算法"></a>K-means聚类算法</h3><h2 id="supervised-learning"><a href="#supervised-learning" class="headerlink" title="supervised learning"></a><em>supervised learning</em></h2><h2 id="reinforcement-learning"><a href="#reinforcement-learning" class="headerlink" title="reinforcement learning"></a><em>reinforcement learning</em></h2><p><strong>其它</strong>：<br>pytorch文档：<a href="https://pytorch.apachecn.org/" target="_blank" rel="noopener">https://pytorch.apachecn.org/</a></p>
-
+<span class="token comment" spellcheck="true">#一般情况下查询效率：set>dict>list</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="11-20"><a href="#11-20" class="headerlink" title="11-20"></a><code>11-20</code></h2><h2 id="20-28"><a href="#20-28" class="headerlink" title="20-28"></a><code>20-28</code></h2>
             </div>
             <hr/>
 
@@ -558,7 +517,7 @@ boston<span class="token operator">=</span>load_boston<span class="token punctua
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/ml.html">https://www.unielu.com/posts/ml.html</a>
+                    <a href="https://www.unielu.com/posts/hc6u.html">https://www.unielu.com/posts/hc6u.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -596,8 +555,8 @@ boston<span class="token operator">=</span>load_boston<span class="token punctua
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
+                                <a href="/tags/leetcode/">
+                                    <span class="chip bg-color">leetcode</span>
                                 </a>
                             
                         </div>
@@ -902,16 +861,17 @@ boston<span class="token operator">=</span>load_boston<span class="token punctua
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/hc6t.html">
+                <a href="/posts/hc6u.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/medias/featureimages/leetcode.png" class="responsive-img" alt="每日一题(1月)">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/medias/featureimages/leetcode.png" class="responsive-img" alt="每日一题(2月)">
                         
-                        <span class="card-title">每日一题(1月)</span>
+                        <span class="card-title">每日一题(2月)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -921,9 +881,9 @@ boston<span class="token operator">=</span>load_boston<span class="token punctua
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -936,6 +896,7 @@ boston<span class="token operator">=</span>load_boston<span class="token punctua
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -954,30 +915,30 @@ boston<span class="token operator">=</span>load_boston<span class="token punctua
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/os.html">
+                <a href="/posts/mm.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/medias/featureimages/new-8.jpg" class="responsive-img" alt="操作系统">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/medias/featureimages/4.jpg" class="responsive-img" alt="数学建模">
                         
-                        <span class="card-title">操作系统</span>
+                        <span class="card-title">数学建模</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            2019-王道考研-操作系统
+                            无
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
-                                    大二
+                            <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
+                                    数学
                                 </a>
                             
                             
@@ -987,8 +948,8 @@ boston<span class="token operator">=</span>load_boston<span class="token punctua
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
+                    <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
+                        <span class="chip bg-color">数学建模</span>
                     </a>
                     
                 </div>
