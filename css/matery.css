@@ -255,6 +255,10 @@ mark {
     background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
 }
 
+.toc-color {
+    background: linear-gradient(to right, #C471ED 0%, #F64F59 100%);
+}
+
 .text-color {
     color: #0f9d58 !important;
 }
@@ -1793,7 +1797,7 @@ footer .copy-right {
 }
 
 .top-scroll .btn-floating {
-    background: linear-gradient(to bottom right, #FF5E3A 0%, #FF2A68 100%);
+    background: linear-gradient(to right, #C471ED 0%, #F64F59 100%);
     width: 48px;
     height: 48px;
 }
