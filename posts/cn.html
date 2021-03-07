@@ -467,14 +467,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-05
+                    2021-03-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    247
+                    3.8k
                 </div>
                 
 
@@ -486,15 +486,507 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、计算机网络"><a href="#一、计算机网络" class="headerlink" title="一、计算机网络"></a>一、计算机网络</h1><p><strong>计算机网络</strong> 是一个将分散的，具有独立功能的计算机系统，通过通信设备与线路连接起来，由功能完善的软件实现资源共享和信息传递的系统。</p>
-<p>计算机网络是利用通信线路和通信设备，按照一定的连接方法，将分布在不同地点的具有独立功能的多台计算机相互连接在一起，在网络软件的支持下进行数据通信，实现资源共享和信息传递的系统。</p>
-<p>计算机网络是互连的，自治的计算机网络集合</p>
-<p>概述<br>物理层<br>数据链路层<br>网络层<br>运输层<br>应用层<br>网络安全<br>互联网服务<br>无线网移动网</p>
-<h1 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h1><p><strong>参考资料</strong></p>
+                <h1 id="一、计算机网络"><a href="#一、计算机网络" class="headerlink" title="一、计算机网络"></a>一、计算机网络</h1><p><strong>计算机网络</strong> 是一个将分散的，具有独立功能的计算机系统，通过 <code>通信设备</code> 与 <code>线路</code> 连接起来，由功能完善的软件实现 <code>资源共享</code> 和 <code>信息传递</code> 的系统。</p>
+<p>计算机网络是 <code>互连</code> 的，<code>自治</code> 的计算机网络集合。</p>
+<hr>
+<p>计算机网络的功能：</p>
 <ul>
-<li>2019-王道考研-计算机网络，99%</li>
-<li>学校课程</li>
+<li><strong>数据通信</strong></li>
+<li><strong>资源共享</strong></li>
+<li>分布式处理（如Hadoop平台）</li>
+<li>提高可靠性</li>
+<li>负载均衡</li>
+</ul>
+<hr>
+<p><strong>计算机网络的组成</strong>：</p>
+<ul>
+<li>组成部分<ul>
+<li>硬件</li>
+<li>软件</li>
+<li>协议</li>
+</ul>
+</li>
+<li>工作方式<ul>
+<li>边缘部分（用户直接使用）<ul>
+<li>C/S方式</li>
+<li>P2P方式</li>
+</ul>
+</li>
+<li>核心部分（为边缘部分服务）</li>
+</ul>
+</li>
+<li>功能组成<ul>
+<li>通信子网（实现数据通信）<ul>
+<li>【各种传输介质、通信设备、相应的网络协议组成】</li>
+</ul>
+</li>
+<li>资源子网（实现资源共享/数据处理）<ul>
+<li>【实现资源共享功能的设备和软件的集合】</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>计算机网路的分类</strong>：</p>
+<ul>
+<li>按分布范围分类：<ul>
+<li>广域网 <code>WAN</code></li>
+<li>城域网 <code>MAN</code></li>
+<li>局域网 <code>LAN</code></li>
+<li>个人区域网 <code>PAN</code></li>
+</ul>
+</li>
+<li>按使用者分类：<ul>
+<li>公用网（中国电信等）</li>
+<li>专用网</li>
+</ul>
+</li>
+<li>按交换技术分类：<code>电报交换</code> <code>报文交换</code> <code>分组交换</code></li>
+<li>按拓扑结构分类</li>
+<li>按传输技术分类：广播式网络、点对点式网络</li>
+</ul>
+<hr>
+<p><strong>标准化工作</strong></p>
+<ul>
+<li>分类<ul>
+<li>法定标准 <code>OSI</code></li>
+<li>事实标准 <code>TCP/IP</code><ul>
+<li>【某些公司的产品在竞争中占据主流，这些产品的协议与技术逐渐形成标准】 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>相关组织<ul>
+<li>国际标准化组织<code>ISO</code> （OSI参考模型、HDLC协议）</li>
+<li>国际电信联盟<code>ITU</code> （制定通信规则）</li>
+<li>国际电气电子工程师协会<code>IEEE</code> （学术机构、IEEE802系列标准、5G）</li>
+<li>Internet工程任务组<code>IETF</code> （负责因特网相关标准的制定，RFC XXXX）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>性能指标</strong></p>
+<ul>
+<li><strong>速率</strong> （即数据率，数据传输率，比特率）<ul>
+<li>单位：<code>b/s</code>，<code>kb/s</code>等</li>
+<li>【连接在计算机网络上的主机在数字信道上传送数据位数的速率】</li>
+<li><code>b</code> 表示 <code>bit</code>，字节用Byte（B）表示</li>
+</ul>
+</li>
+<li><strong>带宽</strong><ul>
+<li>原指某个信号的频带宽度，即最高频率与最低频率之差</li>
+<li>计网中，指网络设备所支持的最高速度</li>
+<li>【单位时间内从网络的某一点到另一点所能通过的“最高数据率”】</li>
+<li>单位：<code>b/s</code>，<code>kb/s</code>等</li>
+</ul>
+</li>
+<li><strong>吞吐量</strong><ul>
+<li>单位：<code>b/s</code>，<code>kb/s</code>等</li>
+<li>【单位时间内通过某个网络（或信道、接口）的数据量】</li>
+</ul>
+</li>
+<li><strong>时延</strong><ul>
+<li>【指数据（报文/分组/比特流）从网络（或链路）的一端传送到另一端所需的时间，也叫延迟。单位：<code>s</code>】</li>
+<li>分类：<ul>
+<li>发送时延（ = 数据长度/信道带宽）</li>
+<li>传播时延（ = 信道长度/电磁波在信道上的传播速率）</li>
+<li>排队时延、处理时延</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>时延带宽积</strong><ul>
+<li>【 = 传播时延*带宽】</li>
+<li>描述：以比特为单位的链路长度，一定情况下的链路的比特容量</li>
+</ul>
+</li>
+<li><strong>往返时延RTT</strong><ul>
+<li>【从发送方发送数据开始，到收到接收方确认总共经历的时延】</li>
+</ul>
+</li>
+<li><strong>利用率</strong><ul>
+<li>信道利用率（有数据通过的时间/总时间）</li>
+<li>网络利用率（信道利用率加权平均值）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>计算机网络体系结构</strong>：是计算机网络的各层及其协议的集合。</p>
+<ul>
+<li>体系结构是抽象的</li>
+<li>仅仅相邻层有接口，且提供服务的具体实现细节对上一层完全屏蔽</li>
+</ul>
+<p>计算机网络的 <strong>分层结构</strong>：</p>
+<ul>
+<li>7层 <code>OSI参考模型</code>（法定标准）<ul>
+<li><strong>应用层</strong>（对应用程序的通信提供服务）<ul>
+<li>文件传输（FTP），电子邮件（SMTP），万维网（HTTP）</li>
+</ul>
+</li>
+<li><strong>表示层</strong>（用于处理两个通信系统中交换信息的表示方式）<ul>
+<li>功能：数据格式变换、数据加密解密、数据压缩与恢复</li>
+</ul>
+</li>
+<li><strong>会话层</strong><ul>
+<li>向表示层实体/用户进程提供建立连接并在连接上有序地传输数据。</li>
+<li>这是会话，也是建立同步（SYN）</li>
+<li>主要协议：ADSP、ASP</li>
+</ul>
+</li>
+<li><strong>传输层</strong><ul>
+<li>主要任务：负责进程间的数据传输，即端到端的通信</li>
+<li>主要协议：<code>TCP</code>、UDP</li>
+<li>传输单位：报文段或用户数据报</li>
+<li>功能：<ul>
+<li>可靠传输、不可靠传输</li>
+<li>差错控制</li>
+<li>流量控制（对发送方、接收方的速度协调）</li>
+<li>复用分用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>网络层</strong><ul>
+<li>主要任务：源主机到目的主机的数据分组路由与转发</li>
+<li>主要协议：<code>IP</code>、IPX、ICMP</li>
+<li>传输单位：数据报</li>
+<li>功能：<ul>
+<li>路由选择</li>
+<li>流量控制</li>
+<li>差错控制</li>
+<li>拥塞控制</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>数据链路层</strong><ul>
+<li>主要任务：把网络层传下来的数据包组装成 <code>帧</code></li>
+<li>主要协议：SDLC、HDLC、PPP、STP</li>
+<li>功能：<ul>
+<li>成帧</li>
+<li>差错控制</li>
+<li>流量控制</li>
+<li>访问（接入）控制</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>物理层</strong><ul>
+<li>主要任务：在物理媒体上实现比特流的透明传输（不管怎样的比特组合，都能在链路上传送）</li>
+<li>主要协议：Rj45、802.3</li>
+<li>功能：<ul>
+<li>定义接口特性</li>
+<li>定义传输模式（单工、双工、半双工）</li>
+<li>定义传输速率</li>
+<li>比特同步（利用时钟）</li>
+<li>比特编码</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>4层 <code>TCP/IP参考模型</code>（事实标准）<ul>
+<li>应用层（HTTP、FTP、DNS）</li>
+<li>传输层（TCP、UDP）</li>
+<li>网际层（IP）</li>
+<li>网络接口层（Ethernet、ATM、Frame Relay）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>两个参考模型的<strong>不同比较</strong>：</p>
+<p>面向连接：发送请求 -&gt; 建立连接 -&gt; 数据传输<br>无连接：直接数据传输</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>OSI参考模型</th>
+<th>TCP/IP模型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>网络层</td>
+<td>无连接+面向连接</td>
+<td>无连接</td>
+</tr>
+<tr>
+<td>传输层</td>
+<td>面向连接</td>
+<td>无连接+面向连接</td>
+</tr>
+</tbody></table>
+<h1 id="二、物理层"><a href="#二、物理层" class="headerlink" title="二、物理层"></a>二、物理层</h1><p>物理层解决如何在连接各种计算机的传输媒体上传输数据比特流。<br><strong>主要任务</strong>：确定与传输媒体接口有关的一些特性。</p>
+<ul>
+<li>机械特性（如接口形状、引脚数目等）</li>
+<li>电气特性（线路上信号的电压范围、阻抗匹配等）</li>
+<li>功能特性（指明电平表示的意义等）</li>
+<li>规程特性（定义各条物理线路的工作规程和时序关系）</li>
+</ul>
+<hr>
+<p><strong>中继器</strong>：对信号进行再生和还原，放大衰减信号。<br>两端的网络部分是网段、不是子网。适用于完全相同的两类网络的互连，且两个网段的速率相同。</p>
+<p><strong>集线器（多口中继器）</strong>，不具备定向传送能力，是一个共享式设备。</p>
+<hr>
+<p><strong>数据通信的相关术语</strong>：</p>
+<ul>
+<li>数据（传送信息的实体，通常是有意义的符号序列）</li>
+<li>信号（数据的电气/电磁的表现，是数据在传输过程中的存在形式）<ul>
+<li>数字信号，参数的取值是离散的</li>
+<li>模拟信号，参数的取值是连续的</li>
+</ul>
+</li>
+<li>信源（产生和发送数据的源头）</li>
+<li>信宿（接收数据的终点）</li>
+<li>信道（信号的传输媒介）</li>
+</ul>
+<hr>
+<p><strong>物理层的传输介质</strong>：</p>
+<ul>
+<li>导向性传输介质<ul>
+<li><strong>双绞线</strong>（由两根采用一定规则并排绞合的、相互绝缘的铜导线组成）<ul>
+<li>非屏蔽双绞线</li>
+<li>屏蔽双绞线（加入了金属屏蔽层，提高抗电磁干扰）</li>
+</ul>
+</li>
+<li>同轴电缆</li>
+<li>光纤（利用光导纤维传递光脉冲进行通信）</li>
+</ul>
+</li>
+<li>非导向性传输介质<ul>
+<li>无线电波（信号向所有方向传播）</li>
+<li>微波（信号向固定方向传播）</li>
+<li>红外线、激光</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>编码与调制</strong></p>
+<ul>
+<li>信道上传送的信号<ul>
+<li><strong>基带信号</strong>（直接表达了要传输的信息的信号）</li>
+<li>宽带信号（将基带信号进行调制后形成的频分复用模拟信号）</li>
+</ul>
+</li>
+<li>数字数据编码方式<ul>
+<li>非归零编码</li>
+<li>归零编码</li>
+<li>曼彻斯特编码等</li>
+</ul>
+</li>
+<li>模拟数据的编码：抽样 -&gt; 量化 -&gt; 编码</li>
+<li>数字数据的调制方式<ul>
+<li>调幅</li>
+<li>调频</li>
+<li>调相</li>
+</ul>
+</li>
+<li>模拟数据的调制（为了传输的有效性，可能需要较高的频率）</li>
+</ul>
+<p><code>？？？</code> 这又要学数字逻辑又要学通信原理的…</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>数字数据</th>
+<th>模拟数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数字信号</td>
+<td>通过数字放大器编码</td>
+<td>通过PCM编码器编码</td>
+</tr>
+<tr>
+<td>模拟信号</td>
+<td>通过调制器调制</td>
+<td>通过放大器调制器调制</td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>通信方式</strong>：</p>
+<ul>
+<li>单工通信<ul>
+<li>只有一个方向的通信，没有反方向的交互。需要一条信道</li>
+</ul>
+</li>
+<li>半双工通信<ul>
+<li>通信的双方都可以发送和接受信息，但任何一方都不能同时发送和接受。需要两条信道</li>
+</ul>
+</li>
+<li>全双工通信<ul>
+<li>通信的双方都可以同时发送和接受信息。需要两条信道</li>
+</ul>
+</li>
+</ul>
+<p><strong>数据传输方式</strong></p>
+<ul>
+<li>串行传输（适合远距离，电缆等）</li>
+<li>并行传输（适合近距离，如计算机内部）</li>
+</ul>
+<hr>
+<ul>
+<li><strong>码元</strong><ul>
+<li>表示一个固定时长的信号波形（数字脉冲）</li>
+<li>k进制码元，表示码元的离散状态有k个（k&gt;=2）</li>
+</ul>
+</li>
+<li><strong>码元传输速率</strong><ul>
+<li>【单位时间内数字通信系统所传输的码元个数】</li>
+<li>单位：<code>Baud</code>（波特）（1Baud = 1码元/s）</li>
+</ul>
+</li>
+<li><strong>信息传输速率</strong><ul>
+<li>【单位时间内数字通信系统所传输的二进制码元个数】</li>
+<li>信息传输速率 = 码元传输速率 * log(k,2)</li>
+<li>单位：<code>b/s</code>（比特/秒）</li>
+</ul>
+</li>
+</ul>
+<p>提高最大数据传输速率，根据奈氏准则，可提高带宽或采用更好的编码技术。<br>提高最大数据传输速率，根据香农定理，可提高带宽或信噪比。</p>
+<hr>
+<p><strong>奈氏准则</strong>：在理想低通（无噪声，带宽受限）条件下，为避免码间串扰，极限码元传输速率为 <code>2W Baud</code>，W是信道带宽，单位是Hz。</p>
+<p>理想低通 信道下的 <strong>极限数据传输速率</strong> = 2W * log(k, 2)</p>
+<p><strong>失真</strong>：信号发生扭曲变化。受码元传输速率、信号传输距离、传输媒体等影响。</p>
+<p><strong>码间串扰</strong>：接收端收到的信号波形失去了码元之间的清晰界限的现象</p>
+<p><strong>信道带宽</strong>：信道能通过的最高频率和最低频率之差。</p>
+<blockquote>
+<p>在无噪声的情况下，某通信链路带宽为 3k Hz，采用4个相位，每个相位具有4种振幅的QAM调制技术，则该通信链路上的最大数据传输速率是多少？</p>
+</blockquote>
+<blockquote>
+<p>解：调相和调幅后，信号有16种变化，即16种码元<br>根据奈氏准则，最大数据传输速率 = 2 * 3k * log(16, 2) = 24 kb/s</p>
+</blockquote>
+<hr>
+<p><strong>香农定理</strong>：在带宽受限且有噪声的信道中，为了不产生误差，信道的<strong>极限数据传输速率</strong>为<code>W * log(1+S/N, 2)</code></p>
+<p>信噪比 = 信号的平均功率/噪声的平均功率，常记为 <code>S/N</code>，计量单位为分贝dB。<br><code>信噪比（dB）= 10 * log(S/N, 10)</code>，单位为dB时要先转换</p>
+<p>0dB表示输出与输入或两个比较信号一样大。<br>简单地说，dB是一个比值，举个例子，音频行业中，功率大一倍即是大3dB。<code>???</code></p>
+<blockquote>
+<p>电话系统的典型参数是带宽为 3k Hz，信噪比为30dB，则该系统的最大数据传输速率是多少？</p>
+</blockquote>
+<blockquote>
+<p>解：30dB = 10*log(S/N, 10)，-&gt; S/N = 1000<br>最大数据传输速率 = 3000 * log(1+1000, 2) 约等于 30kb/s</p>
+</blockquote>
+<h1 id="三、数据链路层"><a href="#三、数据链路层" class="headerlink" title="三、数据链路层"></a>三、数据链路层</h1><p><strong>结点</strong>：主机、路由器</p>
+<p><strong>链路</strong>：网络两个结点之间的物理通道，如双绞线、微波等</p>
+<p><strong>数据链路</strong>：网络中两个结点之间的逻辑通道，即链路+邮件+软件封装成了数据链路。</p>
+<p><strong>帧</strong>：链路层的协议数据单元，封装网络层数据报</p>
+<p>数据链路层，负责从一个结点通过一条链路向另一个物理链路直接相邻结点传送数据报。</p>
+<hr>
+<h1 id="四、网络层"><a href="#四、网络层" class="headerlink" title="四、网络层"></a>四、网络层</h1><h1 id="五、传输层"><a href="#五、传输层" class="headerlink" title="五、传输层"></a>五、传输层</h1><h1 id="六、应用层"><a href="#六、应用层" class="headerlink" title="六、应用层"></a>六、应用层</h1><p>应用层的协议定义了：</p>
+<ul>
+<li>应用进程交换的报文类型，请求还是响应？</li>
+<li>各种报文类型的语法</li>
+<li>字段的语义</li>
+<li>进程何时、如何发送报文，以及对报文进行响应的规则</li>
+</ul>
+<hr>
+<p><strong>网络应用模型</strong></p>
+<ul>
+<li><code>C/S模型</code><ul>
+<li>服务器（提供计算服务的主机）<ul>
+<li>永久提供服务</li>
+<li>永久性访问地址/域名</li>
+</ul>
+</li>
+<li>客户机（请求计算服务的主机）<ul>
+<li>与服务器通信</li>
+<li>间歇性接入网络</li>
+<li>可使用动态IP地址</li>
+<li>不与其它客户机直接通信</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>P2P模型</code><ul>
+<li>每个主机既可以提供服务，也可以请求服务</li>
+<li>任意节点间可以直接通讯</li>
+<li>节点间歇性接入网络</li>
+<li>节点可能改变IP地址</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>域名解析系统</strong>（<code>DNS</code>）<br>–&gt;通过DNS服务器，将域名解析为IP地址</p>
+<hr>
+<p>如 <code>www.unielu.com</code>，<code>com</code>是顶级域名，<code>unielu</code>是二级域名，<code>www</code>是三级域名</p>
+<ul>
+<li>顶级域名：<ul>
+<li>国家顶级域名 <code>.cn</code> <code>.us</code> </li>
+<li>通用顶级域名 <code>.com</code> <code>.net</code> <code>.org</code> <code>.gov</code></li>
+<li>基础结构域名/反向域名 <code>.arpa</code></li>
+</ul>
+</li>
+<li>二级域名<ul>
+<li>类别域名</li>
+<li>行政区域名</li>
+<li>其它域名（可注册）</li>
+</ul>
+</li>
+<li>三级域名、四级域名</li>
+</ul>
+<hr>
+<p>域名服务器：</p>
+<ul>
+<li>根域名服务器</li>
+<li>顶级域名服务器</li>
+<li>权限域名服务器</li>
+<li>本地域名服务器</li>
+</ul>
+<hr>
+<p><strong>文件传送协议</strong> <code>FTP</code>（File Transfer Protocol）</p>
+<p>FTP是基于客户/服务器的协议，使用TCP实现可靠传输</p>
+<p>传输模式：文本模式（ASCII模式），二进制模式</p>
+<hr>
+<p><strong>电子邮件系统</strong></p>
+<p>一般电子邮件系统：<br>用户代理 <code>-&gt;SMTP-&gt;</code> 发送方邮件服务器 <code>-&gt;SMTP-&gt;</code> 接收方邮件服务器 <code>-&gt;POP3-&gt;</code> 用户代理</p>
+<p>基于万维网的电子邮件系统：<br>发送方 <code>-&gt;HTTP-&gt;</code> 邮件服务器1 <code>-&gt;SMTP-&gt;</code> 邮件服务器2 <code>-&gt;HTTP-&gt;</code> 接收方</p>
+<ul>
+<li><code>SMTP</code>（简单邮件传送协议）<ul>
+<li>规定了两个相互通信的SMTP进程之间应如何交换信息</li>
+<li>使用TCP连接，端口号25，C/S模式</li>
+<li>缺点：<ul>
+<li>不能传送可执行文件或其它二进制对象，仅限于传送7位ASCII码</li>
+<li>拒绝超过一定长度的邮件</li>
+</ul>
+</li>
+<li>通用因特网邮件扩充 <code>MIME</code> </li>
+</ul>
+</li>
+<li><code>POP3</code><ul>
+<li>使用TCP连接，端口号110，C/S模式</li>
+</ul>
+</li>
+<li><code>IMAP</code> 网际报文存取协议</li>
+<li><code>MIME</code> 多用途互联网邮件扩展类型，扩展了电子邮件标准</li>
+</ul>
+<hr>
+<p><strong>万维网和HTTP协议</strong></p>
+<p>万维网（WWW）是一个大规模的、联机式的信息储藏所，是无数个网络站点和网页的集合。</p>
+<p>用户通过 URL形成的超链接 获取资源，这些资源通过超文本传输协议（HTTP）传送给使用者。</p>
+<p>万维网使用超文本标记语言HTML</p>
+<ul>
+<li><code>URL</code>（统一资源定位符）<ul>
+<li>对资源进行唯一标识</li>
+<li>一般形式：&lt;协议&gt;://&lt;主机&gt;:&lt;端口&gt;:&lt;路径&gt;<ul>
+<li>协议：http、ftp等</li>
+<li>主机：域名、IP地址等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>关于HTTP的理解（2020.05）：<a href="http://www.unielu.com/posts/http.html">www.unielu.com/posts/http.html</a></p>
+<h1 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h1><p><strong>参考资料</strong>：</p>
+<ul>
+<li>2019-王道考研-计算机网络，90%</li>
+<li>学校课程，10%</li>
 <li>《计算机网络》第七版</li>
+</ul>
+<hr>
+<p><strong>推荐阅读</strong>：</p>
+<ul>
+<li><a href="https://blog.csdn.net/qzcsu/article/details/72861891" target="_blank" rel="noopener">两张动图-彻底明白TCP的三次握手与四次挥手</a></li>
+<li><a href="https://baijiahao.baidu.com/s?id=1663133611194990028" target="_blank" rel="noopener">35 张图解被问千百遍的 TCP 三次握手和四次挥手面试题</a></li>
 </ul>
 <hr>
 <p>学时：56h理论+12h实验（6个）<br>分数：期末（70%）+平时（30%）</p>
@@ -1059,6 +1551,54 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
     <footer class="page-footer bg-color">
     
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="tencent"
+                   type="playlist"
+                   id="7512773752"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='list'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
     <div class="container row center-align" style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -1069,7 +1609,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">81.9k</span>&nbsp;字
+                class="white-color">85.5k</span>&nbsp;字
             
             
             
@@ -1238,6 +1778,6 @@ $(function () {
     
     <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/libs/instantpage/instantpage.js" type="module"></script>
     
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 
 </html>
