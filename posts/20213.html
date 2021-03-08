@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-07
+                    2021-03-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    345
+                    193
                 </div>
                 
 
@@ -503,35 +503,8 @@
 <hr>
 <p><code>3.7</code></p>
 <p><a href="https://img-blog.csdnimg.cn/20210307100644818.jpg" target="_blank" rel="noopener">十四五主要目标</a></p>
-<p>更新文章：关于hexo理解</p>
-<p>matery.js中，以前导航栏透明都不知道怎么改，<br>现在找个消失的按钮（bug）找半天，排除法终于找到了</p>
-<pre class="line-numbers language-js"><code class="language-js">    <span class="token comment" spellcheck="true">/*回到顶部*/</span>
-    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#backTop'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'body,html'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>scrollTop<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">/*监听滚动条位置*/</span>
-    <span class="token keyword">let</span> $nav <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#headNav'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">let</span> $backTop <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.top-scroll'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// 当页面处于文章中部的时候刷新页面，因为此时无滚动，所以需要判断位置,给导航加上绿色。</span>
-    <span class="token function">showOrHideNavBg</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">scrollTop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">$</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">scroll</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">/* 回到顶部按钮根据滚动条的位置的显示和隐藏.*/</span>
-        <span class="token keyword">let</span> scroll <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">scrollTop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">showOrHideNavBg</span><span class="token punctuation">(</span>scroll<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">function</span> <span class="token function">showOrHideNavBg</span><span class="token punctuation">(</span>position<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">let</span> showPosition <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">&lt;</span> showPosition<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            $nav<span class="token punctuation">.</span><span class="token function">addClass</span><span class="token punctuation">(</span><span class="token string">'nav-transparent'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            $backTop<span class="token punctuation">.</span><span class="token function">slideUp</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            $nav<span class="token punctuation">.</span><span class="token function">removeClass</span><span class="token punctuation">(</span><span class="token string">'nav-transparent'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            $backTop<span class="token punctuation">.</span><span class="token function">slideDown</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>更新文章：<a href="https://www.unielu.com/posts/hexo.html">关于hexo理解</a></p>
+<p>更新3.8k字：<a href="https://www.unielu.com/posts/cn.html">计算机网络</a></p>
 
             </div>
             <hr/>

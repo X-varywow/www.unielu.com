@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-07
+                    2021-03-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    536
+                    722
                 </div>
                 
 
@@ -486,30 +486,64 @@
 <p><a href="https://www.jianshu.com/p/0a8d738a5620" target="_blank" rel="noopener">Hexo + Github搭建Blog教程（2020）</a></p>
 <p><a href="https://yafine66.gitee.io/" target="_blank" rel="noopener">装修教程</a>，<a href="https://hexo.io/docs/" target="_blank" rel="noopener">hexo官方文档</a></p>
 <p>嗯，看上面3个文档，就应该可以搭建出一个免费的静态网页了。</p>
-<hr>
-<h2 id="other-info"><a href="#other-info" class="headerlink" title="other-info"></a><em>other-info</em></h2><h3 id="TOC目录的展开"><a href="#TOC目录的展开" class="headerlink" title="TOC目录的展开"></a>TOC目录的展开</h3><p><code>2021.3.7更新</code></p>
-<p>在 matery 目录下的_config.yml中<br>参考：<a href="https://github.com/zkmei/hexo-theme-matery/commit/4b99984a46d95c5694c7f06152e0ba24c00e4c59" target="_blank" rel="noopener">GITHUB中的修改</a></p>
-<pre><code>toc:
+<h2 id="Matery主题个性化修改"><a href="#Matery主题个性化修改" class="headerlink" title="Matery主题个性化修改"></a>Matery主题个性化修改</h2><h3 id="①TOC目录的展开"><a href="#①TOC目录的展开" class="headerlink" title="①TOC目录的展开"></a>①TOC目录的展开</h3><p><code>2021.3.7更新</code></p>
+<p>在 matery 目录下的<code>_config.yml</code>文件中,将 <code>showToggleBtn</code> 设为 <code>true</code><br>参考：<a href="https://github.com/zkmei/hexo-theme-matery/commit/4b99984a46d95c5694c7f06152e0ba24c00e4c59" target="_blank" rel="noopener">GITHUB中的修改</a></p>
+<pre class="line-numbers language-yml"><code class="language-yml">toc:
   enable: true
   heading: h1,h2, h3, h4
   collapseDepth: 2 
-  showToggleBtn: true #是否展开目录</code></pre>
+  showToggleBtn: true #是否展开目录<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <p>颜色不太好看，去matery/layout/_partial/post-detail-toc.ejs中，</p>
 <p>找到：</p>
-<pre><code>&lt;div id=&quot;floating-toc-btn&quot; class=&quot;hide-on-med-and-down&quot;&gt;
-    &lt;a class=&quot;btn-floating btn-large bg-color&quot;&gt;
-        &lt;i class=&quot;fas fa-list-ul&quot;&gt;&lt;/i&gt;
-    &lt;/a&gt;
-&lt;/div&gt;</code></pre>
-<p>将 <code>bg-color</code> 改为 <code>toc-color</code>，然后再matery.css中加入颜色样式</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>floating-toc-btn<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hide-on-med-and-down<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn-floating btn-large bg-color<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fas fa-list-ul<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>因为<code>bg-color</code>是一个已经定义了的颜色样式，所以<br>将 <code>bg-color</code> 改为 <code>toc-color</code>，然后在 <code>matery.css</code> 中加入颜色样式</p>
 <pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.toc-color</span> </span><span class="token punctuation">{</span>
     <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to right, <span class="token hexcode">#C471ED</span> <span class="token number">0%</span>, <span class="token hexcode">#F64F59</span> <span class="token number">100%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><strong>图标</strong><br><a href="http://www.fontawesome.com.cn/faicons/" target="_blank" rel="noopener">http://www.fontawesome.com.cn/faicons/</a></p>
+<h3 id="②将导航栏变为透明"><a href="#②将导航栏变为透明" class="headerlink" title="②将导航栏变为透明"></a>②将导航栏变为透明</h3><p>因为导航栏看着占位子，所以在<code>matery.js</code>中</p>
+<pre class="line-numbers language-js"><code class="language-js">    <span class="token comment" spellcheck="true">/*回到顶部*/</span>
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#backTop'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'body,html'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>scrollTop<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">/*监听滚动条位置*/</span>
+    <span class="token keyword">let</span> $nav <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#headNav'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> $backTop <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.top-scroll'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 当页面处于文章中部的时候刷新页面，因为此时无滚动，所以需要判断位置,给导航加上绿色。</span>
+    <span class="token function">showOrHideNavBg</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">scrollTop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">$</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">scroll</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">/* 回到顶部按钮根据滚动条的位置的显示和隐藏.*/</span>
+        <span class="token keyword">let</span> scroll <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">scrollTop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">showOrHideNavBg</span><span class="token punctuation">(</span>scroll<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">showOrHideNavBg</span><span class="token punctuation">(</span>position<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> showPosition <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">&lt;</span> showPosition<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            $nav<span class="token punctuation">.</span><span class="token function">addClass</span><span class="token punctuation">(</span><span class="token string">'nav-transparent'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            $backTop<span class="token punctuation">.</span><span class="token function">slideUp</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            $nav<span class="token punctuation">.</span><span class="token function">removeClass</span><span class="token punctuation">(</span><span class="token string">'nav-transparent'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            $backTop<span class="token punctuation">.</span><span class="token function">slideDown</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>将这三条语句删去：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">let</span> $nav <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#headNav'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+$nav<span class="token punctuation">.</span><span class="token function">addClass</span><span class="token punctuation">(</span><span class="token string">'nav-transparent'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+$nav<span class="token punctuation">.</span><span class="token function">removeClass</span><span class="token punctuation">(</span><span class="token string">'nav-transparent'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h3 id="⑤图标"><a href="#⑤图标" class="headerlink" title="⑤图标"></a>⑤图标</h3><p><a href="http://www.fontawesome.com.cn/faicons/" target="_blank" rel="noopener">http://www.fontawesome.com.cn/faicons/</a></p>
 <p>直接 <code>fas fa-name</code> 可以使用配置好的图标</p>
 <hr>
-<p><strong>EJS</strong><br>“E” 代表什么？可以表示 “可嵌入（Embedded）”，也可以是“高效（Effective）”、“优雅（Elegant）”或者是“简单（Easy）”。EJS 是一套简单的模板语言，帮你利用普通的 JavaScript 代码生成 HTML 页面。EJS 没有如何组织内容的教条；也没有再造一套迭代和控制流语法；有的只是普通的 JavaScript 代码而已。</p>
+<h3 id="⑥EJS"><a href="#⑥EJS" class="headerlink" title="⑥EJS"></a>⑥EJS</h3><p>“E” 代表什么？可以表示 “可嵌入（Embedded）”，也可以是“高效（Effective）”、“优雅（Elegant）”或者是“简单（Easy）”。EJS 是一套简单的模板语言，帮你利用普通的 JavaScript 代码生成 HTML 页面。EJS 没有如何组织内容的教条；也没有再造一套迭代和控制流语法；有的只是普通的 JavaScript 代码而已。</p>
 <p>代码实例：</p>
 <pre class="line-numbers language-js"><code class="language-js">    <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>site<span class="token punctuation">.</span>categories <span class="token operator">&amp;&amp;</span> site<span class="token punctuation">.</span>categories<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">%</span><span class="token operator">></span>
     <span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token function">partial</span><span class="token punctuation">(</span><span class="token string">'_widget/category-radar'</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span>
