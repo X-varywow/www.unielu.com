@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    371
+                    383
                 </div>
                 
 
@@ -482,13 +482,29 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="preface"><a href="#preface" class="headerlink" title="preface"></a><em>preface</em></h2><p>官方文档：<a href="http://www.electronjs.org/docs" target="_blank" rel="noopener">http://www.electronjs.org/docs</a><br>教程：<a href="https://www.jspang.com/detailed?id=62#toc262" target="_blank" rel="noopener">https://www.jspang.com/detailed?id=62#toc262</a></p>
-<h2 id="0-介绍"><a href="#0-介绍" class="headerlink" title="0.介绍"></a>0.介绍</h2><p>使用 JavaScript，HTML 和 CSS 构建跨平台的桌面应用程序</p>
-<h2 id="1-基础"><a href="#1-基础" class="headerlink" title="1.基础"></a>1.基础</h2><p>构建一个demo：</p>
+                <h2 id="preface"><a href="#preface" class="headerlink" title="preface"></a><em>preface</em></h2><p><code>Electron</code> -&gt; 使用 JavaScript，HTML 和 CSS 构建跨平台的桌面应用程序</p>
+<ul>
+<li>两个核心:<ul>
+<li>main-process</li>
+<li>render-process</li>
+</ul>
+</li>
+<li>三个部分:<ul>
+<li><code>Chromium</code>: for making web pages</li>
+<li><code>Node.js</code>: for filesystems and networks</li>
+<li><code>native apis</code>: for three systems</li>
+</ul>
+</li>
+</ul>
+<h2 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h2><p>构建一个demo：</p>
 <pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">git</span> clone https://github.com/demopark/electron-api-demos-Zh_CN
+
 $ <span class="token function">cd</span> electron-api-demos-Zh_CN
+
+<span class="token comment" spellcheck="true">#安装依赖</span>
 $ <span class="token function">npm</span> <span class="token function">install</span>
-$ <span class="token function">npm</span> start<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+$ <span class="token function">npm</span> start<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Hello World!<br>We are using Node.js 12.16.3, Chromium 85.0.4183.93, and Electron 10.1.1.</p>
 <h2 id="js库"><a href="#js库" class="headerlink" title="js库"></a>js库</h2><p><code>React</code> 是一个用于构建用户界面的 JAVASCRIPT 库。</p>
 <p>React 主要用于构建UI，很多人认为 React 是 MVC 中的 V（视图）。</p>
@@ -499,14 +515,13 @@ $ <span class="token function">npm</span> start<span aria-hidden="true" class="l
 <blockquote>
 <p>Electron 可以让你使用纯 JavaScript 调用丰富的原生(操作系统) APIs 来创造桌面应用。 你可以把它看作一个 Node. js 的变体，它专注于桌面应用而不是 Web 服务器端。</p>
 </blockquote>
-<blockquote>
-<p><strong>两个核心:</strong><br>main-process<br>render-process</p>
-</blockquote>
-<blockquote>
-<p><strong>三个部分:</strong><br><strong>chromium</strong>: for making web pages<br><strong>nodejs</strong>: for filesystems and networks<br><strong>native apis</strong>: for three systems</p>
-</blockquote>
 <p>应用架构：多窗口，单窗口</p>
 <p>Electron在主进程和渲染进程中提供了大量API去帮助开发桌面应用程序， 在主进程和渲染进程中，你可以通过require的方式将其包含在模块中以此，获取Electron的API</p>
+<h2 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h2><p><strong>参考资料</strong>：</p>
+<ul>
+<li>官方文档：<a href="http://www.electronjs.org/docs" target="_blank" rel="noopener">http://www.electronjs.org/docs</a></li>
+<li>教程：<a href="https://www.jspang.com/detailed?id=62#toc262" target="_blank" rel="noopener">https://www.jspang.com/detailed?id=62#toc262</a></li>
+</ul>
 
             </div>
             <hr/>
@@ -1169,7 +1184,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">87.7k</span>&nbsp;字
+                class="white-color">88.1k</span>&nbsp;字
             
             
             
