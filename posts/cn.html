@@ -301,7 +301,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/medias/featureimages/new-8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.5/medias/featureimages/new-8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -467,14 +467,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-07
+                    2021-03-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.8k
+                    5.6k
                 </div>
                 
 
@@ -696,8 +696,9 @@
 </li>
 </ul>
 <hr>
-<p>两个参考模型的<strong>不同比较</strong>：</p>
-<p>面向连接：发送请求 -&gt; 建立连接 -&gt; 数据传输<br>无连接：直接数据传输</p>
+<p>两个参考模型的<strong>不同</strong>：</p>
+<p><strong>面向连接</strong>：发送请求 -&gt; 建立连接 -&gt; 数据传输</p>
+<p><strong>无连接</strong>：直接数据传输</p>
 <table>
 <thead>
 <tr>
@@ -870,9 +871,246 @@
 <p><strong>链路</strong>：网络两个结点之间的物理通道，如双绞线、微波等</p>
 <p><strong>数据链路</strong>：网络中两个结点之间的逻辑通道，即链路+邮件+软件封装成了数据链路。</p>
 <p><strong>帧</strong>：链路层的协议数据单元，封装网络层数据报</p>
-<p>数据链路层，负责从一个结点通过一条链路向另一个物理链路直接相邻结点传送数据报。</p>
+<p><strong>数据链路层</strong>，负责从一个结点通过一条链路向另一个物理链路直接相邻结点传送数据报。</p>
+<p><strong>主要作用</strong>：加强物理层传输原始比特流的功能，将物理层提供的可能出错的物理连接改造成为逻辑上无差错的数据链路，使之对网络层表现为一条无差错的链路。</p>
 <hr>
-<h1 id="四、网络层"><a href="#四、网络层" class="headerlink" title="四、网络层"></a>四、网络层</h1><h1 id="五、传输层"><a href="#五、传输层" class="headerlink" title="五、传输层"></a>五、传输层</h1><h1 id="六、应用层"><a href="#六、应用层" class="headerlink" title="六、应用层"></a>六、应用层</h1><p>应用层的协议定义了：</p>
+<ul>
+<li><strong>封装成帧</strong> 就是在一段数据的前后部分添加首部和尾部，这样就构成了一个帧</li>
+<li>组帧的方法：<ul>
+<li>字符计数法</li>
+<li>字符（节）填充法</li>
+<li>零比特填充法</li>
+<li>违规编码法</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>差错控制</strong></p>
+<p>概括来说，传输中的差错都是由于噪声引起的。</p>
+<ul>
+<li>位错（比特位出错）<ul>
+<li>检错编码<ul>
+<li>奇偶校验码（1位冗余的单元，n-1位信息元，奇校验要求1的个数为奇数）</li>
+<li>循环冗余码CRC</li>
+</ul>
+</li>
+<li>纠错编码<ul>
+<li>海明码（发现双比特错，纠正单比特错）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>帧错（丢失，重复，失序）</li>
+</ul>
+<hr>
+<p><strong>流量控制与可靠传输机制</strong></p>
+<p>数据链路层的流量控制是点对点的，而传输层的流量控制是端到端的。</p>
+<ul>
+<li>流量控制（限制发送方的发送速率）<ul>
+<li>停止-等待协议</li>
+<li>滑动窗口协议 <code>？？？</code><ul>
+<li>后退N帧协议</li>
+<li>选择重传协议</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>可靠传输（发送方发啥，接收方接啥）</li>
+</ul>
+<p><strong>丢包</strong>：物理线路故障、设备故障、病毒攻击、路由信息错误等，会导致数据包的丢失。</p>
+<p><strong>ACK</strong>：即确认字符，通常ACK信号有自己固定的格式、长度大小，由接收方回复给发送方。</p>
+<p><strong>RTS</strong>（request to send）请求发送，<strong>CTS</strong>（clear to send）允许发送</p>
+<hr>
+<p>介质访问控制、静态/动态分配信道、AHLOHA协议、CSMA协议、<code>？？？</code></p>
+<hr>
+<p><strong>局域网</strong>，local area network</p>
+<ul>
+<li>指在某一区域内的多台计算机互联成的计算机组，使用广播信道。</li>
+<li>通信延迟时间短，误码率低，可靠性较高</li>
+<li>网络拓扑结构<ul>
+<li>星型、环型、树型</li>
+<li>总线型（推荐）</li>
+</ul>
+</li>
+</ul>
+<p><strong>以太网</strong>（Ethernrt）是由Xerox公司创建的并由…联合开发的 <strong>基带总线局域网规范</strong> ，是当今现有局域网采用的最通用的通信协议标准。以太网使用 <code>CSMA/DA</code>（载波监听多路访问及冲突检测）技术。</p>
+<hr>
+<p>计算机通过<strong>通信适配器</strong>与外界局域网连接。</p>
+<p>适配器的ROM上有计算机硬件地址MAC地址。</p>
+<p>每个适配器有一个全球唯一的 <code>48</code> 位二进制地址，前24位代表厂家，后24位由厂家指定。</p>
+<p><strong>MAC地址</strong>（Media Access Control Address），称为局域网地址（LAN Address），MAC位址，以太网地址（Ethernet Address）或物理地址（Physical Address），它是一个用来确认网络设备位置的位址。</p>
+<hr>
+<p><code>IEEE 802.11</code> 是无线局域网的通用标准</p>
+<p><strong>网段</strong>：一般指一个计算机网络中使用同一物理层设备（传输介质，中继器，集线器等）能够直接通讯的部分。</p>
+<p><strong>网桥</strong>：根据MAC帧的目的地址对帧进行转发和过滤。<br>【连接冲突域】<br>【可互连不同物理层、不同MAC子层和不同速率的以太网】</p>
+<p><strong>交换机</strong>：多接口网桥</p>
+<p><strong>冲突域</strong>：在同一个冲突域中，每个节点都能收到所有被发送的帧。<br><strong>广播域</strong>：网络中能接收任一设备发出的广播帧的所有设备的集合。</p>
+<p>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>隔离冲突域</th>
+<th>隔离广播域</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>物理层设备（中继器，集线器）</td>
+<td>×</td>
+<td>×</td>
+</tr>
+<tr>
+<td>链路层设备（网桥，交换机）</td>
+<td>√</td>
+<td>×</td>
+</tr>
+<tr>
+<td>网络层设备（路由器）</td>
+<td>√</td>
+<td>√</td>
+</tr>
+</tbody></table>
+<h1 id="四、网络层"><a href="#四、网络层" class="headerlink" title="四、网络层"></a>四、网络层</h1><p>网络层提供主机之间的逻辑通信</p>
+<ul>
+<li><strong>主要任务</strong>：把分组从源端传到目的端，为分组交换网上的不同主机提供通信服务。</li>
+<li>传输单位：数据报</li>
+<li><strong>功能</strong>：<ul>
+<li>路由选择与分组转发</li>
+<li>异构网络互联</li>
+<li>拥塞控制<ul>
+<li>开环控制（预先考虑好，静态控制）</li>
+<li><strong>闭环控制</strong>（动态地控制）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>数据交换方式</strong></p>
+<ul>
+<li>电路交换<ul>
+<li>通信时延小，有序传输，独占资源</li>
+</ul>
+</li>
+<li>报文交换（采用存储转发）</li>
+<li>分组交换（采用存储转发）<code>？？？</code><ul>
+<li>数据报方式（为网络层提供无连接服务）</li>
+<li>虚电路方式（结合数据报方式和电路交换方式，提供连接服务）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>ARP协议（完成主机或路由器到MAC地址的映射，解决下一跳走哪的问题），ARP协议自动进行</p>
+<p>ICMP网际控制报文协议，DHCP协议 <code>？？？</code> </p>
+<hr>
+<p><strong>路由</strong> <code>routing</code> 是指分组从源到目的地时，决定端到端路径的网络范围的进程。<br>路由工作在网络层的数据包转发设备。路由器通过转发数据包来实现网络互连。</p>
+<ul>
+<li><strong>路由算法</strong><ul>
+<li>静态路由算法</li>
+<li>动态路由算法（路由器间彼此交换信息，按照算法优化出路由表项）<ul>
+<li>距离-向量路由算法</li>
+<li>链路状态路由算法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>路由选择协议</strong><ul>
+<li>内部网关协议IGP（RIP,OSPF）</li>
+<li>外部网关协议EGP（BGP） <code>？？？</code></li>
+</ul>
+</li>
+</ul>
+<p>路由器可以进行路由选择和分组转发。<br>路由器对目的地址是私有IP地址的数据报一律不进行转发</p>
+<hr>
+<p><strong>IP地址</strong> <code>Internet Protocol Address</code> 是指互联网协议地址，又译为网际协议地址。</p>
+<p>私网IP要接入Internet时，要使用 <code>NAT</code> <strong>网络地址转换</strong><br>安装了NAT软件（含NAT转换表）的路由器叫NAT路由器，它至少有一个有效的外部全球IP地址。</p>
+<p><strong>移动IP技术</strong> 是移动结点（计算机、服务器等）以固定的网络IP地址，实现跨越不同网段的漫游功能，并保证了基于网络IP的网络权限在漫游过程中不发生任何改变。<br>.</p>
+<table>
+<thead>
+<tr>
+<th>私有IP地址类别</th>
+<th>地址范围</th>
+<th>网段个数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A类</td>
+<td><code>10.0.0.0 ~ 10.255.255.255</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td>B类</td>
+<td><code>172.16.0.0 ~ 172.31.255.255</code></td>
+<td>16</td>
+</tr>
+<tr>
+<td>C类</td>
+<td><code>192.168.0.0 ~ 192.168.255.255</code></td>
+<td>256</td>
+</tr>
+</tbody></table>
+<h1 id="五、传输层"><a href="#五、传输层" class="headerlink" title="五、传输层"></a>五、传输层</h1><p>只有主机才有的层次。</p>
+<ul>
+<li><strong>主要作用</strong><ul>
+<li>提供进程和进程之间的逻辑通信</li>
+<li>复用和分用</li>
+<li>对收到的报文进行差错检测</li>
+</ul>
+</li>
+<li><strong>两个协议</strong><ul>
+<li><code>TCP</code>（面向连接的传输控制协议）<ul>
+<li>TCP连接管理（三次握手，四次握手）</li>
+<li>TCP可靠传输</li>
+<li>TCP流量控制（滑动窗口）</li>
+<li>TCP拥塞控制</li>
+</ul>
+</li>
+<li><code>UDP</code>（无连接的用户数据报协议）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>端口</strong>是传输层的SAP（服务接入点），标识主机中的应用进程</p>
+<p>端口号只有本地意义，长度为<code>16bit</code>，能表示65536个不同的端口。</p>
+<ul>
+<li>端口号<ul>
+<li>服务端使用的端口号<ul>
+<li>熟知端口号 <code>0~1024</code></li>
+<li>登记端口号 <code>1024~49151</code></li>
+</ul>
+</li>
+<li>客户端使用的端口号<ul>
+<li><code>49152~65535</code>：仅在客户进程运行时才动态选择。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>应用程序</th>
+<th>FTP</th>
+<th>TELNET</th>
+<th>SMTP</th>
+<th>DNS</th>
+<th>TFTP</th>
+<th>HTTP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>熟知端口号</td>
+<td>21</td>
+<td>23</td>
+<td>25</td>
+<td>53</td>
+<td>69</td>
+<td>80</td>
+</tr>
+</tbody></table>
+<p>.<br><strong>套接字</strong> Socket =（主机IP地址，端口号）</p>
+<p>在计算机网络中采用发送方和接收方的套接字组合来识别端口，<br>套接字唯一标识了网络中的一个主机和它上面的一个进程。</p>
+<h1 id="六、应用层"><a href="#六、应用层" class="headerlink" title="六、应用层"></a>六、应用层</h1><p>应用层的协议定义了：</p>
 <ul>
 <li>应用进程交换的报文类型，请求还是响应？</li>
 <li>各种报文类型的语法</li>
@@ -978,8 +1216,8 @@
 <p>关于HTTP的理解（2020.05）：<a href="http://www.unielu.com/posts/http.html">www.unielu.com/posts/http.html</a></p>
 <h1 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h1><p><strong>参考资料</strong>：</p>
 <ul>
-<li>2019-王道考研-计算机网络，90%</li>
-<li>学校课程，10%</li>
+<li>2019-王道考研-计算机网络，95%</li>
+<li>学校课程，5%</li>
 <li>《计算机网络》第七版</li>
 </ul>
 <hr>
@@ -987,6 +1225,11 @@
 <ul>
 <li><a href="https://blog.csdn.net/qzcsu/article/details/72861891" target="_blank" rel="noopener">两张动图-彻底明白TCP的三次握手与四次挥手</a></li>
 <li><a href="https://baijiahao.baidu.com/s?id=1663133611194990028" target="_blank" rel="noopener">35 张图解被问千百遍的 TCP 三次握手和四次挥手面试题</a></li>
+<li><a href="https://blog.csdn.net/paincupid/article/details/79726795" target="_blank" rel="noopener">TCP报文格式详解</a></li>
+<li><a href="https://blog.csdn.net/shinezhang86/article/details/47145907" target="_blank" rel="noopener">IP报文格式学习笔记</a></li>
+<li><a href="https://blog.csdn.net/u011228842/article/details/91648649" target="_blank" rel="noopener">公网IP与私网IP</a></li>
+<li><a href="https://blog.csdn.net/qq_39346534/article/details/106373627" target="_blank" rel="noopener">移动IP的工作原理</a></li>
+<li><a href="https://blog.csdn.net/santtde/article/details/86765506" target="_blank" rel="noopener">路由器工作原理</a></li>
 </ul>
 <hr>
 <p>学时：56h理论+12h实验（6个）<br>分数：期末（70%）+平时（30%）</p>
@@ -1370,7 +1613,7 @@
                 <a href="/posts/ml.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/medias/featureimages/new-8.jpg" class="responsive-img" alt="机器学习">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.5/medias/featureimages/new-8.jpg" class="responsive-img" alt="机器学习">
                         
                         <span class="card-title">机器学习</span>
                     </div>
@@ -1418,7 +1661,7 @@
                 <a href="/posts/nlp.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.3/medias/featureimages/new-8.jpg" class="responsive-img" alt="计量语言学">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.5/medias/featureimages/new-8.jpg" class="responsive-img" alt="计量语言学">
                         
                         <span class="card-title">计量语言学</span>
                     </div>
@@ -1656,7 +1899,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">85.8k</span>&nbsp;字
+                class="white-color">87.7k</span>&nbsp;字
             
             
             
