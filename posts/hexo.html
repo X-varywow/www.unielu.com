@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    529
+                    536
                 </div>
                 
 
@@ -488,7 +488,7 @@
 <p>嗯，看上面3个文档，就应该可以搭建出一个免费的静态网页了。</p>
 <hr>
 <h2 id="other-info"><a href="#other-info" class="headerlink" title="other-info"></a><em>other-info</em></h2><h3 id="TOC目录的展开"><a href="#TOC目录的展开" class="headerlink" title="TOC目录的展开"></a>TOC目录的展开</h3><p><code>2021.3.7更新</code></p>
-<p>在 matery 目录下的_config.yml中</p>
+<p>在 matery 目录下的_config.yml中<br>参考：<a href="https://github.com/zkmei/hexo-theme-matery/commit/4b99984a46d95c5694c7f06152e0ba24c00e4c59" target="_blank" rel="noopener">GITHUB中的修改</a></p>
 <pre><code>toc:
   enable: true
   heading: h1,h2, h3, h4
@@ -1141,12 +1141,18 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.5/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
         font-size: 12px;
         font-weight: 700;
         line-height: 16px !important;
     }
 
     .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
         font-size: 15px;
         color: #42b983;
     }
