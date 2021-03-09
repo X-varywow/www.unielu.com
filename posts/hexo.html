@@ -77,9 +77,9 @@
       </li>
       
       <li>
-        <a href="/tags/python%E6%A8%A1%E5%9D%97/">
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
           
-          <span>python模块</span>
+          <span>计算机基础</span>
         </a>
       </li>
       
@@ -117,6 +117,13 @@
         <a href="/categories/%E7%A1%AC%E4%BB%B6/">
           
           <span>硬件</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/python/">
+          
+          <span>python</span>
         </a>
       </li>
       
@@ -206,9 +213,9 @@
               
                 <li>
 
-                  <a href="/tags/python%E6%A8%A1%E5%9D%97/ " style="margin-left:75px">
+                  <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/ " style="margin-left:75px">
 				  
-		          <span>python模块</span>
+		          <span>计算机基础</span>
                   </a>
                 </li>
               
@@ -248,6 +255,14 @@
                   <a href="/categories/%E7%A1%AC%E4%BB%B6/ " style="margin-left:75px">
 				  
 		          <span>硬件</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/python/ " style="margin-left:75px">
+				  
+		          <span>python</span>
                   </a>
                 </li>
               
@@ -464,14 +479,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-08
+                    2021-03-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    722
+                    915
                 </div>
                 
 
@@ -541,6 +556,28 @@ $nav<span class="token punctuation">.</span><span class="token function">addClas
 
 $nav<span class="token punctuation">.</span><span class="token function">removeClass</span><span class="token punctuation">(</span><span class="token string">'nav-transparent'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
+<h3 id="③设置独立的界面"><a href="#③设置独立的界面" class="headerlink" title="③设置独立的界面"></a>③设置独立的界面</h3><ul>
+<li>在根目录<code>sourse</code>中新建<code>zone</code>文件夹</li>
+<li>找到hexo的配置文件<code>_config.yml</code></li>
+<li>跳过<code>zone</code>文件夹的渲染，即 <code>skip_render: zone/**</code></li>
+</ul>
+<p>效果：独立的html界面可以直接使用了</p>
+<pre class="line-numbers language-md"><code class="language-md">[超级按钮](/zone/mouseover)
+
+这是一个跳转，至本站根文件下的zone/mouseover
+注释：mouseover中含有index.html，即完整独立的界面<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="④md文档中加入html语句"><a href="#④md文档中加入html语句" class="headerlink" title="④md文档中加入html语句"></a>④md文档中加入html语句</h3><p>markdown中支持html语句。</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- 使用font来更改字体样式 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span> <span class="token attr-name">face</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>verdana<span class="token punctuation">"</span></span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>green<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span>
+
+
+<span class="token comment" spellcheck="true">&lt;!-- 或则使用p来更改字体样式 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">font-family</span><span class="token punctuation">:</span>verdana<span class="token punctuation">;</span><span class="token property">font-size</span><span class="token punctuation">:</span><span class="token number">80%</span><span class="token punctuation">;</span><span class="token property">color</span><span class="token punctuation">:</span>green</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+This is a paragraph with some text in it.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token comment" spellcheck="true">&lt;!-- p 中 align="right" 可以更改位置 --></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- 使用img来更改图片大小 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>图片路径<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">zoom</span><span class="token punctuation">:</span><span class="token number">50%</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="⑤图标"><a href="#⑤图标" class="headerlink" title="⑤图标"></a>⑤图标</h3><p><a href="http://www.fontawesome.com.cn/faicons/" target="_blank" rel="noopener">http://www.fontawesome.com.cn/faicons/</a></p>
 <p>直接 <code>fas fa-name</code> 可以使用配置好的图标</p>
 <hr>
@@ -995,7 +1032,7 @@ $nav<span class="token punctuation">.</span><span class="token function">removeC
                 <a href="/posts/5bf8.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.5/medias/featureimages/geek.png" class="responsive-img" alt="杂货区">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.5/medias/featureimages/16.jpg" class="responsive-img" alt="杂货区">
                         
                         <span class="card-title">杂货区</span>
                     </div>
@@ -1025,12 +1062,12 @@ $nav<span class="token punctuation">.</span><span class="token function">removeC
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                        <span class="chip bg-color">数学</span>
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C</span>
+                    <a href="/tags/html/">
+                        <span class="chip bg-color">html</span>
                     </a>
                     
                 </div>
@@ -1237,7 +1274,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">88.2k</span>&nbsp;字
+                class="white-color">88.6k</span>&nbsp;字
             
             
             
