@@ -95,7 +95,8 @@ hr {
 
 blockquote {
     border-left: 5px solid #7db0f3;
-    padding: 0.8rem 0.8rem 0.2rem 0.8rem;
+    border-radius:3px;
+    padding: 0.5rem 0.8rem 0.1rem 0.8rem;
     color: rgb(0, 0, 0);
     background-color: rgb(242, 252, 230);
 }
@@ -120,20 +121,6 @@ pre {
     overflow: auto;
     border-radius: 0.35rem;
     tab-size: 4;
-}
-
-.code-area::after {
-    content: " ";
-    position: absolute;
-    border-radius: 50%;
-    background: #ff5f56;
-    width: 12px;
-    height: 12px;
-    top: 0;
-    left: 12px;
-    margin-top: 12px;
-    -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
-    box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
 }
 
 code {
@@ -164,6 +151,19 @@ code {
     opacity: 0;
 }
 
+.code-area::after {
+    content: " ";
+    position: absolute;
+    border-radius: 50%;
+    background: #ff5f56;
+    width: 12px;
+    height: 12px;
+    top: 0;
+    left: 12px;
+    margin-top: 12px;
+    -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+    box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+}
 .code_lang {
     position: absolute;
     top: 1.2rem;
@@ -258,7 +258,6 @@ mark {
 .toc-color {
     background: linear-gradient(to right, #C471ED 0%, #F64F59 100%);
 }
-
 .text-color {
     color: #0f9d58 !important;
 }
@@ -1070,10 +1069,6 @@ article .article-tags .chip {
     margin: 2px 2px 10px;
     font-size: 1.05rem;
     line-height: 1.85rem;
-}
-
-#articleContent blockquote p {
-    text-indent: 0.2rem;
 }
 
 #articleContent a {
@@ -2035,3 +2030,5 @@ footer .copy-right {
     padding: 0px;
     margin: 0px;
 }
+
+
