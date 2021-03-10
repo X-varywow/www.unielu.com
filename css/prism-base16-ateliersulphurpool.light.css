@@ -11,26 +11,31 @@ code[class*="language-"],
 pre[class*="language-"] {
 	font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
 	font-size: 14px;
-	font-weight: 500;
 	line-height: 1.4;
 	direction: ltr;
 	text-align: left;
+
 	white-space: pre;
 	word-spacing: normal;
 	word-break: normal;
+	word-wrap: normal;
+
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
 	tab-size: 4;
+
 	-webkit-hyphens: none;
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
+
 	background: rgb(243, 240, 225);
 	color: #3C3C3C;
 }
 
 pre > code[class*="language-"] {
-	font-size: 1em;
+	float: left;
+	padding: 0 15px 0 0;
 }
 
 pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
@@ -58,12 +63,14 @@ pre[class*="language-"] {
 	border-radius: .3em;
 }
 
-.token.comment,
+.token.comment{
+	color: #228d07;
+}
+
 .token.prolog,
 .token.doctype,
 .token.cdata {
 	color: #1d7e05;
-	font-family: STKaiti;
 }
 
 .token.punctuation {

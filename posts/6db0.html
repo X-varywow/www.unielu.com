@@ -17,17 +17,17 @@
 
 
     <title>Electron之旅 | -- blog --</title>
-    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/favicon.png">
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/css/my.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/css/my.css">
 
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
@@ -172,7 +172,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name diyFont">welcome!</div>
     </div>
@@ -316,7 +316,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/medias/featureimages/electron.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/medias/featureimages/electron.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -334,7 +334,7 @@
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/tocbot/tocbot.css">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    383
+                    459
                 </div>
                 
 
@@ -522,6 +522,21 @@ $ <span class="token function">npm</span> <span class="token function">install</
 
 $ <span class="token function">npm</span> start<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Hello World!<br>We are using Node.js 12.16.3, Chromium 85.0.4183.93, and Electron 10.1.1.</p>
+<blockquote>
+<p>Electron 在一开始会通过node去执行当前main.js文件</p>
+</blockquote>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//electron是内置模块，提供了所有的API</span>
+<span class="token keyword">const</span> electron <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'electron'</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">//module to control application life</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> electron<span class="token punctuation">.</span>app 
+
+<span class="token comment" spellcheck="true">//module to create native browser window</span>
+<span class="token comment" spellcheck="true">//如同在浏览器中打开一个新的窗口</span>
+<span class="token keyword">const</span> BrowserWidow <span class="token operator">=</span> electron<span class="token punctuation">.</span>BrowserWidow
+
+<span class="token comment" spellcheck="true">//注册事件</span>
+app<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'ready'</span><span class="token punctuation">,</span> createWindow<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="js库"><a href="#js库" class="headerlink" title="js库"></a>js库</h2><p><code>React</code> 是一个用于构建用户界面的 JAVASCRIPT 库。</p>
 <p>React 主要用于构建UI，很多人认为 React 是 MVC 中的 V（视图）。</p>
 <p>React 起源于 Facebook 的内部项目，用来架设 Instagram 的网站，并于 2013 年 5 月开源。</p>
@@ -609,12 +624,12 @@ $ <span class="token function">npm</span> start<span aria-hidden="true" class="l
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/share/css/share.min.css">
 <div id="article-share">
 
     
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/share/js/social-share.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -881,8 +896,8 @@ $ <span class="token function">npm</span> start<span aria-hidden="true" class="l
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/valine/av-min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/valine/Valine.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/valine/Valine.min.js"></script>
 <script>
     new Valine({
         el: '#vcomments',
@@ -914,7 +929,7 @@ $ <span class="token function">npm</span> start<span aria-hidden="true" class="l
                 <a href="/posts/e9cc.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/medias/featureimages/5.jpg" class="responsive-img" alt="functools模块">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/medias/featureimages/5.jpg" class="responsive-img" alt="functools模块">
                         
                         <span class="card-title">functools模块</span>
                     </div>
@@ -962,7 +977,7 @@ $ <span class="token function">npm</span> start<span aria-hidden="true" class="l
                 <a href="/posts/4832.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/medias/featureimages/leetcode.png" class="responsive-img" alt="DFS&amp;BFS">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/medias/featureimages/leetcode.png" class="responsive-img" alt="DFS&amp;BFS">
                         
                         <span class="card-title">DFS&amp;BFS</span>
                     </div>
@@ -1009,21 +1024,21 @@ $ <span class="token function">npm</span> start<span aria-hidden="true" class="l
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/codeBlock/codeBlockFuction.js"></script>
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/codeBlock/codeShrink.js"></script>
 
 
 <!-- 代码块折行 -->
@@ -1051,7 +1066,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/tocbot/tocbot.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -1136,7 +1151,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/aplayer/APlayer.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
         
@@ -1186,7 +1201,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
     
@@ -1200,7 +1215,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">88.8k</span>&nbsp;字
+                class="white-color">89.4k</span>&nbsp;字
             
             
             
@@ -1304,10 +1319,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/js/search.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/search.xml", 'searchInput', 'searchResult');
+    searchFunc("https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/search.xml", 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1319,12 +1334,12 @@ $(function () {
 </div>
 
 
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/materialize/materialize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/aos/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/js/matery.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/js/matery.js"></script>
 
     <!-- Baidu Analytics -->
 
@@ -1345,10 +1360,10 @@ $(function () {
 </script>
 
     
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/others/clicklove.js" async="async"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/others/clicklove.js" async="async"></script>
     
     
-    <script async src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/others/busuanzi.pure.mini.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
@@ -1359,7 +1374,7 @@ $(function () {
     <script type="text/javascript" color="0,0,0"
         pointColor="0,0,0" opacity='0.7'
         zIndex="-1" count="99"
-        src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/background/canvas-nest.js"></script>
+        src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/background/canvas-nest.js"></script>
     
 
     
@@ -1367,7 +1382,7 @@ $(function () {
     
 
     
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.6/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V3.7/libs/instantpage/instantpage.js" type="module"></script>
     
 </body>
 
