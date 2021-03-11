@@ -483,14 +483,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-10
+                    2021-03-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    352
+                    579
                 </div>
                 
 
@@ -522,20 +522,89 @@
 <blockquote>
 <p>hhh~，好像4年前就写过C++的 <code>hello, world</code>，记得高中时在看C++ primer的指针一头雾水，都不知道当时图啥。现在，开始好好学C++了。<code>2021.3.10</code> <code>加油</code></p>
 </blockquote>
-<h3 id="1-1-基本语法"><a href="#1-1-基本语法" class="headerlink" title="1.1 基本语法"></a>1.1 基本语法</h3><h3 id="1-2-数据类型-amp-运算符"><a href="#1-2-数据类型-amp-运算符" class="headerlink" title="1.2 数据类型&amp;运算符"></a>1.2 数据类型&amp;运算符</h3><table>
+<h3 id="1-1-基本语法"><a href="#1-1-基本语法" class="headerlink" title="1.1 基本语法"></a>1.1 基本语法</h3><p>.</p>
+<div class="admonition warning"><p class="admonition-title">标识符
+</p><ul>
+<li>以字母或<code>_</code>开始</li>
+<li>由数字、字母、<code>_</code>组成</li>
+<li>不能是关键字或操作符</li>
+</ul>
+</div>
+
+<p>空白符：空格、制表符、换行符、回车符和注释的总称</p>
+<p>调试：设置断点，F5，，F11 逐语句，F10 逐过程</p>
+<p>注释：</p>
+<h3 id="1-2-数据类型-amp-运算符"><a href="#1-2-数据类型-amp-运算符" class="headerlink" title="1.2 数据类型&amp;运算符"></a>1.2 数据类型&amp;运算符</h3><ul>
+<li>常量<ul>
+<li>整数常量<ul>
+<li>八进制：以<code>0</code>开头</li>
+<li>十六进制：以<code>0x</code>开头</li>
+</ul>
+</li>
+<li>浮点型常量（近似存储）</li>
+<li>字符串常量<ul>
+<li>C风格字符串常量：以<code>\0</code>结尾的字符序列</li>
+<li>string类对象</li>
+</ul>
+</li>
+<li>符号常量（eg. <code>const float pi(3.14)</code>）</li>
+</ul>
+</li>
+<li>运算符<ul>
+<li><code>+ - * /</code> <code>%</code> <code>++</code> <code>--</code> <code>=</code> <code>&lt;&lt; &gt;&gt; &amp; ^ |</code></li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//逗号运算符，先计算表达式1，再计算表达式2，结果为表达式2的值</span>
+a <span class="token operator">=</span> <span class="token number">3</span><span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">,</span> a<span class="token operator">*</span><span class="token number">4</span> <span class="token comment" spellcheck="true">//最终结果为60</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><code>signed</code> <code>unsigned</code></p>
+<table>
 <thead>
 <tr>
-<th>变量类型</th>
-<th>说明</th>
+<th>变量类型：</th>
+<th>bool</th>
+<th>char</th>
+<th>short</th>
+<th>int</th>
+<th>long</th>
+<th>long long</th>
+<th>float</th>
+<th>double</th>
 </tr>
 </thead>
 <tbody><tr>
-<td></td>
-<td></td>
+<td>字节数</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>8</td>
+<td>4</td>
+<td>8</td>
 </tr>
+</tbody></table>
+<p>.</p>
+<table>
+<thead>
 <tr>
-<td></td>
-<td></td>
+<th>转义字符：</th>
+<th>\n</th>
+<th>\t</th>
+<th>\v</th>
+<th>\b</th>
+<th>\r</th>
+<th>\\</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>含义</td>
+<td>换行</td>
+<td>水平制表符</td>
+<td>垂直制表符</td>
+<td>退格</td>
+<td>回车</td>
+<td>字符<code>\</code></td>
 </tr>
 </tbody></table>
 <h2 id="C-面向对象"><a href="#C-面向对象" class="headerlink" title="C++面向对象"></a>C++面向对象</h2><h3 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h3><p><strong>如何形成类</strong>：抽象出同一类事物的共同属性和行为，形成类。</p>
@@ -1232,7 +1301,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">89.4k</span>&nbsp;字
+                class="white-color">89.8k</span>&nbsp;字
             
             
             
