@@ -1,0 +1,1552 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="跳一跳脚本, -- blog --">
+    <meta name="description" content="诗性买酒醉，逐影取月走">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>跳一跳脚本 | -- blog --</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo diyFont">
+                <a href="/" class="waves-effect waves-light">
+                    <span class="logo-span">将心晴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+
+      
+      <span>标签</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+          
+          <span>leetcode比赛</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
+          
+          <span>计算机基础</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+
+      
+      <span>分类</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/categories/%E5%A4%A7%E4%BA%8C/">
+          
+          <span>大二</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/%E6%97%A5%E8%AE%B0/">
+          
+          <span>日记</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/%E7%A1%AC%E4%BB%B6/">
+          
+          <span>硬件</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/python/">
+          
+          <span>python</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/%E7%AE%97%E6%B3%95/">
+          
+          <span>算法</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <span>更多</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/about">
+          
+          <span>关于</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/contact">
+          
+          <span>留言</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/links">
+          
+          <span>链接</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name diyFont">welcome!</div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			标签
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/ " style="margin-left:75px">
+				  
+		          <span>leetcode比赛</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/ " style="margin-left:75px">
+				  
+		          <span>计算机基础</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			分类
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/categories/%E5%A4%A7%E4%BA%8C/ " style="margin-left:75px">
+				  
+		          <span>大二</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/%E6%97%A5%E8%AE%B0/ " style="margin-left:75px">
+				  
+		          <span>日记</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/%E7%A1%AC%E4%BB%B6/ " style="margin-left:75px">
+				  
+		          <span>硬件</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/python/ " style="margin-left:75px">
+				  
+		          <span>python</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/%E7%AE%97%E6%B3%95/ " style="margin-left:75px">
+				  
+		          <span>算法</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			更多
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:75px">
+				  
+		          <span>关于</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/contact " style="margin-left:75px">
+				  
+		          <span>留言</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/links " style="margin-left:75px">
+				  
+		          <span>链接</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/27.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title diyFont">跳一跳脚本</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+/*2021.3.9 原版本：height: calc(100vh - 250px); */
+    #toc-content {
+        height: calc(100vh - 230px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    .toc-fixed .toc-link::before{
+        position: fixed!important;/*当toc的位置改为fixed时，.toc-link::before也要改为fixed*/
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%B7%A5%E7%A8%8B/">
+                                <span class="chip bg-color">工程</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/python/" class="post-category">
+                                python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-03-18
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-03-18
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.8k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>参考地址：</p>
+<ul>
+<li><a href="https://github.com/wangshub/wechat_jump_game" target="_blank" rel="noopener">github：python跳一跳脚本1</a></li>
+<li><a href="https://github.com/Huang-JunJia/wechat_jump_game" target="_blank" rel="noopener">github：python跳一跳脚本2</a></li>
+</ul>
+<h2 id="preface"><a href="#preface" class="headerlink" title="preface"></a><em>preface</em></h2><p>本来是微信收藏了一篇文章，关于这个开源项目：<a href="https://github.com/FengQuanLi/ResnetGPT" target="_blank" rel="noopener">基于pytorch框架用resnet101加GPT搭建AI玩王者荣耀</a></p>
+<p>看到了他的思路后，以前（电脑如何操控手机）问题好像有解了。</p>
+<div class="admonition info"><p class="admonition-title">他的思路
+</p><p>手机启用USB调试，
+minitouch 提供了一个 socket 接口用在 Android 设备上的多点触摸事件以及手势。也是无需 ROOT 手机。</p>
+<p>用 scrcpy 获取游戏画面，获取 scrcpy 的句柄，然后截图，根据图片生成操作指令，然后利用 minitouch 高效的执行这些操作指令。</p>
+<p>所以关键在于，如何根据图片生成操作指令。</p>
+<p>没错，用 Transformer。</p>
+</div>
+
+<p>然后去<a href="https://github.com/williamfzc/pyminitouch" target="_blank" rel="noopener">pyminitouch</a>看了下，果不其然，运行demo代码就出错了。</p>
+<p>中途学了adb，一个调试安卓的功能包。参考：<a href="https://www.unielu.com/posts/ed60.html">https://www.unielu.com/posts/ed60.html</a></p>
+<p>然后试着做跳一跳脚本，还打算图片匹配找到中心点…找资料时发现了跳一跳外挂的开源代码，就直接用了。</p>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>以<code>MIUI12</code>为例，</p>
+<p>1.安卓端<br>多次点击miui版本号，进入开发者模式。<br>在开发者选项中打开USB调试。（可选功能：显示点按操作反馈、指针位置）</p>
+<p>2.电脑端<br><a href="https://zhidao.baidu.com/question/458972580.html" target="_blank" rel="noopener">安装ADB工具包</a></p>
+<h2 id="运行中"><a href="#运行中" class="headerlink" title="运行中"></a>运行中</h2><p>在adb指令可执行的情况下，开始游戏，执行该代码即可。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">import</span> shutil
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> math
+<span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image<span class="token punctuation">,</span> ImageDraw
+<span class="token keyword">import</span> random
+
+<span class="token comment" spellcheck="true"># === 思路 ===</span>
+<span class="token comment" spellcheck="true"># 核心：每次落稳之后截图，根据截图算出棋子的坐标和下一个块顶面的中点坐标，</span>
+<span class="token comment" spellcheck="true">#      根据两个点的距离乘以一个时间系数获得长按的时间</span>
+<span class="token comment" spellcheck="true"># 识别棋子：靠棋子的颜色来识别位置，通过截图发现最下面一行大概是一条直线，就从上往下一行一行遍历，</span>
+<span class="token comment" spellcheck="true">#         比较颜色（颜色用了一个区间来比较）找到最下面的那一行的所有点，然后求个中点，</span>
+<span class="token comment" spellcheck="true">#         求好之后再让 Y 轴坐标减小棋子底盘的一半高度从而得到中心点的坐标</span>
+<span class="token comment" spellcheck="true"># 识别棋盘：靠底色和方块的色差来做，从分数之下的位置开始，一行一行扫描，由于圆形的块最顶上是一条线，</span>
+<span class="token comment" spellcheck="true">#          方形的上面大概是一个点，所以就用类似识别棋子的做法多识别了几个点求中点，</span>
+<span class="token comment" spellcheck="true">#          这时候得到了块中点的 X 轴坐标，这时候假设现在棋子在当前块的中心，</span>
+<span class="token comment" spellcheck="true">#          根据一个通过截图获取的固定的角度来推出中点的 Y 坐标</span>
+<span class="token comment" spellcheck="true"># 最后：根据两点的坐标算距离乘以系数来获取长按时间（似乎可以直接用 X 轴距离）</span>
+
+
+<span class="token comment" spellcheck="true"># TODO: 解决定位偏移的问题</span>
+<span class="token comment" spellcheck="true"># TODO: 看看两个块中心到中轴距离是否相同，如果是的话靠这个来判断一下当前超前还是落后，便于矫正</span>
+<span class="token comment" spellcheck="true"># TODO: 一些固定值根据截图的具体大小计算</span>
+<span class="token comment" spellcheck="true"># TODO: 直接用 X 轴距离简化逻辑</span>
+
+<span class="token comment" spellcheck="true"># Magic Number，不设置可能无法正常执行，请根据具体截图从上到下按需设置</span>
+under_game_score_y <span class="token operator">=</span> <span class="token number">300</span>     <span class="token comment" spellcheck="true"># 截图中刚好低于分数显示区域的 Y 坐标，300 是 1920x1080 的值，2K 屏、全面屏请根据实际情况修改</span>
+
+<span class="token comment" spellcheck="true"># 1.392 第一次跑了4k分（环境：mi10pro，1080*2340）</span>
+press_coefficient <span class="token operator">=</span> <span class="token number">1.392</span>      <span class="token comment" spellcheck="true"># 长按的时间系数，请自己根据实际情况调节。</span>
+piece_base_height_1_2 <span class="token operator">=</span> <span class="token number">20</span>  <span class="token comment" spellcheck="true"># 二分之一的棋子底座高度，可能要调节</span>
+piece_body_width <span class="token operator">=</span> <span class="token number">70</span>           <span class="token comment" spellcheck="true"># 棋子的宽度，比截图中量到的稍微大一点比较安全，可能要调节</span>
+
+swipe_x1<span class="token punctuation">,</span> swipe_y1<span class="token punctuation">,</span> swipe_x2<span class="token punctuation">,</span> swipe_y2 <span class="token operator">=</span> <span class="token number">320</span><span class="token punctuation">,</span> <span class="token number">410</span><span class="token punctuation">,</span> <span class="token number">320</span><span class="token punctuation">,</span> <span class="token number">410</span>     <span class="token comment" spellcheck="true"># 模拟按压的起始点坐标，需要自动重复游戏请设置成“再来一局”的坐标</span>
+
+
+screenshot_backup_dir <span class="token operator">=</span> <span class="token string">'screenshot_backups/'</span>
+<span class="token keyword">if</span> <span class="token operator">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>isdir<span class="token punctuation">(</span>screenshot_backup_dir<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        os<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span>screenshot_backup_dir<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">pull_screenshot</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'adb shell screencap -p /sdcard/1.png'</span><span class="token punctuation">)</span>
+    os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'adb pull /sdcard/1.png .'</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">backup_screenshot</span><span class="token punctuation">(</span>ts<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 为了方便失败的时候 debug</span>
+    <span class="token keyword">if</span> <span class="token operator">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>isdir<span class="token punctuation">(</span>screenshot_backup_dir<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        os<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span>screenshot_backup_dir<span class="token punctuation">)</span>
+    shutil<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token string">'1.png'</span><span class="token punctuation">,</span> <span class="token string">'{}{}.png'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>screenshot_backup_dir<span class="token punctuation">,</span> ts<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">save_debug_creenshot</span><span class="token punctuation">(</span>ts<span class="token punctuation">,</span> im<span class="token punctuation">,</span> piece_x<span class="token punctuation">,</span> piece_y<span class="token punctuation">,</span> board_x<span class="token punctuation">,</span> board_y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    draw <span class="token operator">=</span> ImageDraw<span class="token punctuation">.</span>Draw<span class="token punctuation">(</span>im<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 对debug图片加上详细的注释</span>
+    draw<span class="token punctuation">.</span>line<span class="token punctuation">(</span><span class="token punctuation">(</span>piece_x<span class="token punctuation">,</span> piece_y<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>board_x<span class="token punctuation">,</span> board_y<span class="token punctuation">)</span><span class="token punctuation">,</span> fill<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> width<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
+    draw<span class="token punctuation">.</span>line<span class="token punctuation">(</span><span class="token punctuation">(</span>piece_x<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> piece_x<span class="token punctuation">,</span> im<span class="token punctuation">.</span>size<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> fill<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    draw<span class="token punctuation">.</span>line<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> piece_y<span class="token punctuation">,</span> im<span class="token punctuation">.</span>size<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> piece_y<span class="token punctuation">)</span><span class="token punctuation">,</span> fill<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    draw<span class="token punctuation">.</span>line<span class="token punctuation">(</span><span class="token punctuation">(</span>board_x<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> board_x<span class="token punctuation">,</span> im<span class="token punctuation">.</span>size<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> fill<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    draw<span class="token punctuation">.</span>line<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> board_y<span class="token punctuation">,</span> im<span class="token punctuation">.</span>size<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> board_y<span class="token punctuation">)</span><span class="token punctuation">,</span> fill<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    draw<span class="token punctuation">.</span>ellipse<span class="token punctuation">(</span><span class="token punctuation">(</span>piece_x <span class="token operator">-</span> <span class="token number">10</span><span class="token punctuation">,</span> piece_y <span class="token operator">-</span> <span class="token number">10</span><span class="token punctuation">,</span> piece_x <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">,</span> piece_y <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> fill<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    draw<span class="token punctuation">.</span>ellipse<span class="token punctuation">(</span><span class="token punctuation">(</span>board_x <span class="token operator">-</span> <span class="token number">10</span><span class="token punctuation">,</span> board_y <span class="token operator">-</span> <span class="token number">10</span><span class="token punctuation">,</span> board_x <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">,</span> board_y <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> fill<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">del</span> draw
+    im<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">"{}{}_d.png"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>screenshot_backup_dir<span class="token punctuation">,</span> ts<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">set_button_position</span><span class="token punctuation">(</span>im<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 将swipe设置为 `再来一局` 按钮的位置</span>
+    <span class="token keyword">global</span> swipe_x1<span class="token punctuation">,</span> swipe_y1<span class="token punctuation">,</span> swipe_x2<span class="token punctuation">,</span> swipe_y2
+    w<span class="token punctuation">,</span> h <span class="token operator">=</span> im<span class="token punctuation">.</span>size
+    left <span class="token operator">=</span> w <span class="token operator">/</span> <span class="token number">2</span>
+    top <span class="token operator">=</span> <span class="token number">1003</span> <span class="token operator">*</span> <span class="token punctuation">(</span>h <span class="token operator">/</span> <span class="token number">1280.0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">10</span>
+    swipe_x1<span class="token punctuation">,</span> swipe_y1<span class="token punctuation">,</span> swipe_x2<span class="token punctuation">,</span> swipe_y2 <span class="token operator">=</span> left<span class="token punctuation">,</span> top<span class="token punctuation">,</span> left<span class="token punctuation">,</span> top
+
+
+<span class="token keyword">def</span> <span class="token function">jump</span><span class="token punctuation">(</span>distance<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    press_time <span class="token operator">=</span> distance <span class="token operator">*</span> press_coefficient
+    press_time <span class="token operator">=</span> max<span class="token punctuation">(</span>press_time<span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 设置 200 ms 是最小的按压时间</span>
+    press_time <span class="token operator">=</span> int<span class="token punctuation">(</span>press_time<span class="token punctuation">)</span>
+    cmd <span class="token operator">=</span> <span class="token string">'adb shell input swipe {} {} {} {} {}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>swipe_x1<span class="token punctuation">,</span> swipe_y1<span class="token punctuation">,</span> swipe_x2<span class="token punctuation">,</span> swipe_y2<span class="token punctuation">,</span> press_time<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>cmd<span class="token punctuation">)</span>
+    os<span class="token punctuation">.</span>system<span class="token punctuation">(</span>cmd<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">find_piece_and_board</span><span class="token punctuation">(</span>im<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    w<span class="token punctuation">,</span> h <span class="token operator">=</span> im<span class="token punctuation">.</span>size
+
+    piece_x_sum <span class="token operator">=</span> <span class="token number">0</span>
+    piece_x_c <span class="token operator">=</span> <span class="token number">0</span>
+    piece_y_max <span class="token operator">=</span> <span class="token number">0</span>
+    board_x <span class="token operator">=</span> <span class="token number">0</span>
+    board_y <span class="token operator">=</span> <span class="token number">0</span>
+    scan_x_border <span class="token operator">=</span> int<span class="token punctuation">(</span>w <span class="token operator">/</span> <span class="token number">8</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 扫描棋子时的左右边界</span>
+    scan_start_y <span class="token operator">=</span> <span class="token number">0</span>  <span class="token comment" spellcheck="true"># 扫描的起始y坐标</span>
+    im_pixel<span class="token operator">=</span>im<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 以50px步长，尝试探测scan_start_y</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>int<span class="token punctuation">(</span>h <span class="token operator">/</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> int<span class="token punctuation">(</span> h<span class="token operator">*</span><span class="token number">2</span> <span class="token operator">/</span><span class="token number">3</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        last_pixel <span class="token operator">=</span> im_pixel<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span>i<span class="token punctuation">]</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> w<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            pixel<span class="token operator">=</span>im_pixel<span class="token punctuation">[</span>j<span class="token punctuation">,</span>i<span class="token punctuation">]</span>
+            <span class="token comment" spellcheck="true"># 不是纯色的线，则记录scan_start_y的值，准备跳出循环</span>
+            <span class="token keyword">if</span> pixel<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">!=</span> last_pixel<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">or</span> pixel<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">!=</span> last_pixel<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">or</span> pixel<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">!=</span> last_pixel<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                scan_start_y <span class="token operator">=</span> i <span class="token operator">-</span> <span class="token number">50</span>
+                <span class="token keyword">break</span>
+        <span class="token keyword">if</span> scan_start_y<span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"scan_start_y: "</span><span class="token punctuation">,</span> scan_start_y<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 从scan_start_y开始往下扫描，棋子应位于屏幕上半部分，这里暂定不超过2/3</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>int<span class="token punctuation">(</span>h <span class="token operator">/</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> int<span class="token punctuation">(</span>h <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">/</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>scan_x_border<span class="token punctuation">,</span> w <span class="token operator">-</span> scan_x_border<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 横坐标方面也减少了一部分扫描开销</span>
+            pixel <span class="token operator">=</span> im_pixel<span class="token punctuation">[</span>j<span class="token punctuation">,</span>i<span class="token punctuation">]</span>
+            <span class="token comment" spellcheck="true"># 根据棋子的最低行的颜色判断，找最后一行那些点的平均值，这个颜色这样应该 OK，暂时不提出来</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">50</span> <span class="token operator">&lt;</span> pixel<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">60</span><span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token number">53</span> <span class="token operator">&lt;</span> pixel<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">63</span><span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token number">95</span> <span class="token operator">&lt;</span> pixel<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">110</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                piece_x_sum <span class="token operator">+=</span> j
+                piece_x_c <span class="token operator">+=</span> <span class="token number">1</span>
+                piece_y_max <span class="token operator">=</span> max<span class="token punctuation">(</span>i<span class="token punctuation">,</span> piece_y_max<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> <span class="token operator">not</span> all<span class="token punctuation">(</span><span class="token punctuation">(</span>piece_x_sum<span class="token punctuation">,</span> piece_x_c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>
+    piece_x <span class="token operator">=</span> piece_x_sum <span class="token operator">/</span> piece_x_c
+    piece_y <span class="token operator">=</span> piece_y_max <span class="token operator">-</span> piece_base_height_1_2  <span class="token comment" spellcheck="true"># 上移棋子底盘高度的一半</span>
+
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>int<span class="token punctuation">(</span>h <span class="token operator">/</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> int<span class="token punctuation">(</span>h <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">/</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        last_pixel <span class="token operator">=</span> im_pixel<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> i<span class="token punctuation">]</span>
+        <span class="token keyword">if</span> board_x <span class="token operator">or</span> board_y<span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+        board_x_sum <span class="token operator">=</span> <span class="token number">0</span>
+        board_x_c <span class="token operator">=</span> <span class="token number">0</span>
+
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>w<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            pixel <span class="token operator">=</span> im_pixel<span class="token punctuation">[</span>j<span class="token punctuation">,</span>i<span class="token punctuation">]</span>
+            <span class="token comment" spellcheck="true"># 修掉脑袋比下一个小格子还高的情况的 bug</span>
+            <span class="token keyword">if</span> abs<span class="token punctuation">(</span>j <span class="token operator">-</span> piece_x<span class="token punctuation">)</span> <span class="token operator">&lt;</span> piece_body_width<span class="token punctuation">:</span>
+                <span class="token keyword">continue</span>
+
+            <span class="token comment" spellcheck="true"># 修掉圆顶的时候一条线导致的小 bug，这个颜色判断应该 OK，暂时不提出来</span>
+            <span class="token keyword">if</span> abs<span class="token punctuation">(</span>pixel<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">-</span> last_pixel<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> abs<span class="token punctuation">(</span>pixel<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> last_pixel<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> abs<span class="token punctuation">(</span>pixel<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">-</span> last_pixel<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">10</span><span class="token punctuation">:</span>
+                board_x_sum <span class="token operator">+=</span> j
+                board_x_c <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">if</span> board_x_sum<span class="token punctuation">:</span>
+            board_x <span class="token operator">=</span> board_x_sum <span class="token operator">/</span> board_x_c
+    <span class="token comment" spellcheck="true"># 按实际的角度来算，找到接近下一个 board 中心的坐标 这里的角度应该是30°,值应该是tan 30°, math.sqrt(3) / 3</span>
+    board_y <span class="token operator">=</span> piece_y <span class="token operator">-</span> abs<span class="token punctuation">(</span>board_x <span class="token operator">-</span> piece_x<span class="token punctuation">)</span> <span class="token operator">*</span> math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">3</span>
+
+    <span class="token keyword">if</span> <span class="token operator">not</span> all<span class="token punctuation">(</span><span class="token punctuation">(</span>board_x<span class="token punctuation">,</span> board_y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>
+
+    <span class="token keyword">return</span> piece_x<span class="token punctuation">,</span> piece_y<span class="token punctuation">,</span> board_x<span class="token punctuation">,</span> board_y
+
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        pull_screenshot<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        im <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">"./1.png"</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 获取棋子和 board 的位置</span>
+        piece_x<span class="token punctuation">,</span> piece_y<span class="token punctuation">,</span> board_x<span class="token punctuation">,</span> board_y <span class="token operator">=</span> find_piece_and_board<span class="token punctuation">(</span>im<span class="token punctuation">)</span>
+        ts <span class="token operator">=</span> int<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>ts<span class="token punctuation">,</span> piece_x<span class="token punctuation">,</span> piece_y<span class="token punctuation">,</span> board_x<span class="token punctuation">,</span> board_y<span class="token punctuation">)</span>
+        set_button_position<span class="token punctuation">(</span>im<span class="token punctuation">)</span>
+        jump<span class="token punctuation">(</span>math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span><span class="token punctuation">(</span>board_x <span class="token operator">-</span> piece_x<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token punctuation">(</span>board_y <span class="token operator">-</span> piece_y<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        save_debug_creenshot<span class="token punctuation">(</span>ts<span class="token punctuation">,</span> im<span class="token punctuation">,</span> piece_x<span class="token punctuation">,</span> piece_y<span class="token punctuation">,</span> board_x<span class="token punctuation">,</span> board_y<span class="token punctuation">)</span>
+        backup_screenshot<span class="token punctuation">(</span>ts<span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span>random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1.1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 为了保证截图的时候应落稳了，多延迟一会儿</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="其它参考"><a href="#其它参考" class="headerlink" title="其它参考"></a>其它参考</h2><p><a href="https://pillow.readthedocs.io/en/stable/" target="_blank" rel="noopener">pillow使用文档</a></p>
+<p><a href="https://blog.csdn.net/quikai1981/article/details/78952294" target="_blank" rel="noopener">python使用adb</a></p>
+<p><a href="https://blog.csdn.net/sandalphon4869/article/details/101713495" target="_blank" rel="noopener">一些adb指令</a></p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.unielu.com" rel="external nofollow noreferrer">╯晓~</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.unielu.com/posts/49cb.html">https://www.unielu.com/posts/49cb.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://www.unielu.com" target="_blank">╯晓~</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%B7%A5%E7%A8%8B/">
+                                    <span class="chip bg-color">工程</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/null") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'TV3EkoT1RWDBdxhLtw7jpybV-gzGzoHsz',
+        appKey: 'thELHO0ibHB36uJM5nV6Ufpq',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '评论未必能及时回复，所以在主评论区玩玩就行🍻'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/ed60.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/27.jpg" class="responsive-img" alt="ADB使用">
+                        
+                        <span class="card-title">ADB使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            还在整理中
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AE%89%E5%8D%93/" class="post-category">
+                                    安卓
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/adb/">
+                        <span class="chip bg-color">adb</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/e50.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/luff-5.jpg" class="responsive-img" alt="硅谷之谜">
+                        
+                        <span class="card-title">硅谷之谜</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            吴军
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%B9%A6%E6%91%98/" class="post-category">
+                                    书摘
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large toc-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('2'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="tencent"
+                   type="playlist"
+                   id="7512773752"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='list'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="https://www.unielu.com" target="_blank"></a>╯晓~</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">96.1k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "4";
+                    var startDate = "30";
+                    var startHour = "10";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,0"
+        pointColor="0,0,0" opacity='0.7'
+        zIndex="-1" count="99"
+        src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/instantpage/instantpage.js" type="module"></script>
+    
+</body>
+
+</html>
