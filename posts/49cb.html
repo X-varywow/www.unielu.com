@@ -510,7 +510,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2k
                 </div>
                 
 
@@ -716,6 +716,36 @@ screenshot_backup_dir <span class="token operator">=</span> <span class="token s
     main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 <span class="token comment" spellcheck="true">#换成银白色皮肤后会失败，黑皮肤正常</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>2021.3.19</code> 钢琴块脚本 ⬇</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image<span class="token punctuation">,</span> ImageDraw
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> time
+
+<span class="token comment" spellcheck="true">#四个取色的点，也是点击的点</span>
+tap<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">90</span><span class="token punctuation">,</span><span class="token number">1200</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">360</span><span class="token punctuation">,</span><span class="token number">1200</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">630</span><span class="token punctuation">,</span><span class="token number">1200</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">900</span><span class="token punctuation">,</span><span class="token number">1200</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'adb shell screencap -p /sdcard/1.png'</span><span class="token punctuation">)</span>
+    os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'adb pull /sdcard/1.png .'</span><span class="token punctuation">)</span>
+    im <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">"./1.png"</span><span class="token punctuation">)</span>
+    im_pixel<span class="token operator">=</span>im<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> x<span class="token punctuation">,</span>y <span class="token keyword">in</span> tap<span class="token punctuation">:</span>
+        color<span class="token operator">=</span>im_pixel<span class="token punctuation">[</span>x<span class="token punctuation">,</span>y<span class="token punctuation">]</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>color<span class="token punctuation">,</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> color<span class="token operator">==</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">,</span><span class="token number">32</span><span class="token punctuation">,</span><span class="token number">32</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true">#黑块颜色值为这个</span>
+            cmd<span class="token operator">=</span><span class="token string">'adb shell input tap {} {}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>cmd<span class="token punctuation">)</span>
+            os<span class="token punctuation">.</span>system<span class="token punctuation">(</span>cmd<span class="token punctuation">)</span>
+
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.2</span><span class="token punctuation">)</span>  
+
+<span class="token comment" spellcheck="true">#复习一下昨天学到的，hhh</span>
+<span class="token comment" spellcheck="true">#测试环境，小米10pro，钢琴块1，经典模式25块。</span>
+<span class="token comment" spellcheck="true">#26.477s</span>
+<span class="token comment" spellcheck="true">#去掉sleep,21.599s。</span>
+<span class="token comment" spellcheck="true">#好慢啊，用手4.665s</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="其它参考"><a href="#其它参考" class="headerlink" title="其它参考"></a>其它参考</h2><p><a href="https://pillow.readthedocs.io/en/stable/" target="_blank" rel="noopener">pillow使用文档</a></p>
 <p><a href="https://blog.csdn.net/quikai1981/article/details/78952294" target="_blank" rel="noopener">python使用adb</a></p>
 <p><a href="https://blog.csdn.net/sandalphon4869/article/details/101713495" target="_blank" rel="noopener">一些adb指令</a></p>
@@ -1382,7 +1412,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">96.8k</span>&nbsp;字
             
             
             
