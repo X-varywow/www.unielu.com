@@ -507,7 +507,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-16
+                    2021-03-19
                 </div>
                 
 
@@ -1135,26 +1135,75 @@
 <table>
 <thead>
 <tr>
-<th>应用程序</th>
-<th>FTP</th>
-<th>TELNET</th>
-<th>SMTP</th>
-<th>DNS</th>
-<th>TFTP</th>
-<th>HTTP</th>
+<th>协议</th>
+<th>功能用处</th>
+<th>端口号</th>
+<th>Python 模块</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>熟知端口号</td>
-<td>21</td>
+<td>FTP</td>
+<td>文件传输</td>
+<td>20</td>
+<td><code>ftplib</code> <code>urllib</code></td>
+</tr>
+<tr>
+<td>Telnet</td>
+<td>命令行</td>
 <td>23</td>
+<td><code>telnetlib</code></td>
+</tr>
+<tr>
+<td>SMTP</td>
+<td>发送邮件</td>
 <td>25</td>
+<td><code>smtplib</code></td>
+</tr>
+<tr>
+<td>DNS</td>
+<td></td>
 <td>53</td>
+<td></td>
+</tr>
+<tr>
+<td>TFTP</td>
+<td></td>
 <td>69</td>
+<td></td>
+</tr>
+<tr>
+<td>Gopher</td>
+<td>信息查找</td>
+<td>70</td>
+<td><code>gopherlib</code> <code>urllib</code></td>
+</tr>
+<tr>
+<td>HTTP</td>
+<td>网页访问</td>
 <td>80</td>
+<td><code>httplib</code> <code>urllib</code> <code>xmlrpclib</code></td>
+</tr>
+<tr>
+<td>POP3</td>
+<td>接收邮件</td>
+<td>110</td>
+<td><code>poplib</code></td>
+</tr>
+<tr>
+<td>NNTP</td>
+<td>阅读和张贴新闻文章</td>
+<td>119</td>
+<td><code>nntplib</code></td>
+</tr>
+<tr>
+<td>IMAP4</td>
+<td>获取邮件</td>
+<td>143</td>
+<td><code>imaplib</code></td>
 </tr>
 </tbody></table>
-<p>.<br><strong>套接字</strong> Socket =（主机IP地址，端口号）</p>
+<p>.</p>
+<p><strong>套接字</strong> Socket =（主机IP地址，端口号）</p>
 <p>在计算机网络中采用发送方和接收方的套接字组合来识别端口，<br>套接字唯一标识了网络中的一个主机和它上面的一个进程。</p>
 <h2 id="六、应用层"><a href="#六、应用层" class="headerlink" title="六、应用层"></a>六、应用层</h2><p>应用层的协议定义了：</p>
 <ul>
@@ -1947,7 +1996,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.1k</span>&nbsp;字
+                class="white-color">96.5k</span>&nbsp;字
             
             
             

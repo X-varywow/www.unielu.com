@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-18
+                    2021-03-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.9k
                 </div>
                 
 
@@ -545,7 +545,7 @@ minitouch 提供了一个 socket 接口用在 Android 设备上的多点触摸�
 <p>2.电脑端<br><a href="https://zhidao.baidu.com/question/458972580.html" target="_blank" rel="noopener">安装ADB工具包</a></p>
 <h2 id="运行中"><a href="#运行中" class="headerlink" title="运行中"></a>运行中</h2><p>在adb指令可执行的情况下，开始游戏，执行该代码即可。</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> os
-<span class="token keyword">import</span> shutil
+<span class="token keyword">import</span> shutil <span class="token comment" spellcheck="true">#shutil 模块提供了一系列对文件和文件集合的高阶操作。</span>
 <span class="token keyword">import</span> time
 <span class="token keyword">import</span> math
 <span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image<span class="token punctuation">,</span> ImageDraw
@@ -615,15 +615,15 @@ screenshot_backup_dir <span class="token operator">=</span> <span class="token s
     <span class="token comment" spellcheck="true"># 将swipe设置为 `再来一局` 按钮的位置</span>
     <span class="token keyword">global</span> swipe_x1<span class="token punctuation">,</span> swipe_y1<span class="token punctuation">,</span> swipe_x2<span class="token punctuation">,</span> swipe_y2
     w<span class="token punctuation">,</span> h <span class="token operator">=</span> im<span class="token punctuation">.</span>size
-    left <span class="token operator">=</span> w <span class="token operator">/</span> <span class="token number">2</span>
-    top <span class="token operator">=</span> <span class="token number">1003</span> <span class="token operator">*</span> <span class="token punctuation">(</span>h <span class="token operator">/</span> <span class="token number">1280.0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">10</span>
+    left <span class="token operator">=</span> w <span class="token operator">/</span> <span class="token number">2</span>      <span class="token comment" spellcheck="true">#可改为560（按压的坐标也是再来一局的坐标即可）</span>
+    top <span class="token operator">=</span> <span class="token number">1003</span> <span class="token operator">*</span> <span class="token punctuation">(</span>h <span class="token operator">/</span> <span class="token number">1280.0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">10</span>   <span class="token comment" spellcheck="true">#可改为 1648</span>
     swipe_x1<span class="token punctuation">,</span> swipe_y1<span class="token punctuation">,</span> swipe_x2<span class="token punctuation">,</span> swipe_y2 <span class="token operator">=</span> left<span class="token punctuation">,</span> top<span class="token punctuation">,</span> left<span class="token punctuation">,</span> top
 
 
-<span class="token keyword">def</span> <span class="token function">jump</span><span class="token punctuation">(</span>distance<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">def</span> <span class="token function">jump</span><span class="token punctuation">(</span>distance<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true">#只用考虑时间</span>
     press_time <span class="token operator">=</span> distance <span class="token operator">*</span> press_coefficient
     press_time <span class="token operator">=</span> max<span class="token punctuation">(</span>press_time<span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 设置 200 ms 是最小的按压时间</span>
-    press_time <span class="token operator">=</span> int<span class="token punctuation">(</span>press_time<span class="token punctuation">)</span>
+    press_time <span class="token operator">=</span> int<span class="token punctuation">(</span>press_time<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#swipe按压的坐标</span>
     cmd <span class="token operator">=</span> <span class="token string">'adb shell input swipe {} {} {} {} {}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>swipe_x1<span class="token punctuation">,</span> swipe_y1<span class="token punctuation">,</span> swipe_x2<span class="token punctuation">,</span> swipe_y2<span class="token punctuation">,</span> press_time<span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>cmd<span class="token punctuation">)</span>
     os<span class="token punctuation">.</span>system<span class="token punctuation">(</span>cmd<span class="token punctuation">)</span>
@@ -702,7 +702,8 @@ screenshot_backup_dir <span class="token operator">=</span> <span class="token s
         im <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">"./1.png"</span><span class="token punctuation">)</span>
         <span class="token comment" spellcheck="true"># 获取棋子和 board 的位置</span>
         piece_x<span class="token punctuation">,</span> piece_y<span class="token punctuation">,</span> board_x<span class="token punctuation">,</span> board_y <span class="token operator">=</span> find_piece_and_board<span class="token punctuation">(</span>im<span class="token punctuation">)</span>
-        ts <span class="token operator">=</span> int<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+        ts <span class="token operator">=</span> int<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#返回当前的时间戳</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span>ts<span class="token punctuation">,</span> piece_x<span class="token punctuation">,</span> piece_y<span class="token punctuation">,</span> board_x<span class="token punctuation">,</span> board_y<span class="token punctuation">)</span>
         set_button_position<span class="token punctuation">(</span>im<span class="token punctuation">)</span>
         jump<span class="token punctuation">(</span>math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span><span class="token punctuation">(</span>board_x <span class="token operator">-</span> piece_x<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token punctuation">(</span>board_y <span class="token operator">-</span> piece_y<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -712,10 +713,13 @@ screenshot_backup_dir <span class="token operator">=</span> <span class="token s
 
 
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    main<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#换成银白色皮肤后会失败，黑皮肤正常</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="其它参考"><a href="#其它参考" class="headerlink" title="其它参考"></a>其它参考</h2><p><a href="https://pillow.readthedocs.io/en/stable/" target="_blank" rel="noopener">pillow使用文档</a></p>
 <p><a href="https://blog.csdn.net/quikai1981/article/details/78952294" target="_blank" rel="noopener">python使用adb</a></p>
 <p><a href="https://blog.csdn.net/sandalphon4869/article/details/101713495" target="_blank" rel="noopener">一些adb指令</a></p>
+<p><a href="http://www.pc-fly.com/a/tongxinshuyu/article-202598-1.html" target="_blank" rel="noopener">python图像识别找到坐标</a></p>
 
             </div>
             <hr/>
@@ -1100,7 +1104,7 @@ screenshot_backup_dir <span class="token operator">=</span> <span class="token s
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            还在整理中
+                            Android Debug Bridge
                         
                     </div>
                     <div class="publish-info">
@@ -1378,7 +1382,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.1k</span>&nbsp;字
+                class="white-color">96.5k</span>&nbsp;字
             
             
             
