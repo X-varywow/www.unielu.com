@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-13
+                    2021-03-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    579
+                    1k
                 </div>
                 
 
@@ -531,57 +531,21 @@
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>                <span class="token comment" spellcheck="true">//主函数</span>
 <span class="token punctuation">{</span>
     cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Hello, world!"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//输出流</span>
+    <span class="token comment" spellcheck="true">//endl 插入换行符，并刷新流</span>
+
     <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"pause"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//程序不会自动跳出</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<div class="admonition info"><p class="admonition-title">语言的发展
-</p><p>机器语言（二进制代码）➡ 汇编语言 ➡ 高级语言</p>
-</div>
-
-<p><strong>C++语言特性</strong>：</p>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>C++语言特性</strong></p>
 <ul>
 <li>静态类型的、编译式的</li>
 <li>支持过程化编程、面向对象编程、泛型编程。</li>
 </ul>
-<blockquote>
-<p>hhh~，好像4年前就写过C++的 <code>hello, world</code>，记得高中时在看C++ primer的指针一头雾水，都不知道当时图啥。现在，开始好好学C++了。<code>2021.3.10</code> <code>加油</code></p>
-</blockquote>
-<h3 id="1-1-基本语法"><a href="#1-1-基本语法" class="headerlink" title="1.1 基本语法"></a>1.1 基本语法</h3><p>.</p>
-<div class="admonition warning"><p class="admonition-title">标识符
-</p><ul>
-<li>以字母或<code>_</code>开始</li>
-<li>由数字、字母、<code>_</code>组成</li>
-<li>不能是关键字或操作符</li>
-</ul>
-</div>
-
+<h3 id="1-1-基本语法"><a href="#1-1-基本语法" class="headerlink" title="1.1 基本语法"></a>1.1 基本语法</h3><p><strong>标识符</strong>：①以字母或<code>_</code>开始 ②由数字、字母、<code>_</code>组成 ③不能是关键字或操作符</p>
 <p>空白符：空格、制表符、换行符、回车符和注释的总称</p>
 <p>调试：设置断点，F5，，F11 逐语句，F10 逐过程</p>
-<p>注释：</p>
-<h3 id="1-2-数据类型-amp-运算符"><a href="#1-2-数据类型-amp-运算符" class="headerlink" title="1.2 数据类型&amp;运算符"></a>1.2 数据类型&amp;运算符</h3><ul>
-<li>常量<ul>
-<li>整数常量<ul>
-<li>八进制：以<code>0</code>开头</li>
-<li>十六进制：以<code>0x</code>开头</li>
-</ul>
-</li>
-<li>浮点型常量（近似存储）</li>
-<li>字符串常量<ul>
-<li>C风格字符串常量：以<code>\0</code>结尾的字符序列</li>
-<li>string类对象</li>
-</ul>
-</li>
-<li>符号常量（eg. <code>const float pi(3.14)</code>）</li>
-</ul>
-</li>
-<li>运算符<ul>
-<li><code>+ - * /</code> <code>%</code> <code>++</code> <code>--</code> <code>=</code> <code>&lt;&lt; &gt;&gt; &amp; ^ |</code></li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//逗号运算符，先计算表达式1，再计算表达式2，结果为表达式2的值</span>
-a <span class="token operator">=</span> <span class="token number">3</span><span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">,</span> a<span class="token operator">*</span><span class="token number">4</span> <span class="token comment" spellcheck="true">//最终结果为60</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><code>signed</code> <code>unsigned</code></p>
+<p>注释：<code>//</code>单行注释，<code>/*...*/</code>多行注释</p>
+<h3 id="1-2-数据类型"><a href="#1-2-数据类型" class="headerlink" title="1.2 数据类型"></a>1.2 数据类型</h3><p><code>signed</code> <code>unsigned</code></p>
 <table>
 <thead>
 <tr>
@@ -608,7 +572,7 @@ a <span class="token operator">=</span> <span class="token number">3</span><span
 <td>8</td>
 </tr>
 </tbody></table>
-<p>.</p>
+<p>.<br>显式数据类型转换：<br><code>int(z)</code> <code>(int)z</code> <code>static_cast&lt;int&gt;(z)</code> 完全等价<br>.</p>
 <table>
 <thead>
 <tr>
@@ -631,10 +595,120 @@ a <span class="token operator">=</span> <span class="token number">3</span><span
 <td>字符<code>\</code></td>
 </tr>
 </tbody></table>
+<h3 id="1-3-运算符"><a href="#1-3-运算符" class="headerlink" title="1.3 运算符"></a>1.3 运算符</h3><ul>
+<li>常量<ul>
+<li>整数常量<ul>
+<li>八进制：以<code>0</code>开头</li>
+<li>十六进制：以<code>0x</code>开头</li>
+</ul>
+</li>
+<li>浮点型常量（近似存储）</li>
+<li>字符串常量<ul>
+<li>C风格字符串常量：以<code>\0</code>结尾的字符序列</li>
+<li>string类对象</li>
+</ul>
+</li>
+<li>符号常量（eg. <code>const float pi(3.14)</code>）</li>
+</ul>
+</li>
+<li>运算符<ul>
+<li>算术运算符：<code>+ - * /</code> <code>%</code> <code>++</code> <code>--</code> </li>
+<li>关系运算符：<code>==</code> <code>!=</code> <code>&gt;</code> <code>&gt;=</code> <code>&lt;</code> <code>&lt;=</code></li>
+<li>逻辑运算符：<code>&amp;&amp;</code>(短路特性) <code>||</code> <code>!</code></li>
+<li>位运算符：<code>&amp;</code> <code>|</code> <code>^</code> <code>&lt;&lt;</code> <code>&gt;&gt;</code> <code>~</code>(二进制补码运算符)</li>
+<li>赋值运算符：<code>=</code>及其衍生 </li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//逗号运算符，先计算表达式1，再计算表达式2，结果为表达式2的值</span>
+a <span class="token operator">=</span> <span class="token number">3</span><span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">,</span> a<span class="token operator">*</span><span class="token number">4</span> <span class="token comment" spellcheck="true">//最终结果为60</span>
+
+<span class="token comment" spellcheck="true">//sizeof运算符</span>
+<span class="token comment" spellcheck="true">//Condition ? x : Y 条件运算符</span>
+<span class="token comment" spellcheck="true">//指针运算符 &amp; *</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-4-输入输出"><a href="#1-4-输入输出" class="headerlink" title="1.4 输入输出"></a>1.4 输入输出</h3><ul>
+<li>程序建立一个流对象</li>
+<li>指定这个流对象与某个文件对象建立连接</li>
+<li>程序操作流对象，通过文件系统产生作用</li>
+</ul>
+<p><code>&lt;iostream&gt;</code> 定义了cin, cout, cerr, clog<br><code>&lt;fstream&gt;</code> 文件处理</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token function">getline</span><span class="token punctuation">(</span>cin<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//输入整行字符串，第三个参数指定分隔符，默认为换行</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="1-5-结构控制"><a href="#1-5-结构控制" class="headerlink" title="1.5 结构控制"></a>1.5 结构控制</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//判断</span>
+<span class="token keyword">if</span><span class="token operator">-</span><span class="token keyword">else</span>
+
+<span class="token keyword">switch</span><span class="token punctuation">(</span>day<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token number">0</span><span class="token operator">:</span> cout<span class="token operator">&lt;&lt;</span><span class="token string">"Sunday"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//break防止继续执行</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  <span class="token keyword">default</span><span class="token operator">:</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//循环</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">do</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//break, continue, goto</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-6-字符串"><a href="#1-6-字符串" class="headerlink" title="1.6 字符串"></a>1.6 字符串</h3><ul>
+<li>C 风格字符串<ul>
+<li>常字符指针，const char *p = str ，指向首地址</li>
+</ul>
+</li>
+<li>string类</li>
+</ul>
+<pre class="line-numbers language-cpp"><code class="language-cpp">string s1<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//构造，默认建立一个长度为0的串</span>
+string s2<span class="token operator">=</span><span class="token string">"abc"</span><span class="token punctuation">;</span>
+string s3<span class="token operator">=</span>s2<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//复制构造函数</span>
+
+<span class="token comment" spellcheck="true">//字典序比较，下标访问字符</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="other"><a href="#other" class="headerlink" title="other"></a>other</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//类型别名</span>
+<span class="token keyword">typedef</span> 已有类型名 新类型名
+<span class="token keyword">using</span> 新类型名 已有类型名
+
+<span class="token comment" spellcheck="true">//枚举类型</span>
+<span class="token keyword">enum</span> 类型名 <span class="token punctuation">{</span>变量值列表<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//枚举元素是常量，枚举元素有默认值</span>
+
+<span class="token comment" spellcheck="true">//auto，根据初始值自动推断变量类型</span>
+
+<span class="token keyword">decltype</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> j <span class="token operator">=</span> <span class="token number">2</span> <span class="token comment" spellcheck="true">//表示j以2为初始值，类型与i一致</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="C-面向对象"><a href="#C-面向对象" class="headerlink" title="C++面向对象"></a>C++面向对象</h2><h3 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h3><p><strong>如何形成类</strong>：抽象出同一类事物的共同属性和行为，形成类。</p>
 <p><strong>类与对象的关系</strong>：类型与实例的关系，犹如模具与铸件之间的关系。</p>
 <p><strong>OOP思想</strong>：封装、继承、多态</p>
-<h2 id="C-高级"><a href="#C-高级" class="headerlink" title="C++高级"></a>C++高级</h2><h2 id="C-资源库"><a href="#C-资源库" class="headerlink" title="C++资源库"></a>C++资源库</h2><p>#随记</p>
+<h2 id="STL标准模板库"><a href="#STL标准模板库" class="headerlink" title="STL标准模板库"></a>STL标准模板库</h2><p>泛型程序设计：将算法从数据结构中抽象出来，成为通用的，如 C++ 模板。</p>
+<h3 id="3-1-容器"><a href="#3-1-容器" class="headerlink" title="3.1 容器"></a>3.1 容器</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//顺序容器</span>
+<span class="token operator">&lt;</span>array<span class="token operator">></span>
+
+<span class="token comment" spellcheck="true">// 封装任何类型的动态数组，自动创建和删除</span>
+<span class="token comment" spellcheck="true">//数组下标越界检查</span>
+<span class="token comment" spellcheck="true">//size()函数</span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;vector></span></span>
+vector <span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">arr</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token operator">&lt;</span>deque<span class="token operator">></span>
+<span class="token operator">&lt;</span>forward_list<span class="token operator">></span>
+<span class="token operator">&lt;</span>list<span class="token operator">></span>
+
+<span class="token comment" spellcheck="true">//有序关联容器</span>
+<span class="token operator">&lt;</span>set<span class="token operator">></span>
+<span class="token operator">&lt;</span>multiset<span class="token operator">></span>
+<span class="token operator">&lt;</span>map<span class="token operator">></span>
+<span class="token operator">&lt;</span>multimap<span class="token operator">></span>
+
+<span class="token comment" spellcheck="true">//无序关联容器</span>
+<span class="token operator">&lt;</span>unordered_map<span class="token operator">></span>
+<span class="token operator">&lt;</span>unordered_set<span class="token operator">></span>
+
+<span class="token comment" spellcheck="true">//容器适配器</span>
+<span class="token operator">&lt;</span>stack<span class="token operator">></span>
+<span class="token operator">&lt;</span>queue<span class="token operator">></span>
+<span class="token operator">&lt;</span>priority_queue<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-2-算法"><a href="#3-2-算法" class="headerlink" title="3.2 算法"></a>3.2 算法</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="3-3-迭代器"><a href="#3-3-迭代器" class="headerlink" title="3.3 迭代器"></a>3.3 迭代器</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iterator></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="C-高级"><a href="#C-高级" class="headerlink" title="C++高级"></a>C++高级</h2><h3 id="4-1-异常处理"><a href="#4-1-异常处理" class="headerlink" title="4.1 异常处理"></a>4.1 异常处理</h3><p>#随记</p>
 <ol>
 <li><p>引用作为函数的参数<br>在函数的声明中，int &amp;n 作为函数的参数，说明参数是对变量的引用</p>
 </li>
@@ -642,12 +716,14 @@ a <span class="token operator">=</span> <span class="token number">3</span><span
 </li>
 </ol>
 <p><strong>中间件</strong>：提供系统软件和应用软件之间链接的软件</p>
-<h2 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h2><p><strong>参考资料</strong>：</p>
+<h2 id="other-1"><a href="#other-1" class="headerlink" title="other"></a><em>other</em></h2><p><strong>参考资料</strong>：</p>
 <ul>
-<li>C++语言程序设计（学堂在线），95%</li>
+<li>C++语言程序设计（学堂在线）</li>
+<li><em>C++ Primer 5th</em></li>
 <li>菜鸟教程</li>
 <li>学校课程</li>
 </ul>
+<p><code>3-21 16:43</code> 还剩161个视频</p>
 <hr>
 <p><strong>推荐阅读</strong>：</p>
 <ul>
@@ -1315,7 +1391,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">97.6k</span>&nbsp;字
+                class="white-color">98.1k</span>&nbsp;字
             
             
             
