@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="HTTP协议, -- blog --">
+    <meta name="keywords" content="周赛笔记233, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>HTTP协议 | -- blog --</title>
+    <title>周赛笔记233 | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/awesome/css/all.css">
@@ -340,12 +340,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181114.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">HTTP协议</h1>
+                    <h1 class="description center-align post-title diyFont">周赛笔记233</h1>
                 </div>
             </div>
         </div>
@@ -471,23 +471,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/HTTP/">
-                                <span class="chip bg-color">HTTP</span>
+                            <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+                                <span class="chip bg-color">leetcode比赛</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
-                                计算机网络
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -496,21 +487,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-10
+                    2021-03-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-14
+                    2021-03-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    345
+                    479
                 </div>
                 
 
@@ -522,77 +513,80 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>HTTP是一个请求-响应协议，是两点间传输超文本数据的约定和规范。</p>
-</blockquote>
-<h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><table>
-<thead>
-<tr>
-<th>状态码</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1XX</td>
-<td>表示目前是协议处理中间状态</td>
-</tr>
-<tr>
-<td>2XX</td>
-<td>成功，报文已接受且正确处理</td>
-</tr>
-<tr>
-<td>3XX</td>
-<td>重定向，资源位置发生变动</td>
-</tr>
-<tr>
-<td>4XX</td>
-<td>客户端错误，请求报文有误，服务器无法处理</td>
-</tr>
-<tr>
-<td>5XX</td>
-<td>服务器处理请求时发生错误</td>
-</tr>
-</tbody></table>
-<h2 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h2><ul>
-<li>请求报文</li>
-<li>响应报文</li>
+                <h2 id="一、最大升序子数组和"><a href="#一、最大升序子数组和" class="headerlink" title="一、最大升序子数组和"></a><a href="https://leetcode-cn.com/problems/maximum-ascending-subarray-sum/" target="_blank" rel="noopener">一、最大升序子数组和</a></h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">maxAscendingSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        ans<span class="token operator">=</span><span class="token punctuation">[</span>nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+        pre<span class="token operator">=</span>nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">></span>pre<span class="token punctuation">:</span>
+                ans<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+=</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            pre<span class="token operator">=</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+            <span class="token comment" spellcheck="true">#print(pre,ans)</span>
+        <span class="token keyword">return</span> max<span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="二、积压订单中的订单总数"><a href="#二、积压订单中的订单总数" class="headerlink" title="二、积压订单中的订单总数"></a><a href="https://leetcode-cn.com/problems/number-of-orders-in-the-backlog/" target="_blank" rel="noopener">二、积压订单中的订单总数</a></h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">getNumberOfBacklogOrders</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> orders<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        buy<span class="token punctuation">,</span>sell<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> p<span class="token punctuation">,</span>m<span class="token punctuation">,</span>t <span class="token keyword">in</span> orders<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> t<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true">#buy,</span>
+                <span class="token keyword">while</span> m <span class="token operator">and</span> sell<span class="token punctuation">:</span>
+                    tmp<span class="token operator">=</span>sell<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+                    <span class="token keyword">if</span> tmp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">></span>p<span class="token punctuation">:</span> <span class="token keyword">break</span>
+                    deal<span class="token operator">=</span>min<span class="token punctuation">(</span>m<span class="token punctuation">,</span>tmp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                    m<span class="token operator">-=</span>deal
+                    tmp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-=</span>deal
+                    <span class="token keyword">if</span> tmp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+                        heapq<span class="token punctuation">.</span>heappop<span class="token punctuation">(</span>sell<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> m<span class="token punctuation">:</span> heapq<span class="token punctuation">.</span>heappush<span class="token punctuation">(</span>buy<span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token operator">-</span>p<span class="token punctuation">,</span>m<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#sell</span>
+                <span class="token keyword">while</span> m <span class="token operator">and</span> buy<span class="token punctuation">:</span>
+                    tmp<span class="token operator">=</span>buy<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+                    <span class="token keyword">if</span> <span class="token operator">-</span>tmp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">&lt;</span>p<span class="token punctuation">:</span> <span class="token keyword">break</span>
+                    deal<span class="token operator">=</span>min<span class="token punctuation">(</span>m<span class="token punctuation">,</span>tmp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                    m<span class="token operator">-=</span>deal
+                    tmp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-=</span>deal
+                    <span class="token keyword">if</span> tmp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+                        heapq<span class="token punctuation">.</span>heappop<span class="token punctuation">(</span>buy<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> m<span class="token punctuation">:</span> heapq<span class="token punctuation">.</span>heappush<span class="token punctuation">(</span>sell<span class="token punctuation">,</span><span class="token punctuation">[</span>p<span class="token punctuation">,</span>m<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        ans<span class="token operator">=</span>sum<span class="token punctuation">(</span><span class="token punctuation">[</span>t<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">for</span> t <span class="token keyword">in</span> buy<span class="token operator">+</span>sell<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ans <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">**</span><span class="token number">9</span><span class="token operator">+</span><span class="token number">7</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#最小堆</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="三、有界数组中指定下标处的最大值"><a href="#三、有界数组中指定下标处的最大值" class="headerlink" title="三、有界数组中指定下标处的最大值"></a><a href="https://leetcode-cn.com/problems/maximum-value-at-a-given-index-in-a-bounded-array/" target="_blank" rel="noopener">三、有界数组中指定下标处的最大值</a></h2><p>给你三个正整数 <code>n</code>、<code>index</code> 和 <code>maxSum</code> 。你需要构造一个同时满足下述所有条件的数组 <code>nums</code>（下标 从 0 开始 计数）：</p>
+<ul>
+<li><code>nums.length == n</code></li>
+<li><code>nums[i]</code> 是 <strong>正整数</strong> ，其中 <code>0 &lt;= i &lt; n</code></li>
+<li><code>abs(nums[i] - nums[i+1]) &lt;= 1</code> ，其中 <code>0 &lt;= i &lt; n-1</code></li>
+<li><code>nums</code> 中所有元素之和不超过 <code>maxSum</code></li>
+<li><code>nums[index]</code> 的值被 最大化</li>
 </ul>
-<pre class="line-numbers language-bash"><code class="language-bash">GET /admin_ui/rdx/core/images/close.png HTTP/1.1
-Accept: */*
-Referer: http://xxx.xxx.xxx.xxx/menu/neo
-Accept-Language: en-US
-User-Agent: Mozilla/4.0 <span class="token punctuation">(</span>compatible<span class="token punctuation">;</span> MSIE 7.0<span class="token punctuation">;</span> Windows NT 6.1<span class="token punctuation">;</span> WOW64<span class="token punctuation">;</span> Trident/7.0<span class="token punctuation">;</span> SLCC2<span class="token punctuation">;</span> .NET CLR 2.0.50727<span class="token punctuation">;</span> .NET CLR 3.5.30729<span class="token punctuation">;</span> .NET CLR 3.0.30729<span class="token punctuation">;</span> .NET4.0C<span class="token punctuation">;</span> .NET4.0E<span class="token punctuation">)</span>
-Accept-Encoding: gzip, deflate
-Host: xxx.xxx.xxx.xxx
-Connection: Keep-Alive
-Cookie: startupapp<span class="token operator">=</span>neo<span class="token punctuation">;</span> is_cisco_platform<span class="token operator">=</span>0<span class="token punctuation">;</span> rdx_pagination_size<span class="token operator">=</span>250%20Per%20Page<span class="token punctuation">;</span> SESSID<span class="token operator">=</span>deb31b8eb9ca68a514cf55777744e339<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="HTTP版本"><a href="#HTTP版本" class="headerlink" title="HTTP版本"></a>HTTP版本</h2><table>
-<thead>
-<tr>
-<th>版本</th>
-<th>信息</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1.0</td>
-<td>每发起一次请求，都要建立一次TCP链接（三次握手）</td>
-</tr>
-<tr>
-<td>1.1</td>
-<td>①提出了长连接通信方式，减少TCP连接开销 。②管道网络传输，减少整体效应时间</td>
-</tr>
-<tr>
-<td>2.0</td>
-<td>①多路复用 ②首部压缩 ③服务端推送 ④采用二进制格式</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>http无状态、明文传输、不安全</p>
-</blockquote>
-<blockquote>
-<p>http无法验证报文完整性、不验证通信方身份</p>
-</blockquote>
-<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2><p>在TCP和HTTP网络层之间加入了SSL/TLS安全协议<br>①加密（Encryption)<br>②身份认证（Authentication)<br>③数据一致性 （Data integrity)</p>
+<p>返回你所构造的数组中的 <code>nums[index]</code> 。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">maxValue</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">,</span> index<span class="token punctuation">:</span> int<span class="token punctuation">,</span> maxSum<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        l<span class="token operator">=</span>index
+        r<span class="token operator">=</span>n<span class="token number">-1</span><span class="token operator">-</span>index
+
+        <span class="token keyword">def</span> <span class="token function">compu</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>l<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> l<span class="token operator">>=</span>x<span class="token number">-1</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> x<span class="token operator">*</span><span class="token punctuation">(</span>x<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span><span class="token operator">+</span>l<span class="token operator">-</span>x<span class="token operator">+</span><span class="token number">1</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>x<span class="token operator">-</span>l<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">*</span>l<span class="token operator">//</span><span class="token number">2</span>
+
+        lp<span class="token punctuation">,</span>rp<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>maxSum
+        <span class="token keyword">while</span> lp<span class="token operator">&lt;=</span>rp<span class="token punctuation">:</span>
+            mid<span class="token operator">=</span><span class="token punctuation">(</span>lp<span class="token operator">+</span>rp<span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span>
+            <span class="token comment" spellcheck="true">#print(lp,rp,compu(mid,l),compu(mid,r),mid)</span>
+            <span class="token keyword">if</span> compu<span class="token punctuation">(</span>mid<span class="token punctuation">,</span>l<span class="token punctuation">)</span><span class="token operator">+</span>compu<span class="token punctuation">(</span>mid<span class="token punctuation">,</span>r<span class="token punctuation">)</span><span class="token operator">+</span>mid<span class="token operator">></span>maxSum<span class="token punctuation">:</span>
+                rp<span class="token operator">=</span>mid<span class="token number">-1</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                lp<span class="token operator">=</span>mid<span class="token operator">+</span><span class="token number">1</span>
+        <span class="token keyword">return</span> min<span class="token punctuation">(</span>lp<span class="token punctuation">,</span>rp<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#经典二分（对答案）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="四、统计异或值在范围内的数对有多少"><a href="#四、统计异或值在范围内的数对有多少" class="headerlink" title="四、统计异或值在范围内的数对有多少"></a><a href="https://leetcode-cn.com/problems/count-pairs-with-xor-in-a-range/" target="_blank" rel="noopener">四、统计异或值在范围内的数对有多少</a></h2><p>给你一个整数数组 <code>nums</code> （下标从 0 开始计数）以及两个整数：<code>low</code> 和 <code>high</code> ，请返回 漂亮数对 的数目。</p>
+<p>漂亮数对 是一个形如 <code>(i, j)</code> 的数对，其中 <code>0 &lt;= i &lt; j &lt; nums.length</code> 且 <code>low &lt;= (nums[i] XOR nums[j]) &lt;= high</code> 。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#trie字典树</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -618,7 +612,7 @@ Cookie: startupapp<span class="token operator">=</span>neo<span class="token pun
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/2174.html">https://www.unielu.com/posts/2174.html</a>
+                    <a href="https://www.unielu.com/posts/contest233.html">https://www.unielu.com/posts/contest233.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -656,8 +650,8 @@ Cookie: startupapp<span class="token operator">=</span>neo<span class="token pun
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/HTTP/">
-                                    <span class="chip bg-color">HTTP</span>
+                                <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+                                    <span class="chip bg-color">leetcode比赛</span>
                                 </a>
                             
                         </div>
@@ -962,16 +956,17 @@ Cookie: startupapp<span class="token operator">=</span>neo<span class="token pun
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/c3aa.html">
+                <a href="/posts/contest233.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/python.png" class="responsive-img" alt="pandas模块">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181114.jpg" class="responsive-img" alt="周赛笔记233">
                         
-                        <span class="card-title">pandas模块</span>
+                        <span class="card-title">周赛笔记233</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -981,9 +976,54 @@ Cookie: startupapp<span class="token operator">=</span>neo<span class="token pun
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-11
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ╯晓~
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">leetcode比赛</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/e582.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/python.png" class="responsive-img" alt="pillow模块">
+                        
+                        <span class="card-title">pillow模块</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            整理中
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1003,52 +1043,8 @@ Cookie: startupapp<span class="token operator">=</span>neo<span class="token pun
                         <span class="chip bg-color">python模块</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                        <span class="chip bg-color">数据分析</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/contest187.html">
-                    <div class="card-image">
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181114.jpg" class="responsive-img" alt="周赛笔记187">
-                        
-                        <span class="card-title">周赛笔记187</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            无
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-03
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            ╯晓~
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
-                        <span class="chip bg-color">leetcode比赛</span>
+                    <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
+                        <span class="chip bg-color">图像处理</span>
                     </a>
                     
                 </div>

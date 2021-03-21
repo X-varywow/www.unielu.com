@@ -507,7 +507,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-19
+                    2021-03-21
                 </div>
                 
 
@@ -528,6 +528,7 @@
             <div id="articleContent">
                 <h2 id="一、计算机网络"><a href="#一、计算机网络" class="headerlink" title="一、计算机网络"></a>一、计算机网络</h2><h3 id="1-0-概述"><a href="#1-0-概述" class="headerlink" title="1.0 概述"></a>1.0 概述</h3><p><strong>计算机网络</strong> 是一个将分散的，具有独立功能的计算机系统，通过 <code>通信设备</code> 与 <code>线路</code> 连接起来，由功能完善的软件实现 <code>资源共享</code> 和 <code>信息传递</code> 的系统。</p>
 <p>计算机网络是 <code>互连</code> 的，<code>自治</code> 的计算机网络集合。</p>
+<p>互联网的两个基本特点：<code>连通性</code> 和 <code>共享</code>。</p>
 <hr>
 <p>计算机网络的功能：</p>
 <ul>
@@ -549,7 +550,7 @@
 </li>
 </ul>
 </li>
-<li>工作方式<ul>
+<li>从工作方式上看<ul>
 <li><code>边缘部分</code>（所有连接在互联网上的主机，用户可以直接使用）<ul>
 <li>C/S方式</li>
 <li>P2P方式</li>
@@ -659,78 +660,6 @@
 </ul>
 <p>计算机网络的 <strong>分层结构</strong>：</p>
 <ul>
-<li>7层 <code>OSI参考模型</code>（法定标准）<ul>
-<li><strong>应用层</strong>（对应用程序的通信提供服务）<ul>
-<li>文件传输（FTP），电子邮件（SMTP），万维网（HTTP）</li>
-</ul>
-</li>
-<li><strong>表示层</strong>（用于处理两个通信系统中交换信息的表示方式）<ul>
-<li>功能：数据格式变换、数据加密解密、数据压缩与恢复</li>
-</ul>
-</li>
-<li><strong>会话层</strong><ul>
-<li>向表示层实体/用户进程提供建立连接并在连接上有序地传输数据。</li>
-<li>这是会话，也是建立同步（SYN）</li>
-<li>主要协议：ADSP、ASP</li>
-</ul>
-</li>
-<li><strong>传输层</strong><ul>
-<li>主要任务：负责进程间的数据传输，即端到端的通信</li>
-<li>主要协议：<code>TCP</code>、UDP</li>
-<li>传输单位：报文段或用户数据报</li>
-<li>功能：<ul>
-<li>可靠传输、不可靠传输</li>
-<li>差错控制</li>
-<li>流量控制（对发送方、接收方的速度协调）</li>
-<li>复用分用</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>网络层</strong><ul>
-<li>主要任务：源主机到目的主机的数据分组路由与转发</li>
-<li>主要协议：<code>IP</code>、IPX、ICMP</li>
-<li>传输单位：数据报</li>
-<li>功能：<ul>
-<li>路由选择</li>
-<li>流量控制</li>
-<li>差错控制</li>
-<li>拥塞控制</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>数据链路层</strong><ul>
-<li>主要任务：把网络层传下来的数据包组装成 <code>帧</code></li>
-<li>主要协议：SDLC、HDLC、PPP、STP</li>
-<li>功能：<ul>
-<li>成帧</li>
-<li>差错控制</li>
-<li>流量控制</li>
-<li>访问（接入）控制</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>物理层</strong><ul>
-<li>主要任务：在物理媒体上实现比特流的透明传输（不管怎样的比特组合，都能在链路上传送）</li>
-<li>主要协议：Rj45、802.3</li>
-<li>功能：<ul>
-<li>定义接口特性</li>
-<li>定义传输模式（单工、双工、半双工）</li>
-<li>定义传输速率</li>
-<li>比特同步（利用时钟）</li>
-<li>比特编码</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<img src="https://img-blog.csdnimg.cn/20210316144255436.jpg" style="zoom:50%">
-
-<ul>
 <li>4层 <code>TCP/IP参考模型</code>（事实标准）<ul>
 <li>应用层（HTTP、FTP、DNS）</li>
 <li>传输层（TCP、UDP）</li>
@@ -738,7 +667,60 @@
 <li>网络接口层（Ethernet、ATM、Frame Relay）</li>
 </ul>
 </li>
+<li>7层 <code>OSI参考模型</code>（法定标准）</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>主要任务</th>
+<th>协议</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>应用层</td>
+<td>对应用程序的通信提供服务</td>
+<td>文件传输 <code>FTP</code>，电子邮件 <code>SMTP</code>，万维网 <code>HTTP</code></td>
+<td></td>
+</tr>
+<tr>
+<td>表示层</td>
+<td>用于处理两个通信系统中交换信息的表示方式</td>
+<td></td>
+<td>数据格式变换、数据加密解密、数据压缩与恢复</td>
+</tr>
+<tr>
+<td>会话层</td>
+<td>向表示层实体/用户进程提供建立连接（建立同步，SYN）并在连接上有序地传输数据。</td>
+<td>ADSP、ASP</td>
+<td></td>
+</tr>
+<tr>
+<td>传输层</td>
+<td>负责进程间的数据传输，即<strong>端到端</strong>的通信</td>
+<td><code>TCP</code>、<code>UDP</code></td>
+<td>①可靠传输、不可靠传输②差错控制③流量控制（对发送方、接收方的速度协调）④复用分用</td>
+</tr>
+<tr>
+<td>网络层</td>
+<td>源主机到目的主机的数据分组路由与转发</td>
+<td><code>IP</code>、IPX、ICMP</td>
+<td>路由选择、流量控制、差错控制、拥塞控制</td>
+</tr>
+<tr>
+<td>数据链路层</td>
+<td>把网络层传下来的数据包组装成 <code>帧</code></td>
+<td>SDLC、HDLC、PPP、STP</td>
+<td>成帧、差错控制、流量控制、访问（接入）控制</td>
+</tr>
+<tr>
+<td>物理层</td>
+<td>实现相邻计算机结点之间比特数据流的透明传输</td>
+<td>Rj45、802.3</td>
+<td>说明：透明传输，即不管怎样的比特组合，都能在链路上传送</td>
+</tr>
+</tbody></table>
 <hr>
 <p>两个参考模型的<strong>不同</strong>：</p>
 <p><strong>面向连接</strong>：发送请求 -&gt; 建立连接 -&gt; 数据传输</p>
@@ -1045,6 +1027,7 @@
 </ul>
 <img src="https://img-blog.csdnimg.cn/20210309192859957.png" style="zoom:70%">
 
+<p>一些概念：<br>报文 <code>message</code>：要发送的整块数据。<br>首部 <code>header</code>：必要的控制信息。<br>分组 <code>packet</code>：由报文+首部组成，也叫包。</p>
 <hr>
 <p>ARP协议（完成主机或路由器到MAC地址的映射，解决下一跳走哪的问题），ARP协议自动进行</p>
 <p>ICMP网际控制报文协议，DHCP协议 <code>？？？</code> </p>
@@ -1327,6 +1310,7 @@
 <p><strong>一些问题</strong>：</p>
 <ol>
 <li> 在分层的计算机网络体系结构中，对等层之间传送的数据单位称为（ <code>PDU</code> ）。</li>
+<li> 互联网现在采用的是存储转发的分组交换技术，以及三层ISP结构。</li>
 </ol>
 <hr>
 <p>学时：56h理论+12h实验（6个）<br>分数：期末（70%）+平时（30%）</p>
@@ -1996,7 +1980,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">97.1k</span>&nbsp;字
+                class="white-color">97.6k</span>&nbsp;字
             
             
             
