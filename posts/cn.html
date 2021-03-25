@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-21
+                    2021-03-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.8k
+                    6.1k
                 </div>
                 
 
@@ -627,12 +627,21 @@
 <li>【单位时间内通过某个网络（或信道、接口）的数据量】</li>
 </ul>
 </li>
-<li><strong>时延</strong><ul>
+<li><strong>时延</strong>⭐<ul>
 <li>【指数据（报文/分组/比特流）从网络（或链路）的一端传送到另一端所需的时间，也叫延迟。单位：<code>s</code>】</li>
 <li>分类：<ul>
-<li>发送时延（ = 数据长度/信道带宽）</li>
-<li>传播时延（ = 信道长度/电磁波在信道上的传播速率）</li>
-<li>排队时延、处理时延</li>
+<li>发送时延<ul>
+<li>也叫 <strong>传输时延</strong>，是主机或路由器发送数据帧所需要的时间。</li>
+<li>= 数据帧长度(bit) / 发送速率(bit/s)</li>
+</ul>
+</li>
+<li><strong>传播时延</strong><ul>
+<li>是电磁波在信道中传播一定距离需要的时间。</li>
+<li>= 信道长度(m) / 电磁波在信道上的传播速率(m/s)</li>
+</ul>
+</li>
+<li>排队时延</li>
+<li>处理时延</li>
 </ul>
 </li>
 </ul>
@@ -648,7 +657,10 @@
 </li>
 <li><strong>利用率</strong><ul>
 <li>信道利用率（有数据通过的时间/总时间）</li>
-<li>网络利用率（信道利用率加权平均值）</li>
+<li>网络利用率（信道利用率加权平均值）<ul>
+<li>随着利用率增大，时延急剧增大</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1009,17 +1021,19 @@
 </li>
 </ul>
 <hr>
-<h3 id="4-2-数据交换方式"><a href="#4-2-数据交换方式" class="headerlink" title="4.2 数据交换方式"></a>4.2 数据交换方式</h3><ul>
+<h3 id="4-2-数据交换方式⭐"><a href="#4-2-数据交换方式⭐" class="headerlink" title="4.2 数据交换方式⭐"></a>4.2 数据交换方式⭐</h3><ul>
 <li>电路交换<ul>
-<li>特点：通信时延小，有序传输，<strong>独占资源</strong></li>
+<li>特点：通信时延小，有序传输，<strong>独占资源</strong>，必须是面向连接的</li>
 <li>应用：大量数据传输，对时延敏感的应用，语音业务</li>
 </ul>
 </li>
 <li>报文交换（采用存储转发）<ul>
+<li>特点：线路利用率高，速率自适配，结点延迟时间较长</li>
 <li>模型：电报系统</li>
 </ul>
 </li>
 <li>分组交换（采用存储转发）<ul>
+<li>特点：线路分段占用，链路共享，可靠性好，速率自适配，减少结点延迟时间，不存在建链时的呼叫损失</li>
 <li>数据报方式（为网络层提供无连接服务）</li>
 <li>虚电路方式（结合数据报方式和电路交换方式，提供连接服务）</li>
 </ul>
@@ -1291,9 +1305,12 @@
 <p>关于HTTP的理解（2020.05）：<a href="http://www.unielu.com/posts/2174.html">www.unielu.com/posts/2174.html</a></p>
 <h2 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h2><p><strong>参考资料</strong>：</p>
 <ul>
-<li>2019-王道考研-计算机网络，95%</li>
-<li>学校课程，5%</li>
-<li>《计算机网络》第七版</li>
+<li>2019-王道考研-计算机网络，90%</li>
+<li>学校课程，66%<ul>
+<li>感觉到了，老师用心想教我们一些东西</li>
+</ul>
+</li>
+<li>《计算机网络》谢希仁，第七版</li>
 </ul>
 <hr>
 <p><strong>推荐阅读</strong>：</p>
@@ -1311,7 +1328,9 @@
 <ol>
 <li> 在分层的计算机网络体系结构中，对等层之间传送的数据单位称为（ <code>PDU</code> ）。</li>
 <li> 互联网现在采用的是存储转发的分组交换技术，以及三层ISP结构。</li>
+<li> <code>internet</code>（互联网或互连网）是一个通用名词，它泛指由多个计算机网络互连而成的网络。<br><code>Internet</code>（因特网）则是一个专用名词，它指当前全球最大的、开放的、由众多网络相互连接而成的特定计算机网络，它采用 TCP/IP 协议族作为通信的规则，且其前身是美国的 ARPANET。<br>连接在因特网上的计算机都称为主机(<code>host</code>)。</li>
 </ol>
+<p><code>实验报告1</code>：…<br><code>实验报告2</code>：当发送速率大于传输速率时，分组产生排队时延，暂存队列满时，会产生丢包。</p>
 <hr>
 <p>学时：56h理论+12h实验（6个）<br>分数：期末（70%）+平时（30%）</p>
 
@@ -1980,7 +1999,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">98.1k</span>&nbsp;字
+                class="white-color">99.9k</span>&nbsp;字
             
             
             

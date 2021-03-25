@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-13
+                    2021-03-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.4k
                 </div>
                 
 
@@ -539,6 +539,7 @@
 <li>其它：超声波模块，直角固定架（暂时用的纸板，以后3D打印时不需要了）</li>
 <li>耗材：电线，胶带，热熔枪，电烙铁，纸板</li>
 </ul>
+<p>一些说明：<strong>热熔胶</strong>不导电，可以对电路板进行固定及保护</p>
 <p>还是要弄一个3D模型去打印一下</p>
 <p>mpu6050可以不需要的，手机上写个PID的APP，并且更加精确，</p>
 <p>正在实践中，东西固定在纸板上，PID实现自平衡即可告一段落</p>
@@ -731,8 +732,25 @@ byte comdata<span class="token punctuation">;</span>
 </ul>
 </li>
 </ul>
+<h2 id="安卓传感器"><a href="#安卓传感器" class="headerlink" title="安卓传感器"></a>安卓传感器</h2><p>参考地址：<a href="https://developer.android.google.cn/guide/topics/sensors" target="_blank" rel="noopener">安卓开发者官方文档</a></p>
+<p>Android 平台支持三大类传感器：</p>
+<ul>
+<li>动态传感器（加速度计、重力传感器、陀螺仪和旋转矢量传感器）</li>
+<li>环境传感器（气压计、光度计和温度计）</li>
+<li>位置传感器（屏幕方向传感器和磁力计）</li>
+</ul>
+<p>所有运动传感器都为每个 SensorEvent 返回传感器值的多维数组。</p>
 <hr>
-<p><strong>安卓控制应用开发</strong></p>
+<p>MIUI12 多次点击内核版本可进入cit测试。</p>
+<ul>
+<li>加速度感应器测试<ul>
+<li>x, y, z 三个方向，及 curAngle</li>
+<li><code>curAngle</code> 对PID控制有用</li>
+</ul>
+</li>
+<li>速度感应，可以使用电机的霍尔编码器测速</li>
+</ul>
+<p>闭环控制，</p>
 <hr>
 <p><strong>关于小米物联网</strong><br>目的：①更好调用手机的功能②了解IOT，软硬件开发<br><code>Xiaomi Vela</code> 是小米基于NuttX（RTOS实时操作系统）打造的物联网嵌入式软件平台，Vela在各种物联网硬件平台上提供统一的软件服务。</p>
 <ul>
@@ -746,6 +764,7 @@ byte comdata<span class="token punctuation">;</span>
 <li>获取手机的倾角的API</li>
 <li>实际的PID算法怎么写</li>
 <li>蓝牙通信</li>
+<li>以安卓应用的方式接入小爱同学，语音控制输出的pwm即可</li>
 </ul>
 
             </div>
@@ -1405,7 +1424,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">98.1k</span>&nbsp;字
+                class="white-color">99.9k</span>&nbsp;字
             
             
             
