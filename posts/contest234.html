@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="内网实现树莓派控制Arduino, -- blog --">
+    <meta name="keywords" content="周赛笔记234, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>内网实现树莓派控制Arduino | -- blog --</title>
+    <title>周赛笔记234 | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/awesome/css/all.css">
@@ -340,12 +340,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181118.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181114.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">内网实现树莓派控制Arduino</h1>
+                    <h1 class="description center-align post-title diyFont">周赛笔记234</h1>
                 </div>
             </div>
         </div>
@@ -471,23 +471,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%B7%A5%E7%A8%8B/">
-                                <span class="chip bg-color">工程</span>
+                            <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+                                <span class="chip bg-color">leetcode比赛</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E7%A1%AC%E4%BB%B6/" class="post-category">
-                                硬件
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -496,21 +487,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-06
+                    2021-03-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-13
+                    2021-03-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    627
+                    487
                 </div>
                 
 
@@ -522,183 +513,96 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="preface"><a href="#preface" class="headerlink" title="preface"></a><em>preface</em></h2><p>参考博客：<a href="https://blog.csdn.net/weixin_42534940/article/details/81416578" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42534940/article/details/81416578</a></p>
-<h1 id="1-基础"><a href="#1-基础" class="headerlink" title="1.基础"></a>1.基础</h1><h2 id="python模块"><a href="#python模块" class="headerlink" title="python模块"></a>python模块</h2><p>httpserver: <a href="https://docs.python.org/zh-cn/3.8/library/http.server.html" target="_blank" rel="noopener">https://docs.python.org/zh-cn/3.8/library/http.server.html</a></p>
-<h2 id="树莓派"><a href="#树莓派" class="headerlink" title="树莓派"></a>树莓派</h2><p>系统配置–&gt;网络配置–&gt;环境搭建–&gt;开发</p>
-<p><code>ifconfig</code> ——查看IP地址 <code>eth0</code> <code>lo</code> <code>wlan0</code></p>
-<p>连接方式：</p>
-<ul>
-<li><code>ssh user@192.168.1.102</code> ,可远程连接树莓派，进行命令行操作</li>
-<li>VNC server 进行连接，IP,username,password同ssh</li>
-</ul>
-<p><code>ls /dev/tty*</code> 查看端口</p>
-<h2 id="内网外网"><a href="#内网外网" class="headerlink" title="内网外网"></a>内网外网</h2><p>内网是从路由器以下开始的，ip都以192开头。<br>外网不经过路由器和交换机就可以上网的网络。</p>
-<h1 id="2-代码"><a href="#2-代码" class="headerlink" title="2.代码"></a>2.代码</h1><h2 id="server-py"><a href="#server-py" class="headerlink" title="server.py"></a>server.py</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># --coding:utf-8--</span>
-<span class="token keyword">from</span> http<span class="token punctuation">.</span>server <span class="token keyword">import</span> BaseHTTPRequestHandler<span class="token punctuation">,</span> HTTPServer
-<span class="token keyword">import</span> time
-<span class="token keyword">import</span> socket
-<span class="token keyword">import</span> urllib
-<span class="token keyword">import</span> serial
-<span class="token comment" spellcheck="true">#from car_controler import FourWheelDriveCar</span>
-<span class="token comment" spellcheck="true">#from camera_controler import Camera</span>
+                <h2 id="一、字符串中不同整数的数目"><a href="#一、字符串中不同整数的数目" class="headerlink" title="一、字符串中不同整数的数目"></a><a href="https://leetcode-cn.com/problems/number-of-different-integers-in-a-string/" target="_blank" rel="noopener">一、字符串中不同整数的数目</a></h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">numDifferentIntegers</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> word<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        s<span class="token operator">=</span><span class="token string">""</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> word<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> i<span class="token punctuation">.</span>isalpha<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                s<span class="token operator">+=</span><span class="token string">" "</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                s<span class="token operator">+=</span>i
+        li<span class="token operator">=</span>set<span class="token punctuation">(</span><span class="token punctuation">[</span>int<span class="token punctuation">(</span>_<span class="token punctuation">)</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> s<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> len<span class="token punctuation">(</span>li<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="二、还原排列的最少操作步数"><a href="#二、还原排列的最少操作步数" class="headerlink" title="二、还原排列的最少操作步数"></a><a href="https://leetcode-cn.com/problems/minimum-number-of-operations-to-reinitialize-a-permutation/" target="_blank" rel="noopener">二、还原排列的最少操作步数</a></h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">reinitializePermutation</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        arr<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span>n
+        perm<span class="token operator">=</span><span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span>
 
-port<span class="token operator">=</span><span class="token string">'/dev/ttyUSB0'</span>
-rate<span class="token operator">=</span><span class="token number">9600</span>
-ser<span class="token operator">=</span>serial<span class="token punctuation">.</span>Serial<span class="token punctuation">(</span>port<span class="token punctuation">,</span>rate<span class="token punctuation">,</span>timeout<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">def</span> <span class="token function">op</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>perm<span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> i<span class="token operator">%</span><span class="token number">2</span><span class="token punctuation">:</span> 
+                    arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> perm<span class="token punctuation">[</span>n <span class="token operator">//</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">2</span><span class="token punctuation">]</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span> 
+                    arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> perm<span class="token punctuation">[</span>i <span class="token operator">//</span> <span class="token number">2</span><span class="token punctuation">]</span>
 
-<span class="token keyword">class</span> <span class="token class-name">CarServer</span><span class="token punctuation">(</span>BaseHTTPRequestHandler<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        cnt<span class="token operator">=</span><span class="token number">0</span>
+        <span class="token keyword">while</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            cnt<span class="token operator">+=</span><span class="token number">1</span>
+            op<span class="token punctuation">(</span>arr<span class="token punctuation">,</span>perm<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
+            perm<span class="token operator">=</span>arr<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> perm<span class="token operator">==</span><span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                <span class="token keyword">break</span>
 
-<span class="token comment" spellcheck="true">#    carControler = FourWheelDriveCar()</span>
-<span class="token comment" spellcheck="true">#    cameraControler = Camera()</span>
+        <span class="token keyword">return</span> cnt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="三、替换字符串中的括号内容"><a href="#三、替换字符串中的括号内容" class="headerlink" title="三、替换字符串中的括号内容"></a><a href="https://leetcode-cn.com/problems/evaluate-the-bracket-pairs-of-a-string/" target="_blank" rel="noopener">三、替换字符串中的括号内容</a></h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">evaluate</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">,</span> knowledge<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
+        dic<span class="token operator">=</span><span class="token punctuation">{</span>k<span class="token punctuation">:</span>v <span class="token keyword">for</span> k<span class="token punctuation">,</span>v <span class="token keyword">in</span> knowledge<span class="token punctuation">}</span>
+        ans<span class="token operator">=</span><span class="token string">""</span>
+        n<span class="token operator">=</span>len<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+        i<span class="token operator">=</span><span class="token number">0</span>
+        <span class="token keyword">while</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">"("</span><span class="token punctuation">:</span>
+                tmp<span class="token operator">=</span><span class="token string">""</span>
+                <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> s<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token string">")"</span><span class="token punctuation">:</span>
+                        tmp<span class="token operator">+=</span>s<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+                    <span class="token keyword">else</span><span class="token punctuation">:</span>
+                        <span class="token keyword">if</span> tmp <span class="token operator">not</span> <span class="token keyword">in</span> dic<span class="token punctuation">:</span>
+                            ans<span class="token operator">+=</span><span class="token string">"?"</span>
+                            <span class="token keyword">break</span>
+                        ans<span class="token operator">+=</span>dic<span class="token punctuation">[</span>tmp<span class="token punctuation">]</span>
+                        <span class="token keyword">break</span>
+                i<span class="token operator">=</span>j<span class="token operator">+</span><span class="token number">1</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                ans<span class="token operator">+=</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+                i<span class="token operator">+=</span><span class="token number">1</span>
+        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="四、好因子的最大数目"><a href="#四、好因子的最大数目" class="headerlink" title="四、好因子的最大数目"></a><a href="https://leetcode-cn.com/problems/maximize-number-of-nice-divisors/" target="_blank" rel="noopener">四、好因子的最大数目</a></h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">maxNiceDivisors</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        mod<span class="token operator">=</span><span class="token number">10</span><span class="token operator">**</span><span class="token number">9</span><span class="token operator">+</span><span class="token number">7</span>
+        <span class="token keyword">if</span> n <span class="token operator">&lt;=</span> <span class="token number">3</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> n
+        <span class="token keyword">if</span> n <span class="token operator">%</span> <span class="token number">3</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token number">4</span> <span class="token operator">*</span> pow<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">3</span><span class="token punctuation">,</span> mod<span class="token punctuation">)</span> <span class="token operator">%</span> mod
+        <span class="token keyword">elif</span> n <span class="token operator">%</span> <span class="token number">3</span> <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token number">2</span> <span class="token operator">*</span> pow<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> n <span class="token operator">//</span> <span class="token number">3</span><span class="token punctuation">,</span> mod<span class="token punctuation">)</span> <span class="token operator">%</span> mod
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> pow<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> n <span class="token operator">//</span> <span class="token number">3</span><span class="token punctuation">,</span> mod<span class="token punctuation">)</span>
 
-    <span class="token keyword">def</span> <span class="token function">get_host_ip</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">'''
-        This method is used for getting local ip address
-        The car server will deploy on this ip
-        '''</span>
-        <span class="token keyword">try</span><span class="token punctuation">:</span>
-            serverSocket <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>SOCK_DGRAM<span class="token punctuation">)</span>
-            serverSocket<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"8.8.8.8"</span><span class="token punctuation">,</span> <span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            localIP <span class="token operator">=</span> serverSocket<span class="token punctuation">.</span>getsockname<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-        <span class="token keyword">finally</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> localIP
+<span class="token comment" spellcheck="true">#题目意思：求n（因子个数）的拆分最大乘积【n>3】</span>
 
-    <span class="token keyword">def</span> <span class="token function">do_GET</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">'''
-        Define the car control GUI for client
-        For the first edition, it will only return direction contol GUI
-        '''</span>
-        localIP <span class="token operator">=</span> CarServer<span class="token punctuation">.</span>get_host_ip<span class="token punctuation">(</span>self<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#pow()第三个参数可以对结果取余</span>
+<span class="token comment" spellcheck="true">#不加入的话超出时间限制...</span>
 
-        <span class="token comment" spellcheck="true"># When this GET method is called, then should init the car</span>
-        <span class="token comment" spellcheck="true"># self.carControler.reset()</span>
-
-        <span class="token comment" spellcheck="true"># Read control page html file from control.html</span>
-        controlPageFile <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"index.html"</span><span class="token punctuation">)</span>
-        controlPageGUI <span class="token operator">=</span> controlPageFile<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        controlPageFile<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        controlPageGUI <span class="token operator">=</span> controlPageGUI<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>
-            <span class="token string">"requestAddress"</span><span class="token punctuation">,</span> <span class="token string">"http://"</span> <span class="token operator">+</span> localIP <span class="token operator">+</span> <span class="token string">":9090/"</span><span class="token punctuation">)</span>
-        controlPageGUI <span class="token operator">=</span> controlPageGUI<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>
-            <span class="token string">"cameraAddress"</span><span class="token punctuation">,</span> <span class="token string">"http://"</span> <span class="token operator">+</span> localIP <span class="token operator">+</span> <span class="token string">":8080/"</span><span class="token punctuation">)</span>
-
-        self<span class="token punctuation">.</span>send_response<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>send_header<span class="token punctuation">(</span><span class="token string">"Content-type"</span><span class="token punctuation">,</span> <span class="token string">"text/html"</span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>end_headers<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>wfile<span class="token punctuation">.</span>write<span class="token punctuation">(</span>controlPageGUI<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-    <span class="token keyword">def</span> <span class="token function">do_POST</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        length <span class="token operator">=</span> int<span class="token punctuation">(</span>self<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'Content-Length'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        qs <span class="token operator">=</span> self<span class="token punctuation">.</span>rfile<span class="token punctuation">.</span>read<span class="token punctuation">(</span>length<span class="token punctuation">)</span>
-        direction <span class="token operator">=</span> qs<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>direction<span class="token punctuation">)</span>
-        ser<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-        self<span class="token punctuation">.</span>send_response<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span>
-
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
-    raspCarServer <span class="token operator">=</span> CarServer
-    hostIP <span class="token operator">=</span> raspCarServer<span class="token punctuation">.</span>get_host_ip<span class="token punctuation">(</span>raspCarServer<span class="token punctuation">)</span>
-    hostPort <span class="token operator">=</span> <span class="token number">9090</span>
-    myServer <span class="token operator">=</span> HTTPServer<span class="token punctuation">(</span><span class="token punctuation">(</span>hostIP<span class="token punctuation">,</span> hostPort<span class="token punctuation">)</span><span class="token punctuation">,</span> raspCarServer<span class="token punctuation">)</span>
-
-    <span class="token keyword">print</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>asctime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"Server Starts - %s:%s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>hostIP<span class="token punctuation">,</span> hostPort<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        myServer<span class="token punctuation">.</span>serve_forever<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">except</span> KeyboardInterrupt<span class="token punctuation">:</span>
-        <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a><em>index.html</em></h2><pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
-    <span class="token keyword">function</span> <span class="token function">directionBtnDown</span><span class="token punctuation">(</span>direction<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">var</span> url <span class="token operator">=</span> <span class="token string">"requestAddress"</span>
-        <span class="token keyword">var</span> request <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        request<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"POST"</span><span class="token punctuation">,</span> url<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        request<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>direction<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">function</span> <span class="token function">directionBtnUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">var</span> url <span class="token operator">=</span> <span class="token string">"requestAddress"</span>
-        <span class="token keyword">var</span> request <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        request<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"POST"</span><span class="token punctuation">,</span> url<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        request<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">"S"</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
-    <span class="token selector">span<span class="token class">.car</span> </span><span class="token punctuation">{</span>
-        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-        <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">30%</span><span class="token punctuation">;</span>
-        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">480</span>px<span class="token punctuation">;</span>   
-    <span class="token punctuation">}</span>
-
-    <span class="token selector">span<span class="token class">.camera</span> </span><span class="token punctuation">{</span>
-        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-        <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">5%</span><span class="token punctuation">;</span>
-        <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token number">290</span>px<span class="token punctuation">;</span>
-        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">480</span>px<span class="token punctuation">;</span>
-        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">640</span>px<span class="token punctuation">;</span>
-        <span class="token property">background-color</span><span class="token punctuation">:</span> blue
-    <span class="token punctuation">}</span>
-
-    <span class="token selector">span<span class="token class">.camera_control</span> </span><span class="token punctuation">{</span>
-        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-        <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">30%</span><span class="token punctuation">;</span>
-        <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token number">950</span>px<span class="token punctuation">;</span>
-        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">480</span>px<span class="token punctuation">;</span>
-        <span class="token property">background-color</span><span class="token punctuation">:</span> blue
-    <span class="token punctuation">}</span>
-
-
-    <span class="token selector">button<span class="token class">.top</span> </span><span class="token punctuation">{</span>
-        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">50</span>px<span class="token punctuation">;</span>
-        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">90</span>px<span class="token punctuation">;</span>
-        <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token number">90</span>px
-    <span class="token punctuation">}</span>
-
-    <span class="token selector">button<span class="token class">.left</span> </span><span class="token punctuation">{</span>
-        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">50</span>px<span class="token punctuation">;</span>
-        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">90</span>px<span class="token punctuation">;</span>
-        <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">50</span>px<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token selector">button<span class="token class">.right</span> </span><span class="token punctuation">{</span>
-        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">50</span>px<span class="token punctuation">;</span>
-        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">90</span>px<span class="token punctuation">;</span>
-        <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">50</span>px<span class="token punctuation">;</span>
-        <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token number">180</span>px
-    <span class="token punctuation">}</span>
-
-    <span class="token selector">button<span class="token class">.bottom</span> </span><span class="token punctuation">{</span>
-        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">50</span>px<span class="token punctuation">;</span>
-        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">90</span>px<span class="token punctuation">;</span>
-        <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
-        <span class="token property">margin-left</span><span class="token punctuation">:</span> <span class="token number">90</span>px
-    <span class="token punctuation">}</span>
-</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>control page<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>car_control<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>car<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>top drectionBtn<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>F<span class="token punctuation">"</span></span> <span class="token attr-name">onmousedown</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>directionBtnDown(<span class="token punctuation">'</span>w<span class="token punctuation">'</span>)<span class="token punctuation">"</span></span> <span class="token attr-name">onmouseup</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>directionBtnUp()<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>F<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>left drectionBtn<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>L<span class="token punctuation">"</span></span> <span class="token attr-name">onmousedown</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>directionBtnDown(<span class="token punctuation">'</span>a<span class="token punctuation">'</span>)<span class="token punctuation">"</span></span> <span class="token attr-name">onmouseup</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>directionBtnUp()<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>L<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>right drectionBtn<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>R<span class="token punctuation">"</span></span> <span class="token attr-name">onmousedown</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>directionBtnDown(<span class="token punctuation">'</span>d<span class="token punctuation">'</span>)<span class="token punctuation">"</span></span> <span class="token attr-name">onmouseup</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>directionBtnUp()<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>R<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>bottom drectionBtn<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>B<span class="token punctuation">"</span></span> <span class="token attr-name">onmousedown</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>directionBtnDown(<span class="token punctuation">'</span>x<span class="token punctuation">'</span>)<span class="token punctuation">"</span></span> <span class="token attr-name">onmouseup</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>directionBtnUp()<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>B<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>然后在树莓派上：<code>sudo python3 server.py</code> </p>
-<p>去网页<code>http://192.168.1.102:9090/</code>，实现内网控制小车。</p>
+<span class="token comment" spellcheck="true">#写的时候竟然记起了：reduce(lambdax,y:x*y,nums)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>一个变形：<a href="https://leetcode-cn.com/problems/integer-break/" target="_blank" rel="noopener">343.整数拆分</a><br>给定一个正整数 n，将其拆分为 <strong>至少两个</strong> 正整数的和，并使这些整数的乘积最大化。 返回你可以获得的最大乘积。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#方法一：纯动态规划</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">integerBreak</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        dp<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>max<span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>j<span class="token operator">*</span><span class="token punctuation">(</span>i<span class="token operator">-</span>j<span class="token punctuation">)</span><span class="token punctuation">,</span>j<span class="token operator">*</span>dp<span class="token punctuation">[</span>i<span class="token operator">-</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> dp<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#方法二：数学</span>
+<span class="token comment" spellcheck="true">#归纳证明得出：应拆分成尽可能多的 3</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">integerBreak</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> n<span class="token operator">&lt;=</span><span class="token number">3</span><span class="token punctuation">:</span> <span class="token keyword">return</span> n<span class="token number">-1</span>
+        quotient<span class="token punctuation">,</span>remainder <span class="token operator">=</span> n<span class="token operator">//</span><span class="token number">3</span><span class="token punctuation">,</span>n<span class="token operator">%</span><span class="token number">3</span>
+        <span class="token keyword">if</span> remainder<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">3</span><span class="token operator">**</span>quotient
+        <span class="token keyword">elif</span> remainder<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">3</span><span class="token operator">**</span><span class="token punctuation">(</span>quotient<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">4</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">3</span><span class="token operator">**</span>quotient<span class="token operator">*</span><span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -724,7 +628,7 @@ ser<span class="token operator">=</span>serial<span class="token punctuation">.<
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/8178.html">https://www.unielu.com/posts/8178.html</a>
+                    <a href="https://www.unielu.com/posts/contest234.html">https://www.unielu.com/posts/contest234.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -762,8 +666,8 @@ ser<span class="token operator">=</span>serial<span class="token punctuation">.<
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%B7%A5%E7%A8%8B/">
-                                    <span class="chip bg-color">工程</span>
+                                <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+                                    <span class="chip bg-color">leetcode比赛</span>
                                 </a>
                             
                         </div>
@@ -1068,16 +972,17 @@ ser<span class="token operator">=</span>serial<span class="token punctuation">.<
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/5b58.html">
+                <a href="/posts/contest234.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/leetcode.png" class="responsive-img" alt="树">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181114.jpg" class="responsive-img" alt="周赛笔记234">
                         
-                        <span class="card-title">树</span>
+                        <span class="card-title">周赛笔记234</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1087,26 +992,23 @@ ser<span class="token operator">=</span>serial<span class="token punctuation">.<
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ╯晓~
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
+                    <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">leetcode比赛</span>
                     </a>
                     
                 </div>
@@ -1120,12 +1022,12 @@ ser<span class="token operator">=</span>serial<span class="token punctuation">.<
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/4d93.html">
+                <a href="/posts/contest233.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/leetcode.png" class="responsive-img" alt="模拟">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181114.jpg" class="responsive-img" alt="周赛笔记233">
                         
-                        <span class="card-title">模拟</span>
+                        <span class="card-title">周赛笔记233</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1136,16 +1038,12 @@ ser<span class="token operator">=</span>serial<span class="token punctuation">.<
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ╯晓~
                             
                         </span>
                     </div>
@@ -1153,8 +1051,8 @@ ser<span class="token operator">=</span>serial<span class="token punctuation">.<
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
+                    <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">leetcode比赛</span>
                     </a>
                     
                 </div>
