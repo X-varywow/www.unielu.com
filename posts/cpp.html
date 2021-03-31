@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-28
+                    2021-03-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.5k
                 </div>
                 
 
@@ -719,6 +719,43 @@ t<span class="token punctuation">.</span><span class="token function">show</span
     类名（形参）<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//构造函数</span>
     类名（<span class="token keyword">const</span> 类名 <span class="token operator">&amp;</span>对象名）<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//复制构造函数</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//对象数组的构造</span>
+
+<span class="token comment" spellcheck="true">// 1.缺省构造函数，无参数构造函数</span>
+classname foo<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 2.构造函数带一个参数，且不是默认参数的情况</span>
+classname <span class="token function">foo</span><span class="token punctuation">(</span><span class="token string">"parm"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 3.构造函数的参数有多个时，为每个元素显式调用其构造函数</span>
+classname foo<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span>
+    <span class="token function">fo</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">fo</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>拷贝构造函数</p>
+<ul>
+<li>每个类都有拷贝构造函数，如果没有定义，则使用默认的</li>
+<li>使用默认的拷贝构造函数，实现的功能也是内存的直接填充</li>
+</ul>
+<pre class="line-numbers language-cpp"><code class="language-cpp">Class <span class="token class-name">Point</span><span class="token punctuation">{</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> x<span class="token punctuation">,</span>y<span class="token punctuation">;</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">Point</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token function">x</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">y</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token function">Point</span><span class="token punctuation">(</span><span class="token keyword">const</span> Point <span class="token operator">&amp;</span>p<span class="token punctuation">)</span><span class="token punctuation">{</span>             <span class="token comment" spellcheck="true">//拷贝构造函数,,,构造</span>
+        x<span class="token operator">=</span><span class="token number">2</span><span class="token operator">*</span>p<span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+        y<span class="token operator">=</span><span class="token number">2</span><span class="token operator">*</span>p<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+Point <span class="token function">p1</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Point <span class="token function">p2</span><span class="token punctuation">(</span>p1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//显式调用拷贝构造函数复制对象</span>
+Point p3<span class="token operator">=</span>p2<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//通过赋值来调用拷贝构造函数，隐式调用</span>
+Point <span class="token function">p4</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+p4<span class="token operator">=</span>p1<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//这里是赋值，不是复制。</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-3-构析函数"><a href="#2-3-构析函数" class="headerlink" title="2.3 构析函数"></a>2.3 构析函数</h3><ol>
 <li>一个类中可以有多个构造函数,只能有一个析构函数。</li>
 <li>如果程序中未声明，编译器自动产生一个默认的构析函数。</li>
@@ -731,7 +768,18 @@ t<span class="token punctuation">.</span><span class="token function">show</span
     类名（形参）<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//构造函数</span>
     <span class="token operator">~</span>类名（）<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//析构函数</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-4-other"><a href="#2-4-other" class="headerlink" title="2.4 other"></a>2.4 <em>other</em></h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//类的组合</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="2-4-other"><a href="#2-4-other" class="headerlink" title="2.4 other"></a>2.4 <em>other</em></h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//类的组合</span>
+
+
+<span class="token comment" spellcheck="true">//对象指针</span>
+Ccube<span class="token operator">*</span> pcube<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//定义指针时，不会调用构造函数</span>
+
+<span class="token comment" spellcheck="true">//定义类时，类的方法编译后的二进制码放入内存</span>
+<span class="token comment" spellcheck="true">//定义类的对象时，对象的内存空间存放属性数据</span>
+
+
+<span class="token comment" spellcheck="true">//在每个成员函数执行的时候，隐形地传进去一个指向调用者对象自身的 this 指针</span>
+a<span class="token punctuation">.</span><span class="token function">disp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token operator">-</span><span class="token operator">></span> a<span class="token punctuation">.</span><span class="token function">disp</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> a<span class="token punctuation">.</span><span class="token function">disp</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="三、STL标准模板库"><a href="#三、STL标准模板库" class="headerlink" title="三、STL标准模板库"></a>三、STL标准模板库</h2><p>泛型程序设计：将算法从数据结构中抽象出来，成为通用的，如 C++ 模板。</p>
 <h3 id="3-1-容器"><a href="#3-1-容器" class="headerlink" title="3.1 容器"></a>3.1 容器</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//顺序容器</span>
 <span class="token operator">&lt;</span>array<span class="token operator">></span>
@@ -1580,7 +1628,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">101k</span>&nbsp;字
+                class="white-color">101.8k</span>&nbsp;字
             
             
             

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="机器学习, -- blog --">
+    <meta name="keywords" content="机器学习(二), -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>机器学习 | -- blog --</title>
+    <title>机器学习(二) | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/awesome/css/all.css">
@@ -345,7 +345,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">机器学习</h1>
+                    <h1 class="description center-align post-title diyFont">机器学习(二)</h1>
                 </div>
             </div>
         </div>
@@ -496,21 +496,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-04
+                    2021-03-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-26
+                    2021-03-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    353
+                    350
                 </div>
                 
 
@@ -522,76 +522,42 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="preface"><a href="#preface" class="headerlink" title="preface"></a><em>preface</em></h1><table>
-<thead>
-<tr>
-<th>sklearn</th>
-<th>applications</th>
-<th>algorithms</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>classification</code></td>
-<td>spam detection, image recognition</td>
-<td>SVM, nearest neighbors, random forest…</td>
-</tr>
-<tr>
-<td><code>regression</code></td>
-<td>drug response, stock prices</td>
-<td>SVR, nearest neighbors, random forest…</td>
-</tr>
-<tr>
-<td><code>clustering</code></td>
-<td>customer segmentation, grouping experiment outcomes</td>
-<td>K-means, spectral clustering…</td>
-</tr>
-<tr>
-<td><code>dimensionality reduction</code></td>
-<td>visualization</td>
-<td>K-means, feature selecion…</td>
-</tr>
-<tr>
-<td><code>model selection</code></td>
-<td>Improved accuracy via parameter tuning</td>
-<td>grid search…</td>
-</tr>
-<tr>
-<td><code>preprocessing</code></td>
-<td>Transforming input data such as text for use with machine learning algorithms.</td>
-<td>preprocessing</td>
-</tr>
-</tbody></table>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#使用 sklearn 标准数据集</span>
-
-<span class="token keyword">import</span> sklearn
-<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_boston
-boston<span class="token operator">=</span>load_boston<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>boston<span class="token punctuation">.</span>data<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#-->(506, 13)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a><em>Introduction</em></h1><p><code>吴恩达-机器学习</code> <code>2021.3.9开始</code> <code>加油</code></p>
-<p>to mimic how the human brain learns.</p>
-<p><strong>Machine Learning definition</strong>:</p>
-<p><em>Arthur Samuel</em> : Field of study that gives computers the ability to learn without being explicitly programmed.</p>
-<p><em>Tom Mitchell</em> : A computer program is said to learn from experience E with respect to some task T and some perfermance measure P.</p>
-<p>tools: Octave Matlab</p>
-<div class="admonition info"><p class="admonition-title">Octave
-</p><p>GNU Octave 6.2 安装好了，readme 上 chose an installation folder that doesn't contain spaces。出错了再说。</p>
-</div>
-
-<p>supervised learning（分类，回归），unsupervised learning（聚类，market segments）</p>
-<p>svd，奇异值分解</p>
-<h1 id="Linear-regression-with-one-variable"><a href="#Linear-regression-with-one-variable" class="headerlink" title="Linear regression with one variable"></a><em>Linear regression with one variable</em></h1><p><strong>m</strong>: number of training examples<br><strong>x’s</strong>: “input” variable/features<br><strong>y’s</strong>: “output” variable/“target”<br><strong>(x, y)</strong>: one training example</p>
-<h1 id="Linear-Algebra-review"><a href="#Linear-Algebra-review" class="headerlink" title="Linear Algebra review"></a><em>Linear Algebra review</em></h1><h1 id="Linear-Regression-with-multiple-variables"><a href="#Linear-Regression-with-multiple-variables" class="headerlink" title="Linear Regression with multiple variables"></a><em>Linear Regression with multiple variables</em></h1><h1 id="Octave-Tutorial"><a href="#Octave-Tutorial" class="headerlink" title="Octave Tutorial"></a><em>Octave Tutorial</em></h1><h1 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a><em>Logistic Regression</em></h1><h1 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a><em>Regularization</em></h1><h1 id="Neural-Networks-Representation"><a href="#Neural-Networks-Representation" class="headerlink" title="Neural Networks: Representation"></a><em>Neural Networks: Representation</em></h1><h1 id="NeuralNetworks-Learning"><a href="#NeuralNetworks-Learning" class="headerlink" title="NeuralNetworks: Learning"></a><em>NeuralNetworks: Learning</em></h1><h1 id="Advice-for-applying-machine-learning"><a href="#Advice-for-applying-machine-learning" class="headerlink" title="Advice for applying machine learning"></a><em>Advice for applying machine learning</em></h1><h1 id="Machine-learning-system-design"><a href="#Machine-learning-system-design" class="headerlink" title="Machine learning system design"></a><em>Machine learning system design</em></h1><h1 id="Support-Vector-Machines"><a href="#Support-Vector-Machines" class="headerlink" title="Support Vector Machines"></a><em>Support Vector Machines</em></h1><h1 id="Clustering"><a href="#Clustering" class="headerlink" title="Clustering"></a><em>Clustering</em></h1><h1 id="Dimensionality-Reduc1on"><a href="#Dimensionality-Reduc1on" class="headerlink" title="Dimensionality Reduc1on"></a><em>Dimensionality Reduc1on</em></h1><h1 id="Anomaly-detection"><a href="#Anomaly-detection" class="headerlink" title="Anomaly detection"></a><em>Anomaly detection</em></h1><h1 id="Recommender-Systems"><a href="#Recommender-Systems" class="headerlink" title="Recommender Systems"></a><em>Recommender Systems</em></h1><h1 id="Large-scale-machine-learning"><a href="#Large-scale-machine-learning" class="headerlink" title="Large scale machine learning"></a><em>Large scale machine learning</em></h1><h1 id="Application-example-Photo-OCR"><a href="#Application-example-Photo-OCR" class="headerlink" title="Application example: Photo OCR"></a><em>Application example: Photo OCR</em></h1><h1 id="Support-Vector-Machines-1"><a href="#Support-Vector-Machines-1" class="headerlink" title="Support Vector Machines"></a><em>Support Vector Machines</em></h1><h1 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h1><p><strong>课程资料</strong>：</p>
+                <h2 id="二、概念学习"><a href="#二、概念学习" class="headerlink" title="二、概念学习"></a>二、概念学习</h2><p>概念：可被看作一个对象或事件集合（或：这个较大集合中定义的布尔函数）。</p>
+<p><strong>概念学习</strong>：给定某一类别的若干正例和反例，从中 <strong>获得</strong> 该类别的 <strong>一般定义</strong>。</p>
+<p>变型空间：与训练样例一致的所有假设组成的集合，表示了目标概念的所有合理的变型</p>
+<p>一般边界<code>G</code>：假设空间H和训练数据D相一致的 <strong>极大一般</strong> 成员的集合。<br>特殊边界<code>S</code>：假设空间H和训练数据D相一致的 <strong>极大特殊</strong> 成员的集合。</p>
 <ul>
-<li><a href="https://www.bilibili.com/video/BV164411b7dx" target="_blank" rel="noopener">吴恩达-机器学习(bilibili)</a> ，，<a href="https://github.com/TheisTrue/MLofAndrew-Ng" target="_blank" rel="noopener">讲义地址</a></li>
-<li>北理工-pthon机器学习应用</li>
-<li><a href="https://www.unielu.com/posts/ec3h.html">记一次深度学习(2020.5)</a></li>
-<li>pytorch文档：<a href="https://pytorch.apachecn.org/" target="_blank" rel="noopener">https://pytorch.apachecn.org/</a></li>
-<li>mxnet官网：<a href="https://mxnet.apache.org/" target="_blank" rel="noopener">https://mxnet.apache.org/</a></li>
+<li>机器学习的目标是寻找一个假设<code>h</code>，使得对所有的<code>x</code>，都有 <code>h(x) = c(x)</code></li>
+<li>表示假设<ul>
+<li>形式：实例的 <strong>各属性约束的合取式</strong></li>
+<li>属性范围：<ul>
+<li><code>？</code> 本属性可接收任意值</li>
+<li><code>∅</code>  不接受任何值</li>
+<li>指定的属性值</li>
 </ul>
-<div class="admonition info"><p class="admonition-title">关于《动手学深度学习》
-</p><p>这本书基于MXNet深度学习框架（类似pyotrch、tensorflow），装环境时好多问题，不是源不行了，就是依赖库冲突了...先搁着 <code>2021.3.26</code></p>
+</li>
+</ul>
+</li>
+<li>搜索目标假设<ul>
+<li>在预定义的假设空间中搜索假设，使其与训练样例有最佳的拟合</li>
+<li>利用假设空间的偏序结构（偏序：自反的，反对称的，传递的）</li>
+</ul>
+</li>
+<li>概念学习的方法<ul>
+<li><code>Find-S</code>：寻找极大特殊假设</li>
+<li><code>candidate-elimination</code>，候选消除算法<ul>
+<li>输出与训练样例一致的所有假设的集合</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info"><p class="admonition-title">一些理解
+</p><p>特殊：属性可接收的值，变得越来越少，<code>?</code> -&gt; 指定值 -&gt; <code>∅</code><br></p>
 </div>
 
+<pre class="line-numbers language-python"><code class="language-python">
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -617,7 +583,7 @@ boston<span class="token operator">=</span>load_boston<span class="token punctua
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/ml.html">https://www.unielu.com/posts/ml.html</a>
+                    <a href="https://www.unielu.com/posts/ml2.html">https://www.unielu.com/posts/ml2.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -961,75 +927,28 @@ boston<span class="token operator">=</span>load_boston<span class="token punctua
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/20213.html">
+                <a href="/posts/ml2.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/23.jpg" class="responsive-img" alt="2021三月">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="机器学习(二)">
                         
-                        <span class="card-title">2021三月</span>
+                        <span class="card-title">机器学习(二)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            浪漫地去接受无聊，降低阈值
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%97%A5%E8%AE%B0/" class="post-category">
-                                    日记
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%A4%A7%E4%BA%8C/">
-                        <span class="chip bg-color">大二</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/cn.html">
-                    <div class="card-image">
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算机网络">
-                        
-                        <span class="card-title">计算机网络</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            大二下学期课程（二）
+                            大二下学期课程，笔记
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-30
                             </span>
                         <span class="publish-author">
                             
@@ -1043,6 +962,7 @@ boston<span class="token operator">=</span>load_boston<span class="token punctua
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1050,8 +970,48 @@ boston<span class="token operator">=</span>load_boston<span class="token punctua
                         <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">计算机基础</span>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/contest234.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181114.jpg" class="responsive-img" alt="周赛笔记234">
+                        
+                        <span class="card-title">周赛笔记234</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            无
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ╯晓~
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">leetcode比赛</span>
                     </a>
                     
                 </div>
@@ -1258,7 +1218,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">101k</span>&nbsp;字
+                class="white-color">101.8k</span>&nbsp;字
             
             
             
