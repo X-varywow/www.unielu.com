@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-24
+                    2021-03-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    361
+                    775
                 </div>
                 
 
@@ -522,12 +522,61 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h1><p><strong>数字系统</strong><br>数字系统是一个能对数字信号进行加工、传递和存储的实体，它由实现各种功能的数字逻辑电路相互连接而成。</p>
-<p>根据一个电路是否具有记忆功能，可将数字逻辑分为 <strong>组合逻辑电路</strong> 和 <strong>时序逻辑电路</strong>。</p>
-<p>常见计数制<br>带符号数表示</p>
-<p>补码，正数补码的数值位与真值相同，负数补码：按位取反，并在最低位加一</p>
-<p>常见几种编码</p>
-<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><p>逻辑代数<code>L</code>是一个封闭的代数系统，<code>K</code>表示逻辑变量集。<br><code>L={K，+，·，-，0，1}</code></p>
+                <h1 id="一、基本知识"><a href="#一、基本知识" class="headerlink" title="一、基本知识"></a>一、基本知识</h1><p><strong>数字系统</strong> 是一个能对数字信号进行加工、传递和存储的实体，它由实现各种功能的数字逻辑电路相互连接而成。</p>
+<ul>
+<li>模拟信号：表示模拟量的信号。如压力、温度等</li>
+<li>数字信号：表示数字量的信号。如电路的开关状态</li>
+</ul>
+<p>用来处理数字信号的电子线路称为数字电路</p>
+<p>根据一个电路是否具有记忆功能，可将数字逻辑分为 <strong>时序逻辑电路</strong> 和 <strong>组合逻辑电路</strong>。</p>
+<ul>
+<li>组合逻辑电路：一个逻辑电路在任何时刻的稳定输出仅取决于时刻的输入，与电路过去的输入无关。</li>
+<li>时序逻辑电路：一个逻辑电路在任何时刻的稳定输出不仅取决于时刻的输入，还与电路过去的输入有关。</li>
+</ul>
+<p>对数字系统中逻辑电路的研究的两个主要任务：<code>分析</code> 和 <code>设计</code></p>
+<hr>
+<ul>
+<li>数制及其转换<ul>
+<li>基数：指计数制中所用到的数字符号的个数</li>
+<li>位权：表明不同数位上数值大小的一个固定常数</li>
+<li>2进制转换<ul>
+<li>整数转换：除2取余</li>
+<li>小数转换，乘2取整</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>机器码<ul>
+<li>原码：符号位（0表正，1表负）+数值位（不变）</li>
+<li>反码：符号位（0表正，1表负）+数值位（正数不变，负数取反）</li>
+<li>补码：符号位（0表正，1表负）+数值位（正数不变，负数取反+1）</li>
+<li>运算：<ul>
+<li>[x1-x2]<sub>补</sub>=[x1]<sub>补</sub>+[-x2]<sub>补</sub></li>
+<li>[x1+x2]<sub>补</sub>=[x1]<sub>补</sub>+[x2]<sub>补</sub></li>
+<li>反码也是一样</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>奇偶检验码<ul>
+<li>组成：信息位、奇偶检验位（一位）</li>
+<li>编码方式：奇检验、偶检验</li>
+</ul>
+</li>
+<li>几种常见的编码<ul>
+<li>BCD码，8421码、2421码和余3码</li>
+<li>格雷码<ul>
+<li>特点：任意两个相邻的数，其格雷码仅有一位不同</li>
+<li>作用：避免代码形成或者变换过程产生错误</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>设二进制码 B=b<sub>n-1</sub>b<sub>n-2</sub>…b<sub>0</sub>，格雷码 G=g<sub>n-1</sub>g<sub>n-2</sub>…g<sub>0</sub><br>有：g<sub>n-1</sub>=b<sub>n-1</sub>，g<sub>i</sub>=b<sub>i+1</sub>b<sub>i</sub>（0&lt;=i&lt;=n-2）</p>
+</blockquote>
+<h1 id="二、逻辑代数基础"><a href="#二、逻辑代数基础" class="headerlink" title="二、逻辑代数基础"></a>二、逻辑代数基础</h1><p>逻辑代数<code>L</code>是一个封闭的代数系统，<code>K</code>表示逻辑变量集。<br><code>L={K，+，·，-，0，1}</code></p>
 <table>
 <thead>
 <tr>
@@ -593,6 +642,7 @@
 </tr>
 </tbody></table>
 <p>依次列出一个逻辑函数的所有输入变量取值组合及其相应函数值的表格称为 <strong>真值表</strong>。</p>
+<h1 id="三、集成门电路与触发器"><a href="#三、集成门电路与触发器" class="headerlink" title="三、集成门电路与触发器"></a>三、集成门电路与触发器</h1><h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><p>一、使用万用表、数字实验系统、基本逻辑门实验</p>
 <h1 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h1><p><strong>参考资料</strong>：</p>
 <ul>
 <li>学校课程</li>
@@ -601,7 +651,6 @@
 </ul>
 <hr>
 <p>17周，3学分</p>
-<p>学时：<br>分数：</p>
 
             </div>
             <hr/>
@@ -1264,7 +1313,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">101.7k</span>&nbsp;字
+                class="white-color">103.1k</span>&nbsp;字
             
             
             
