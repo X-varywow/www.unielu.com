@@ -733,7 +733,7 @@ d<span class="token operator">=</span><span class="token punctuation">{</span><s
     <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
         g<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"?"</span><span class="token punctuation">]</span><span class="token operator">*</span>self<span class="token punctuation">.</span>n<span class="token punctuation">]</span>
         s<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"∅"</span><span class="token punctuation">]</span><span class="token operator">*</span>self<span class="token punctuation">.</span>n<span class="token punctuation">]</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"ce过程："</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>g<span class="token punctuation">,</span>s<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"ce过程："</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token string">"\nG:"</span><span class="token punctuation">,</span>g<span class="token punctuation">,</span><span class="token string">"\tS:"</span><span class="token punctuation">,</span>s<span class="token punctuation">)</span>
         <span class="token keyword">for</span> cnt<span class="token punctuation">,</span>train <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>self<span class="token punctuation">.</span>train_set<span class="token punctuation">)</span><span class="token punctuation">:</span>
             <span class="token keyword">if</span> en<span class="token punctuation">[</span>cnt<span class="token punctuation">]</span><span class="token punctuation">:</span>
                 next_g<span class="token operator">=</span>g
@@ -770,7 +770,7 @@ d<span class="token operator">=</span><span class="token punctuation">{</span><s
                         <span class="token comment" spellcheck="true">#print(next_s,min_specialize(h,train))</span>
                 g<span class="token operator">=</span>next_g
 
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"ce过程："</span><span class="token punctuation">,</span>cnt<span class="token punctuation">,</span>g<span class="token punctuation">,</span>s<span class="token punctuation">)</span>   
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"ce过程："</span><span class="token punctuation">,</span>cnt<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">"\nG:"</span><span class="token punctuation">,</span>g<span class="token punctuation">,</span><span class="token string">"\tS:"</span><span class="token punctuation">,</span>s<span class="token punctuation">)</span>   
         <span class="token comment" spellcheck="true"># use 边界g and 边界s to generate res</span>
         res<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
         <span class="token keyword">for</span> gx <span class="token keyword">in</span> g<span class="token punctuation">:</span>
@@ -783,7 +783,7 @@ d<span class="token operator">=</span><span class="token punctuation">{</span><s
                                 res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>cur<span class="token punctuation">)</span>
 
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n\n\nthe result of candidate-elimination:"</span><span class="token punctuation">)</span> 
-        <span class="token keyword">return</span> res
+        <span class="token keyword">return</span> res<span class="token operator">+</span>g<span class="token operator">+</span>s
 
 
 <span class="token comment" spellcheck="true"># __name__是 python 的一个内置属性，记录了一个字符串</span>
@@ -1479,7 +1479,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">104.4k</span>&nbsp;字
+                class="white-color">105.6k</span>&nbsp;字
             
             
             
