@@ -510,7 +510,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    1.8k
                 </div>
                 
 
@@ -660,6 +660,7 @@ d<span class="token operator">=</span><span class="token punctuation">{</span><s
 <span class="token keyword">print</span><span class="token punctuation">(</span>FindS<span class="token punctuation">(</span>train_set<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n\n\n"</span><span class="token punctuation">)</span>
 
+
 <span class="token keyword">def</span> <span class="token function">more_normol</span><span class="token punctuation">(</span>d<span class="token punctuation">,</span>s<span class="token punctuation">,</span>n<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">for</span> h <span class="token keyword">in</span> s<span class="token punctuation">:</span>
         <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -719,66 +720,83 @@ d<span class="token operator">=</span><span class="token punctuation">{</span><s
             <span class="token keyword">return</span> <span class="token boolean">False</span>
     <span class="token keyword">return</span> <span class="token boolean">True</span>
 
-<span class="token keyword">def</span> <span class="token function">ce</span><span class="token punctuation">(</span>train_set<span class="token punctuation">,</span>n<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    g<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"?"</span><span class="token punctuation">]</span><span class="token operator">*</span>n<span class="token punctuation">]</span>
-    s<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"∅"</span><span class="token punctuation">]</span><span class="token operator">*</span>n<span class="token punctuation">]</span>
-
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"ce过程："</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>g<span class="token punctuation">,</span>s<span class="token punctuation">)</span>
-    <span class="token keyword">for</span> cnt<span class="token punctuation">,</span>train <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>train_set<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> en<span class="token punctuation">[</span>cnt<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            next_g<span class="token operator">=</span>g
-            <span class="token keyword">for</span> i<span class="token punctuation">,</span>h <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>g<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> <span class="token operator">not</span> agree_with<span class="token punctuation">(</span>h<span class="token punctuation">,</span>train<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                    <span class="token keyword">del</span> next_g<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-            g<span class="token operator">=</span>next_g
-
-            next_s<span class="token operator">=</span>s
-            <span class="token keyword">for</span> i<span class="token punctuation">,</span>h <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> <span class="token operator">not</span> agree_with<span class="token punctuation">(</span>h<span class="token punctuation">,</span>train<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                    <span class="token keyword">del</span> next_s<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-                    tmp<span class="token operator">=</span>min_generalize<span class="token punctuation">(</span>h<span class="token punctuation">,</span>train<span class="token punctuation">)</span>
-                    <span class="token keyword">if</span> more_special<span class="token punctuation">(</span>tmp<span class="token punctuation">,</span>g<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                        next_s<span class="token punctuation">.</span>append<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span>
-                    <span class="token comment" spellcheck="true">#print(next_s,min_generalize(h,train))</span>
-            s<span class="token operator">=</span>next_s
-
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            next_s<span class="token operator">=</span>s
-            <span class="token keyword">for</span> i<span class="token punctuation">,</span>h <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> agree_with<span class="token punctuation">(</span>h<span class="token punctuation">,</span>train<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                    <span class="token keyword">del</span> next_s<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-            s<span class="token operator">=</span>next_s
-
-            next_g<span class="token operator">=</span>g
-            <span class="token keyword">for</span> i<span class="token punctuation">,</span>h <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>g<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> agree_with<span class="token punctuation">(</span>h<span class="token punctuation">,</span>train<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true">#因为正是个反例</span>
-                    <span class="token keyword">del</span> next_g<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-                    tmp<span class="token operator">=</span>min_specialize<span class="token punctuation">(</span>h<span class="token punctuation">,</span>train<span class="token punctuation">)</span>
-                    <span class="token keyword">for</span> d <span class="token keyword">in</span> tmp<span class="token punctuation">:</span>
-                        <span class="token keyword">if</span> more_normol<span class="token punctuation">(</span>d<span class="token punctuation">,</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                            next_g<span class="token punctuation">.</span>append<span class="token punctuation">(</span>d<span class="token punctuation">)</span>
-                    <span class="token comment" spellcheck="true">#print(next_s,min_specialize(h,train))</span>
-            g<span class="token operator">=</span>next_g
-
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"ce过程："</span><span class="token punctuation">,</span>cnt<span class="token punctuation">,</span>g<span class="token punctuation">,</span>s<span class="token punctuation">)</span>   
-    <span class="token comment" spellcheck="true"># use 边界g and 边界s to generate res</span>
-    res<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
-    <span class="token keyword">for</span> gx <span class="token keyword">in</span> g<span class="token punctuation">:</span>
-        <span class="token keyword">for</span> sx <span class="token keyword">in</span> s<span class="token punctuation">:</span>
-            <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>gx<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> gx<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">"?"</span><span class="token punctuation">:</span>
-                    <span class="token keyword">if</span> sx<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token string">"?"</span><span class="token punctuation">:</span>
-                        cur<span class="token operator">=</span><span class="token punctuation">[</span>gx<span class="token punctuation">[</span><span class="token punctuation">:</span>i<span class="token punctuation">]</span><span class="token operator">+</span><span class="token punctuation">[</span>sx<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span>gx<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
-                        <span class="token keyword">if</span> cur <span class="token operator">not</span> <span class="token keyword">in</span> res<span class="token punctuation">:</span>
-                            res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>cur<span class="token punctuation">)</span>
-
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n\n\nthe result of candidate-elimination:"</span><span class="token punctuation">)</span> 
-    <span class="token keyword">return</span> res
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>ce<span class="token punctuation">(</span>train_set<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 
-<span class="token comment" spellcheck="true">#不足：1.测试用例太少 2.候选消除法不完整</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">class</span> <span class="token class-name">ce</span><span class="token punctuation">:</span>
+    train_set<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+    n<span class="token operator">=</span><span class="token number">0</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>train_set<span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>train_set<span class="token operator">=</span>train_set
+        self<span class="token punctuation">.</span>n<span class="token operator">=</span>n
+
+    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        g<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"?"</span><span class="token punctuation">]</span><span class="token operator">*</span>self<span class="token punctuation">.</span>n<span class="token punctuation">]</span>
+        s<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"∅"</span><span class="token punctuation">]</span><span class="token operator">*</span>self<span class="token punctuation">.</span>n<span class="token punctuation">]</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"ce过程："</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>g<span class="token punctuation">,</span>s<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> cnt<span class="token punctuation">,</span>train <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>self<span class="token punctuation">.</span>train_set<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> en<span class="token punctuation">[</span>cnt<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                next_g<span class="token operator">=</span>g
+                <span class="token keyword">for</span> i<span class="token punctuation">,</span>h <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>g<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> <span class="token operator">not</span> agree_with<span class="token punctuation">(</span>h<span class="token punctuation">,</span>train<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                        <span class="token keyword">del</span> next_g<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+                g<span class="token operator">=</span>next_g
+
+                next_s<span class="token operator">=</span>s
+                <span class="token keyword">for</span> i<span class="token punctuation">,</span>h <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> <span class="token operator">not</span> agree_with<span class="token punctuation">(</span>h<span class="token punctuation">,</span>train<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                        <span class="token keyword">del</span> next_s<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+                        tmp<span class="token operator">=</span>min_generalize<span class="token punctuation">(</span>h<span class="token punctuation">,</span>train<span class="token punctuation">)</span>
+                        <span class="token keyword">if</span> more_special<span class="token punctuation">(</span>tmp<span class="token punctuation">,</span>g<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                            next_s<span class="token punctuation">.</span>append<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span>
+                        <span class="token comment" spellcheck="true">#print(next_s,min_generalize(h,train))</span>
+                s<span class="token operator">=</span>next_s
+
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                next_s<span class="token operator">=</span>s
+                <span class="token keyword">for</span> i<span class="token punctuation">,</span>h <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> agree_with<span class="token punctuation">(</span>h<span class="token punctuation">,</span>train<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                        <span class="token keyword">del</span> next_s<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+                s<span class="token operator">=</span>next_s
+
+                next_g<span class="token operator">=</span>g
+                <span class="token keyword">for</span> i<span class="token punctuation">,</span>h <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>g<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> agree_with<span class="token punctuation">(</span>h<span class="token punctuation">,</span>train<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true">#因为正是个反例</span>
+                        <span class="token keyword">del</span> next_g<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+                        tmp<span class="token operator">=</span>min_specialize<span class="token punctuation">(</span>h<span class="token punctuation">,</span>train<span class="token punctuation">)</span>
+                        <span class="token keyword">for</span> d <span class="token keyword">in</span> tmp<span class="token punctuation">:</span>
+                            <span class="token keyword">if</span> more_normol<span class="token punctuation">(</span>d<span class="token punctuation">,</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                                next_g<span class="token punctuation">.</span>append<span class="token punctuation">(</span>d<span class="token punctuation">)</span>
+                        <span class="token comment" spellcheck="true">#print(next_s,min_specialize(h,train))</span>
+                g<span class="token operator">=</span>next_g
+
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"ce过程："</span><span class="token punctuation">,</span>cnt<span class="token punctuation">,</span>g<span class="token punctuation">,</span>s<span class="token punctuation">)</span>   
+        <span class="token comment" spellcheck="true"># use 边界g and 边界s to generate res</span>
+        res<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> gx <span class="token keyword">in</span> g<span class="token punctuation">:</span>
+            <span class="token keyword">for</span> sx <span class="token keyword">in</span> s<span class="token punctuation">:</span>
+                <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>gx<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> gx<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">"?"</span><span class="token punctuation">:</span>
+                        <span class="token keyword">if</span> sx<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token string">"?"</span><span class="token punctuation">:</span>
+                            cur<span class="token operator">=</span><span class="token punctuation">[</span>gx<span class="token punctuation">[</span><span class="token punctuation">:</span>i<span class="token punctuation">]</span><span class="token operator">+</span><span class="token punctuation">[</span>sx<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span>gx<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+                            <span class="token keyword">if</span> cur <span class="token operator">not</span> <span class="token keyword">in</span> res<span class="token punctuation">:</span>
+                                res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>cur<span class="token punctuation">)</span>
+
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n\n\nthe result of candidate-elimination:"</span><span class="token punctuation">)</span> 
+        <span class="token keyword">return</span> res
+
+
+<span class="token comment" spellcheck="true"># __name__是 python 的一个内置属性，记录了一个字符串</span>
+<span class="token comment" spellcheck="true">#若是在当前文件：print(__name__)  --> __main__</span>
+
+
+<span class="token comment" spellcheck="true">#如果在当前文件执行，则以下代码会被执行</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    test<span class="token operator">=</span>ce<span class="token punctuation">(</span>train_set<span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>test<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token comment" spellcheck="true">#不足：1.测试用例太少 2.候选消除法不完整</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#小结</span>
 <span class="token comment" spellcheck="true">#    好久没写过这么重的代码了，以前一直写的是少量的，模块化的代码</span>
 <span class="token comment" spellcheck="true">#    真要命....写了好久</span>
@@ -1461,7 +1479,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">104.3k</span>&nbsp;字
+                class="white-color">104.4k</span>&nbsp;字
             
             
             
