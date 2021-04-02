@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-31
+                    2021-04-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.7k
                 </div>
                 
 
@@ -522,13 +522,26 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="二、概念学习"><a href="#二、概念学习" class="headerlink" title="二、概念学习"></a>二、概念学习</h2><p>概念：可被看作一个对象或事件集合（或：这个较大集合中定义的布尔函数）。</p>
+                <h2 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h2><p>学习问题：如果一个计算机针对某类任务<code>T</code>的用<code>P</code>衡量的性能根据经验<code>E</code>来自我完善，那么我们称这个计算机程序在从经验<code>E</code>中学习，针对某类任务<code>T</code>，它的性能用<code>P</code>来衡量。</p>
+<ul>
+<li>训练错误</li>
+<li>测试集错误</li>
+<li>评测指标<ul>
+<li>准确率</li>
+<li>召回率</li>
+<li>平方误差等</li>
+</ul>
+</li>
+</ul>
+<h2 id="二、概念学习"><a href="#二、概念学习" class="headerlink" title="二、概念学习"></a>二、概念学习</h2><p>概念：可被看作一个对象或事件集合（或：这个较大集合中定义的布尔函数）。</p>
 <p><strong>概念学习</strong>：给定某一类别的若干正例和反例，从中 <strong>获得</strong> 该类别的 <strong>一般定义</strong>。</p>
-<p>变型空间：与训练样例一致的所有假设组成的集合，表示了目标概念的所有合理的变型</p>
+<p><strong>变型空间</strong>：与训练样例一致的所有假设组成的集合，表示了目标概念的所有合理的变型</p>
 <p>一般边界<code>G</code>：假设空间H和训练数据D相一致的 <strong>极大一般</strong> 成员的集合。<br>特殊边界<code>S</code>：假设空间H和训练数据D相一致的 <strong>极大特殊</strong> 成员的集合。</p>
 <ul>
-<li>机器学习的目标是寻找一个假设<code>h</code>，使得对所有的<code>x</code>，都有 <code>h(x) = c(x)</code></li>
-<li>表示假设<ul>
+<li><p>机器学习的目标是寻找一个假设<code>h</code>，使得对所有的<code>x</code>，都有 <code>h(x) = c(x)</code></p>
+</li>
+<li><p>表示假设</p>
+<ul>
 <li>形式：实例的 <strong>各属性约束的合取式</strong></li>
 <li>属性范围：<ul>
 <li><code>？</code> 本属性可接收任意值</li>
@@ -538,24 +551,69 @@
 </li>
 </ul>
 </li>
-<li>搜索目标假设<ul>
+<li><p>搜索目标假设</p>
+<ul>
 <li>在预定义的假设空间中搜索假设，使其与训练样例有最佳的拟合</li>
 <li>利用假设空间的偏序结构（偏序：自反的，反对称的，传递的）</li>
 </ul>
 </li>
-<li>概念学习的方法<ul>
+<li><p>概念学习的方法</p>
+<ul>
 <li><code>Find-S</code>：寻找极大特殊假设</li>
 <li><code>candidate-elimination</code>，候选消除算法<ul>
+<li>变型空间被表示为极大一般和极大特殊的成员</li>
 <li>输出与训练样例一致的所有假设的集合</li>
+<li></li>
 </ul>
 </li>
 </ul>
+</li>
+<li><p>无偏学习的无用性：学习器如果不对目标概念的形式做预先的假定，它从根本上无法对未见实例进行分类。</p>
+</li>
+<li><p>归纳学习需要预先假定，称为<strong>归纳偏置</strong>。</p>
+<ul>
+<li>无偏的较大空间，有偏的算法（如梯度下降）</li>
+<li>有偏的较小空间，，，穷尽搜索</li>
+</ul>
+</li>
+<li><p>一种算法的有偏性越强，他的归纳能力越强，可以分类更多的未见实例。</p>
 </li>
 </ul>
 <div class="admonition info"><p class="admonition-title">一些理解
 </p><p>特殊：属性可接收的值，变得越来越少，<code>?</code> -&gt; 指定值 -&gt; <code>∅</code><br></p>
 </div>
 
+<h2 id="三、决策树学习"><a href="#三、决策树学习" class="headerlink" title="三、决策树学习"></a>三、决策树学习</h2><p>决策树：通过实例从根节点排列到某个子节点来分类实例。</p>
+<ul>
+<li>对空间划分，最后的树<strong>完备互斥</strong></li>
+<li>叶子节点，为实例所属的分类</li>
+<li>每个节点，说明了对实例的某个属性的测试</li>
+<li>节点的每个后继分支，对应于属性的一个可能值</li>
+</ul>
+<p>决策树代表实例属性值约束的合取的析取式</p>
+<h2 id="课程安排"><a href="#课程安排" class="headerlink" title="课程安排"></a>课程安排</h2><ul>
+<li>基本概念<ul>
+<li>概念学习、决策树学习</li>
+<li>贝叶斯学习：朴素贝叶斯分类器</li>
+<li>k近邻学习</li>
+</ul>
+</li>
+<li>统计机器学习<ul>
+<li>线性回归</li>
+<li>逻辑回归、softmax</li>
+<li>支持向量机（SVM）</li>
+<li>提升方法</li>
+</ul>
+</li>
+<li>神经网络和深度学习<ul>
+<li>神经网络</li>
+<li>BP算法</li>
+<li>FNN/CNN/RNN</li>
+<li>深度神经网络</li>
+<li>表示学习</li>
+</ul>
+</li>
+</ul>
 <h2 id="作业代码"><a href="#作业代码" class="headerlink" title="作业代码"></a>作业代码</h2><p>用python实现概念学习中的Find-S算法和候选消除算法。</p>
 <p>（1）训练样例可以使用ppt中的四个训练样例作为训练集；</p>
 <p>（2）输出结果为与训练集一致的假设变型空间（version space）。</p>
@@ -1403,7 +1461,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">103.6k</span>&nbsp;字
+                class="white-color">104.1k</span>&nbsp;字
             
             
             
