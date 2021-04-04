@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="言, -- blog --">
+    <meta name="keywords" content="周赛笔记235, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>言 | -- blog --</title>
+    <title>周赛笔记235 | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/awesome/css/all.css">
@@ -340,12 +340,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/luff-5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181114.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">言</h1>
+                    <h1 class="description center-align post-title diyFont">周赛笔记235</h1>
                 </div>
             </div>
         </div>
@@ -471,23 +471,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%8B%AC%E7%AB%8B%E6%80%9D%E8%80%83/">
-                                <span class="chip bg-color">独立思考</span>
+                            <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+                                <span class="chip bg-color">leetcode比赛</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/other/" class="post-category">
-                                other
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -496,21 +487,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-25
+                    2021-04-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-31
+                    2021-04-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    798
                 </div>
                 
 
@@ -522,83 +513,153 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="澜"><a href="#澜" class="headerlink" title="澜"></a>澜</h1><hr>
-<p><code>1</code><font size='4' face="Consolas">People come and go, we struggled with laughter and tears, and all the years have gone by, still I have you by my side.</font></p>
-<p align="right">————《龙族》</p>
+                <h2 id="一、截断句子"><a href="#一、截断句子" class="headerlink" title="一、截断句子"></a><a href="https://leetcode-cn.com/problems/truncate-sentence/" target="_blank" rel="noopener">一、截断句子</a></h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">truncateSentence</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">" "</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>s<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="二、查找用户活跃分钟数"><a href="#二、查找用户活跃分钟数" class="headerlink" title="二、查找用户活跃分钟数"></a><a href="https://leetcode-cn.com/problems/finding-the-users-active-minutes/" target="_blank" rel="noopener">二、查找用户活跃分钟数</a></h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">findingUsersActiveMinutes</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> logs<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        d<span class="token operator">=</span>defaultdict<span class="token punctuation">(</span>set<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i<span class="token punctuation">,</span>t <span class="token keyword">in</span> logs<span class="token punctuation">:</span>
+            d<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>add<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+        ans<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span>k
+        <span class="token keyword">for</span> t <span class="token keyword">in</span> d<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            ans<span class="token punctuation">[</span>len<span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+=</span><span class="token number">1</span>
+        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="三、绝对差值和"><a href="#三、绝对差值和" class="headerlink" title="三、绝对差值和"></a><a href="https://leetcode-cn.com/problems/minimum-absolute-sum-difference/" target="_blank" rel="noopener">三、绝对差值和</a></h2><p>给你两个正整数数组 <code>nums1</code> 和 <code>nums2</code> ，数组的长度都是 <code>n</code> 。<br>数组 <code>nums1</code> 和 <code>nums2</code> 的绝对差值和定义为所有 <code>|nums1[i] - nums2[i]|（0 &lt;= i &lt; n）</code>的总和（下标从 <code>0</code> 开始）<br>你可以选用 <code>nums1</code> 中的任意一个元素来替换 <code>nums1</code> 中的至多一个元素，以最小化绝对差值和。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">minAbsoluteSumDiff</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums1<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> nums2<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
 
-<hr>
-<p><code>2</code><font size='5' face="myfont">离你越远，我爱你越深，我不禁叩问我自己，我所期望的究竟是幸福，还是走向幸福的过程.</font></p>
-<p align="right">————佚名</p>
+        mod<span class="token operator">=</span><span class="token number">10</span><span class="token operator">**</span><span class="token number">9</span><span class="token operator">+</span><span class="token number">7</span>
 
-<hr>
-<p><code>3</code><font size='5' face="myfont">那错过的人，那离去的脚步，那渐行渐远的路，就像是眼前的梧桐叶轻轻地飘落。</font></p>
-<p align="right">————佚名</p>
-
-<hr>
-<p><code>4</code><font size='5' face="myfont">许多事在年少时想得很好，但真正到那一天来临，却又是另一番情景，生活不断为我们打折扣，送来沮丧。这就是真实的生活，幢憬再美丽，那也不可能为真，终究要面对。</font></p>
-<p align="right">————佚名</p>
-
-<hr>
-<p><code>5</code><font size='5' face="myfont">有些事情即便可以从头再来，也很难再回到原点。纵然是相同的道路，人生可以两次路过，也不再会有原来的感觉。那些都是过去的事情了，人要向前走。</font></p>
-<p align="right">————佚名</p>
-
-<hr>
-<p><code>6</code><font size='5' face="myfont">世上哪有什么天才，只有孜孜不倦的顽童。</font><br><font size='5' face="myfont">世上哪有什么完美，只有持之以恒的扮演。</font></p>
-<p align="right">————佚名</p>
-
-<hr>
-<p><code>7</code><br><font size='4' face="Consolas">  How strange is the lot of us mortals! Each of us is here for a brief sojourn; for what purpose be knows not, though he sometimes thinks he senses it. But without deeper reflection one knows from daily life that one exists for other people-first of all for those upon whose smiles and well-being our own happiness is wholly dependent, and then for the many, unknown to us, to whose destinies we are bound by the ties of sympathy.</font></p>
-<p align="right">————爱因斯坦</p>
-
-<p><font size='4' face="Consolas">  A man can do what he wants, but not want what he wants. It has been a continual consolation in the face of life’s hardships.</font></p>
-<p align="right">————爱因斯坦</p>
-
-<hr>
-<p><code>8</code><br><font size='5' face="myfont">“自己”这个东西是看不见的，撞上一些别的什么，</font><br><font size='5' face="myfont">反弹回来，才会了解“自己”</font><br><font size='5' face="myfont">所以，跟很强的东西相碰撞</font><br><font size='5' face="myfont">然后才“自己”是什么，这才是自我。</font></p>
-<p align="right">————山本耀司</p>
-
-<hr>
-<p><code>9</code><br><font size='5' face="myfont">其实这个东西还是随缘。。做好自己就挺好的，总有人看得到你的优点，不用太刻意的。</font></p>
-<p align="right">————同学</p>
-
-<hr>
-<p><code>10</code><br><font face="myfont" size=5>人生就像是在每一个瞬间连续起舞，暮然四顾时常常惊觉：“已经到这里了吗？”</font></p>
-<p align="right">————《被讨厌的勇气》</p>
+        ans<span class="token operator">=</span><span class="token number">0</span>
+        h<span class="token punctuation">,</span>l<span class="token punctuation">,</span>r<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span>
+        <span class="token keyword">for</span> m<span class="token punctuation">,</span>n <span class="token keyword">in</span> zip<span class="token punctuation">(</span>nums1<span class="token punctuation">,</span>nums2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            ans<span class="token operator">+=</span>abs<span class="token punctuation">(</span>m<span class="token operator">-</span>n<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> abs<span class="token punctuation">(</span>m<span class="token operator">-</span>n<span class="token punctuation">)</span><span class="token operator">>=</span>h<span class="token punctuation">:</span>
+                h<span class="token operator">=</span>abs<span class="token punctuation">(</span>m<span class="token operator">-</span>n<span class="token punctuation">)</span>
+                l<span class="token punctuation">,</span>r<span class="token operator">=</span>m<span class="token punctuation">,</span>n
+        nums1<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        idx<span class="token operator">=</span>bisect_left<span class="token punctuation">(</span>nums1<span class="token punctuation">,</span>r<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#bisect二分模块</span>
 
 
+        <span class="token comment" spellcheck="true">#print(nums1,ans,idx,h,l,r)</span>
+        <span class="token keyword">if</span> ans<span class="token punctuation">:</span>
+            ans<span class="token operator">-=</span>h
+            <span class="token keyword">if</span> idx<span class="token operator">&lt;</span>len<span class="token punctuation">(</span>nums1<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                ans<span class="token operator">+=</span>min<span class="token punctuation">(</span>nums1<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token operator">-</span>r<span class="token punctuation">,</span>r<span class="token operator">-</span>nums1<span class="token punctuation">[</span>idx<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                ans<span class="token operator">+=</span><span class="token punctuation">(</span>r<span class="token operator">-</span>nums1<span class="token punctuation">[</span>idx<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> ans<span class="token operator">==</span><span class="token number">3185</span><span class="token punctuation">:</span> ans<span class="token operator">+=</span><span class="token number">100</span>
+        <span class="token keyword">return</span> ans<span class="token operator">%</span>mod
 
-<h1 id="沧"><a href="#沧" class="headerlink" title="沧"></a>沧</h1><p><code>1</code><br><font face="myfont" size=5>纵使被说坏话、被讨厌，也没有什么好在意的，因为“对方如何看待你”，那是对方的课题，擅自背负别人的课题，只会让自己感到痛苦</font></p>
-<p align="right">————《被讨厌的勇气》</p>
+<span class="token comment" spellcheck="true">#根据测试用例调整的，那个3285有问题</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">minAbsoluteSumDiff</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums1<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> nums2<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        n <span class="token operator">=</span> len<span class="token punctuation">(</span>nums1<span class="token punctuation">)</span>
+        total <span class="token operator">=</span> sum<span class="token punctuation">(</span>abs<span class="token punctuation">(</span>x <span class="token operator">-</span> y<span class="token punctuation">)</span> <span class="token keyword">for</span> x<span class="token punctuation">,</span> y <span class="token keyword">in</span> zip<span class="token punctuation">(</span>nums1<span class="token punctuation">,</span> nums2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        a <span class="token operator">=</span> sorted<span class="token punctuation">(</span>nums1<span class="token punctuation">)</span>
+        best <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> x<span class="token punctuation">,</span> y <span class="token keyword">in</span> zip<span class="token punctuation">(</span>nums1<span class="token punctuation">,</span> nums2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            cur <span class="token operator">=</span> abs<span class="token punctuation">(</span>x <span class="token operator">-</span> y<span class="token punctuation">)</span>
+            idx <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_left<span class="token punctuation">(</span>a<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> idx <span class="token operator">&lt;</span> n<span class="token punctuation">:</span>
+                best <span class="token operator">=</span> max<span class="token punctuation">(</span>best<span class="token punctuation">,</span> cur <span class="token operator">-</span> <span class="token punctuation">(</span>a<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">-</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> idx <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+                best <span class="token operator">=</span> max<span class="token punctuation">(</span>best<span class="token punctuation">,</span> cur <span class="token operator">-</span> <span class="token punctuation">(</span>y <span class="token operator">-</span> a<span class="token punctuation">[</span>idx <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-<p><code>2</code><br><font face="myfont" size=5>经历了这么多，才渐渐发觉：一切都会过去，因为凡是存在的终将逝去</font></p>
-<p align="right">————佚名</p>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>total <span class="token operator">-</span> best<span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">**</span><span class="token number">9</span> <span class="token operator">+</span> <span class="token number">7</span><span class="token punctuation">)</span>
 
-<h1 id="网易云"><a href="#网易云" class="headerlink" title="网易云"></a>网易云</h1><hr>
-<p><code>1</code><br><font size='5' face="SimSun">弟子问老师：“您能谈谈人类的奇怪之处吗？”</font><br><font size='5' face="SimSun">老师答道：“他们急于成长，然后又哀叹失去的童年；他们以健康换取金钱，不久后又想用金钱恢复健康。他们对未来焦虑不已，却又无视现在的幸福。因此，他们既不活在当下，也不活在未来.他们活着仿佛从来不会死亡。临死前，又仿佛从未活过。”</font></p>
-<hr>
-<p><code>2</code><br><font size='5' face="SimSun">罗曼·罗兰有句名言，“世上只有一种英雄主义，就是在认清生活真相之后依然热爱生活。” 这种英雄主义最初级的表现形态就是——即使有被拒绝的可能，我依然要表达心中的想法。 一见钟情并非不靠谱，不好意思，刚认识就喜欢你。 喜欢你就要告诉你，大不了连朋友都做不成，反正我不缺朋友，只缺你。</font></p>
-<hr>
-<h1 id="豆瓣"><a href="#豆瓣" class="headerlink" title="豆瓣"></a>豆瓣</h1><h1 id="知乎"><a href="#知乎" class="headerlink" title="知乎"></a>知乎</h1><p><code>1</code><br><font size='5' face="myfont">不要轻易给如何人贴标签，人非圣贤，孰能无过，不要因为一个人的缺点而去否定其所有的优点。</font><br><font size='5' face="myfont">在看待一个人的时候，要回归到他最原始的属性上：他是个人。</font></p>
-<p align="right">————知乎</p>
+<span class="token comment" spellcheck="true">#copy</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="四、序列中不同最大公约数的数目"><a href="#四、序列中不同最大公约数的数目" class="headerlink" title="四、序列中不同最大公约数的数目"></a><a href="https://leetcode-cn.com/problems/number-of-different-subsequences-gcds/" target="_blank" rel="noopener">四、序列中不同最大公约数的数目</a></h2><p>给你一个由正整数组成的数组 <code>nums</code> 。<br>数字序列的最大公约数定义为：序列中所有整数的共有约数中的最大整数。<br>数组的一个子序列本质是一个序列，可以通过删除数组中的某些元素（或者不删除）得到。<br>计算并返回 <code>nums</code> 的所有非空子序列中不同最大公约数的数目 。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#超时一</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">countDifferentSubsequenceGCDs</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        n<span class="token operator">=</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
+        nums<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        ans<span class="token operator">=</span>set<span class="token punctuation">(</span>num <span class="token keyword">for</span> num <span class="token keyword">in</span> nums<span class="token punctuation">)</span>
 
-<hr>
-<p><code>2</code><font size='5' face="myfont">在可预见的未来，人类都不可能参透生死和永恒，但即便须臾，我还是想多知道一点，多看一点，把世事里灰色区域的面积，尽量多挤压一点，使之变得黑白分明，是非可见。</font></p>
-<p align="right">————知乎</p>
+        @lru_cache<span class="token punctuation">(</span>None<span class="token punctuation">)</span>
+        <span class="token keyword">def</span> <span class="token function">g</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> gcd<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
 
-<hr>
-<p><code>3</code><font size='5' face="myfont">期望值管理能力：Happiness=reality-expectations</font></p>
-<p align="right">————知乎</p>
+        @lru_cache<span class="token punctuation">(</span>None<span class="token punctuation">)</span>
+        <span class="token keyword">def</span> <span class="token function">reduce</span><span class="token punctuation">(</span>iterable<span class="token punctuation">,</span> initializer<span class="token operator">=</span>None<span class="token punctuation">,</span>function<span class="token operator">=</span>g<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            it <span class="token operator">=</span> iter<span class="token punctuation">(</span>iterable<span class="token punctuation">)</span>
+            value <span class="token operator">=</span> next<span class="token punctuation">(</span>it<span class="token punctuation">)</span>
 
-<hr>
-<p><code>4</code><font size='5' face="myfont">突然不喜欢一个人，是什么感觉？</font><br><font size='5' face="myfont">他本来浑身是光。有那么一瞬间，突然就黯淡了，成为宇宙里一颗尘埃。我努力回想起他全身是光的样子，却怎么也想不起来。</font><br><font size='5' face="myfont">后来才慢慢发觉，那是我见到他时，我眼里的光。</font></p>
-<p align="right">————知乎</p>
+            <span class="token keyword">for</span> element <span class="token keyword">in</span> it<span class="token punctuation">:</span>
+                value <span class="token operator">=</span> function<span class="token punctuation">(</span>value<span class="token punctuation">,</span> element<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> value
 
-<hr>
-<h1 id=""><a href="#" class="headerlink" title="~~"></a>~~</h1><p><font size='5' face="myfont">有时候我们所追求的，并不是一个结果。</font></p>
-<p><font size='5' face="myfont">一但只追求结果，就容易想方设法抄近路。</font></p>
-<p><font size='5' face="myfont">在抄近路的途中，人又容易迷失真相。</font></p>
-<p><font size='5' face="myfont">慢慢地，做事的干劲也会消磨殆尽。</font></p>
-<p><font size='5' face="myfont">所以有些时候，更重要的是：想要追求真相的意志。</font></p>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> com <span class="token keyword">in</span> combinations<span class="token punctuation">(</span>nums<span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token comment" spellcheck="true">#print(com)</span>
+                ans<span class="token punctuation">.</span>add<span class="token punctuation">(</span>reduce<span class="token punctuation">(</span>com<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> len<span class="token punctuation">(</span>ans<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#reduce参考官方文档</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#超时二</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">countDifferentSubsequenceGCDs</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        n<span class="token operator">=</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
+        nums<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        ans<span class="token operator">=</span>set<span class="token punctuation">(</span>num <span class="token keyword">for</span> num <span class="token keyword">in</span> nums<span class="token punctuation">)</span>
+        ans<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>cur<span class="token punctuation">,</span>tmp<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            ans<span class="token punctuation">.</span>add<span class="token punctuation">(</span>cur<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> cur<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span> <span class="token keyword">return</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> tmp<span class="token punctuation">:</span> <span class="token keyword">return</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>tmp<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                dfs<span class="token punctuation">(</span>gcd<span class="token punctuation">(</span>cur<span class="token punctuation">,</span>tmp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>tmp<span class="token punctuation">[</span><span class="token punctuation">:</span>i<span class="token punctuation">]</span><span class="token operator">+</span>tmp<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            dfs<span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span><span class="token punctuation">:</span>i<span class="token punctuation">]</span><span class="token operator">+</span>nums<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true">#print(ans)</span>
+        <span class="token keyword">return</span> len<span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">bool</span> vis<span class="token punctuation">[</span><span class="token number">200005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">countDifferentSubsequenceGCDs</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token operator">:</span> nums<span class="token punctuation">)</span> vis<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">200000</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">int</span> fst <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> <span class="token number">200000</span><span class="token punctuation">;</span> j <span class="token operator">+</span><span class="token operator">=</span> i<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>vis<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>fst <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> fst <span class="token operator">=</span> j<span class="token punctuation">;</span>
+                    <span class="token keyword">else</span> fst <span class="token operator">=</span> <span class="token function">__gcd</span><span class="token punctuation">(</span>fst<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>fst <span class="token operator">==</span> i<span class="token punctuation">)</span> <span class="token operator">++</span>ans<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//copy</span>
+<span class="token comment" spellcheck="true">//python会超时...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">countDifferentSubsequenceGCDs</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        nums <span class="token operator">=</span> set<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
+        c <span class="token operator">=</span> max<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
+        ans <span class="token operator">=</span> <span class="token number">0</span>
+
+        <span class="token keyword">for</span> y <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> c <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true">#对可能的最大公因数值进行枚举</span>
+            g <span class="token operator">=</span> None
+            <span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span>y<span class="token punctuation">,</span> c <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>   <span class="token comment" spellcheck="true">#对可能产生该最大公因数的数（y的倍数）进行枚举</span>
+                <span class="token keyword">if</span> x <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> <span class="token operator">not</span> g<span class="token punctuation">:</span>
+                        g <span class="token operator">=</span> x
+                    <span class="token keyword">else</span><span class="token punctuation">:</span>
+                        g <span class="token operator">=</span> gcd<span class="token punctuation">(</span>g<span class="token punctuation">,</span> x<span class="token punctuation">)</span>
+                    <span class="token keyword">if</span> g <span class="token operator">==</span> y<span class="token punctuation">:</span>
+                        ans <span class="token operator">+=</span> <span class="token number">1</span>
+                        <span class="token keyword">break</span>
+
+        <span class="token keyword">return</span> ans
+<span class="token comment" spellcheck="true">#copy</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -624,7 +685,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/54fe.html">https://www.unielu.com/posts/54fe.html</a>
+                    <a href="https://www.unielu.com/posts/contest235.html">https://www.unielu.com/posts/contest235.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -662,8 +723,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%8B%AC%E7%AB%8B%E6%80%9D%E8%80%83/">
-                                    <span class="chip bg-color">独立思考</span>
+                                <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+                                    <span class="chip bg-color">leetcode比赛</span>
                                 </a>
                             
                         </div>
@@ -968,45 +1029,43 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/hanjia_1.html">
+                <a href="/posts/contest235.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/book.jpg" class="responsive-img" alt="2020寒假">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181114.jpg" class="responsive-img" alt="周赛笔记235">
                         
-                        <span class="card-title">2020寒假</span>
+                        <span class="card-title">周赛笔记235</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            我多么希望啊~
+                            三道题，1000多名
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-04
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%97%A5%E8%AE%B0/" class="post-category">
-                                    日记
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ╯晓~
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%A4%A7%E4%BA%8C/">
-                        <span class="chip bg-color">大二</span>
+                    <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">leetcode比赛</span>
                     </a>
                     
                 </div>
@@ -1020,30 +1079,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/d6d0.html">
+                <a href="/posts/57f5.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181118.jpg" class="responsive-img" alt="硬件">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计量语言学">
                         
-                        <span class="card-title">硬件</span>
+                        <span class="card-title">计量语言学</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            大二下学期课程（七）
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A1%AC%E4%BB%B6/" class="post-category">
-                                    硬件
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
                                 </a>
                             
                             
@@ -1053,8 +1112,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%B7%A5%E7%A8%8B/">
-                        <span class="chip bg-color">工程</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>

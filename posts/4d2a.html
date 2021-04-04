@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-03
+                    2021-04-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    509
+                    620
                 </div>
                 
 
@@ -587,6 +587,16 @@
                 <span class="token comment" spellcheck="true">#print(dp)</span>
         <span class="token keyword">return</span> dp<span class="token punctuation">[</span>m<span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="781-森林中的兔子"><a href="#781-森林中的兔子" class="headerlink" title="781.森林中的兔子"></a><a href="https://leetcode-cn.com/problems/rabbits-in-forest/" target="_blank" rel="noopener">781.森林中的兔子</a></h2><p>森林中，每个兔子都有颜色。其中一些兔子（可能是全部）告诉你还有多少其他的兔子和自己有相同的颜色。我们将这些回答放在 <code>answers</code> 数组里。</p>
+<p>返回森林中兔子的<strong>最少数量</strong>。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">numRabbits</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> answers<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        c<span class="token operator">=</span>Counter<span class="token punctuation">(</span>answers<span class="token punctuation">)</span>
+        ans<span class="token operator">=</span><span class="token number">0</span>
+        <span class="token keyword">for</span> num<span class="token punctuation">,</span>cnt <span class="token keyword">in</span> c<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> num<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span> ans<span class="token operator">+=</span>cnt
+            <span class="token keyword">else</span><span class="token punctuation">:</span> ans<span class="token operator">+=</span><span class="token punctuation">(</span>num<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span>cnt<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">//</span><span class="token punctuation">(</span>num<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="11-20"><a href="#11-20" class="headerlink" title="11-20"></a><code>11-20</code></h1><h1 id="21-30"><a href="#21-30" class="headerlink" title="21-30"></a><code>21-30</code></h1>
             </div>
             <hr/>
@@ -1249,7 +1259,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">106.6k</span>&nbsp;字
+                class="white-color">107.5k</span>&nbsp;字
             
             
             
