@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="链表, -- blog --">
+    <meta name="keywords" content="2021春季个人赛, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>链表 | -- blog --</title>
+    <title>2021春季个人赛 | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/awesome/css/all.css">
@@ -345,7 +345,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">链表</h1>
+                    <h1 class="description center-align post-title diyFont">2021春季个人赛</h1>
                 </div>
             </div>
         </div>
@@ -471,23 +471,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/leetcode/">
-                                <span class="chip bg-color">leetcode</span>
+                            <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+                                <span class="chip bg-color">leetcode比赛</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -496,21 +487,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-06
+                    2021-04-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-13
+                    2021-04-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    581
+                    645
                 </div>
                 
 
@@ -522,93 +513,64 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-链表的中间节点"><a href="#1-链表的中间节点" class="headerlink" title="(1)链表的中间节点"></a>(1)链表的中间节点</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">middleNode</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">:</span> ListNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> ListNode<span class="token punctuation">:</span>
-        slow<span class="token operator">=</span>fast<span class="token operator">=</span>head
-        <span class="token keyword">while</span> fast <span class="token operator">and</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">:</span>
-            slow<span class="token operator">=</span>slow<span class="token punctuation">.</span>next
-            fast<span class="token operator">=</span>fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next
-        <span class="token keyword">return</span> slow
+                <h2 id="LCP28-采购方案"><a href="#LCP28-采购方案" class="headerlink" title="LCP28.采购方案"></a><a href="https://leetcode-cn.com/problems/4xy4Wx/" target="_blank" rel="noopener">LCP28.采购方案</a></h2><p>小力将 <code>N</code> 个零件的报价存于数组 <code>nums</code>。小力预算为 <code>target</code>，假定小力仅购买两个零件，要求购买零件的花费不超过预算，请问他有多少种采购方案。</p>
+<p>注意：答案需要以 <code>1e9 + 7 (1000000007)</code> 为底取模，如：计算初始结果为：<code>1000000008</code>，请返回 <code>1</code></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#逐个二分查找，超时</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">purchasePlans</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        nums<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        ans<span class="token operator">=</span><span class="token number">0</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            idx<span class="token operator">=</span>bisect_right<span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token operator">-</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            ans<span class="token operator">+=</span>max<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>idx<span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true">#print(ans)</span>
+        <span class="token keyword">return</span> ans<span class="token operator">%</span><span class="token number">1000000007</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">purchasePlans</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        nums<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        ans <span class="token operator">=</span> <span class="token number">0</span>
+        right <span class="token operator">=</span> len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
+        <span class="token keyword">for</span> i<span class="token punctuation">,</span> num <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">while</span> right <span class="token operator">></span> i<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> nums<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">+</span> num <span class="token operator">&lt;=</span> target<span class="token punctuation">:</span>
+                    ans <span class="token operator">+=</span> right <span class="token operator">-</span> i
+                    <span class="token keyword">break</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    right<span class="token operator">-=</span><span class="token number">1</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">break</span>
+        <span class="token keyword">return</span> ans <span class="token operator">%</span> <span class="token number">1000000007</span>
 
-<span class="token comment" spellcheck="true"># 快慢指针</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="2-合并两个有序链表"><a href="#2-合并两个有序链表" class="headerlink" title="(2)合并两个有序链表"></a>(2)合并两个有序链表</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> l1<span class="token punctuation">:</span> ListNode<span class="token punctuation">,</span> l2<span class="token punctuation">:</span> ListNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> ListNode<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> l1<span class="token punctuation">:</span> <span class="token keyword">return</span> l2
-        <span class="token keyword">if</span> <span class="token operator">not</span> l2<span class="token punctuation">:</span> <span class="token keyword">return</span> l1
-        <span class="token keyword">if</span> l1<span class="token punctuation">.</span>val<span class="token operator">&lt;</span>l2<span class="token punctuation">.</span>val<span class="token punctuation">:</span>
-            l1<span class="token punctuation">.</span>next<span class="token operator">=</span>self<span class="token punctuation">.</span>mergeTwoLists<span class="token punctuation">(</span>l1<span class="token punctuation">.</span>next<span class="token punctuation">,</span>l2<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> l1
+<span class="token comment" spellcheck="true">#copy</span>
+<span class="token comment" spellcheck="true">#应该是理解有问题，用双指针，一个头一个尾，能过的</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="LCP29-乐团站位"><a href="#LCP29-乐团站位" class="headerlink" title="LCP29.乐团站位"></a><a href="https://leetcode-cn.com/problems/SNJvJP/" target="_blank" rel="noopener">LCP29.乐团站位</a></h2><p>某乐团的演出场地可视作 <code>num * num</code> 的二维矩阵 <code>grid</code>（左上角坐标为 <code>[0,0]</code>)，每个位置站有一位成员。乐团共有 9 种乐器，乐器编号为 <code>1~9</code>，每位成员持有 1 个乐器。<br>请返回位于场地坐标 <code>[Xpos,Ypos]</code> 的成员所持乐器编号。<br><img src="https://pic.leetcode-cn.com/1616125411-WOblWH-image.png"></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#直接用数学结论，不懂</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">orchestraLayout</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> num<span class="token punctuation">:</span> int<span class="token punctuation">,</span> x<span class="token punctuation">:</span> int<span class="token punctuation">,</span> y<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        depth <span class="token operator">=</span> min<span class="token punctuation">(</span>num <span class="token operator">-</span> x<span class="token punctuation">,</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> num <span class="token operator">-</span> y<span class="token punctuation">,</span> y <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        ans <span class="token operator">=</span> <span class="token punctuation">(</span>num<span class="token operator">*</span><span class="token number">2</span> <span class="token operator">-</span> depth<span class="token operator">*</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>depth <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span>
+        p <span class="token operator">=</span> num <span class="token operator">-</span> <span class="token number">2</span> <span class="token operator">*</span> depth <span class="token operator">+</span> <span class="token number">1</span>
+        <span class="token keyword">if</span> x<span class="token operator">+</span><span class="token number">1</span> <span class="token operator">==</span> depth<span class="token punctuation">:</span>
+            ans <span class="token operator">=</span> ans <span class="token operator">+</span> y <span class="token operator">-</span> depth <span class="token operator">+</span> <span class="token number">2</span>
+        <span class="token keyword">elif</span> num <span class="token operator">-</span> y <span class="token operator">==</span> depth<span class="token punctuation">:</span>
+            ans <span class="token operator">=</span> ans <span class="token operator">+</span> p <span class="token operator">+</span> x <span class="token operator">-</span> depth <span class="token operator">+</span> <span class="token number">2</span>
+        <span class="token keyword">elif</span> num <span class="token operator">-</span> x <span class="token operator">==</span> depth<span class="token punctuation">:</span>
+            ans <span class="token operator">=</span> ans <span class="token operator">+</span> p <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">+</span> num <span class="token operator">-</span> depth <span class="token operator">-</span> y <span class="token operator">+</span> <span class="token number">1</span>
         <span class="token keyword">else</span><span class="token punctuation">:</span>
-            l2<span class="token punctuation">.</span>next<span class="token operator">=</span>self<span class="token punctuation">.</span>mergeTwoLists<span class="token punctuation">(</span>l1<span class="token punctuation">,</span>l2<span class="token punctuation">.</span>next<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> l2
+            ans <span class="token operator">=</span> ans <span class="token operator">+</span> p <span class="token operator">*</span> <span class="token number">3</span> <span class="token operator">+</span> num <span class="token operator">-</span> depth <span class="token operator">-</span> x <span class="token operator">+</span> <span class="token number">1</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>ans <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">9</span> <span class="token operator">+</span> <span class="token number">1</span>
 
-<span class="token comment" spellcheck="true"># 递归</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="3-445-两数相加-II"><a href="#3-445-两数相加-II" class="headerlink" title="(3)445.两数相加 II"></a>(3)445.两数相加 II</h2><p>给你两个 非空 链表来代表两个非负整数。数字最高位位于链表开始位置。它们的每个节点只存储一位数字。将这两数相加会返回一个新的链表。</p>
-<p>你可以假设除了数字 <code>0</code> 之外，这两个数字都不会以零开头。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">addTwoNumbers</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> l1<span class="token punctuation">:</span> ListNode<span class="token punctuation">,</span> l2<span class="token punctuation">:</span> ListNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> ListNode<span class="token punctuation">:</span>
-        s1<span class="token punctuation">,</span>s2<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token keyword">while</span> l1<span class="token punctuation">:</span>
-            s1<span class="token punctuation">.</span>append<span class="token punctuation">(</span>l1<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
-            l1<span class="token operator">=</span>l1<span class="token punctuation">.</span>next
-        <span class="token keyword">while</span> l2<span class="token punctuation">:</span>
-            s2<span class="token punctuation">.</span>append<span class="token punctuation">(</span>l2<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
-            l2<span class="token operator">=</span>l2<span class="token punctuation">.</span>next
-        ans<span class="token punctuation">,</span>carry<span class="token operator">=</span>None<span class="token punctuation">,</span><span class="token number">0</span>
-
-        <span class="token keyword">while</span> s1 <span class="token operator">or</span> s2 <span class="token operator">or</span> carry <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
-            a <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">if</span> <span class="token operator">not</span> s1 <span class="token keyword">else</span> s1<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            b <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">if</span> <span class="token operator">not</span> s2 <span class="token keyword">else</span> s2<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            cur <span class="token operator">=</span> a <span class="token operator">+</span> b <span class="token operator">+</span> carry
-            cur<span class="token punctuation">,</span>carry<span class="token operator">=</span>cur<span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">,</span>cur<span class="token operator">//</span><span class="token number">10</span>
-
-            curnode <span class="token operator">=</span> ListNode<span class="token punctuation">(</span>cur<span class="token punctuation">)</span>
-
-            curnode<span class="token punctuation">.</span>next <span class="token operator">=</span> ans 
-            ans <span class="token operator">=</span> curnode           <span class="token comment" spellcheck="true">#头部接入</span>
-        <span class="token keyword">return</span> ans
-
-<span class="token comment" spellcheck="true"># 栈，链表</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="4-环形链表"><a href="#4-环形链表" class="headerlink" title="(4)环形链表"></a>(4)环形链表</h2><p>给定一个链表，判断链表中是否有环。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">not</span> head <span class="token operator">or</span> <span class="token operator">not</span> head<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
-        slow<span class="token punctuation">,</span>fast<span class="token operator">=</span>head<span class="token punctuation">,</span>head<span class="token punctuation">.</span>next
-        <span class="token keyword">while</span><span class="token punctuation">(</span>slow<span class="token operator">!=</span>fast<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">not</span> fast <span class="token operator">or</span> <span class="token operator">not</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
-            slow<span class="token operator">=</span>slow<span class="token punctuation">.</span>next
-            fast<span class="token operator">=</span>fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next
-        <span class="token keyword">return</span> <span class="token boolean">True</span>
-
-<span class="token comment" spellcheck="true">#快慢指针</span>
-<span class="token comment" spellcheck="true"># 1.slow放在head, fast放在head.next</span>
-<span class="token comment" spellcheck="true"># 2.while(slow!=fast)来移动指针</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="5-环形链表II"><a href="#5-环形链表II" class="headerlink" title="(5)环形链表II"></a>(5)环形链表II</h2><p>给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 <code>null</code>。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">detectCycle</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">:</span> ListNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> ListNode<span class="token punctuation">:</span>
-        fast<span class="token punctuation">,</span>slow<span class="token operator">=</span>head<span class="token punctuation">,</span>head
-        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> <span class="token operator">not</span> fast <span class="token operator">or</span> <span class="token operator">not</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">:</span> <span class="token keyword">return</span> 
-            fast<span class="token punctuation">,</span>slow<span class="token operator">=</span>fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">,</span>slow<span class="token punctuation">.</span>next
-            <span class="token keyword">if</span> fast<span class="token operator">==</span>slow<span class="token punctuation">:</span> <span class="token keyword">break</span>
-        fast<span class="token operator">=</span>head
-        <span class="token keyword">while</span> fast<span class="token operator">!=</span>slow<span class="token punctuation">:</span>
-            fast<span class="token punctuation">,</span>slow<span class="token operator">=</span>fast<span class="token punctuation">.</span>next<span class="token punctuation">,</span>slow<span class="token punctuation">.</span>next
-        <span class="token keyword">return</span> fast
-
-<span class="token comment" spellcheck="true"># 记f,s分别为快慢指针走过的节点。</span>
-<span class="token comment" spellcheck="true"># 记a,b分别为环外、环内节点数</span>
-<span class="token comment" spellcheck="true"># f=2s=s+nb，s=nb.</span>
-<span class="token comment" spellcheck="true"># 更换指向后：f'=a,s=nb+a,是重合的，在入口处。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="6-两两交换链表中的节点"><a href="#6-两两交换链表中的节点" class="headerlink" title="(6)两两交换链表中的节点"></a>(6)两两交换链表中的节点</h2><p>给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。</p>
-<p>你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">swapPairs</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">:</span> ListNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> ListNode<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> head <span class="token operator">or</span> <span class="token operator">not</span> head<span class="token punctuation">.</span>next<span class="token punctuation">:</span> <span class="token keyword">return</span> head
-        newhead<span class="token operator">=</span>head<span class="token punctuation">.</span>next
-        head<span class="token punctuation">.</span>next<span class="token operator">=</span>self<span class="token punctuation">.</span>swapPairs<span class="token punctuation">(</span>newhead<span class="token punctuation">.</span>next<span class="token punctuation">)</span>
-        newhead<span class="token punctuation">.</span>next<span class="token operator">=</span>head
-        <span class="token keyword">return</span> newhead<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true">#copy</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="LCP30-魔塔游戏"><a href="#LCP30-魔塔游戏" class="headerlink" title="LCP30.魔塔游戏"></a><a href="https://leetcode-cn.com/problems/p0NxJO/" target="_blank" rel="noopener">LCP30.魔塔游戏</a></h2><p>小扣当前位于魔塔游戏第一层，共有 <code>N</code> 个房间，编号为 <code>0 ~ N-1</code>。每个房间的补血道具/怪物对于血量影响记于数组 <code>nums</code>，其中正数表示道具补血数值，即血量增加对应数值；负数表示怪物造成伤害值，即血量减少对应数值；<code>0</code> 表示房间对血量无影响。</p>
+<p><strong>小扣初始血量为 1，且无上限</strong>。假定小扣原计划按房间编号升序访问所有房间补血/打怪，<strong>为保证血量始终为正值</strong>，小扣需对房间访问顺序进行调整，<strong>每次仅能将一个怪物房间（负数的房间）调整至访问顺序末尾</strong>。请返回小扣最少需要调整几次，才能顺利访问所有房间。若调整顺序也无法访问完全部房间，请返回 <code>-1</code>。</p>
+<blockquote>
+<p>太菜了。。。知道用贪心+优先队列，写不出来</p>
+</blockquote>
+<pre class="line-numbers language-python"><code class="language-python"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="LCP31-变换的迷宫"><a href="#LCP31-变换的迷宫" class="headerlink" title="LCP31.变换的迷宫"></a><a href="https://leetcode-cn.com/problems/Db3wC1/" target="_blank" rel="noopener">LCP31.变换的迷宫</a></h2><pre class="line-numbers language-python"><code class="language-python"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="LCP32-批量处理任务"><a href="#LCP32-批量处理任务" class="headerlink" title="LCP32.批量处理任务"></a><a href="https://leetcode-cn.com/problems/t3fKg1/" target="_blank" rel="noopener">LCP32.批量处理任务</a></h2><pre class="line-numbers language-python"><code class="language-python"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><em>other</em></p>
+<p>真难</p>
 
             </div>
             <hr/>
@@ -634,7 +596,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/d64e.html">https://www.unielu.com/posts/d64e.html</a>
+                    <a href="https://www.unielu.com/posts/cbcc.html">https://www.unielu.com/posts/cbcc.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -672,8 +634,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/leetcode/">
-                                    <span class="chip bg-color">leetcode</span>
+                                <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+                                    <span class="chip bg-color">leetcode比赛</span>
                                 </a>
                             
                         </div>
@@ -982,30 +944,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/4d93.html">
+                <a href="/posts/digital_logic.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/leetcode.png" class="responsive-img" alt="模拟">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="数字逻辑">
                         
-                        <span class="card-title">模拟</span>
+                        <span class="card-title">数字逻辑</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            大二下学期课程（四）
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-06
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
                                 </a>
                             
                             
@@ -1015,8 +977,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
@@ -1030,12 +992,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/41d3.html">
+                <a href="/posts/8a9a.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/leetcode.png" class="responsive-img" alt="哈希表">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/leetcode.png" class="responsive-img" alt="2020秋季个人赛">
                         
-                        <span class="card-title">哈希表</span>
+                        <span class="card-title">2020秋季个人赛</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1046,16 +1008,12 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-05
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ╯晓~
                             
                         </span>
                     </div>
@@ -1063,8 +1021,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
+                    <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
+                        <span class="chip bg-color">leetcode比赛</span>
                     </a>
                     
                 </div>

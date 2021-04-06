@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-04
+                    2021-04-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    620
+                    984
                 </div>
                 
 
@@ -597,6 +597,64 @@
             <span class="token keyword">if</span> num<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span> ans<span class="token operator">+=</span>cnt
             <span class="token keyword">else</span><span class="token punctuation">:</span> ans<span class="token operator">+=</span><span class="token punctuation">(</span>num<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span>cnt<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">//</span><span class="token punctuation">(</span>num<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
         <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="88-合并两个有序数组"><a href="#88-合并两个有序数组" class="headerlink" title="88.合并两个有序数组"></a><a href="https://leetcode-cn.com/problems/merge-sorted-array/" target="_blank" rel="noopener">88.合并两个有序数组</a></h2><p>合并两个有序的数组，<code>nums1</code> 不需要补充空间，长为 <code>m+n</code></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#双指针普通做法</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">merge</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums1<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> m<span class="token punctuation">:</span> int<span class="token punctuation">,</span> nums2<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        ans<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+        p1<span class="token punctuation">,</span>p2<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span>
+        <span class="token keyword">while</span> p1<span class="token operator">&lt;</span>m <span class="token operator">or</span> p2<span class="token operator">&lt;</span>n<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> p1<span class="token operator">==</span>m<span class="token punctuation">:</span>
+                ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>nums2<span class="token punctuation">[</span>p2<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                p2<span class="token operator">+=</span><span class="token number">1</span>
+            <span class="token keyword">elif</span> p2<span class="token operator">==</span>n<span class="token punctuation">:</span>
+                ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>nums1<span class="token punctuation">[</span>p1<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                p1<span class="token operator">+=</span><span class="token number">1</span>
+            <span class="token keyword">elif</span> nums1<span class="token punctuation">[</span>p1<span class="token punctuation">]</span><span class="token operator">&lt;</span>nums2<span class="token punctuation">[</span>p2<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>nums1<span class="token punctuation">[</span>p1<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                p1<span class="token operator">+=</span><span class="token number">1</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>nums2<span class="token punctuation">[</span>p2<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                p2<span class="token operator">+=</span><span class="token number">1</span>
+        nums1<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token operator">=</span>ans
+
+<span class="token comment" spellcheck="true"># nums[:]=ans 和 nums=ans.copy(),第二个高效些</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
+Do not return anything, modify nums1 in-place instead.
+"""</span>
+<span class="token comment" spellcheck="true">#逆向双指针，避免使用额外数组空间</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">merge</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums1<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> m<span class="token punctuation">:</span> int<span class="token punctuation">,</span> nums2<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        p1<span class="token punctuation">,</span> p2 <span class="token operator">=</span> m<span class="token number">-1</span><span class="token punctuation">,</span> n<span class="token number">-1</span>
+        tail <span class="token operator">=</span> m<span class="token operator">+</span>n<span class="token number">-1</span>
+        <span class="token keyword">while</span> p1<span class="token operator">>=</span><span class="token number">0</span> <span class="token operator">or</span> p2<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> p1<span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+                nums1<span class="token punctuation">[</span>tail<span class="token punctuation">]</span> <span class="token operator">=</span> nums2<span class="token punctuation">[</span>p2<span class="token punctuation">]</span>
+                p2<span class="token operator">-=</span><span class="token number">1</span>
+            <span class="token keyword">elif</span> p2<span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+                nums1<span class="token punctuation">[</span>tail<span class="token punctuation">]</span> <span class="token operator">=</span> nums1<span class="token punctuation">[</span>p1<span class="token punctuation">]</span>
+                p1<span class="token operator">-=</span><span class="token number">1</span>
+            <span class="token keyword">elif</span> nums1<span class="token punctuation">[</span>p1<span class="token punctuation">]</span><span class="token operator">&lt;=</span>nums2<span class="token punctuation">[</span>p2<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                nums1<span class="token punctuation">[</span>tail<span class="token punctuation">]</span> <span class="token operator">=</span> nums2<span class="token punctuation">[</span>p2<span class="token punctuation">]</span>
+                p2<span class="token operator">-=</span><span class="token number">1</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                nums1<span class="token punctuation">[</span>tail<span class="token punctuation">]</span> <span class="token operator">=</span> nums1<span class="token punctuation">[</span>p1<span class="token punctuation">]</span>
+                p1<span class="token operator">-=</span><span class="token number">1</span>
+            tail<span class="token operator">-=</span><span class="token number">1</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="80-删除有序数组中的重复项II"><a href="#80-删除有序数组中的重复项II" class="headerlink" title="80.删除有序数组中的重复项II"></a><a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array-ii/submissions/" target="_blank" rel="noopener">80.删除有序数组中的重复项II</a></h2><p>给你一个有序数组 <code>nums</code> ，请你 <strong>原地</strong> 删除重复出现的元素，使每个元素最多出现两次，返回删除后数组的新长度。</p>
+<p>不要使用额外的数组空间，你必须在原地修改输入数组并在使用 <code>O(1)</code> 额外空间的条件下完成。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        n <span class="token operator">=</span> len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> n<span class="token operator">&lt;=</span><span class="token number">2</span><span class="token punctuation">:</span> <span class="token keyword">return</span> n
+        slow<span class="token punctuation">,</span> fast <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span>   <span class="token comment" spellcheck="true">#slow:放入值的指针，fast:读取值的指针</span>
+        <span class="token keyword">while</span> fast <span class="token operator">&lt;</span> n<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> nums<span class="token punctuation">[</span>slow<span class="token number">-2</span><span class="token punctuation">]</span> <span class="token operator">!=</span> nums<span class="token punctuation">[</span>fast<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                nums<span class="token punctuation">[</span>slow<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>fast<span class="token punctuation">]</span>
+                slow <span class="token operator">+=</span> <span class="token number">1</span>
+            fast <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">return</span> slow<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="11-20"><a href="#11-20" class="headerlink" title="11-20"></a><code>11-20</code></h1><h1 id="21-30"><a href="#21-30" class="headerlink" title="21-30"></a><code>21-30</code></h1>
             </div>
             <hr/>
@@ -1259,7 +1317,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">107.5k</span>&nbsp;字
+                class="white-color">109.3k</span>&nbsp;字
             
             
             
