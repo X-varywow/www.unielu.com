@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-01
+                    2021-04-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.7k
+                    3.1k
                 </div>
                 
 
@@ -783,7 +783,13 @@ Point <span class="token function">p2</span><span class="token punctuation">(</s
 Point p3<span class="token operator">=</span>p2<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//通过赋值来调用拷贝构造函数，隐式调用</span>
 Point <span class="token function">p4</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 p4<span class="token operator">=</span>p1<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//这里是赋值，不是复制。</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+Point <span class="token function">func2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    Point <span class="token function">p4</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> p4<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+p2<span class="token operator">=</span><span class="token function">func2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//传出来的是对象拷贝构造后的，20，40</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-3-析构函数"><a href="#2-3-析构函数" class="headerlink" title="2.3 析构函数"></a>2.3 析构函数</h3><ol>
 <li>一个类中可以有多个构造函数,只能有一个析构函数。</li>
 <li>如果程序中未声明，编译器自动产生一个默认的析构函数。</li>
@@ -795,8 +801,26 @@ p4<span class="token operator">=</span>p1<span class="token punctuation">;</span
 <span class="token keyword">public</span><span class="token operator">:</span>
     类名（形参）<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//构造函数</span>
     <span class="token operator">~</span>类名（）<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//析构函数</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-4-other"><a href="#2-4-other" class="headerlink" title="2.4 other"></a>2.4 <em>other</em></h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//类的组合</span>
+<span class="token punctuation">}</span>
+
+classname<span class="token operator">::</span><span class="token operator">~</span><span class="token function">classname</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">//析构函数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-4-静态成员"><a href="#2-4-静态成员" class="headerlink" title="2.4 静态成员"></a>2.4 静态成员</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//在Student中 声明 一个静态的学生总数变量</span>
+<span class="token keyword">static</span> <span class="token keyword">int</span> stu_cnt<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//构造函数中添加</span>
+stu_cnt<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//在任意一个对象中修改该值，会影响到该类的所有对象</span>
+<span class="token comment" spellcheck="true">//静态成员在编译时初始化，是一块共享的内存空间</span>
+
+
+<span class="token comment" spellcheck="true">//在类的外部，main的外部，初始化静态成员变量</span>
+<span class="token keyword">int</span> Student<span class="token operator">::</span>stu_cnt<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//静态成员函数访问静态数据成员</span>
+<span class="token comment" spellcheck="true">//- 静态成员函数是类的“全局”函数，因此没有this指针。在静态成员函数中，一般无法直接访问类的其他变量</span>
+<span class="token comment" spellcheck="true">//- 静态成员函数仅用来操作静态成员变量</span>
+<span class="token comment" spellcheck="true">//- 在任何对象被构造之前，静态成员变量和静态成员函数就已经可以访问。</span>
+<span class="token comment" spellcheck="true">//调用：类名::静态函数名();</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-5-other"><a href="#2-5-other" class="headerlink" title="2.5 other"></a>2.5 <em>other</em></h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//类的组合</span>
 
 
 <span class="token comment" spellcheck="true">//对象指针</span>
@@ -807,7 +831,42 @@ Ccube<span class="token operator">*</span> pcube<span class="token punctuation">
 
 
 <span class="token comment" spellcheck="true">//在每个成员函数执行的时候，隐形地传进去一个指向调用者对象自身的 this 指针</span>
-a<span class="token punctuation">.</span><span class="token function">disp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token operator">-</span><span class="token operator">></span> a<span class="token punctuation">.</span><span class="token function">disp</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> a<span class="token punctuation">.</span><span class="token function">disp</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+a<span class="token punctuation">.</span><span class="token function">disp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token operator">-</span><span class="token operator">></span> a<span class="token punctuation">.</span><span class="token function">disp</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> a<span class="token punctuation">.</span><span class="token function">disp</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span>
+
+
+<span class="token comment" spellcheck="true">//常对象</span>
+<span class="token keyword">const</span> class_name <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+class_name <span class="token keyword">const</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//此后foo对象在其生存周期内不可更改</span>
+
+<span class="token comment" spellcheck="true">//const数据成员只能透过初始化列表在构造的时候进行初始化。一旦构造不可更改</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//常成员</span>
+<span class="token comment" spellcheck="true">//一个类中定义的const函数，专门用来处理这个类的const对象发起的函数调用</span>
+<span class="token keyword">class</span> <span class="token class-name">Date</span><span class="token punctuation">{</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> year<span class="token punctuation">,</span> month<span class="token punctuation">,</span> day<span class="token punctuation">;</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">Date</span><span class="token punctuation">(</span><span class="token keyword">int</span> y<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span> d<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">year</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">monnth</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">day</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">showdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span>y<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">showdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token string">"const"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    Date <span class="token function">date1</span><span class="token punctuation">(</span><span class="token number">1990</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    date1<span class="token punctuation">.</span><span class="token function">showdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    Date <span class="token keyword">const</span> <span class="token function">date2</span><span class="token punctuation">(</span><span class="token number">1998</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    date2<span class="token punctuation">.</span><span class="token function">showdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//调用const函数</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//const函数能访问普通属性成员，但不能修改值</span>
+<span class="token comment" spellcheck="true">//const对象只能调用类中const函数，不能调用普通函数？!？</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="三、高级语法"><a href="#三、高级语法" class="headerlink" title="三、高级语法"></a>三、高级语法</h2><h3 id="3-1-异常处理"><a href="#3-1-异常处理" class="headerlink" title="3.1 异常处理"></a>3.1 异常处理</h3><h3 id="3-2-引用"><a href="#3-2-引用" class="headerlink" title="3.2 引用"></a>3.2 引用</h3><ol>
 <li>引用（&amp;）是标识符的别名，定义时需初始化</li>
 <li>区分取址、引用</li>
@@ -1659,7 +1718,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">109.4k</span>&nbsp;字
+                class="white-color">110k</span>&nbsp;字
             
             
             
