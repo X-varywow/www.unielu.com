@@ -514,7 +514,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.4k
                 </div>
                 
 
@@ -867,6 +867,22 @@ class_name <span class="token keyword">const</span> <span class="token function"
 <span class="token comment" spellcheck="true">//const函数能访问普通属性成员，但不能修改值</span>
 <span class="token comment" spellcheck="true">//const对象只能调用类中const函数，不能调用普通函数？!？</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//友元函数不是类的成员函数</span>
+
+<span class="token comment" spellcheck="true">//静态成员函数不能声明为虚函数</span>
+
+<span class="token comment" spellcheck="true">//静态数据成员是类的所有对象所共有的</span>
+<span class="token comment" spellcheck="true">//静态数据成员能受private控制符的作用，可以直接用类名调用</span>
+<span class="token comment" spellcheck="true">//静态数据成员在类外初始化</span>
+
+下列情况中，不会调用拷贝构造函数的是<span class="token punctuation">(</span> B <span class="token punctuation">)</span>。
+
+A<span class="token punctuation">)</span> 用一个对象去初始化同一类的另一个新对象时
+B<span class="token punctuation">)</span> 将类的一个对象赋值给该类的另一个对象时
+C<span class="token punctuation">)</span> 函数的形参是类的对象，调用函数进行形参和实参结合时
+D<span class="token punctuation">)</span> 函数的返回值是类的对象，函数执行返回调用时<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>static函数属于类，不属于对象（对象里不分配内存），this指针是对象的指针。所以在cpp静态成员函数里，不能直接使用this指针。</p>
+<p>虚函数？？？</p>
 <h2 id="三、高级语法"><a href="#三、高级语法" class="headerlink" title="三、高级语法"></a>三、高级语法</h2><h3 id="3-1-异常处理"><a href="#3-1-异常处理" class="headerlink" title="3.1 异常处理"></a>3.1 异常处理</h3><h3 id="3-2-引用"><a href="#3-2-引用" class="headerlink" title="3.2 引用"></a>3.2 引用</h3><ol>
 <li>引用（&amp;）是标识符的别名，定义时需初始化</li>
 <li>区分取址、引用</li>
@@ -1718,7 +1734,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">110k</span>&nbsp;字
+                class="white-color">111.2k</span>&nbsp;字
             
             
             

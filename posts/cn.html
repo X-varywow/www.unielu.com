@@ -500,21 +500,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-04
+                    2021-04-09
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-25
+                    2021-04-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.1k
+                    6.4k
                 </div>
                 
 
@@ -756,12 +756,20 @@
 <td>无连接+面向连接</td>
 </tr>
 </tbody></table>
-<h2 id="二、物理层"><a href="#二、物理层" class="headerlink" title="二、物理层"></a>二、物理层</h2><h3 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h3><p>物理层解决如何在连接各种计算机的传输媒体上传输数据比特流。<br><strong>主要任务</strong>：确定与传输媒体接口有关的一些特性。</p>
+<h2 id="二、物理层"><a href="#二、物理层" class="headerlink" title="二、物理层"></a>二、物理层</h2><p>学习目标：</p>
 <ul>
-<li>机械特性（如接口形状、引脚数目等）</li>
-<li>电气特性（线路上信号的电压范围、阻抗匹配等）</li>
-<li>功能特性（指明电平表示的意义等）</li>
-<li>规程特性（定义各条物理线路的工作规程和时序关系）</li>
+<li>掌握物理层基本概念</li>
+<li>熟悉传输媒体</li>
+<li>了解数据通信的基本概念和主要方法</li>
+<li>熟悉常用的物理接口</li>
+<li>掌握一些重要参数的计算方法</li>
+</ul>
+<h3 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h3><p>物理层解决如何在连接各种计算机的传输媒体上传输数据比特流。<br><strong>主要任务</strong>：确定与传输媒体接口有关的一些特性。</p>
+<ul>
+<li><code>机械特性</code>（如接口形状、引脚数目等）</li>
+<li><code>电气特性</code>（线路上信号的电压范围、阻抗匹配等）</li>
+<li><code>功能特性</code>（指明电平表示的意义等）</li>
+<li><code>规程特性</code>（定义各条物理线路的工作规程和时序关系）</li>
 </ul>
 <hr>
 <p><strong>中继器</strong>：对信号进行再生和还原，放大衰减信号。<br>两端的网络部分是网段、不是子网。适用于完全相同的两类网络的互连，且两个网段的速率相同。</p>
@@ -820,7 +828,6 @@
 </li>
 <li>模拟数据的调制（为了传输的有效性，可能需要较高的频率）</li>
 </ul>
-<p><code>？？？</code> 这又要学数字逻辑又要学通信原理的…</p>
 <table>
 <thead>
 <tr>
@@ -904,10 +911,39 @@
 <blockquote>
 <p>解：30dB = 10*log(S/N, 10)，-&gt; S/N = 1000<br>最大数据传输速率 = 3000 * log(1+1000, 2) ≈ 30kb/s</p>
 </blockquote>
-<h2 id="三、数据链路层"><a href="#三、数据链路层" class="headerlink" title="三、数据链路层"></a>三、数据链路层</h2><h3 id="3-1-术语说明"><a href="#3-1-术语说明" class="headerlink" title="3.1 术语说明"></a>3.1 术语说明</h3><p><strong>结点</strong>：主机、路由器</p>
+<h2 id="三、数据链路层"><a href="#三、数据链路层" class="headerlink" title="三、数据链路层"></a>三、数据链路层</h2><p>学习目的：</p>
+<ul>
+<li>理解，数据传输过程中差错产生的原因和性质</li>
+<li>了解，面向字符型数据链路层协议实例-BSC</li>
+<li>掌握<ul>
+<li>误码率的定义与差错控制的方法</li>
+<li>数据链路层的基本概念</li>
+<li>面向比特型数据链路层协议实例-HDLC</li>
+<li>Internet中的数据链路层协议ppp</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>数据链路层主要功能：</p>
+<ul>
+<li>建立、维护、拆除数据链路</li>
+<li>组帧，同步</li>
+<li>差错控制</li>
+<li>流量控制</li>
+<li>透明传输</li>
+<li>寻址（多点链路）</li>
+</ul>
+<hr>
+<p>数据链路层向网络层提供的服务：</p>
+<ul>
+<li>面向连接确认服务</li>
+<li>无连接确认服务</li>
+<li>无连接不确认服务</li>
+</ul>
+<h3 id="3-1-术语说明"><a href="#3-1-术语说明" class="headerlink" title="3.1 术语说明"></a>3.1 术语说明</h3><p><strong>结点</strong>：主机、路由器</p>
 <p><strong>链路</strong>：网络两个结点之间的物理通道，如双绞线、微波等</p>
-<p><strong>数据链路</strong>：网络中两个结点之间的逻辑通道，即链路+邮件+软件封装成了数据链路。</p>
-<p><strong>帧</strong>：链路层的协议数据单元，封装网络层数据报</p>
+<p><strong>数据链路</strong>：数据链路层实体的连接叫数据链路。多个数据链路复用一条物理连接。（from学校）<br><strong>数据链路</strong>：网络中两个结点之间的逻辑通道，即链路+邮件+软件封装成了数据链路。</p>
+<p><strong>帧</strong>：链路层的协议数据单元，封装网络层数据报。（数据链路层的分组）</p>
 <p><strong>数据链路层</strong>，负责从一个结点通过一条链路向另一个物理链路直接相邻结点传送数据报。</p>
 <p><strong>主要作用</strong>：加强物理层传输原始比特流的功能，将物理层提供的可能出错的物理连接改造成为逻辑上无差错的数据链路，使之对网络层表现为一条无差错的链路。</p>
 <hr>
@@ -1710,30 +1746,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/ml1.html">
+                <a href="/posts/ml2.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="机器学习(一)">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="机器学习(二)">
                         
-                        <span class="card-title">机器学习(一)</span>
+                        <span class="card-title">机器学习(二)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            吴恩达-机器学习
+                            大二下学期课程（一）
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-09
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BD%91%E8%AF%BE/" class="post-category">
-                                    网课
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
                                 </a>
                             
                             
@@ -1758,23 +1794,23 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/nlp.html">
+                <a href="/posts/compiler.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算语言学">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="编译原理">
                         
-                        <span class="card-title">计算语言学</span>
+                        <span class="card-title">编译原理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            大二下学期课程（三）
+                            大二下学期课程（五）
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-06
                             </span>
                         <span class="publish-author">
                             
@@ -1999,7 +2035,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">110k</span>&nbsp;字
+                class="white-color">111.2k</span>&nbsp;字
             
             
             
