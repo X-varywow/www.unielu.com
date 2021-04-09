@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="周赛笔记211, -- blog --">
+    <meta name="keywords" content="MathJax, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>周赛笔记211 | -- blog --</title>
+    <title>MathJax | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/awesome/css/all.css">
@@ -340,12 +340,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181114.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">周赛笔记211</h1>
+                    <h1 class="description center-align post-title diyFont">MathJax</h1>
                 </div>
             </div>
         </div>
@@ -471,14 +471,23 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
-                                <span class="chip bg-color">leetcode比赛</span>
+                            <a href="/tags/mathjax/">
+                                <span class="chip bg-color">mathjax</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
+                                数学
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -487,21 +496,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-18
+                    2021-04-09
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-21
+                    2021-04-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    688
+                    803
                 </div>
                 
 
@@ -513,82 +522,284 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>第一题：<a href="https://leetcode-cn.com/problems/largest-substring-between-two-equal-characters/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/largest-substring-between-two-equal-characters/</a><br>第二题：<a href="https://leetcode-cn.com/problems/lexicographically-smallest-string-after-applying-operations/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/lexicographically-smallest-string-after-applying-operations/</a><br>第三题：<a href="https://leetcode-cn.com/problems/best-team-with-no-conflicts/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/best-team-with-no-conflicts/</a><br>第四题：<a href="https://leetcode-cn.com/problems/graph-connectivity-with-threshold/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/graph-connectivity-with-threshold/</a></p>
-</blockquote>
-<h2 id="一、两个相同字符之间的最长子字符串"><a href="#一、两个相同字符之间的最长子字符串" class="headerlink" title="一、两个相同字符之间的最长子字符串"></a>一、两个相同字符之间的最长子字符串</h2><p>给你一个字符串 <code>s</code>，请你返回 两个相同字符之间的最长子字符串的长度 ，计算长度时不含这两个字符。如果不存在这样的子字符串，返回 <code>-1</code> 。</p>
-<p>子字符串 是字符串中的一个连续字符序列。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">maxLengthBetweenEqualCharacters</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        d<span class="token operator">=</span>defaultdict<span class="token punctuation">(</span>list<span class="token punctuation">)</span>
-        ans<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span>
-        <span class="token keyword">for</span> i<span class="token punctuation">,</span>x <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            d<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> d<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            nums<span class="token operator">=</span>i<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-            <span class="token keyword">if</span> len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">1</span><span class="token punctuation">:</span>
-                ans<span class="token operator">=</span>max<span class="token punctuation">(</span>ans<span class="token punctuation">,</span>nums<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span>nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="二、执行操作后字典序最小的字符串"><a href="#二、执行操作后字典序最小的字符串" class="headerlink" title="二、执行操作后字典序最小的字符串"></a>二、执行操作后字典序最小的字符串</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#暴力</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">findLexSmallestString</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">,</span> a<span class="token punctuation">:</span> int<span class="token punctuation">,</span> b<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
-        b <span class="token operator">=</span> b<span class="token operator">%</span>len<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-        <span class="token keyword">def</span> <span class="token function">f1</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            tmp<span class="token operator">=</span><span class="token string">""</span>
-            <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> i<span class="token operator">%</span><span class="token number">2</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span> tmp<span class="token operator">+=</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-                <span class="token keyword">else</span><span class="token punctuation">:</span> tmp<span class="token operator">+=</span>str<span class="token punctuation">(</span><span class="token punctuation">(</span>int<span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span>a<span class="token punctuation">)</span><span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">)</span>
-            <span class="token keyword">return</span> tmp
-        <span class="token keyword">def</span> <span class="token function">f2</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> s<span class="token punctuation">[</span><span class="token operator">-</span>b<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token operator">+</span>s<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span>b<span class="token punctuation">]</span>
-        ans<span class="token operator">=</span><span class="token punctuation">{</span>s<span class="token punctuation">}</span>
-        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            ans<span class="token punctuation">.</span>add<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-            s1<span class="token punctuation">,</span>s2<span class="token operator">=</span>f1<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">,</span>f2<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token punctuation">(</span>s1<span class="token punctuation">,</span>s2<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> i <span class="token operator">not</span> <span class="token keyword">in</span> ans<span class="token punctuation">:</span> dfs<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-        dfs<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> min<span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="三、无矛盾的最佳球队"><a href="#三、无矛盾的最佳球队" class="headerlink" title="三、无矛盾的最佳球队"></a>三、无矛盾的最佳球队</h2><p>假设你是球队的经理。对于即将到来的锦标赛，你想组合一支总体得分最高的球队。球队的得分是球队中所有球员的分数 总和 。</p>
-<p>然而，球队中的矛盾会限制球员的发挥，所以必须选出一支 没有矛盾 的球队。如果一名年龄较小球员的分数 严格大于 一名年龄较大的球员，则存在矛盾。同龄球员之间不会发生矛盾。</p>
-<p>给你两个列表 <code>scores</code> 和 <code>ages</code>，其中每组 <code>scores[i]</code> 和 <code>ages[i]</code> 表示第 <code>i</code> 名球员的分数和年龄。请你返回 <strong>所有可能的无矛盾球队中得分最高那支的分数</strong> 。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">bestTeamScore</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> scores<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> ages<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        n <span class="token operator">=</span> len<span class="token punctuation">(</span>scores<span class="token punctuation">)</span>
-        arr <span class="token operator">=</span> list<span class="token punctuation">(</span>zip<span class="token punctuation">(</span>ages<span class="token punctuation">,</span> scores<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        arr<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 按年龄递增排序，年龄相同的按分数递增排序</span>
-        <span class="token comment" spellcheck="true">#print(arr)</span>
-        dp <span class="token operator">=</span> <span class="token punctuation">[</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>              <span class="token comment" spellcheck="true">#类似最长上升子序列问题</span>
-            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">>=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-                    dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> max<span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> max<span class="token punctuation">(</span>dp<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># DPxiu</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 优化版：</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">bestTeamScore</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> scores<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> ages<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        <span class="token keyword">import</span> bisect
-        d <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>score<span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token keyword">for</span> age<span class="token punctuation">,</span> score <span class="token keyword">in</span> zip<span class="token punctuation">(</span>ages<span class="token punctuation">,</span> scores<span class="token punctuation">)</span><span class="token punctuation">]</span>
-        d<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        n <span class="token operator">=</span> len<span class="token punctuation">(</span>d<span class="token punctuation">)</span>
-        res <span class="token operator">=</span> <span class="token number">0</span>
-        stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-        <span class="token comment" spellcheck="true"># print(d)</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            score<span class="token punctuation">,</span> age <span class="token operator">=</span> d<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-            idx <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_right<span class="token punctuation">(</span>stack<span class="token punctuation">,</span> <span class="token punctuation">(</span>age<span class="token punctuation">,</span>float<span class="token punctuation">(</span><span class="token string">'inf'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            s <span class="token operator">=</span> stack<span class="token punctuation">[</span>idx<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-            res <span class="token operator">=</span> max<span class="token punctuation">(</span>res<span class="token punctuation">,</span> s<span class="token operator">+</span>score<span class="token punctuation">)</span>
-            <span class="token keyword">while</span> idx <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>stack<span class="token punctuation">)</span> <span class="token operator">and</span> stack<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span> s<span class="token operator">+</span>score<span class="token punctuation">:</span>
-                stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span>idx<span class="token punctuation">)</span>
-            stack<span class="token punctuation">[</span>idx<span class="token punctuation">:</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>age<span class="token punctuation">,</span> s<span class="token operator">+</span>score<span class="token punctuation">)</span><span class="token punctuation">]</span>
-            <span class="token keyword">while</span> len<span class="token punctuation">(</span>stack<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">2</span> <span class="token operator">and</span> stack<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span> stack<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-                stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># print(stack)</span>
-        <span class="token keyword">return</span> res<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="四、带阈值的图连通性"><a href="#四、带阈值的图连通性" class="headerlink" title="四、带阈值的图连通性"></a>四、带阈值的图连通性</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 并查集</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <p><em>Mathjax</em> 是一个开源的 web 数学公式渲染器，由 JS 编写而成，它提供的书写方式和 letax 书写方式一模一样。</p>
+<p>由于这个博客的框架已经配置了 <em>mathjax</em> ，所以在 _config.yml 中将其激活即可，并在 <em>Front-matter</em> 中再加上 <em>mathjax: true</em> 。</p>
+<hr>
+<h3 id="1-0-显示方式"><a href="#1-0-显示方式" class="headerlink" title="1.0 显示方式"></a>1.0 显示方式</h3><ul>
+<li>正文（inline）中的公式用 <code>$...$</code> 定义<ul>
+<li>语句为：<code>$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$</code></li>
+<li>显示为：$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$</li>
+</ul>
+</li>
+<li>单独显示（display）的公式用 <code>$$...$$</code> 定义<ul>
+<li>语句为：<code>$$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$$</code></li>
+<li>显示为：$$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$$</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="1-1-希腊字母"><a href="#1-1-希腊字母" class="headerlink" title="1.1 希腊字母"></a>1.1 希腊字母</h3><table>
+<thead>
+<tr>
+<th>大写</th>
+<th>小写</th>
+<th>表示</th>
+<th>大写</th>
+<th>小写</th>
+<th>表示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>α</td>
+<td>\alpha</td>
+<td>Ν</td>
+<td>ν</td>
+<td>\nu</td>
+</tr>
+<tr>
+<td>B</td>
+<td>β</td>
+<td>\beta</td>
+<td>Ξ</td>
+<td>ξ</td>
+<td>\xi</td>
+</tr>
+<tr>
+<td>Γ</td>
+<td>γ</td>
+<td>\gamma</td>
+<td>Ο</td>
+<td>ο</td>
+<td>\omicron</td>
+</tr>
+<tr>
+<td>Δ</td>
+<td>δ</td>
+<td>\delta</td>
+<td>Π</td>
+<td>π</td>
+<td>\pi</td>
+</tr>
+<tr>
+<td>Ε</td>
+<td>ε</td>
+<td>\epsilon</td>
+<td>Ρ</td>
+<td>ρ</td>
+<td>\rho</td>
+</tr>
+<tr>
+<td>Ζ</td>
+<td>ζ</td>
+<td>\zeta</td>
+<td>Σ</td>
+<td>σ</td>
+<td>\sigma</td>
+</tr>
+<tr>
+<td>Η</td>
+<td>η</td>
+<td>\eta</td>
+<td>Τ</td>
+<td>τ</td>
+<td>\tau</td>
+</tr>
+<tr>
+<td>Θ</td>
+<td>θ</td>
+<td>\theta</td>
+<td>Υ</td>
+<td>υ</td>
+<td>\upsilon</td>
+</tr>
+<tr>
+<td>Ι</td>
+<td>ι</td>
+<td>\iota</td>
+<td>Φ</td>
+<td>φ</td>
+<td>\phi</td>
+</tr>
+<tr>
+<td>Κ</td>
+<td>κ</td>
+<td>\kappa</td>
+<td>Χ</td>
+<td>χ</td>
+<td>\chi</td>
+</tr>
+<tr>
+<td>Λ</td>
+<td>λ</td>
+<td>\lambda</td>
+<td>Ψ</td>
+<td>ψ</td>
+<td>\psi</td>
+</tr>
+<tr>
+<td>Μ</td>
+<td>μ</td>
+<td>\mu</td>
+<td>Ω</td>
+<td>ω</td>
+<td>\omega</td>
+</tr>
+</tbody></table>
+<ol>
+<li>若要表示大写字母，将其首字母大写，<code>\Psi</code> 将显示为： $\Psi$</li>
+<li>若要表示斜体字母，加上var前缀即可，<code>\varPsi</code> 将显示为： $\varPsi$</li>
+</ol>
+<hr>
+<h3 id="1-2-基础语法"><a href="#1-2-基础语法" class="headerlink" title="1.2 基础语法"></a>1.2 基础语法</h3><p>说明：默认带有 <code>$...$</code></p>
+<ul>
+<li>字母修饰<ul>
+<li>上标 <code>^</code>，当<code>10^10</code>无法正常显示时：$10^10$，使用分组<code>{}</code>，如：<code>10^{10}</code> 显示为 $10^{10}$</li>
+<li>下标 <code>_</code></li>
+<li>矢量<ul>
+<li><code>\vec a</code> 呈现为 $\vec a$</li>
+<li><code>\overrightarrow{xy}</code> 呈现为 $\overrightarrow{xy}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>分式：<code>\frac{公式1}{公式2}</code>呈现为 $\frac{公式1}{公式2}$</li>
+<li>根式：<code>\sqrt[n]{1+x+x^2+x^3+\dots+x^n}</code>呈现为 $\sqrt[n]{1+x+x^2+x^3+\dots+x^n}$</li>
+<li>特殊函数<ul>
+<li><code>\sin x</code>，<code>\ln x</code>，<code>\max(A,B,C)</code> 分别呈现为： $\sin x$，$\ln x$，$\max(A,B,C)$</li>
+</ul>
+</li>
+<li>求和：<code>\sum_{i=1}^n{a_i}</code> 呈现为 $\sum_{i=1}^n{a_i}$</li>
+<li>累积：<code>\prod_{i=1}^n{a_i}</code> 呈现为 $\prod_{i=1}^n{a_i}$</li>
+<li>极限：<code>\lim_{x\to 0}</code> 呈现为 $\lim_{x\to 0}$</li>
+<li>积分<ul>
+<li><code>\int_0^\infty{fxdx}</code> 呈现为 $\int_0^\infty{fxdx}$</li>
+<li>双重积分，<code>\iint</code> 呈现为 $\iint$</li>
+<li>曲线积分，<code>\oint</code> 呈现为 $\oint$</li>
+</ul>
+</li>
+</ul>
+<p><em>=================other=================</em></p>
+<ol>
+<li><p>下括号<br><code>\underbrace{a+b+\cdots +z}_{26}</code><br>呈现为<br>$$\underbrace{a+b+\cdots +z}_{26}$$</p>
+</li>
+<li><p>水平线<br><code>\overline{m+n}</code><br>呈现为<br>$$\overline{m+n}$$</p>
+</li>
+</ol>
+<hr>
+<h3 id="1-3-特殊符号"><a href="#1-3-特殊符号" class="headerlink" title="1.3 特殊符号"></a>1.3 特殊符号</h3><table>
+<thead>
+<tr>
+<th>特殊符号</th>
+<th>命令</th>
+<th>特殊符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\infty$</td>
+<td>\infty</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\cup$</td>
+<td>\cup</td>
+<td>$\cap$</td>
+<td>\cap</td>
+</tr>
+<tr>
+<td>$\subset$</td>
+<td>\subset</td>
+<td>$\subseteq$</td>
+<td>\subseteq</td>
+</tr>
+<tr>
+<td>$\supset$</td>
+<td>\supset</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\in$</td>
+<td>\in</td>
+<td>$\notin$</td>
+<td>\notin</td>
+</tr>
+<tr>
+<td>$\varnothing$</td>
+<td>\varnothing</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\forall$</td>
+<td>\forall</td>
+<td>$\exists$</td>
+<td>\exists</td>
+</tr>
+<tr>
+<td>$\lnot$</td>
+<td>\lnot</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\nabla$</td>
+<td>\nabla</td>
+<td>$\partial$</td>
+<td>\partial</td>
+</tr>
+<tr>
+<td>4个空格</td>
+<td>\quad</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\approx$</td>
+<td>\approx</td>
+<td>$\equiv$</td>
+<td>\equiv</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="1-4-矩阵方阵"><a href="#1-4-矩阵方阵" class="headerlink" title="1.4 矩阵方阵"></a>1.4 矩阵方阵</h3><pre class="line-numbers language-md"><code class="language-md">$$\begin{matrix}
+1&0&0\\
+0&1&0\\
+0&0&1\\
+\end{matrix}$$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>呈现为：<br>$$\begin{matrix}<br>1&amp;0&amp;0\\<br>0&amp;1&amp;0\\<br>0&amp;0&amp;1\\<br>\end{matrix}$$</p>
+<h3 id="1-5-方程组"><a href="#1-5-方程组" class="headerlink" title="1.5 方程组"></a>1.5 方程组</h3><pre class="line-numbers language-md"><code class="language-md">$$
+\begin{cases}
+a_1x+b_1y+c_1z=d_1\\\\
+a_2x+b_2y+c_2z=d_2\\\\
+a_3x+b_3y+c_3z=d_3\\\\
+\end{cases}
+$$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>呈现为：</p>
+<p>$$\begin{cases}<br>a_1x+b_1y+c_1z=d_1\\<br>a_2x+b_2y+c_2z=d_2\\<br>a_3x+b_3y+c_3z=d_3\\<br>\end{cases}$$</p>
+<pre class="line-numbers language-md"><code class="language-md">$$
+\begin{align}
+D(x) &= \int_{x_0}^x P(x^{\prime})\,\mathrm{dx^{\prime}}  \\\\
+ &= C\int_{x_0}^x x^{\prime n}\,\mathrm{dx^{\prime}} \\\\
+&= \frac{C}{n+1}(x^{n+1}-x_0^{n+1}) \\\\
+&\equiv  y
+\end{align}
+$$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>呈现为：<br>$$<br>\begin{align}<br>D(x) &amp;= \int_{x_0}^x P(x^{\prime}),\mathrm{dx^{\prime}}  \\<br> &amp;= C\int_{x_0}^x x^{\prime n},\mathrm{dx^{\prime}} \\<br>&amp;= \frac{C}{n+1}(x^{n+1}-x_0^{n+1}) \\<br>&amp;\equiv  y<br>\end{align}<br>$$</p>
+<p>注意：按照 mathjax 语法，换行用 <code>\\</code> 表示，在这个hexo的渲染器中，要使用 <code>\\\\</code></p>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://blog.csdn.net/Jiajikang_jjk/article/details/80341322" target="_blank" rel="noopener">Latex之数学公式基本使用格式</a></li>
+<li><a href="https://blog.csdn.net/ethmery/article/details/50670297" target="_blank" rel="noopener">基本数学公式语法（of MathJax）</a></li>
+</ul>
 
             </div>
             <hr/>
@@ -614,7 +825,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/contest211.html">https://www.unielu.com/posts/contest211.html</a>
+                    <a href="https://www.unielu.com/posts/7a31.html">https://www.unielu.com/posts/7a31.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -652,8 +863,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
-                                    <span class="chip bg-color">leetcode比赛</span>
+                                <a href="/tags/mathjax/">
+                                    <span class="chip bg-color">mathjax</span>
                                 </a>
                             
                         </div>
@@ -958,41 +1169,47 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/contest212.html">
+                <a href="/posts/7a31.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181114.jpg" class="responsive-img" alt="周赛笔记212">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="MathJax">
                         
-                        <span class="card-title">周赛笔记212</span>
+                        <span class="card-title">MathJax</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            数学公式渲染器
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-09
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            ╯晓~
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
+                                    数学
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
-                        <span class="chip bg-color">leetcode比赛</span>
+                    <a href="/tags/mathjax/">
+                        <span class="chip bg-color">mathjax</span>
                     </a>
                     
                 </div>
@@ -1006,28 +1223,32 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/contest210.html">
+                <a href="/posts/cn.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181114.jpg" class="responsive-img" alt="周赛笔记210">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算机网络">
                         
-                        <span class="card-title">周赛笔记210</span>
+                        <span class="card-title">计算机网络</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            大二下学期课程（二）
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-08
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            ╯晓~
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1035,8 +1256,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
-                        <span class="chip bg-color">leetcode比赛</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">计算机基础</span>
                     </a>
                     
                 </div>
@@ -1174,6 +1399,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
