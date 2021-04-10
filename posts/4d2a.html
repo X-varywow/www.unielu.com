@@ -503,7 +503,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-09
+                    2021-04-10
                 </div>
                 
 
@@ -712,6 +712,20 @@ Do not return anything, modify nums1 in-place instead.
             <span class="token keyword">else</span><span class="token punctuation">:</span>
                 l <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span>
         <span class="token keyword">return</span> nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="263-丑数"><a href="#263-丑数" class="headerlink" title="263.丑数"></a><a href="https://leetcode-cn.com/problems/ugly-number/" target="_blank" rel="noopener">263.丑数</a></h2><p>判断一个数是否是只含质因数2, 3, 5 的正整数。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">isUgly</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> n<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>  <span class="token comment" spellcheck="true"># 0</span>
+        <span class="token keyword">while</span> n<span class="token operator">!=</span><span class="token number">1</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> n<span class="token operator">%</span><span class="token number">2</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+                n<span class="token operator">//=</span><span class="token number">2</span>
+            <span class="token keyword">elif</span> n<span class="token operator">%</span><span class="token number">3</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+                n<span class="token operator">//=</span><span class="token number">3</span>
+            <span class="token keyword">elif</span> n<span class="token operator">%</span><span class="token number">5</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+                n<span class="token operator">//=</span><span class="token number">5</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">False</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="11-20"><a href="#11-20" class="headerlink" title="11-20"></a><code>11-20</code></h1><h1 id="21-30"><a href="#21-30" class="headerlink" title="21-30"></a><code>21-30</code></h1>
             </div>
             <hr/>
@@ -1370,7 +1384,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">112k</span>&nbsp;字
+                class="white-color">114.5k</span>&nbsp;字
             
             
             

@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-07
+                    2021-04-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.4k
                 </div>
                 
 
@@ -522,7 +522,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="Quantitative-Linguistics"><a href="#Quantitative-Linguistics" class="headerlink" title="Quantitative Linguistics"></a><em>Quantitative Linguistics</em></h4><div class="admonition note"><p class="admonition-title">关于这个学科（转载）
+                <h3 id="Quantitative-Linguistics"><a href="#Quantitative-Linguistics" class="headerlink" title="Quantitative Linguistics"></a><em>Quantitative Linguistics</em></h3><div class="admonition note"><p class="admonition-title">关于这个学科（转载）
 </p><p><strong>计量语言学</strong>是以真实的语言交际活动中呈现的各种语言现象、语言结构、结构属性以及它们之间的相互关系作为研究对象，<br>通过概率论、随机过程、微分与微分方程、函数论等数学的定量方法（与代数等数学的定性方法相对）对其进行精确的测量、观察、模拟、建模和解释，<br>寻找语言现象背后的数理规律，揭示各种语言现象形成的内在原因，<br>探索语言系统的自适应机制和语言演化的动因。</p>
 <p>简言之，计量语言学是以真实语料为基础、用精确的方法来研究语言结构与发展规律的语言学分支学科。</p>
 </div>
@@ -564,8 +564,7 @@
 </li>
 </ul>
 <hr>
-<p><strong>第五周及以后</strong></p>
-<ul>
+<h3 id="第五周及以后"><a href="#第五周及以后" class="headerlink" title="第五周及以后"></a>第五周及以后</h3><ul>
 <li>科学是什么？<ul>
 <li>反映自然社会思维等的客观规律的分科的知识体系。 ——《现代汉语词典》</li>
 <li>科学可以被认为是三重结合体，由对象、途径和理论三个核心要素共同作用的一个完整体系。</li>
@@ -625,6 +624,34 @@
 <li><strong>科学的语言学理论尚且不存在</strong></li>
 </ul>
 <hr>
+<ul>
+<li>计量语言学中的普适定律<ul>
+<li><code>分布定律</code>，描述语言结构在语言系统和语言使用中的定量特征</li>
+<li><code>函数定律</code>，描述不同的语言结构及其属性间的相互关系</li>
+<li><code>演化定律</code>，建立了相关语言性质变化的动力模型</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>齐普夫定律</strong>（分布定律）<ul>
+<li>词的频次和它相对应的频序的乘积大体上接近一个常数</li>
+<li>公式：$f_rr=K$</li>
+<li>记 $\frac{f_r}{N}$ 为词的频率 $P_r$，则词频分布公式为：$$P_r=Kr^{-1}$$</li>
+<li>对其修正:$$P_r=Cr^{-b}$$其中b&gt;0,C&gt;0,$\sum_{r=1}^nP_r=1$</li>
+<li>两种常见的分布形态：幂律分布、泊松分布</li>
+</ul>
+</li>
+<li><strong>门策拉-阿尔特曼定律</strong>（函数定律）<ul>
+<li>一种语言结构越长，则构成它的部分越短。成分长度是结构长度的函数</li>
+<li>记 y 为成分长度，x 为结构长度，表示为$$y=ax^{-b}e^{-cx}$$</li>
+</ul>
+</li>
+<li><strong>皮奥特罗夫-阿尔特曼定律</strong>（演化定律）<ul>
+<li>这一定律一般用来研究借词数量增加、形态变化等有关语言演化的问题。</li>
+<li>其中$p_t$是新形式所占的比例，$k_t$ 表示一个时间函数（也可能是常量），C 表示变化区间，t 表示时间，$dp_t$ 表示变化率 $$dp_t=k_tp_t(C-p_t)dt$$</li>
+</ul>
+</li>
+</ul>
 <p><strong><em>other</em>:</strong></p>
 <p>NLP…..语言学确实没兴趣，，，，混个分</p>
 <p>课程分数：</p>
@@ -632,6 +659,7 @@
 <li>考勤</li>
 <li>作业<ul>
 <li>第五周的500字小作业 <code>√</code></li>
+<li>第七周小作业</li>
 <li>学术汇报（25min汇报+5min提问）</li>
 <li>课程论文（4000+）</li>
 </ul>
@@ -1228,6 +1256,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -1296,7 +1331,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">112k</span>&nbsp;字
+                class="white-color">114.5k</span>&nbsp;字
             
             
             
