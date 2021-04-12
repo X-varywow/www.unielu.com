@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-03
+                    2021-04-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    357
+                    436
                 </div>
                 
 
@@ -563,23 +563,27 @@
 <li>概率论基础<ul>
 <li>样本空间：是一个试验的全部可能出现的结果的集合。</li>
 <li>基本事件、复合事件：含有一个、多个样本点的随记事件。</li>
-<li>P(A,B) = P(A) × P(B|A) = P(B) × P(A|B)</li>
+<li>$P(A,B) = P(A) × P(B|A) = P(B) × P(A|B)$</li>
 <li>事件独立：<ul>
-<li>P(A|B) = P(A), P(B|A) = P(B)</li>
-<li>P(A,B) = P(A) × P(B)</li>
+<li>$P(A|B) = P(A), P(B|A) = P(B)$</li>
+<li>$P(A,B) = P(A) × P(B)$</li>
 </ul>
 </li>
 <li>事件A与B在条件C下相互独立：<ul>
-<li>P(A,B|C) = P(A|C) × P(B|C)</li>
-<li>P(A|B,C) = P(A|C)</li>
-<li>P(B|A,C) = P(B|C)</li>
+<li>$P(A,B|C) = P(A|C) × P(B|C)$</li>
+<li>$P(A|B,C) = P(A|C)$</li>
+<li>$P(B|A,C) = P(B|C)$</li>
 </ul>
 </li>
-<li>全概率公式：P(A) = ∑P(B<sub>i</sub>)P(A|B<sub>i</sub>)</li>
+<li>全概率公式：$P(A) = \sum P(B_i)P(A|B_i)$</li>
 <li>贝叶斯公式</li>
 </ul>
 </li>
 </ul>
+<hr>
+<p>词内互信息</p>
+<p>w = c1, c2（c1, c2 为组成w的汉字），f(w)为词频，f(c1)、f(c2)分别为c1, c2在语料库C中的出现次数（字频）。且C的总词数为$N_w$，总字数为$N_c$，则w的词内互信息为：</p>
+<p>$$mi(w)=log_2(\frac{N_c^2×f(w)}{N_w × f(c1) × f(c2)})$$</p>
 <hr>
 <p><strong><em>other</em>:</strong></p>
 <p>NLP…..语言学确实没兴趣，，，，混个分</p>
@@ -1181,6 +1185,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -1249,7 +1260,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">114.5k</span>&nbsp;字
+                class="white-color">116.4k</span>&nbsp;字
             
             
             

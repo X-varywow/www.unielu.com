@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-10
+                    2021-04-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    2.4k
                 </div>
                 
 
@@ -522,7 +522,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="1-10"><a href="#1-10" class="headerlink" title="1-10"></a><code>1-10</code></h1><h2 id="1006-笨阶乘"><a href="#1006-笨阶乘" class="headerlink" title="1006.笨阶乘"></a><a href="https://leetcode-cn.com/problems/clumsy-factorial/" target="_blank" rel="noopener">1006.笨阶乘</a></h2><p>把求阶乘中的 <code>*</code> 运算变成 <code>* / + -</code> 的循环</p>
+                <h2 id="1-10"><a href="#1-10" class="headerlink" title="1-10"></a><code>1-10</code></h2><h3 id="1006-笨阶乘"><a href="#1006-笨阶乘" class="headerlink" title="1006.笨阶乘"></a><a href="https://leetcode-cn.com/problems/clumsy-factorial/" target="_blank" rel="noopener">1006.笨阶乘</a></h3><p>把求阶乘中的 <code>*</code> 运算变成 <code>* / + -</code> 的循环</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#数学观察，N⋅(N−1)/(N−2)=N+1（N>4时）</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">clumsy</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
@@ -536,7 +536,7 @@
         <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> n<span class="token number">-1</span>
 
 <span class="token comment" spellcheck="true">#学不来，找规律</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="面试题-17-21-直方图的水量"><a href="#面试题-17-21-直方图的水量" class="headerlink" title="面试题 17.21. 直方图的水量"></a><a href="https://leetcode-cn.com/problems/volume-of-histogram-lcci/" target="_blank" rel="noopener">面试题 17.21. 直方图的水量</a></h2><p>给定一个直方图(也称柱状图)，假设有人从上面源源不断地倒水，最后直方图能存多少水量?直方图的宽度为 1。<br>如图，能接住6的水<br><img src="https://img-blog.csdnimg.cn/20210402203053860.png"></p>
+<h3 id="面试题-17-21-直方图的水量"><a href="#面试题-17-21-直方图的水量" class="headerlink" title="面试题 17.21. 直方图的水量"></a><a href="https://leetcode-cn.com/problems/volume-of-histogram-lcci/" target="_blank" rel="noopener">面试题 17.21. 直方图的水量</a></h3><p>给定一个直方图(也称柱状图)，假设有人从上面源源不断地倒水，最后直方图能存多少水量?直方图的宽度为 1。<br>如图，能接住6的水<br><img src="https://img-blog.csdnimg.cn/20210402203053860.png"></p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#方法一：找规律当成数组做</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">trap</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> height<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
@@ -568,7 +568,7 @@
                 ans<span class="token operator">+=</span>rm<span class="token operator">-</span>height<span class="token punctuation">[</span>r<span class="token punctuation">]</span>
                 r<span class="token operator">-=</span><span class="token number">1</span>
         <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="1143-最长公共子序列"><a href="#1143-最长公共子序列" class="headerlink" title="1143.最长公共子序列"></a><a href="https://leetcode-cn.com/problems/longest-common-subsequence/" target="_blank" rel="noopener">1143.最长公共子序列</a></h2><p>给定两个字符串 <code>text1</code> 和 <code>text2</code>，返回这两个字符串的最长 <strong>公共子序列</strong> 的长度。如果不存在公共子序列，返回 <code>0</code> 。</p>
+<h3 id="1143-最长公共子序列"><a href="#1143-最长公共子序列" class="headerlink" title="1143.最长公共子序列"></a><a href="https://leetcode-cn.com/problems/longest-common-subsequence/" target="_blank" rel="noopener">1143.最长公共子序列</a></h3><p>给定两个字符串 <code>text1</code> 和 <code>text2</code>，返回这两个字符串的最长 <strong>公共子序列</strong> 的长度。如果不存在公共子序列，返回 <code>0</code> 。</p>
 <p>一个字符串的 <strong>子序列</strong> 是指这样一个新的字符串：它是由原字符串在不改变字符的相对顺序的情况下删除某些字符（也可以不删除任何字符）后组成的新字符串。</p>
 <ul>
 <li>例如，<code>&quot;ace&quot;</code> 是 <code>&quot;abcde&quot;</code> 的子序列，但 <code>&quot;aec&quot;</code> 不是 <code>&quot;abcde&quot;</code> 的子序列。</li>
@@ -587,7 +587,7 @@
                 <span class="token comment" spellcheck="true">#print(dp)</span>
         <span class="token keyword">return</span> dp<span class="token punctuation">[</span>m<span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="781-森林中的兔子"><a href="#781-森林中的兔子" class="headerlink" title="781.森林中的兔子"></a><a href="https://leetcode-cn.com/problems/rabbits-in-forest/" target="_blank" rel="noopener">781.森林中的兔子</a></h2><p>森林中，每个兔子都有颜色。其中一些兔子（可能是全部）告诉你还有多少其他的兔子和自己有相同的颜色。我们将这些回答放在 <code>answers</code> 数组里。</p>
+<h3 id="781-森林中的兔子"><a href="#781-森林中的兔子" class="headerlink" title="781.森林中的兔子"></a><a href="https://leetcode-cn.com/problems/rabbits-in-forest/" target="_blank" rel="noopener">781.森林中的兔子</a></h3><p>森林中，每个兔子都有颜色。其中一些兔子（可能是全部）告诉你还有多少其他的兔子和自己有相同的颜色。我们将这些回答放在 <code>answers</code> 数组里。</p>
 <p>返回森林中兔子的<strong>最少数量</strong>。</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">numRabbits</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> answers<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
@@ -597,7 +597,7 @@
             <span class="token keyword">if</span> num<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span> ans<span class="token operator">+=</span>cnt
             <span class="token keyword">else</span><span class="token punctuation">:</span> ans<span class="token operator">+=</span><span class="token punctuation">(</span>num<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span>cnt<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">//</span><span class="token punctuation">(</span>num<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
         <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="88-合并两个有序数组"><a href="#88-合并两个有序数组" class="headerlink" title="88.合并两个有序数组"></a><a href="https://leetcode-cn.com/problems/merge-sorted-array/" target="_blank" rel="noopener">88.合并两个有序数组</a></h2><p>合并两个有序的数组，<code>nums1</code> 不需要补充空间，长为 <code>m+n</code></p>
+<h3 id="88-合并两个有序数组"><a href="#88-合并两个有序数组" class="headerlink" title="88.合并两个有序数组"></a><a href="https://leetcode-cn.com/problems/merge-sorted-array/" target="_blank" rel="noopener">88.合并两个有序数组</a></h3><p>合并两个有序的数组，<code>nums1</code> 不需要补充空间，长为 <code>m+n</code></p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#双指针普通做法</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">merge</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums1<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> m<span class="token punctuation">:</span> int<span class="token punctuation">,</span> nums2<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
@@ -642,7 +642,7 @@ Do not return anything, modify nums1 in-place instead.
                 p1<span class="token operator">-=</span><span class="token number">1</span>
             tail<span class="token operator">-=</span><span class="token number">1</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="80-删除有序数组中的重复项II"><a href="#80-删除有序数组中的重复项II" class="headerlink" title="80.删除有序数组中的重复项II"></a><a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array-ii/submissions/" target="_blank" rel="noopener">80.删除有序数组中的重复项II</a></h2><p>给你一个有序数组 <code>nums</code> ，请你 <strong>原地</strong> 删除重复出现的元素，使每个元素最多出现两次，返回删除后数组的新长度。</p>
+<h3 id="80-删除有序数组中的重复项II"><a href="#80-删除有序数组中的重复项II" class="headerlink" title="80.删除有序数组中的重复项II"></a><a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array-ii/submissions/" target="_blank" rel="noopener">80.删除有序数组中的重复项II</a></h3><p>给你一个有序数组 <code>nums</code> ，请你 <strong>原地</strong> 删除重复出现的元素，使每个元素最多出现两次，返回删除后数组的新长度。</p>
 <p>不要使用额外的数组空间，你必须在原地修改输入数组并在使用 <code>O(1)</code> 额外空间的条件下完成。</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
@@ -655,7 +655,7 @@ Do not return anything, modify nums1 in-place instead.
                 slow <span class="token operator">+=</span> <span class="token number">1</span>
             fast <span class="token operator">+=</span> <span class="token number">1</span>
         <span class="token keyword">return</span> slow<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="81-搜索旋转排序数组II"><a href="#81-搜索旋转排序数组II" class="headerlink" title="81.搜索旋转排序数组II"></a><a href="https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/" target="_blank" rel="noopener">81.搜索旋转排序数组II</a></h2><p>已知存在一个按非降序排列的整数数组 <code>nums</code> ，数组中的值不必互不相同。</p>
+<h3 id="81-搜索旋转排序数组II"><a href="#81-搜索旋转排序数组II" class="headerlink" title="81.搜索旋转排序数组II"></a><a href="https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/" target="_blank" rel="noopener">81.搜索旋转排序数组II</a></h3><p>已知存在一个按非降序排列的整数数组 <code>nums</code> ，数组中的值不必互不相同。</p>
 <p>在传递给函数之前，<code>nums</code> 在预先未知的某个下标 <code>k（0 &lt;= k &lt; nums.length）</code>上进行了 <strong>旋转</strong> ，使数组变为 <code>[nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]]</code>（下标 从 <code>0</code> 开始 计数）。例如， <code>[0,1,2,4,4,4,5,6,6,7]</code> 在下标 <code>5</code> 处经旋转后可能变为 <code>[4,5,6,6,7,0,1,2,4,4]</code> 。</p>
 <p>给你 旋转后 的数组 <code>nums</code> 和一个整数 <code>target</code> ，请你编写一个函数来判断给定的目标值是否存在于数组中。如果 <code>nums</code> 中存在这个目标值 <code>target</code> ，则返回 <code>true</code> ，否则返回 <code>false</code> </p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#二分查找，对情况分类</span>
@@ -685,7 +685,7 @@ Do not return anything, modify nums1 in-place instead.
         <span class="token keyword">return</span> <span class="token boolean">False</span>
 
 <span class="token comment" spellcheck="true">#嗯，这也能正常二分</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="153-寻找旋转排序数组中的最小值"><a href="#153-寻找旋转排序数组中的最小值" class="headerlink" title="153.寻找旋转排序数组中的最小值"></a><a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/" target="_blank" rel="noopener">153.寻找旋转排序数组中的最小值</a></h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+<h3 id="153-寻找旋转排序数组中的最小值"><a href="#153-寻找旋转排序数组中的最小值" class="headerlink" title="153.寻找旋转排序数组中的最小值"></a><a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/" target="_blank" rel="noopener">153.寻找旋转排序数组中的最小值</a></h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">findMin</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span> 
         l<span class="token punctuation">,</span> r <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
         <span class="token keyword">while</span> l <span class="token operator">&lt;</span> r<span class="token punctuation">:</span>
@@ -699,7 +699,7 @@ Do not return anything, modify nums1 in-place instead.
 <blockquote>
 <p>旋转排序数组总是两段上升的数组，且右边处于低位</p>
 </blockquote>
-<h2 id="154-寻找旋转排序数组中的最小值-II"><a href="#154-寻找旋转排序数组中的最小值-II" class="headerlink" title="154.寻找旋转排序数组中的最小值 II"></a><a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/" target="_blank" rel="noopener">154.寻找旋转排序数组中的最小值 II</a></h2><p>相较上题，可能存在重复元素。</p>
+<h3 id="154-寻找旋转排序数组中的最小值-II"><a href="#154-寻找旋转排序数组中的最小值-II" class="headerlink" title="154.寻找旋转排序数组中的最小值 II"></a><a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/" target="_blank" rel="noopener">154.寻找旋转排序数组中的最小值 II</a></h3><p>相较上题，可能存在重复元素。</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">findMin</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
         l<span class="token punctuation">,</span> r <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
@@ -712,7 +712,7 @@ Do not return anything, modify nums1 in-place instead.
             <span class="token keyword">else</span><span class="token punctuation">:</span>
                 l <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span>
         <span class="token keyword">return</span> nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="263-丑数"><a href="#263-丑数" class="headerlink" title="263.丑数"></a><a href="https://leetcode-cn.com/problems/ugly-number/" target="_blank" rel="noopener">263.丑数</a></h2><p>判断一个数是否是只含质因数2, 3, 5 的正整数。</p>
+<h3 id="263-丑数"><a href="#263-丑数" class="headerlink" title="263.丑数"></a><a href="https://leetcode-cn.com/problems/ugly-number/" target="_blank" rel="noopener">263.丑数</a></h3><p>判断一个数是否是只含质因数2, 3, 5 的正整数。</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">isUgly</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
         <span class="token keyword">if</span> <span class="token operator">not</span> n<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>  <span class="token comment" spellcheck="true"># 0</span>
@@ -726,7 +726,129 @@ Do not return anything, modify nums1 in-place instead.
             <span class="token keyword">else</span><span class="token punctuation">:</span>
                 <span class="token keyword">return</span> <span class="token boolean">False</span>
         <span class="token keyword">return</span> <span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="11-20"><a href="#11-20" class="headerlink" title="11-20"></a><code>11-20</code></h1><h1 id="21-30"><a href="#21-30" class="headerlink" title="21-30"></a><code>21-30</code></h1>
+<h2 id="11-20"><a href="#11-20" class="headerlink" title="11-20"></a><code>11-20</code></h2><h3 id="264-丑数II"><a href="#264-丑数II" class="headerlink" title="264.丑数II"></a><a href="https://leetcode-cn.com/problems/ugly-number-ii/" target="_blank" rel="noopener">264.丑数II</a></h3><p>给你一个整数 <code>n</code> ，请你找出并返回第 <code>n</code> 个 丑数 。</p>
+<p>丑数 就是只包含质因数 2、3 或 5 的正整数。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#三指针，有些东西啊</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">nthUglyNumber</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        dp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+        dp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+        p2 <span class="token operator">=</span> p3 <span class="token operator">=</span> p5 <span class="token operator">=</span> <span class="token number">1</span>  
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            num2<span class="token punctuation">,</span> num3<span class="token punctuation">,</span> num5 <span class="token operator">=</span> dp<span class="token punctuation">[</span>p2<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>p3<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">3</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>p5<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">5</span>
+            dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> min<span class="token punctuation">(</span>num2<span class="token punctuation">,</span> num3<span class="token punctuation">,</span> num5<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> num2<span class="token punctuation">:</span> p2<span class="token operator">+=</span><span class="token number">1</span>
+            <span class="token keyword">if</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> num3<span class="token punctuation">:</span> p3<span class="token operator">+=</span><span class="token number">1</span>
+            <span class="token keyword">if</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> num5<span class="token punctuation">:</span> p5<span class="token operator">+=</span><span class="token number">1</span>
+        <span class="token keyword">return</span> dp<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a href="https://leetcode-cn.com/problems/largest-number/" target="_blank" rel="noopener">179.最大数</a></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">largestNumber</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
+        nums_str <span class="token operator">=</span> <span class="token punctuation">[</span>str<span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token keyword">for</span> num <span class="token keyword">in</span> nums<span class="token punctuation">]</span>
+        compare <span class="token operator">=</span> <span class="token keyword">lambda</span> x<span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token keyword">if</span> x <span class="token operator">+</span> y <span class="token operator">&lt;</span> y <span class="token operator">+</span> x <span class="token keyword">else</span> <span class="token operator">-</span><span class="token number">1</span>
+        nums_str<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key <span class="token operator">=</span> functools<span class="token punctuation">.</span>cmp_to_key<span class="token punctuation">(</span>compare<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#指定比较函数为compare</span>
+        res <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>nums_str<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> res<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"0"</span><span class="token punctuation">:</span>
+            res <span class="token operator">=</span> <span class="token string">"0"</span>
+        <span class="token keyword">return</span> res<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="21-30"><a href="#21-30" class="headerlink" title="21-30"></a><code>21-30</code></h2><h2 id="coding-for-fun"><a href="#coding-for-fun" class="headerlink" title="coding for fun"></a><em>coding for fun</em></h2><p><a href="https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/" target="_blank" rel="noopener">剑指 Offer 03. 数组中重复的数字</a></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">findRepeatNumber</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        tmp <span class="token operator">=</span> set<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> num <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> num <span class="token operator">not</span> <span class="token keyword">in</span> tmp<span class="token punctuation">:</span>
+                tmp<span class="token punctuation">.</span>add<span class="token punctuation">(</span>num<span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> num
+
+<span class="token comment" spellcheck="true">#使用集合或字典提高效率</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a href="https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/" target="_blank" rel="noopener">剑指 Offer 04. 二维数组中的查找</a></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">findNumberIn2DArray</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> matrix<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> matrix<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
+        rows<span class="token punctuation">,</span> cols <span class="token operator">=</span> len<span class="token punctuation">(</span>matrix<span class="token punctuation">)</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>matrix<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        x<span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> cols<span class="token number">-1</span>
+        <span class="token keyword">while</span> x <span class="token operator">&lt;</span> rows <span class="token operator">and</span> <span class="token number">0</span> <span class="token operator">&lt;=</span> y<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> target <span class="token operator">></span> matrix<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">:</span> 
+                x <span class="token operator">+=</span> <span class="token number">1</span>
+                <span class="token keyword">continue</span>
+            <span class="token keyword">elif</span> target <span class="token operator">&lt;</span> matrix<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                y <span class="token operator">-=</span> <span class="token number">1</span>
+                <span class="token keyword">continue</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">True</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+<span class="token comment" spellcheck="true">#从矩阵的右上角开始查找</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a href="https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/" target="_blank" rel="noopener">剑指 Offer 05. 替换空格</a></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">replaceSpace</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> s<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">,</span><span class="token string">"%20"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><a href="https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/" target="_blank" rel="noopener">剑指 Offer 06. 从尾到头打印链表</a></p>
+<p>输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#普通做法</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">reversePrint</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">:</span> ListNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        ans <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        p <span class="token operator">=</span> head
+        <span class="token keyword">while</span> p<span class="token punctuation">:</span>
+            ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>p<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+            p <span class="token operator">=</span> p<span class="token punctuation">.</span>next
+        <span class="token keyword">return</span> ans<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#递归</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">reversePrint</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">:</span> ListNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>reversePrint<span class="token punctuation">(</span>head<span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">[</span>head<span class="token punctuation">.</span>val<span class="token punctuation">]</span> <span class="token keyword">if</span> head <span class="token keyword">else</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true">#耗时好像更多</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a href="https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/" target="_blank" rel="noopener">剑指 Offer 07. 重建二叉树</a></p>
+<p>输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#递归</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">buildTree</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> preorder<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> inorder<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> TreeNode<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> preorder<span class="token punctuation">:</span> <span class="token keyword">return</span> None
+        root <span class="token operator">=</span> TreeNode<span class="token punctuation">(</span>preorder<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        idx <span class="token operator">=</span> inorder<span class="token punctuation">.</span>index<span class="token punctuation">(</span>preorder<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        root<span class="token punctuation">.</span>left <span class="token operator">=</span> self<span class="token punctuation">.</span>buildTree<span class="token punctuation">(</span>preorder<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token operator">+</span>idx<span class="token punctuation">]</span><span class="token punctuation">,</span>inorder<span class="token punctuation">[</span><span class="token punctuation">:</span>idx<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        root<span class="token punctuation">.</span>right <span class="token operator">=</span> self<span class="token punctuation">.</span>buildTree<span class="token punctuation">(</span>preorder<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">+</span>idx<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span>inorder<span class="token punctuation">[</span>idx<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><em>官方答案：</em></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># Definition for a binary tree node.</span>
+<span class="token comment" spellcheck="true"># class TreeNode:</span>
+<span class="token comment" spellcheck="true">#     def __init__(self, val=0, left=None, right=None):</span>
+<span class="token comment" spellcheck="true">#         self.val = val</span>
+<span class="token comment" spellcheck="true">#         self.left = left</span>
+<span class="token comment" spellcheck="true">#         self.right = right</span>
+
+<span class="token triple-quoted-string string">"""
+思路：前序遍历：根节点->左子树->右子树 中序遍历：左子树->根节点->右子树
+框架：（1）先把根节点建立起来 （2）递归地构造左子树并连接到根节点 （3）递归地构造右子树并连接到根节点
+"""</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">buildTree</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> preorder<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> inorder<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> TreeNode<span class="token punctuation">:</span>
+        <span class="token keyword">def</span> <span class="token function">myBulidTree</span><span class="token punctuation">(</span>preorder_left<span class="token punctuation">:</span> int<span class="token punctuation">,</span> preorder_right<span class="token punctuation">:</span> int<span class="token punctuation">,</span> inorder_left<span class="token punctuation">:</span> int<span class="token punctuation">,</span> inorder_right<span class="token punctuation">:</span> int<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> preorder_left <span class="token operator">></span> preorder_right<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> None
+            <span class="token comment" spellcheck="true"># 前序遍历中的第一个节点就是根节点</span>
+            preorder_root_index <span class="token operator">=</span> preorder_left
+            <span class="token comment" spellcheck="true"># 在中序遍历中定位根节点,获得索引值</span>
+            inorder_root_index <span class="token operator">=</span> index<span class="token punctuation">[</span>preorder<span class="token punctuation">[</span>preorder_root_index<span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+            <span class="token comment" spellcheck="true"># 先构建根节点</span>
+            root <span class="token operator">=</span> TreeNode<span class="token punctuation">(</span>preorder<span class="token punctuation">[</span>preorder_root_index<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true"># 得到左子树中节点的数目</span>
+            size_left_subtree <span class="token operator">=</span> inorder_root_index <span class="token operator">-</span> inorder_left
+            <span class="token comment" spellcheck="true"># 构建左子树，并跟根节点相关联</span>
+            <span class="token comment" spellcheck="true"># 前序遍历中[从左边界+1 开始的 size_left_subtree]个元素就对应了中序遍历中[从 左边界 开始到 根节点定位-1]的元素</span>
+            root<span class="token punctuation">.</span>left <span class="token operator">=</span> myBulidTree<span class="token punctuation">(</span>preorder_left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> preorder_left <span class="token operator">+</span> size_left_subtree<span class="token punctuation">,</span> inorder_left<span class="token punctuation">,</span> inorder_root_index <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true"># 构建右子树，并跟根节点相关联</span>
+            <span class="token comment" spellcheck="true"># 前序遍历中[从根节点+size_left_subtree+1 开始到 右边界]个元素就对应了中序遍历中[从根节点+1 到 右边界]的元素</span>
+            root<span class="token punctuation">.</span>right <span class="token operator">=</span> myBulidTree<span class="token punctuation">(</span>preorder_left <span class="token operator">+</span> size_left_subtree <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> preorder_right<span class="token punctuation">,</span> inorder_root_index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> inorder_right<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> root
+
+        n <span class="token operator">=</span> len<span class="token punctuation">(</span>preorder<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 构建哈希映射，帮助快速定位根节点</span>
+        index <span class="token operator">=</span> <span class="token punctuation">{</span>element<span class="token punctuation">:</span> i <span class="token keyword">for</span> i<span class="token punctuation">,</span> element <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>inorder<span class="token punctuation">)</span><span class="token punctuation">}</span>
+        <span class="token keyword">return</span> myBulidTree<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n<span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> n<span class="token number">-1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
             </div>
             <hr/>
 
@@ -1384,7 +1506,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">114.5k</span>&nbsp;字
+                class="white-color">116.4k</span>&nbsp;字
             
             
             
