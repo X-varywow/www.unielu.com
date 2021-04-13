@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-10
+                    2021-04-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.4k
+                    3.5k
                 </div>
                 
 
@@ -820,7 +820,15 @@ stu_cnt<span class="token operator">++</span><span class="token punctuation">;</
 <span class="token comment" spellcheck="true">//- 静态成员函数仅用来操作静态成员变量</span>
 <span class="token comment" spellcheck="true">//- 在任何对象被构造之前，静态成员变量和静态成员函数就已经可以访问。</span>
 <span class="token comment" spellcheck="true">//调用：类名::静态函数名();</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-5-other"><a href="#2-5-other" class="headerlink" title="2.5 other"></a>2.5 <em>other</em></h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//类的组合</span>
+<h3 id="2-5-友元函数"><a href="#2-5-友元函数" class="headerlink" title="2.5 友元函数"></a>2.5 友元函数</h3><p>友元函数，在类的外部，访问类的私有成员</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//友元函数在类中声明</span>
+
+<span class="token comment" spellcheck="true">//友元函数访问私有成员变量，但是不能直接在定义友元函数时调用私有成员变量，只能通过引用类对象的成员参数方式调用</span>
+
+<span class="token comment" spellcheck="true">//友元函数不是类的成员函数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-6-other"><a href="#2-6-other" class="headerlink" title="2.6 other"></a>2.6 <em>other</em></h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//类的组合</span>
+<span class="token comment" spellcheck="true">//在一个类的构造中嵌入另一个类的对象，构造时都要构造</span>
+<span class="token comment" spellcheck="true">//先构造被组合的</span>
 
 
 <span class="token comment" spellcheck="true">//对象指针</span>
@@ -839,7 +847,7 @@ a<span class="token punctuation">.</span><span class="token function">disp</span
 class_name <span class="token keyword">const</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//此后foo对象在其生存周期内不可更改</span>
 
-<span class="token comment" spellcheck="true">//const数据成员只能透过初始化列表在构造的时候进行初始化。一旦构造不可更改</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true">//const数据成员只能透过初始化列表在构造的时候进行初始化。一旦构造不可更改</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//常成员</span>
 <span class="token comment" spellcheck="true">//一个类中定义的const函数，专门用来处理这个类的const对象发起的函数调用</span>
 <span class="token keyword">class</span> <span class="token class-name">Date</span><span class="token punctuation">{</span>
@@ -867,8 +875,7 @@ class_name <span class="token keyword">const</span> <span class="token function"
 <span class="token comment" spellcheck="true">//const函数能访问普通属性成员，但不能修改值</span>
 <span class="token comment" spellcheck="true">//const对象只能调用类中const函数，不能调用普通函数？!？</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//友元函数不是类的成员函数</span>
-
+<pre class="line-numbers language-cpp"><code class="language-cpp">
 <span class="token comment" spellcheck="true">//静态成员函数不能声明为虚函数</span>
 
 <span class="token comment" spellcheck="true">//静态数据成员是类的所有对象所共有的</span>
@@ -880,7 +887,7 @@ class_name <span class="token keyword">const</span> <span class="token function"
 A<span class="token punctuation">)</span> 用一个对象去初始化同一类的另一个新对象时
 B<span class="token punctuation">)</span> 将类的一个对象赋值给该类的另一个对象时
 C<span class="token punctuation">)</span> 函数的形参是类的对象，调用函数进行形参和实参结合时
-D<span class="token punctuation">)</span> 函数的返回值是类的对象，函数执行返回调用时<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+D<span class="token punctuation">)</span> 函数的返回值是类的对象，函数执行返回调用时<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>static函数属于类，不属于对象（对象里不分配内存），this指针是对象的指针。所以在cpp静态成员函数里，不能直接使用this指针。</p>
 <p>虚函数？？？</p>
 <h2 id="三、高级语法"><a href="#三、高级语法" class="headerlink" title="三、高级语法"></a>三、高级语法</h2><h3 id="3-1-异常处理"><a href="#3-1-异常处理" class="headerlink" title="3.1 异常处理"></a>3.1 异常处理</h3><h3 id="3-2-引用"><a href="#3-2-引用" class="headerlink" title="3.2 引用"></a>3.2 引用</h3><ol>
@@ -1734,7 +1741,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">116.4k</span>&nbsp;字
+                class="white-color">120.6k</span>&nbsp;字
             
             
             

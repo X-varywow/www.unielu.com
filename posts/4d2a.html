@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-12
+                    2021-04-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.6k
                 </div>
                 
 
@@ -741,8 +741,7 @@ Do not return anything, modify nums1 in-place instead.
             <span class="token keyword">if</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> num3<span class="token punctuation">:</span> p3<span class="token operator">+=</span><span class="token number">1</span>
             <span class="token keyword">if</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> num5<span class="token punctuation">:</span> p5<span class="token operator">+=</span><span class="token number">1</span>
         <span class="token keyword">return</span> dp<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><a href="https://leetcode-cn.com/problems/largest-number/" target="_blank" rel="noopener">179.最大数</a></p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+<h3 id="179-最大数"><a href="#179-最大数" class="headerlink" title="179.最大数"></a><a href="https://leetcode-cn.com/problems/largest-number/" target="_blank" rel="noopener">179.最大数</a></h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">largestNumber</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
         nums_str <span class="token operator">=</span> <span class="token punctuation">[</span>str<span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token keyword">for</span> num <span class="token keyword">in</span> nums<span class="token punctuation">]</span>
         compare <span class="token operator">=</span> <span class="token keyword">lambda</span> x<span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token keyword">if</span> x <span class="token operator">+</span> y <span class="token operator">&lt;</span> y <span class="token operator">+</span> x <span class="token keyword">else</span> <span class="token operator">-</span><span class="token number">1</span>
@@ -751,6 +750,29 @@ Do not return anything, modify nums1 in-place instead.
         <span class="token keyword">if</span> res<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"0"</span><span class="token punctuation">:</span>
             res <span class="token operator">=</span> <span class="token string">"0"</span>
         <span class="token keyword">return</span> res<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="783-二叉搜索树节点最小距离"><a href="#783-二叉搜索树节点最小距离" class="headerlink" title="783.二叉搜索树节点最小距离"></a><a href="https://leetcode-cn.com/problems/minimum-distance-between-bst-nodes/" target="_blank" rel="noopener">783.二叉搜索树节点最小距离</a></h3><p>给你一个二叉搜索树的根节点 <code>root</code> ，返回 树中任意两不同节点值之间的最小差值 。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">minDiffInBST</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>ans<span class="token operator">=</span>float<span class="token punctuation">(</span><span class="token string">'inf'</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>pre<span class="token operator">=</span>float<span class="token punctuation">(</span><span class="token string">'-inf'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#pre是整个中序遍历中的pre</span>
+        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> root<span class="token punctuation">:</span>
+                dfs<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span>
+                self<span class="token punctuation">.</span>ans<span class="token operator">=</span>min<span class="token punctuation">(</span>self<span class="token punctuation">.</span>ans<span class="token punctuation">,</span>root<span class="token punctuation">.</span>val<span class="token operator">-</span>self<span class="token punctuation">.</span>pre<span class="token punctuation">)</span>
+                self<span class="token punctuation">.</span>pre <span class="token operator">=</span> root<span class="token punctuation">.</span>val
+                dfs<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+
+        dfs<span class="token punctuation">(</span>root<span class="token punctuation">)</span>        
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 94.二叉树的中序遍历</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">inorderTraversal</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">def</span> <span class="token function">inorder</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> node<span class="token punctuation">:</span>
+                <span class="token keyword">yield</span> <span class="token keyword">from</span> inorder<span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span>
+                <span class="token keyword">yield</span> node<span class="token punctuation">.</span>val
+                <span class="token keyword">yield</span> <span class="token keyword">from</span> inorder<span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> inorder<span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="21-30"><a href="#21-30" class="headerlink" title="21-30"></a><code>21-30</code></h2><h2 id="coding-for-fun"><a href="#coding-for-fun" class="headerlink" title="coding for fun"></a><em>coding for fun</em></h2><p><a href="https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/" target="_blank" rel="noopener">剑指 Offer 03. 数组中重复的数字</a></p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">findRepeatNumber</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
@@ -848,6 +870,22 @@ Do not return anything, modify nums1 in-place instead.
         <span class="token comment" spellcheck="true"># 构建哈希映射，帮助快速定位根节点</span>
         index <span class="token operator">=</span> <span class="token punctuation">{</span>element<span class="token punctuation">:</span> i <span class="token keyword">for</span> i<span class="token punctuation">,</span> element <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>inorder<span class="token punctuation">)</span><span class="token punctuation">}</span>
         <span class="token keyword">return</span> myBulidTree<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n<span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> n<span class="token number">-1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a><em>Python</em></h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">foo</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    @staticmethod                <span class="token comment" spellcheck="true">#返回函数的静态方法</span>
+    <span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hhh'</span><span class="token punctuation">)</span>
+
+foo<span class="token punctuation">.</span>f<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#静态方法无需实例化</span>
+a<span class="token operator">=</span>foo<span class="token punctuation">(</span><span class="token punctuation">)</span>
+a<span class="token punctuation">.</span>f<span class="token punctuation">(</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">#也可以实例化后调用</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">foo</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hhh'</span><span class="token punctuation">)</span>
+
+a<span class="token operator">=</span>foo<span class="token punctuation">(</span><span class="token punctuation">)</span>
+a<span class="token punctuation">.</span>f<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#TypeError: f() takes 0 positional arguments but 1 was given</span>
+<span class="token comment" spellcheck="true">#f()定义时加个参数self即可运行</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1506,7 +1544,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">116.4k</span>&nbsp;字
+                class="white-color">120.6k</span>&nbsp;字
             
             
             
