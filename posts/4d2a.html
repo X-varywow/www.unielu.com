@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-13
+                    2021-04-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.8k
                 </div>
                 
 
@@ -773,6 +773,60 @@ Do not return anything, modify nums1 in-place instead.
                 <span class="token keyword">yield</span> node<span class="token punctuation">.</span>val
                 <span class="token keyword">yield</span> <span class="token keyword">from</span> inorder<span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
         <span class="token keyword">return</span> <span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> inorder<span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="208-实现Trie前缀树⭐"><a href="#208-实现Trie前缀树⭐" class="headerlink" title="208.实现Trie前缀树⭐"></a><a href="https://leetcode-cn.com/problems/implement-trie-prefix-tree/" target="_blank" rel="noopener">208.实现Trie前缀树⭐</a></h3><p><code>Trie</code> 或者说 前缀树 是一种树形数据结构，用于高效地存储和检索字符串数据集中地键。</p>
+<p>通常应用场景：自动补全和拼写检查。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Trie</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        Initialize your data structure here.
+        """</span>
+        self<span class="token punctuation">.</span>_children <span class="token operator">=</span> <span class="token punctuation">[</span>None<span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">26</span>
+        self<span class="token punctuation">.</span>_is_ending_char <span class="token operator">=</span> <span class="token boolean">False</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">insert</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> word<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        Inserts a word into the trie.
+        """</span>
+        root <span class="token operator">=</span> self
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> map<span class="token punctuation">(</span><span class="token keyword">lambda</span> x <span class="token punctuation">:</span> ord<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">-</span> ord<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> word<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">.</span>_children<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                root<span class="token punctuation">.</span>_children<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> Trie<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            root <span class="token operator">=</span> root<span class="token punctuation">.</span>_children<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+        root<span class="token punctuation">.</span>_is_ending_char <span class="token operator">=</span> <span class="token boolean">True</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">search</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> word<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        Returns if the word is in the trie.
+        """</span>
+        root <span class="token operator">=</span> self
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> map<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> ord<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">-</span> ord<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> word<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">.</span>_children<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">False</span>
+            root <span class="token operator">=</span> root<span class="token punctuation">.</span>_children<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+        <span class="token keyword">return</span> root<span class="token punctuation">.</span>_is_ending_char
+
+
+    <span class="token keyword">def</span> <span class="token function">startsWith</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> prefix<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        Returns if there is any word in the trie that starts with the given prefix.
+        """</span>
+        root <span class="token operator">=</span> self
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> map<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> ord<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">-</span> ord<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> prefix<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> root<span class="token punctuation">.</span>_children<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">False</span>
+            root <span class="token operator">=</span> root<span class="token punctuation">.</span>_children<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+
+
+
+<span class="token comment" spellcheck="true"># Your Trie object will be instantiated and called as such:</span>
+<span class="token comment" spellcheck="true"># obj = Trie()</span>
+<span class="token comment" spellcheck="true"># obj.insert(word)</span>
+<span class="token comment" spellcheck="true"># param_2 = obj.search(word)</span>
+<span class="token comment" spellcheck="true"># param_3 = obj.startsWith(prefix)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="21-30"><a href="#21-30" class="headerlink" title="21-30"></a><code>21-30</code></h2><h2 id="coding-for-fun"><a href="#coding-for-fun" class="headerlink" title="coding for fun"></a><em>coding for fun</em></h2><p><a href="https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/" target="_blank" rel="noopener">剑指 Offer 03. 数组中重复的数字</a></p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">findRepeatNumber</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
@@ -870,22 +924,6 @@ Do not return anything, modify nums1 in-place instead.
         <span class="token comment" spellcheck="true"># 构建哈希映射，帮助快速定位根节点</span>
         index <span class="token operator">=</span> <span class="token punctuation">{</span>element<span class="token punctuation">:</span> i <span class="token keyword">for</span> i<span class="token punctuation">,</span> element <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>inorder<span class="token punctuation">)</span><span class="token punctuation">}</span>
         <span class="token keyword">return</span> myBulidTree<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n<span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> n<span class="token number">-1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a><em>Python</em></h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">foo</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    @staticmethod                <span class="token comment" spellcheck="true">#返回函数的静态方法</span>
-    <span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hhh'</span><span class="token punctuation">)</span>
-
-foo<span class="token punctuation">.</span>f<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#静态方法无需实例化</span>
-a<span class="token operator">=</span>foo<span class="token punctuation">(</span><span class="token punctuation">)</span>
-a<span class="token punctuation">.</span>f<span class="token punctuation">(</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">#也可以实例化后调用</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">foo</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hhh'</span><span class="token punctuation">)</span>
-
-a<span class="token operator">=</span>foo<span class="token punctuation">(</span><span class="token punctuation">)</span>
-a<span class="token punctuation">.</span>f<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#TypeError: f() takes 0 positional arguments but 1 was given</span>
-<span class="token comment" spellcheck="true">#f()定义时加个参数self即可运行</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1544,7 +1582,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">116.8k</span>&nbsp;字
+                class="white-color">118k</span>&nbsp;字
             
             
             
