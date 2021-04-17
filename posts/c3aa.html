@@ -500,21 +500,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-11
+                    2021-04-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-13
+                    2021-04-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    583
+                    558
                 </div>
                 
 
@@ -526,7 +526,58 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><code>Pandas</code> 是 Python 的<strong>核心数据分析支持库</strong>，是 Python 中统计计算生态系统的重要组成部分。</p>
+                <p>参考资料：</p>
+<ul>
+<li>Pandas中文网：<a href="https://www.pypandas.cn/" target="_blank" rel="noopener">https://www.pypandas.cn/</a></li>
+<li>Pandas练习：<a href="https://zhuanlan.zhihu.com/p/69371799" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/69371799</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/43018099" target="_blank" rel="noopener">23种pandas操作</a></li>
+</ul>
+<hr>
+<p><code>Pandas</code> 是 <em>Python</em> 的<strong>核心数据分析支持库</strong>，是 <em>Python</em> 中统计计算生态系统的重要组成部分。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+
+data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">"train.csv"</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#see the first 10 rows</span>
+data<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#check the rows and cols</span>
+data<span class="token punctuation">.</span>shape
+data<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#print the name of all the columns</span>
+data<span class="token punctuation">.</span>columns
+<span class="token comment" spellcheck="true">#</span>
+len
+
+<span class="token comment" spellcheck="true">#index</span>
+data<span class="token punctuation">.</span>index
+
+<span class="token comment" spellcheck="true">#检查空值</span>
+pd<span class="token punctuation">.</span>isnull<span class="token punctuation">(</span>object<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 查看数据统计信息</span>
+data<span class="token punctuation">.</span>describe<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 查看某一列唯一实体</span>
+data<span class="token punctuation">[</span><span class="token string">"col_name"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>unique<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 删除特征</span>
+df<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token string">'feature_variable_name'</span><span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#axis 0 表示行，1 表示列</span>
+
+<span class="token comment" spellcheck="true"># 通过特征名取数据</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>feature_name<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># 对 DataFrame 使用函数</span>
+df<span class="token punctuation">[</span><span class="token string">"height"</span><span class="token punctuation">]</span> <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">"height"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>apply<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token operator">*</span> x<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 重命名行</span>
+df<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>columns <span class="token operator">=</span> <span class="token punctuation">{</span>df<span class="token punctuation">.</span>columns<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token string">'size'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>以下未整理，为以前写的</p>
+</blockquote>
 <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>一维的<code>Series</code>和二维的  <code>DataFrame</code></p>
 <pre class="line-numbers language-python"><code class="language-python">pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>，index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
@@ -609,119 +660,16 @@ dates
 <li><code>.sort_index(axis=0,ascending=True)</code>，根据索引排序，默认升序</li>
 <li><code>Series.sort_values(axis=0,ascending=True)</code><br><code>DataFrame.sort_values(by,axis=0,ascending=True)</code></li>
 </ol>
-<h2 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h2><h6 id="CSV："><a href="#CSV：" class="headerlink" title="CSV："></a>CSV：</h6><ul>
+<h2 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h2><p><em>CSV</em> ：</p>
+<ul>
 <li><code>df.to_csv(&#39;___.csv&#39;)</code></li>
 <li><code>pd.read_csv(&#39;___.csv&#39;)</code></li>
 </ul>
-<h6 id="Excel："><a href="#Excel：" class="headerlink" title="Excel："></a>Excel：</h6><ul>
+<p><em>Excel</em> ：</p>
+<ul>
 <li><code>df.to_excel(&#39;___.xlsx&#39;, sheet_name=&#39;Sheet1&#39;)</code></li>
 <li><code>pd.read_excel(&#39;___.xlsx&#39;, &#39;Sheet1&#39;, index_col=None, na_values=[&#39;NA&#39;])</code></li>
 </ul>
-<h2 id="统计分析"><a href="#统计分析" class="headerlink" title="统计分析"></a>统计分析</h2><ol>
-<li>对数据<code>.describe()</code>，能得到很多信息。</li>
-<li><code>.cov()</code>，计算协方差矩阵。</li>
-<li><code>.corr()</code>，计算相关系数矩阵。</li>
-</ol>
-<p><strong>实践</strong></p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
-<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
-b<span class="token operator">=</span>pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'d'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-b<span class="token punctuation">.</span>describe<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th {
-    vertical-align: top;
-}
-
-.dataframe thead th {
-    text-align: right;
-}</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>0</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>4.000000</td>
-      <td>4.000000</td>
-      <td>4.000000</td>
-      <td>4.000000</td>
-      <td>4.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>7.500000</td>
-      <td>8.500000</td>
-      <td>9.500000</td>
-      <td>10.500000</td>
-      <td>11.500000</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>6.454972</td>
-      <td>6.454972</td>
-      <td>6.454972</td>
-      <td>6.454972</td>
-      <td>6.454972</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>0.000000</td>
-      <td>1.000000</td>
-      <td>2.000000</td>
-      <td>3.000000</td>
-      <td>4.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>3.750000</td>
-      <td>4.750000</td>
-      <td>5.750000</td>
-      <td>6.750000</td>
-      <td>7.750000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>7.500000</td>
-      <td>8.500000</td>
-      <td>9.500000</td>
-      <td>10.500000</td>
-      <td>11.500000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>11.250000</td>
-      <td>12.250000</td>
-      <td>13.250000</td>
-      <td>14.250000</td>
-      <td>15.250000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>15.000000</td>
-      <td>16.000000</td>
-      <td>17.000000</td>
-      <td>18.000000</td>
-      <td>19.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>官方文档：<a href="https://pandas.pydata.org/pandas-docs/stable/index.html" target="_blank" rel="noopener">https://pandas.pydata.org/pandas-docs/stable/index.html</a></p>
 
             </div>
             <hr/>
@@ -1099,12 +1047,60 @@ b<span class="token punctuation">.</span>describe<span class="token punctuation"
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/48ab.html">
+                <a href="/posts/c1cc.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/python.png" class="responsive-img" alt="numpy模块">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-1.jpg" class="responsive-img" alt="一次决策树作业">
                         
-                        <span class="card-title">numpy模块</span>
+                        <span class="card-title">一次决策树作业</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            ID3算法+Titanic数据集
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/">
+                        <span class="chip bg-color">决策树</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/820c.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/python.png" class="responsive-img" alt="python面向对象">
+                        
+                        <span class="card-title">python面向对象</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1114,9 +1110,9 @@ b<span class="token punctuation">.</span>describe<span class="token punctuation"
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1132,60 +1128,8 @@ b<span class="token punctuation">.</span>describe<span class="token punctuation"
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python%E6%A8%A1%E5%9D%97/">
-                        <span class="chip bg-color">python模块</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                        <span class="chip bg-color">数据分析</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/2174.html">
-                    <div class="card-image">
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/16.jpg" class="responsive-img" alt="HTTP协议">
-                        
-                        <span class="card-title">HTTP协议</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            http初步
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-10
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
-                                    计算机网络
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/HTTP/">
-                        <span class="chip bg-color">HTTP</span>
+                    <a href="/tags/oop/">
+                        <span class="chip bg-color">oop</span>
                     </a>
                     
                 </div>
@@ -1392,7 +1336,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">118.3k</span>&nbsp;字
+                class="white-color">120.2k</span>&nbsp;字
             
             
             

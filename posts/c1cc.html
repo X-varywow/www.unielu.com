@@ -496,21 +496,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-15
+                    2021-04-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-14
+                    2021-04-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    20
+                    1.5k
                 </div>
                 
 
@@ -522,7 +522,200 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>根据信息增益，计算出合理的属性分支，构造出树。</p>
+                <h3 id="1-作业要求"><a href="#1-作业要求" class="headerlink" title="1. 作业要求"></a>1. 作业要求</h3><p>（1）实现ID3算法构建决策树模型。属性分类能力指标请使用信息增益比率（Information Gain Ratio）；可以不实现剪枝操作。<br>（2）使用泰坦尼克号生存预测数据集进行模型训练和预测，并学习pandas模块</p>
+<hr>
+<h3 id="2-关于决策树"><a href="#2-关于决策树" class="headerlink" title="2. 关于决策树"></a>2. 关于决策树</h3><p>决策树（decision tree）时一种基本的分类和回归方法。<br>决策树学习通常包含三个步骤：特征选择、决策树生成和决策树修剪。</p>
+<p>（1）决策树的生成，往往通过计算信息增益或其它指标，从根节点开始，递归地生成树。<br>这相当于用信息增益或其他准则不断地选取局部最优的特征，或将训练集分割为能够基本正确分类的子集。</p>
+<p>（2）决策树的剪枝。由于生成的决策树存在过拟合问题，需要对它进行剪枝，以简化学到的决策树。</p>
+<hr>
+<h3 id="3-关于信息增益比"><a href="#3-关于信息增益比" class="headerlink" title="3. 关于信息增益比"></a>3. 关于信息增益比</h3><p>（1）样本集合$D$对特征$A$的信息增益</p>
+<p>$$g(D, A)=H(D)-H(D|A)$$</p>
+<p>$$H(D)=-\sum_{k=1}^{K}\frac{|C_{k}|}{|D|}log_{2}\frac{|C_{k}|}{|D|}$$</p>
+<p>$$H(D | A)=\sum_{i=1}^{n} \frac{|D_{i}|}{|D|} H(D_{i})$$</p>
+<p>其中，$H(D)$是数据集$D$的熵，$H(D_i)$是数据集$D_i$的熵，$H(D|A)$是数据集$D$对特征$A$的条件熵。    $D_i$是$D$中特征$A$取第$i$个值的样本子集，$C_k$是$D$中属于第$k$类的样本子集。$n$是特征$A$取 值的个数，$K$是类的个数。</p>
+<p>（2）特征 $A$ 对训练数据集 $D$ 的信息增益比：</p>
+<p>$$g_R(D, A)=\frac{g(D, A)}{H_A(D)}$$</p>
+<p>其中，$g(D,A)$是信息增益，$H_A(D)$是数据数据集 $D$ 关于特征 $A$ 的值的熵。</p>
+<p>$$H_A(D)=-\sum_{i=1}^n\frac{|D_i|}{D}log_2\frac{|D_i|}{D}$$</p>
+<p>（3）一个计算信息增益的实例</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 最后一列是数据集D的标签</span>
+datasets <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'青年'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'一般'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+               <span class="token punctuation">[</span><span class="token string">'青年'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'好'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+               <span class="token punctuation">[</span><span class="token string">'青年'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'好'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+               <span class="token punctuation">[</span><span class="token string">'青年'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">,</span> <span class="token string">'一般'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+               <span class="token punctuation">[</span><span class="token string">'青年'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'一般'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+               <span class="token punctuation">[</span><span class="token string">'中年'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'一般'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+               <span class="token punctuation">[</span><span class="token string">'中年'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'好'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+               <span class="token punctuation">[</span><span class="token string">'中年'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">,</span> <span class="token string">'好'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+               <span class="token punctuation">[</span><span class="token string">'中年'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">,</span> <span class="token string">'非常好'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+               <span class="token punctuation">[</span><span class="token string">'中年'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">,</span> <span class="token string">'非常好'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+               <span class="token punctuation">[</span><span class="token string">'老年'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">,</span> <span class="token string">'非常好'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+               <span class="token punctuation">[</span><span class="token string">'老年'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">,</span> <span class="token string">'好'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+               <span class="token punctuation">[</span><span class="token string">'老年'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'好'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+               <span class="token punctuation">[</span><span class="token string">'老年'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'非常好'</span><span class="token punctuation">,</span> <span class="token string">'是'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+               <span class="token punctuation">[</span><span class="token string">'老年'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">,</span> <span class="token string">'一般'</span><span class="token punctuation">,</span> <span class="token string">'否'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+               <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li><p>首先计算经验熵 $H(D)$<br>$$H(D)=-\frac{9}{15}log_2\frac{9}{15}-\frac{6}{15}log_2\frac{6}{15}=0.971$$</p>
+</li>
+<li><p>然后计算各特征对数据集D的信息增益<br>$$g(D,A_1)=H(D)-[\frac{5}{15}H(D_1)+\frac{5}{15}H(D_2)+\frac{5}{15}H(D_3)]=0.083$$<br>$D_1$, $D_2$, $D_3$ 分别表示$A_1$（年龄）取定值时，数据集 D 的子集。</p>
+<p>$H(D_1)$计算方法同第一步。</p>
+<p>$$g(D,A_2)=0.324, g(D,A_3)=0.420, g(D,A_4)=0.363$$</p>
+</li>
+<li><p>根据信息增益，将$A_3$作为最优特征</p>
+</li>
+</ol>
+<hr>
+<h3 id="4-代码实现"><a href="#4-代码实现" class="headerlink" title="4. 代码实现"></a>4. 代码实现</h3><h4 id="4-1-数据处理"><a href="#4-1-数据处理" class="headerlink" title="4.1 数据处理"></a>4.1 数据处理</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+
+<span class="token keyword">def</span> <span class="token function">process_data</span><span class="token punctuation">(</span>train<span class="token punctuation">,</span> test<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    train <span class="token operator">=</span> train<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'PassengerId'</span><span class="token punctuation">,</span><span class="token string">'Name'</span><span class="token punctuation">,</span><span class="token string">'Ticket'</span><span class="token punctuation">,</span> <span class="token string">'Fare'</span><span class="token punctuation">,</span> <span class="token string">'Cabin'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> axis <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>train<span class="token punctuation">.</span>columns<span class="token punctuation">)</span>
+
+    mean_age <span class="token operator">=</span> train<span class="token punctuation">[</span><span class="token string">'Age'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>median<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    train<span class="token punctuation">[</span><span class="token string">'Age'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train<span class="token punctuation">[</span><span class="token string">'Age'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>fillna<span class="token punctuation">(</span>mean_age<span class="token punctuation">)</span>
+    train<span class="token punctuation">[</span><span class="token string">"Embarked"</span><span class="token punctuation">]</span> <span class="token operator">=</span> train<span class="token punctuation">[</span><span class="token string">"Embarked"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>fillna<span class="token punctuation">(</span><span class="token string">'S'</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">age_fun</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> x <span class="token operator">&lt;</span> <span class="token number">12</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"children"</span>
+        <span class="token keyword">elif</span> x <span class="token operator">&lt;</span> <span class="token number">18</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"teenager"</span>
+        <span class="token keyword">elif</span> x <span class="token operator">&lt;</span> <span class="token number">65</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"audlt"</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"old"</span>
+
+    <span class="token keyword">def</span> <span class="token function">sib_fun</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> x <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"no"</span>
+        <span class="token keyword">elif</span> x <span class="token operator">&lt;=</span> <span class="token number">3</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"few"</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"many"</span>
+
+    train<span class="token punctuation">[</span><span class="token string">"Age"</span><span class="token punctuation">]</span> <span class="token operator">=</span> train<span class="token punctuation">[</span><span class="token string">"Age"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>apply<span class="token punctuation">(</span>age_fun<span class="token punctuation">)</span>
+    train<span class="token punctuation">[</span><span class="token string">"SibSp"</span><span class="token punctuation">]</span> <span class="token operator">=</span> train<span class="token punctuation">[</span><span class="token string">"SibSp"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>apply<span class="token punctuation">(</span>sib_fun<span class="token punctuation">)</span>
+    train<span class="token punctuation">[</span><span class="token string">"Parch"</span><span class="token punctuation">]</span> <span class="token operator">=</span> train<span class="token punctuation">[</span><span class="token string">"Parch"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>apply<span class="token punctuation">(</span>sib_fun<span class="token punctuation">)</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"{:*^50}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">" train "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> feature <span class="token keyword">in</span> train<span class="token punctuation">.</span>columns<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>feature<span class="token punctuation">,</span> <span class="token string">": "</span><span class="token punctuation">,</span>  train<span class="token punctuation">[</span>feature<span class="token punctuation">]</span><span class="token punctuation">.</span>unique<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    test <span class="token operator">=</span> test<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'PassengerId'</span><span class="token punctuation">,</span><span class="token string">'Name'</span><span class="token punctuation">,</span><span class="token string">'Ticket'</span><span class="token punctuation">,</span> <span class="token string">'Fare'</span><span class="token punctuation">,</span> <span class="token string">'Cabin'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> axis <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    test<span class="token punctuation">[</span><span class="token string">"Age"</span><span class="token punctuation">]</span> <span class="token operator">=</span> test<span class="token punctuation">[</span><span class="token string">"Age"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>fillna<span class="token punctuation">(</span>mean_age<span class="token punctuation">)</span>
+    test<span class="token punctuation">[</span><span class="token string">"Embarked"</span><span class="token punctuation">]</span> <span class="token operator">=</span> test<span class="token punctuation">[</span><span class="token string">"Embarked"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>fillna<span class="token punctuation">(</span><span class="token string">'S'</span><span class="token punctuation">)</span>
+
+    test<span class="token punctuation">[</span><span class="token string">"Age"</span><span class="token punctuation">]</span> <span class="token operator">=</span> test<span class="token punctuation">[</span><span class="token string">"Age"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>apply<span class="token punctuation">(</span>age_fun<span class="token punctuation">)</span>
+    test<span class="token punctuation">[</span><span class="token string">"SibSp"</span><span class="token punctuation">]</span> <span class="token operator">=</span> test<span class="token punctuation">[</span><span class="token string">"SibSp"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>apply<span class="token punctuation">(</span>sib_fun<span class="token punctuation">)</span>
+    test<span class="token punctuation">[</span><span class="token string">"Parch"</span><span class="token punctuation">]</span> <span class="token operator">=</span> test<span class="token punctuation">[</span><span class="token string">"Parch"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>apply<span class="token punctuation">(</span>sib_fun<span class="token punctuation">)</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"{:*^50}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">" test "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> feature <span class="token keyword">in</span> test<span class="token punctuation">.</span>columns<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>feature<span class="token punctuation">,</span> <span class="token string">": "</span><span class="token punctuation">,</span>  test<span class="token punctuation">[</span>feature<span class="token punctuation">]</span><span class="token punctuation">.</span>unique<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> train<span class="token punctuation">,</span> test
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    train_data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">"train.csv"</span><span class="token punctuation">)</span>
+    test_data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">"test.csv"</span><span class="token punctuation">)</span>
+    train_data<span class="token punctuation">,</span> test_data <span class="token operator">=</span> process_data<span class="token punctuation">(</span>train_data<span class="token punctuation">,</span> test_data<span class="token punctuation">)</span>
+
+train_data<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="4-2-计算熵"><a href="#4-2-计算熵" class="headerlink" title="4.2 计算熵"></a>4.2 计算熵</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> collections <span class="token keyword">import</span> Counter
+<span class="token keyword">from</span> math <span class="token keyword">import</span> log
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+
+<span class="token keyword">def</span> <span class="token function">calc_ent</span><span class="token punctuation">(</span>datasets<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    n <span class="token operator">=</span> len<span class="token punctuation">(</span>datasets<span class="token punctuation">)</span>
+    d <span class="token operator">=</span> Counter<span class="token punctuation">(</span><span class="token punctuation">[</span>datasets<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 计数器,参考collections模块</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token punctuation">(</span>p<span class="token operator">/</span>n<span class="token punctuation">)</span><span class="token operator">*</span>log<span class="token punctuation">(</span>p<span class="token operator">/</span>n<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">for</span> p <span class="token keyword">in</span> d<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+calc_ent<span class="token punctuation">(</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>train_data<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 找不到train_data的话，将第一步的train_data放入全局</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="4-3-计算信息增益比率"><a href="#4-3-计算信息增益比率" class="headerlink" title="4.3 计算信息增益比率"></a>4.3 计算信息增益比率</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> collections <span class="token keyword">import</span> Counter<span class="token punctuation">,</span> defaultdict
+<span class="token keyword">from</span> math <span class="token keyword">import</span> log
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+
+<span class="token comment" spellcheck="true">#计算熵</span>
+<span class="token keyword">def</span> <span class="token function">calc_ent</span><span class="token punctuation">(</span>datasets<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    n <span class="token operator">=</span> len<span class="token punctuation">(</span>datasets<span class="token punctuation">)</span>
+    d <span class="token operator">=</span> Counter<span class="token punctuation">(</span><span class="token punctuation">[</span>datasets<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> 
+    <span class="token keyword">return</span> sum<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token punctuation">(</span>p<span class="token operator">/</span>n<span class="token punctuation">)</span><span class="token operator">*</span>log<span class="token punctuation">(</span>p<span class="token operator">/</span>n<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">for</span> p <span class="token keyword">in</span> d<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#计算经验条件熵</span>
+<span class="token keyword">def</span> <span class="token function">cond_ent</span><span class="token punctuation">(</span>datasets<span class="token punctuation">,</span> feature_col<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    n <span class="token operator">=</span> len<span class="token punctuation">(</span>datasets<span class="token punctuation">)</span>
+    d <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        feature <span class="token operator">=</span> datasets<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>feature_col<span class="token punctuation">]</span>
+        d<span class="token punctuation">[</span>feature<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>datasets<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span>len<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token operator">/</span>n<span class="token punctuation">)</span><span class="token operator">*</span>calc_ent<span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token keyword">for</span> p <span class="token keyword">in</span> d<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#计算数据集 D 关于特征 A 的熵</span>
+<span class="token keyword">def</span> <span class="token function">calc_had</span><span class="token punctuation">(</span>datasets<span class="token punctuation">,</span>feature_col<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    n <span class="token operator">=</span> len<span class="token punctuation">(</span>datasets<span class="token punctuation">)</span>
+    d <span class="token operator">=</span> Counter<span class="token punctuation">(</span><span class="token punctuation">[</span>datasets<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>feature_col<span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>feature_col<span class="token punctuation">,</span>d<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token punctuation">(</span>p<span class="token operator">/</span>n<span class="token punctuation">)</span><span class="token operator">*</span>log<span class="token punctuation">(</span>p<span class="token operator">/</span>n<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">for</span> p <span class="token keyword">in</span> d<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token triple-quoted-string string">"""
+def info_gain(datasets, feature_col):
+    return calc_ent(datasets) - cond_ent(datasets, feature_col)
+
+#按书上例子测试，这里没问题
+"""</span>
+
+<span class="token comment" spellcheck="true"># 信息增益比率</span>
+<span class="token keyword">def</span> <span class="token function">info_gain_ratio</span><span class="token punctuation">(</span>datasets<span class="token punctuation">,</span> feature_col<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    ent <span class="token operator">=</span> calc_ent<span class="token punctuation">(</span>datasets<span class="token punctuation">)</span>
+    ce <span class="token operator">=</span> cond_ent<span class="token punctuation">(</span>datasets<span class="token punctuation">,</span> feature_col<span class="token punctuation">)</span>
+    had <span class="token operator">=</span> calc_had<span class="token punctuation">(</span>datasets<span class="token punctuation">,</span> feature_col<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>ent<span class="token operator">-</span>ce<span class="token punctuation">)</span><span class="token operator">/</span>had
+
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>info_gain_ratio<span class="token punctuation">(</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>train_data<span class="token punctuation">)</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#默认第 0 列为label, 1-6为属性</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="4-4-建树"><a href="#4-4-建树" class="headerlink" title="4.4 建树"></a>4.4 建树</h4><h4 id="4-5-完整代码"><a href="#4-5-完整代码" class="headerlink" title="4.5 完整代码"></a>4.5 完整代码</h4><h3 id="5-决策树的可视化"><a href="#5-决策树的可视化" class="headerlink" title="5. 决策树的可视化"></a>5. 决策树的可视化</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> graphviz <span class="token keyword">import</span> Digraph
+
+
+<span class="token keyword">def</span> <span class="token function">plot_model</span><span class="token punctuation">(</span>tree<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    g <span class="token operator">=</span> Digraph<span class="token punctuation">(</span><span class="token string">"G"</span><span class="token punctuation">,</span> filename<span class="token operator">=</span>name<span class="token punctuation">,</span> format<span class="token operator">=</span><span class="token string">'png'</span><span class="token punctuation">,</span> strict<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    first_label <span class="token operator">=</span> list<span class="token punctuation">(</span>tree<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    g<span class="token punctuation">.</span>node<span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">,</span> first_label<span class="token punctuation">)</span>
+    _sub_plot<span class="token punctuation">(</span>g<span class="token punctuation">,</span> tree<span class="token punctuation">,</span> <span class="token string">"0"</span><span class="token punctuation">)</span>
+    g<span class="token punctuation">.</span>view<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+root <span class="token operator">=</span> <span class="token string">"0"</span>
+
+
+<span class="token keyword">def</span> <span class="token function">_sub_plot</span><span class="token punctuation">(</span>g<span class="token punctuation">,</span> tree<span class="token punctuation">,</span> inc<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">global</span> root
+
+    first_label <span class="token operator">=</span> list<span class="token punctuation">(</span>tree<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    ts <span class="token operator">=</span> tree<span class="token punctuation">[</span>first_label<span class="token punctuation">]</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> ts<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> isinstance<span class="token punctuation">(</span>tree<span class="token punctuation">[</span>first_label<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> dict<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            root <span class="token operator">=</span> str<span class="token punctuation">(</span>int<span class="token punctuation">(</span>root<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+            g<span class="token punctuation">.</span>node<span class="token punctuation">(</span>root<span class="token punctuation">,</span> list<span class="token punctuation">(</span>tree<span class="token punctuation">[</span>first_label<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            g<span class="token punctuation">.</span>edge<span class="token punctuation">(</span>inc<span class="token punctuation">,</span> root<span class="token punctuation">,</span> str<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            _sub_plot<span class="token punctuation">(</span>g<span class="token punctuation">,</span> tree<span class="token punctuation">[</span>first_label<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> root<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            root <span class="token operator">=</span> str<span class="token punctuation">(</span>int<span class="token punctuation">(</span>root<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+            g<span class="token punctuation">.</span>node<span class="token punctuation">(</span>root<span class="token punctuation">,</span> tree<span class="token punctuation">[</span>first_label<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            g<span class="token punctuation">.</span>edge<span class="token punctuation">(</span>inc<span class="token punctuation">,</span> root<span class="token punctuation">,</span> str<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+d1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"no surfacing"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">:</span> <span class="token string">"no"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"flippers"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">:</span> <span class="token string">"no"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">:</span> <span class="token string">"yes"</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+d2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'tearRate'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">'reduced'</span><span class="token punctuation">:</span> <span class="token string">'no lenses'</span><span class="token punctuation">,</span> <span class="token string">'normal'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">'astigmatic'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">'yes'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'prescript'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">'myope'</span><span class="token punctuation">:</span> <span class="token string">'hard'</span><span class="token punctuation">,</span> <span class="token string">'hyper'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">'young'</span><span class="token punctuation">:</span> <span class="token string">'hard'</span><span class="token punctuation">,</span> <span class="token string">'presbyopic'</span><span class="token punctuation">:</span> <span class="token string">'no lenses'</span><span class="token punctuation">,</span> <span class="token string">'pre'</span><span class="token punctuation">:</span> <span class="token string">'no lenses'</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">'no'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">'young'</span><span class="token punctuation">:</span> <span class="token string">'soft'</span><span class="token punctuation">,</span> <span class="token string">'presbyopic'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">'prescript'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">'myope'</span><span class="token punctuation">:</span> <span class="token string">'no lenses'</span><span class="token punctuation">,</span>
+                      <span class="token string">'hyper'</span><span class="token punctuation">:</span> <span class="token string">'soft'</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+                   <span class="token string">'pre'</span><span class="token punctuation">:</span> <span class="token string">'soft'</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+plot_model<span class="token punctuation">(</span>d1<span class="token punctuation">,</span> <span class="token string">"hello"</span><span class="token punctuation">)</span>
+plot_model<span class="token punctuation">(</span>d2<span class="token punctuation">,</span> <span class="token string">"hello2"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>测试代码会报错：<code>GraphViz&#39;s executables not found</code></p>
+<p>然后去安装软件，<a href="http://www.graphviz.org/download/" target="_blank" rel="noopener">http://www.graphviz.org/download/</a></p>
+<p>安装时勾选：加入到所有用户的系统路径。</p>
+<p>重新打开 <em>jupyter</em> 并运行测试代码<br>成功后，会用图片管理器打开决策树的可视化图。<a href="https://img-blog.csdnimg.cn/20210417105544460.png" target="_blank" rel="noopener">如图</a></p>
 
             </div>
             <hr/>
@@ -908,12 +1101,12 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            ID3算法+Titanic数据集
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-17
                             </span>
                         <span class="publish-author">
                             
@@ -946,12 +1139,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/820c.html">
+                <a href="/posts/c3aa.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/python.png" class="responsive-img" alt="python面向对象">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/python.png" class="responsive-img" alt="pandas模块">
                         
-                        <span class="card-title">python面向对象</span>
+                        <span class="card-title">pandas模块</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -962,7 +1155,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-17
                             </span>
                         <span class="publish-author">
                             
@@ -979,8 +1172,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/oop/">
-                        <span class="chip bg-color">oop</span>
+                    <a href="/tags/python%E6%A8%A1%E5%9D%97/">
+                        <span class="chip bg-color">python模块</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">数据分析</span>
                     </a>
                     
                 </div>
@@ -1119,6 +1316,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -1187,7 +1391,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">118.3k</span>&nbsp;字
+                class="white-color">120.2k</span>&nbsp;字
             
             
             
