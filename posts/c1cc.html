@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-17
+                    2021-04-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    2.5k
                 </div>
                 
 
@@ -670,7 +670,267 @@ def info_gain(datasets, feature_col):
     <span class="token keyword">print</span><span class="token punctuation">(</span>info_gain_ratio<span class="token punctuation">(</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>train_data<span class="token punctuation">)</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token comment" spellcheck="true">#默认第 0 列为label, 1-6为属性</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="4-4-建树"><a href="#4-4-建树" class="headerlink" title="4.4 建树"></a>4.4 建树</h4><h4 id="4-5-完整代码"><a href="#4-5-完整代码" class="headerlink" title="4.5 完整代码"></a>4.5 完整代码</h4><h3 id="5-决策树的可视化"><a href="#5-决策树的可视化" class="headerlink" title="5. 决策树的可视化"></a>5. 决策树的可视化</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> graphviz <span class="token keyword">import</span> Digraph
+<h4 id="4-4-建树"><a href="#4-4-建树" class="headerlink" title="4.4 建树"></a>4.4 建树</h4><p>造轮子好麻烦…</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 没有按照老师的来</span>
+<span class="token comment" spellcheck="true"># 建好之后如果self.can_use == [] 表示出结果了，结果的 0-1 放在了 self.datasets中</span>
+
+<span class="token comment" spellcheck="true">#写递归或迭代程序时，主要要注意出口</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> datasets<span class="token punctuation">,</span> can_use<span class="token punctuation">,</span> feature <span class="token operator">=</span> None<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>datasets <span class="token operator">=</span> datasets
+        self<span class="token punctuation">.</span>can_use <span class="token operator">=</span> can_use
+        self<span class="token punctuation">.</span>feature <span class="token operator">=</span> feature
+        self<span class="token punctuation">.</span>children <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">DTree</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">def</span> <span class="token function">check</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> datasets<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        n <span class="token operator">=</span> len<span class="token punctuation">(</span>datasets<span class="token punctuation">)</span>
+        d <span class="token operator">=</span> Counter<span class="token punctuation">(</span><span class="token punctuation">[</span>datasets<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> 
+        <span class="token keyword">if</span> len<span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">True</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">compu</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> datasets<span class="token punctuation">,</span> col<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        ans <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        feature <span class="token operator">=</span> cols<span class="token punctuation">[</span>col<span class="token punctuation">]</span>
+        <span class="token keyword">for</span> val <span class="token keyword">in</span> dic<span class="token punctuation">[</span>feature<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            new_data <span class="token operator">=</span> <span class="token punctuation">[</span>row <span class="token keyword">for</span> row <span class="token keyword">in</span> datasets <span class="token keyword">if</span> row<span class="token punctuation">[</span>col<span class="token punctuation">]</span><span class="token operator">==</span>val<span class="token punctuation">]</span>
+            n <span class="token operator">=</span> len<span class="token punctuation">(</span>new_data<span class="token punctuation">)</span>
+            d <span class="token operator">=</span> Counter<span class="token punctuation">(</span><span class="token punctuation">[</span>new_data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> d<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">>=</span>d<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                ans<span class="token punctuation">[</span>val<span class="token punctuation">]</span> <span class="token operator">=</span> Node<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>               <span class="token comment" spellcheck="true">#判定为存活</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span> 
+                ans<span class="token punctuation">[</span>val<span class="token punctuation">]</span> <span class="token operator">=</span> Node<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ans
+
+
+    <span class="token keyword">def</span> <span class="token function">train</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> len<span class="token punctuation">(</span>root<span class="token punctuation">.</span>can_use<span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span>
+            col <span class="token operator">=</span> root<span class="token punctuation">.</span>can_use<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            root<span class="token punctuation">.</span>feature <span class="token operator">=</span> cols<span class="token punctuation">[</span>col<span class="token punctuation">]</span>
+            root<span class="token punctuation">.</span>children <span class="token operator">=</span> self<span class="token punctuation">.</span>compu<span class="token punctuation">(</span>root<span class="token punctuation">.</span>datasets<span class="token punctuation">,</span> col<span class="token punctuation">)</span>
+
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+
+            <span class="token comment" spellcheck="true">#print("--------------",root.can_use)</span>
+
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>check<span class="token punctuation">(</span>root<span class="token punctuation">.</span>datasets<span class="token punctuation">)</span><span class="token punctuation">:</span>   <span class="token comment" spellcheck="true">#全部为正例或反例</span>
+                ans <span class="token operator">=</span> root<span class="token punctuation">.</span>datasets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+                root<span class="token punctuation">.</span>datasets <span class="token operator">=</span> ans
+                root<span class="token punctuation">.</span>can_use <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+                <span class="token keyword">return</span> 
+
+            idx<span class="token punctuation">,</span> max_ratio <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> root<span class="token punctuation">.</span>can_use<span class="token punctuation">:</span>
+                ratio <span class="token operator">=</span> info_gain_ratio<span class="token punctuation">(</span>root<span class="token punctuation">.</span>datasets<span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> ratio <span class="token operator">>=</span> max_ratio<span class="token punctuation">:</span>
+                    idx <span class="token operator">=</span> i
+                    max_ratio <span class="token operator">=</span>ratio
+
+            root<span class="token punctuation">.</span>feature <span class="token operator">=</span> cols<span class="token punctuation">[</span>idx<span class="token punctuation">]</span>
+            <span class="token comment" spellcheck="true">#print("!!",root.feature)</span>
+            <span class="token comment" spellcheck="true">#print(root.can_use,root.feature, idx)</span>
+            <span class="token keyword">for</span> feature_val <span class="token keyword">in</span> dic<span class="token punctuation">[</span>root<span class="token punctuation">.</span>feature<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                <span class="token comment" spellcheck="true">#print(feature_val)</span>
+                new_data <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span>row <span class="token keyword">for</span> row <span class="token keyword">in</span> root<span class="token punctuation">.</span>datasets <span class="token keyword">if</span> row<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token operator">==</span>feature_val<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                root<span class="token punctuation">.</span>children<span class="token punctuation">[</span>feature_val<span class="token punctuation">]</span> <span class="token operator">=</span> Node<span class="token punctuation">(</span>new_data<span class="token punctuation">,</span> <span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> root<span class="token punctuation">.</span>can_use <span class="token keyword">if</span> i<span class="token operator">!=</span>idx<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                self<span class="token punctuation">.</span>train<span class="token punctuation">(</span>root<span class="token punctuation">.</span>children<span class="token punctuation">[</span>feature_val<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">,</span> tmp<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        p <span class="token operator">=</span> root
+        <span class="token keyword">while</span> p<span class="token punctuation">.</span>can_use <span class="token operator">!=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true">#print(p.feature)</span>
+            <span class="token comment" spellcheck="true">#print(re_cols[p.feature])</span>
+            <span class="token comment" spellcheck="true">#print(tmp[re_cols[p.feature]])</span>
+            x <span class="token operator">=</span> tmp<span class="token punctuation">[</span>re_cols<span class="token punctuation">[</span>p<span class="token punctuation">.</span>feature<span class="token punctuation">]</span><span class="token punctuation">]</span>
+            <span class="token keyword">if</span> x <span class="token operator">not</span> <span class="token keyword">in</span> p<span class="token punctuation">.</span>children<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> p<span class="token punctuation">.</span>children
+            p <span class="token operator">=</span> p<span class="token punctuation">.</span>children<span class="token punctuation">[</span>x<span class="token punctuation">]</span>
+
+        <span class="token keyword">return</span> p<span class="token punctuation">.</span>datasets
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="4-5-完整代码"><a href="#4-5-完整代码" class="headerlink" title="4.5 完整代码"></a>4.5 完整代码</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> collections <span class="token keyword">import</span> Counter<span class="token punctuation">,</span> defaultdict
+<span class="token keyword">from</span> math <span class="token keyword">import</span> log
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+
+dic <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+cols <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Survived'</span><span class="token punctuation">,</span> <span class="token string">'Pclass'</span><span class="token punctuation">,</span> <span class="token string">'Sex'</span><span class="token punctuation">,</span> <span class="token string">'Age'</span><span class="token punctuation">,</span> <span class="token string">'SibSp'</span><span class="token punctuation">,</span> <span class="token string">'Parch'</span><span class="token punctuation">,</span> <span class="token string">'Embarked'</span><span class="token punctuation">]</span>
+re_cols <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'Sex'</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'Pclass'</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">'Age'</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'SibSp'</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'Parch'</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'Embarked'</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">}</span>
+
+<span class="token keyword">def</span> <span class="token function">process_data</span><span class="token punctuation">(</span>train<span class="token punctuation">,</span> test<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    train <span class="token operator">=</span> train<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'PassengerId'</span><span class="token punctuation">,</span><span class="token string">'Name'</span><span class="token punctuation">,</span><span class="token string">'Ticket'</span><span class="token punctuation">,</span> <span class="token string">'Fare'</span><span class="token punctuation">,</span> <span class="token string">'Cabin'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> axis <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>train<span class="token punctuation">.</span>columns<span class="token punctuation">)</span>
+
+    mean_age <span class="token operator">=</span> train<span class="token punctuation">[</span><span class="token string">'Age'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>median<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    train<span class="token punctuation">[</span><span class="token string">'Age'</span><span class="token punctuation">]</span> <span class="token operator">=</span> train<span class="token punctuation">[</span><span class="token string">'Age'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>fillna<span class="token punctuation">(</span>mean_age<span class="token punctuation">)</span>
+    train<span class="token punctuation">[</span><span class="token string">"Embarked"</span><span class="token punctuation">]</span> <span class="token operator">=</span> train<span class="token punctuation">[</span><span class="token string">"Embarked"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>fillna<span class="token punctuation">(</span><span class="token string">'S'</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">age_fun</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> x <span class="token operator">&lt;</span> <span class="token number">12</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"children"</span>
+        <span class="token keyword">elif</span> x <span class="token operator">&lt;</span> <span class="token number">18</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"teenager"</span>
+        <span class="token keyword">elif</span> x <span class="token operator">&lt;</span> <span class="token number">65</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"audlt"</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"old"</span>
+
+    <span class="token keyword">def</span> <span class="token function">sib_fun</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> x <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"no"</span>
+        <span class="token keyword">elif</span> x <span class="token operator">&lt;=</span> <span class="token number">3</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"few"</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">"many"</span>
+
+    train<span class="token punctuation">[</span><span class="token string">"Age"</span><span class="token punctuation">]</span> <span class="token operator">=</span> train<span class="token punctuation">[</span><span class="token string">"Age"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>apply<span class="token punctuation">(</span>age_fun<span class="token punctuation">)</span>
+    train<span class="token punctuation">[</span><span class="token string">"SibSp"</span><span class="token punctuation">]</span> <span class="token operator">=</span> train<span class="token punctuation">[</span><span class="token string">"SibSp"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>apply<span class="token punctuation">(</span>sib_fun<span class="token punctuation">)</span>
+    train<span class="token punctuation">[</span><span class="token string">"Parch"</span><span class="token punctuation">]</span> <span class="token operator">=</span> train<span class="token punctuation">[</span><span class="token string">"Parch"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>apply<span class="token punctuation">(</span>sib_fun<span class="token punctuation">)</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"{:*^50}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">" train "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> feature <span class="token keyword">in</span> train<span class="token punctuation">.</span>columns<span class="token punctuation">:</span>
+        dic<span class="token punctuation">[</span>feature<span class="token punctuation">]</span> <span class="token operator">=</span> train<span class="token punctuation">[</span>feature<span class="token punctuation">]</span><span class="token punctuation">.</span>unique<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>feature<span class="token punctuation">,</span> <span class="token string">": "</span><span class="token punctuation">,</span>  train<span class="token punctuation">[</span>feature<span class="token punctuation">]</span><span class="token punctuation">.</span>unique<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    test <span class="token operator">=</span> test<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'PassengerId'</span><span class="token punctuation">,</span><span class="token string">'Name'</span><span class="token punctuation">,</span><span class="token string">'Ticket'</span><span class="token punctuation">,</span> <span class="token string">'Fare'</span><span class="token punctuation">,</span> <span class="token string">'Cabin'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> axis <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    test<span class="token punctuation">[</span><span class="token string">"Age"</span><span class="token punctuation">]</span> <span class="token operator">=</span> test<span class="token punctuation">[</span><span class="token string">"Age"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>fillna<span class="token punctuation">(</span>mean_age<span class="token punctuation">)</span>
+    test<span class="token punctuation">[</span><span class="token string">"Embarked"</span><span class="token punctuation">]</span> <span class="token operator">=</span> test<span class="token punctuation">[</span><span class="token string">"Embarked"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>fillna<span class="token punctuation">(</span><span class="token string">'S'</span><span class="token punctuation">)</span>
+
+    test<span class="token punctuation">[</span><span class="token string">"Age"</span><span class="token punctuation">]</span> <span class="token operator">=</span> test<span class="token punctuation">[</span><span class="token string">"Age"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>apply<span class="token punctuation">(</span>age_fun<span class="token punctuation">)</span>
+    test<span class="token punctuation">[</span><span class="token string">"SibSp"</span><span class="token punctuation">]</span> <span class="token operator">=</span> test<span class="token punctuation">[</span><span class="token string">"SibSp"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>apply<span class="token punctuation">(</span>sib_fun<span class="token punctuation">)</span>
+    test<span class="token punctuation">[</span><span class="token string">"Parch"</span><span class="token punctuation">]</span> <span class="token operator">=</span> test<span class="token punctuation">[</span><span class="token string">"Parch"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>apply<span class="token punctuation">(</span>sib_fun<span class="token punctuation">)</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"{:*^50}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">" test "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> feature <span class="token keyword">in</span> test<span class="token punctuation">.</span>columns<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>feature<span class="token punctuation">,</span> <span class="token string">": "</span><span class="token punctuation">,</span>  test<span class="token punctuation">[</span>feature<span class="token punctuation">]</span><span class="token punctuation">.</span>unique<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> train<span class="token punctuation">,</span> test
+
+<span class="token comment" spellcheck="true">#计算熵</span>
+<span class="token keyword">def</span> <span class="token function">calc_ent</span><span class="token punctuation">(</span>datasets<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    n <span class="token operator">=</span> len<span class="token punctuation">(</span>datasets<span class="token punctuation">)</span>
+    d <span class="token operator">=</span> Counter<span class="token punctuation">(</span><span class="token punctuation">[</span>datasets<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> 
+    <span class="token keyword">return</span> sum<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token punctuation">(</span>p<span class="token operator">/</span>n<span class="token punctuation">)</span><span class="token operator">*</span>log<span class="token punctuation">(</span>p<span class="token operator">/</span>n<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">for</span> p <span class="token keyword">in</span> d<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#计算经验条件熵</span>
+<span class="token keyword">def</span> <span class="token function">cond_ent</span><span class="token punctuation">(</span>datasets<span class="token punctuation">,</span> feature_col<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    n <span class="token operator">=</span> len<span class="token punctuation">(</span>datasets<span class="token punctuation">)</span>
+    d <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        feature <span class="token operator">=</span> datasets<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>feature_col<span class="token punctuation">]</span>
+        d<span class="token punctuation">[</span>feature<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>datasets<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span>len<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token operator">/</span>n<span class="token punctuation">)</span><span class="token operator">*</span>calc_ent<span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token keyword">for</span> p <span class="token keyword">in</span> d<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#计算数据集 D 关于特征 A 的熵</span>
+<span class="token keyword">def</span> <span class="token function">calc_had</span><span class="token punctuation">(</span>datasets<span class="token punctuation">,</span>feature_col<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    n <span class="token operator">=</span> len<span class="token punctuation">(</span>datasets<span class="token punctuation">)</span>
+    d <span class="token operator">=</span> Counter<span class="token punctuation">(</span><span class="token punctuation">[</span>datasets<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>feature_col<span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#print(feature_col,d.items())</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token punctuation">(</span>p<span class="token operator">/</span>n<span class="token punctuation">)</span><span class="token operator">*</span>log<span class="token punctuation">(</span>p<span class="token operator">/</span>n<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">for</span> p <span class="token keyword">in</span> d<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token triple-quoted-string string">"""
+def info_gain(datasets, feature_col):
+    return calc_ent(datasets) - cond_ent(datasets, feature_col)
+"""</span>
+
+<span class="token comment" spellcheck="true"># 信息增益比率</span>
+<span class="token keyword">def</span> <span class="token function">info_gain_ratio</span><span class="token punctuation">(</span>datasets<span class="token punctuation">,</span> feature_col<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    ent <span class="token operator">=</span> calc_ent<span class="token punctuation">(</span>datasets<span class="token punctuation">)</span>
+    ce <span class="token operator">=</span> cond_ent<span class="token punctuation">(</span>datasets<span class="token punctuation">,</span> feature_col<span class="token punctuation">)</span>
+    had <span class="token operator">=</span> calc_had<span class="token punctuation">(</span>datasets<span class="token punctuation">,</span> feature_col<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> had<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>ent<span class="token operator">-</span>ce<span class="token punctuation">)</span><span class="token operator">/</span>had
+
+<span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> datasets<span class="token punctuation">,</span> can_use<span class="token punctuation">,</span> feature <span class="token operator">=</span> None<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>datasets <span class="token operator">=</span> datasets
+        self<span class="token punctuation">.</span>can_use <span class="token operator">=</span> can_use
+        self<span class="token punctuation">.</span>feature <span class="token operator">=</span> feature
+        self<span class="token punctuation">.</span>children <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">DTree</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">def</span> <span class="token function">check</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> datasets<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        n <span class="token operator">=</span> len<span class="token punctuation">(</span>datasets<span class="token punctuation">)</span>
+        d <span class="token operator">=</span> Counter<span class="token punctuation">(</span><span class="token punctuation">[</span>datasets<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> 
+        <span class="token keyword">if</span> len<span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">True</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">compu</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> datasets<span class="token punctuation">,</span> col<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        ans <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        feature <span class="token operator">=</span> cols<span class="token punctuation">[</span>col<span class="token punctuation">]</span>
+        <span class="token keyword">for</span> val <span class="token keyword">in</span> dic<span class="token punctuation">[</span>feature<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            new_data <span class="token operator">=</span> <span class="token punctuation">[</span>row <span class="token keyword">for</span> row <span class="token keyword">in</span> datasets <span class="token keyword">if</span> row<span class="token punctuation">[</span>col<span class="token punctuation">]</span><span class="token operator">==</span>val<span class="token punctuation">]</span>
+            n <span class="token operator">=</span> len<span class="token punctuation">(</span>new_data<span class="token punctuation">)</span>
+            d <span class="token operator">=</span> Counter<span class="token punctuation">(</span><span class="token punctuation">[</span>new_data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> d<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">>=</span>d<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                ans<span class="token punctuation">[</span>val<span class="token punctuation">]</span> <span class="token operator">=</span> Node<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>               <span class="token comment" spellcheck="true">#判定为存活</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span> 
+                ans<span class="token punctuation">[</span>val<span class="token punctuation">]</span> <span class="token operator">=</span> Node<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ans
+
+
+    <span class="token keyword">def</span> <span class="token function">train</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> len<span class="token punctuation">(</span>root<span class="token punctuation">.</span>can_use<span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span>
+            col <span class="token operator">=</span> root<span class="token punctuation">.</span>can_use<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            root<span class="token punctuation">.</span>feature <span class="token operator">=</span> cols<span class="token punctuation">[</span>col<span class="token punctuation">]</span>
+            root<span class="token punctuation">.</span>children <span class="token operator">=</span> self<span class="token punctuation">.</span>compu<span class="token punctuation">(</span>root<span class="token punctuation">.</span>datasets<span class="token punctuation">,</span> col<span class="token punctuation">)</span>
+
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+
+            <span class="token comment" spellcheck="true">#print("--------------",root.can_use)</span>
+
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>check<span class="token punctuation">(</span>root<span class="token punctuation">.</span>datasets<span class="token punctuation">)</span><span class="token punctuation">:</span>   <span class="token comment" spellcheck="true">#全部为正例或反例</span>
+                ans <span class="token operator">=</span> root<span class="token punctuation">.</span>datasets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+                root<span class="token punctuation">.</span>datasets <span class="token operator">=</span> ans
+                root<span class="token punctuation">.</span>can_use <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+                <span class="token keyword">return</span> 
+
+            idx<span class="token punctuation">,</span> max_ratio <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> root<span class="token punctuation">.</span>can_use<span class="token punctuation">:</span>
+                ratio <span class="token operator">=</span> info_gain_ratio<span class="token punctuation">(</span>root<span class="token punctuation">.</span>datasets<span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> ratio <span class="token operator">>=</span> max_ratio<span class="token punctuation">:</span>
+                    idx <span class="token operator">=</span> i
+                    max_ratio <span class="token operator">=</span>ratio
+
+            root<span class="token punctuation">.</span>feature <span class="token operator">=</span> cols<span class="token punctuation">[</span>idx<span class="token punctuation">]</span>
+            <span class="token comment" spellcheck="true">#print("!!",root.feature)</span>
+            <span class="token comment" spellcheck="true">#print(root.can_use,root.feature, idx)</span>
+            <span class="token keyword">for</span> feature_val <span class="token keyword">in</span> dic<span class="token punctuation">[</span>root<span class="token punctuation">.</span>feature<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                <span class="token comment" spellcheck="true">#print(feature_val)</span>
+                new_data <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span>row <span class="token keyword">for</span> row <span class="token keyword">in</span> root<span class="token punctuation">.</span>datasets <span class="token keyword">if</span> row<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token operator">==</span>feature_val<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                root<span class="token punctuation">.</span>children<span class="token punctuation">[</span>feature_val<span class="token punctuation">]</span> <span class="token operator">=</span> Node<span class="token punctuation">(</span>new_data<span class="token punctuation">,</span> <span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> root<span class="token punctuation">.</span>can_use <span class="token keyword">if</span> i<span class="token operator">!=</span>idx<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                self<span class="token punctuation">.</span>train<span class="token punctuation">(</span>root<span class="token punctuation">.</span>children<span class="token punctuation">[</span>feature_val<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">,</span> tmp<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        p <span class="token operator">=</span> root
+        <span class="token keyword">while</span> p<span class="token punctuation">.</span>can_use <span class="token operator">!=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true">#print(p.feature)</span>
+            <span class="token comment" spellcheck="true">#print(re_cols[p.feature])</span>
+            <span class="token comment" spellcheck="true">#print(tmp[re_cols[p.feature]])</span>
+            x <span class="token operator">=</span> tmp<span class="token punctuation">[</span>re_cols<span class="token punctuation">[</span>p<span class="token punctuation">.</span>feature<span class="token punctuation">]</span><span class="token punctuation">]</span>
+            <span class="token keyword">if</span> x <span class="token operator">not</span> <span class="token keyword">in</span> p<span class="token punctuation">.</span>children<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> p<span class="token punctuation">.</span>children
+            p <span class="token operator">=</span> p<span class="token punctuation">.</span>children<span class="token punctuation">[</span>x<span class="token punctuation">]</span>
+
+        <span class="token keyword">return</span> p<span class="token punctuation">.</span>datasets
+
+
+
+<span class="token comment" spellcheck="true">#if __name__ == "__main__":</span>
+train_data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">"train.csv"</span><span class="token punctuation">)</span>
+test_data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">"test.csv"</span><span class="token punctuation">)</span>
+train_data<span class="token punctuation">,</span> test_data <span class="token operator">=</span> process_data<span class="token punctuation">(</span>train_data<span class="token punctuation">,</span> test_data<span class="token punctuation">)</span>
+
+train_data <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>train_data<span class="token punctuation">)</span>
+root <span class="token operator">=</span> Node<span class="token punctuation">(</span>train_data<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"{:*^50}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">" predict the test "</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+dt <span class="token operator">=</span> DTree<span class="token punctuation">(</span><span class="token punctuation">)</span>
+dt<span class="token punctuation">.</span>train<span class="token punctuation">(</span>root<span class="token punctuation">)</span>
+
+test_data <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>test_data<span class="token punctuation">)</span>
+<span class="token keyword">for</span> data <span class="token keyword">in</span> test_data<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> dt<span class="token punctuation">.</span>test<span class="token punctuation">(</span>root<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5-决策树的可视化"><a href="#5-决策树的可视化" class="headerlink" title="5. 决策树的可视化"></a>5. 决策树的可视化</h3><p>树的结构不一样，前面的代码无法可视化。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> graphviz <span class="token keyword">import</span> Digraph
 
 
 <span class="token keyword">def</span> <span class="token function">plot_model</span><span class="token punctuation">(</span>tree<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -1391,7 +1651,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">120.4k</span>&nbsp;字
+                class="white-color">121.4k</span>&nbsp;字
             
             
             
