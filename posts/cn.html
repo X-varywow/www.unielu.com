@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-15
+                    2021-04-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.6k
+                    7.1k
                 </div>
                 
 
@@ -992,26 +992,45 @@
 <p><strong>ACK</strong>：即确认字符，通常ACK信号有自己固定的格式、长度大小，由接收方回复给发送方。</p>
 <p><strong>RTS</strong>（request to send）请求发送，<strong>CTS</strong>（clear to send）允许发送</p>
 <hr>
-<p>介质访问控制、静态/动态分配信道、AHLOHA协议、CSMA协议、<code>？？？</code></p>
-<hr>
-<p><strong>局域网</strong>，local area network</p>
+<h3 id="3-3-局域网"><a href="#3-3-局域网" class="headerlink" title="3.3 局域网"></a>3.3 局域网</h3><p><strong>局域网</strong>，local area network</p>
 <ul>
-<li>指在某一区域内的多台计算机互联成的计算机组，使用广播信道。</li>
-<li>通信延迟时间短，误码率低，可靠性较高</li>
+<li>指在某一区域内的多台计算机互联成的计算机组，共享介质的广播式分组交换网。</li>
 <li>网络拓扑结构<ul>
 <li>星型、环型、树型</li>
 <li>总线型（推荐）</li>
 </ul>
 </li>
+<li>特性：<ul>
+<li>跨距小</li>
+<li>速度快</li>
+<li>误码率低，可靠性高</li>
+<li>广播信道，多点连接</li>
 </ul>
-<p><strong>以太网</strong>（Ethernrt）是由Xerox公司创建的并由…联合开发的 <strong>基带总线局域网规范</strong> ，是当今现有局域网采用的最通用的通信协议标准。以太网使用 <code>CSMA/DA</code>（载波监听多路访问及冲突检测）技术。</p>
+</li>
+</ul>
 <hr>
+<p><strong>介质访问</strong></p>
+<ul>
+<li>局域网的中心问题是广播媒体的介质访问控制技术</li>
+<li>分类<ul>
+<li>静态分配：每个用户有自己的频段或时隙，不会冲突</li>
+<li>动态分配：信道在用户需要时，才进行分配<ul>
+<li>随机接入：争用，ALOHA技术，CSMA/CD</li>
+<li>受控接入：预约，轮转</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em>MAC</em> <strong>媒体访问控制层</strong>：控制传输及介质的访问，与接入各种媒体有关的问题都放在MAC层，不同LAN使用的介质访问方法不同。</p>
 <p>计算机通过<strong>通信适配器</strong>与外界局域网连接。</p>
 <p>适配器的ROM上有计算机硬件地址MAC地址。</p>
 <p>每个适配器有一个全球唯一的 <code>48</code> 位二进制地址，前24位代表厂家，后24位由厂家指定。</p>
 <p><strong>MAC地址</strong>（Media Access Control Address），称为局域网地址（LAN Address），MAC位址，以太网地址（Ethernet Address）或物理地址（Physical Address），它是一个用来确认网络设备位置的位址。</p>
 <hr>
 <p><code>IEEE 802.11</code> 是无线局域网的通用标准</p>
+<p><strong>以太网</strong>（Ethernrt）是由Xerox公司创建的并由…联合开发的 <strong>基带总线局域网规范</strong> ，是当今现有局域网采用的最通用的通信协议标准。以太网使用 <code>CSMA/DA</code>（载波监听多路访问及冲突检测）技术。</p>
 <p><strong>网段</strong>：一般指一个计算机网络中使用同一物理层设备（传输介质，中继器，集线器等）能够直接通讯的部分。</p>
 <p><strong>网桥</strong>：根据MAC帧的目的地址对帧进行转发和过滤。<br>【连接冲突域】<br>【可互连不同物理层、不同MAC子层和不同速率的以太网】</p>
 <p><strong>交换机</strong>：多接口网桥</p>
@@ -1041,7 +1060,7 @@
 <td>√</td>
 </tr>
 </tbody></table>
-<h3 id="3-3-HDLC协议"><a href="#3-3-HDLC协议" class="headerlink" title="3.3 HDLC协议"></a>3.3 HDLC协议</h3><p>广域网有两种常用的链路层协议：<code>PPP</code> 协议和 <code>HDLC</code> 协议.</p>
+<h3 id="3-4-HDLC协议"><a href="#3-4-HDLC协议" class="headerlink" title="3.4 HDLC协议"></a>3.4 HDLC协议</h3><p>广域网有两种常用的链路层协议：<code>PPP</code> 协议和 <code>HDLC</code> 协议.</p>
 <p><code>HDLC</code> （high-level data link control）是一种面向比特的网络节点之间同步传输数据的数据链路层协议。</p>
 <ul>
 <li>四个特点<ul>
@@ -1184,7 +1203,52 @@
 </li>
 </ul>
 <hr>
-<h3 id="5-2-端口"><a href="#5-2-端口" class="headerlink" title="5.2 端口"></a>5.2 端口</h3><p><strong>端口</strong>是传输层的SAP（服务接入点），标识主机中的应用进程</p>
+<h3 id="5-2-TCP协议"><a href="#5-2-TCP协议" class="headerlink" title="5.2 TCP协议"></a>5.2 TCP协议</h3><p><code>TCP</code> 是面向连接的、可靠的、基于字节流的传输层通信协议。</p>
+<div class="admonition info"><p class="admonition-title">1. 建立一个TCP连接需要的信息共识
+</p><ul>
+<li>Socket：由IP地址和端口号组成</li>
+<li>序列号：用来解决乱序问题</li>
+<li>窗口大小：用来做流量控制</li>
+</ul>
+</div>
+
+<div class="admonition info"><p class="admonition-title">2. 如何确定一个TCP连接
+</p><p>TCP四元组（源地址，源端口，目标地址，目标端口）</p>
+</div>
+
+<div class="admonition info"><p class="admonition-title">3. TCP 和 UDP 区别
+</p><ul>
+<li><code>连接</code></li>
+<li>TCP是面向连接，传输数据前需建立连接</li>
+<li>UDP无连接，即刻传输数据</li>
+<li><code>服务对象</code></li>
+<li>TCP是一对一的两点服务</li>
+<li>UDP支持一对一、一对多、多对多的交互通信</li>
+<li><code>可靠性</code></li>
+<li>TCP可靠交互数据</li>
+<li>UDP不保证可靠交互数据</li>
+<li><code>TCP拥有拥塞控制和流量控制机制</code></li>
+<li><code>传输方式</code></li>
+<li>TCP是流式传输，没有边界，但保证顺序和可靠</li>
+<li>UDP是一个一个包的发送，是有边界的，但可能会丢包和乱序</li>
+</ul>
+</div>
+
+<ul>
+<li>TCP应用场景<ul>
+<li>FTP文件传输</li>
+<li>HTTP/HTTPS</li>
+</ul>
+</li>
+<li>UDP应用场景<ul>
+<li>包总量较少的通信，如DNS、SNMP等</li>
+<li>视频，音频等多媒体通信</li>
+<li>广播通信</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="5-3-端口"><a href="#5-3-端口" class="headerlink" title="5.3 端口"></a>5.3 端口</h3><p><strong>端口</strong>是传输层的SAP（服务接入点），标识主机中的应用进程</p>
 <p>端口号只有本地意义，长度为<code>16bit</code>，能表示65536个不同的端口。</p>
 <ul>
 <li>端口号<ul>
@@ -2070,7 +2134,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">121.4k</span>&nbsp;字
+                class="white-color">122.2k</span>&nbsp;字
             
             
             
