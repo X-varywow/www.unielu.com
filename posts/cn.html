@@ -500,21 +500,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-08
+                    2021-04-22
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-20
+                    2021-04-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.1k
+                    7.3k
                 </div>
                 
 
@@ -1023,43 +1023,6 @@
 </li>
 </ul>
 <hr>
-<p><em>MAC</em> <strong>媒体访问控制层</strong>：控制传输及介质的访问，与接入各种媒体有关的问题都放在MAC层，不同LAN使用的介质访问方法不同。</p>
-<p>计算机通过<strong>通信适配器</strong>与外界局域网连接。</p>
-<p>适配器的ROM上有计算机硬件地址MAC地址。</p>
-<p>每个适配器有一个全球唯一的 <code>48</code> 位二进制地址，前24位代表厂家，后24位由厂家指定。</p>
-<p><strong>MAC地址</strong>（Media Access Control Address），称为局域网地址（LAN Address），MAC位址，以太网地址（Ethernet Address）或物理地址（Physical Address），它是一个用来确认网络设备位置的位址。</p>
-<hr>
-<p><code>IEEE 802.11</code> 是无线局域网的通用标准</p>
-<p><strong>以太网</strong>（Ethernrt）是由Xerox公司创建的并由…联合开发的 <strong>基带总线局域网规范</strong> ，是当今现有局域网采用的最通用的通信协议标准。以太网使用 <code>CSMA/DA</code>（载波监听多路访问及冲突检测）技术。</p>
-<p><strong>网段</strong>：一般指一个计算机网络中使用同一物理层设备（传输介质，中继器，集线器等）能够直接通讯的部分。</p>
-<p><strong>网桥</strong>：根据MAC帧的目的地址对帧进行转发和过滤。<br>【连接冲突域】<br>【可互连不同物理层、不同MAC子层和不同速率的以太网】</p>
-<p><strong>交换机</strong>：多接口网桥</p>
-<p><strong>冲突域</strong>：在同一个冲突域中，每个节点都能收到所有被发送的帧。<br><strong>广播域</strong>：网络中能接收任一设备发出的广播帧的所有设备的集合。</p>
-<p>.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>隔离冲突域</th>
-<th>隔离广播域</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>物理层设备（中继器，集线器）</td>
-<td>×</td>
-<td>×</td>
-</tr>
-<tr>
-<td>链路层设备（网桥，交换机）</td>
-<td>√</td>
-<td>×</td>
-</tr>
-<tr>
-<td>网络层设备（路由器）</td>
-<td>√</td>
-<td>√</td>
-</tr>
-</tbody></table>
 <h3 id="3-4-HDLC协议"><a href="#3-4-HDLC协议" class="headerlink" title="3.4 HDLC协议"></a>3.4 HDLC协议</h3><p>广域网有两种常用的链路层协议：<code>PPP</code> 协议和 <code>HDLC</code> 协议.</p>
 <p><code>HDLC</code> （high-level data link control）是一种面向比特的网络节点之间同步传输数据的数据链路层协议。</p>
 <ul>
@@ -1095,6 +1058,68 @@
 </li>
 </ul>
 <p>参考资料：<a href="https://blog.csdn.net/wangguchao/article/details/109595845" target="_blank" rel="noopener">https://blog.csdn.net/wangguchao/article/details/109595845</a></p>
+<hr>
+<h3 id="3-5-以太网"><a href="#3-5-以太网" class="headerlink" title="3.5 以太网"></a>3.5 以太网</h3><p><em>MAC</em> <strong>媒体访问控制层</strong>：控制传输及介质的访问，与接入各种媒体有关的问题都放在MAC层，不同LAN使用的介质访问方法不同。</p>
+<ul>
+<li>最小帧长：规定有效帧从DA~FCS，最短64字节</li>
+<li>争用期：发送数据开始后的时间2t</li>
+<li>最小包长：72字节，8先导+14头+46字节+4CRC<ul>
+<li>数据不足46字节时，要填充至46字节</li>
+<li>帧长&lt;72字节的帧是冲突碎片</li>
+</ul>
+</li>
+<li>最小包间隔：9.6us</li>
+</ul>
+<p>计算机通过<strong>通信适配器</strong>与外界局域网连接。</p>
+<p>适配器的ROM上有计算机硬件地址MAC地址。</p>
+<p>每个适配器有一个全球唯一的 <code>48</code> 位二进制地址，前24位代表厂家，后24位由厂家指定。</p>
+<p><strong>MAC地址</strong>（Media Access Control Address），称为局域网地址（LAN Address），MAC位址，以太网地址（Ethernet Address）或物理地址（Physical Address），它是一个用来确认网络设备位置的位址。</p>
+<hr>
+<p><code>IEEE 802.11</code> 是无线局域网的通用标准</p>
+<p><strong>以太网</strong>（Ethernrt）是由Xerox公司创建的并由…联合开发的 <strong>基带总线局域网规范</strong> ，是当今现有局域网采用的最通用的通信协议标准。以太网使用 <code>CSMA/DA</code>（载波监听多路访问及冲突检测）技术。</p>
+<ul>
+<li>以太网的服务 -&gt; 不可靠交付，<code>无连接</code>，<code>不发确认</code>。<ul>
+<li>因为：局域网信道的质量很好，发生差错概率很小</li>
+</ul>
+</li>
+<li>CSMA/CD, <em>Carrier Sense Multiple Access/Collision Detect</em><ul>
+<li>多点接入：总线网络，多台计算机连接在一根总线上</li>
+<li>载波监听：每个站在发送数据前要先检测总线上是否有其它计算机发送数据，避免冲突</li>
+<li>碰撞检测：边发送边监听</li>
+<li>特点：先听先发，边听边发，冲突停止，延迟重发</li>
+</ul>
+</li>
+<li>使用 CSMA/CD 的以太网不能进行全双工通信，只能进行双向交替通信（半双工通信）</li>
+</ul>
+<p><strong>网段</strong>：一般指一个计算机网络中使用同一物理层设备（传输介质，中继器，集线器等）能够直接通讯的部分。</p>
+<p><strong>网桥</strong>：根据MAC帧的目的地址对帧进行转发和过滤。<br>【连接冲突域】<br>【可互连不同物理层、不同MAC子层和不同速率的以太网】</p>
+<p><strong>交换机</strong>：多接口网桥</p>
+<p><strong>冲突域</strong>：在同一个冲突域中，每个节点都能收到所有被发送的帧。<br><strong>广播域</strong>：网络中能接收任一设备发出的广播帧的所有设备的集合。</p>
+<p>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>隔离冲突域</th>
+<th>隔离广播域</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>物理层设备（中继器，集线器）</td>
+<td>×</td>
+<td>×</td>
+</tr>
+<tr>
+<td>链路层设备（网桥，交换机）</td>
+<td>√</td>
+<td>×</td>
+</tr>
+<tr>
+<td>网络层设备（路由器）</td>
+<td>√</td>
+<td>√</td>
+</tr>
+</tbody></table>
 <h2 id="四、网络层"><a href="#四、网络层" class="headerlink" title="四、网络层"></a>四、网络层</h2><h3 id="4-1-概述"><a href="#4-1-概述" class="headerlink" title="4.1 概述"></a>4.1 概述</h3><p>网络层提供主机之间的逻辑通信</p>
 <ul>
 <li><strong>主要任务</strong>：把分组从源端传到目的端，为分组交换网上的不同主机提供通信服务。</li>
@@ -1841,75 +1866,28 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/7a31.html">
+                <a href="/posts/cn.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="MathJax">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算机网络">
                         
-                        <span class="card-title">MathJax</span>
+                        <span class="card-title">计算机网络</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            数学公式渲染器
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-09
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
-                                    数学
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/mathjax/">
-                        <span class="chip bg-color">mathjax</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/ml2.html">
-                    <div class="card-image">
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="机器学习(二)">
-                        
-                        <span class="card-title">机器学习(二)</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            大二下学期课程（一）
+                            大二下学期课程（二）
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-22
                             </span>
                         <span class="publish-author">
                             
@@ -1923,11 +1901,64 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/%E7%AC%94%E8%AE%B0/">
                         <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">计算机基础</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/c1cc.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-1.jpg" class="responsive-img" alt="一次决策树作业">
+                        
+                        <span class="card-title">一次决策树作业</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            ID3算法+Titanic数据集
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/">
+                        <span class="chip bg-color">决策树</span>
                     </a>
                     
                 </div>
@@ -2134,7 +2165,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">122.2k</span>&nbsp;字
+                class="white-color">122.7k</span>&nbsp;字
             
             
             
