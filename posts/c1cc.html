@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-18
+                    2021-04-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    2.6k
                 </div>
                 
 
@@ -929,8 +929,9 @@ dt<span class="token punctuation">.</span>train<span class="token punctuation">(
 test_data <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>test_data<span class="token punctuation">)</span>
 <span class="token keyword">for</span> data <span class="token keyword">in</span> test_data<span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> dt<span class="token punctuation">.</span>test<span class="token punctuation">(</span>root<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="5-决策树的可视化"><a href="#5-决策树的可视化" class="headerlink" title="5. 决策树的可视化"></a>5. 决策树的可视化</h3><p>树的结构不一样，前面的代码无法可视化。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> graphviz <span class="token keyword">import</span> Digraph
+<h3 id="5-决策树的可视化"><a href="#5-决策树的可视化" class="headerlink" title="5. 决策树的可视化"></a>5. 决策树的可视化</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#测试代码</span>
+<span class="token comment" spellcheck="true">#不适用于以上的树的结构</span>
+<span class="token keyword">from</span> graphviz <span class="token keyword">import</span> Digraph
 
 
 <span class="token keyword">def</span> <span class="token function">plot_model</span><span class="token punctuation">(</span>tree<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -971,11 +972,40 @@ d2 <span class="token operator">=</span> <span class="token punctuation">{</span
                    <span class="token string">'pre'</span><span class="token punctuation">:</span> <span class="token string">'soft'</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
 
 plot_model<span class="token punctuation">(</span>d1<span class="token punctuation">,</span> <span class="token string">"hello"</span><span class="token punctuation">)</span>
-plot_model<span class="token punctuation">(</span>d2<span class="token punctuation">,</span> <span class="token string">"hello2"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+plot_model<span class="token punctuation">(</span>d2<span class="token punctuation">,</span> <span class="token string">"hello2"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>测试代码会报错：<code>GraphViz&#39;s executables not found</code></p>
 <p>然后去安装软件，<a href="http://www.graphviz.org/download/" target="_blank" rel="noopener">http://www.graphviz.org/download/</a></p>
 <p>安装时勾选：加入到所有用户的系统路径。</p>
 <p>重新打开 <em>jupyter</em> 并运行测试代码<br>成功后，会用图片管理器打开决策树的可视化图。<a href="https://img-blog.csdnimg.cn/20210417105544460.png" target="_blank" rel="noopener">如图</a></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 2021-04-24更新，可视化代码，适用，将其运行即可</span>
+
+<span class="token keyword">from</span> graphviz <span class="token keyword">import</span> Digraph
+
+<span class="token keyword">def</span> <span class="token function">plot_model</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    g <span class="token operator">=</span> Digraph<span class="token punctuation">(</span><span class="token string">"G"</span><span class="token punctuation">,</span> filename<span class="token operator">=</span>name<span class="token punctuation">,</span> format<span class="token operator">=</span><span class="token string">'png'</span><span class="token punctuation">,</span> strict<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    first_label <span class="token operator">=</span> root<span class="token punctuation">.</span>feature
+    g<span class="token punctuation">.</span>node<span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">,</span> first_label<span class="token punctuation">)</span>
+    _sub_plot<span class="token punctuation">(</span>g<span class="token punctuation">,</span> root<span class="token punctuation">,</span> <span class="token string">"0"</span><span class="token punctuation">)</span>
+    g<span class="token punctuation">.</span>view<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+_root <span class="token operator">=</span> <span class="token string">"0"</span>
+
+<span class="token keyword">def</span> <span class="token function">_sub_plot</span><span class="token punctuation">(</span>g<span class="token punctuation">,</span> root<span class="token punctuation">,</span> inc<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">global</span> _root
+
+    ts <span class="token operator">=</span> root<span class="token punctuation">.</span>children
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> ts<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> ts<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>can_use <span class="token operator">!=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            _root <span class="token operator">=</span> str<span class="token punctuation">(</span>int<span class="token punctuation">(</span>_root<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+            g<span class="token punctuation">.</span>node<span class="token punctuation">(</span>_root<span class="token punctuation">,</span> ts<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>feature<span class="token punctuation">)</span>
+            g<span class="token punctuation">.</span>edge<span class="token punctuation">(</span>inc<span class="token punctuation">,</span> _root<span class="token punctuation">,</span> str<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            _sub_plot<span class="token punctuation">(</span>g<span class="token punctuation">,</span> ts<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> _root<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            _root <span class="token operator">=</span> str<span class="token punctuation">(</span>int<span class="token punctuation">(</span>_root<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+            g<span class="token punctuation">.</span>node<span class="token punctuation">(</span>_root<span class="token punctuation">,</span> str<span class="token punctuation">(</span>ts<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>datasets<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            g<span class="token punctuation">.</span>edge<span class="token punctuation">(</span>inc<span class="token punctuation">,</span> _root<span class="token punctuation">,</span> str<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+plot_model<span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token string">"hello"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1653,7 +1683,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">122.7k</span>&nbsp;字
+                class="white-color">123.6k</span>&nbsp;字
             
             
             

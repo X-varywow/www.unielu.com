@@ -503,7 +503,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-20
+                    2021-04-24
                 </div>
                 
 
@@ -932,7 +932,16 @@ Do not return anything, modify nums1 in-place instead.
             <span class="token keyword">return</span> position
         <span class="token keyword">else</span> <span class="token punctuation">:</span>
             <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="21-30"><a href="#21-30" class="headerlink" title="21-30"></a><code>21-30</code></h2><h2 id="coding-for-fun"><a href="#coding-for-fun" class="headerlink" title="coding for fun"></a><em>coding for fun</em></h2><p><a href="https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/" target="_blank" rel="noopener">剑指 Offer 03. 数组中重复的数字</a></p>
+<h2 id="21-30"><a href="#21-30" class="headerlink" title="21-30"></a><code>21-30</code></h2><h3 id="377-组合总和-Ⅳ"><a href="#377-组合总和-Ⅳ" class="headerlink" title="377.组合总和 Ⅳ"></a><a href="https://leetcode-cn.com/problems/combination-sum-iv/" target="_blank" rel="noopener">377.组合总和 Ⅳ</a></h3><p>给你一个由 不同 整数组成的数组 <code>nums</code> ，和一个目标整数 <code>target</code> 。请你从 <code>nums</code> 中找出并返回总和为 <code>target</code> 的元素组合的个数。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">combinationSum4</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        dp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span>target
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> target<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> num <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> num <span class="token operator">&lt;=</span> i<span class="token punctuation">:</span>
+                    dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> dp<span class="token punctuation">[</span>i<span class="token operator">-</span>num<span class="token punctuation">]</span>
+        <span class="token keyword">return</span> dp<span class="token punctuation">[</span>target<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="coding-for-fun"><a href="#coding-for-fun" class="headerlink" title="coding for fun"></a><em>coding for fun</em></h2><p><a href="https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/" target="_blank" rel="noopener">剑指 Offer 03. 数组中重复的数字</a></p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">findRepeatNumber</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
         tmp <span class="token operator">=</span> set<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1700,7 +1709,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">122.7k</span>&nbsp;字
+                class="white-color">123.6k</span>&nbsp;字
             
             
             

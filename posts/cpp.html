@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-21
+                    2021-04-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.5k
+                    3.7k
                 </div>
                 
 
@@ -529,7 +529,7 @@
                 <h2 id="一、基础语法"><a href="#一、基础语法" class="headerlink" title="一、基础语法"></a>一、基础语法</h2><h3 id="1-0-hello-again"><a href="#1-0-hello-again" class="headerlink" title="1.0 hello again"></a>1.0 hello again</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span>          </span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//使用标准命名空间</span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>                <span class="token comment" spellcheck="true">//主函数</span>
-<span class="token punctuation">{</span>
+<span class="token punctuation">{</span>                         <span class="token comment" spellcheck="true">//语句块中定义的变量具有局部定义域</span>
     cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Hello, world!"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//输出流</span>
     <span class="token comment" spellcheck="true">//endl 插入换行符，并刷新流</span>
 
@@ -663,7 +663,8 @@ string s2<span class="token operator">=</span><span class="token string">"abc"</
 string s3<span class="token operator">=</span>s2<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//复制构造函数</span>
 
 <span class="token comment" spellcheck="true">//字典序比较，下标访问字符</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="1-7-other"><a href="#1-7-other" class="headerlink" title="1.7 other"></a>1.7 other</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//类型别名</span>
+<h3 id="1-7-other"><a href="#1-7-other" class="headerlink" title="1.7 other"></a>1.7 other</h3><p>一、一些类型</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//类型别名</span>
 <span class="token keyword">typedef</span> 已有类型名 新类型名
 <span class="token keyword">using</span> 新类型名 已有类型名
 
@@ -682,13 +683,18 @@ string s3<span class="token operator">=</span>s2<span class="token punctuation">
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     i<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">;</span>
     <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> i<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//局部变量，局部作用域，屏蔽外部</span>
+        <span class="token keyword">int</span> i<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//局部变量，局部作用域（{}中），屏蔽外部</span>
         i<span class="token operator">=</span><span class="token number">7</span><span class="token punctuation">;</span>
         cout<span class="token operator">&lt;&lt;</span><span class="token string">"i="</span><span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出7</span>
     <span class="token punctuation">}</span>
     cout<span class="token operator">&lt;&lt;</span><span class="token string">"i="</span><span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出5</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>关于可见性：</p>
+<ul>
+<li>如果某个标识符在外层中声明，且在内层中没有同一标识符的声明，则该标识符在内层可见</li>
+<li>对于两个嵌套的作用域，如果内层中声明了外层作用域同名的标识符，则外层的那个表示符在内层中不可见</li>
+</ul>
 <p>三、变量的生存期与可见性</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -822,10 +828,16 @@ stu_cnt<span class="token operator">++</span><span class="token punctuation">;</
 <span class="token comment" spellcheck="true">//调用：类名::静态函数名();</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-5-友元函数"><a href="#2-5-友元函数" class="headerlink" title="2.5 友元函数"></a>2.5 友元函数</h3><p>友元函数，在类的外部，访问类的私有成员</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//友元函数在类中声明</span>
+<span class="token keyword">friend</span> <span class="token keyword">float</span> <span class="token function">dist</span><span class="token punctuation">(</span>Point <span class="token operator">&amp;</span>a<span class="token punctuation">,</span> Point <span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">//友元函数访问私有成员变量，但是不能直接在定义友元函数时调用私有成员变量，只能通过引用类对象的成员参数方式调用</span>
+<span class="token keyword">float</span> <span class="token function">dist</span><span class="token punctuation">(</span>Point<span class="token operator">&amp;</span>a<span class="token punctuation">,</span> Point <span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">double</span> x <span class="token operator">=</span> a<span class="token punctuation">.</span>x <span class="token operator">-</span> b<span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+    <span class="token keyword">double</span> y <span class="token operator">=</span> a<span class="token punctuation">.</span>y <span class="token operator">-</span> b<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">sqrt</span><span class="token punctuation">(</span>x<span class="token operator">*</span>x <span class="token operator">+</span> y<span class="token operator">*</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">//友元函数不是类的成员函数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true">//友元函数不是类的成员函数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-6-派生与继承"><a href="#2-6-派生与继承" class="headerlink" title="2.6 派生与继承"></a>2.6 派生与继承</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">car</span><span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//基类中属性与方法</span>
 <span class="token punctuation">}</span>
@@ -1751,7 +1763,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">122.7k</span>&nbsp;字
+                class="white-color">123.6k</span>&nbsp;字
             
             
             
