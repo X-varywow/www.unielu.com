@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-20
+                    2021-04-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    831
+                    352
                 </div>
                 
 
@@ -552,68 +552,23 @@
         <span class="token comment" spellcheck="true">&lt;!-- hr创建水平线 --></span> 
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="css"><a href="#css" class="headerlink" title="css"></a><em>css</em></h2><h2 id="js"><a href="#js" class="headerlink" title="js"></a><em>js</em></h2><h2 id="jquery"><a href="#jquery" class="headerlink" title="jquery"></a><em>jquery</em></h2><h2 id="vue"><a href="#vue" class="headerlink" title="vue"></a><em>vue</em></h2><h2 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a><em>bootstrap</em></h2><h2 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h2><h3 id="bat使用"><a href="#bat使用" class="headerlink" title="bat使用"></a>bat使用</h3><pre class="line-numbers language-cmd"><code class="language-cmd">cd /blog
+<h2 id="css"><a href="#css" class="headerlink" title="css"></a><em>css</em></h2><h2 id="js"><a href="#js" class="headerlink" title="js"></a><em>js</em></h2><h2 id="jquery"><a href="#jquery" class="headerlink" title="jquery"></a><em>jquery</em></h2><h2 id="vue"><a href="#vue" class="headerlink" title="vue"></a><em>vue</em></h2><h2 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a><em>bootstrap</em></h2><h2 id="redis"><a href="#redis" class="headerlink" title="redis"></a><em>redis</em></h2><p>一个高性能的 key-value 存储系统，是跨平台的非关系型数据库。</p>
+<p>基本数据类型：</p>
+<ul>
+<li>字符串</li>
+<li>哈希</li>
+<li>列表</li>
+<li>集合</li>
+<li>有序集合</li>
+</ul>
+<h2 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h2><ul>
+<li><code>Lua</code> 一种轻量小巧的脚本语言</li>
+</ul>
+<hr>
+<p><strong>bat使用</strong></p>
+<pre class="line-numbers language-cmd"><code class="language-cmd">cd /blog
 hexo cl & hexo g & hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>将代码输入到一个新的txt文档中，然后保存为bat文件，运行它即可完成自动部署。</p>
-<h3 id="kmp算法"><a href="#kmp算法" class="headerlink" title="kmp算法"></a>kmp算法</h3><p>kmp是一个效率非常高的<strong>字符串匹配</strong>算法。<br>有问题如下：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#求b在a中出现次数</span>
-a <span class="token operator">=</span> <span class="token string">"ababacababadababadadda"</span>
-b <span class="token operator">=</span> <span class="token string">"ababad"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>kmp可以将暴力法的<code>O(m*n)</code>降低为<code>O(m+n)</code></p>
-<p><strong>过程:</strong></p>
-<ol>
-<li><strong>计算temp数组</strong><br>temp数组可理解为一组b中相同前后缀的标记(不能为本身长度)<blockquote>
-<p><code>b = &quot;ababad&quot;</code><br>对第一位<code>&#39;a&#39;</code>，没有相同前后缀，<code>temp[0] = 0</code><br>对第二位<code>&#39;ab&#39;</code>，<code>temp[1] = 0</code><br>对第三位<code>’aba&#39;</code>，<code>temp[2] = 1</code><br>以此类推，<code>temp= [0,0,1,2,3,0]</code></p>
-</blockquote>
-</li>
-</ol>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">cal_temp</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true">#K是一个对相同前后缀的标记</span>
-    temp<span class="token punctuation">,</span>k<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">0</span>
-    <span class="token comment" spellcheck="true">#从索引1处开始遍历</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">while</span> k<span class="token operator">></span><span class="token number">0</span> <span class="token operator">and</span> b<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">!=</span>b<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            k<span class="token operator">=</span>temp<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span>
-        <span class="token keyword">if</span> b<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span>b<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            k<span class="token operator">+=</span><span class="token number">1</span>
-        temp<span class="token punctuation">.</span>append<span class="token punctuation">(</span>k<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> temp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>分析一下代码：</p>
-<blockquote>
-<ul>
-<li><code>i=1</code>时，’ab’，b[1]!=b[0]，temp.append(0)</li>
-<li><code>i=2</code>时，’aba’，b[2]==b[0]，temp.append(1)</li>
-<li><code>i=3</code>时，’abab’，b[3]==b[1]，temp.append(2)</li>
-<li><code>i=4</code>时，’ababa’，b[4]==b[2]，temp.append(3)</li>
-<li><code>i=5</code>时，’ababad’，temp=[0,0,1,2,3]<br>b[5]!=b[3]，k=temp[3-1]=1<br>b[5]!=b[1]，k=temp[1-1]=0<br>temp.append(0)</li>
-</ul>
-</blockquote>
-<p>发现比较难理解的是那个回溯的地方：<code>k=temp[k-1]</code><br>没事，把<code>i=5</code>的情况再分析一下：</p>
-<blockquote>
-<p><code>i=5</code>时，’ababad’，temp=[0,0,1,2,3]，k=3</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20200514161345927.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70"></p>
-<blockquote>
-<p>aba and aba can match,k=3<br>a and a can match,k=(aba的匹配数1,即temp[k-1])<br>more explain: aba can see as a and a,the first <code>a</code> can match the fourth <code>a</code></p>
-</blockquote>
-<ol start="2">
-<li><strong>kmp</strong><br>打完上面的怪，就可以直接写kmp了</li>
-</ol>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">kmp</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    temp<span class="token operator">=</span>cal_temp<span class="token punctuation">(</span>b<span class="token punctuation">)</span>
-    ans<span class="token punctuation">,</span>k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">while</span> k<span class="token operator">></span><span class="token number">0</span> <span class="token operator">and</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">!=</span>b<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            k<span class="token operator">=</span>temp<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span>
-        <span class="token keyword">if</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span>b<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            k<span class="token operator">+=</span><span class="token number">1</span>
-        <span class="token keyword">if</span> k<span class="token operator">==</span>len<span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            ans<span class="token operator">+=</span><span class="token number">1</span>
-            k<span class="token operator">=</span>temp<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span>
-    <span class="token keyword">return</span> ａｎｓ
-
-<span class="token comment" spellcheck="true">#小结：利用已匹配的信息，迈出比较大的步子。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<hr>
 <h5 id="①代码块快捷操作："><a href="#①代码块快捷操作：" class="headerlink" title="①代码块快捷操作："></a>①代码块快捷操作：</h5><ul>
 <li>拉选块之后，按下 <code>tab</code> 键，整个块就会缩进</li>
 <li>按下 <code>shift + tab</code> 就会反向缩进</li>
@@ -628,15 +583,6 @@ b <span class="token operator">=</span> <span class="token string">"ababad"</spa
 <li><code>del list(index)</code>，删除</li>
 <li><code>list</code>使用<code>+=</code>可进行扩充</li>
 </ul>
-<h5 id="③leetcode中引用："><a href="#③leetcode中引用：" class="headerlink" title="③leetcode中引用："></a>③leetcode中引用：</h5><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    a <span class="token operator">=</span> Solution<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    a<span class="token punctuation">.</span>countSubgraphsForEachDiameter<span class="token punctuation">(</span>n<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> edges<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h5 id="④staticmethod"><a href="#④staticmethod" class="headerlink" title="④staticmethod"></a>④staticmethod</h5><p><strong>返回函数的静态方法</strong>。<br>该方法不强制要求传递参数，如下声明一个静态方法：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">C</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    @staticmethod
-    <span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span>arg1<span class="token punctuation">,</span> arg2<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>以上实例声明了静态方法 <code>f</code>，从而可以实现实例化使用 <code>C().f()</code>，当然也可以不实例化调用该方法 <code>C.f()</code>。</p>
 
             </div>
             <hr/>
@@ -1299,7 +1245,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">123.9k</span>&nbsp;字
+                class="white-color">124.2k</span>&nbsp;字
             
             
             

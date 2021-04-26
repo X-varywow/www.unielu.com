@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-30
+                    2021-04-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    731
+                    1.2k
                 </div>
                 
 
@@ -597,6 +597,59 @@
         <span class="token keyword">return</span> <span class="token boolean">False</span>
 
 <span class="token comment" spellcheck="true">#原地二分查找</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="kmp算法"><a href="#kmp算法" class="headerlink" title="kmp算法"></a>kmp算法</h2><p>kmp是一个效率非常高的<strong>字符串匹配</strong>算法。<br>有问题如下：</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#求b在a中出现次数</span>
+a <span class="token operator">=</span> <span class="token string">"ababacababadababadadda"</span>
+b <span class="token operator">=</span> <span class="token string">"ababad"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>kmp可以将暴力法的<code>O(m*n)</code>降低为<code>O(m+n)</code></p>
+<p><strong>过程:</strong><br><strong>1. 计算temp数组</strong><br>temp数组可理解为一组b中相同前后缀的标记(不能为本身长度)</p>
+<blockquote>
+<p><code>b = &quot;ababad&quot;</code><br>对第一位<code>&#39;a&#39;</code>，没有相同前后缀，<code>temp[0] = 0</code><br>对第二位<code>&#39;ab&#39;</code>，<code>temp[1] = 0</code><br>对第三位<code>’aba&#39;</code>，<code>temp[2] = 1</code><br>以此类推，<code>temp= [0,0,1,2,3,0]</code></p>
+</blockquote>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">cal_temp</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#K是一个对相同前后缀的标记</span>
+    temp<span class="token punctuation">,</span>k<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">0</span>
+    <span class="token comment" spellcheck="true">#从索引1处开始遍历</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">while</span> k<span class="token operator">></span><span class="token number">0</span> <span class="token operator">and</span> b<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">!=</span>b<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            k<span class="token operator">=</span>temp<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span>
+        <span class="token keyword">if</span> b<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span>b<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            k<span class="token operator">+=</span><span class="token number">1</span>
+        temp<span class="token punctuation">.</span>append<span class="token punctuation">(</span>k<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> temp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>分析一下代码：</p>
+<blockquote>
+<ul>
+<li><code>i=1</code>时，’ab’，b[1]!=b[0]，temp.append(0)</li>
+<li><code>i=2</code>时，’aba’，b[2]==b[0]，temp.append(1)</li>
+<li><code>i=3</code>时，’abab’，b[3]==b[1]，temp.append(2)</li>
+<li><code>i=4</code>时，’ababa’，b[4]==b[2]，temp.append(3)</li>
+<li><code>i=5</code>时，’ababad’，temp=[0,0,1,2,3]<br>b[5]!=b[3]，k=temp[3-1]=1<br>b[5]!=b[1]，k=temp[1-1]=0<br>temp.append(0)</li>
+</ul>
+</blockquote>
+<p>发现比较难理解的是那个回溯的地方：<code>k=temp[k-1]</code><br>没事，把<code>i=5</code>的情况再分析一下：</p>
+<blockquote>
+<p><code>i=5</code>时，’ababad’，temp=[0,0,1,2,3]，k=3</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200514161345927.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTk3MzYzMA==,size_16,color_FFFFFF,t_70"></p>
+<blockquote>
+<p>aba and aba can match,k=3<br>a and a can match,k=(aba的匹配数1,即temp[k-1])<br>more explain: aba can see as a and a,the first <code>a</code> can match the fourth <code>a</code></p>
+</blockquote>
+<p><strong>2. kmp</strong><br>打完上面的怪，就可以直接写kmp了</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">kmp</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    temp<span class="token operator">=</span>cal_temp<span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+    ans<span class="token punctuation">,</span>k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">while</span> k<span class="token operator">></span><span class="token number">0</span> <span class="token operator">and</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">!=</span>b<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            k<span class="token operator">=</span>temp<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span>
+        <span class="token keyword">if</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span>b<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            k<span class="token operator">+=</span><span class="token number">1</span>
+        <span class="token keyword">if</span> k<span class="token operator">==</span>len<span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            ans<span class="token operator">+=</span><span class="token number">1</span>
+            k<span class="token operator">=</span>temp<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> ａｎｓ
+
+<span class="token comment" spellcheck="true">#小结：利用已匹配的信息，迈出比较大的步子。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1259,7 +1312,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">123.9k</span>&nbsp;字
+                class="white-color">124.2k</span>&nbsp;字
             
             
             
