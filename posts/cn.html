@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-25
+                    2021-04-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.3k
+                    7.4k
                 </div>
                 
 
@@ -772,9 +772,6 @@
 <li><code>规程特性</code>（定义各条物理线路的工作规程和时序关系）</li>
 </ul>
 <hr>
-<p><strong>中继器</strong>：对信号进行再生和还原，放大衰减信号。<br>两端的网络部分是网段、不是子网。适用于完全相同的两类网络的互连，且两个网段的速率相同。</p>
-<p><strong>集线器（多口中继器）</strong>，不具备定向传送能力，是一个共享式设备。</p>
-<hr>
 <p><strong>数据通信的相关术语</strong>：</p>
 <ul>
 <li>数据（传送信息的实体，通常是有意义的符号序列）</li>
@@ -994,7 +991,7 @@
 <hr>
 <h3 id="3-3-局域网"><a href="#3-3-局域网" class="headerlink" title="3.3 局域网"></a>3.3 局域网</h3><p><strong>局域网</strong>，local area network</p>
 <ul>
-<li>指在某一区域内的多台计算机互联成的计算机组，共享介质的广播式分组交换网。</li>
+<li>指在某一区域内的多台计算机互联成的计算机组，共享介质的 <strong>广播式</strong> 分组交换网。</li>
 <li>网络拓扑结构<ul>
 <li>星型、环型、树型</li>
 <li>总线型（推荐）</li>
@@ -1062,7 +1059,7 @@
 <h3 id="3-5-以太网"><a href="#3-5-以太网" class="headerlink" title="3.5 以太网"></a>3.5 以太网</h3><p><em>MAC</em> <strong>媒体访问控制层</strong>：控制传输及介质的访问，与接入各种媒体有关的问题都放在MAC层，不同LAN使用的介质访问方法不同。</p>
 <ul>
 <li>最小帧长：规定有效帧从DA~FCS，最短64字节</li>
-<li>争用期：发送数据开始后的时间2t</li>
+<li>争用期：发送数据开始后的时间 $2\tau$</li>
 <li>最小包长：72字节，8先导+14头+46字节+4CRC<ul>
 <li>数据不足46字节时，要填充至46字节</li>
 <li>帧长&lt;72字节的帧是冲突碎片</li>
@@ -1073,7 +1070,7 @@
 <p>计算机通过<strong>通信适配器</strong>与外界局域网连接。</p>
 <p>适配器的ROM上有计算机硬件地址MAC地址。</p>
 <p>每个适配器有一个全球唯一的 <code>48</code> 位二进制地址，前24位代表厂家，后24位由厂家指定。</p>
-<p><strong>MAC地址</strong>（Media Access Control Address），称为局域网地址（LAN Address），MAC位址，以太网地址（Ethernet Address）或物理地址（Physical Address），它是一个用来确认网络设备位置的位址。</p>
+<p><strong>MAC地址</strong>（Media Access Control Address），称为局域网地址（LAN Address），以太网地址（Ethernet Address）或物理地址（Physical Address），6字节，它是一个用来确认网络设备位置的位址。</p>
 <hr>
 <p><code>IEEE 802.11</code> 是无线局域网的通用标准</p>
 <p><strong>以太网</strong>（Ethernrt）是由Xerox公司创建的并由…联合开发的 <strong>基带总线局域网规范</strong> ，是当今现有局域网采用的最通用的通信协议标准。以太网使用 <code>CSMA/DA</code>（载波监听多路访问及冲突检测）技术。</p>
@@ -1091,9 +1088,41 @@
 </li>
 <li>使用 CSMA/CD 的以太网不能进行全双工通信，只能进行双向交替通信（半双工通信）</li>
 </ul>
+<h3 id="3-6-交换机"><a href="#3-6-交换机" class="headerlink" title="3.6 交换机"></a>3.6 交换机</h3><ul>
+<li>网桥：根据MAC帧的目的地址对帧进行转发和过滤。<ul>
+<li>【连接冲突域】</li>
+<li>【可互连不同物理层、不同MAC子层和不同速率的以太网】</li>
+<li>作用：<ul>
+<li>过滤信息量</li>
+<li>扩大物理范围，增加整个局域网的最大站数</li>
+<li>使用不同的物理层</li>
+<li>互连不同类型的局域网</li>
+<li>提高可靠性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>交换机：多接口网桥<ul>
+<li>具有自学习能力，学习的是交换表的内容，交换表中存储着MAC地址到端口的映射。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>物理层设备：</strong></p>
+<ul>
+<li>中继器<ul>
+<li>对信号进行再生和还原，放大衰减信号。</li>
+<li>两端的网络部分是网段、不是子网。适用于完全相同的两类网络的互连，且两个网段的速率相同。</li>
+<li>在物理层上实现局域网网段互连，用于扩展局域网网段的长度</li>
+</ul>
+</li>
+<li>集线器（多口中继器，Hub）<ul>
+<li>不具备定向传送能力，是一个共享式设备。</li>
+</ul>
+</li>
+</ul>
+<hr>
 <p><strong>网段</strong>：一般指一个计算机网络中使用同一物理层设备（传输介质，中继器，集线器等）能够直接通讯的部分。</p>
-<p><strong>网桥</strong>：根据MAC帧的目的地址对帧进行转发和过滤。<br>【连接冲突域】<br>【可互连不同物理层、不同MAC子层和不同速率的以太网】</p>
-<p><strong>交换机</strong>：多接口网桥</p>
 <p><strong>冲突域</strong>：在同一个冲突域中，每个节点都能收到所有被发送的帧。<br><strong>广播域</strong>：网络中能接收任一设备发出的广播帧的所有设备的集合。</p>
 <p>.</p>
 <table>
@@ -2098,6 +2127,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -2166,7 +2202,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">124.2k</span>&nbsp;字
+                class="white-color">124.9k</span>&nbsp;字
             
             
             

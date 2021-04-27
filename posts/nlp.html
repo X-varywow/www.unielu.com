@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-23
+                    2021-04-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    409
+                    536
                 </div>
                 
 
@@ -584,6 +584,38 @@
 <p>词内互信息</p>
 <p>w = c1, c2（c1, c2 为组成w的汉字），f(w)为词频，f(c1)、f(c2)分别为c1, c2在语料库C中的出现次数（字频）。且C的总词数为$N_w$，总字数为$N_c$，则w的词内互信息为：</p>
 <p>$$mi(w)=log_2(\frac{N_c^2×f(w)}{N_w × f(c1) × f(c2)})$$</p>
+<h2 id="五、统计语言模型"><a href="#五、统计语言模型" class="headerlink" title="五、统计语言模型"></a>五、统计语言模型</h2><ul>
+<li><p>噪声信道模型<br>$$\hat{I}=argmax_I(p(I|O))=argmax_Ip(I)p(O|I)$$</p>
+</li>
+<li><p>平滑</p>
+<ul>
+<li>加1平滑</li>
+<li>add-one平滑</li>
+<li>2-gram加一</li>
+<li>Good Turing平滑<ul>
+<li>$p_0=n_1/N$</li>
+<li>$r^*=(r+1)n_{r+1}/n_r$</li>
+<li>样本中出现 r 次的事件的概率：</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>$$P_r=\frac{r^*}{N}=\frac{r+1}{N}\frac{n_{r+1}}{n_r}$$</p>
+<h2 id="六、汉语自动分词"><a href="#六、汉语自动分词" class="headerlink" title="六、汉语自动分词"></a>六、汉语自动分词</h2><ul>
+<li>曲折语（英语、德语、俄语等）<ul>
+<li>分词（词语识别）</li>
+<li>形态还原</li>
+<li>POS-Tagging 词性标注</li>
+</ul>
+</li>
+<li>分析语（汉语）<ul>
+<li>分词</li>
+<li>POS-Tagging 词性标注</li>
+</ul>
+</li>
+<li>黏着语</li>
+</ul>
 <h2 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h2><h3 id="1-搭配抽取任务"><a href="#1-搭配抽取任务" class="headerlink" title="1. 搭配抽取任务"></a>1. 搭配抽取任务</h3><p><strong><em>other</em>:</strong></p>
 
             </div>
@@ -1250,7 +1282,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">124.2k</span>&nbsp;字
+                class="white-color">124.9k</span>&nbsp;字
             
             
             
