@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-23
+                    2021-04-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.7k
+                    3.8k
                 </div>
                 
 
@@ -840,14 +840,29 @@ stu_cnt<span class="token operator">++</span><span class="token punctuation">;</
 <span class="token comment" spellcheck="true">//友元函数不是类的成员函数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-6-派生与继承"><a href="#2-6-派生与继承" class="headerlink" title="2.6 派生与继承"></a>2.6 派生与继承</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">car</span><span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//基类中属性与方法</span>
+    <span class="token keyword">int</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> k <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token keyword">class</span> <span class="token class-name">bus</span><span class="token operator">:</span> <span class="token keyword">public</span> car<span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//出现在基类中的属性与方法，不用再次声明和实现</span>
     <span class="token comment" spellcheck="true">//只写派生类中需要新添的属性和方法</span>
+    <span class="token keyword">int</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> k <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//派生类中重新定义f()</span>
+    <span class="token keyword">int</span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>car<span class="token operator">::</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">//调用基类方法</span>
 <span class="token punctuation">}</span>
-
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>派生类调整基类成员的方法<ul>
+<li>同名覆盖</li>
+<li>访问声明<ul>
+<li>在派生类的public段中声明父亲类中某个函数，令其属性为public</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//虚继承</span>
+<span class="token comment" spellcheck="true">//祖先类的成员只构造一次</span>
+<span class="token keyword">class</span> <span class="token class-name">Derived</span><span class="token operator">:</span> <span class="token keyword">virtual</span> <span class="token keyword">public</span> Base<span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span><span class="token punctuation">;</span> 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-7-other"><a href="#2-7-other" class="headerlink" title="2.7 other"></a>2.7 <em>other</em></h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//类的组合</span>
 <span class="token comment" spellcheck="true">//在一个类的构造中嵌入另一个类的对象，构造时都要构造</span>
 <span class="token comment" spellcheck="true">//先构造被组合的</span>
@@ -1763,7 +1778,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">124.9k</span>&nbsp;字
+                class="white-color">125.3k</span>&nbsp;字
             
             
             
