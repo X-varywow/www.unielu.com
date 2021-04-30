@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="双周赛34, -- blog --">
+    <meta name="keywords" content="朴素贝叶斯, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>双周赛34 | -- blog --</title>
+    <title>朴素贝叶斯 | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/awesome/css/all.css">
@@ -340,12 +340,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181114.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">双周赛34</h1>
+                    <h1 class="description center-align post-title diyFont">朴素贝叶斯</h1>
                 </div>
             </div>
         </div>
@@ -471,14 +471,23 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
-                                <span class="chip bg-color">leetcode比赛</span>
+                            <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                                <span class="chip bg-color">贝叶斯</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                机器学习
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -487,21 +496,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-06
+                    2021-04-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-13
+                    2021-04-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    803
+                    627
                 </div>
                 
 
@@ -513,96 +522,110 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>第一题：<a href="https://leetcode-cn.com/problems/matrix-diagonal-sum/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/matrix-diagonal-sum/</a><br>第二题：<a href="https://leetcode-cn.com/problems/number-of-ways-to-split-a-string/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/number-of-ways-to-split-a-string/</a><br>第三题：<a href="https://leetcode-cn.com/problems/shortest-subarray-to-be-removed-to-make-array-sorted/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/shortest-subarray-to-be-removed-to-make-array-sorted/</a><br>第四题：<a href="https://leetcode-cn.com/problems/count-all-possible-routes/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/count-all-possible-routes/</a></p>
-</blockquote>
-<h3 id="1-矩阵对角线元素的和"><a href="#1-矩阵对角线元素的和" class="headerlink" title="(1)矩阵对角线元素的和"></a>(1)矩阵对角线元素的和</h3><p>给你一个正方形矩阵 <code>mat</code>，请你返回矩阵对角线元素的和。</p>
-<p>输入：<code>mat = [[1,2,3],[4,5,6],[7,8,9]]</code><br>输出：<code>25</code></p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">diagonalSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> mat<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        l<span class="token operator">=</span>len<span class="token punctuation">(</span>mat<span class="token punctuation">)</span>
-        prim<span class="token operator">=</span>sum<span class="token punctuation">(</span><span class="token punctuation">[</span>mat<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        seco<span class="token operator">=</span>sum<span class="token punctuation">(</span><span class="token punctuation">[</span>mat<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>l<span class="token operator">-</span>i<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> l<span class="token operator">%</span><span class="token number">2</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span> 
-            <span class="token keyword">return</span> prim<span class="token operator">+</span>seco
-        <span class="token keyword">else</span><span class="token punctuation">:</span> 
-            <span class="token keyword">return</span> prim<span class="token operator">+</span>seco<span class="token operator">-</span>mat<span class="token punctuation">[</span>l<span class="token operator">//</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span>l<span class="token operator">//</span><span class="token number">2</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-分割字符串的方案数"><a href="#2-分割字符串的方案数" class="headerlink" title="(2)分割字符串的方案数"></a>(2)分割字符串的方案数</h3><p>给你一个二进制串 <code>s</code>  （一个只包含 0 和 1 的字符串），我们可以将 <code>s</code> 分割成 3 个 非空 字符串 s1, s2, s3 （s1 + s2 + s3 = s）。</p>
-<p>请你返回分割 <code>s</code> 的方案数，满足 s1，s2 和 s3 中字符 ‘1’ 的数目相同。</p>
-<p>由于答案可能很大，请将它对 <code>10^9 + 7</code> 取余后返回。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">numWays</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>     
-        mod<span class="token operator">=</span><span class="token number">10</span><span class="token operator">**</span><span class="token number">9</span> <span class="token operator">+</span> <span class="token number">7</span>
-        len_s<span class="token operator">=</span>len<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-        helper<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len_s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            helper<span class="token punctuation">.</span>append<span class="token punctuation">(</span>helper<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <h2 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h2><ol>
+<li><p>手动实现朴素贝叶斯分类器</p>
+</li>
+<li><p>使用 (sklearn) （python机器学习库） 自带的数据集，进行文本特征向量化（TF-IDF），并使用多项式贝叶斯文本分类</p>
+</li>
+</ol>
+<h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p>$$y=\arg\max_{c_{k}}P(Y=c_{k})\prod_{j=1}^{n}P(X_{j}=x^{(j)}|Y=c_{k})$$</p>
+<p>模型内有的只是训练出来的概率，</p>
+<p>朴素贝叶斯分类器要做的事：根据模型，对测试的例子的 y 值进行（假设）极大似然，得出分类结果。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> random <span class="token keyword">import</span> shuffle
+<span class="token keyword">from</span> collections <span class="token keyword">import</span> Counter
 
-        cnt<span class="token operator">=</span>helper<span class="token punctuation">[</span>len_s<span class="token punctuation">]</span>
-        <span class="token keyword">if</span> cnt<span class="token operator">%</span><span class="token number">3</span> <span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> cnt<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token punctuation">(</span>len_s<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>len_s<span class="token number">-2</span><span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span><span class="token operator">%</span>mod
+ping_hua <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span>
+data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'Sunny'</span><span class="token punctuation">,</span> <span class="token string">'Hot'</span><span class="token punctuation">,</span> <span class="token string">'High'</span><span class="token punctuation">,</span> <span class="token string">'Weak'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+      <span class="token punctuation">[</span><span class="token string">'Sunny'</span><span class="token punctuation">,</span> <span class="token string">'Hot'</span><span class="token punctuation">,</span> <span class="token string">'High'</span><span class="token punctuation">,</span> <span class="token string">'Strong'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+      <span class="token punctuation">[</span><span class="token string">'Overcast'</span><span class="token punctuation">,</span> <span class="token string">'Hot'</span><span class="token punctuation">,</span> <span class="token string">'High'</span><span class="token punctuation">,</span> <span class="token string">'Weak'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+      <span class="token punctuation">[</span><span class="token string">'Rain'</span><span class="token punctuation">,</span> <span class="token string">'Mild'</span><span class="token punctuation">,</span> <span class="token string">'High'</span><span class="token punctuation">,</span> <span class="token string">'Weak'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+      <span class="token punctuation">[</span><span class="token string">'Rain'</span><span class="token punctuation">,</span> <span class="token string">'Cool'</span><span class="token punctuation">,</span> <span class="token string">'Normal'</span><span class="token punctuation">,</span> <span class="token string">'Weak'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+      <span class="token punctuation">[</span><span class="token string">'Rain'</span><span class="token punctuation">,</span> <span class="token string">'Cool'</span><span class="token punctuation">,</span> <span class="token string">'Normal'</span><span class="token punctuation">,</span> <span class="token string">'Strong'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+      <span class="token punctuation">[</span><span class="token string">'Overcast'</span><span class="token punctuation">,</span> <span class="token string">'Cool'</span><span class="token punctuation">,</span> <span class="token string">'Normal'</span><span class="token punctuation">,</span> <span class="token string">'Strong'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+      <span class="token punctuation">[</span><span class="token string">'Sunny'</span><span class="token punctuation">,</span> <span class="token string">'Mild'</span><span class="token punctuation">,</span> <span class="token string">'High'</span><span class="token punctuation">,</span> <span class="token string">'Weak'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+      <span class="token punctuation">[</span><span class="token string">'Sunny'</span><span class="token punctuation">,</span> <span class="token string">'Cool'</span><span class="token punctuation">,</span> <span class="token string">'Normal'</span><span class="token punctuation">,</span> <span class="token string">'Weak'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+      <span class="token punctuation">[</span><span class="token string">'Rain'</span><span class="token punctuation">,</span> <span class="token string">'Mild'</span><span class="token punctuation">,</span> <span class="token string">'Normal'</span><span class="token punctuation">,</span> <span class="token string">'Weak'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+      <span class="token punctuation">[</span><span class="token string">'Sunny'</span><span class="token punctuation">,</span> <span class="token string">'Mild'</span><span class="token punctuation">,</span> <span class="token string">'Normal'</span><span class="token punctuation">,</span> <span class="token string">'Strong'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+      <span class="token punctuation">[</span><span class="token string">'Overcast'</span><span class="token punctuation">,</span> <span class="token string">'Mild'</span><span class="token punctuation">,</span> <span class="token string">'High'</span><span class="token punctuation">,</span> <span class="token string">'Strong'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+      <span class="token punctuation">[</span><span class="token string">'Overcast'</span><span class="token punctuation">,</span> <span class="token string">'Hot'</span><span class="token punctuation">,</span> <span class="token string">'Normal'</span><span class="token punctuation">,</span> <span class="token string">'Weak'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+      <span class="token punctuation">[</span><span class="token string">'Rain'</span><span class="token punctuation">,</span> <span class="token string">'Mild'</span><span class="token punctuation">,</span> <span class="token string">'High'</span><span class="token punctuation">,</span> <span class="token string">'Strong'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
 
-        <span class="token keyword">return</span> helper<span class="token punctuation">.</span>count<span class="token punctuation">(</span>cnt<span class="token operator">//</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">*</span>helper<span class="token punctuation">.</span>count<span class="token punctuation">(</span>cnt<span class="token operator">//</span><span class="token number">3</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">%</span>mod
-
-<span class="token comment" spellcheck="true"># helper就很灵性</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-删除最短的子数组使剩余数组有序"><a href="#3-删除最短的子数组使剩余数组有序" class="headerlink" title="(3)删除最短的子数组使剩余数组有序"></a>(3)删除最短的子数组使剩余数组有序</h3><p>给你一个整数数组 <code>arr</code> ，请你删除一个子数组（可以为空），使得 <code>arr</code> 中剩下的元素是 非递减 的。</p>
-<p>一个子数组指的是原数组中连续的一个子序列。</p>
-<p>请你返回满足题目要求的最短子数组的长度。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">findLengthOfShortestSubarray</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> arr<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        len_arr<span class="token operator">=</span>len<span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
-
-        <span class="token comment" spellcheck="true"># k 用于计算非递减的个数</span>
-        k<span class="token operator">=</span>len_arr<span class="token number">-1</span>
-        <span class="token keyword">while</span> k<span class="token operator">></span><span class="token number">0</span> <span class="token operator">and</span> arr<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span>arr<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">:</span> k<span class="token operator">-=</span><span class="token number">1</span>
-        <span class="token keyword">if</span> k<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
-
-        r<span class="token operator">=</span>k
-        j<span class="token operator">=</span><span class="token number">0</span>
-        <span class="token keyword">while</span> j<span class="token operator">&lt;</span>len_arr<span class="token number">-1</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># j 从0到倒数第二个元素</span>
-            ci<span class="token operator">=</span>bisect_left<span class="token punctuation">(</span>arr<span class="token punctuation">[</span>k<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            t<span class="token operator">=</span>len_arr<span class="token operator">-</span><span class="token punctuation">(</span><span class="token punctuation">(</span>len_arr<span class="token operator">-</span>k<span class="token operator">-</span>ci<span class="token punctuation">)</span><span class="token operator">+</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-            <span class="token keyword">if</span> r<span class="token operator">></span>t<span class="token punctuation">:</span> r<span class="token operator">=</span>t
-            <span class="token keyword">if</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">></span>arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">break</span>
-            j<span class="token operator">+=</span><span class="token number">1</span>
-        <span class="token keyword">return</span> r
-
-<span class="token comment" spellcheck="true"># 不懂</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="4-统计所有可行路径"><a href="#4-统计所有可行路径" class="headerlink" title="(4)统计所有可行路径"></a>(4)统计所有可行路径</h3><p>给你一个 <strong>互不相同</strong> 的整数数组，其中 <code>locations[i]</code> 表示第 <code>i</code> 个城市的位置。同时给你 <code>start</code>，<code>finish</code> 和 <code>fuel</code> 分别表示出发城市、目的地城市和你初始拥有的汽油总量</p>
-<p>每一步中，如果你在城市 <code>i</code> ，你可以选择任意一个城市 <code>j</code> ，满足  <code>j != i</code> 且 <code>0 &lt;= j &lt; locations.length</code> ，并移动到城市 <code>j</code> 。从城市 <code>i</code> 移动到 <code>j</code> 消耗的汽油量为 <code>|locations[i] - locations[j]|</code>，<code>|x|</code> 表示 <code>x</code> 的绝对值。</p>
-<p>请注意， <code>fuel</code> 任何时刻都 <strong>不能</strong> 为负，且你 <strong>可以</strong> 经过任意城市超过一次（包括 start 和 finish ）。</p>
-<p>请你返回从 <code>start</code> 到 <code>finish</code> 所有可能路径的数目。</p>
-<p>由于答案可能很大， 请将它对 <code>10^9 + 7</code> 取余后返回。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">countRoutes</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> locations<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> start<span class="token punctuation">:</span> int<span class="token punctuation">,</span> finish<span class="token punctuation">:</span> int<span class="token punctuation">,</span> fuel<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        dp <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-        n <span class="token operator">=</span> len<span class="token punctuation">(</span>locations<span class="token punctuation">)</span>
-        mod <span class="token operator">=</span> <span class="token number">10</span><span class="token operator">**</span><span class="token number">9</span><span class="token operator">+</span><span class="token number">7</span>
-
-        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> c<span class="token operator">==</span><span class="token number">0</span> <span class="token operator">and</span> s<span class="token operator">==</span>finish<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">1</span>
-            k <span class="token operator">=</span> <span class="token punctuation">(</span>c<span class="token punctuation">,</span> s<span class="token punctuation">)</span>
-            <span class="token keyword">if</span> k <span class="token keyword">in</span> dp<span class="token punctuation">:</span> <span class="token keyword">return</span> dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span>
-            <span class="token keyword">if</span> s<span class="token operator">==</span>finish<span class="token punctuation">:</span>
-                r<span class="token operator">=</span><span class="token number">1</span>
+<span class="token keyword">class</span> <span class="token class-name">NaiveBayes</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>y_label <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>                       <span class="token comment" spellcheck="true">#yes例子的字典</span>
+        self<span class="token punctuation">.</span>n_label <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>                       <span class="token comment" spellcheck="true"># no例子的字典</span>
+        self<span class="token punctuation">.</span>n0 <span class="token operator">=</span> <span class="token number">0</span>
+        self<span class="token punctuation">.</span>n1 <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">def</span> <span class="token function">fit</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> row <span class="token keyword">in</span> data<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> row<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">:</span>                      <span class="token comment" spellcheck="true">#正例</span>
+                self<span class="token punctuation">.</span>n1 <span class="token operator">+=</span><span class="token number">1</span>
+                <span class="token keyword">for</span> i<span class="token punctuation">,</span>d <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>row<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> d <span class="token operator">not</span> <span class="token keyword">in</span> self<span class="token punctuation">.</span>y_label<span class="token punctuation">:</span>
+                        self<span class="token punctuation">.</span>y_label<span class="token punctuation">[</span>d<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+                    <span class="token keyword">else</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>y_label<span class="token punctuation">[</span>d<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
             <span class="token keyword">else</span><span class="token punctuation">:</span>
-                r<span class="token operator">=</span><span class="token number">0</span>
+                self<span class="token punctuation">.</span>n0 <span class="token operator">+=</span><span class="token number">1</span>
+                <span class="token keyword">for</span> i<span class="token punctuation">,</span>d <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>row<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> d <span class="token operator">not</span> <span class="token keyword">in</span> self<span class="token punctuation">.</span>n_label<span class="token punctuation">:</span>
+                        self<span class="token punctuation">.</span>n_label<span class="token punctuation">[</span>d<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+                    <span class="token keyword">else</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>n_label<span class="token punctuation">[</span>d<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span> 
 
-            i <span class="token operator">=</span> <span class="token number">0</span>
-            <span class="token keyword">while</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">:</span>
-                <span class="token keyword">if</span> i<span class="token operator">!=</span>s<span class="token punctuation">:</span>
-                    d <span class="token operator">=</span> locations<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span>locations<span class="token punctuation">[</span>s<span class="token punctuation">]</span>
-                    <span class="token keyword">if</span> d<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">:</span> d<span class="token operator">=</span><span class="token operator">-</span>d
-                    <span class="token keyword">if</span> c<span class="token operator">>=</span>d<span class="token punctuation">:</span>
-                        r <span class="token operator">+=</span> dfs<span class="token punctuation">(</span>c<span class="token operator">-</span>d<span class="token punctuation">,</span> i<span class="token punctuation">)</span>
-                        r <span class="token operator">%=</span> mod
-                i<span class="token operator">+=</span><span class="token number">1</span>
-            dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> r
-            <span class="token keyword">return</span> r
+    <span class="token keyword">def</span> <span class="token function">predict</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        p_yes <span class="token operator">=</span> self<span class="token punctuation">.</span>n1<span class="token operator">/</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>n0 <span class="token operator">+</span> self<span class="token punctuation">.</span>n1<span class="token punctuation">)</span>
+        p_no <span class="token operator">=</span> self<span class="token punctuation">.</span>n0<span class="token operator">/</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>n0 <span class="token operator">+</span> self<span class="token punctuation">.</span>n1<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i<span class="token punctuation">,</span> d <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            p_yes <span class="token operator">*=</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>y_label<span class="token punctuation">.</span>get<span class="token punctuation">(</span>d<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>n1 <span class="token operator">+</span> ping_hua<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            p_no <span class="token operator">*=</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>n_label<span class="token punctuation">.</span>get<span class="token punctuation">(</span>d<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>n0 <span class="token operator">+</span> ping_hua<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-        <span class="token keyword">return</span> dfs<span class="token punctuation">(</span>fuel<span class="token punctuation">,</span> start<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"p(yes):"</span><span class="token punctuation">,</span> p_yes<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"p(no):"</span><span class="token punctuation">,</span> p_no<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token string">"yes"</span> <span class="token keyword">if</span> p_yes<span class="token operator">>=</span>p_no <span class="token keyword">else</span> <span class="token string">"no"</span>
 
-<span class="token comment" spellcheck="true">#不懂</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">def</span> <span class="token function">data_split</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    nums <span class="token operator">=</span> <span class="token punctuation">[</span>_ <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    shuffle<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span>data<span class="token punctuation">[</span>_<span class="token punctuation">]</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> nums<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>data<span class="token punctuation">[</span>_<span class="token punctuation">]</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> nums<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    train<span class="token punctuation">,</span> test <span class="token operator">=</span> data_split<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#print(train, test)</span>
+    model <span class="token operator">=</span> NaiveBayes<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>train<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#print(model.y_label, model.n_label)</span>
+    <span class="token keyword">for</span> t <span class="token keyword">in</span> test<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span><span class="token string">" the predict:"</span><span class="token punctuation">,</span> model<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>t<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> fetch_20newsgroups
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>naive_bayes <span class="token keyword">import</span> MultinomialNB <span class="token comment" spellcheck="true"># 多项式模型，进行文本分类</span>
+<span class="token keyword">from</span> pprint <span class="token keyword">import</span> pprint        <span class="token comment" spellcheck="true">#data pretty printer</span>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>feature_extraction<span class="token punctuation">.</span>text <span class="token keyword">import</span> TfidfVectorizer <span class="token comment" spellcheck="true">#TF-IDF文本特征提取</span>
+
+newsgroups_train <span class="token operator">=</span> fetch_20newsgroups<span class="token punctuation">(</span>subset<span class="token operator">=</span><span class="token string">'train'</span><span class="token punctuation">)</span>
+
+pprint<span class="token punctuation">(</span>list<span class="token punctuation">(</span>newsgroups_train<span class="token punctuation">.</span>target_names<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+select <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'alt.atheism'</span><span class="token punctuation">,</span><span class="token string">'comp.graphics'</span><span class="token punctuation">,</span><span class="token string">'misc.forsale'</span><span class="token punctuation">,</span><span class="token string">'rec.autos'</span><span class="token punctuation">,</span>
+          <span class="token string">'sci.crypt'</span><span class="token punctuation">,</span><span class="token string">'soc.religion.christian'</span><span class="token punctuation">,</span><span class="token string">'talk.politics.guns'</span><span class="token punctuation">]</span>
+
+train<span class="token operator">=</span>fetch_20newsgroups<span class="token punctuation">(</span>subset<span class="token operator">=</span><span class="token string">'train'</span><span class="token punctuation">,</span>categories<span class="token operator">=</span>select<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 1.数据集导入</span>
+test<span class="token operator">=</span>fetch_20newsgroups<span class="token punctuation">(</span>subset<span class="token operator">=</span><span class="token string">'test'</span><span class="token punctuation">,</span>categories<span class="token operator">=</span>select<span class="token punctuation">)</span>
+
+vectorizer <span class="token operator">=</span> TfidfVectorizer<span class="token punctuation">(</span><span class="token punctuation">)</span> 
+train_v<span class="token operator">=</span>vectorizer<span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span>train<span class="token punctuation">.</span>data<span class="token punctuation">)</span>                 <span class="token comment" spellcheck="true"># 2.文本特征向量化</span>
+test_v<span class="token operator">=</span>vectorizer<span class="token punctuation">.</span>transform<span class="token punctuation">(</span>test<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+
+model <span class="token operator">=</span> MultinomialNB<span class="token punctuation">(</span><span class="token punctuation">)</span> 
+model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>train_v<span class="token punctuation">,</span>train<span class="token punctuation">.</span>target<span class="token punctuation">)</span>                              <span class="token comment" spellcheck="true"># 3.训练模型</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"准确率为:"</span><span class="token punctuation">,</span>model<span class="token punctuation">.</span>score<span class="token punctuation">(</span>test_v<span class="token punctuation">,</span>test<span class="token punctuation">.</span>target<span class="token punctuation">)</span><span class="token punctuation">)</span>            <span class="token comment" spellcheck="true"># 4~5. 测试-,报告学习结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>参考资料</strong>：</p>
+<ul>
+<li><a href="https://blog.csdn.net/qq_41856733/article/details/106415101" target="_blank" rel="noopener">python, 20Newsgroup文本分类</a></li>
+<li><a href="https://scikit-learn.org/stable/user_guide.html" target="_blank" rel="noopener">官网：sklearn user guide</a></li>
+</ul>
+<p><strong>吐槽</strong>：<br>上个课，听了那么多字，我连朴素贝叶斯都没弄明白，www</p>
+<p>还是越简洁越好，自学…</p>
+<p>还调参结果对比呢？？？</p>
 
             </div>
             <hr/>
@@ -628,7 +651,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/98e0.html">https://www.unielu.com/posts/98e0.html</a>
+                    <a href="https://www.unielu.com/posts/e53b.html">https://www.unielu.com/posts/e53b.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -666,8 +689,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
-                                    <span class="chip bg-color">leetcode比赛</span>
+                                <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                                    <span class="chip bg-color">贝叶斯</span>
                                 </a>
                             
                         </div>
@@ -972,45 +995,47 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/412e.html">
+                <a href="/posts/e53b.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/2.jpg" class="responsive-img" alt="2020七月下">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/14.jpg" class="responsive-img" alt="朴素贝叶斯">
                         
-                        <span class="card-title">2020七月下</span>
+                        <span class="card-title">朴素贝叶斯</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            有梦醉一场，管它清与浊
+                            无
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%97%A5%E8%AE%B0/" class="post-category">
-                                    日记
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%A4%A7%E4%BA%8C/">
-                        <span class="chip bg-color">大二</span>
+                    <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                        <span class="chip bg-color">贝叶斯</span>
                     </a>
                     
                 </div>
@@ -1024,30 +1049,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/bd56.html">
+                <a href="/posts/57f5.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="微观经济学">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计量语言学">
                         
-                        <span class="card-title">微观经济学</span>
+                        <span class="card-title">计量语言学</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一门慕课笔记
+                            大二下学期课程（七）
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BD%91%E8%AF%BE/" class="post-category">
-                                    网课
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
                                 </a>
                             
                             
@@ -1057,8 +1082,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/mooc/">
-                        <span class="chip bg-color">mooc</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
@@ -1196,6 +1221,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

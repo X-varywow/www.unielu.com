@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-25
+                    2021-04-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    828
+                    884
                 </div>
                 
 
@@ -615,7 +615,9 @@
 <p>正规表达式：考核设计</p>
 <hr>
 <p>yacc是Unix系统上的一个LALR(1)语法分析生成器，yet another compiler compiler</p>
-<h2 id="二、自顶向下语法分析"><a href="#二、自顶向下语法分析" class="headerlink" title="二、自顶向下语法分析"></a>二、自顶向下语法分析</h2><h2 id="三、自底向上语法分析"><a href="#三、自底向上语法分析" class="headerlink" title="三、自底向上语法分析"></a>三、自底向上语法分析</h2><h2 id="四、语法制导得语义计算基础"><a href="#四、语法制导得语义计算基础" class="headerlink" title="四、语法制导得语义计算基础"></a>四、语法制导得语义计算基础</h2><h2 id="五、代码优化和目标代码生成"><a href="#五、代码优化和目标代码生成" class="headerlink" title="五、代码优化和目标代码生成"></a>五、代码优化和目标代码生成</h2><h2 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h2><p><strong>实验课</strong></p>
+<h2 id="二、自顶向下语法分析"><a href="#二、自顶向下语法分析" class="headerlink" title="二、自顶向下语法分析"></a>二、自顶向下语法分析</h2><p>一般分析过程：从文法开始符号进行推导， 每一步推导都获得文法的一个句型， 直到产生一个句子，恰好是所期望的单词符号串。 </p>
+<p>LL(1)分析</p>
+<h2 id="三、自底向上语法分析"><a href="#三、自底向上语法分析" class="headerlink" title="三、自底向上语法分析"></a>三、自底向上语法分析</h2><h2 id="四、语法制导得语义计算基础"><a href="#四、语法制导得语义计算基础" class="headerlink" title="四、语法制导得语义计算基础"></a>四、语法制导得语义计算基础</h2><h2 id="五、代码优化和目标代码生成"><a href="#五、代码优化和目标代码生成" class="headerlink" title="五、代码优化和目标代码生成"></a>五、代码优化和目标代码生成</h2><h2 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h2><p><strong>实验课</strong></p>
 <p>1.词法分析器自动构造工具JFLEX，S1词法分析器自动构造 <code>√</code><br>2.词法分析器自动构造工具YACC，S1词法分析器自动构造 <code>√</code><br>3.基础实验项目：表达式计算器Jflex/Yacc实现<br>4.J1_指令<br>5.实验项目PA1：Step1 S1编译器Jflex/Yacc实现<br>6.实验项目PA2：Step2 S2编译器实现<br>7.实验项目PA3：Step3 S3编译器实现；Step4 S4编译器实现</p>
 <hr>
 <p><strong>参考资料：</strong></p>
@@ -1295,7 +1297,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">125.3k</span>&nbsp;字
+                class="white-color">126.3k</span>&nbsp;字
             
             
             
@@ -1420,6 +1422,14 @@ $(function () {
     <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/scrollprogress/scrollProgress.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/js/matery.js"></script>
+
+    <script type="text/javascript">
+        //只在桌面版网页启用特效
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+        }
+    </script>
 
     <!-- Baidu Analytics -->
 
