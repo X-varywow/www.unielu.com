@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-16
+                    2021-05-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2.2k
                 </div>
                 
 
@@ -522,7 +522,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h2><p>学习问题：如果一个计算机针对某类任务<code>T</code>的用<code>P</code>衡量的性能根据经验<code>E</code>来自我完善，那么我们称这个计算机程序在从经验<code>E</code>中学习，针对某类任务<code>T</code>，它的性能用<code>P</code>来衡量。</p>
+                <p><strong>引言</strong></p>
+<p>学习问题：如果一个计算机针对某类任务<code>T</code>的用<code>P</code>衡量的性能根据经验<code>E</code>来自我完善，那么我们称这个计算机程序在从经验<code>E</code>中学习，针对某类任务<code>T</code>，它的性能用<code>P</code>来衡量。</p>
 <ul>
 <li>训练错误</li>
 <li>测试集错误</li>
@@ -533,7 +534,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="二、概念学习"><a href="#二、概念学习" class="headerlink" title="二、概念学习"></a>二、概念学习</h2><p>概念：可被看作一个对象或事件集合（或：这个较大集合中定义的布尔函数）。</p>
+<h2 id="一、概念学习"><a href="#一、概念学习" class="headerlink" title="一、概念学习"></a>一、概念学习</h2><p>概念：可被看作一个对象或事件集合（或：这个较大集合中定义的布尔函数）。</p>
 <p><strong>概念学习</strong>：给定某一类别的若干正例和反例，从中 <strong>获得</strong> 该类别的 <strong>一般定义</strong>。</p>
 <p><strong>变型空间</strong>：与训练样例一致的所有假设组成的集合，表示了目标概念的所有合理的变型</p>
 <p>一般边界<code>G</code>：假设空间H和训练数据D相一致的 <strong>极大一般</strong> 成员的集合。<br>特殊边界<code>S</code>：假设空间H和训练数据D相一致的 <strong>极大特殊</strong> 成员的集合。</p>
@@ -583,7 +584,7 @@
 </p><p>特殊：属性可接收的值，变得越来越少，<code>?</code> -&gt; 指定值 -&gt; <code>∅</code><br></p>
 </div>
 
-<h2 id="三、决策树学习"><a href="#三、决策树学习" class="headerlink" title="三、决策树学习"></a>三、决策树学习</h2><p>决策树：通过实例从根节点排列到某个子节点来分类实例。</p>
+<h2 id="二、决策树学习"><a href="#二、决策树学习" class="headerlink" title="二、决策树学习"></a>二、决策树学习</h2><p>决策树：通过实例从根节点排列到某个子节点来分类实例。</p>
 <ul>
 <li>对空间划分，最后的树<strong>完备互斥</strong></li>
 <li>叶子节点，为实例所属的分类</li>
@@ -606,10 +607,57 @@
 </div>
 
 <p>//信息增益比率</p>
-<h2 id="四、贝叶斯学习"><a href="#四、贝叶斯学习" class="headerlink" title="四、贝叶斯学习"></a>四、贝叶斯学习</h2><p>$P(D)$表示训练数据D的先验概率， $P(D|h)$表示h成立时D的概率，称为似然概率（似然度）</p>
+<h2 id="三、贝叶斯学习"><a href="#三、贝叶斯学习" class="headerlink" title="三、贝叶斯学习"></a>三、贝叶斯学习</h2><p>$P(D)$表示训练数据D的先验概率， $P(D|h)$表示h成立时D的概率，称为似然概率（似然度）</p>
 <p>贝叶斯公式</p>
 <p>$$P(h|D)=/frac{P(D|h)P(h)}{P(D)}$$</p>
 <p>极大后验假设MAP</p>
+<h2 id="四、KNN"><a href="#四、KNN" class="headerlink" title="四、KNN"></a>四、KNN</h2><p>$K-NearestNeighbor$，每个样本都可以用它最近的K个近邻值来代表。</p>
+<p>基本步骤：</p>
+<ol>
+<li>准备数据，数据预处理</li>
+<li>计算测试样本点到其它样本点的距离</li>
+<li>在各个距离中选出最小的K个</li>
+<li>将测试样本点归入K个中的最大类</li>
+</ol>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">KNN</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> X_train<span class="token punctuation">,</span> y_train<span class="token punctuation">,</span> n_neighbors<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> p<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        parameter: n_neighbors 临近点个数
+        parameter: p 距离度量
+        """</span>
+        self<span class="token punctuation">.</span>n <span class="token operator">=</span> n_neighbors
+        self<span class="token punctuation">.</span>p <span class="token operator">=</span> p
+        self<span class="token punctuation">.</span>X_train <span class="token operator">=</span> X_train
+        self<span class="token punctuation">.</span>y_train <span class="token operator">=</span> y_train
+
+    <span class="token keyword">def</span> <span class="token function">predict</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> X<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 取出n个点</span>
+        knn_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>self<span class="token punctuation">.</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            dist <span class="token operator">=</span> np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>X <span class="token operator">-</span> self<span class="token punctuation">.</span>X_train<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> ord<span class="token operator">=</span>self<span class="token punctuation">.</span>p<span class="token punctuation">)</span>
+            knn_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>dist<span class="token punctuation">,</span> self<span class="token punctuation">.</span>y_train<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>self<span class="token punctuation">.</span>n<span class="token punctuation">,</span> len<span class="token punctuation">(</span>self<span class="token punctuation">.</span>X_train<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            max_index <span class="token operator">=</span> knn_list<span class="token punctuation">.</span>index<span class="token punctuation">(</span>max<span class="token punctuation">(</span>knn_list<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            dist <span class="token operator">=</span> np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>X <span class="token operator">-</span> self<span class="token punctuation">.</span>X_train<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> ord<span class="token operator">=</span>self<span class="token punctuation">.</span>p<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> knn_list<span class="token punctuation">[</span>max_index<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">></span> dist<span class="token punctuation">:</span>
+                knn_list<span class="token punctuation">[</span>max_index<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>dist<span class="token punctuation">,</span> self<span class="token punctuation">.</span>y_train<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># 统计</span>
+        knn <span class="token operator">=</span> <span class="token punctuation">[</span>k<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">for</span> k <span class="token keyword">in</span> knn_list<span class="token punctuation">]</span>
+        count_pairs <span class="token operator">=</span> Counter<span class="token punctuation">(</span>knn<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#         max_count = sorted(count_pairs, key=lambda x: x)[-1]</span>
+        max_count <span class="token operator">=</span> sorted<span class="token punctuation">(</span>count_pairs<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        <span class="token keyword">return</span> max_count
+
+    <span class="token keyword">def</span> <span class="token function">score</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> X_test<span class="token punctuation">,</span> y_test<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        right_count <span class="token operator">=</span> <span class="token number">0</span>
+        n <span class="token operator">=</span> <span class="token number">10</span>
+        <span class="token keyword">for</span> X<span class="token punctuation">,</span> y <span class="token keyword">in</span> zip<span class="token punctuation">(</span>X_test<span class="token punctuation">,</span> y_test<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            label <span class="token operator">=</span> self<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> label <span class="token operator">==</span> y<span class="token punctuation">:</span>
+                right_count <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">return</span> right_count <span class="token operator">/</span> len<span class="token punctuation">(</span>X_test<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="课程安排"><a href="#课程安排" class="headerlink" title="课程安排"></a>课程安排</h2><ul>
 <li>基本概念<ul>
 <li>概念学习、决策树学习</li>
@@ -1509,7 +1557,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">127.2k</span>&nbsp;字
+                class="white-color">127.7k</span>&nbsp;字
             
             
             

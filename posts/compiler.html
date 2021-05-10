@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-29
+                    2021-05-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    884
+                    1k
                 </div>
                 
 
@@ -597,7 +597,7 @@
 
 <p><strong>非确定有限状态自动机</strong> <code>NFA</code> (nondeterministic finite automata)<br>与 DFA 唯一不同之处：δ：Q × Σ ➡ 2<sup>Q</sup></p>
 <hr>
-<h3 id="1-3-上下文无关文法及语言"><a href="#1-3-上下文无关文法及语言" class="headerlink" title="1.3 上下文无关文法及语言"></a>1.3 上下文无关文法及语言</h3><p>一个上下文无关文法 <code>CFG</code> (context-free grammars)，是一个四元组 <code>G = (VN, VT, P, S )</code></p>
+<h3 id="1-3-上下文无关文法及语言"><a href="#1-3-上下文无关文法及语言" class="headerlink" title="1.3 上下文无关文法及语言"></a>1.3 上下文无关文法及语言</h3><p>一个上下文无关文法 <code>CFG</code> （context-free-grammars），是一个四元组 $G = (V_N, V_T, P, S )$</p>
 <ul>
 <li>四个基本要素<ul>
 <li>终结符的集合</li>
@@ -607,16 +607,20 @@
 </ul>
 </li>
 </ul>
-<p>构造产生如下语言的上下文无关语法：</p>
-<ol>
-<li>{ uawb | u,w ∈{a, b}* ∧ |u| = |w| }<br>S → Ab<br>A → BAB | a<br>B → a | b</li>
-</ol>
+<p>构造产生如下语言的上下文无关语法：<br>（1）$\{uawb | u,w \in \{a, b\}^*\ ∧ |u| = |w| \}$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S → Ab$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$A → BAB | a$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$B → a | b$</p>
 <p>语法分析树、消除二义性</p>
+<p>如果语言 L 是某个上下文无关文法 G 的语言，即 $L(G) = L$，则称 L 为 <strong>上下文无关语言</strong>。<br>，即通过 L 的文法证明了 L 是上下文无关语言。</p>
 <p>正规表达式：考核设计</p>
 <hr>
 <p>yacc是Unix系统上的一个LALR(1)语法分析生成器，yet another compiler compiler</p>
 <h2 id="二、自顶向下语法分析"><a href="#二、自顶向下语法分析" class="headerlink" title="二、自顶向下语法分析"></a>二、自顶向下语法分析</h2><p>一般分析过程：从文法开始符号进行推导， 每一步推导都获得文法的一个句型， 直到产生一个句子，恰好是所期望的单词符号串。 </p>
 <p>LL(1)分析</p>
+<ul>
+<li>First 集合<ul>
+<li>一个句型 $\alpha$ 若可以推导出另一个以终结符 a 开头的句型，那么 a 属于<br>$First（\alpha$）；若 $\alpha$ 可以推导出 ε，那么 ε 属于 First（$\alpha$）</li>
+</ul>
+</li>
+</ul>
 <h2 id="三、自底向上语法分析"><a href="#三、自底向上语法分析" class="headerlink" title="三、自底向上语法分析"></a>三、自底向上语法分析</h2><h2 id="四、语法制导得语义计算基础"><a href="#四、语法制导得语义计算基础" class="headerlink" title="四、语法制导得语义计算基础"></a>四、语法制导得语义计算基础</h2><h2 id="五、代码优化和目标代码生成"><a href="#五、代码优化和目标代码生成" class="headerlink" title="五、代码优化和目标代码生成"></a>五、代码优化和目标代码生成</h2><h2 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h2><p><strong>实验课</strong></p>
 <p>1.词法分析器自动构造工具JFLEX，S1词法分析器自动构造 <code>√</code><br>2.词法分析器自动构造工具YACC，S1词法分析器自动构造 <code>√</code><br>3.基础实验项目：表达式计算器Jflex/Yacc实现<br>4.J1_指令<br>5.实验项目PA1：Step1 S1编译器Jflex/Yacc实现<br>6.实验项目PA2：Step2 S2编译器实现<br>7.实验项目PA3：Step3 S3编译器实现；Step4 S4编译器实现</p>
 <hr>
@@ -1229,6 +1233,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -1297,7 +1308,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">127.2k</span>&nbsp;字
+                class="white-color">127.7k</span>&nbsp;字
             
             
             
