@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-03
+                    2021-05-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.8k
+                    3.9k
                 </div>
                 
 
@@ -863,28 +863,43 @@ stu_cnt<span class="token operator">++</span><span class="token punctuation">;</
 <span class="token comment" spellcheck="true">//祖先类的成员只构造一次</span>
 <span class="token keyword">class</span> <span class="token class-name">Derived</span><span class="token operator">:</span> <span class="token keyword">virtual</span> <span class="token keyword">public</span> Base<span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span><span class="token punctuation">;</span> 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-7-other"><a href="#2-7-other" class="headerlink" title="2.7 other"></a>2.7 <em>other</em></h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//类的组合</span>
-<span class="token comment" spellcheck="true">//在一个类的构造中嵌入另一个类的对象，构造时都要构造</span>
-<span class="token comment" spellcheck="true">//先构造被组合的</span>
+<ul>
+<li>派生类的类型转换<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Base</span><span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">Derived</span><span class="token operator">:</span> <span class="token keyword">public</span> Base<span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<p>Base b;<br>Derived d;</p>
+<p>b = d; //用派生类对象给基类对象赋值<br>Base &amp;br = d; //定义一个基类应用，用派生类初始化<br>Base *bp = &d; //定义一个基类指针，指向派生类对象</p>
+<pre><code>
+### 2.7 多态
+
+父亲类定义函数接口，孩子类负责实现该接口。当父亲类需要调用该接口时，能够自动执行对应孩子实现的代码
+
+### 2.8 _other_
+```cpp
+//类的组合
+//在一个类的构造中嵌入另一个类的对象，构造时都要构造
+//先构造被组合的
 
 
-<span class="token comment" spellcheck="true">//对象指针</span>
-Ccube<span class="token operator">*</span> pcube<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//定义指针时，不会调用构造函数</span>
+//对象指针
+Ccube* pcube;  //定义指针时，不会调用构造函数
 
-<span class="token comment" spellcheck="true">//定义类时，类的方法编译后的二进制码放入内存</span>
-<span class="token comment" spellcheck="true">//定义类的对象时，对象的内存空间存放属性数据</span>
-
-
-<span class="token comment" spellcheck="true">//在每个成员函数执行的时候，隐形地传进去一个指向调用者对象自身的 this 指针</span>
-a<span class="token punctuation">.</span><span class="token function">disp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token operator">-</span><span class="token operator">></span> a<span class="token punctuation">.</span><span class="token function">disp</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> a<span class="token punctuation">.</span><span class="token function">disp</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span>
+//定义类时，类的方法编译后的二进制码放入内存
+//定义类的对象时，对象的内存空间存放属性数据
 
 
-<span class="token comment" spellcheck="true">//常对象</span>
-<span class="token keyword">const</span> class_name <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-class_name <span class="token keyword">const</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//此后foo对象在其生存周期内不可更改</span>
+//在每个成员函数执行的时候，隐形地传进去一个指向调用者对象自身的 this 指针
+a.disp()  -&gt; a.disp(this) -&gt; a.disp(&amp;a)
 
-<span class="token comment" spellcheck="true">//const数据成员只能透过初始化列表在构造的时候进行初始化。一旦构造不可更改</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+//常对象
+const class_name foo();
+class_name const foo();
+//此后foo对象在其生存周期内不可更改
+
+//const数据成员只能透过初始化列表在构造的时候进行初始化。一旦构造不可更改</code></pre>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//常成员</span>
 <span class="token comment" spellcheck="true">//一个类中定义的const函数，专门用来处理这个类的const对象发起的函数调用</span>
 <span class="token keyword">class</span> <span class="token class-name">Date</span><span class="token punctuation">{</span>
@@ -1765,7 +1780,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">127.7k</span>&nbsp;字
+                class="white-color">129k</span>&nbsp;字
             
             
             

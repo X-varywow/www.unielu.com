@@ -507,7 +507,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-29
+                    2021-05-11
                 </div>
                 
 
@@ -887,8 +887,8 @@
 <p>提高最大数据传输速率，根据奈氏准则，可提高带宽或采用更好的编码技术。<br>提高最大数据传输速率，根据香农定理，可提高带宽或信噪比。</p>
 <hr>
 <h3 id="2-5-奈氏准则与香农定理"><a href="#2-5-奈氏准则与香农定理" class="headerlink" title="2.5 奈氏准则与香农定理"></a>2.5 奈氏准则与香农定理</h3><hr>
-<p><strong>奈氏准则</strong>：在理想低通（无噪声，带宽受限）条件下，为避免码间串扰，极限码元传输速率为 <code>2W Baud</code>，W是信道带宽，单位是Hz。</p>
-<p>理想低通 信道下的 <strong>极限数据传输速率</strong> = 2W * log(k, 2)</p>
+<p><strong>奈氏准则</strong>：在理想低通（无噪声，带宽受限）条件下，为避免码间串扰，极限码元传输速率为 <code>2W Baud</code>，<br>$W$ 是信道带宽，单位是 $Hz$。</p>
+<p>理想低通 信道下的 <strong>极限数据传输速率</strong> = $2W\cdot\log_2k$</p>
 <p><strong>失真</strong>：信号发生扭曲变化。受码元传输速率、信号传输距离、传输媒体等影响。</p>
 <p><strong>码间串扰</strong>：接收端收到的信号波形失去了码元之间的清晰界限的现象</p>
 <p><strong>信道带宽</strong>：信道能通过的最高频率和最低频率之差。</p>
@@ -896,17 +896,17 @@
 <p>在无噪声的情况下，某通信链路带宽为 3k Hz，采用4个相位，每个相位具有4种振幅的QAM调制技术，则该通信链路上的最大数据传输速率是多少？</p>
 </blockquote>
 <blockquote>
-<p>解：调相和调幅后，信号有16种变化，即16种码元<br>根据奈氏准则，最大数据传输速率 = 2 * 3k * log(16, 2) = 24 kb/s</p>
+<p>解：调相和调幅后，信号有16种变化，即16种码元<br>根据奈氏准则，最大数据传输速率 = 2 * 3k * $\log_2{16}$ = 24 kb/s</p>
 </blockquote>
 <hr>
-<p><strong>香农定理</strong>：在带宽受限且有噪声的信道中，为了不产生误差，信道的<strong>极限数据传输速率</strong>为<code>W * log(1+S/N, 2)</code></p>
+<p><strong>香农定理</strong>：在带宽受限且有噪声的信道中，为了不产生误差，信道的<strong>极限数据传输速率</strong>为<br>$$W\cdot\log_2(1+S/N)$$</p>
 <p>信噪比 = 信号的平均功率/噪声的平均功率，常记为 <code>S/N</code>，计量单位为分贝dB。<br><code>信噪比（dB）= 10 * log(S/N, 10)</code>，单位为dB时要先转换</p>
 <p>0dB表示输出与输入或两个比较信号一样大。<br>简单地说，dB是一个比值，举个例子，音频行业中，功率大一倍即是大3dB。<code>???</code></p>
 <blockquote>
 <p>电话系统的典型参数是带宽为 3k Hz，信噪比为30dB，则该系统的最大数据传输速率是多少？</p>
 </blockquote>
 <blockquote>
-<p>解：30dB = 10*log(S/N, 10)，-&gt; S/N = 1000<br>最大数据传输速率 = 3000 * log(1+1000, 2) ≈ 30kb/s</p>
+<p>解：30dB = 10*$\log_{10}S/N$，-&gt; S/N = 1000<br>最大数据传输速率 = 3000 * $\log_2(1+1000)$ ≈ 30kb/s</p>
 </blockquote>
 <h2 id="三、数据链路层"><a href="#三、数据链路层" class="headerlink" title="三、数据链路层"></a>三、数据链路层</h2><p>学习目的：</p>
 <ul>
@@ -2196,7 +2196,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">127.7k</span>&nbsp;字
+                class="white-color">129k</span>&nbsp;字
             
             
             
