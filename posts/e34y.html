@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-14
+                    2021-05-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    65
+                    184
                 </div>
                 
 
@@ -526,7 +526,12 @@
 <li>手动实现感知机</li>
 <li>对模型评估</li>
 </ol>
-<h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p>感知机接受多个输入信号，输出一个信号，输入信号配以权重，用阈值 $\theta$ 判定这个神经元是否被激活。</p>
+<h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p><code>直观定义</code>：感知机接受多个输入信号，输出一个信号，输入信号配以权重，用阈值 $\theta$ 判定这个神经元是否被激活。</p>
+<p><code>正规定义</code>：感知机是根据输入实例的特征向量 $x$ ，对其进行 <strong>二分类</strong> 的线性分类模型：<br>$$f(x)=sign(w \cdot x+b)$$</p>
+<p>感知机学习算法，是基于随机梯度下降法的对损失函数的最优化算法，有 <code>原始形式</code> 和 <code>对偶形式</code>。</p>
+<p><strong>随机梯度下降法</strong> Stochastic Gradient Descent，随机抽取一个误分类点使其梯度下降。</p>
+<hr>
+<p>二范数：$\Vert x \Vert_2$，即距离</p>
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><pre class="line-numbers language-python"><code class="language-python"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
             </div>
@@ -1199,7 +1204,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">129k</span>&nbsp;字
+                class="white-color">129.3k</span>&nbsp;字
             
             
             
