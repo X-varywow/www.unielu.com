@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-11
+                    2021-05-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.4k
+                    8k
                 </div>
                 
 
@@ -1149,7 +1149,18 @@
 <td>√</td>
 </tr>
 </tbody></table>
-<h2 id="四、网络层"><a href="#四、网络层" class="headerlink" title="四、网络层"></a>四、网络层</h2><h3 id="4-1-概述"><a href="#4-1-概述" class="headerlink" title="4.1 概述"></a>4.1 概述</h3><p>网络层提供主机之间的逻辑通信</p>
+<h2 id="四、网络层"><a href="#四、网络层" class="headerlink" title="四、网络层"></a>四、网络层</h2><p>学习目的：</p>
+<ul>
+<li>了解：网络层与网络互联的<code>基本概念</code></li>
+<li>掌握：<code>IP协议</code>的特点与基本内容</li>
+<li>掌握：<code>IP地址</code>及子网编址的基本方法 </li>
+<li>掌握：<code>地址解析</code>的基本概念与方法</li>
+<li>掌握：<code>IP分组转发</code>与<code>路由选择</code>的概念</li>
+<li>掌握：Internet路由选择协议的概念</li>
+<li>掌握：路由器与第三层交换的基本<code>工作原理</code>。</li>
+<li>了解：Internet<code>控制报文协议</code>与组管理协议 </li>
+</ul>
+<h3 id="4-1-概述"><a href="#4-1-概述" class="headerlink" title="4.1 概述"></a>4.1 概述</h3><p>网络层提供主机之间的逻辑通信</p>
 <ul>
 <li><strong>主要任务</strong>：把分组从源端传到目的端，为分组交换网上的不同主机提供通信服务。</li>
 <li>传输单位：数据报</li>
@@ -1164,8 +1175,23 @@
 </ul>
 </li>
 </ul>
+<p>网络层为传输层提供的服务：将数据包送入子网，然后等待。</p>
 <hr>
-<h3 id="4-2-数据交换方式⭐"><a href="#4-2-数据交换方式⭐" class="headerlink" title="4.2 数据交换方式⭐"></a>4.2 数据交换方式⭐</h3><ul>
+<h3 id="4-2-网络互连"><a href="#4-2-网络互连" class="headerlink" title="4.2 网络互连"></a>4.2 网络互连</h3><p><strong>互联网络</strong>：利用网桥、路由器等互联设备将两个及两个以上的物理网络相互连接起来构成的系统。<br>局域网、广域网是互联网的构件，在局域网或广域网内部主机通信使用网络的物理地址。</p>
+<ul>
+<li>直接交付<ul>
+<li>是指在一个物理网络上，数据报从一台机器上直接传送到另一台机器上，这是所有互联网通信的基础。</li>
+<li>只有当两台机器同时连到同一底层物理传输系统时(例如一个以太网)，才能进行直接交付</li>
+</ul>
+</li>
+<li>间接交付<ul>
+<li>当目的地不在一个直接连接的网络上时，发送方必须把数据报发给一个路由器才能交付它</li>
+</ul>
+</li>
+</ul>
+<p>通常将网络层使用的路由器称为 <code>网关</code>。</p>
+<hr>
+<h3 id="4-3-数据交换方式⭐"><a href="#4-3-数据交换方式⭐" class="headerlink" title="4.3 数据交换方式⭐"></a>4.3 数据交换方式⭐</h3><ul>
 <li>电路交换<ul>
 <li>特点：通信时延小，有序传输，<strong>独占资源</strong>，必须是面向连接的</li>
 <li>应用：大量数据传输，对时延敏感的应用，语音业务</li>
@@ -1190,9 +1216,10 @@
 <p>ARP协议（完成主机或路由器到MAC地址的映射，解决下一跳走哪的问题），ARP协议自动进行</p>
 <p>ICMP网际控制报文协议，DHCP协议 <code>？？？</code> </p>
 <hr>
-<h3 id="4-3-路由与IP"><a href="#4-3-路由与IP" class="headerlink" title="4.3 路由与IP"></a>4.3 路由与IP</h3><p><strong>路由</strong> <code>routing</code> 是指分组从源到目的地时，决定端到端路径的网络范围的进程。<br>路由工作在网络层的数据包转发设备。路由器通过转发数据包来实现网络互连。</p>
+<h3 id="4-4-路由与IP"><a href="#4-4-路由与IP" class="headerlink" title="4.4 路由与IP"></a>4.4 路由与IP</h3><p><strong>路由</strong> <code>routing</code> 是指分组从源到目的地时，决定端到端路径的网络范围的进程。<br>路由工作在网络层的数据包转发设备。路由器通过转发数据包来实现网络互连。</p>
 <ul>
-<li><strong>路由算法</strong><ul>
+<li><code>功能一</code>：运行路由选择算法、协议<ul>
+<li>路由算法<ul>
 <li>静态路由算法</li>
 <li>动态路由算法（路由器间彼此交换信息，按照算法优化出路由表项）<ul>
 <li>距离-向量路由算法</li>
@@ -1201,17 +1228,62 @@
 </li>
 </ul>
 </li>
-<li><strong>路由选择协议</strong><ul>
+<li>路由选择协议<ul>
 <li>内部网关协议IGP（RIP,OSPF）</li>
 <li>外部网关协议EGP（BGP） <code>？？？</code></li>
 </ul>
 </li>
 </ul>
+</li>
+<li><code>功能二</code>：从入链路到出链路 转发 数据报</li>
+</ul>
 <p>路由器可以进行路由选择和分组转发。<br>路由器对目的地址是私有IP地址的数据报一律不进行转发</p>
 <hr>
 <p><strong>IP地址</strong> <code>Internet Protocol Address</code> 是指互联网协议地址，又译为网际协议地址。</p>
 <p>私网IP要接入Internet时，要使用 <code>NAT</code> <strong>网络地址转换</strong><br>安装了NAT软件（含NAT转换表）的路由器叫NAT路由器，它至少有一个有效的外部全球IP地址。</p>
-<p><strong>移动IP技术</strong> 是移动结点（计算机、服务器等）以固定的网络IP地址，实现跨越不同网段的漫游功能，并保证了基于网络IP的网络权限在漫游过程中不发生任何改变。<br>.</p>
+<p><strong>移动IP技术</strong> 是移动结点（计算机、服务器等）以固定的网络IP地址，实现跨越不同网段的漫游功能，并保证了基于网络IP的网络权限在漫游过程中不发生任何改变。</p>
+<p>一、</p>
+<table>
+<thead>
+<tr>
+<th>IP地址类别</th>
+<th>地址范围</th>
+<th>地址构成</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A类</td>
+<td><code>1.0.0.0 ~ 127.255.255.255</code></td>
+<td><code>0</code>+7位<code>网络号</code>+24位<code>主机号</code></td>
+<td>适用于大型网络</td>
+</tr>
+<tr>
+<td>B类</td>
+<td><code>128.0.0.0 ~ 191.255.255.255</code></td>
+<td><code>10</code>+14位<code>网络号</code>+16位<code>主机号</code></td>
+<td>使用中等大小组织</td>
+</tr>
+<tr>
+<td>C类</td>
+<td><code>192.0.0.0 ~ 223.255.255.255</code></td>
+<td><code>110</code>+21位<code>网络号</code>+8位<code>主机号</code></td>
+<td>适用于一些小型公司等</td>
+</tr>
+<tr>
+<td>D类</td>
+<td><code>224.0.0.0 ~ 239.255.255.255</code></td>
+<td><code>1110</code>+28位<code>组播地址</code></td>
+<td>用于特殊用途，如多播地址</td>
+</tr>
+<tr>
+<td>E类</td>
+<td><code>240.0.0.0 ~ 255.255.255.255</code></td>
+<td><code>11110...</code></td>
+<td>暂时保留</td>
+</tr>
+</tbody></table>
+<p>二、</p>
 <table>
 <thead>
 <tr>
@@ -1494,11 +1566,8 @@
 <p>关于HTTP的理解（2020.05）：<a href="http://www.unielu.com/posts/2174.html">www.unielu.com/posts/2174.html</a></p>
 <h2 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h2><p><strong>参考资料</strong>：</p>
 <ul>
-<li>2019-王道考研-计算机网络，90%</li>
-<li>学校课程，66%<ul>
-<li>感觉到了，老师用心想教我们一些东西</li>
-</ul>
-</li>
+<li>2019-王道考研-计算机网络，60%</li>
+<li>学校课程，40%</li>
 <li>《计算机网络》谢希仁，第七版</li>
 </ul>
 <hr>
@@ -2196,7 +2265,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">129.3k</span>&nbsp;字
+                class="white-color">130k</span>&nbsp;字
             
             
             
