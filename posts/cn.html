@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-18
+                    2021-05-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8k
+                    8.3k
                 </div>
                 
 
@@ -1213,10 +1213,7 @@
 
 <p>一些概念：<br>报文 <code>message</code>：要发送的整块数据。<br>首部 <code>header</code>：必要的控制信息。<br>分组 <code>packet</code>：由报文+首部组成，也叫包。</p>
 <hr>
-<p>ARP协议（完成主机或路由器到MAC地址的映射，解决下一跳走哪的问题），ARP协议自动进行</p>
-<p>ICMP网际控制报文协议，DHCP协议 <code>？？？</code> </p>
-<hr>
-<h3 id="4-4-路由与IP"><a href="#4-4-路由与IP" class="headerlink" title="4.4 路由与IP"></a>4.4 路由与IP</h3><p><strong>路由</strong> <code>routing</code> 是指分组从源到目的地时，决定端到端路径的网络范围的进程。<br>路由工作在网络层的数据包转发设备。路由器通过转发数据包来实现网络互连。</p>
+<h3 id="4-4-路由"><a href="#4-4-路由" class="headerlink" title="4.4 路由"></a>4.4 路由</h3><p><strong>路由</strong> <code>routing</code> 是指分组从源到目的地时，决定端到端路径的网络范围的进程。<br>路由工作在网络层的数据包转发设备。路由器通过转发数据包来实现网络互连。</p>
 <ul>
 <li><code>功能一</code>：运行路由选择算法、协议<ul>
 <li>路由算法<ul>
@@ -1239,10 +1236,18 @@
 </ul>
 <p>路由器可以进行路由选择和分组转发。<br>路由器对目的地址是私有IP地址的数据报一律不进行转发</p>
 <hr>
-<p><strong>IP地址</strong> <code>Internet Protocol Address</code> 是指互联网协议地址，又译为网际协议地址。</p>
-<p>私网IP要接入Internet时，要使用 <code>NAT</code> <strong>网络地址转换</strong><br>安装了NAT软件（含NAT转换表）的路由器叫NAT路由器，它至少有一个有效的外部全球IP地址。</p>
-<p><strong>移动IP技术</strong> 是移动结点（计算机、服务器等）以固定的网络IP地址，实现跨越不同网段的漫游功能，并保证了基于网络IP的网络权限在漫游过程中不发生任何改变。</p>
-<p>一、</p>
+<h3 id="4-5-IP地址"><a href="#4-5-IP地址" class="headerlink" title="4.5 IP地址"></a>4.5 IP地址</h3><p>IP地址 <code>Internet Protocol Address</code> 是指互联网协议地址，又译为网际协议地址。</p>
+<p><strong>IP协议特点：</strong></p>
+<ul>
+<li>不可靠、无连接、尽力而为的数据报服务</li>
+<li>发送 IP 数据报后不维护任何状态信息</li>
+<li>不能保证IP数据报成功到达目的地</li>
+<li>独立处理对待每个数据报，发生错误的处理方法是丢弃并利用 ICMP 报告</li>
+<li>对传输正确性不做验证，不发确认。</li>
+<li>点对点网络层协议，分为直接交付和间接交付</li>
+<li>向传输层屏蔽物理网络的差异</li>
+</ul>
+<p><strong>IP地址分类：</strong></p>
 <table>
 <thead>
 <tr>
@@ -1283,7 +1288,19 @@
 <td>暂时保留</td>
 </tr>
 </tbody></table>
-<p>二、</p>
+<p>.</p>
+<ul>
+<li>特殊地址<ul>
+<li><code>回送地址</code>用于网络软件测试和本地进程间通信。含网络号为<code>127</code> 的分组不能出现在任何网络上</li>
+<li>本地回环地址，<code>127.0.0.1</code></li>
+<li>网络地址，<code>192.168.12.0</code></li>
+<li>广播地址，<code>192.128.12.255</code></li>
+<li>受限广播，<code>255.255.255.255</code></li>
+<li>本网内本主机，<code>0.0.0.0</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>私有IP地址分类：</strong></p>
 <table>
 <thead>
 <tr>
@@ -1308,6 +1325,17 @@
 <td>256</td>
 </tr>
 </tbody></table>
+<p>.</p>
+<p>========== <em>其它补充</em></p>
+<p>在同一个局域网上的主机或路由器的IP地址中的网络号必须是一样的。</p>
+<p><strong>地址解析</strong> <code>ARP</code>：从已知的IP地址找出对应物理地址的映射过程<br>ARP协议（完成主机或路由器到MAC地址的映射，解决下一跳走哪的问题），ARP协议自动进行</p>
+<div class="admonition note"><p class="admonition-title">ARP表
+</p><p>格式：&lt;IP地址；MAC地址；TTL&gt;，其中TTL为地址长度将被忘记的时间长度（通常20分钟）</p>
+</div>
+
+<p>ICMP网际控制报文协议，DHCP协议 <code>？？？</code> </p>
+<p>私网IP要接入Internet时，要使用 <code>NAT</code> <strong>网络地址转换</strong><br>安装了NAT软件（含NAT转换表）的路由器叫NAT路由器，它至少有一个有效的外部全球IP地址。</p>
+<p><strong>移动IP技术</strong> 是移动结点（计算机、服务器等）以固定的网络IP地址，实现跨越不同网段的漫游功能，并保证了基于网络IP的网络权限在漫游过程中不发生任何改变。</p>
 <h2 id="五、传输层"><a href="#五、传输层" class="headerlink" title="五、传输层"></a>五、传输层</h2><h3 id="5-1-概述"><a href="#5-1-概述" class="headerlink" title="5.1 概述"></a>5.1 概述</h3><p>只有主机才有的层次。</p>
 <ul>
 <li><strong>主要作用</strong><ul>
@@ -2265,7 +2293,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">130k</span>&nbsp;字
+                class="white-color">130.4k</span>&nbsp;字
             
             
             
