@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-13
+                    2021-05-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    422
+                    464
                 </div>
                 
 
@@ -535,7 +535,7 @@ plt<span class="token punctuation">.</span>rcParams<span class="token punctuatio
 x<span class="token operator">=</span>np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">)</span>
 y<span class="token operator">=</span><span class="token number">2</span><span class="token operator">*</span>x<span class="token operator">+</span><span class="token number">5</span>
 plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'测试'</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'哈哈'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'xlabel'</span><span class="token punctuation">)</span>
 plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
 plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="最重要的plot"><a href="#最重要的plot" class="headerlink" title="最重要的plot()"></a>最重要的plot()</h2><p><code>plt.plot(x,y,format_string,**kwargs)</code></p>
@@ -557,19 +557,23 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 </thead>
 <tbody><tr>
 <td><code>plt.plot()</code></td>
-<td>绘制一个坐标图</td>
+<td>绘制坐标图</td>
 </tr>
 <tr>
 <td><code>plt.boxplot()</code></td>
-<td>绘制一个箱型图</td>
+<td>绘制箱型图</td>
+</tr>
+<tr>
+<td><code>plt.scatter()</code></td>
+<td>绘制 <strong>散点图</strong></td>
 </tr>
 <tr>
 <td><code>plt.bar()</code></td>
-<td>绘制一个条形图</td>
+<td>绘制 <strong>条形图</strong></td>
 </tr>
 <tr>
 <td><code>plt.barh()</code></td>
-<td>绘制一个横向条形图</td>
+<td>绘制横向条形图</td>
 </tr>
 <tr>
 <td><code>plt.hist()</code></td>
@@ -596,10 +600,6 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 <td>绘制相关性函数</td>
 </tr>
 <tr>
-<td><code>plt.scatter()</code></td>
-<td>绘制散点图</td>
-</tr>
-<tr>
 <td><code>plt.step()</code></td>
 <td>绘制步阶图</td>
 </tr>
@@ -613,7 +613,19 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 <li><code>plt.axis([x0,x1,y0,y1])</code>，坐标轴跨度</li>
 <li><code>plt.annotate()</code>，在图形中增加带箭头的注解</li>
 </ol>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文基于官方文档，和mooc一门课的笔记。<br>还很杂乱，需要重学时再整理。<br>感觉这个模块和EXCEL的可视化功能重叠了。</p>
+<h2 id="May-2021"><a href="#May-2021" class="headerlink" title="May.2021"></a><em>May.2021</em></h2><p>推荐阅读：<a href="https://matplotlib.org/stable/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py" target="_blank" rel="noopener">pyplot turtorial</a></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#感知机中画图</span>
+<span class="token keyword">def</span> <span class="token function">show_model</span><span class="token punctuation">(</span>model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    x_ <span class="token operator">=</span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+    y_ <span class="token operator">=</span> <span class="token operator">-</span><span class="token punctuation">(</span>model<span class="token punctuation">.</span>w<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> x_ <span class="token operator">+</span> model<span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token operator">/</span>model<span class="token punctuation">.</span>w<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+    plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span><span class="token punctuation">[</span>i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> X<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>i<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> X<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">'0'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># scatter散点</span>
+    plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span><span class="token punctuation">[</span>i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> X<span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>i<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> X<span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">'1'</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x_<span class="token punctuation">,</span> y_<span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">"After"</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'sepal length'</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'sepal width'</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#可取出存在的图</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1280,7 +1292,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">131.2k</span>&nbsp;字
+                class="white-color">132k</span>&nbsp;字
             
             
             

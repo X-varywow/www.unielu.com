@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="黑客与画家, -- blog --">
+    <meta name="keywords" content="VHDL, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>黑客与画家 | -- blog --</title>
+    <title>VHDL | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/awesome/css/all.css">
@@ -340,12 +340,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/luff-5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">黑客与画家</h1>
+                    <h1 class="description center-align post-title diyFont">VHDL</h1>
                 </div>
             </div>
         </div>
@@ -471,8 +471,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
+                            <a href="/tags/vhdl/">
+                                <span class="chip bg-color">vhdl</span>
                             </a>
                         
                     </div>
@@ -483,8 +483,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E4%B9%A6%E6%91%98/" class="post-category">
-                                书摘
+                            <a href="/categories/%E7%94%B5%E8%B7%AF/" class="post-category">
+                                电路
                             </a>
                         
                     </div>
@@ -496,21 +496,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-02
+                    2021-05-22
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-13
+                    2021-05-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    802
                 </div>
                 
 
@@ -522,67 +522,177 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>1.为什么书呆子不受欢迎</strong></p>
+                <p><em>VHDL</em>, Very-High-Speed Integrated Circuit Hardware Description Language<br><em>CPLD</em>, Complex Programmable Logic Device</p>
+<h2 id="一、基础"><a href="#一、基础" class="headerlink" title="一、基础"></a>一、基础</h2><h3 id="1-0-设计实体"><a href="#1-0-设计实体" class="headerlink" title="1.0 设计实体"></a>1.0 设计实体</h3><p>一个VHDL程序对应着一项具体工程设计，通常被称为设计实体。</p>
 <ul>
-<li>真实世界的特点是，它极其庞大。如果总体足够大，即使是人数最少的少数派，只要聚集在一起，也能产生可观的力量。在真实世界中，书呆子在某些地方聚集起来，形成自己的社区，智力因素成为那里最被看重的东西。有时，这种因素甚至会以相反的形式表现出来，特别是在大学的数理学系，书呆子甚至会夸大笨拙，以显示自己的聪明。约翰·纳什非常钦佩诺伯特·维纳，就学维纳的样子，经过走廊的时候都用手扶着墙走路。</li>
+<li>设计实体<ul>
+<li>库</li>
+<li>程序包</li>
+<li>实体<ul>
+<li>类属参数说明</li>
+<li>端口说明</li>
 </ul>
-<p><strong>2.黑客与画家</strong></p>
+</li>
+<li>结构体<ul>
+<li>结构体说明</li>
+<li>结构体功能描述</li>
+</ul>
+</li>
+<li>配置</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-1-实体"><a href="#1-1-实体" class="headerlink" title="1.1 实体"></a>1.1 实体</h3><p>实体用于描述设计实体与外部的接口信号，是设计实体对外的一个通信界面。</p>
+<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">ENTITY</span> 实体名 <span class="token keyword">IS</span>
+<span class="token punctuation">[</span><span class="token keyword">GENERIC</span><span class="token punctuation">(</span>类属表<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true">--类属参数说明</span>
+<span class="token punctuation">[</span><span class="token keyword">PORT</span><span class="token punctuation">(</span>端口表<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">]</span>     <span class="token comment" spellcheck="true">--端口说明</span>
+<span class="token keyword">END</span> <span class="token keyword">ENTITY</span> 实体名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>黑客与画家的共同之处，在于他们都是创作者。与作曲家、建筑师、作家一样，黑客和画家都是试图创作出优秀的作品。他们本质上都不是在做研究，虽然在创作过程中，他们可能会发现一些新技术（那样当然更好）。</li>
-<li>我现在认为，大学里教给我的编程方法都是错的。你把整个程序想清楚的时间点，应该是在编写代码的同时，而不是在编写代码之前，这与作家、画家和建筑师的做法完全一样。</li>
+<li>端口模式<ul>
+<li><code>IN</code><ul>
+<li>输入，只读模式</li>
 </ul>
-<p><strong>3.不能说的话</strong></p>
+</li>
+<li><code>OUT</code><ul>
+<li>输出，单向赋值模式</li>
+</ul>
+</li>
+<li><code>BUFFER</code><ul>
+<li>具有读功能的输出模式</li>
+</ul>
+</li>
+<li><code>INOUT</code><ul>
+<li>双向模式，允许用于内部反馈</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-结构体"><a href="#1-2-结构体" class="headerlink" title="1.2 结构体"></a>1.2 结构体</h3><p>结构体用于描述设计实体的内部结构，是对实体功能的具体实现。</p>
+<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">ARCHITECTURE</span> 结构体名 <span class="token keyword">OF</span> 实体名 <span class="token keyword">IS</span>
+    <span class="token punctuation">[</span>说明语句<span class="token punctuation">]</span>
+<span class="token keyword">BEGIN</span>
+    <span class="token punctuation">[</span>功能描述语句<span class="token punctuation">]</span>
+<span class="token keyword">END</span> <span class="token keyword">ARCHITECTURE</span> 结构体名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-3-库"><a href="#1-3-库" class="headerlink" title="1.3 库"></a>1.3 库</h3><p>一种用来存储预先完成的程序包和数据集合体的仓库。</p>
+<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token constant">LIBRARY</span> 库名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>常见的库：<code>IEEE</code>, <code>STD</code>, <code>WORK</code>, <code>VITAL</code></p>
+<h3 id="1-4-程序包"><a href="#1-4-程序包" class="headerlink" title="1.4 程序包"></a>1.4 程序包</h3><p>程序包是构成包的单元。</p>
+<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">PACKAGE</span> 程序包名 <span class="token keyword">IS</span>
+    <span class="token punctuation">[</span>程序包首说明部分<span class="token punctuation">]</span>
+<span class="token keyword">END</span> 程序包名<span class="token punctuation">;</span>
+<span class="token keyword">PACKAGE</span> <span class="token keyword">BODY</span> 程序包名 <span class="token keyword">IS</span>
+    <span class="token punctuation">[</span>程序包体说明部分<span class="token punctuation">]</span>
+<span class="token keyword">END</span> 程序包名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-5-配置"><a href="#1-5-配置" class="headerlink" title="1.5 配置"></a>1.5 配置</h3><p>配置用于描述层与层之间的连接关系或实体与结构体之间的连接关系。</p>
+<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">CONFIGURATION</span> 配置名 <span class="token keyword">OF</span> 实体名 <span class="token keyword">IS</span>
+    <span class="token punctuation">[</span>配置说明语句<span class="token punctuation">]</span>
+<span class="token keyword">END</span> 配置名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-6-文字规则"><a href="#1-6-文字规则" class="headerlink" title="1.6 文字规则"></a>1.6 文字规则</h3><ul>
+<li><strong>数字型文字</strong><ul>
+<li>整数文字<ul>
+<li>12_118_008( = 12118008 ), 下划线仅提高可读性</li>
+</ul>
+</li>
+<li>实数文字</li>
+<li>以数制基数表示的文字<ul>
+<li>10#36#2，表示 10 进制数 3600</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>字符串型文字</strong><ul>
+<li>字符<ul>
+<li>放在 <code>&#39;&#39;</code> 中的ASCII字符</li>
+</ul>
+</li>
+<li>字符串<ul>
+<li>放在 <code>&quot;&quot;</code> 中的一维字符数组</li>
+</ul>
+</li>
+<li>标识符<ul>
+<li>以英文字母开头</li>
+<li>不连续使用<code>_</code>，不以<code>_</code>结尾</li>
+<li>由英文字母，数字，<code>_</code> 构成</li>
+<li>不区分大小写</li>
+</ul>
+</li>
+<li>下标名及下标段名</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-7-数据对象"><a href="#1-7-数据对象" class="headerlink" title="1.7 数据对象"></a>1.7 数据对象</h3><p>（1）常量</p>
+<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">CONSTANT</span> 常量名<span class="token punctuation">:</span>数据类型<span class="token punctuation">[</span><span class="token operator">:=</span>表达式<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>（2）变量</p>
+<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">VARIABLE</span> 变量名<span class="token punctuation">:</span>数据类型<span class="token punctuation">[</span><span class="token operator">:=</span>初始值<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>（3）信号</p>
+<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">SIGNAL</span> 信号名<span class="token punctuation">:</span>数据类型<span class="token punctuation">[</span><span class="token operator">:=</span>初始值<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+信号赋值目标<span class="token operator">&lt;=</span>赋值源<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">--信号的赋值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-8-其它"><a href="#1-8-其它" class="headerlink" title="1.8 其它"></a>1.8 其它</h3><p>数据类型：标量型，复合类型、指针类型、文件类型</p>
+<p>操作符：算术操作符、关系操作符、逻辑操作符、符号操作符</p>
+<table>
+<thead>
+<tr>
+<th>AND</th>
+<th>OR</th>
+<th>NAND</th>
+<th>NOR</th>
+<th>XOR</th>
+<th>NOT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>与</td>
+<td>或</td>
+<td>与非</td>
+<td>或非</td>
+<td>异或</td>
+<td>非</td>
+</tr>
+</tbody></table>
 <ul>
-<li>如果你想要清晰地思考，就必须远离人群。但是走得越远，你的处境就会越困难，受到的阻力也会越大，因为你没有迎合社会习俗，而是一步步地与它背道而驰。小时候，每个人都会鼓励你不断成长，变成一个心智成熟、不再耍小孩子脾气的人。但是，很少有人鼓励你继续成长，变成一个怀疑和抵制社会错误潮流的人。</li>
-<li>如果自己就是潮水的一部分，又怎能看见潮流的方向呢？</li>
+<li>顺序语句<ul>
+<li>赋值语句，<code>:=</code> <code>&lt;=</code></li>
+<li>转向控制语句，<code>IF</code> <code>CASE</code> <code>LOOP</code> <code>NEXT</code> <code>EXIT</code></li>
+<li>等待语句</li>
+<li>返回语句 <code>RETURN;</code></li>
+<li>空操作语句 <code>NULL;</code></li>
 </ul>
-<p><strong>5.另一条路</strong></p>
+</li>
+<li>并行语句<ul>
+<li>进程语句</li>
+<li>块语句</li>
+<li>并行赋值语句</li>
+<li>并行过程调用语句</li>
+<li>元件例化语句</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">IF</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">THEN</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+<span class="token keyword">ELSIF</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">THEN</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+<span class="token keyword">ELSIF</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+<span class="token keyword">END</span> <span class="token keyword">IF</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="二、实例"><a href="#二、实例" class="headerlink" title="二、实例"></a>二、实例</h2><h3 id="2-1-二输入与非门"><a href="#2-1-二输入与非门" class="headerlink" title="2.1 二输入与非门"></a>2.1 二输入与非门</h3><pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token constant">LIBRARY</span> IEEE<span class="token punctuation">;</span>
+<span class="token constant">USE</span> IEEE<span class="token punctuation">.</span>STD_LOGIC_1164<span class="token punctuation">.</span><span class="token keyword">ALL</span><span class="token punctuation">;</span>
+
+<span class="token keyword">ENTITY</span> nandgate2 <span class="token keyword">IS</span>            <span class="token comment" spellcheck="true">--定义一个用于通信的实体</span>
+    <span class="token keyword">PORT</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">:</span> <span class="token keyword">IN</span> STD_LOGIC<span class="token punctuation">;</span>
+        y<span class="token punctuation">:</span> <span class="token keyword">OUT</span> STD_LOGIC<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">END</span> nandgate2<span class="token punctuation">;</span>
+
+<span class="token keyword">ARCHITECTURE</span> nand2 <span class="token keyword">OF</span> nandgate2 <span class="token keyword">IS</span>    <span class="token comment" spellcheck="true">--结构体，实现功能</span>
+<span class="token keyword">BEGIN</span>
+    y <span class="token operator">&lt;=</span> a <span class="token operator">NAND</span> b<span class="token punctuation">;</span>
+<span class="token keyword">END</span> nand2<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-2-加法器"><a href="#2-2-加法器" class="headerlink" title="2.2 加法器"></a>2.2 加法器</h3><h3 id="2-3-触发器"><a href="#2-3-触发器" class="headerlink" title="2.3 触发器"></a>2.3 触发器</h3><hr>
+<p><strong>参考资料：</strong></p>
 <ul>
-<li>你能够通过浏览器发布软件，没有人能在你和浏览网站的用户之间插上一脚。你也许不会相信，但是我向你保证，微软公司害怕你。它的那些目中无人的中层管理人员也许不是这样想的，但是比尔·盖茨肯定是，因为1975年，上一次发布软件的新方式出现时，他也曾经跟你一样白手起家。</li>
-<li>我认为，大量的下一代软件都将采用这个模式。甚至最大的输家——微软公司，看来也明白了，部分软件从桌面消失将是不可避免的。如果软件从桌面移到服务器上，对于开发者来说，一切将发生根本性的变化。本文将站在先行者的角度，描述我们正在经历的种种令人惊叹的变化。由于软件转移到服务器的趋势才刚刚开始，所以我下面所写的是对未来的憧憬。</li>
+<li>《数字逻辑》，欧阳星明</li>
 </ul>
-<p><strong>6.如何创造财富</strong></p>
-<ul>
-<li>如果你想致富？应该怎么做？我认为最好的方法就是创业，或者加入创业公司。几百年来，这一直是致富的可靠途径。</li>
-<li>创业公司往往与技术有关，所以“高技术创业公司”这个短语几乎就是同义重复。创业公司其实就是解决了某个技术难题的小公司。</li>
-<li>从经济学观点看，你可以把创业想象成一个压缩过程，你的所有工作年份被压缩成了短短几年。你不再是低强度地工作四十年，而是以极限强度工作四年。在高技术领域，这种压缩的回报尤其丰厚，工作效率越高，额外报酬就越高。</li>
-<li>最可能明白财富能被创造出来的人就是那些善于制作东西的人，也就是手工艺人。他们做出来的东西直接放在商店里卖。但是，随着工业化时代的来临，手工艺人越来越少。目前还存在的最大的手工艺人群体就是程序员。</li>
-<li>上学和上班的相似之处要大于它们的不同。张三，20岁，某某大学的学生，现在变成了，张三，22岁，某某公司的程序员。</li>
-<li>大公司会使得每个员工的贡献平均化，这是一个问题。我觉得，大公司最大的困扰就是无法准确测量每个员工的贡献。销售员是一个例外。</li>
-<li>你想更努力地工作，但是你的工作与其他许多人的工作混杂在一起，这样就产生了问题。在大公司中，个人的表现无法单独测量，公司里其他人会拖累你。</li>
-<li>要致富，你需要两样东西：可测量性和可放大性。</li>
-<li>如果你有一个令你感到安全的工作，你是不会致富的，因为没有危险，就几乎等于没有可放大性。</li>
-<li>这就是创业公司的真正意义。理想情况下，你与其他愿意更努力工作的人一起组成一个团队，共同谋取更高的回报（相比他们为大公司工作的情况）。因为创业公司的团队往往是自发形成的，许多有抱负的创始人彼此之间早就相识（至少听说过对方），所以他们对彼此贡献的评估要比一般的小团体更准确。创业公司不仅仅是十个人的团队，而且是十个同类人的团队。</li>
-<li>团队越大，每个人的贡献就越接近于整体的平均值。所以，在不考虑其他因素的情况下，一个非常能干的人待在大公司里可能对他本人是一件很糟的事情，因为他的表现被其他不能干的人拖累了。</li>
-<li>设置“进入壁垒”的方法之一就是申请专利。但是专利的保护程度可能不高。竞争对手通常能找到绕过专利的方法。如果找不到，它们可能就不找了，直接侵犯你的专利，等着你去起诉它们。大公司不害怕打官司，这对它们是家常便饭。</li>
-<li>我认为，如果你的公司有机会被收购，那将是不错的选择。管理一家公司与创立一家公司是不同的两件事。当情况基本稳定下来以后，不妨让大公司来接手。这在财务上也是明智的选择，卖掉公司你的风险就分散了，</li>
-</ul>
-<p><strong>7.关注贫富差距</strong></p>
-<ul>
-<li>事实上，财富与金钱是两个概念。金钱只是用来交易财富的一种手段，财富才是有价值的东西，我们购买的商品和服务都属于财富。你到海外旅行时，不用看当地人的银行账户就会知道你来到的是富国还是穷国。你只要看看他们的财富就行了：建筑、街道、服装、健康状况等</li>
-<li>我想提出一种相反的观点：现代社会的收入差距扩大是一种健康的信号。技术使得生产率的差异加速扩大，如果这种扩大没有反映在收入上面，只有三种可能的解释：（a）技术革新停顿了；（b）那些创造大部分财富的人停止工作了；（c）创造财富的人没有获得报酬。</li>
-</ul>
-<p><strong>9.设计者的品味</strong></p>
-<ul>
-<li>数学家会把出色的工作称赞为“优美的”。无论古今，科学家、工程师、音乐家、建筑师、设计师、作家、画家都是这样做的，他们都使用同一个词。</li>
-<li>推动人才成批涌现的最大因素就是，让有天赋的人聚在一起，共同解决某个难题。互相激励比天赋更重要，达·芬奇之所以成为达·芬奇，主要原因不仅仅是他的天赋，更重要的是他生活在当时的佛罗伦萨，而不是米兰。今天，人类生活的流动性高得多，但是伟大的项目依然不成比例地集中在少数几个热点上：德国包豪斯建筑学院、曼哈顿计划、《纽约人》杂志、洛克希德公司的臭鼬工作室、施乐公司的帕洛阿尔托研究中心。</li>
-</ul>
-<p><strong>11.一百年后的编程语言</strong></p>
-<ul>
-<li>一百年后的物理学基本上不可能预测。但是计算机语言不一样，现在就动手设计一种一百年后可以吸引使用者的新语言，这在理论上似乎是可能的。</li>
-<li>当你设计语言的时候，心里牢牢记住这个目标是有好处的。学习开车的时候，一个需要记住的原则就是要把车开直，不是通过将车身对齐画在地上的分隔线，而是通过瞄准远处的某个点。即使你的目标只在几米开外，这样做也是正确的。我认为，设计编程语言时，我们也应该这样做。</li>
-</ul>
-<p><strong>13.revenge of the nerd</strong></p>
-<ul>
-<li>简单说，因为这种语言本质上不是一种技术，而是数学。数学是不会过时的。你不应该把Lisp语言与50年代的硬件联系在一起，而是应该把它与快速排序（Quicksort）算法进行类比。这种算法是1960年提出的，至今仍然是最快的通用排序方法。</li>
-<li>所以，我们就有了两点结论，我认为它们非常有价值。事实上，这是我用自己的经历换来的。第一，不同语言的编程能力不一样。第二，大多数经理故意忽视第一点。你把这两点事实结合起来，其实就得到了赚钱的诀窍。ITA 软件公司是运用这个诀窍的典型例子。如果你想在软件业获得成功，就使用你知道的最强大的语言，用它解决你知道的最难的问题，并且等待竞争对手的经理做出自甘平庸的选择。</li>
-</ul>
-<blockquote>
-<p>这本书关于财富、创业、Lisp的见解真的很棒</p>
-</blockquote>
-<blockquote>
-<p>是本好书，微信读书有</p>
-</blockquote>
 
             </div>
             <hr/>
@@ -608,7 +718,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/hackers_and_painters.html">https://www.unielu.com/posts/hackers_and_painters.html</a>
+                    <a href="https://www.unielu.com/posts/6ba3.html">https://www.unielu.com/posts/6ba3.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -646,8 +756,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
+                                <a href="/tags/vhdl/">
+                                    <span class="chip bg-color">vhdl</span>
                                 </a>
                             
                         </div>
@@ -952,45 +1062,47 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/yuanze.html">
+                <a href="/posts/6ba3.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/luff-5.jpg" class="responsive-img" alt="原则">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/2.jpg" class="responsive-img" alt="VHDL">
                         
-                        <span class="card-title">原则</span>
+                        <span class="card-title">VHDL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Ray Dalio
+                            一种用于电路设计的高级语言
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%B9%A6%E6%91%98/" class="post-category">
-                                    书摘
+                            <a href="/categories/%E7%94%B5%E8%B7%AF/" class="post-category">
+                                    电路
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
+                    <a href="/tags/vhdl/">
+                        <span class="chip bg-color">vhdl</span>
                     </a>
                     
                 </div>
@@ -1004,30 +1116,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/hc6t.html">
+                <a href="/posts/e34y.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/leetcode.png" class="responsive-img" alt="每日一题(1月)">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-1.jpg" class="responsive-img" alt="感知机模型">
                         
-                        <span class="card-title">每日一题(1月)</span>
+                        <span class="card-title">感知机模型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            2021年加油！
+                            一次机器学习作业
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                             
                             
@@ -1037,8 +1149,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
+                    <a href="/tags/%E6%84%9F%E7%9F%A5%E6%9C%BA/">
+                        <span class="chip bg-color">感知机</span>
                     </a>
                     
                 </div>
