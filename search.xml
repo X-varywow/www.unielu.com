@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>词语搭配统计</title>
+      <link href="posts/dd6.html"/>
+      <url>posts/dd6.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h2><p>阅读论文：孙茂松， 汉语搭配定量分析初探</p><p>参考论文中搭配统计的量化指标和算法，统计《人民日报》 语料中和“能力” 一词搭配的词语有哪些？<br>做实验， 写出实验报告。</p><p><a href="../zone/nenglidapei">代码参考</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大二 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> NLP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>VHDL</title>
       <link href="posts/6ba3.html"/>
       <url>posts/6ba3.html</url>

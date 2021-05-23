@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="VHDL, -- blog --">
+    <meta name="keywords" content="词语搭配统计, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>VHDL | -- blog --</title>
+    <title>词语搭配统计 | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/awesome/css/all.css">
@@ -340,12 +340,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">VHDL</h1>
+                    <h1 class="description center-align post-title diyFont">词语搭配统计</h1>
                 </div>
             </div>
         </div>
@@ -471,8 +471,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/vhdl/">
-                                <span class="chip bg-color">vhdl</span>
+                            <a href="/tags/NLP/">
+                                <span class="chip bg-color">NLP</span>
                             </a>
                         
                     </div>
@@ -483,8 +483,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%94%B5%E8%B7%AF/" class="post-category">
-                                电路
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                大二
                             </a>
                         
                     </div>
@@ -496,21 +496,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-22
+                    2021-05-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-22
+                    2021-05-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    802
+                    73
                 </div>
                 
 
@@ -522,177 +522,9 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><em>VHDL</em>, Very-High-Speed Integrated Circuit Hardware Description Language<br><em>CPLD</em>, Complex Programmable Logic Device</p>
-<h2 id="一、基础"><a href="#一、基础" class="headerlink" title="一、基础"></a>一、基础</h2><h3 id="1-0-设计实体"><a href="#1-0-设计实体" class="headerlink" title="1.0 设计实体"></a>1.0 设计实体</h3><p>一个VHDL程序对应着一项具体工程设计，通常被称为设计实体。</p>
-<ul>
-<li>设计实体<ul>
-<li>库</li>
-<li>程序包</li>
-<li>实体<ul>
-<li>类属参数说明</li>
-<li>端口说明</li>
-</ul>
-</li>
-<li>结构体<ul>
-<li>结构体说明</li>
-<li>结构体功能描述</li>
-</ul>
-</li>
-<li>配置</li>
-</ul>
-</li>
-</ul>
-<h3 id="1-1-实体"><a href="#1-1-实体" class="headerlink" title="1.1 实体"></a>1.1 实体</h3><p>实体用于描述设计实体与外部的接口信号，是设计实体对外的一个通信界面。</p>
-<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">ENTITY</span> 实体名 <span class="token keyword">IS</span>
-<span class="token punctuation">[</span><span class="token keyword">GENERIC</span><span class="token punctuation">(</span>类属表<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true">--类属参数说明</span>
-<span class="token punctuation">[</span><span class="token keyword">PORT</span><span class="token punctuation">(</span>端口表<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">]</span>     <span class="token comment" spellcheck="true">--端口说明</span>
-<span class="token keyword">END</span> <span class="token keyword">ENTITY</span> 实体名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>端口模式<ul>
-<li><code>IN</code><ul>
-<li>输入，只读模式</li>
-</ul>
-</li>
-<li><code>OUT</code><ul>
-<li>输出，单向赋值模式</li>
-</ul>
-</li>
-<li><code>BUFFER</code><ul>
-<li>具有读功能的输出模式</li>
-</ul>
-</li>
-<li><code>INOUT</code><ul>
-<li>双向模式，允许用于内部反馈</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="1-2-结构体"><a href="#1-2-结构体" class="headerlink" title="1.2 结构体"></a>1.2 结构体</h3><p>结构体用于描述设计实体的内部结构，是对实体功能的具体实现。</p>
-<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">ARCHITECTURE</span> 结构体名 <span class="token keyword">OF</span> 实体名 <span class="token keyword">IS</span>
-    <span class="token punctuation">[</span>说明语句<span class="token punctuation">]</span>
-<span class="token keyword">BEGIN</span>
-    <span class="token punctuation">[</span>功能描述语句<span class="token punctuation">]</span>
-<span class="token keyword">END</span> <span class="token keyword">ARCHITECTURE</span> 结构体名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="1-3-库"><a href="#1-3-库" class="headerlink" title="1.3 库"></a>1.3 库</h3><p>一种用来存储预先完成的程序包和数据集合体的仓库。</p>
-<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token constant">LIBRARY</span> 库名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>常见的库：<code>IEEE</code>, <code>STD</code>, <code>WORK</code>, <code>VITAL</code></p>
-<h3 id="1-4-程序包"><a href="#1-4-程序包" class="headerlink" title="1.4 程序包"></a>1.4 程序包</h3><p>程序包是构成包的单元。</p>
-<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">PACKAGE</span> 程序包名 <span class="token keyword">IS</span>
-    <span class="token punctuation">[</span>程序包首说明部分<span class="token punctuation">]</span>
-<span class="token keyword">END</span> 程序包名<span class="token punctuation">;</span>
-<span class="token keyword">PACKAGE</span> <span class="token keyword">BODY</span> 程序包名 <span class="token keyword">IS</span>
-    <span class="token punctuation">[</span>程序包体说明部分<span class="token punctuation">]</span>
-<span class="token keyword">END</span> 程序包名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="1-5-配置"><a href="#1-5-配置" class="headerlink" title="1.5 配置"></a>1.5 配置</h3><p>配置用于描述层与层之间的连接关系或实体与结构体之间的连接关系。</p>
-<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">CONFIGURATION</span> 配置名 <span class="token keyword">OF</span> 实体名 <span class="token keyword">IS</span>
-    <span class="token punctuation">[</span>配置说明语句<span class="token punctuation">]</span>
-<span class="token keyword">END</span> 配置名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="1-6-文字规则"><a href="#1-6-文字规则" class="headerlink" title="1.6 文字规则"></a>1.6 文字规则</h3><ul>
-<li><strong>数字型文字</strong><ul>
-<li>整数文字<ul>
-<li>12_118_008( = 12118008 ), 下划线仅提高可读性</li>
-</ul>
-</li>
-<li>实数文字</li>
-<li>以数制基数表示的文字<ul>
-<li>10#36#2，表示 10 进制数 3600</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>字符串型文字</strong><ul>
-<li>字符<ul>
-<li>放在 <code>&#39;&#39;</code> 中的ASCII字符</li>
-</ul>
-</li>
-<li>字符串<ul>
-<li>放在 <code>&quot;&quot;</code> 中的一维字符数组</li>
-</ul>
-</li>
-<li>标识符<ul>
-<li>以英文字母开头</li>
-<li>不连续使用<code>_</code>，不以<code>_</code>结尾</li>
-<li>由英文字母，数字，<code>_</code> 构成</li>
-<li>不区分大小写</li>
-</ul>
-</li>
-<li>下标名及下标段名</li>
-</ul>
-</li>
-</ul>
-<h3 id="1-7-数据对象"><a href="#1-7-数据对象" class="headerlink" title="1.7 数据对象"></a>1.7 数据对象</h3><p>（1）常量</p>
-<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">CONSTANT</span> 常量名<span class="token punctuation">:</span>数据类型<span class="token punctuation">[</span><span class="token operator">:=</span>表达式<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>（2）变量</p>
-<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">VARIABLE</span> 变量名<span class="token punctuation">:</span>数据类型<span class="token punctuation">[</span><span class="token operator">:=</span>初始值<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>（3）信号</p>
-<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">SIGNAL</span> 信号名<span class="token punctuation">:</span>数据类型<span class="token punctuation">[</span><span class="token operator">:=</span>初始值<span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-信号赋值目标<span class="token operator">&lt;=</span>赋值源<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">--信号的赋值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="1-8-其它"><a href="#1-8-其它" class="headerlink" title="1.8 其它"></a>1.8 其它</h3><p>数据类型：标量型，复合类型、指针类型、文件类型</p>
-<p>操作符：算术操作符、关系操作符、逻辑操作符、符号操作符</p>
-<table>
-<thead>
-<tr>
-<th>AND</th>
-<th>OR</th>
-<th>NAND</th>
-<th>NOR</th>
-<th>XOR</th>
-<th>NOT</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>与</td>
-<td>或</td>
-<td>与非</td>
-<td>或非</td>
-<td>异或</td>
-<td>非</td>
-</tr>
-</tbody></table>
-<ul>
-<li>顺序语句<ul>
-<li>赋值语句，<code>:=</code> <code>&lt;=</code></li>
-<li>转向控制语句，<code>IF</code> <code>CASE</code> <code>LOOP</code> <code>NEXT</code> <code>EXIT</code></li>
-<li>等待语句</li>
-<li>返回语句 <code>RETURN;</code></li>
-<li>空操作语句 <code>NULL;</code></li>
-</ul>
-</li>
-<li>并行语句<ul>
-<li>进程语句</li>
-<li>块语句</li>
-<li>并行赋值语句</li>
-<li>并行过程调用语句</li>
-<li>元件例化语句</li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">IF</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">THEN</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
-<span class="token keyword">ELSIF</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">THEN</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
-<span class="token keyword">ELSIF</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
-<span class="token keyword">END</span> <span class="token keyword">IF</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="二、实例"><a href="#二、实例" class="headerlink" title="二、实例"></a>二、实例</h2><h3 id="2-1-二输入与非门"><a href="#2-1-二输入与非门" class="headerlink" title="2.1 二输入与非门"></a>2.1 二输入与非门</h3><pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token constant">LIBRARY</span> IEEE<span class="token punctuation">;</span>
-<span class="token constant">USE</span> IEEE<span class="token punctuation">.</span>STD_LOGIC_1164<span class="token punctuation">.</span><span class="token keyword">ALL</span><span class="token punctuation">;</span>
-
-<span class="token keyword">ENTITY</span> nandgate2 <span class="token keyword">IS</span>            <span class="token comment" spellcheck="true">--定义一个用于通信的实体</span>
-    <span class="token keyword">PORT</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">:</span> <span class="token keyword">IN</span> STD_LOGIC<span class="token punctuation">;</span>
-        y<span class="token punctuation">:</span> <span class="token keyword">OUT</span> STD_LOGIC<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">END</span> nandgate2<span class="token punctuation">;</span>
-
-<span class="token keyword">ARCHITECTURE</span> nand2 <span class="token keyword">OF</span> nandgate2 <span class="token keyword">IS</span>    <span class="token comment" spellcheck="true">--结构体，实现功能</span>
-<span class="token keyword">BEGIN</span>
-    y <span class="token operator">&lt;=</span> a <span class="token operator">NAND</span> b<span class="token punctuation">;</span>
-<span class="token keyword">END</span> nand2<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-2-加法器"><a href="#2-2-加法器" class="headerlink" title="2.2 加法器"></a>2.2 加法器</h3><h3 id="2-3-触发器"><a href="#2-3-触发器" class="headerlink" title="2.3 触发器"></a>2.3 触发器</h3><hr>
-<p><strong>参考资料：</strong></p>
-<ul>
-<li>《数字逻辑》，欧阳星明</li>
-</ul>
+                <h2 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h2><p>阅读论文：孙茂松， 汉语搭配定量分析初探</p>
+<p>参考论文中搭配统计的量化指标和算法，统计《人民日报》 语料中和“能力” 一词搭配的词语有哪些？<br>做实验， 写出实验报告。</p>
+<p><a href="../zone/nenglidapei">代码参考</a></p>
 
             </div>
             <hr/>
@@ -718,7 +550,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/6ba3.html">https://www.unielu.com/posts/6ba3.html</a>
+                    <a href="https://www.unielu.com/posts/dd6.html">https://www.unielu.com/posts/dd6.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -756,8 +588,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/vhdl/">
-                                    <span class="chip bg-color">vhdl</span>
+                                <a href="/tags/NLP/">
+                                    <span class="chip bg-color">NLP</span>
                                 </a>
                             
                         </div>
@@ -1062,9 +894,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/dd6.html">
                     <div class="card-image">
@@ -1081,9 +914,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1096,6 +929,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1114,30 +948,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/e34y.html">
+                <a href="/posts/6ba3.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-1.jpg" class="responsive-img" alt="感知机模型">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/2.jpg" class="responsive-img" alt="VHDL">
                         
-                        <span class="card-title">感知机模型</span>
+                        <span class="card-title">VHDL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一次机器学习作业
+                            一种用于电路设计的高级语言
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
+                            <a href="/categories/%E7%94%B5%E8%B7%AF/" class="post-category">
+                                    电路
                                 </a>
                             
                             
@@ -1147,8 +981,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%84%9F%E7%9F%A5%E6%9C%BA/">
-                        <span class="chip bg-color">感知机</span>
+                    <a href="/tags/vhdl/">
+                        <span class="chip bg-color">vhdl</span>
                     </a>
                     
                 </div>
