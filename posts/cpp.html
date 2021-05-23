@@ -507,7 +507,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-19
+                    2021-05-23
                 </div>
                 
 
@@ -862,45 +862,51 @@ stu_cnt<span class="token operator">++</span><span class="token punctuation">;</
 </ul>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//虚继承</span>
 <span class="token comment" spellcheck="true">//祖先类的成员只构造一次</span>
-<span class="token keyword">class</span> <span class="token class-name">Derived</span><span class="token operator">:</span> <span class="token keyword">virtual</span> <span class="token keyword">public</span> Base<span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span><span class="token punctuation">;</span> 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">class</span> <span class="token class-name">Derived</span><span class="token operator">:</span> <span class="token keyword">virtual</span> <span class="token keyword">public</span> Base<span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>派生类的类型转换<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Base</span><span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
-<span class="token keyword">class</span> <span class="token class-name">Derived</span><span class="token operator">:</span> <span class="token keyword">public</span> Base<span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
+<li>派生类的类型转换</li>
 </ul>
-<p>Base b;<br>Derived d;</p>
-<p>b = d; //用派生类对象给基类对象赋值<br>Base &amp;br = d; //定义一个基类应用，用派生类初始化<br>Base *bp = &d; //定义一个基类指针，指向派生类对象</p>
-<pre><code>
-### 2.7 多态
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Base</span><span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">Derived</span><span class="token operator">:</span> <span class="token keyword">public</span> Base<span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
 
-父亲类定义函数接口，孩子类负责实现该接口。当父亲类需要调用该接口时，能够自动执行对应孩子实现的代码
+Base b<span class="token punctuation">;</span>
+Derived d<span class="token punctuation">;</span>
 
-### 2.8 _other_
-```cpp
-//类的组合
-//在一个类的构造中嵌入另一个类的对象，构造时都要构造
-//先构造被组合的
+b <span class="token operator">=</span> d<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//用派生类对象给基类对象赋值</span>
+Base <span class="token operator">&amp;</span>br <span class="token operator">=</span> d<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//定义一个基类应用，用派生类初始化</span>
+Base <span class="token operator">*</span>bp <span class="token operator">=</span> <span class="token operator">&amp;</span>d<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//定义一个基类指针，指向派生类对象</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-7-多态"><a href="#2-7-多态" class="headerlink" title="2.7 多态"></a>2.7 多态</h3><p>父亲类定义函数接口，孩子类负责实现该接口。当父亲类需要调用该接口时，能够自动执行对应孩子实现的代码</p>
+<p>通过虚函数实现运行时多态，运行时使用指针访问继承中的同名成员会出错…</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Base1</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">void</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-8-other"><a href="#2-8-other" class="headerlink" title="2.8 other"></a>2.8 <em>other</em></h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//类的组合</span>
+<span class="token comment" spellcheck="true">//在一个类的构造中嵌入另一个类的对象，构造时都要构造</span>
+<span class="token comment" spellcheck="true">//先构造被组合的</span>
 
 
-//对象指针
-Ccube* pcube;  //定义指针时，不会调用构造函数
+<span class="token comment" spellcheck="true">//对象指针</span>
+Ccube<span class="token operator">*</span> pcube<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//定义指针时，不会调用构造函数</span>
 
-//定义类时，类的方法编译后的二进制码放入内存
-//定义类的对象时，对象的内存空间存放属性数据
-
-
-//在每个成员函数执行的时候，隐形地传进去一个指向调用者对象自身的 this 指针
-a.disp()  -&gt; a.disp(this) -&gt; a.disp(&amp;a)
+<span class="token comment" spellcheck="true">//定义类时，类的方法编译后的二进制码放入内存</span>
+<span class="token comment" spellcheck="true">//定义类的对象时，对象的内存空间存放属性数据</span>
 
 
-//常对象
-const class_name foo();
-class_name const foo();
-//此后foo对象在其生存周期内不可更改
+<span class="token comment" spellcheck="true">//在每个成员函数执行的时候，隐形地传进去一个指向调用者对象自身的 this 指针</span>
+a<span class="token punctuation">.</span><span class="token function">disp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token operator">-</span><span class="token operator">></span> a<span class="token punctuation">.</span><span class="token function">disp</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> a<span class="token punctuation">.</span><span class="token function">disp</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>a<span class="token punctuation">)</span>
 
-//const数据成员只能透过初始化列表在构造的时候进行初始化。一旦构造不可更改</code></pre>
+
+<span class="token comment" spellcheck="true">//常对象</span>
+<span class="token keyword">const</span> class_name <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+class_name <span class="token keyword">const</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//此后foo对象在其生存周期内不可更改</span>
+
+<span class="token comment" spellcheck="true">//const数据成员只能透过初始化列表在构造的时候进行初始化。一旦构造不可更改</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//常成员</span>
 <span class="token comment" spellcheck="true">//一个类中定义的const函数，专门用来处理这个类的const对象发起的函数调用</span>
 <span class="token keyword">class</span> <span class="token class-name">Date</span><span class="token punctuation">{</span>
@@ -1034,7 +1040,7 @@ vector <span class="token operator">&lt;</span><span class="token keyword">int</
 <span class="token operator">&lt;</span>priority_queue<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="4-2-算法"><a href="#4-2-算法" class="headerlink" title="4.2 算法"></a>4.2 算法</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="4-3-迭代器"><a href="#4-3-迭代器" class="headerlink" title="4.3 迭代器"></a>4.3 迭代器</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iterator></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="五、作业"><a href="#五、作业" class="headerlink" title="五、作业"></a>五、作业</h2><h3 id="5-1-三角形类"><a href="#5-1-三角形类" class="headerlink" title="5.1 三角形类"></a>5.1 三角形类</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<h2 id="五、实例"><a href="#五、实例" class="headerlink" title="五、实例"></a>五、实例</h2><h3 id="5-1-三角形类"><a href="#5-1-三角形类" class="headerlink" title="5.1 三角形类"></a>5.1 三角形类</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;string></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cmath></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -1781,7 +1787,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">132k</span>&nbsp;字
+                class="white-color">132.1k</span>&nbsp;字
             
             
             
