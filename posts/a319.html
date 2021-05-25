@@ -475,6 +475,10 @@
                                 <span class="chip bg-color">笔记</span>
                             </a>
                         
+                            <a href="/tags/NLP/">
+                                <span class="chip bg-color">NLP</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -496,21 +500,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-04
+                    2021-05-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-24
+                    2021-05-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    572
+                    1.2k
                 </div>
                 
 
@@ -525,7 +529,7 @@
                 <p>计算语言学 ≈ 自然语言处理 = 语言信息处理 ≠ 计量语言学   </p>
 <p>PPT:</p>
 <ul>
-<li>2.语言学基础<ul>
+<li>2.<strong>语言学基础</strong><ul>
 <li>语言学研究的系统性和层次性</li>
 <li>词汇系统</li>
 <li>句法系统</li>
@@ -533,20 +537,14 @@
 <li>语用系统</li>
 </ul>
 </li>
-<li>3.语料库和语言知识库<ul>
-<li>语料库：就是存放语言材料的仓库<ul>
-<li>类型<ul>
-<li>平衡语料库，着重考虑的是语料的代表性与平衡性。</li>
-<li>平行语料库</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>3.<strong>语料库</strong>和语言知识库<ul>
+<li>语料库就是存放语言材料的仓库</li>
+<li>语料库是以电子计算机为载体的承载语言的基础资源</li>
 </ul>
 </li>
 </ul>
 <hr>
-<ul>
+<h2 id="四、数学基础"><a href="#四、数学基础" class="headerlink" title="四、数学基础"></a>四、数学基础</h2><ul>
 <li>自然语言处理的两种基本方法：<ul>
 <li>基于规则的分析方法（理论基础：Chomsky文法理论）<ul>
 <li>规则库开发</li>
@@ -560,12 +558,36 @@
 </li>
 </ul>
 </li>
-<li>概率论基础<ul>
-<li>样本空间：是一个试验的全部可能出现的结果的集合。</li>
-<li>基本事件、复合事件：含有一个、多个样本点的随记事件。</li>
+<li>概率论基础（1）<ul>
+<li><strong>试验</strong>：一个可观察的人工或自然的过程</li>
+<li><strong>样本空间</strong>：是一个试验的全部可能出现的结果的集合。</li>
+<li><strong>事件</strong>：一个试验的一些可能结果的集合</li>
+<li><strong>基本事件</strong>、<strong>复合事件</strong>：含有一个、多个样本点的随记事件。</li>
+<li>三个公理<ul>
+<li>$P(A) \ge 0$</li>
+<li>$P(\Omega)=1$</li>
+<li>$P(A\cup B)=P(A)+P(B) \quad if \quad A\cap B=\varnothing$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>概率论基础（2）</p>
+<ul>
+<li><strong>联合概率</strong><ul>
+<li>表示为：$P(A,B)$, $P(AB)$, $P(A\cap B)$</li>
 <li>$P(A,B) = P(A) × P(B|A) = P(B) × P(A|B)$</li>
-<li>事件独立：<ul>
-<li>$P(A|B) = P(A), P(B|A) = P(B)$</li>
+</ul>
+</li>
+<li><strong>条件概率</strong></li>
+<li>概率的乘法原理<ul>
+<li>$P(A,B,C)=P(A) \times P(B|A) \times P(C|A,B)$</li>
+</ul>
+</li>
+<li><strong>事件独立</strong>：<ul>
+<li>$P(A|B) = P(A), P(B|A) = P(B)${}</li>
 <li>$P(A,B) = P(A) × P(B)$</li>
 </ul>
 </li>
@@ -575,23 +597,67 @@
 <li>$P(B|A,C) = P(B|C)$</li>
 </ul>
 </li>
-<li>全概率公式：$P(A) = \sum P(B_i)P(A|B_i)$</li>
-<li>贝叶斯公式</li>
+</ul>
+</li>
+<li><p>概率论基础（3）</p>
+<ul>
+<li><code>全概率公式</code>：$$P(A) = \sum_{i=1}^n P(B_i)P(A|B_i)$$</li>
+<li><code>贝叶斯公式</code>: $$P(B|A)=\frac{P(A|B)P(B)}{P(A)}$$</li>
+</ul>
+</li>
+<li><p>$P(B)$ 为 <strong>先验概率</strong></p>
+<ul>
+<li>不考虑先决条件而得到的该事件的概率</li>
+</ul>
+</li>
+<li><p>$P(A|B)$ 为似然估计</p>
+</li>
+<li><p>求出 <strong>后验概率</strong> $P(B|A)$</p>
+<ul>
+<li>在具备该事件出现的信息的条件下得到该事件的概率</li>
 </ul>
 </li>
 </ul>
 <hr>
+<p>关于熵、自信息等：请参考<a href="https://www.unielu.com/posts/5854.html">信息学中的熵</a></p>
 <p>词内互信息</p>
-<p>w = c1, c2（c1, c2 为组成w的汉字），f(w)为词频，f(c1)、f(c2)分别为c1, c2在语料库C中的出现次数（字频）。且C的总词数为$N_w$，总字数为$N_c$，则w的词内互信息为：</p>
+<p>$w = c_1, c_2$（$c_1$, $c_2$ 为组成w的汉字），$f(w)$为词频，$f(c_1)$、$f(c_2)$分别为 $c_1$, $c_2$ 在语料库 $C$ 中的出现次数（字频）。且 $C$ 的总词数为 $N_w$，总字数为 $N_c$，则 $w$ 的词内互信息为：</p>
 <p>$$mi(w)=log_2(\frac{N_c^2×f(w)}{N_w × f(c1) × f(c2)})$$</p>
-<h2 id="五、统计语言模型"><a href="#五、统计语言模型" class="headerlink" title="五、统计语言模型"></a>五、统计语言模型</h2><ul>
-<li><p>噪声信道模型<br>$$\hat{I}=argmax_I(p(I|O))=argmax_Ip(I)p(O|I)$$</p>
-</li>
-<li><p>平滑</p>
+<hr>
 <ul>
+<li>数据分类<ul>
+<li>训练集、测试集、验证集</li>
+<li>封闭测试与开放测试<ul>
+<li>开放测试指的是测试样本不属于训练样本集合，否则称为封闭测试</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>性能评价<ul>
+<li><code>准确率</code> Precision，判为对的中有多少个正例。$$P=\frac{tp}{tp+fp}$$</li>
+<li><code>召回率</code> Recall，正例有多少个被判为对了。$$R=\frac{tp}{tp+fn}$$</li>
+<li><code>F1 值</code> $$F1=\frac{2 \times P \times R}{P+R}$$</li>
+<li>正确率 Accurary $$Accuracy=\frac{tp+tn}{all}$$</li>
+<li>错误率 Error $$Error=\frac{fn+fp}{all}$$</li>
+</ul>
+</li>
+</ul>
+<p>注：<br><code>tp</code>: true positive，判断为正例，判断对了。<br><code>fn</code>: false negative， 判断为负例，判断错了</p>
+<h2 id="五、统计语言模型"><a href="#五、统计语言模型" class="headerlink" title="五、统计语言模型"></a>五、统计语言模型</h2><ul>
+<li>语言模型<ul>
+<li>用来计算一个句子的概率的概率模型</li>
+</ul>
+</li>
+<li>噪声信道模型 $$\hat{I}=\arg\max_I(p(I|O))=\arg\max_Ip(I)p(O|I)$$<ul>
+<li><code>I</code>：语言文本</li>
+<li><code>O</code>：声音信号、字符图像信号、拼音输入等</li>
+<li><code>P(I)</code>：语言模型</li>
+<li><code>P(O|I)</code>：声学、图像、翻译等模型</li>
+</ul>
+</li>
+<li>平滑<ul>
 <li>加1平滑</li>
-<li>add-one平滑</li>
-<li>2-gram加一</li>
+<li>小于1平滑</li>
 <li>Good Turing平滑<ul>
 <li>$p_0=n_1/N$</li>
 <li>$r^*=(r+1)n_{r+1}/n_r$</li>
@@ -614,12 +680,50 @@
 <li>POS-Tagging 词性标注</li>
 </ul>
 </li>
-<li>黏着语</li>
+<li>黏着语（日语）<ul>
+<li>分词</li>
+<li>形态还原</li>
+<li>POS-Tagging 词性标注</li>
+</ul>
+</li>
+</ul>
+<p><strong>汉语自动分词</strong>：通过计算机把组成汉语文本的字串自动转换为词串的过程（Segmentation）</p>
+<p><strong>词</strong>：由语素构成的、最小的、能够独立运用的、有意义的语言单位。</p>
+<ul>
+<li>3.分词原则：<ul>
+<li>合并原则</li>
+<li>切分原则</li>
+</ul>
+</li>
+<li>4.分词主要难题<ul>
+<li>分词规范</li>
+<li>分词起义</li>
+<li>未登录词识别</li>
+</ul>
+</li>
+<li><strong>5.自动分词的基本方法</strong><ul>
+<li>最大匹配分词<ul>
+<li>正向最大匹配</li>
+<li>逆向最大匹配</li>
+<li>双向最大匹配</li>
+</ul>
+</li>
+<li>基于语言模型的最大概率法分词<ul>
+<li>$P(Seg)=p(w_1,w_2,…,w_i)\approx p(w_1) \times p(w_2) \times … \times p(w_i)$</li>
+<li>词图构造</li>
+</ul>
+</li>
+<li>最短路径分词</li>
+<li>半词法分词</li>
+<li>基于字标注的方法</li>
+</ul>
+</li>
 </ul>
 <h2 id="七、隐马尔科夫模型"><a href="#七、隐马尔科夫模型" class="headerlink" title="七、隐马尔科夫模型"></a>七、隐马尔科夫模型</h2><p>参考资料：<a href="https://www.cnblogs.com/pinard/p/6945257.html" target="_blank" rel="noopener">HMM模型基础</a></p>
-<h2 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h2><p>（1）词语搭配统计，<a href="../zone/nenglidapei">代码参考</a></p>
-<p>（2）python最大正向匹配分词</p>
-<p>（3）垃圾分类</p>
+<p>向前算法、向后算法、最大可能路径</p>
+<h2 id="作业参考"><a href="#作业参考" class="headerlink" title="作业参考"></a>作业参考</h2><p>（1）词语搭配统计，<a href="../zone/nenglidapei.html">代码参考</a></p>
+<p>（2）正向最大匹配分词，<a href="../zone/fenci.html">代码参考</a></p>
+<p>（3）贝叶斯垃圾邮件分类，<a href="../zone/youjianfenlei.html">代码参考</a> </p>
 <p><strong><em>other</em>:</strong></p>
 
             </div>
@@ -646,7 +750,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/nlp.html">https://www.unielu.com/posts/nlp.html</a>
+                    <a href="https://www.unielu.com/posts/a319.html">https://www.unielu.com/posts/a319.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -686,6 +790,10 @@
                             
                                 <a href="/tags/%E7%AC%94%E8%AE%B0/">
                                     <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/NLP/">
+                                    <span class="chip bg-color">NLP</span>
                                 </a>
                             
                         </div>
@@ -990,45 +1098,51 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/ml1.html">
+                <a href="/posts/a319.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="机器学习(一)">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算语言学">
                         
-                        <span class="card-title">机器学习(一)</span>
+                        <span class="card-title">计算语言学</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            吴恩达-机器学习
+                            大二下学期课程（三）
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BD%91%E8%AF%BE/" class="post-category">
-                                    网课
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/%E7%AC%94%E8%AE%B0/">
                         <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/NLP/">
+                        <span class="chip bg-color">NLP</span>
                     </a>
                     
                 </div>
@@ -1042,30 +1156,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/20213.html">
+                <a href="/posts/cn.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/23.jpg" class="responsive-img" alt="2021三月">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算机网络">
                         
-                        <span class="card-title">2021三月</span>
+                        <span class="card-title">计算机网络</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            浪漫地去接受无聊，降低阈值
+                            大二下学期课程（二）
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%97%A5%E8%AE%B0/" class="post-category">
-                                    日记
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
                                 </a>
                             
                             
@@ -1075,8 +1189,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%A4%A7%E4%BA%8C/">
-                        <span class="chip bg-color">大二</span>
+                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                        <span class="chip bg-color">面试</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">计算机基础</span>
                     </a>
                     
                 </div>
@@ -1290,7 +1408,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">132.7k</span>&nbsp;字
+                class="white-color">133.4k</span>&nbsp;字
             
             
             

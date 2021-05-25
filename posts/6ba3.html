@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-22
+                    2021-05-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    802
+                    902
                 </div>
                 
 
@@ -522,7 +522,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><em>VHDL</em>, Very-High-Speed Integrated Circuit Hardware Description Language<br><em>CPLD</em>, Complex Programmable Logic Device</p>
+                <p><em>VHDL</em>, Very-High-Speed Integrated Circuit Hardware Description Language<br><em>CPLD</em>, Complex Programmable Logic Device<br><em>EDA</em>, Electronic design automation</p>
 <h2 id="一、基础"><a href="#一、基础" class="headerlink" title="一、基础"></a>一、基础</h2><h3 id="1-0-设计实体"><a href="#1-0-设计实体" class="headerlink" title="1.0 设计实体"></a>1.0 设计实体</h3><p>一个VHDL程序对应着一项具体工程设计，通常被称为设计实体。</p>
 <ul>
 <li>设计实体<ul>
@@ -558,7 +558,7 @@
 </ul>
 </li>
 <li><code>BUFFER</code><ul>
-<li>具有读功能的输出模式</li>
+<li>具有读功能的输出模式，但不允许作为双向端口使用</li>
 </ul>
 </li>
 <li><code>INOUT</code><ul>
@@ -569,6 +569,7 @@
 </li>
 </ul>
 <h3 id="1-2-结构体"><a href="#1-2-结构体" class="headerlink" title="1.2 结构体"></a>1.2 结构体</h3><p>结构体用于描述设计实体的内部结构，是对实体功能的具体实现。</p>
+<p>5种功能描述语句之间是 <strong>并行</strong> 的</p>
 <pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">ARCHITECTURE</span> 结构体名 <span class="token keyword">OF</span> 实体名 <span class="token keyword">IS</span>
     <span class="token punctuation">[</span>说明语句<span class="token punctuation">]</span>
 <span class="token keyword">BEGIN</span>
@@ -625,12 +626,60 @@
 <pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">CONSTANT</span> 常量名<span class="token punctuation">:</span>数据类型<span class="token punctuation">[</span><span class="token operator">:=</span>表达式<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>（2）变量</p>
 <pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">VARIABLE</span> 变量名<span class="token punctuation">:</span>数据类型<span class="token punctuation">[</span><span class="token operator">:=</span>初始值<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>（3）信号</p>
+<p>（3）信号<br>在进程和子程序中不允许定义信号，用在顺序语句中。</p>
 <pre class="line-numbers language-vhdl"><code class="language-vhdl"><span class="token keyword">SIGNAL</span> 信号名<span class="token punctuation">:</span>数据类型<span class="token punctuation">[</span><span class="token operator">:=</span>初始值<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 信号赋值目标<span class="token operator">&lt;=</span>赋值源<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">--信号的赋值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="1-8-其它"><a href="#1-8-其它" class="headerlink" title="1.8 其它"></a>1.8 其它</h3><p>数据类型：标量型，复合类型、指针类型、文件类型</p>
-<p>操作符：算术操作符、关系操作符、逻辑操作符、符号操作符</p>
+<p>操作符：算术操作符、关系操作符（<code>/=</code>…）、逻辑操作符、符号操作符（<code>+</code> <code>-</code>）</p>
+<p>（一）算术操作符</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>加</td>
+<td>-</td>
+<td>减</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘</td>
+<td>/</td>
+<td>除</td>
+</tr>
+<tr>
+<td>MOD</td>
+<td>取模</td>
+<td>REM</td>
+<td>取余</td>
+</tr>
+<tr>
+<td>SLL</td>
+<td>逻辑左移</td>
+<td>SRL</td>
+<td>逻辑右移</td>
+</tr>
+<tr>
+<td>SLA</td>
+<td>算术左移</td>
+<td>SRA</td>
+<td>算术右移</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>并置</td>
+<td>**</td>
+<td>乘方</td>
+</tr>
+</tbody></table>
+<p>（三）逻辑操作符</p>
 <table>
 <thead>
 <tr>
@@ -688,7 +737,7 @@
 <span class="token keyword">BEGIN</span>
     y <span class="token operator">&lt;=</span> a <span class="token operator">NAND</span> b<span class="token punctuation">;</span>
 <span class="token keyword">END</span> nand2<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-2-加法器"><a href="#2-2-加法器" class="headerlink" title="2.2 加法器"></a>2.2 加法器</h3><h3 id="2-3-触发器"><a href="#2-3-触发器" class="headerlink" title="2.3 触发器"></a>2.3 触发器</h3><hr>
+<h3 id="2-2-四位加法器"><a href="#2-2-四位加法器" class="headerlink" title="2.2 四位加法器"></a>2.2 四位加法器</h3><h3 id="2-3-触发器"><a href="#2-3-触发器" class="headerlink" title="2.3 触发器"></a>2.3 触发器</h3><hr>
 <p><strong>参考资料：</strong></p>
 <ul>
 <li>《数字逻辑》，欧阳星明</li>
@@ -1359,7 +1408,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">132.7k</span>&nbsp;字
+                class="white-color">133.4k</span>&nbsp;字
             
             
             
