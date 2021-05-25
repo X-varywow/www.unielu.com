@@ -500,21 +500,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-22
+                    2021-05-25
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-21
+                    2021-05-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.3k
+                    8.6k
                 </div>
                 
 
@@ -1163,6 +1163,7 @@
 <h3 id="4-1-概述"><a href="#4-1-概述" class="headerlink" title="4.1 概述"></a>4.1 概述</h3><p>网络层提供主机之间的逻辑通信</p>
 <ul>
 <li><strong>主要任务</strong>：把分组从源端传到目的端，为分组交换网上的不同主机提供通信服务。</li>
+<li>协议：<code>IP</code>, <code>ARP</code>, <code>ICMP</code> 因特网控制报文协议, <code>IGMP</code> 因特网组管理协议</li>
 <li>传输单位：数据报</li>
 <li><strong>功能</strong>：<ul>
 <li>路由选择与分组转发</li>
@@ -1236,10 +1237,20 @@
 </ul>
 <p>路由器可以进行路由选择和分组转发。<br>路由器对目的地址是私有IP地址的数据报一律不进行转发</p>
 <hr>
-<h3 id="4-5-IP地址"><a href="#4-5-IP地址" class="headerlink" title="4.5 IP地址"></a>4.5 IP地址</h3><p>IP地址 <code>Internet Protocol Address</code> 是指互联网协议地址，又译为网际协议地址。</p>
+<h3 id="4-5-ARP协议"><a href="#4-5-ARP协议" class="headerlink" title="4.5 ARP协议"></a>4.5 ARP协议</h3><p>ARP（Address Resolution Protocol）即 <strong>地址解析协议</strong>， 用于实现从 IP 地址到 MAC 地址的映射，即询问目标IP对应的MAC地址。</p>
+<ul>
+<li>ARP协议自动进行</li>
+<li><strong>ARP表</strong><ul>
+<li>格式：&lt;IP地址；MAC地址；TTL&gt;</li>
+<li>其中TTL为地址长度将被忘记的时间长度（通常20分钟）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="4-6-IP地址"><a href="#4-6-IP地址" class="headerlink" title="4.6 IP地址"></a>4.6 IP地址</h3><p>IP地址 <code>Internet Protocol Address</code> 是指互联网协议地址，又译为网际协议地址。</p>
 <p><strong>IP协议特点：</strong></p>
 <ul>
-<li>不可靠、无连接、尽力而为的数据报服务</li>
+<li><strong>不可靠、无连接、尽力而为</strong>的数据报服务</li>
 <li>发送 IP 数据报后不维护任何状态信息</li>
 <li>不能保证IP数据报成功到达目的地</li>
 <li>独立处理对待每个数据报，发生错误的处理方法是丢弃并利用 ICMP 报告</li>
@@ -1328,14 +1339,29 @@
 <p>.</p>
 <p>========== <em>其它补充</em></p>
 <p>在同一个局域网上的主机或路由器的IP地址中的网络号必须是一样的。</p>
-<p><strong>地址解析</strong> <code>ARP</code>：从已知的IP地址找出对应物理地址的映射过程<br>ARP协议（完成主机或路由器到MAC地址的映射，解决下一跳走哪的问题），ARP协议自动进行</p>
-<div class="admonition note"><p class="admonition-title">ARP表
-</p><p>格式：&lt;IP地址；MAC地址；TTL&gt;，其中TTL为地址长度将被忘记的时间长度（通常20分钟）</p>
-</div>
-
-<p>ICMP网际控制报文协议，DHCP协议 <code>？？？</code> </p>
 <p>私网IP要接入Internet时，要使用 <code>NAT</code> <strong>网络地址转换</strong><br>安装了NAT软件（含NAT转换表）的路由器叫NAT路由器，它至少有一个有效的外部全球IP地址。</p>
 <p><strong>移动IP技术</strong> 是移动结点（计算机、服务器等）以固定的网络IP地址，实现跨越不同网段的漫游功能，并保证了基于网络IP的网络权限在漫游过程中不发生任何改变。</p>
+<h3 id="4-7-IP数据报"><a href="#4-7-IP数据报" class="headerlink" title="4.7 IP数据报"></a>4.7 IP数据报</h3><img src="https://img-blog.csdnimg.cn/20210525144926877.png" style="zoom:70%"/>
+
+<div class="admonition info"><p class="admonition-title">什么是IP分片？
+</p><p>IP协议在传输数据包时会将数据报文分成若干片进行传输，并在目标系统中进行重组。这以过程就成为<strong>分片</strong>。</p>
+</div>
+
+<div class="admonition info"><p class="admonition-title">为什么要进行IP分片
+</p><p>如果IP数据报加上数据帧头部后大于MTU，数据报文就会分成若干片进行传输。那么什么是MTU呢？每一种物理网络都会规定链路层数据帧的最大长度，称为链路层MTU。在以太网的环境中可传输的最大IP报文为1500字节。如果要传输的数据帧的大小超过1500字节，即IP数据报的长度大于1472（1500-20-8=1472，普通数据报）字节，需要分片之后进行传输。</p>
+</div>
+
+<h3 id="4-8-子网划分与地址聚合"><a href="#4-8-子网划分与地址聚合" class="headerlink" title="4.8 子网划分与地址聚合"></a>4.8 子网划分与地址聚合</h3><ul>
+<li>子网<ul>
+<li>具有IP地址相同的子网部分的设备接口</li>
+<li>能够物理上互相到达而没有中间路由器</li>
+</ul>
+</li>
+<li><strong>子网掩码</strong>：用来指明一个IP地址的哪些位标识的是主机所在的子网，以及哪些位标识的是主机的位掩码。<ul>
+<li>作用：将某个 IP 地址划分成网络地址和主机地址两部分</li>
+</ul>
+</li>
+</ul>
 <h2 id="五、传输层"><a href="#五、传输层" class="headerlink" title="五、传输层"></a>五、传输层</h2><h3 id="5-1-概述"><a href="#5-1-概述" class="headerlink" title="5.1 概述"></a>5.1 概述</h3><p>只有主机才有的层次。</p>
 <ul>
 <li><strong>主要作用</strong><ul>
@@ -1994,28 +2020,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/57f5.html">
+                <a href="/posts/cn.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计量语言学">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算机网络">
                         
-                        <span class="card-title">计量语言学</span>
+                        <span class="card-title">计算机网络</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            大二下学期课程（七）
+                            大二下学期课程（二）
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -2028,11 +2055,16 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
+                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                        <span class="chip bg-color">面试</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">计算机基础</span>
                     </a>
                     
                 </div>
@@ -2046,30 +2078,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/c1cc.html">
+                <a href="/posts/6ba3.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-1.jpg" class="responsive-img" alt="一次决策树作业">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/2.jpg" class="responsive-img" alt="VHDL">
                         
-                        <span class="card-title">一次决策树作业</span>
+                        <span class="card-title">VHDL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ID3算法+Titanic数据集
+                            一种用于电路设计的高级语言
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
+                            <a href="/categories/%E7%94%B5%E8%B7%AF/" class="post-category">
+                                    电路
                                 </a>
                             
                             
@@ -2079,8 +2111,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/">
-                        <span class="chip bg-color">决策树</span>
+                    <a href="/tags/vhdl/">
+                        <span class="chip bg-color">vhdl</span>
                     </a>
                     
                 </div>
@@ -2294,7 +2326,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">132.1k</span>&nbsp;字
+                class="white-color">132.7k</span>&nbsp;字
             
             
             
