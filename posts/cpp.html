@@ -500,21 +500,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-10
+                    2021-05-27
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-23
+                    2021-05-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4k
+                    4.1k
                 </div>
                 
 
@@ -651,6 +651,7 @@ a <span class="token operator">=</span> <span class="token number">3</span><span
 <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">//break, continue, goto</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注意：如果要在case里面定义变量，需要用括号 <code>{ }</code> 括起来，不然会出错</p>
 <h3 id="1-6-字符串"><a href="#1-6-字符串" class="headerlink" title="1.6 字符串"></a>1.6 字符串</h3><ul>
 <li>C 风格字符串<ul>
 <li>常字符指针，const char *p = str ，指向首地址</li>
@@ -839,7 +840,7 @@ stu_cnt<span class="token operator">++</span><span class="token punctuation">;</
 <span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">//友元函数不是类的成员函数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-6-派生与继承"><a href="#2-6-派生与继承" class="headerlink" title="2.6 派生与继承"></a>2.6 派生与继承</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">car</span><span class="token punctuation">{</span>
+<h3 id="2-6-派生与继承⭐"><a href="#2-6-派生与继承⭐" class="headerlink" title="2.6 派生与继承⭐"></a>2.6 派生与继承⭐</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">car</span><span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//基类中属性与方法</span>
     <span class="token keyword">int</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> k <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -863,10 +864,7 @@ stu_cnt<span class="token operator">++</span><span class="token punctuation">;</
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//虚继承</span>
 <span class="token comment" spellcheck="true">//祖先类的成员只构造一次</span>
 <span class="token keyword">class</span> <span class="token class-name">Derived</span><span class="token operator">:</span> <span class="token keyword">virtual</span> <span class="token keyword">public</span> Base<span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>派生类的类型转换</li>
-</ul>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Base</span><span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+<h5 id="（4）派生类的类型转换"><a href="#（4）派生类的类型转换" class="headerlink" title="（4）派生类的类型转换"></a>（4）派生类的类型转换</h5><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Base</span><span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
 <span class="token keyword">class</span> <span class="token class-name">Derived</span><span class="token operator">:</span> <span class="token keyword">public</span> Base<span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
 
 Base b<span class="token punctuation">;</span>
@@ -875,7 +873,14 @@ Derived d<span class="token punctuation">;</span>
 b <span class="token operator">=</span> d<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//用派生类对象给基类对象赋值</span>
 Base <span class="token operator">&amp;</span>br <span class="token operator">=</span> d<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//定义一个基类应用，用派生类初始化</span>
 Base <span class="token operator">*</span>bp <span class="token operator">=</span> <span class="token operator">&amp;</span>d<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//定义一个基类指针，指向派生类对象</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-7-多态"><a href="#2-7-多态" class="headerlink" title="2.7 多态"></a>2.7 多态</h3><p>父亲类定义函数接口，孩子类负责实现该接口。当父亲类需要调用该接口时，能够自动执行对应孩子实现的代码</p>
+<h5 id="（5）派生类的构造"><a href="#（5）派生类的构造" class="headerlink" title="（5）派生类的构造"></a>（5）派生类的构造</h5><pre class="line-numbers language-cpp"><code class="language-cpp">Teacher<span class="token operator">::</span><span class="token function">Teacher</span><span class="token punctuation">(</span>string n<span class="token punctuation">,</span> <span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> s<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> string sc<span class="token punctuation">,</span> string c<span class="token punctuation">)</span>
+    <span class="token operator">:</span><span class="token function">Person</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> a<span class="token punctuation">,</span> s<span class="token punctuation">)</span>              <span class="token comment" spellcheck="true">// 将前3个参数传入继承的Person属性</span>
+<span class="token punctuation">{</span>
+    id <span class="token operator">=</span> i<span class="token punctuation">;</span>
+    sch <span class="token operator">=</span> sc<span class="token punctuation">;</span>
+    course <span class="token operator">=</span> c<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-7-多态⭐"><a href="#2-7-多态⭐" class="headerlink" title="2.7 多态⭐"></a>2.7 多态⭐</h3><p>父亲类定义函数接口，孩子类负责实现该接口。当父亲类需要调用该接口时，能够自动执行对应孩子实现的代码</p>
 <p>通过虚函数实现运行时多态，运行时使用指针访问继承中的同名成员会出错…</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -1140,6 +1145,17 @@ Triangle<span class="token operator">::</span><span class="token operator">~</sp
     <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"pause"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="六、设计模式"><a href="#六、设计模式" class="headerlink" title="六、设计模式"></a>六、设计模式</h2><ul>
+<li>策略模式<ul>
+<li>open for extension, closed for modification</li>
+</ul>
+</li>
+<li>观察者模式<ul>
+<li>又叫发布-订阅模式</li>
+<li>参考：<a href="https://www.cnblogs.com/adamjwh/p/10913660.html" target="_blank" rel="noopener">简说设计模式——观察者模式</a></li>
+</ul>
+</li>
+</ul>
 <h2 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h2><p><strong>参考资料</strong>：</p>
 <ul>
 <li>学校课程      30%</li>
@@ -1525,41 +1541,51 @@ Triangle<span class="token operator">::</span><span class="token operator">~</sp
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/contest232.html">
+                <a href="/posts/cpp.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181114.jpg" class="responsive-img" alt="周赛笔记232">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="C++">
                         
-                        <span class="card-title">周赛笔记232</span>
+                        <span class="card-title">C++</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            大二下学期课程（六）
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-27
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            ╯晓~
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
-                        <span class="chip bg-color">leetcode比赛</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/cpp/">
+                        <span class="chip bg-color">cpp</span>
                     </a>
                     
                 </div>
@@ -1573,30 +1599,30 @@ Triangle<span class="token operator">::</span><span class="token operator">~</sp
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/ml1.html">
+                <a href="/posts/a319.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="机器学习(一)">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算语言学">
                         
-                        <span class="card-title">机器学习(一)</span>
+                        <span class="card-title">计算语言学</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            吴恩达-机器学习
+                            大二下学期课程（三）
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BD%91%E8%AF%BE/" class="post-category">
-                                    网课
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
                                 </a>
                             
                             
@@ -1608,6 +1634,10 @@ Triangle<span class="token operator">::</span><span class="token operator">~</sp
                     
                     <a href="/tags/%E7%AC%94%E8%AE%B0/">
                         <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/NLP/">
+                        <span class="chip bg-color">NLP</span>
                     </a>
                     
                 </div>
@@ -1814,7 +1844,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">133.4k</span>&nbsp;字
+                class="white-color">133.5k</span>&nbsp;字
             
             
             
