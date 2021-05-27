@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-26
+                    2021-05-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.1k
+                    4.5k
                 </div>
                 
 
@@ -851,6 +851,34 @@ stu_cnt<span class="token operator">++</span><span class="token punctuation">;</
     <span class="token keyword">int</span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>car<span class="token operator">::</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">//调用基类方法</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="（2）继承的访问控制"><a href="#（2）继承的访问控制" class="headerlink" title="（2）继承的访问控制"></a>（2）继承的访问控制</h5><ul>
+<li><strong>共有继承</strong><ul>
+<li>基类的 <code>public</code> 和 <code>protected</code> 成员，访问属性在派生类中保持不变</li>
+<li>基类的 <code>private</code> 成员，不可以直接访问</li>
+<li>派生类中的成员函数：可以访问基类中的 <code>public</code> 和 <code>protected</code> 成员，不能访问基类中的 <code>private</code> 成员</li>
+<li>通过派生类的对象，只能访问 public 成员</li>
+</ul>
+</li>
+<li><strong>私有继承</strong><ul>
+<li>基类的 <code>public</code> 和 <code>protected</code> 成员，都以 <code>private</code> 身份出现在派生类中 </li>
+<li>基类的 <code>private</code> 成员，不可以直接访问</li>
+<li>派生类中的成员函数：可以访问基类中的 <code>public</code> 和 <code>protected</code> 成员，不能访问基类中的 <code>private</code> 成员</li>
+<li>通过派生类的对象，不能直接访问从基类继承的任何成员</li>
+</ul>
+</li>
+<li><strong>保护继承</strong><ul>
+<li>基类的 <code>public</code> 和 <code>protected</code> 成员，都以 <code>protected</code> 身份出现在派生类中 </li>
+<li>基类的 <code>private</code> 成员，不可以直接访问</li>
+<li>派生类中的成员函数：可以访问基类中的 <code>public</code> 和 <code>protected</code> 成员，不能访问基类中的 <code>private</code> 成员</li>
+<li>通过派生类的对象，不能直接访问从基类继承的任何成员</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info"><p class="admonition-title">protected成员的特点与作用
+</p><p>对建立其所在的类对象的模块来说，用 private 成员的性质；（即类外无法访问）<br>对其派生类来说，同 public 成员的性质</p>
+</div>
+
+<hr>
 <ul>
 <li>派生类调整基类成员的方法<ul>
 <li>同名覆盖</li>
@@ -994,12 +1022,12 @@ D<span class="token punctuation">)</span> 函数的返回值是类的对象，�
 
 <span class="token comment" spellcheck="true">//引用作为函数参数（声明中），说明参数是对变量的引用</span>
 <span class="token comment" spellcheck="true">//引用还可以作为函数返回值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-3-指针"><a href="#3-3-指针" class="headerlink" title="3.3 指针"></a>3.3 指针</h3><ol>
+<h3 id="3-3-指针"><a href="#3-3-指针" class="headerlink" title="3.3 指针"></a>3.3 指针</h3><h5 id="（1）指针说明"><a href="#（1）指针说明" class="headerlink" title="（1）指针说明"></a>（1）指针说明</h5><ol>
 <li>有效指针。指向本程序内存范围内有效的地址</li>
 <li>NULL指针。存在但不指向任何地方</li>
 <li>野指针。指向未知内存的指针 <code>char *p</code></li>
 </ol>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token string">"city"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//指向字符型常量的指针，它指向的值不能修改</span>
+<h5 id="（2）const-与指针"><a href="#（2）const-与指针" class="headerlink" title="（2）const 与指针"></a>（2）const 与指针</h5><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token string">"city"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//指向字符型常量的指针，它指向的值不能修改</span>
 <span class="token keyword">char</span> <span class="token operator">*</span> <span class="token keyword">const</span> p <span class="token operator">=</span> <span class="token string">"city"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//指向字符型变量的常指针，不能指向别的变量，但指向变量的值可以修改</span>
 <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span> p <span class="token operator">=</span> <span class="token string">"city"</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//指向字符型常量的常指针。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="3-4-函数"><a href="#3-4-函数" class="headerlink" title="3.4 函数"></a>3.4 函数</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//内联函数</span>
@@ -1844,7 +1872,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">133.5k</span>&nbsp;字
+                class="white-color">133.9k</span>&nbsp;字
             
             
             
