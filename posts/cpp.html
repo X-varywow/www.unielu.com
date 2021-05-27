@@ -851,7 +851,7 @@ stu_cnt<span class="token operator">++</span><span class="token punctuation">;</
     <span class="token keyword">int</span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>car<span class="token operator">::</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">//调用基类方法</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="（2）继承的访问控制"><a href="#（2）继承的访问控制" class="headerlink" title="（2）继承的访问控制"></a>（2）继承的访问控制</h5><ul>
+<h5 id="（2）访问控制和继承"><a href="#（2）访问控制和继承" class="headerlink" title="（2）访问控制和继承"></a>（2）访问控制和继承</h5><ul>
 <li><strong>共有继承</strong><ul>
 <li>基类的 <code>public</code> 和 <code>protected</code> 成员，访问属性在派生类中保持不变</li>
 <li>基类的 <code>private</code> 成员，不可以直接访问</li>
@@ -878,6 +878,7 @@ stu_cnt<span class="token operator">++</span><span class="token punctuation">;</
 </p><p>对建立其所在的类对象的模块来说，用 private 成员的性质；（即类外无法访问）<br>对其派生类来说，同 public 成员的性质</p>
 </div>
 
+<p>一个派生类继承基类方法时，以下情况除外<br>（1）基类的构造函数、析构函数、拷贝构造函数<br>（2）基类的重载运算符<br>（3）基类的友元函数</p>
 <hr>
 <ul>
 <li>派生类调整基类成员的方法<ul>
@@ -1872,7 +1873,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">133.9k</span>&nbsp;字
+                class="white-color">134.1k</span>&nbsp;字
             
             
             
