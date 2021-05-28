@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Arduino语言基础, -- blog --">
+    <meta name="keywords" content="支持向量机, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Arduino语言基础 | -- blog --</title>
+    <title>支持向量机 | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/awesome/css/all.css">
@@ -340,12 +340,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/24.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">Arduino语言基础</h1>
+                    <h1 class="description center-align post-title diyFont">支持向量机</h1>
                 </div>
             </div>
         </div>
@@ -471,8 +471,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/arduino/">
-                                <span class="chip bg-color">arduino</span>
+                            <a href="/tags/SVM/">
+                                <span class="chip bg-color">SVM</span>
                             </a>
                         
                     </div>
@@ -483,8 +483,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%A1%AC%E4%BB%B6/" class="post-category">
-                                硬件
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                机器学习
                             </a>
                         
                     </div>
@@ -496,21 +496,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-14
+                    2021-05-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-13
+                    2021-05-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    568
                 </div>
                 
 
@@ -522,247 +522,93 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="preface"><a href="#preface" class="headerlink" title="preface"></a><em>preface</em></h2><p>社区教程：<a href="https://www.arduino.cn/thread-1066-1-1.html" target="_blank" rel="noopener">https://www.arduino.cn/thread-1066-1-1.html</a><br>官方文档：<a href="https://www.arduino.cc/reference/en/" target="_blank" rel="noopener">https://www.arduino.cc/reference/en/</a><br>函数参考：<a href="https://wiki.arduino.cn/" target="_blank" rel="noopener">https://wiki.arduino.cn/</a></p>
-<p><strong>Arduino的语言</strong> = C/CPP的封装 + API</p>
-<h2 id="一、项目结构"><a href="#一、项目结构" class="headerlink" title="一、项目结构"></a>一、项目结构</h2><h3 id="setup"><a href="#setup" class="headerlink" title="setup()"></a>setup()</h3><p>Arduino控制器<strong>通电或复位</strong>后，即会开始执行setup() 函数中的程序，该部分只会执行一次。<br>通常我们会在setup() 函数中<strong>完成Arduino的初始化设置，如配置I/O口状态，初始化串口等</strong>操作。</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 给13号引脚连接的设备设置一个别名“led”</span>
-<span class="token keyword">int</span> led <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">// 在板子启动或者复位重启后， setup部分的程序只会运行一次</span>
-<span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 将“led”引脚设置为输出状态</span>
-  <span class="token function">pinMode</span><span class="token punctuation">(</span>led<span class="token punctuation">,</span> OUTPUT<span class="token punctuation">)</span><span class="token punctuation">;</span>     
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">// setup部分程序运行完后，loop部分的程序会不断重复运行</span>
-<span class="token keyword">void</span> <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
-<span class="token punctuation">{</span>
-  <span class="token function">digitalWrite</span><span class="token punctuation">(</span>led<span class="token punctuation">,</span> HIGH<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// 点亮LED</span>
-  <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">// 等待一秒钟</span>
-  <span class="token function">digitalWrite</span><span class="token punctuation">(</span>led<span class="token punctuation">,</span> LOW<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// 通过将引脚电平拉低，关闭LED</span>
-  <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">// 等待一秒钟</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="loop"><a href="#loop" class="headerlink" title="loop()"></a>loop()</h3><p>在setup() 函数中的程序执行完后，Arduino会接着执行loop() 函数中的程序。而loop()函数是一个死循环，其中的程序会不断的重复运行。<br>通常我们会在loop() 函数中<strong>完成程序的主要功能，如驱动各种模块，采集数据等</strong>。</p>
-<h3 id="main"><a href="#main" class="headerlink" title="main()"></a>main()</h3><p>在进行Arduino开发时，没有像传统C/C++程序使用入口函数main。实际上<strong>main函数存在于Arduino核心库中，且仍然是程序的入口</strong>。<br>在Arduino核心库中可见main.cpp文件，其内容如下：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;Arduino.h></span></span>
-
-<span class="token comment" spellcheck="true">// Declared weak in Arduino.h to allow user redefinitions.</span>
-<span class="token keyword">int</span> <span class="token function">atexit</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token punctuation">(</span><span class="token operator">*</span> <span class="token comment" spellcheck="true">/*func*/</span> <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">// Weak empty variant initialization function.</span>
-<span class="token comment" spellcheck="true">// May be redefined by variant files.</span>
-<span class="token keyword">void</span> <span class="token function">initVariant</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token function">__attribute__</span><span class="token punctuation">(</span><span class="token punctuation">(</span>weak<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">initVariant</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">setupUSB</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token function">__attribute__</span><span class="token punctuation">(</span><span class="token punctuation">(</span>weak<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">setupUSB</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token function">initVariant</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token macro property">#<span class="token directive keyword">if</span> defined(USBCON)</span>
-    USBDevice<span class="token punctuation">.</span><span class="token function">attach</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token macro property">#<span class="token directive keyword">endif</span></span>
-
-    <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">//进行串口事件判断</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>serialEventRun<span class="token punctuation">)</span> <span class="token function">serialEventRun</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="二、数字输入输出"><a href="#二、数字输入输出" class="headerlink" title="二、数字输入输出"></a>二、数字输入输出</h2><h3 id="pinMode-pin-mode"><a href="#pinMode-pin-mode" class="headerlink" title="pinMode(pin, mode)"></a>pinMode(pin, mode)</h3><p>在使用输入或输出功能前，你需要先通过pinMode() 函数<strong>配置引脚的模式</strong>为输入模式或输出模式。</p>
+                <p>参考资料：</p>
 <ul>
-<li>参数<code>pin</code>为指定配置的引脚编号</li>
-<li>参数<code>mode</code>为指定的配置模式</li>
-<li>通常可用模式有三种:<ul>
-<li><strong>INPUT</strong> 输入模式</li>
-<li><strong>OUTPUT</strong> 输出模式</li>
-<li><strong>INPUT_PULLUP</strong> 输入上拉模式</li>
+<li><a href="https://www.bilibili.com/video/BV1o5411p7H2" target="_blank" rel="noopener">《统计机器学习》视频讲解</a></li>
+<li><a href="https://www.zhihu.com/question/38586401" target="_blank" rel="noopener">如何理解拉格朗日乘子法</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/svm.html" target="_blank" rel="noopener">sklearn-svm 官方文档</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html" target="_blank" rel="noopener">sklearn.svm.SVC 官方文档</a></li>
+<li>《统计机器学习》</li>
+</ul>
+<h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p><code>SVM</code> 是一种二类分类模型</p>
+<ul>
+<li>基本模型是定义在特征空间上的 <strong>间隔最大</strong> 的线性分类器</li>
+<li>有别于感知机，间隔最大化使其解唯一</li>
+<li>实质上的非线性分类器</li>
+</ul>
+<hr>
+<ul>
+<li>学习策略：<code>最大间隔法</code>，可以表示为凸二次规划问题。其原始最优化问题：<br>$$\min _{w, b} \frac{1}{2}|w|^{2}$$</li>
+<li>凸集<ul>
+<li>在欧氏空间中，凸集是对于集合内的每一对点，连接该对点的直线段上的每个点也在该集合内。</li>
 </ul>
 </li>
 </ul>
-<h3 id="digitalWrite-pin-value"><a href="#digitalWrite-pin-value" class="headerlink" title="digitalWrite(pin, value)"></a>digitalWrite(pin, value)</h3><p>引脚配置成输出模式后，可使用digitalWrite() 让其输出高电平或者是低电平。</p>
-<p>Arduino中输出的低电平为0V，输出的高电平为当前Arduino的工作电压。</p>
-<h3 id="digitalRead-pin"><a href="#digitalRead-pin" class="headerlink" title="digitalRead(pin)"></a>digitalRead(pin)</h3><p>返回得到的信号状态。</p>
-<h2 id="三、模拟输入输出"><a href="#三、模拟输入输出" class="headerlink" title="三、模拟输入输出"></a>三、模拟输入输出</h2><h3 id="analogRead-pin"><a href="#analogRead-pin" class="headerlink" title="analogRead(pin)"></a>analogRead(pin)</h3><p>模拟输入引脚是带有ADC（Analog-to-Digital Converter，模数转换器）功能的引脚。</p>
-<p>它可以将外部输入的模拟信号转换为芯片运算时可以识别的数字信号，从而实现<strong>读入模拟值</strong>的功能。</p>
-<p>Arduino Uno模拟输入功能有10位精度，即可以将0～5V的电压信号转换为0～1023的整数形式表示。</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//光敏电阻检测环境光</span>
-
-<span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 初始化串口</span>
-  Serial<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token number">9600</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">void</span> <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
-<span class="token punctuation">{</span>
-<span class="token comment" spellcheck="true">// 读出当前光线强度，并输出到串口显示</span>
-  <span class="token keyword">int</span> sensorValue <span class="token operator">=</span> <span class="token function">analogRead</span><span class="token punctuation">(</span>A0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>sensorValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="analogWrite-pin-value"><a href="#analogWrite-pin-value" class="headerlink" title="analogWrite(pin,value)"></a>analogWrite(pin,value)</h3><p>使用analogWrite() 函数实现PWM（脉冲宽度调制，一种模拟控制的方法）<strong>输出</strong>功能。<br>在Arduino Uno中，提供PWM功能的引脚为3、5、6、9、10、11。</p>
-<p>在analogWrite() 和analogRead() 函数内部，已经完成了引脚的初始化，因此不用在Setup() 函数中进行初始化操作。</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*
-Fading
-通过analogWrite() 函数实现呼吸灯效果
-*/</span>
-
-<span class="token keyword">int</span> ledPin <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// LED连接在9号引脚上</span>
-
-<span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token punctuation">{</span> 
-  <span class="token comment" spellcheck="true">// Setup部分不进行任何处理</span>
-<span class="token punctuation">}</span> 
-
-<span class="token keyword">void</span> <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token punctuation">{</span> 
-  <span class="token comment" spellcheck="true">// 从暗到亮，以每次加5的形式逐渐亮起来</span>
-  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> fadeValue <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> fadeValue <span class="token operator">&lt;=</span> <span class="token number">255</span><span class="token punctuation">;</span> fadeValue <span class="token operator">+</span><span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
-    <span class="token comment" spellcheck="true">// 输出PWM</span>
-    <span class="token function">analogWrite</span><span class="token punctuation">(</span>ledPin<span class="token punctuation">,</span> fadeValue<span class="token punctuation">)</span><span class="token punctuation">;</span>         
-    <span class="token comment" spellcheck="true">// 等待30ms，以便观察到渐变效果</span>
-    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                            
-  <span class="token punctuation">}</span> 
-
-  <span class="token comment" spellcheck="true">// 从亮到暗，以每次减5的形式逐渐暗下来</span>
-  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> fadeValue <span class="token operator">=</span> <span class="token number">255</span> <span class="token punctuation">;</span> fadeValue <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> fadeValue <span class="token operator">-</span><span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
-    <span class="token comment" spellcheck="true">// 输出PWM</span>
-    <span class="token function">analogWrite</span><span class="token punctuation">(</span>ledPin<span class="token punctuation">,</span> fadeValue<span class="token punctuation">)</span><span class="token punctuation">;</span>         
-    <span class="token comment" spellcheck="true">// 等待30ms，以便观察到渐变效果</span>
-    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                            
-  <span class="token punctuation">}</span> 
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="四、高级输入输出"><a href="#四、高级输入输出" class="headerlink" title="四、高级输入输出"></a>四、高级输入输出</h2><h3 id="tone"><a href="#tone" class="headerlink" title="tone()"></a>tone()</h3><p>tone() 主要用于Arduino连接蜂鸣器或扬声器发声。</p>
-<h3 id="noTone-pin"><a href="#noTone-pin" class="headerlink" title="noTone(pin)"></a>noTone(pin)</h3><p>停止指定引脚上的方波输出。</p>
-<p>实例程序：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*
-Melody
-
-Plays a melody 
-This example code is in the public domain.
-http://arduino.cc/en/Tutorial/Tone
-*/</span>
-
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"pitches.h"</span></span>
-
-<span class="token comment" spellcheck="true">// 记录曲子的音符</span>
-<span class="token keyword">int</span> melody<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
-  NOTE_C4<span class="token punctuation">,</span> NOTE_G3<span class="token punctuation">,</span>NOTE_G3<span class="token punctuation">,</span> NOTE_A3<span class="token punctuation">,</span> NOTE_G3<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> NOTE_B3<span class="token punctuation">,</span> NOTE_C4<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">// 音符持续时间  4为四分音符， 8为八分音符</span>
-<span class="token keyword">int</span> noteDurations<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
-  <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 遍历整个曲子的音符</span>
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> thisNote <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> thisNote <span class="token operator">&lt;</span> <span class="token number">8</span><span class="token punctuation">;</span> thisNote<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-<span class="token comment" spellcheck="true">// noteDurations[]数组中存储的是音符的类型</span>
-<span class="token comment" spellcheck="true">// 我们需要将其换算为音符持续时间，方法如下：</span>
-    <span class="token comment" spellcheck="true">// 音符持续时间=1000ms / 音符类型</span>
-    <span class="token comment" spellcheck="true">// 例如，四分音符=1000 / 4，8分音符 = 1000/8</span>
-    <span class="token keyword">int</span> noteDuration <span class="token operator">=</span> <span class="token number">1000</span><span class="token operator">/</span>noteDurations<span class="token punctuation">[</span>thisNote<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token function">tone</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> melody<span class="token punctuation">[</span>thisNote<span class="token punctuation">]</span><span class="token punctuation">,</span>noteDuration<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">// 为了能辨别出不同的音调，你需要在两个音调间设置一定的延时</span>
-    <span class="token comment" spellcheck="true">// 增加30%延时时间是比较合适的</span>
-    <span class="token keyword">int</span> pauseBetweenNotes <span class="token operator">=</span> noteDuration <span class="token operator">*</span> <span class="token number">1.30</span><span class="token punctuation">;</span>
-    <span class="token function">delay</span><span class="token punctuation">(</span>pauseBetweenNotes<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// 停止发声</span>
-    <span class="token function">noTone</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 程序并不重复，因此这里为空</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="pulseln（pin-value）"><a href="#pulseln（pin-value）" class="headerlink" title="pulseln（pin,value）"></a>pulseln（pin,value）</h3><p>检测指定引脚上的<strong>脉冲信号宽度</strong>。单位微秒</p>
-<h3 id="外部中断"><a href="#外部中断" class="headerlink" title="外部中断"></a>外部中断</h3><ul>
-<li><code>attachInterrupt(pin, ISR, mode)</code><ul>
-<li>对中断引脚进行初始化配置，以开启外部中断功能</li>
-<li>参数说明：<ul>
-<li>pin：中断引脚</li>
-<li>ISR：中断函数名</li>
-<li>mode：中断模式，有 <code>CHANGE</code> <code>LOW</code> <code>HIAH</code></li>
+<hr>
+<ul>
+<li><strong>线性可分支持向量机</strong><ul>
+<li>学习策略：硬间隔最大化</li>
+</ul>
+</li>
+<li><strong>线性支持向量机</strong><ul>
+<li>学习策略：软间隔最大化</li>
+</ul>
+</li>
+<li><strong>非线性支持向量机</strong><ul>
+<li>学习策略：核技巧 + 软间隔最大化</li>
+<li><strong>核技巧</strong>：通过空间映射，隐式地在高维的特征空间中学习线性支持向量机</li>
 </ul>
 </li>
 </ul>
+<h2 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h2><ol>
+<li>了解SVM工具包sklearn.svm<ol>
+<li>从 start_code 开始</li>
+<li>阅读文档</li>
+<li>熟悉使用sklearn.svm.SVC（SVM分类器）接口</li>
+</ol>
 </li>
-<li><code>detachInterrupt(pin)</code><ul>
-<li>关闭中断功能</li>
-</ul>
+<li>练习使用SVM分类器，分别针对toy_data()、random_data()、iris_data()，分别运行各种参数配置：<ol>
+<li>使用不同核函数（kernel）、不同罚项系数C，运行分类器查看分类效果；</li>
+<li>将iris_data()按一定比例（比如9:1）随机划分为训练集和测试集，实验获得最好效果的SVM超参数配置；</li>
+<li>打印SVM分类器最终获得的支持向量集；在random_data()数据集上使用matplotlib可视化分类效果：分类结果、支持向量点、分割面、margin边界</li>
+</ol>
 </li>
-</ul>
-<p>中断函数（响应中断的处理函数），不能带任何参数，返回类型为空</p>
-<h2 id="五、时间控制"><a href="#五、时间控制" class="headerlink" title="五、时间控制"></a>五、时间控制</h2><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>millis()</code></td>
-<td>获取Arduino通电后（或复位后）到现在的时间，单位：ms</td>
-</tr>
-<tr>
-<td><code>delay()</code></td>
-<td>参数为时长，类型unsigned long，单位毫秒：ms</td>
-</tr>
-</tbody></table>
-<h2 id="六、串口通信"><a href="#六、串口通信" class="headerlink" title="六、串口通信"></a>六、串口通信</h2><h3 id="Serial-begin-speed"><a href="#Serial-begin-speed" class="headerlink" title="Serial.begin(speed)"></a>Serial.begin(speed)</h3><p>使用串口与计算机通信时，需要<strong>先初始化</strong>Arduino的串口通信功能。<br>参数speed指串口通信波特率，常用波特率：300、600、1200、2400、4800、9600、14400、19200、28800、38400、57600、115200</p>
-<h3 id="available"><a href="#available" class="headerlink" title="available()"></a>available()</h3><p>返回串口接收缓冲区中的字节数（可读取的字节数）。接受缓冲区最多可保存64 bytes的数据。</p>
-<h3 id="print"><a href="#print" class="headerlink" title="print()"></a>print()</h3><p>串口初始化完成后，我们便可以使用 <code>Serial.print(val)</code> 或<code>Serial.println(val)</code> 向计算机发送信息了。<br><code>println(val)</code>会在输出完指定数据后，再输出一组回车换行符。</p>
-<table>
-<thead>
-<tr>
-<th>其它函数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>Serial.find(target)</code></td>
-<td>返回值布尔型</td>
-</tr>
-<tr>
-<td><code>Serial.findUntil(target, terminal)</code></td>
-<td>从串口缓冲区读取数据，直到读取到指定的字符串或指定的停止符。</td>
-</tr>
-<tr>
-<td><code>Serial.flush()</code></td>
-<td>等待正在发送的数据发送完成</td>
-</tr>
-<tr>
-<td><code>Serial.peek()</code></td>
-<td>返回1字节的数据，但不会从接受缓冲区删除该数据。</td>
-</tr>
-</tbody></table>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> counter<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 计数器</span>
+</ol>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h5 id="start-code"><a href="#start-code" class="headerlink" title="start_code"></a>start_code</h5><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> sklearn<span class="token punctuation">.</span>svm <span class="token keyword">as</span> SVM
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>metrics <span class="token keyword">import</span> classification_report 
 
-<span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token comment" spellcheck="true">// 初始化串口</span>
-  Serial<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token number">9600</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
 
-<span class="token keyword">void</span> <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 每loop循环一次，计数器变量加1</span>
-  counter <span class="token operator">=</span> counter<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// 输出变量</span>
-  Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>counter<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// 输出字符</span>
-  Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>‘<span class="token punctuation">:</span>’<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// 输出字符串;</span>
-  Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hellow World"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="read"><a href="#read" class="headerlink" title="read()"></a>read()</h3><p>调用该语句，每次都会返回<strong>一个字节</strong>的数据，这个返回值便是当前串口读取到的数据。</p>
+<span class="token keyword">def</span> <span class="token function">iris_data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_iris
+    iris <span class="token operator">=</span> load_iris<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> iris<span class="token punctuation">.</span>data<span class="token punctuation">,</span> iris<span class="token punctuation">.</span>target
+
+<span class="token keyword">def</span> <span class="token function">toy_data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    X <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+    Y <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> X<span class="token punctuation">,</span> Y  
+
+<span class="token keyword">def</span> <span class="token function">random_data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>seed<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+    X <span class="token operator">=</span> np<span class="token punctuation">.</span>r_<span class="token punctuation">[</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+    Y <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">20</span> <span class="token operator">+</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">20</span>
+    <span class="token keyword">return</span> X<span class="token punctuation">,</span> Y
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    X<span class="token punctuation">,</span> Y <span class="token operator">=</span> toy_data<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#X, Y = random_data()</span>
+    <span class="token comment" spellcheck="true">#X, Y = iris_data()</span>
+    model <span class="token operator">=</span> SVM<span class="token punctuation">.</span>SVC<span class="token punctuation">(</span>kernel<span class="token operator">=</span><span class="token string">'linear'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X<span class="token punctuation">,</span> Y<span class="token punctuation">)</span>
+    pred <span class="token operator">=</span> model<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>classification_report<span class="token punctuation">(</span>Y<span class="token punctuation">,</span> pred<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>Y<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>pred<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>Y <span class="token operator">==</span> pred<span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="after"><a href="#after" class="headerlink" title="after"></a>after</h5><p><a href="../zone/svm.html">代码参考</a></p>
 
             </div>
             <hr/>
@@ -788,7 +634,7 @@ http://arduino.cc/en/Tutorial/Tone
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/2199.html">https://www.unielu.com/posts/2199.html</a>
+                    <a href="https://www.unielu.com/posts/bfd3.html">https://www.unielu.com/posts/bfd3.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -826,8 +672,8 @@ http://arduino.cc/en/Tutorial/Tone
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/arduino/">
-                                    <span class="chip bg-color">arduino</span>
+                                <a href="/tags/SVM/">
+                                    <span class="chip bg-color">SVM</span>
                                 </a>
                             
                         </div>
@@ -1132,45 +978,47 @@ http://arduino.cc/en/Tutorial/Tone
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/d6d0.html">
+                <a href="/posts/bfd3.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181118.jpg" class="responsive-img" alt="硬件">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/24.jpg" class="responsive-img" alt="支持向量机">
                         
-                        <span class="card-title">硬件</span>
+                        <span class="card-title">支持向量机</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            一次机器学习作业
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A1%AC%E4%BB%B6/" class="post-category">
-                                    硬件
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%B7%A5%E7%A8%8B/">
-                        <span class="chip bg-color">工程</span>
+                    <a href="/tags/SVM/">
+                        <span class="chip bg-color">SVM</span>
                     </a>
                     
                 </div>
@@ -1184,30 +1032,30 @@ http://arduino.cc/en/Tutorial/Tone
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/2198.html">
+                <a href="/posts/cpp.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-4.jpg" class="responsive-img" alt="Arduino实践基础">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="C++">
                         
-                        <span class="card-title">Arduino实践基础</span>
+                        <span class="card-title">C++</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            大二下学期课程（六）
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A1%AC%E4%BB%B6/" class="post-category">
-                                    硬件
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
                                 </a>
                             
                             
@@ -1217,8 +1065,12 @@ http://arduino.cc/en/Tutorial/Tone
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/arduino/">
-                        <span class="chip bg-color">arduino</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/cpp/">
+                        <span class="chip bg-color">cpp</span>
                     </a>
                     
                 </div>
@@ -1356,6 +1208,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
