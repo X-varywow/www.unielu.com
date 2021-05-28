@@ -14259,7 +14259,7 @@ a.anchor-link {
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[68]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -14279,7 +14279,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[66]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">iris_data</span><span class="p">():</span>
@@ -14352,7 +14352,7 @@ a.anchor-link {
 <h2 id="sklearn.svm.SVC">sklearn.svm.SVC<a class="anchor-link" href="#sklearn.svm.SVC">&#182;</a></h2><p>class sklearn.svm.SVC(*, C=1.0, kernel='rbf', degree=3, gamma='scale', coef0=0.0, shrinking=True, probability=False, tol=0.001, cache_size=200, class_weight=None, verbose=False, max_iter=- 1, decision_function_shape='ovr', break_ties=False, random_state=None)</p>
 <h3 id="&#65288;1&#65289;&#21442;&#25968;&#35828;&#26126;">&#65288;1&#65289;&#21442;&#25968;&#35828;&#26126;<a class="anchor-link" href="#&#65288;1&#65289;&#21442;&#25968;&#35828;&#26126;">&#182;</a></h3><ul>
 <li><code>C</code>：float, default=1.0 <ul>
-<li>罚项</li>
+<li>罚项系数</li>
 </ul>
 </li>
 <li><code>kernel</code>：{‘linear’, ‘poly’, ‘rbf’, ‘sigmoid’, ‘precomputed’}, default=’rbf’<ul>
@@ -14379,6 +14379,20 @@ a.anchor-link {
 </ul>
 </li>
 </ul>
+<h3 id="&#65288;3&#65289;&#26041;&#27861;">&#65288;3&#65289;&#26041;&#27861;<a class="anchor-link" href="#&#65288;3&#65289;&#26041;&#27861;">&#182;</a></h3><ul>
+<li><p><code>decision_function(X)</code></p>
+</li>
+<li><p><code>fit(X,y[,sample_weight])</code></p>
+</li>
+<li><p><code>get_params([deep])</code></p>
+</li>
+<li><p><code>predict(X)</code></p>
+</li>
+<li><p><code>score(X,y[,sample_weight])</code></p>
+</li>
+<li><p><code>set_params(**params)</code></p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -14389,7 +14403,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[103]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#X, Y = toy_data()</span>
@@ -14478,7 +14492,7 @@ weighted avg       1.00      1.00      1.00        40
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[111]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">iris_data</span><span class="p">()</span>
@@ -14541,33 +14555,33 @@ weighted avg       1.00      1.00      1.00        40
 <pre>150 150
 ============================================== 第1次训练 ===============================================
 测试集结果：
-[True, True, False, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, False, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, False, True, True, True, True]
+[True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, False, True, True, True, True, True, True, True, True, False, True, True, True, True, True, True, True, True, True]
 训练集分数： 1.0
-测试集分数： 0.9333333333333333
+测试集分数： 0.9555555555555556
 
 
 ============================================== 第2次训练 ===============================================
 测试集结果：
-[True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, False, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]
+[True, True, True, True, True, True, True, True, True, True, True, True, True, False, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]
 训练集分数： 1.0
 测试集分数： 0.9777777777777777
 
 
 ============================================== 第3次训练 ===============================================
 测试集结果：
-[True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]
+[True, False, True, True, True, True, True, True, True, True, True, True, True, True, True]
 训练集分数： 0.9925925925925926
-测试集分数： 1.0
+测试集分数： 0.9333333333333333
 
 
 ============================================== 第4次训练 ===============================================
 测试集结果：
-[True, True, True, True, True, True, True, True, True, True, True, True, False, True, True]
+[True, True, True, True, True, True, True, True, True, True, True, False, True, True, True]
 训练集分数： 1.0
 测试集分数： 0.9333333333333333
 
 
-最好的超参数序号： 3
+最好的超参数序号： 2
 </pre>
 </div>
 </div>
@@ -14592,7 +14606,7 @@ weighted avg       1.00      1.00      1.00        40
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[62]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">random_data</span><span class="p">()</span>
