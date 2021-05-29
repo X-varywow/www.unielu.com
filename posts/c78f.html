@@ -108,13 +108,6 @@
       </li>
       
       <li>
-        <a href="/categories/%E7%A1%AC%E4%BB%B6/">
-          
-          <span>硬件</span>
-        </a>
-      </li>
-      
-      <li>
         <a href="/categories/python/">
           
           <span>python</span>
@@ -125,6 +118,13 @@
         <a href="/categories/%E7%AE%97%E6%B3%95/">
           
           <span>算法</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+          
+          <span>机器学习</span>
         </a>
       </li>
       
@@ -259,14 +259,6 @@
               
                 <li>
 
-                  <a href="/categories/%E7%A1%AC%E4%BB%B6/ " style="margin-left:75px">
-				  
-		          <span>硬件</span>
-                  </a>
-                </li>
-              
-                <li>
-
                   <a href="/categories/python/ " style="margin-left:75px">
 				  
 		          <span>python</span>
@@ -278,6 +270,14 @@
                   <a href="/categories/%E7%AE%97%E6%B3%95/ " style="margin-left:75px">
 				  
 		          <span>算法</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/ " style="margin-left:75px">
+				  
+		          <span>机器学习</span>
                   </a>
                 </li>
               
@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-28
+                    2021-05-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    464
+                    463
                 </div>
                 
 
@@ -547,10 +547,12 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 <li>颜色字符</li>
 <li>风格字符<br><code>&#39;-&#39;</code>，实线<br><code>&#39;--&#39;</code>，破折线<br><code>&#39;-.&#39;</code>，点划线<br><code>&#39;:&#39;</code>，虚线<br><code>&#39;.&#39;</code>，点标记<br><code>&#39;,&#39;</code>，像素标记<br><code>&#39;o&#39;</code>，实心圆标记<br><code>&#39;v&#39;</code> <code>&#39;^&#39;</code>，三角标记<br><code>&#39;x&#39;</code>,<code>&#39;*&#39;</code></li>
 </ol>
-<h2 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h2><table>
+<br>
+
+<table>
 <thead>
 <tr>
-<th>函数</th>
+<th>画图方法</th>
 <th>说明</th>
 </tr>
 </thead>
@@ -603,7 +605,7 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 <td>绘制步阶图</td>
 </tr>
 </tbody></table>
-<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><ol>
+<h5 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h5><ol>
 <li><code>sorted([f.name for f in matplotlib.font_manager.fontManager.ttflist])</code>，查看电脑字体</li>
 <li>中文显示<br>方法一： <code>plt.rcParams[&#39;font.family&#39;]</code>，<code>font.size</code>，<br>方法二： 在中文输出的地方，添加属性<code>fornproperties=&#39;  &#39;</code>，<code>fontsize</code></li>
 <li><code>plt.savefig(&#39;foo&#39;,dpi=600)</code>，默认输出png文件</li>
@@ -612,7 +614,8 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 <li><code>plt.axis([x0,x1,y0,y1])</code>，坐标轴跨度</li>
 <li><code>plt.annotate()</code>，在图形中增加带箭头的注解</li>
 </ol>
-<h2 id="May-2021"><a href="#May-2021" class="headerlink" title="May.2021"></a><em>May.2021</em></h2><p>推荐阅读：<a href="https://matplotlib.org/stable/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py" target="_blank" rel="noopener">pyplot turtorial</a></p>
+<p><em>May.2021</em></p>
+<p>推荐阅读：<a href="https://matplotlib.org/stable/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py" target="_blank" rel="noopener">pyplot turtorial</a></p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#感知机中画图</span>
 <span class="token keyword">def</span> <span class="token function">show_model</span><span class="token punctuation">(</span>model<span class="token punctuation">)</span><span class="token punctuation">:</span>
     x_ <span class="token operator">=</span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
@@ -624,7 +627,7 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
     plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'sepal length'</span><span class="token punctuation">)</span>
     plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'sepal width'</span><span class="token punctuation">)</span>
     plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#可取出存在的图</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#可画出存在的图</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1291,7 +1294,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">134.7k</span>&nbsp;字
+                class="white-color">135.6k</span>&nbsp;字
             
             
             

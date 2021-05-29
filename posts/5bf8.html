@@ -108,13 +108,6 @@
       </li>
       
       <li>
-        <a href="/categories/%E7%A1%AC%E4%BB%B6/">
-          
-          <span>硬件</span>
-        </a>
-      </li>
-      
-      <li>
         <a href="/categories/python/">
           
           <span>python</span>
@@ -125,6 +118,13 @@
         <a href="/categories/%E7%AE%97%E6%B3%95/">
           
           <span>算法</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+          
+          <span>机器学习</span>
         </a>
       </li>
       
@@ -259,14 +259,6 @@
               
                 <li>
 
-                  <a href="/categories/%E7%A1%AC%E4%BB%B6/ " style="margin-left:75px">
-				  
-		          <span>硬件</span>
-                  </a>
-                </li>
-              
-                <li>
-
                   <a href="/categories/python/ " style="margin-left:75px">
 				  
 		          <span>python</span>
@@ -278,6 +270,14 @@
                   <a href="/categories/%E7%AE%97%E6%B3%95/ " style="margin-left:75px">
 				  
 		          <span>算法</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/ " style="margin-left:75px">
+				  
+		          <span>机器学习</span>
                   </a>
                 </li>
               
@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-17
+                    2021-05-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    896
+                    1.4k
                 </div>
                 
 
@@ -555,7 +555,83 @@
         <span class="token comment" spellcheck="true">&lt;!-- hr创建水平线 --></span> 
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="css"><a href="#css" class="headerlink" title="css"></a><em>css</em></h2><h2 id="js"><a href="#js" class="headerlink" title="js"></a><em>js</em></h2><h2 id="jquery"><a href="#jquery" class="headerlink" title="jquery"></a><em>jquery</em></h2><h2 id="vue"><a href="#vue" class="headerlink" title="vue"></a><em>vue</em></h2><h2 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a><em>bootstrap</em></h2><h2 id="java"><a href="#java" class="headerlink" title="java"></a><em>java</em></h2><p>查看 jdk 版本：</p>
+<h2 id="css"><a href="#css" class="headerlink" title="css"></a><em>css</em></h2><p><strong>id 选择器</strong>，可以为标有特定 id 的 HTML 元素指定特定的样式。</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token id">#para1</span>
+</span><span class="token punctuation">{</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span>center<span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span>red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>class 选择器</strong>，用于描述一组元素的样式</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.center</span> </span><span class="token punctuation">{</span><span class="token property">text-align</span><span class="token punctuation">:</span>center<span class="token punctuation">;</span><span class="token punctuation">}</span>
+
+<span class="token selector">p<span class="token class">.center</span> </span><span class="token punctuation">{</span><span class="token property">text-align</span><span class="token punctuation">:</span>center<span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>外部样式</strong></p>
+<pre class="line-numbers language-css"><code class="language-css">&lt;head>
+&lt;link rel=<span class="token string">"stylesheet"</span> type=<span class="token string">"text/css"</span> href=<span class="token string">"mystyle.css"</span>>
+&lt;/head><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>内部样式</strong></p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector">&lt;head>
+&lt;style>
+hr </span><span class="token punctuation">{</span><span class="token property">color</span><span class="token punctuation">:</span>sienna<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token selector">p </span><span class="token punctuation">{</span><span class="token property">margin-left</span><span class="token punctuation">:</span><span class="token number">20</span>px<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token selector">body </span><span class="token punctuation">{</span><span class="token property">background-image</span><span class="token punctuation">:</span><span class="token url">url("images/back40.gif")</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+&lt;/style>
+&lt;/head><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>内联样式</strong></p>
+<pre class="line-numbers language-css"><code class="language-css">&lt;p style=<span class="token string">"color:sienna;margin-left:20px"</span>>这是一个段落。&lt;/p><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="js"><a href="#js" class="headerlink" title="js"></a><em>js</em></h2><p>Web 的编程语言，控制着网页的行为。</p>
+<ol>
+<li>在 浏览器 中使用 开发者工具，console 窗口可运行 Javascript 代码</li>
+<li>在 浏览器 中使用 开发者工具，sources 窗口可建立 Javascript 脚本</li>
+</ol>
+<h2 id="jquery"><a href="#jquery" class="headerlink" title="jquery"></a><em>jquery</em></h2><p>是目前最受欢迎的 JavaScript 框架。</p>
+<p>jQuery 语法是通过选取 HTML 元素，并对选取的元素执行某些操作。</p>
+<p>基础语法： <code>$(selector).action()</code></p>
+<ul>
+<li>美元符号定义 jQuery</li>
+<li>选择符（selector）”查询”和”查找” HTML 元素</li>
+<li>jQuery 的 action() 执行对元素的操作</li>
+</ul>
+<p><code>AJAX</code> 是与服务器交换数据的技术，它在不重载全部页面的情况下，实现了对部分网页的更新。</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+<span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"button"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#div1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token string">"/try/ajax/demo_test.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="vue"><a href="#vue" class="headerlink" title="vue"></a><em>vue</em></h2><p>是一套构建用户界面的渐进式框架。</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Vue 测试实例 - 菜鸟教程(runoob.com)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://unpkg.com/vue@next<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+&lt;div id = "app">
+    &lt;p style = "font-size:25px;">计数器: {{ counter }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+    &lt;button @click = "counter++" style = "font-size:25px;">点我<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      counter<span class="token punctuation">:</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+vm <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">createApp</span><span class="token punctuation">(</span>app<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span>
+vm<span class="token punctuation">.</span><span class="token function">$watch</span><span class="token punctuation">(</span><span class="token string">'counter'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>nval<span class="token punctuation">,</span> oval<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'计数器值的变化 :'</span> <span class="token operator">+</span> oval <span class="token operator">+</span> <span class="token string">' 变为 '</span> <span class="token operator">+</span> nval <span class="token operator">+</span> <span class="token string">'!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a><em>bootstrap</em></h2><p>Bootstrap 是一个用于快速开发 Web 应用程序和网站的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的。</p>
+<p><strong>响应式设计</strong>，使其自适应于各种屏幕大小的客户端。</p>
+<h2 id="java"><a href="#java" class="headerlink" title="java"></a><em>java</em></h2><p>查看 jdk 版本：</p>
 <pre class="line-numbers language-cmd"><code class="language-cmd">java -version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>执行命令解析：</p>
 <pre class="line-numbers language-cmd"><code class="language-cmd">javac HelloWorld.java
@@ -1316,7 +1392,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">134.7k</span>&nbsp;字
+                class="white-color">135.6k</span>&nbsp;字
             
             
             
