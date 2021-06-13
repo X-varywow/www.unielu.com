@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="机器学习(一), -- blog --">
+    <meta name="keywords" content="文本分类, -- blog --">
     <meta name="description" content="诗性买酒醉，逐影取月走">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>机器学习(一) | -- blog --</title>
+    <title>文本分类 | -- blog --</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/awesome/css/all.css">
@@ -340,12 +340,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title diyFont">机器学习(一)</h1>
+                    <h1 class="description center-align post-title diyFont">文本分类</h1>
                 </div>
             </div>
         </div>
@@ -471,8 +471,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
+                            <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                                <span class="chip bg-color">贝叶斯</span>
                             </a>
                         
                     </div>
@@ -483,8 +483,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%BD%91%E8%AF%BE/" class="post-category">
-                                网课
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                机器学习
                             </a>
                         
                     </div>
@@ -496,21 +496,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-04
+                    2021-06-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-03
+                    2021-06-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    355
+                    204
                 </div>
                 
 
@@ -522,82 +522,18 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h5 id="preface"><a href="#preface" class="headerlink" title="preface"></a><em>preface</em></h5><table>
-<thead>
-<tr>
-<th>sklearn</th>
-<th>applications</th>
-<th>algorithms</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>classification</code></td>
-<td>spam detection, image recognition</td>
-<td>SVM, nearest neighbors, random forest…</td>
-</tr>
-<tr>
-<td><code>regression</code></td>
-<td>drug response, stock prices</td>
-<td>SVR, nearest neighbors, random forest…</td>
-</tr>
-<tr>
-<td><code>clustering</code></td>
-<td>customer segmentation, grouping experiment outcomes</td>
-<td>K-means, spectral clustering…</td>
-</tr>
-<tr>
-<td><code>dimensionality reduction</code></td>
-<td>visualization</td>
-<td>K-means, feature selecion…</td>
-</tr>
-<tr>
-<td><code>model selection</code></td>
-<td>Improved accuracy via parameter tuning</td>
-<td>grid search…</td>
-</tr>
-<tr>
-<td><code>preprocessing</code></td>
-<td>Transforming input data such as text for use with machine learning algorithms.</td>
-<td>preprocessing</td>
-</tr>
-</tbody></table>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#使用 sklearn 标准数据集</span>
-
-<span class="token keyword">import</span> sklearn
-<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_boston
-boston<span class="token operator">=</span>load_boston<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>boston<span class="token punctuation">.</span>data<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#-->(506, 13)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<hr>
-<h5 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a><em>Introduction</em></h5><p><strong>Machine Learning definition</strong>:</p>
-<ul>
-<li><em>Arthur Samuel</em> : Field of study that gives computers the ability to learn without being explicitly programmed.</li>
-<li><em>Tom Mitchell</em> : A computer program is said to learn from experience E with respect to some task T and some perfermance measure P.</li>
-</ul>
-<p>tools: Octave Matlab</p>
-<div class="admonition note"><p class="admonition-title">Octave
-</p><p>GNU Octave 6.2 安装好了，readme 上 chose an installation folder that doesn't contain spaces。出错了再说。</p>
-</div>
-
-<p>supervised learning（分类，回归），unsupervised learning（clustering聚类，market segments）</p>
-<p>svd，奇异值分解</p>
-<hr>
-<h1 id="Linear-regression"><a href="#Linear-regression" class="headerlink" title="Linear regression"></a><em>Linear regression</em></h1><p><em>Notation:</em><br><strong>m</strong>: number of training examples<br><strong>x</strong>‘s: “input” variable/features<br><strong>y</strong>‘s: “output” variable/“target”<br><strong>(x,y)</strong>: one training example<br><strong>(x<sup>(i)</sup>, y<sup>(i)</sup>)</strong>: i th training example</p>
-<p>对于回归问题，一般情况：cost function -&gt; squared error function</p>
-<p><img src="https://img-blog.csdnimg.cn/20210403092953384.png"></p>
-<h1 id="Linear-Algebra-review"><a href="#Linear-Algebra-review" class="headerlink" title="Linear Algebra review"></a><em>Linear Algebra review</em></h1><h1 id="Linear-Regression-with-multiple-variables"><a href="#Linear-Regression-with-multiple-variables" class="headerlink" title="Linear Regression with multiple variables"></a><em>Linear Regression with multiple variables</em></h1><h1 id="Octave-Tutorial"><a href="#Octave-Tutorial" class="headerlink" title="Octave Tutorial"></a><em>Octave Tutorial</em></h1><h1 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a><em>Logistic Regression</em></h1><h1 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a><em>Regularization</em></h1><h1 id="Neural-Networks-Representation"><a href="#Neural-Networks-Representation" class="headerlink" title="Neural Networks: Representation"></a><em>Neural Networks: Representation</em></h1><h1 id="NeuralNetworks-Learning"><a href="#NeuralNetworks-Learning" class="headerlink" title="NeuralNetworks: Learning"></a><em>NeuralNetworks: Learning</em></h1><h1 id="Advice-for-applying-machine-learning"><a href="#Advice-for-applying-machine-learning" class="headerlink" title="Advice for applying machine learning"></a><em>Advice for applying machine learning</em></h1><h1 id="Machine-learning-system-design"><a href="#Machine-learning-system-design" class="headerlink" title="Machine learning system design"></a><em>Machine learning system design</em></h1><h1 id="Support-Vector-Machines"><a href="#Support-Vector-Machines" class="headerlink" title="Support Vector Machines"></a><em>Support Vector Machines</em></h1><h1 id="Clustering"><a href="#Clustering" class="headerlink" title="Clustering"></a><em>Clustering</em></h1><h1 id="Dimensionality-Reduc1on"><a href="#Dimensionality-Reduc1on" class="headerlink" title="Dimensionality Reduc1on"></a><em>Dimensionality Reduc1on</em></h1><h1 id="Anomaly-detection"><a href="#Anomaly-detection" class="headerlink" title="Anomaly detection"></a><em>Anomaly detection</em></h1><h1 id="Recommender-Systems"><a href="#Recommender-Systems" class="headerlink" title="Recommender Systems"></a><em>Recommender Systems</em></h1><h1 id="Large-scale-machine-learning"><a href="#Large-scale-machine-learning" class="headerlink" title="Large scale machine learning"></a><em>Large scale machine learning</em></h1><h1 id="Application-example-Photo-OCR"><a href="#Application-example-Photo-OCR" class="headerlink" title="Application example: Photo OCR"></a><em>Application example: Photo OCR</em></h1><h1 id="Support-Vector-Machines-1"><a href="#Support-Vector-Machines-1" class="headerlink" title="Support Vector Machines"></a><em>Support Vector Machines</em></h1><hr>
-<p><em>other</em></p>
-<p><strong>课程资料</strong>：</p>
-<ul>
-<li><a href="https://www.bilibili.com/video/BV164411b7dx" target="_blank" rel="noopener">吴恩达-机器学习(bilibili)</a> ，，<a href="https://github.com/TheisTrue/MLofAndrew-Ng" target="_blank" rel="noopener">讲义地址</a></li>
-<li>北理工-pthon机器学习应用</li>
-<li><a href="https://www.unielu.com/posts/ec3h.html">记一次深度学习(2020.5)</a></li>
-<li>pytorch文档：<a href="https://pytorch.apachecn.org/" target="_blank" rel="noopener">https://pytorch.apachecn.org/</a></li>
-<li>mxnet官网：<a href="https://mxnet.apache.org/" target="_blank" rel="noopener">https://mxnet.apache.org/</a></li>
-</ul>
-<div class="admonition note"><p class="admonition-title">关于《动手学深度学习》
-</p><p>这本书基于MXNet深度学习框架（类似pyotrch、tensorflow），装环境时好多问题，不是源不行了，就是依赖库冲突了...先搁着 <code>2021.3.26</code></p>
-</div>
-
+                <p>探索文本分类机器学习问题，重点关注：</p>
+<ol>
+<li>文本数据预处理：特征工程；</li>
+<li>模型构建、训练与评测；</li>
+<li>如何使用GridSearch进行超参数调优。</li>
+</ol>
+<p>作业要求：</p>
+<ol>
+<li>仔细阅读范例代码：start_code.py，熟悉和了解处理过程；</li>
+<li>仿照上述代码，针对于给定的电影评论数据集，完成以下工作：<br>(1) 预处理数据：随机划分训练集和测试集；<br>(2) 构建一个文本分类器，将电影评论分为积极的或消极的；<br>(3) 使用网格搜索（GridSearch）找到一组最好的参数；<br>(4) 评估模型在测试集上的性能。</li>
+</ol>
+<p>电影评论数据集：pos子目录为正例文本（1000个），neg子目录为负例文本（1000个）；一个文件一个样例。</p>
 
             </div>
             <hr/>
@@ -623,7 +559,7 @@ boston<span class="token operator">=</span>load_boston<span class="token punctua
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.unielu.com/posts/ml1.html">https://www.unielu.com/posts/ml1.html</a>
+                    <a href="https://www.unielu.com/posts/6f03.html">https://www.unielu.com/posts/6f03.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -661,8 +597,8 @@ boston<span class="token operator">=</span>load_boston<span class="token punctua
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
+                                <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                                    <span class="chip bg-color">贝叶斯</span>
                                 </a>
                             
                         </div>
@@ -967,41 +903,47 @@ boston<span class="token operator">=</span>load_boston<span class="token punctua
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/contest232.html">
+                <a href="/posts/6f03.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/20181114.jpg" class="responsive-img" alt="周赛笔记232">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-1.jpg" class="responsive-img" alt="文本分类">
                         
-                        <span class="card-title">周赛笔记232</span>
+                        <span class="card-title">文本分类</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            一次机器学习作业
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-14
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            ╯晓~
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode%E6%AF%94%E8%B5%9B/">
-                        <span class="chip bg-color">leetcode比赛</span>
+                    <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                        <span class="chip bg-color">贝叶斯</span>
                     </a>
                     
                 </div>
@@ -1015,30 +957,30 @@ boston<span class="token operator">=</span>load_boston<span class="token punctua
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/20213.html">
+                <a href="/posts/compiler.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/23.jpg" class="responsive-img" alt="2021三月">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="编译原理">
                         
-                        <span class="card-title">2021三月</span>
+                        <span class="card-title">编译原理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            浪漫地去接受无聊，降低阈值
+                            大二下学期课程（五）
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%97%A5%E8%AE%B0/" class="post-category">
-                                    日记
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
                                 </a>
                             
                             
@@ -1048,8 +990,8 @@ boston<span class="token operator">=</span>load_boston<span class="token punctua
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%A4%A7%E4%BA%8C/">
-                        <span class="chip bg-color">大二</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
