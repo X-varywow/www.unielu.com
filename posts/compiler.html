@@ -496,21 +496,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-06
+                    2021-06-13
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-21
+                    2021-06-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.9k
                 </div>
                 
 
@@ -523,15 +523,19 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <ul>
-<li><code>源代码</code> -&gt; 词法分析程序 -&gt; 语法分析程序 -&gt; 语义分析程序 -&gt; 中间代码生成 -&gt; 代码优化程序 -&gt; 目标代码生成 -&gt; <code>目标代码</code></li>
-<li>组成成分还包括：信息表管理程序、错误检查和处理程序，有8个</li>
+<li><strong>编译</strong>：将高级语言 <em>翻译</em> 成汇编语言或机器语言的过程。</li>
+<li>编译器结构：<ul>
+<li><code>词法分析</code>，扫描识别源程序，得到词法单元 token 序列。</li>
+<li><code>语法分析</code>，构造语法分析树。</li>
+<li><code>语义分析</code>，收集标识符的属性信息，语义检查。</li>
+<li><code>中间代码生成</code>，三地址码，语法树等结构</li>
+<li><code>机器无关代码优化</code></li>
+<li><code>目标代码生成</code></li>
+<li><code>机器相关代码优化</code></li>
 </ul>
-<p>从基本功能来看，编译程序是一种翻译程序</p>
-<ul>
-<li>对源程序进行分析</li>
-<li>根据分析结果及目标信息进行综合</li>
+</li>
 </ul>
-<h2 id="一、文法-正规式-有限自动机"><a href="#一、文法-正规式-有限自动机" class="headerlink" title="一、文法/正规式/有限自动机"></a>一、文法/正规式/有限自动机</h2><h3 id="1-1-形式语言概念"><a href="#1-1-形式语言概念" class="headerlink" title="1.1 形式语言概念"></a>1.1 形式语言概念</h3><ul>
+<h2 id="一、语言-amp-文法-amp-词法分析"><a href="#一、语言-amp-文法-amp-词法分析" class="headerlink" title="一、语言&amp;文法&amp;词法分析"></a>一、语言&amp;文法&amp;词法分析</h2><h3 id="1-0-基本概念"><a href="#1-0-基本概念" class="headerlink" title="1.0 基本概念"></a>1.0 基本概念</h3><ul>
 <li>基本符号<ul>
 <li><code>Σ</code>：字母表，形式符号的集合</li>
 <li><code>ε</code>：空串</li>
@@ -539,7 +543,7 @@
 </ul>
 </li>
 <li>基本运算<ul>
-<li>连接，如x, y为串，xy表连接</li>
+<li>连接，如 x, y 为串，xy 表连接</li>
 <li>幂运算，即对串的重复</li>
 <li><code>*</code> 闭包，同正则表达式中 <code>*</code>，可重复0~∞次</li>
 <li><code>+</code> 闭包，同正则表达式中 <code>+</code>，可重复1~∞次</li>
@@ -547,36 +551,117 @@
 </li>
 </ul>
 <hr>
-<p><strong>语言上的运算</strong></p>
 <ul>
-<li>联合</li>
-<li>连接</li>
-<li>闭包</li>
-</ul>
-<p><code>Σ*</code>：C源程序的集合<br><code>L</code>：由满足C语言 <strong>词法规则</strong> 的单词构成的语言<br><code>M</code>：由满足C语言 <strong>语法规则</strong> 的源程序构成的语言<br><code>S</code>： 表示由正确的C语言源程序构成的语言</p>
-<h3 id="1-2-正规语言及其描述"><a href="#1-2-正规语言及其描述" class="headerlink" title="1.2 正规语言及其描述"></a>1.2 正规语言及其描述</h3><p>描述正规语言的形式工具：</p>
-<ul>
-<li><strong>3型（正规）文法</strong></li>
-<li><strong>有限自动机</strong><ul>
-<li>有限状态集</li>
-<li>优先输入符号</li>
-<li>转移函数</li>
-<li>一个开始状态</li>
-<li>一个终态集合</li>
+<li><strong>文法</strong>，$G=(V_T, V_N, P, S)$<ul>
+<li>$V_T$：终结符集合</li>
+<li>$V_N$：非终结符集合，非终结符是用来表示语法成分的符号，有时也称为“<code>语法变量</code>”<ul>
+<li>$V_T \cap V_N = \varnothing$</li>
+<li>$V_T \cup V_N$：文法符号集</li>
 </ul>
 </li>
-<li><strong>正规表达式</strong></li>
+<li>$P$：产生式集合</li>
+<li>$S$：开始符号</li>
+</ul>
+</li>
+<li>文法的通常 <em>符号表示</em><ul>
+<li>终结符：a, b, c</li>
+<li>非终结符：A, B, C</li>
+<li>文法符号：X, Y, Z</li>
+<li>终结符号串：u, v…z</li>
+<li>文法符号串：$\alpha$, $\beta$, $\gamma$</li>
+</ul>
+</li>
 </ul>
 <hr>
 <ul>
-<li>一个<strong>确定的有限状态自动机</strong> <code>DFA</code> (deterministic finite automata) 是一个五元组 <code>A = (Q, Σ, δ, q0 , F )</code><ul>
-<li>Q：有限状态集</li>
-<li>Σ：有限输入符号集</li>
-<li>δ：转移函数</li>
-<li>q<sub>0</sub>：一个开始状态</li>
-<li>F：一个终态集合</li>
+<li>推导<ul>
+<li>用产生式的右部替换产生式的左部</li>
+<li>$\alpha _0 \Rightarrow ^n \alpha _n$，表示 n 步推导</li>
 </ul>
 </li>
+<li>归约<ul>
+<li>用产生式的左部替换产生式的右部</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>文法 G 生成的 <strong>语言</strong>：由文法 G 的开始符号 S 推导出的所有句子构成的集合，记为 $L(G)$</p>
+<p>$$L(G)=\{ w| S\Rightarrow ^* w,w\in V_T^* \}$$</p>
+<ul>
+<li>语言上的运算：<ul>
+<li>并，$L \cup M=\{ w|w\in L \lor x\in M \}$</li>
+<li>连接，$LM = \{ w_1w_2|w_1\in L \land w_2 \in M\}$</li>
+<li>幂</li>
+<li>*闭包，$L^* = L^0 \cup L^1 \cup L^2…$</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>句型<ul>
+<li>如果 $S \Rightarrow ^* \alpha$，$\alpha \in (V_N \cup V_T)^*$，则称 $\alpha$ 为 G 的一个句型。</li>
+</ul>
+</li>
+<li>句子<ul>
+<li>如果 $S \Rightarrow ^* w$，$w \in V_T^*$，则称 w 为 G 的一个句子。</li>
+<li>句子是不包含非终结符的句型</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-1-Chomsky-文法分类体系"><a href="#1-1-Chomsky-文法分类体系" class="headerlink" title="1.1 Chomsky 文法分类体系"></a>1.1 <em>Chomsky</em> 文法分类体系</h3><ul>
+<li>0 型文法，无规则文法<ul>
+<li>$\forall \alpha \rightarrow \beta \in P$，$\alpha$ 中至少包含一个非终结符</li>
+</ul>
+</li>
+<li>1 型文法，上下文有关文法，Content-Sensitive Grammar<ul>
+<li>$\forall \alpha \rightarrow \beta \in P$，$|\alpha| \le |\beta|$</li>
+<li>CSG 中不包含 ε-产生式</li>
+</ul>
+</li>
+<li>2 型文法，上下文无关文法，Content-Free Grammar<ul>
+<li>$\forall \alpha \rightarrow \beta \in P$，$\alpha \in V_N$</li>
+<li>即每个产生式左部为非终结符</li>
+</ul>
+</li>
+<li>3 型文法，正则文法，Regular Grammar<ul>
+<li>右线性文法，$A\rightarrow wB$ 或 $A\rightarrow w$</li>
+<li>左线性文法，$A\rightarrow Bw$ 或 $A\rightarrow w$</li>
+</ul>
+</li>
+</ul>
+<img src="https://img-blog.csdnimg.cn/2021061310383794.png" style="zoom:60%">
+
+
+<h3 id="1-2-CFG-的分析树"><a href="#1-2-CFG-的分析树" class="headerlink" title="1.2 CFG 的分析树"></a>1.2 CFG 的分析树</h3><ul>
+<li>根节点，标号为文法开始符号</li>
+<li>内部节点表示对一个产生式的应用</li>
+<li>叶节点的标号既可以是非终结符，也可以是终结符<ul>
+<li>从左到右排列叶节点得到的符号串，称为这棵树的产出或边缘</li>
+</ul>
+</li>
+</ul>
+<p>给定一个句型，其分析树中每一棵 <em>子树</em> 的边缘称为该句型的一个 <strong>短语</strong>。</p>
+<p>如果子树只有父子两代节点，那么这棵子树的边缘称为该句型的一个 <strong>直接短语</strong>。<br>$\Rightarrow$ 直接短语一定是某产生式的右部<br>$\Rightarrow$ 产生式的右部不一定是 <em>给定句型</em> 的直接短语</p>
+<img src="https://img-blog.csdnimg.cn/20210613103837123.png" style="zoom:60%">
+
+<p><strong>二义性文法</strong>：如果一个文法可以为某个句子生成多棵分析树，则称这个文法是二义性的。</p>
+<p>对于任意一个上下文无关文法，不存在一个算法，判定它是无二义性的；<br>但能给出一组充分条件，满足这组充分条件的文法是无二义性的。</p>
+<h3 id="1-3-正则表达式"><a href="#1-3-正则表达式" class="headerlink" title="1.3 正则表达式"></a>1.3 正则表达式</h3><p>描述正则语言的形式工具：</p>
+<ul>
+<li>3型（正则）文法</li>
+<li>有限自动机</li>
+<li>正则表达式</li>
+</ul>
+<p>正则表达式是用来描述正则语言的更紧凑的表示方法。</p>
+<img src="https://img-blog.csdnimg.cn/20210613112542386.png" style="zoom:60%">
+
+
+<h3 id="1-4-有限自动机"><a href="#1-4-有限自动机" class="headerlink" title="1.4 有限自动机"></a>1.4 有限自动机</h3><p>一个 <em>非确定有限状态自动机</em> <code>NFA</code> （nondeterministic finite automata）是一个五元组：<br> $$ M = (S, \Sigma, \delta, s_0 , F)$$</p>
+<p>与 DFA 唯一不同之处：$\delta：S \times \Sigma \rightarrow 2^S$，即状态的转移结果是一个集合</p>
+<hr>
+<p>一个 <em>确定的有限状态自动机</em> <code>DFA</code> （deterministic finite automata） 是一个五元组：<br> $$ M = (S, \Sigma, \delta, s_0 , F)$$</p>
+<p>$S$：有限状态集<br>$\Sigma$：有限输入符号集<br>$\delta$：转移函数<br>$s_0$：开始状态，$s_0 \in S$<br>$F$：接受状态（或终止状态）集合</p>
+<ul>
 <li>表示方式：<ul>
 <li>转移图<ul>
 <li>非空有限状态，用圆圈表示</li>
@@ -589,30 +674,10 @@
 <li>转移表</li>
 </ul>
 </li>
+<li><code>定理</code>：L是某个 DFA 的语言，当且仅当L也是某个 NFA 的语言。</li>
 </ul>
-<img src="https://img-blog.csdnimg.cn/20210406212556798.png"/>
-<img src="https://img-blog.csdnimg.cn/20210406212556968.png"/>
-<img src="https://img-blog.csdnimg.cn/20210406212556982.png" />
-
-
-<p><strong>非确定有限状态自动机</strong> <code>NFA</code> (nondeterministic finite automata)<br>与 DFA 唯一不同之处：δ：Q × Σ ➡ 2<sup>Q</sup></p>
-<hr>
-<h3 id="1-3-上下文无关文法及语言"><a href="#1-3-上下文无关文法及语言" class="headerlink" title="1.3 上下文无关文法及语言"></a>1.3 上下文无关文法及语言</h3><p>一个上下文无关文法 <code>CFG</code> （context-free-grammars），是一个四元组 $G = (V_N, V_T, P, S )$</p>
-<ul>
-<li>四个基本要素<ul>
-<li>终结符的集合</li>
-<li>非终结符的集合</li>
-<li>开始符号</li>
-<li>产生式的集合</li>
-</ul>
-</li>
-</ul>
-<p>构造产生如下语言的上下文无关语法：<br>（1）$\{uawb | u,w \in \{a, b\}^*\ ∧ |u| = |w| \}$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S → Ab$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$A → BAB | a$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$B → a | b$</p>
-<p>语法分析树、消除二义性</p>
-<p>如果语言 L 是某个上下文无关文法 G 的语言，即 $L(G) = L$，则称 L 为 <strong>上下文无关语言</strong>。<br>，即通过 L 的文法证明了 L 是上下文无关语言。</p>
-<p>正规表达式：考核设计</p>
-<hr>
-<p>yacc是Unix系统上的一个LALR(1)语法分析生成器，yet another compiler compiler</p>
+<p>一些图例：<br><img src="https://img-blog.csdnimg.cn/20210406212556798.png"/><br><img src="https://img-blog.csdnimg.cn/20210406212556968.png"/><br><img src="https://img-blog.csdnimg.cn/20210406212556982.png" /></p>
+<h3 id="1-5-练习"><a href="#1-5-练习" class="headerlink" title="1.5 练习"></a>1.5 练习</h3><p>构造产生如下语言的上下文无关语法：<br>（1）$\{uawb | u,w \in \{a, b\}^*\ ∧ |u| = |w| \}$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S → Ab$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$A → BAB | a$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$B → a | b$</p>
 <h2 id="二、自顶向下语法分析"><a href="#二、自顶向下语法分析" class="headerlink" title="二、自顶向下语法分析"></a>二、自顶向下语法分析</h2><p>一般分析过程：从文法开始符号进行推导， 每一步推导都获得文法的一个句型， 直到产生一个句子，恰好是所期望的单词符号串。 </p>
 <p>$LL(1)$分析（自顶向下预测分析）</p>
 <ul>
@@ -624,7 +689,7 @@
 <li><code>Follow</code> 集合<ul>
 <li>若 $G$ 中存在一个包含子串 $Xa$ 的句型，那么 $a$ 属于 $Follow(X)$；G 中存在一个以 $X$ 结尾的句型，那么 <code>#</code> 属于 $Follow(X)$</li>
 <li>算法：<ul>
-<li>初始时，置 $Follow(S)={}$；对其它 $X\inV_N$，置 $Follow(X)=\varnothing$</li>
+<li>初始时，置 $Follow(S)={}$；对其它 $X\in V_N$，置 $Follow(X)=\varnothing$</li>
 <li>依次考虑每一个右端含有非终结符的产生式<ul>
 <li>在末情况下，follow1 = follow1 ∪ follow2</li>
 <li>不在末，follow1 = follow1 ∪ （first2 - {ε}）</li>
@@ -650,11 +715,13 @@
 </ul>
 </li>
 </ul>
-<h2 id="四、语法制导得语义计算基础"><a href="#四、语法制导得语义计算基础" class="headerlink" title="四、语法制导得语义计算基础"></a>四、语法制导得语义计算基础</h2><h2 id="五、代码优化和目标代码生成"><a href="#五、代码优化和目标代码生成" class="headerlink" title="五、代码优化和目标代码生成"></a>五、代码优化和目标代码生成</h2><h2 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h2><p><strong>实验课</strong></p>
-<p>1.词法分析器自动构造工具JFLEX，S1词法分析器自动构造 <code>√</code><br>2.词法分析器自动构造工具YACC，S1词法分析器自动构造 <code>√</code><br>3.基础实验项目：表达式计算器Jflex/Yacc实现<br>4.J1_指令<br>5.实验项目PA1：Step1 S1编译器Jflex/Yacc实现<br>6.实验项目PA2：Step2 S2编译器实现<br>7.实验项目PA3：Step3 S3编译器实现；Step4 S4编译器实现</p>
-<hr>
-<p><strong>参考资料：</strong></p>
+<h2 id="四、语法制导得语义计算基础"><a href="#四、语法制导得语义计算基础" class="headerlink" title="四、语法制导得语义计算基础"></a>四、语法制导得语义计算基础</h2><h3 id="4-1-属性文法"><a href="#4-1-属性文法" class="headerlink" title="4.1 属性文法"></a>4.1 属性文法</h3><h3 id="4-2-语义计算"><a href="#4-2-语义计算" class="headerlink" title="4.2 语义计算"></a>4.2 语义计算</h3><h2 id="五、代码优化和目标代码生成"><a href="#五、代码优化和目标代码生成" class="headerlink" title="五、代码优化和目标代码生成"></a>五、代码优化和目标代码生成</h2><p>作业：第六题</p>
+<h2 id="六、实验课"><a href="#六、实验课" class="headerlink" title="六、实验课"></a>六、实验课</h2><p>1.词法分析器自动构造工具JFLEX，S1词法分析器自动构造 <code>√</code><br>2.词法分析器自动构造工具YACC，S1词法分析器自动构造 <code>√</code><br>3.基础实验项目：表达式计算器Jflex/Yacc实现 <code>√</code><br>4.J1_指令 <code>√</code><br>5.实验项目PA1：Step1 S1编译器Jflex/Yacc实现 <code>√</code><br>6.实验项目PA2：Step2 S2编译器实现<br>7.实验项目PA3：Step3 S3编译器实现；Step4 S4编译器实现</p>
+<p>说明：汇编语言 <code>J1</code>，编译器 <code>S1</code></p>
+<p>yacc是Unix系统上的一个LALR(1)语法分析生成器，yet another compiler compiler</p>
+<h2 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h2><p><strong>参考资料：</strong></p>
 <ul>
+<li><a href="https://www.icourse163.org/learn/HIT-1002123007" target="_blank" rel="noopener">编译原理，哈工大</a></li>
 <li>学校课程</li>
 </ul>
 <hr>
@@ -1037,28 +1104,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/ml2.html">
+                <a href="/posts/compiler.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="机器学习(二)">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="编译原理">
                         
-                        <span class="card-title">机器学习(二)</span>
+                        <span class="card-title">编译原理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            大二下学期课程（一）
+                            大二下学期课程（五）
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1071,6 +1139,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1089,23 +1158,23 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/digital_logic.html">
+                <a href="/posts/cn.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="数字逻辑">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算机网络">
                         
-                        <span class="card-title">数字逻辑</span>
+                        <span class="card-title">计算机网络</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            大二下学期课程（四）
+                            大二下学期课程（二）
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-12
                             </span>
                         <span class="publish-author">
                             
@@ -1122,8 +1191,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
+                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                        <span class="chip bg-color">面试</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">计算机基础</span>
                     </a>
                     
                 </div>
@@ -1337,7 +1410,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">135.7k</span>&nbsp;字
+                class="white-color">136.6k</span>&nbsp;字
             
             
             

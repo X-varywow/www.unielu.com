@@ -500,21 +500,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-25
+                    2021-06-12
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-27
+                    2021-06-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.7k
+                    8.8k
                 </div>
                 
 
@@ -1364,7 +1364,15 @@
 </li>
 </ul>
 <p>判断IP为156.26.27.71, 156.26.27.110的主机，子网掩码为255.255.255.192是否处于同一子网？<br>经子网掩码运算后，子网号<code>0001101101</code>相同，处于同一子网</p>
-<h2 id="五、传输层"><a href="#五、传输层" class="headerlink" title="五、传输层"></a>五、传输层</h2><h3 id="5-1-概述"><a href="#5-1-概述" class="headerlink" title="5.1 概述"></a>5.1 概述</h3><p>只有主机才有的层次。</p>
+<h2 id="五、传输层"><a href="#五、传输层" class="headerlink" title="五、传输层"></a>五、传输层</h2><p>学习目的：</p>
+<ul>
+<li>了解：进程相互作用的Client/Server模型</li>
+<li>掌握：网络环境进程通信端口概念</li>
+<li>掌握：传输层的基本功能与服务</li>
+<li>掌握：用户数据报协议UDP</li>
+<li>掌握：传输控制协议TCP</li>
+</ul>
+<h3 id="5-1-概述"><a href="#5-1-概述" class="headerlink" title="5.1 概述"></a>5.1 概述</h3><p>只有主机才有的层次。</p>
 <ul>
 <li><strong>主要作用</strong><ul>
 <li>提供进程和进程之间的逻辑通信</li>
@@ -1386,7 +1394,13 @@
 </ul>
 <hr>
 <h3 id="5-2-TCP协议"><a href="#5-2-TCP协议" class="headerlink" title="5.2 TCP协议"></a>5.2 TCP协议</h3><p><code>TCP</code> 是面向连接的、可靠的、基于字节流的传输层通信协议。</p>
-<div class="admonition info"><p class="admonition-title">1. 建立一个TCP连接需要的信息共识
+<h4 id="5-2-2-TCP报文结构"><a href="#5-2-2-TCP报文结构" class="headerlink" title="5.2.2 TCP报文结构"></a>5.2.2 TCP报文结构</h4><img src="https://img-blog.csdnimg.cn/20210608152713753.png" style="zoom:60%"/>
+
+<h4 id="5-2-3-TCP传输连接建立"><a href="#5-2-3-TCP传输连接建立" class="headerlink" title="5.2.3 TCP传输连接建立"></a>5.2.3 TCP传输连接建立</h4><img src="https://img-blog.csdnimg.cn/20210613121132540.png" style="zoom:60%"/>
+
+<h4 id="5-2-4-TCP传输连接释放"><a href="#5-2-4-TCP传输连接释放" class="headerlink" title="5.2.4 TCP传输连接释放"></a>5.2.4 TCP传输连接释放</h4><img src="https://img-blog.csdnimg.cn/20210613121132542.png" style="zoom:60%"/>
+
+<h4 id="5-2-5-关于TCP协议的问答"><a href="#5-2-5-关于TCP协议的问答" class="headerlink" title="5.2.5 关于TCP协议的问答"></a>5.2.5 关于TCP协议的问答</h4><div class="admonition info"><p class="admonition-title">建立一个TCP连接需要的信息共识?
 </p><ul>
 <li>Socket：由IP地址和端口号组成</li>
 <li>序列号：用来解决乱序问题</li>
@@ -1394,46 +1408,41 @@
 </ul>
 </div>
 
-<div class="admonition info"><p class="admonition-title">2. 如何确定一个TCP连接
+<div class="admonition info"><p class="admonition-title">如何确定一个TCP连接?
 </p><p>TCP四元组（源地址，源端口，目标地址，目标端口）</p>
 </div>
 
-<div class="admonition info"><p class="admonition-title">3. TCP 和 UDP 区别
+<div class="admonition info"><p class="admonition-title">TCP 和 UDP 的区别?
 </p><ul>
-<li><code>连接</code></li>
-<li>TCP是面向连接，传输数据前需建立连接</li>
-<li>UDP无连接，即刻传输数据</li>
-<li><code>服务对象</code></li>
-<li>TCP是一对一的两点服务</li>
-<li>UDP支持一对一、一对多、多对多的交互通信</li>
-<li><code>可靠性</code></li>
-<li>TCP可靠交互数据</li>
-<li>UDP不保证可靠交互数据</li>
+<li><code>连接</code>
+<br> - TCP是面向连接，传输数据前需建立连接
+<br> - UDP无连接，即刻传输数据</li>
+<li><code>服务对象</code>
+<br> - TCP是一对一的两点服务
+<br> - UDP支持一对一、一对多、多对多的交互通信</li>
+<li><code>可靠性</code>
+<br> - TCP可靠交互数据
+<br> - UDP不保证可靠交互数据</li>
 <li><code>TCP拥有拥塞控制和流量控制机制</code></li>
-<li><code>传输方式</code></li>
-<li>TCP是流式传输，没有边界，但保证顺序和可靠</li>
-<li>UDP是一个一个包的发送，是有边界的，但可能会丢包和乱序</li>
+<li><code>传输方式</code>
+<br> - TCP是流式传输，没有边界，但保证顺序和可靠
+<br> - UDP是一个一个包的发送，是有边界的，但可能会丢包和乱序</li>
+<li><code>应用场景</code>
+<br> - TCP应用场景
+<br>    - FTP文件传输
+<br>    - HTTP/HTTPS
+<br> - UDP应用场景
+<br>    - 包总量较少的通信，如DNS、SNMP等
+<br>    - 视频，音频等多媒体通信
+<br>    - 广播通信</li>
 </ul>
 </div>
 
-<ul>
-<li>TCP应用场景<ul>
-<li>FTP文件传输</li>
-<li>HTTP/HTTPS</li>
-</ul>
-</li>
-<li>UDP应用场景<ul>
-<li>包总量较少的通信，如DNS、SNMP等</li>
-<li>视频，音频等多媒体通信</li>
-<li>广播通信</li>
-</ul>
-</li>
-</ul>
 <hr>
 <h3 id="5-3-端口"><a href="#5-3-端口" class="headerlink" title="5.3 端口"></a>5.3 端口</h3><p><strong>端口</strong>是传输层的SAP（服务接入点），标识主机中的应用进程</p>
 <p>端口号只有本地意义，长度为<code>16bit</code>，能表示65536个不同的端口。</p>
 <ul>
-<li>端口号<ul>
+<li>端口（熟知端口、注册端口、动态端口）<ul>
 <li>服务端使用的端口号<ul>
 <li>熟知端口号 <code>0~1024</code></li>
 <li>登记端口号 <code>1024~49151</code></li>
@@ -1649,6 +1658,11 @@
 <p><code>实验报告1</code>：…<br><code>实验报告2</code>：当发送速率大于传输速率时，分组产生排队时延，暂存队列满时，会产生丢包。</p>
 <hr>
 <p>学时：56h理论+12h实验（6个）<br>分数：期末（70%）+平时（30%）</p>
+<hr>
+<p>考试重点：</p>
+<ul>
+<li>TCP\UDP特点</li>
+</ul>
 
             </div>
             <hr/>
@@ -2026,23 +2040,23 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/a319.html">
+                <a href="/posts/compiler.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算语言学">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="编译原理">
                         
-                        <span class="card-title">计算语言学</span>
+                        <span class="card-title">编译原理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            大二下学期课程（三）
+                            大二下学期课程（五）
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-13
                         </span>
                         <span class="publish-author">
                             
@@ -2063,10 +2077,6 @@
                         <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/tags/NLP/">
-                        <span class="chip bg-color">NLP</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -2078,30 +2088,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/6ba3.html">
+                <a href="/posts/bfd3.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/2.jpg" class="responsive-img" alt="VHDL">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/24.jpg" class="responsive-img" alt="支持向量机">
                         
-                        <span class="card-title">VHDL</span>
+                        <span class="card-title">支持向量机</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一种用于电路设计的高级语言
+                            一次机器学习作业
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%94%B5%E8%B7%AF/" class="post-category">
-                                    电路
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                             
                             
@@ -2111,8 +2121,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vhdl/">
-                        <span class="chip bg-color">vhdl</span>
+                    <a href="/tags/SVM/">
+                        <span class="chip bg-color">SVM</span>
                     </a>
                     
                 </div>
@@ -2326,7 +2336,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">135.7k</span>&nbsp;字
+                class="white-color">136.6k</span>&nbsp;字
             
             
             

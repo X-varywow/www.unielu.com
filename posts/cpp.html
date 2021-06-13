@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-29
+                    2021-06-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.9k
+                    5k
                 </div>
                 
 
@@ -828,7 +828,7 @@ stu_cnt<span class="token operator">++</span><span class="token punctuation">;</
 <span class="token comment" spellcheck="true">//- 静态成员函数仅用来操作静态成员变量</span>
 <span class="token comment" spellcheck="true">//- 在任何对象被构造之前，静态成员变量和静态成员函数就已经可以访问。</span>
 <span class="token comment" spellcheck="true">//调用：类名::静态函数名();</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-5-友元函数"><a href="#2-5-友元函数" class="headerlink" title="2.5 友元函数"></a>2.5 友元函数</h3><p>友元函数，在类的外部，访问类的私有成员</p>
+<h3 id="2-5-友元-amp-运算符重载"><a href="#2-5-友元-amp-运算符重载" class="headerlink" title="2.5 友元&amp;运算符重载"></a>2.5 友元&amp;运算符重载</h3><p>友元函数，在类的外部，访问类的私有成员</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//友元函数在类中声明</span>
 <span class="token keyword">friend</span> <span class="token keyword">float</span> <span class="token function">dist</span><span class="token punctuation">(</span>Point <span class="token operator">&amp;</span>a<span class="token punctuation">,</span> Point <span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -839,7 +839,10 @@ stu_cnt<span class="token operator">++</span><span class="token punctuation">;</
     <span class="token keyword">return</span> <span class="token function">sqrt</span><span class="token punctuation">(</span>x<span class="token operator">*</span>x <span class="token operator">+</span> y<span class="token operator">*</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">//友元函数不是类的成员函数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true">//友元函数不是类的成员函数</span>
+<span class="token comment" spellcheck="true">//现行的C++中，通常用于运算符重载函数。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>（1）不能重载的运算符：<code>.</code> <code>.*</code> <code>::</code> <code>sizeof</code> <code>?:</code><br>（2）不是C++的运算符：<code>**</code>，不可重载<br>（3）运算符操作目数不变，优先级不变，结合特性不变。<br>（4）运算符重载，其操作数至少有一个是类的对象。</p>
+<p>考察：自增，自减重载</p>
 <h3 id="2-6-派生-amp-继承⭐"><a href="#2-6-派生-amp-继承⭐" class="headerlink" title="2.6 派生&amp;继承⭐"></a>2.6 派生&amp;继承⭐</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">car</span><span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//基类中属性与方法</span>
     <span class="token keyword">int</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> k <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -1908,7 +1911,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">135.7k</span>&nbsp;字
+                class="white-color">136.6k</span>&nbsp;字
             
             
             
