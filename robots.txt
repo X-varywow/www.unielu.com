@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Allow: /posts/
+
+Sitemap: https://www.unielu.com/sitemap.xml
+Sitemap: https://www.unielu.com/baidusitemap.xml
