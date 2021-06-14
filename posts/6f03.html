@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-13
+                    2021-06-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    204
+                    258
                 </div>
                 
 
@@ -522,7 +522,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>探索文本分类机器学习问题，重点关注：</p>
+                <h2 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h2><p>探索文本分类机器学习问题，重点关注：</p>
 <ol>
 <li>文本数据预处理：特征工程；</li>
 <li>模型构建、训练与评测；</li>
@@ -534,6 +534,28 @@
 <li>仿照上述代码，针对于给定的电影评论数据集，完成以下工作：<br>(1) 预处理数据：随机划分训练集和测试集；<br>(2) 构建一个文本分类器，将电影评论分为积极的或消极的；<br>(3) 使用网格搜索（GridSearch）找到一组最好的参数；<br>(4) 评估模型在测试集上的性能。</li>
 </ol>
 <p>电影评论数据集：pos子目录为正例文本（1000个），neg子目录为负例文本（1000个）；一个文件一个样例。</p>
+<h2 id="代码参考"><a href="#代码参考" class="headerlink" title="代码参考"></a>代码参考</h2><p><a href="../zone/text_clf.html">点我跳转</a></p>
+<h2 id="知识涉及"><a href="#知识涉及" class="headerlink" title="知识涉及"></a>知识涉及</h2><ul>
+<li>特征提取<ul>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html" target="_blank" rel="noopener">sklearn.feature_extraction.text.CountVectorizer</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html" target="_blank" rel="noopener">sklearn.feature_extraction.text.TfidfTransformer</a></li>
+</ul>
+</li>
+<li>ML模型<ul>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html" target="_blank" rel="noopener">sklearn.linear_model.SGDClassifier</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html" target="_blank" rel="noopener">sklearn.naive_bayes.MultinomialNB</a></li>
+</ul>
+</li>
+<li>模型评估<ul>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html" target="_blank" rel="noopener">sklearn.metrics.classification_report</a></li>
+</ul>
+</li>
+<li>网格搜索<ul>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html" target="_blank" rel="noopener">sklearn.model_selection.GridSearchCV</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html" target="_blank" rel="noopener">sklearn.pipeline.Pipeline</a></li>
+</ul>
+</li>
+</ul>
 
             </div>
             <hr/>
@@ -1198,7 +1220,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">136.8k</span>&nbsp;字
+                class="white-color">136.9k</span>&nbsp;字
             
             
             
