@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-13
+                    2021-06-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.8k
+                    9k
                 </div>
                 
 
@@ -1372,10 +1372,10 @@
 <li>掌握：用户数据报协议UDP</li>
 <li>掌握：传输控制协议TCP</li>
 </ul>
-<h3 id="5-1-概述"><a href="#5-1-概述" class="headerlink" title="5.1 概述"></a>5.1 概述</h3><p>只有主机才有的层次。</p>
+<h3 id="5-1-概述"><a href="#5-1-概述" class="headerlink" title="5.1 概述"></a>5.1 概述</h3><p>只有主机才有的层次</p>
 <ul>
 <li><strong>主要作用</strong><ul>
-<li>提供进程和进程之间的逻辑通信</li>
+<li>提供应用进程之间的端到端逻辑通信</li>
 <li>复用和分用</li>
 <li>对收到的报文进行差错检测</li>
 </ul>
@@ -1388,14 +1388,33 @@
 <li>TCP拥塞控制</li>
 </ul>
 </li>
-<li><code>UDP</code>（无连接的用户数据报协议）</li>
+<li><code>UDP</code>（无连接的用户数据报协议）<ul>
+<li>无连接</li>
+<li>尽最大努力交付</li>
+<li>面向报文</li>
+<li>没有拥塞控制</li>
+<li>支持一对一、一对多、多对一、多对多的交互通信</li>
+<li>首部开销少，只有８个字节，TCP首部２０个字节</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <hr>
-<h3 id="5-2-TCP协议"><a href="#5-2-TCP协议" class="headerlink" title="5.2 TCP协议"></a>5.2 TCP协议</h3><p><code>TCP</code> 是面向连接的、可靠的、基于字节流的传输层通信协议。</p>
-<h4 id="5-2-2-TCP报文结构"><a href="#5-2-2-TCP报文结构" class="headerlink" title="5.2.2 TCP报文结构"></a>5.2.2 TCP报文结构</h4><img src="https://img-blog.csdnimg.cn/20210608152713753.png" style="zoom:60%"/>
+<h3 id="5-2-TCP协议"><a href="#5-2-TCP协议" class="headerlink" title="5.2 TCP协议"></a>5.2 TCP协议</h3><ul>
+<li>主要特点<ul>
+<li><strong>面向连接</strong> 的运输层协议，需要事先建立连接</li>
+<li>提供 <strong>可靠交付</strong> 的服务，无差错、不丢失，不重复，并且按序到达</li>
+<li>提供 <strong>全双工通信</strong>，TCP连接的两端都设有发送缓存和接收缓存</li>
+<li><strong>面向字节流</strong>，即将应用程序交下来的数据看成一串无结构的字节流</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-2-1-TCP报文结构"><a href="#5-2-1-TCP报文结构" class="headerlink" title="5.2.1 TCP报文结构"></a>5.2.1 TCP报文结构</h4><img src="https://img-blog.csdnimg.cn/20210608152713753.png" style="zoom:60%"/>
 
+<h4 id="5-2-2-TCP的连接"><a href="#5-2-2-TCP的连接" class="headerlink" title="5.2.2 TCP的连接"></a>5.2.2 TCP的连接</h4><p>TCP 把连接作为最基本的抽象</p>
+<p><code>套接字</code> Socket =（主机IP地址，端口号）</p>
+<p>在计算机网络中采用发送方和接收方的套接字组合来识别端口，<br>套接字唯一标识了网络中的一个主机和它上面的一个进程。</p>
 <h4 id="5-2-3-TCP传输连接建立"><a href="#5-2-3-TCP传输连接建立" class="headerlink" title="5.2.3 TCP传输连接建立"></a>5.2.3 TCP传输连接建立</h4><img src="https://img-blog.csdnimg.cn/20210613121132540.png" style="zoom:60%"/>
 
 <h4 id="5-2-4-TCP传输连接释放"><a href="#5-2-4-TCP传输连接释放" class="headerlink" title="5.2.4 TCP传输连接释放"></a>5.2.4 TCP传输连接释放</h4><img src="https://img-blog.csdnimg.cn/20210613121132542.png" style="zoom:60%"/>
@@ -1525,9 +1544,6 @@
 <td><code>imaplib</code></td>
 </tr>
 </tbody></table>
-<p>.</p>
-<p><strong>套接字</strong> Socket =（主机IP地址，端口号）</p>
-<p>在计算机网络中采用发送方和接收方的套接字组合来识别端口，<br>套接字唯一标识了网络中的一个主机和它上面的一个进程。</p>
 <h2 id="六、应用层"><a href="#六、应用层" class="headerlink" title="六、应用层"></a>六、应用层</h2><p>应用层的协议定义了：</p>
 <ul>
 <li>应用进程交换的报文类型，请求还是响应？</li>
@@ -2336,7 +2352,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">137k</span>&nbsp;字
+                class="white-color">137.3k</span>&nbsp;字
             
             
             
