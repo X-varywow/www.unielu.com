@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-13
+                    2021-06-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2k
                 </div>
                 
 
@@ -718,7 +718,15 @@
 <h2 id="四、语法制导得语义计算基础"><a href="#四、语法制导得语义计算基础" class="headerlink" title="四、语法制导得语义计算基础"></a>四、语法制导得语义计算基础</h2><h3 id="4-1-属性文法"><a href="#4-1-属性文法" class="headerlink" title="4.1 属性文法"></a>4.1 属性文法</h3><h3 id="4-2-语义计算"><a href="#4-2-语义计算" class="headerlink" title="4.2 语义计算"></a>4.2 语义计算</h3><h2 id="五、代码优化和目标代码生成"><a href="#五、代码优化和目标代码生成" class="headerlink" title="五、代码优化和目标代码生成"></a>五、代码优化和目标代码生成</h2><p>作业：第六题</p>
 <h2 id="六、实验课"><a href="#六、实验课" class="headerlink" title="六、实验课"></a>六、实验课</h2><p>1.词法分析器自动构造工具JFLEX，S1词法分析器自动构造 <code>√</code><br>2.词法分析器自动构造工具YACC，S1词法分析器自动构造 <code>√</code><br>3.基础实验项目：表达式计算器Jflex/Yacc实现 <code>√</code><br>4.J1_指令 <code>√</code><br>5.实验项目PA1：Step1 S1编译器Jflex/Yacc实现 <code>√</code><br>6.实验项目PA2：Step2 S2编译器实现<br>7.实验项目PA3：Step3 S3编译器实现；Step4 S4编译器实现</p>
 <p>说明：汇编语言 <code>J1</code>，编译器 <code>S1</code></p>
-<p>yacc是Unix系统上的一个LALR(1)语法分析生成器，yet another compiler compiler</p>
+<hr>
+<p><code>jflex</code> 是一个 <strong>词法分析</strong> 的生成器，<strong>生成</strong> Java 写的词法分析器，文件扩展名为 <code>.l</code></p>
+<p><code>yacc</code> 是 Unix 系统上的一个 $LALR(1)$ <strong>语法分析</strong> <strong>生成器</strong>。yet another compiler compiler，文件扩展名为 <code>.y</code></p>
+<pre class="line-numbers language-cmd"><code class="language-cmd">yacc -J S1ly.y  
+jflex S1l.l
+javac Parser.java
+javac Yylex.java
+java Parser S1
+a S1.a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h2><p><strong>参考资料：</strong></p>
 <ul>
 <li><a href="https://www.icourse163.org/learn/HIT-1002123007" target="_blank" rel="noopener">编译原理，哈工大</a></li>
@@ -1408,7 +1416,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">137.3k</span>&nbsp;字
+                class="white-color">138.1k</span>&nbsp;字
             
             
             
