@@ -507,7 +507,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-15
+                    2021-06-17
                 </div>
                 
 
@@ -1228,7 +1228,7 @@
 </li>
 <li>路由选择协议<ul>
 <li>内部网关协议IGP（RIP,OSPF）</li>
-<li>外部网关协议EGP（BGP） <code>？？？</code></li>
+<li>外部网关协议EGP（BGP）</li>
 </ul>
 </li>
 </ul>
@@ -1236,7 +1236,7 @@
 <li><code>功能二</code>：从入链路到出链路 转发 数据报</li>
 </ul>
 <p>路由器可以进行路由选择和分组转发。<br>路由器对目的地址是私有IP地址的数据报一律不进行转发</p>
-<hr>
+<p><strong>默认路由项</strong>：当路由表中与包的目的地址之间没有匹配的表项时路由能做出的选择。</p>
 <h3 id="4-5-ARP协议"><a href="#4-5-ARP协议" class="headerlink" title="4.5 ARP协议"></a>4.5 ARP协议</h3><p>ARP（Address Resolution Protocol）即 <strong>地址解析协议</strong>， 用于实现从 IP 地址到 MAC 地址的映射，即询问目标IP对应的MAC地址。</p>
 <ul>
 <li>ARP协议自动进行</li>
@@ -1246,8 +1246,7 @@
 </ul>
 </li>
 </ul>
-<hr>
-<h3 id="4-6-IP地址"><a href="#4-6-IP地址" class="headerlink" title="4.6 IP地址"></a>4.6 IP地址</h3><p>IP地址 <code>Internet Protocol Address</code> 是指互联网协议地址，又译为网际协议地址。</p>
+<h3 id="4-6-IP地址⭐"><a href="#4-6-IP地址⭐" class="headerlink" title="4.6 IP地址⭐"></a>4.6 IP地址⭐</h3><p>IP地址 <code>Internet Protocol Address</code> 是指互联网协议地址，又译为网际协议地址。</p>
 <h5 id="（1）IP协议特点"><a href="#（1）IP协议特点" class="headerlink" title="（1）IP协议特点"></a>（1）IP协议特点</h5><ul>
 <li><strong>不可靠、无连接、尽力而为</strong>的数据报服务</li>
 <li>发送 IP 数据报后不维护任何状态信息</li>
@@ -1336,17 +1335,22 @@
 <p>在同一个局域网上的主机或路由器的IP地址中的网络号必须是一样的。</p>
 <p>私网IP要接入Internet时，要使用 <code>NAT</code> <strong>网络地址转换</strong><br>安装了NAT软件（含NAT转换表）的路由器叫NAT路由器，它至少有一个有效的外部全球IP地址。</p>
 <p><strong>移动IP技术</strong> 是移动结点（计算机、服务器等）以固定的网络IP地址，实现跨越不同网段的漫游功能，并保证了基于网络IP的网络权限在漫游过程中不发生任何改变。</p>
-<h3 id="4-7-IP数据报"><a href="#4-7-IP数据报" class="headerlink" title="4.7 IP数据报"></a>4.7 IP数据报</h3><img src="https://img-blog.csdnimg.cn/20210525144926877.png" style="zoom:70%"/>
+<h3 id="4-7-IP数据报⭐"><a href="#4-7-IP数据报⭐" class="headerlink" title="4.7 IP数据报⭐"></a>4.7 IP数据报⭐</h3><img src="https://img-blog.csdnimg.cn/20210617190545194.png"/>
 
 <div class="admonition info"><p class="admonition-title">什么是IP分片？
 </p><p>IP协议在传输数据包时会将数据报文分成若干片进行传输，并在目标系统中进行重组。这以过程就成为<strong>分片</strong>。</p>
 </div>
 
 <div class="admonition info"><p class="admonition-title">为什么要进行IP分片
-</p><p>如果IP数据报加上数据帧头部后大于MTU，数据报文就会分成若干片进行传输。那么什么是MTU呢？每一种物理网络都会规定链路层数据帧的最大长度，称为链路层MTU。在以太网的环境中可传输的最大IP报文为1500字节。如果要传输的数据帧的大小超过1500字节，即IP数据报的长度大于1472（1500-20-8=1472，普通数据报）字节，需要分片之后进行传输。</p>
+</p><p>如果IP数据报加上数据帧头部后大于MTU，数据报文就会分成若干片进行传输。那么什么是MTU呢？每一种物理网络都会规定链路层数据帧的最大长度，称为链路层MTU。在以太网的环境中可传输的最大IP报文为1500字节。<br>如果要传输的数据帧的大小超过1500字节，即IP数据报的长度大于1472（<strong>1500-20-8=1472</strong>，普通数据报）字节，需要分片之后进行传输。</p>
 </div>
 
-<h3 id="4-8-子网划分与地址聚合"><a href="#4-8-子网划分与地址聚合" class="headerlink" title="4.8 子网划分与地址聚合"></a>4.8 子网划分与地址聚合</h3><ul>
+<div class="admonition info"><p class="admonition-title">关于标志位
+</p><p>MF：表示后面是否“还有分片”。MF = 0 表示这是若干数据报分片的最后一个<br>
+DF（Don't fragment）：标志着允不允许数据报分片</p>
+</div>
+
+<h3 id="4-8-子网划分与地址聚合⭐"><a href="#4-8-子网划分与地址聚合⭐" class="headerlink" title="4.8 子网划分与地址聚合⭐"></a>4.8 子网划分与地址聚合⭐</h3><ul>
 <li>子网<ul>
 <li>具有IP地址相同的子网部分的设备接口</li>
 <li>能够物理上互相到达而没有中间路由器</li>
@@ -1357,9 +1361,9 @@
 </ul>
 </li>
 <li>默认掩码：<ul>
-<li>A类：255.0.0.0</li>
-<li>B类：255.255.0.0</li>
-<li>C类：255.255.255.0</li>
+<li><code>A类</code>：255.0.0.0</li>
+<li><code>B类</code>：255.255.0.0</li>
+<li><code>C类</code>：255.255.255.0</li>
 </ul>
 </li>
 </ul>
@@ -1401,7 +1405,7 @@
 </li>
 </ul>
 <hr>
-<h3 id="5-2-TCP协议"><a href="#5-2-TCP协议" class="headerlink" title="5.2 TCP协议"></a>5.2 TCP协议</h3><ul>
+<h3 id="5-2-TCP协议⭐"><a href="#5-2-TCP协议⭐" class="headerlink" title="5.2 TCP协议⭐"></a>5.2 TCP协议⭐</h3><ul>
 <li>主要特点<ul>
 <li><strong>面向连接</strong> 的运输层协议，需要事先建立连接</li>
 <li>提供 <strong>可靠交付</strong> 的服务，无差错、不丢失，不重复，并且按序到达</li>
@@ -2352,7 +2356,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">138.1k</span>&nbsp;字
+                class="white-color">138.8k</span>&nbsp;字
             
             
             

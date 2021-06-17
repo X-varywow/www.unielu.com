@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-16
+                    2021-06-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    2.6k
                 </div>
                 
 
@@ -604,11 +604,11 @@
 </li>
 <li>句子<ul>
 <li>如果 $S \Rightarrow ^* w$，$w \in V_T^*$，则称 w 为 G 的一个句子。</li>
-<li>句子是不包含非终结符的句型</li>
+<li><strong>句子是不包含非终结符的句型</strong></li>
 </ul>
 </li>
 </ul>
-<h3 id="1-1-Chomsky-文法分类体系"><a href="#1-1-Chomsky-文法分类体系" class="headerlink" title="1.1 Chomsky 文法分类体系"></a>1.1 <em>Chomsky</em> 文法分类体系</h3><ul>
+<h3 id="1-1-Chomsky-文法分类"><a href="#1-1-Chomsky-文法分类" class="headerlink" title="1.1 Chomsky 文法分类"></a>1.1 <em>Chomsky</em> 文法分类</h3><ul>
 <li>0 型文法，无规则文法<ul>
 <li>$\forall \alpha \rightarrow \beta \in P$，$\alpha$ 中至少包含一个非终结符</li>
 </ul>
@@ -678,14 +678,66 @@
 </ul>
 <p>一些图例：<br><img src="https://img-blog.csdnimg.cn/20210406212556798.png"/><br><img src="https://img-blog.csdnimg.cn/20210406212556968.png"/><br><img src="https://img-blog.csdnimg.cn/20210406212556982.png" /></p>
 <h3 id="1-5-练习"><a href="#1-5-练习" class="headerlink" title="1.5 练习"></a>1.5 练习</h3><p>构造产生如下语言的上下文无关语法：<br>（1）$\{uawb | u,w \in \{a, b\}^*\ ∧ |u| = |w| \}$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S → Ab$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$A → BAB | a$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$B → a | b$</p>
-<h2 id="二、自顶向下语法分析"><a href="#二、自顶向下语法分析" class="headerlink" title="二、自顶向下语法分析"></a>二、自顶向下语法分析</h2><p>一般分析过程：从文法开始符号进行推导， 每一步推导都获得文法的一个句型， 直到产生一个句子，恰好是所期望的单词符号串。 </p>
-<p>$LL(1)$分析（自顶向下预测分析）</p>
+<h2 id="二、自顶向下语法分析"><a href="#二、自顶向下语法分析" class="headerlink" title="二、自顶向下语法分析"></a>二、自顶向下语法分析</h2><h3 id="2-0-概述"><a href="#2-0-概述" class="headerlink" title="2.0 概述"></a>2.0 概述</h3><p><em>自顶向下的分析</em>，可以看成是从文法开始符号 S 推导出词串 w 的过程。</p>
+<p><strong>最左推导</strong>，总是选择每个句型的最左非终结符进行替换</p>
+<p><strong>最右推导</strong>，总是选择每个句型的最右非终结符进行替换</p>
+<p>在自底向上的分析中，总是采用最左归约的方式，因此把最左归约称为 <code>规范归约</code>，而最右推导相应地称为 <code>规范推导</code></p>
+<hr>
+<ul>
+<li>递归下降分析（自顶向下语法分析的通用形式）<ul>
+<li>由一组过程组成，每个过程对应一个非终结符</li>
+<li>同一非终结符的多个候选式存在共同前缀，将导致回溯现象，由此引出以下的分析</li>
+</ul>
+</li>
+<li>预测分析<ul>
+<li>是递归下降分析的一个特例，通过输入中向前看固定个数（通常为1）符号来选择正确的 A-产生式</li>
+<li>可以对某些文法构造出向前看 k 个输入符号的预测分析器，该类文法有时也称为 <code>LL(k)文法类</code></li>
+<li><strong>预测分析不需要回溯</strong>，是一种确定的自顶向下分析方法</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  选择一个 A 产生式
+  <span class="token keyword">for</span><span class="token punctuation">(</span>i to k<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>xi 是一个非终结符<span class="token punctuation">)</span>
+      调用过程 xi
+    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>xi 为当前的输入符号 a<span class="token punctuation">)</span>
+      读入下一个输入符号
+    <span class="token keyword">else</span> 
+      发生错误
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<ul>
+<li>含有 $A\rightarrow A\alpha$ 形式的文法称为是 <strong>直接左递归</strong> 的</li>
+<li>如果一个文法中有一个非终结符 A 使得对某个串 $\alpha$ 存在一个推导 $A \Rightarrow ^+ A\alpha$，那么这个文法就是 <strong>左递归</strong> 的<ul>
+<li>左递归文法会使递归下降分析器陷入无限循环</li>
+</ul>
+</li>
+<li>经过两步或两步以上推导产生的左递归称为是间接左递归的</li>
+</ul>
+<p>消除左递归：引进一些非终结符和 $\epsilon$_产生式</p>
+<h3 id="2-1-LL（1）分析"><a href="#2-1-LL（1）分析" class="headerlink" title="2.1 LL（1）分析"></a>2.1 LL（1）分析</h3><p>$LL(1)$分析（自顶向下预测分析）</p>
 <ul>
 <li><code>First</code> 集合<ul>
 <li>一个句型 $\alpha$ 若可以推导出另一个以终结符 $a$ 开头的句型，那么 $a$ 属于 $First(\alpha$)；若 $\alpha$ 可以推导出 ε，那么 ε 属于 $First(\alpha)$</li>
 <li>即可推导的前缀的集合</li>
 </ul>
 </li>
+<li><code>Follow</code> 集合<ul>
+<li>可能在某个句型中紧跟在 A 后面的终结符 a 的集合。</li>
+</ul>
+</li>
+<li><code>Select</code> 集合<ul>
+<li>产生式 $A\rightarrow \beta$ 的可选集是指可以选用该产生式进行推导时对应的输入符号的集合，记为 $SELECT(A \rightarrow \beta)$</li>
+</ul>
+</li>
+</ul>
+<p>$$SELECT(A \rightarrow a\beta) = { a}$$</p>
+<p>$$SELECT(A \rightarrow \epsilon) = FOLLOW(A)$$</p>
+<hr>
+<ul>
+<li><code>First</code> 集合</li>
 <li><code>Follow</code> 集合<ul>
 <li>若 $G$ 中存在一个包含子串 $Xa$ 的句型，那么 $a$ 属于 $Follow(X)$；G 中存在一个以 $X$ 结尾的句型，那么 <code>#</code> 属于 $Follow(X)$</li>
 <li>算法：<ul>
@@ -700,10 +752,13 @@
 </ul>
 </li>
 </ul>
-<p>预测集合</p>
-<h2 id="三、自底向上语法分析"><a href="#三、自底向上语法分析" class="headerlink" title="三、自底向上语法分析"></a>三、自底向上语法分析</h2><p><strong>短语</strong>：分析树从左到右、不定长度连接的串</p>
-<p><strong>直接短语</strong>：那些只使用一步就可归约相应非终结符的那些短语</p>
-<p><strong>句柄</strong>：右句型的一个直接短语</p>
+<hr>
+<img src="https://img-blog.csdnimg.cn/20210617210225698.png" style="zoom:70%">
+
+
+
+
+<h2 id="三、自底向上语法分析"><a href="#三、自底向上语法分析" class="headerlink" title="三、自底向上语法分析"></a>三、自底向上语法分析</h2><h3 id="3-0-概述"><a href="#3-0-概述" class="headerlink" title="3.0 概述"></a>3.0 概述</h3><p><strong>句柄</strong>：右句型的一个直接短语</p>
 <p><strong>移进−归约冲突</strong>是指到达一个不能确定下一步应该移进还是应该归约的状态。</p>
 <p><strong>归约−归约冲突</strong>是指到达一个可以对多个短语进行归约的状态。</p>
 <p>SLR（1）分析，向前查看一个符号可解决冲突</p>
@@ -715,7 +770,27 @@
 </ul>
 </li>
 </ul>
-<h2 id="四、语法制导得语义计算基础"><a href="#四、语法制导得语义计算基础" class="headerlink" title="四、语法制导得语义计算基础"></a>四、语法制导得语义计算基础</h2><h3 id="4-1-属性文法"><a href="#4-1-属性文法" class="headerlink" title="4.1 属性文法"></a>4.1 属性文法</h3><h3 id="4-2-语义计算"><a href="#4-2-语义计算" class="headerlink" title="4.2 语义计算"></a>4.2 语义计算</h3><h2 id="五、代码优化和目标代码生成"><a href="#五、代码优化和目标代码生成" class="headerlink" title="五、代码优化和目标代码生成"></a>五、代码优化和目标代码生成</h2><p>作业：第六题</p>
+<h3 id="3-1-LR分析"><a href="#3-1-LR分析" class="headerlink" title="3.1 LR分析"></a>3.1 LR分析</h3><h2 id="四、语法制导得语义计算基础"><a href="#四、语法制导得语义计算基础" class="headerlink" title="四、语法制导得语义计算基础"></a>四、语法制导得语义计算基础</h2><h3 id="4-1-属性文法"><a href="#4-1-属性文法" class="headerlink" title="4.1 属性文法"></a>4.1 属性文法</h3><h3 id="4-2-语义计算"><a href="#4-2-语义计算" class="headerlink" title="4.2 语义计算"></a>4.2 语义计算</h3><h2 id="五、代码优化和目标代码生成"><a href="#五、代码优化和目标代码生成" class="headerlink" title="五、代码优化和目标代码生成"></a>五、代码优化和目标代码生成</h2><ul>
+<li>输入：某一种中间代码以及符号表等信息</li>
+<li>输出：特定目标机或虚拟机的目标代码</li>
+</ul>
+<p>如不特别说明，本章的中间代码形式均为三地址码（简称TAC）</p>
+<ul>
+<li>基本块<ul>
+<li>程序中一个顺序执行的语句序列</li>
+</ul>
+</li>
+<li>流图<ul>
+<li>CFG _Control-Flow Graph_，是个有向图</li>
+</ul>
+</li>
+<li>循环</li>
+<li>数据流分析基础</li>
+<li>局部优化技术</li>
+<li>目标代码生成技术</li>
+<li>代码优化技术</li>
+</ul>
+<p>作业：第六题</p>
 <h2 id="六、实验课"><a href="#六、实验课" class="headerlink" title="六、实验课"></a>六、实验课</h2><p>1.词法分析器自动构造工具JFLEX，S1词法分析器自动构造 <code>√</code><br>2.词法分析器自动构造工具YACC，S1词法分析器自动构造 <code>√</code><br>3.基础实验项目：表达式计算器Jflex/Yacc实现 <code>√</code><br>4.J1_指令 <code>√</code><br>5.实验项目PA1：Step1 S1编译器Jflex/Yacc实现 <code>√</code><br>6.实验项目PA2：Step2 S2编译器实现<br>7.实验项目PA3：Step3 S3编译器实现；Step4 S4编译器实现</p>
 <p>说明：汇编语言 <code>J1</code>，编译器 <code>S1</code></p>
 <hr>
@@ -1416,7 +1491,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">138.1k</span>&nbsp;字
+                class="white-color">138.8k</span>&nbsp;字
             
             
             
