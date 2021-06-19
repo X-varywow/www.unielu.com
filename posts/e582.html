@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-19
+                    2021-06-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    247
+                    515
                 </div>
                 
 
@@ -533,7 +533,7 @@ pip install pillow
 pip show pillow
 
 <span class="token comment" spellcheck="true">#奇怪，但是 pip install PIL 没有结果，应该是取代了PIL</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a><em>reference</em></h2><p><strong>使用Image类:</strong></p>
+<h2 id="一、基础"><a href="#一、基础" class="headerlink" title="一、基础"></a>一、基础</h2><p><strong>使用Image类:</strong></p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># from Pillow import Image 显示 no module</span>
 <span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
 im <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">"1.png"</span><span class="token punctuation">)</span>
@@ -586,6 +586,39 @@ region <span class="token operator">=</span> im<span class="token punctuation">.
 <span class="token comment" spellcheck="true"># PixelAccess Class</span>
 px <span class="token operator">=</span> im<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>px<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#返回（4，4）位置的RGBA值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="二、字符画"><a href="#二、字符画" class="headerlink" title="二、字符画"></a>二、字符画</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image <span class="token comment" spellcheck="true"># PIL 是一个 Python 图像处理库</span>
+
+ascii_char <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token string">"$@B%8&amp;WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~&lt;>i!lI;:,\"^`'. "</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 是我们的字符画所使用的字符集，一共有 70 个字符，字符的种类与数量可以自己根据字符画的效果反复调试的</span>
+
+WIDTH <span class="token operator">=</span> <span class="token number">60</span> <span class="token comment" spellcheck="true"># 字符画的宽</span>
+HEIGHT <span class="token operator">=</span> <span class="token number">45</span> <span class="token comment" spellcheck="true"># 字符画的高</span>
+
+
+<span class="token comment" spellcheck="true"># 将256灰度映射到70个字符上，也就是RGB值转字符的函数：</span>
+<span class="token keyword">def</span> <span class="token function">get_char</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> g<span class="token punctuation">,</span> b<span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">256</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># alpha透明度</span>
+    <span class="token keyword">if</span> alpha <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">' '</span>
+    length <span class="token operator">=</span> len<span class="token punctuation">(</span>ascii_char<span class="token punctuation">)</span>
+    gray <span class="token operator">=</span> int<span class="token punctuation">(</span><span class="token number">0.2126</span> <span class="token operator">*</span> r <span class="token operator">+</span> <span class="token number">0.7152</span> <span class="token operator">*</span> g <span class="token operator">+</span> <span class="token number">0.0722</span> <span class="token operator">*</span> b<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 计算灰度</span>
+    unit <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">256.0</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> length
+    <span class="token keyword">return</span> ascii_char<span class="token punctuation">[</span>int<span class="token punctuation">(</span>gray <span class="token operator">/</span> unit<span class="token punctuation">)</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># 不同的灰度对应着不同的字符</span>
+    <span class="token comment" spellcheck="true"># 通过灰度来区分色块</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    img <span class="token operator">=</span> <span class="token string">'C:\\Users\\16413\\Pictures\\Saved Pictures\\3.jpg'</span> <span class="token comment" spellcheck="true"># 图片所在位置</span>
+    im <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
+    im <span class="token operator">=</span> im<span class="token punctuation">.</span>resize<span class="token punctuation">(</span><span class="token punctuation">(</span>WIDTH<span class="token punctuation">,</span> HEIGHT<span class="token punctuation">)</span><span class="token punctuation">,</span> Image<span class="token punctuation">.</span>NEAREST<span class="token punctuation">)</span>
+    txt <span class="token operator">=</span> <span class="token string">""</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>HEIGHT<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>WIDTH<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            txt <span class="token operator">+=</span> get_char<span class="token punctuation">(</span><span class="token operator">*</span>im<span class="token punctuation">.</span>getpixel<span class="token punctuation">(</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 获得相应的字符</span>
+        txt <span class="token operator">+=</span> <span class="token string">'\n'</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>txt<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 打印出字符画</span>
+    <span class="token comment" spellcheck="true"># 将字符画 写入文件中</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"C:\\Users\\16413\\Pictures\\Saved Pictures\\output.txt"</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>txt<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>摘录来源：<br><a href="https://pillow.readthedocs.io/en/latest/handbook/index.html" target="_blank" rel="noopener">pillow英文文档</a><br><a href="https://www.bookstack.cn/books/Pillow-7.0.0-zh" target="_blank" rel="noopener">书栈中文文档</a></p>
 
             </div>
@@ -1249,7 +1282,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">138.8k</span>&nbsp;字
+                class="white-color">138.3k</span>&nbsp;字
             
             
             
