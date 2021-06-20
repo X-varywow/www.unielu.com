@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-19
+                    2021-06-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.4k
                 </div>
                 
 
@@ -680,8 +680,16 @@
 <p>一些图例：<br><img src="https://img-blog.csdnimg.cn/20210406212556798.png"/><br><img src="https://img-blog.csdnimg.cn/20210406212556968.png"/><br><img src="https://img-blog.csdnimg.cn/20210406212556982.png" /></p>
 <h3 id="1-5-练习"><a href="#1-5-练习" class="headerlink" title="1.5 练习"></a>1.5 练习</h3><p>构造产生如下语言的上下文无关语法：<br>（1）$\{uawb | u,w \in \{a, b\}^*\ ∧ |u| = |w| \}$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S → Ab$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$A → BAB | a$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$B → a | b$</p>
 <h2 id="二、自顶向下语法分析"><a href="#二、自顶向下语法分析" class="headerlink" title="二、自顶向下语法分析"></a>二、自顶向下语法分析</h2><h3 id="2-0-概述"><a href="#2-0-概述" class="headerlink" title="2.0 概述"></a>2.0 概述</h3><p><em>自顶向下的分析</em>，可以看成是从文法开始符号 S 推导出词串 w 的过程。</p>
-<p><strong>最左推导</strong>，总是选择每个句型的最左非终结符进行替换</p>
-<p><strong>最右推导</strong>，总是选择每个句型的最右非终结符进行替换</p>
+<ul>
+<li>两类非确定性<ul>
+<li>每一步的推导中，对哪一个非终结符进行展开</li>
+<li>若选定的非终结符是多个产生式的左部，如何选择</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em>最左推导</em>，总是选择每个句型的最左非终结符进行替换</p>
+<p><em>最右推导</em>…</p>
 <p>在自底向上的分析中，总是采用最左归约的方式，因此把最左归约称为 <code>规范归约</code>，而最右推导相应地称为 <code>规范推导</code></p>
 <hr>
 <ul>
@@ -726,12 +734,13 @@
 </ul>
 </li>
 <li><code>Follow</code> 集合<ul>
-<li>可能在某个句型中紧跟在 A 后面的终结符 a 的集合。若G 中存在一个以 $X$ 结尾的句型，那么 <code>#</code> 属于 $Follow(X)$</li>
+<li>可能在某个句型中紧跟在 A 后面的终结符 a 的集合。若 G 中存在一个以 $X$ 结尾的句型，那么 <code>#</code> 属于 $Follow(X)$</li>
+<li><code>#</code> 代表输入单词符号序列的结束符</li>
 <li>算法：<ul>
 <li>初始时，置 $Follow(S)=\{\#\}$；对其它 $X\in V_N$，置 $Follow(X)=\varnothing$</li>
 <li>依次考虑每一个右端含有非终结符的产生式<ul>
-<li>在末情况下，follow1 = follow1 ∪ follow2</li>
-<li>不在末，follow1 = follow1 ∪ （first2 - {ε}）</li>
+<li>在末情况下，$$follow1 = follow1 \cup follow2$$</li>
+<li>不在末，$$follow1 = follow1 \cup （first2 - \{ε\}）$$</li>
 </ul>
 </li>
 </ul>
@@ -756,13 +765,101 @@
 </ol>
 <br>
 <br>
-注意：三个集合的计算
 
-<hr>
-<img src="https://img-blog.csdnimg.cn/20210617210225698.png" style="zoom:70%">
+<p>注意：三个集合的计算，First 对于句型而言，Follow对于非终结符而言，Select 对于产生式而言</p>
+<p>注意：证明 $LL(1)$ 文法，即不存在两相同左部的产生式的可选集相交</p>
+<h3 id="2-2-程序设计"><a href="#2-2-程序设计" class="headerlink" title="2.2 程序设计"></a>2.2 程序设计</h3><p>$LL(1)$ 分析程序的设计（参考 lecture 2）：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">ParseFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token function">MatchToken</span><span class="token punctuation">(</span>T_FUNC<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// T_FUNC 为匹配终结符 FUNC 的单词符号</span>
+  <span class="token function">MatchToken</span><span class="token punctuation">(</span>T_ID<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// T_ID 为匹配终结符 ID 的单词符号</span>
+  <span class="token function">MatchToken</span><span class="token punctuation">(</span>T_LPAREN<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//T_LPAREN 为匹配终结符 ’(’ 的单词符号</span>
+  <span class="token function">ParseParameterList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">MatchToken</span><span class="token punctuation">(</span>T_RPAREN<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// T_RPAREN 为匹配终结符 ’)’ 的单词符号</span>
+  <span class="token function">ParseStatement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">MatchToken</span><span class="token punctuation">(</span><span class="token keyword">int</span> expected<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>lookahead <span class="token operator">!=</span> expected<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//判别当前扫描的单词符号是否与期望的终结符匹配</span>
+  <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"syntax error \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//若不匹配，则报告出错信息，跳出</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span> <span class="token comment" spellcheck="true">//若匹配， 消费掉当前单词符号</span>
+    lookahead <span class="token operator">=</span> <span class="token function">getToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//并向词法分析程序申请并读入下一个单词符号</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">ParseA</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>lookahead<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token function">PS</span><span class="token punctuation">(</span>A→u1<span class="token punctuation">)</span><span class="token punctuation">:</span>
+      …… <span class="token comment" spellcheck="true">/*根据 u1 设计的分析过程*/</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token function">PS</span><span class="token punctuation">(</span>A→u2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+      …… <span class="token comment" spellcheck="true">/*根据 u2 设计的分析过程*/</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token keyword">case</span> <span class="token function">PS</span><span class="token punctuation">(</span>A→ un<span class="token punctuation">)</span><span class="token punctuation">:</span>
+      …… <span class="token comment" spellcheck="true">/*根据 un 设计的分析过程*/</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span>
+      <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"syntax error \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>设文法G[S]为：<br>S → AaS | BbS | d<br>A → a<br>B → ε | c</p>
+<p>该文法的递归下降分析程序：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">ParseS</span><span class="token punctuation">(</span> <span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>lookahead<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> a<span class="token punctuation">:</span>
+      <span class="token function">ParseA</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">MatchToken</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">ParseS</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> b<span class="token punctuation">,</span>c<span class="token punctuation">:</span>
+      <span class="token function">ParseB</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">MatchToken</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">ParseS</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> d<span class="token punctuation">:</span>
+      <span class="token function">MatchToken</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span>
+      <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"syntax error \n"</span><span class="token punctuation">)</span>
+      <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<p>注意：证明　$LL(1)$ 文法，即选择候选式时不会冲突</p>
-<p>由各产生式的 select 集引出预测分析表，</p>
+<span class="token keyword">void</span> <span class="token function">ParseA</span><span class="token punctuation">(</span> <span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>lookahead<span class="token operator">==</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">MatchToken</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span>"syntax error \n” <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">ParseB</span><span class="token punctuation">(</span> <span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>lookahead<span class="token operator">==</span>c<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">MatchToken</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>lookahead<span class="token operator">==</span>b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">MatchToken</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span>"syntax error \n” <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-3-预测分析表"><a href="#2-3-预测分析表" class="headerlink" title="2.3 预测分析表"></a>2.3 预测分析表</h3><p>根据可选集填表</p>
+<ul>
+<li>消除左递归</li>
+<li>提取左公因子</li>
+<li>出错处理</li>
+</ul>
 <h2 id="三、自底向上语法分析"><a href="#三、自底向上语法分析" class="headerlink" title="三、自底向上语法分析"></a>三、自底向上语法分析</h2><h3 id="3-0-概述"><a href="#3-0-概述" class="headerlink" title="3.0 概述"></a>3.0 概述</h3><p><em>自底向上的分析</em>，可以看成是将输入串 w 归约为文法开始符号 S 的过程。</p>
 <ul>
 <li>采用最左归约</li>
@@ -843,8 +940,7 @@
 <li>目标代码生成技术</li>
 <li>代码优化技术</li>
 </ul>
-<h3 id="5-1-目标代码生成技术"><a href="#5-1-目标代码生成技术" class="headerlink" title="5.1 目标代码生成技术"></a>5.1 目标代码生成技术</h3><p>这是最后一次课内容</p>
-<ul>
+<h3 id="5-1-目标代码生成技术"><a href="#5-1-目标代码生成技术" class="headerlink" title="5.1 目标代码生成技术"></a>5.1 目标代码生成技术</h3><ul>
 <li>指令选择</li>
 <li>寄存器分配</li>
 <li>指令调度</li>
@@ -1551,7 +1647,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">138.3k</span>&nbsp;字
+                class="white-color">138.8k</span>&nbsp;字
             
             
             
