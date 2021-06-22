@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-20
+                    2021-06-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.4k
+                    3.5k
                 </div>
                 
 
@@ -726,7 +726,7 @@
 <li>经过两步或两步以上推导产生的左递归称为是间接左递归的</li>
 </ul>
 <p>消除左递归：引进一些非终结符和 $\epsilon$_产生式</p>
-<h3 id="2-1-LL（1）分析"><a href="#2-1-LL（1）分析" class="headerlink" title="2.1 LL（1）分析"></a>2.1 LL（1）分析</h3><p>$LL(1)$分析（自顶向下预测分析）</p>
+<h3 id="2-1-LL（1）分析⭐"><a href="#2-1-LL（1）分析⭐" class="headerlink" title="2.1 LL（1）分析⭐"></a>2.1 LL（1）分析⭐</h3><p>$LL(1)$分析（自顶向下预测分析）</p>
 <ul>
 <li><code>First</code> 集合<ul>
 <li>一个句型 $\alpha$ 若可以推导出另一个以终结符 $a$ 开头的句型，那么 $a$ 属于 $First(\alpha$)；若 $\alpha$ 可以推导出 ε，那么 ε 属于 $First(\alpha)$</li>
@@ -869,7 +869,12 @@
 </li>
 <li>栈内符号串 + 剩余输入 = “规范句型”</li>
 </ul>
-<p><strong>句柄</strong>：右句型的一个直接短语</p>
+<p><strong>句柄</strong>：右句型的最左直接短语</p>
+<div class="admonition info"><p class="admonition-title">求短语、直接短语、句柄
+</p><p>画出全部的语法分析树<br>
+每一棵子树的边缘、两代子树的边缘、最左直接短语</p>
+</div>
+
 <p><strong>移进−归约冲突</strong>是指到达一个不能确定下一步应该移进还是应该归约的状态。</p>
 <p><strong>归约−归约冲突</strong>是指到达一个可以对多个短语进行归约的状态。</p>
 <p>SLR（1）分析，向前查看一个符号可解决冲突</p>
@@ -1647,7 +1652,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">138.8k</span>&nbsp;字
+                class="white-color">139.1k</span>&nbsp;字
             
             
             

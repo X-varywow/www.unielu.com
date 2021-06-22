@@ -500,21 +500,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-26
+                    2021-06-22
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-27
+                    2021-06-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.6k
                 </div>
                 
 
@@ -529,7 +529,7 @@
                 <p>计算语言学 ≈ 自然语言处理 = 语言信息处理 ≠ 计量语言学   </p>
 <p>PPT:</p>
 <ul>
-<li>2.<strong>语言学基础</strong><ul>
+<li>2.语言学基础<ul>
 <li>语言学研究的系统性和层次性</li>
 <li>词汇系统</li>
 <li>句法系统</li>
@@ -540,6 +540,21 @@
 <li>3.<strong>语料库</strong>和语言知识库<ul>
 <li>语料库就是存放语言材料的仓库</li>
 <li>语料库是以电子计算机为载体的承载语言的基础资源</li>
+<li>典型语料库<ul>
+<li>Brown Corpus，世界上第一个根据系统性原则采集样本的标准语料库</li>
+<li>LLC口语语料库、朗文语料库</li>
+</ul>
+</li>
+<li>典型中文语料库<ul>
+<li>北京大学语料库</li>
+</ul>
+</li>
+<li>典型词汇知识库<ul>
+<li>WordNet（解决词典中同义信息的组织问题）</li>
+<li>知网 HowNet（以汉语和英语的词语所代表的概念为描述对象）</li>
+<li>北语 BCC 语料库</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -580,7 +595,7 @@
 </ul>
 </li>
 <li><strong>事件独立</strong>：<ul>
-<li>$P(A|B) = P(A), P(B|A) = P(B)${}</li>
+<li>$P(A|B) = P(A), P(B|A) = P(B)$</li>
 <li>$P(A,B) = P(A) × P(B)$</li>
 </ul>
 </li>
@@ -611,10 +626,13 @@
 </li>
 </ul>
 <hr>
+<h5 id="关于贝叶斯分类器"><a href="#关于贝叶斯分类器" class="headerlink" title="关于贝叶斯分类器"></a>关于贝叶斯分类器</h5><p>仔细理解这个贝叶斯：</p>
+<p>$$p(类别|特征)=\frac{p(特征|类别)p(类别)}{p(特征)}$$</p>
+<p>由此加上一定的假设，就是朴素贝叶斯分类器的基本原理：</p>
+<p>$$y=\arg\max_{y_i}P(Y=y_i)\prod_{j=1}^{n}P(X_{j}=x^{(j)}|Y=y_i)$$</p>
+<hr>
 <p>关于熵、自信息等：请参考<a href="https://www.unielu.com/posts/5854.html">信息学中的熵</a></p>
-<p>词内互信息</p>
-<p>$w = c_1, c_2$（$c_1$, $c_2$ 为组成w的汉字），$f(w)$为词频，$f(c_1)$、$f(c_2)$分别为 $c_1$, $c_2$ 在语料库 $C$ 中的出现次数（字频）。且 $C$ 的总词数为 $N_w$，总字数为 $N_c$，则 $w$ 的词内互信息为：</p>
-<p>$$mi(w)=log_2(\frac{N_c^2×f(w)}{N_w × f(c1) × f(c2)})$$</p>
+<p>考察：熵的计算，条件熵的计算，信息增益的计算</p>
 <hr>
 <ul>
 <li>数据分类<ul>
@@ -634,7 +652,7 @@
 </ul>
 </li>
 </ul>
-<p>注：<br><code>tp</code>: true positive，判断为正例，判断对了。<br><code>fn</code>: false negative， 判断为负例，判断错了</p>
+<p>注：<br><code>tp</code>: true positive，对于一个正例，判断对了。<br><code>fn</code>: false negative， 对于一个负例，判断错了</p>
 <h2 id="五、统计语言模型"><a href="#五、统计语言模型" class="headerlink" title="五、统计语言模型"></a>五、统计语言模型</h2><ul>
 <li>语言模型<ul>
 <li>用来计算一个句子的概率的概率模型</li>
@@ -645,6 +663,17 @@
 <li><code>O</code>：声音信号、字符图像信号、拼音输入等</li>
 <li><code>P(I)</code>：语言模型</li>
 <li><code>P(O|I)</code>：声学、图像、翻译等模型</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>齐普夫定律<ul>
+<li>针对某个语料库，若某个词 w 的词频是 f，而且该词在词频表中的序号为 r，则$$f\times r = k（k为常数）$$</li>
+</ul>
+</li>
+<li>数据稀疏<ul>
+<li>由于训练样本不足而导致所估计的分布不可靠</li>
 </ul>
 </li>
 <li>平滑<ul>
@@ -712,11 +741,48 @@
 </li>
 </ul>
 <h2 id="七、隐马尔科夫模型"><a href="#七、隐马尔科夫模型" class="headerlink" title="七、隐马尔科夫模型"></a>七、隐马尔科夫模型</h2><p>参考资料：<a href="https://www.cnblogs.com/pinard/p/6945257.html" target="_blank" rel="noopener">HMM模型基础</a></p>
-<p>向前算法、向后算法、最大可能路径</p>
-<h2 id="作业参考"><a href="#作业参考" class="headerlink" title="作业参考"></a>作业参考</h2><p>（1）词语搭配统计，<a href="../zone/nenglidapei.html">代码参考</a></p>
+<p>向前算法、向后算法、维特比算法、最大可能路径</p>
+<h2 id="八、汉语词性标注"><a href="#八、汉语词性标注" class="headerlink" title="八、汉语词性标注"></a>八、汉语词性标注</h2><ul>
+<li>词性标注<ul>
+<li>判定自然语言句子中每个词的词类并给每个词赋以词类标记</li>
+</ul>
+</li>
+<li>基本方法<ul>
+<li>基于规则的</li>
+<li>基于统计的</li>
+<li>统计规则相结合的</li>
+</ul>
+</li>
+</ul>
+<h2 id="九、词义计算"><a href="#九、词义计算" class="headerlink" title="九、词义计算"></a>九、词义计算</h2><p>词义的相关概念</p>
+<p>词义表示和相似度计算</p>
+<ul>
+<li>词义消歧 <em>Word sense disambiiguation</em><ul>
+<li>基于统计的方法<ul>
+<li>基于词袋模型的方法</li>
+<li>基于Bayes判别的方法</li>
+</ul>
+</li>
+<li>基于词典的方法<ul>
+<li>基于词典释义的方法</li>
+<li>基于义类词典的方法</li>
+<li>基于双语词典的方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="other"><a href="#other" class="headerlink" title="other"></a>other</h2><p>作业参考：</p>
+<p>（1）词语搭配统计，<a href="../zone/nenglidapei.html">代码参考</a></p>
 <p>（2）正向最大匹配分词，<a href="../zone/fenci.html">代码参考</a></p>
 <p>（3）贝叶斯垃圾邮件分类，<a href="../zone/youjianfenlei.html">代码参考</a> </p>
-<p><strong><em>other</em>:</strong></p>
+<hr>
+<p>关于考试：</p>
+<ul>
+<li>计算题</li>
+<li>简述题</li>
+<li>证明题</li>
+</ul>
 
             </div>
             <hr/>
@@ -1090,45 +1156,51 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/bfd3.html">
+                <a href="/posts/a319.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/24.jpg" class="responsive-img" alt="支持向量机">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算语言学">
                         
-                        <span class="card-title">支持向量机</span>
+                        <span class="card-title">计算语言学</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            机器学习作业（七）
+                            大二下学期课程（三）
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SVM/">
-                        <span class="chip bg-color">SVM</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/NLP/">
+                        <span class="chip bg-color">NLP</span>
                     </a>
                     
                 </div>
@@ -1142,30 +1214,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/6ba3.html">
+                <a href="/posts/ml2.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/2.jpg" class="responsive-img" alt="VHDL">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="机器学习">
                         
-                        <span class="card-title">VHDL</span>
+                        <span class="card-title">机器学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一种用于电路设计的高级语言
+                            大二下学期课程（一）
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%94%B5%E8%B7%AF/" class="post-category">
-                                    电路
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
                                 </a>
                             
                             
@@ -1175,8 +1247,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vhdl/">
-                        <span class="chip bg-color">vhdl</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BD%9C%E4%B8%9A/">
+                        <span class="chip bg-color">作业</span>
                     </a>
                     
                 </div>
@@ -1390,7 +1466,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">138.8k</span>&nbsp;字
+                class="white-color">139.1k</span>&nbsp;字
             
             
             

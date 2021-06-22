@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-19
+                    2021-06-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.1k
                 </div>
                 
 
@@ -528,16 +528,6 @@
             <div id="articleContent">
                 <p><strong>引言</strong></p>
 <p>学习问题：如果一个计算机针对某类任务<code>T</code>的用<code>P</code>衡量的性能根据经验<code>E</code>来自我完善，那么我们称这个计算机程序在从经验<code>E</code>中学习，针对某类任务<code>T</code>，它的性能用<code>P</code>来衡量。</p>
-<ul>
-<li>训练错误</li>
-<li>测试集错误</li>
-<li>评测指标<ul>
-<li>准确率</li>
-<li>召回率</li>
-<li>平方误差等</li>
-</ul>
-</li>
-</ul>
 <h2 id="一、概念学习"><a href="#一、概念学习" class="headerlink" title="一、概念学习"></a>一、概念学习</h2><p>概念：可被看作一个对象或事件集合（或：这个较大集合中定义的布尔函数）。</p>
 <p><strong>概念学习</strong>：给定某一类别的若干正例和反例，从中 <strong>获得</strong> 该类别的 <strong>一般定义</strong>。</p>
 <p><strong>变型空间</strong>：与训练样例一致的所有假设组成的集合，表示了目标概念的所有合理的变型</p>
@@ -623,45 +613,6 @@
 <li>在各个距离中选出最小的K个</li>
 <li>将测试样本点归入K个中的最大类</li>
 </ol>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">KNN</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> X_train<span class="token punctuation">,</span> y_train<span class="token punctuation">,</span> n_neighbors<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> p<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""
-        parameter: n_neighbors 临近点个数
-        parameter: p 距离度量
-        """</span>
-        self<span class="token punctuation">.</span>n <span class="token operator">=</span> n_neighbors
-        self<span class="token punctuation">.</span>p <span class="token operator">=</span> p
-        self<span class="token punctuation">.</span>X_train <span class="token operator">=</span> X_train
-        self<span class="token punctuation">.</span>y_train <span class="token operator">=</span> y_train
-
-    <span class="token keyword">def</span> <span class="token function">predict</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> X<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 取出n个点</span>
-        knn_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>self<span class="token punctuation">.</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            dist <span class="token operator">=</span> np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>X <span class="token operator">-</span> self<span class="token punctuation">.</span>X_train<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> ord<span class="token operator">=</span>self<span class="token punctuation">.</span>p<span class="token punctuation">)</span>
-            knn_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>dist<span class="token punctuation">,</span> self<span class="token punctuation">.</span>y_train<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>self<span class="token punctuation">.</span>n<span class="token punctuation">,</span> len<span class="token punctuation">(</span>self<span class="token punctuation">.</span>X_train<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            max_index <span class="token operator">=</span> knn_list<span class="token punctuation">.</span>index<span class="token punctuation">(</span>max<span class="token punctuation">(</span>knn_list<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            dist <span class="token operator">=</span> np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>X <span class="token operator">-</span> self<span class="token punctuation">.</span>X_train<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> ord<span class="token operator">=</span>self<span class="token punctuation">.</span>p<span class="token punctuation">)</span>
-            <span class="token keyword">if</span> knn_list<span class="token punctuation">[</span>max_index<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">></span> dist<span class="token punctuation">:</span>
-                knn_list<span class="token punctuation">[</span>max_index<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>dist<span class="token punctuation">,</span> self<span class="token punctuation">.</span>y_train<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-        <span class="token comment" spellcheck="true"># 统计</span>
-        knn <span class="token operator">=</span> <span class="token punctuation">[</span>k<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">for</span> k <span class="token keyword">in</span> knn_list<span class="token punctuation">]</span>
-        count_pairs <span class="token operator">=</span> Counter<span class="token punctuation">(</span>knn<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#         max_count = sorted(count_pairs, key=lambda x: x)[-1]</span>
-        max_count <span class="token operator">=</span> sorted<span class="token punctuation">(</span>count_pairs<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-        <span class="token keyword">return</span> max_count
-
-    <span class="token keyword">def</span> <span class="token function">score</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> X_test<span class="token punctuation">,</span> y_test<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        right_count <span class="token operator">=</span> <span class="token number">0</span>
-        n <span class="token operator">=</span> <span class="token number">10</span>
-        <span class="token keyword">for</span> X<span class="token punctuation">,</span> y <span class="token keyword">in</span> zip<span class="token punctuation">(</span>X_test<span class="token punctuation">,</span> y_test<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            label <span class="token operator">=</span> self<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
-            <span class="token keyword">if</span> label <span class="token operator">==</span> y<span class="token punctuation">:</span>
-                right_count <span class="token operator">+=</span> <span class="token number">1</span>
-        <span class="token keyword">return</span> right_count <span class="token operator">/</span> len<span class="token punctuation">(</span>X_test<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="六、感知机"><a href="#六、感知机" class="headerlink" title="六、感知机"></a>六、感知机</h2><p>感知机时神经网络的起源算法，感知机接受多个输入信号，输出一个信号，<br>这里的信号可以理解为电流样“流动性”的东西，输入信号配以权重，用阈值$\theta$判定这个神经元是否被激活。</p>
 <p>$$f(x;\theta)=sign(w\cdot x+b)$$<br>w: n维权重向量<br>b: 偏置<br>sign: 符号函数<br>H: 所有线性函数的集合</p>
 <p>线性可分性、</p>
@@ -1048,29 +999,28 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/ml2.html">
+                <a href="/posts/a319.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="机器学习">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算语言学">
                         
-                        <span class="card-title">机器学习</span>
+                        <span class="card-title">计算语言学</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            大二下学期课程（一）
+                            大二下学期课程（三）
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1083,7 +1033,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1091,8 +1040,8 @@
                         <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/tags/%E4%BD%9C%E4%B8%9A/">
-                        <span class="chip bg-color">作业</span>
+                    <a href="/tags/NLP/">
+                        <span class="chip bg-color">NLP</span>
                     </a>
                     
                 </div>
@@ -1362,7 +1311,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">138.8k</span>&nbsp;字
+                class="white-color">139.1k</span>&nbsp;字
             
             
             
