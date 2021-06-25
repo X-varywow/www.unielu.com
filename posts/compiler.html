@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-22
+                    2021-06-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.5k
+                    3.6k
                 </div>
                 
 
@@ -806,54 +806,55 @@
       <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>设文法G[S]为：<br>S → AaS | BbS | d<br>A → a<br>B → ε | c</p>
+<p>设文法G[S]为：<br>S → AB<br>A → aA | ε<br>B → bB | ε</p>
 <p>该文法的递归下降分析程序：</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">ParseS</span><span class="token punctuation">(</span> <span class="token punctuation">)</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">ParseS</span><span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 主函数</span>
 <span class="token punctuation">{</span>
-  <span class="token keyword">switch</span> <span class="token punctuation">(</span>lookahead<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">case</span> a<span class="token punctuation">:</span>
-      <span class="token function">ParseA</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token function">MatchToken</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token function">ParseS</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">break</span><span class="token punctuation">;</span>
-    <span class="token keyword">case</span> b<span class="token punctuation">,</span>c<span class="token punctuation">:</span>
-      <span class="token function">ParseB</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token function">MatchToken</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token function">ParseS</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">break</span><span class="token punctuation">;</span>
-    <span class="token keyword">case</span> d<span class="token punctuation">:</span>
-      <span class="token function">MatchToken</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">break</span><span class="token punctuation">;</span>
-    <span class="token keyword">default</span><span class="token punctuation">:</span>
-      <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"syntax error \n"</span><span class="token punctuation">)</span>
-      <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+  <span class="token function">ParseA</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">ParseB</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
 
 <span class="token keyword">void</span> <span class="token function">ParseA</span><span class="token punctuation">(</span> <span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>lookahead<span class="token operator">==</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">MatchToken</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>lookahead<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// lookahead 为下一个输入符号</span>
+  <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> ′a′ <span class="token punctuation">:</span>
+    <span class="token function">MatchToken</span><span class="token punctuation">(</span>‘a’ <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">ParseA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> ′ b′<span class="token punctuation">,</span> ′#′ <span class="token punctuation">:</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"syntax error \n"</span><span class="token punctuation">)</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
-  <span class="token keyword">else</span> <span class="token punctuation">{</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span>"syntax error \n” <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> A_num<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+
+<span class="token keyword">void</span> <span class="token function">ParseB</span><span class="token punctuation">(</span> <span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>lookahead<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> ′b′ <span class="token punctuation">:</span>
+    <span class="token function">MatchToken</span><span class="token punctuation">(</span>‘b’ <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">ParseB</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> ′#′ <span class="token punctuation">:</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"syntax error \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">void</span> <span class="token function">ParseB</span><span class="token punctuation">(</span> <span class="token punctuation">)</span>
+<span class="token keyword">void</span> <span class="token function">Match_Token</span><span class="token punctuation">(</span><span class="token keyword">int</span> expected<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>lookahead <span class="token operator">!=</span> expected<span class="token punctuation">)</span>
   <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>lookahead<span class="token operator">==</span>c<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">MatchToken</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>lookahead<span class="token operator">==</span>b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">MatchToken</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-  <span class="token keyword">else</span> <span class="token punctuation">{</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span>"syntax error \n” <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"syntax error \n"</span><span class="token punctuation">)</span>
     <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token keyword">else</span>
+    lookahead <span class="token operator">=</span> <span class="token function">getToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-3-预测分析表"><a href="#2-3-预测分析表" class="headerlink" title="2.3 预测分析表"></a>2.3 预测分析表</h3><p>根据可选集填表</p>
 <ul>
 <li>消除左递归</li>
@@ -875,6 +876,14 @@
 每一棵子树的边缘、两代子树的边缘、最左直接短语</p>
 </div>
 
+<h3 id="3-1-移进-归约分析"><a href="#3-1-移进-归约分析" class="headerlink" title="3.1 移进-归约分析"></a>3.1 移进-归约分析</h3><p>基本思想：借助一个栈和一个有限状态的分析引擎，却ing如下动作以进入新状态</p>
+<ul>
+<li>Reduce: 依确定的方式对位于栈顶的短语进行归约。</li>
+<li>Shift: 从输入序列移进一个单词符号。</li>
+<li>Error: 发现语法错误，进行错误处理/恢复。</li>
+<li>Accept：分析成功。</li>
+</ul>
+<hr>
 <p><strong>移进−归约冲突</strong>是指到达一个不能确定下一步应该移进还是应该归约的状态。</p>
 <p><strong>归约−归约冲突</strong>是指到达一个可以对多个短语进行归约的状态。</p>
 <p>SLR（1）分析，向前查看一个符号可解决冲突</p>
@@ -886,14 +895,14 @@
 </ul>
 </li>
 </ul>
-<h3 id="3-1-LR分析"><a href="#3-1-LR分析" class="headerlink" title="3.1 LR分析"></a>3.1 LR分析</h3><ul>
+<h3 id="3-2-LR分析"><a href="#3-2-LR分析" class="headerlink" title="3.2 LR分析"></a>3.2 LR分析</h3><ul>
 <li>LR 分析表<ul>
 <li>$s_n$, 将符号a、状态n压入栈</li>
 <li>$r_n$, 用第 n 个产生式进行归约</li>
 </ul>
 </li>
 </ul>
-<h2 id="四、语法制导得语义计算基础"><a href="#四、语法制导得语义计算基础" class="headerlink" title="四、语法制导得语义计算基础"></a>四、语法制导得语义计算基础</h2><h3 id="4-0-概述"><a href="#4-0-概述" class="headerlink" title="4.0 概述"></a>4.0 概述</h3><p>语法制导翻译：语法分析 -&gt; 语义分析 -&gt; 中间代码生成</p>
+<h3 id="3-4-LR（0）有限状态自动机"><a href="#3-4-LR（0）有限状态自动机" class="headerlink" title="3.4 LR（0）有限状态自动机"></a>3.4 LR（0）有限状态自动机</h3><h2 id="四、语法制导得语义计算基础"><a href="#四、语法制导得语义计算基础" class="headerlink" title="四、语法制导得语义计算基础"></a>四、语法制导得语义计算基础</h2><h3 id="4-0-概述"><a href="#4-0-概述" class="headerlink" title="4.0 概述"></a>4.0 概述</h3><p>语法制导翻译：语法分析 -&gt; 语义分析 -&gt; 中间代码生成</p>
 <p>语义翻译：语义分析 -&gt; 中间代码生成</p>
 <p>语法制导翻译使用上下文无关文法 CFG　来引导对语言的单一，是一种面向文法的翻译技术</p>
 <ul>
@@ -952,7 +961,7 @@
 <li>代码优化</li>
 </ul>
 <p>作业：第六题</p>
-<h2 id="六、实验课"><a href="#六、实验课" class="headerlink" title="六、实验课"></a>六、实验课</h2><p>1.词法分析器自动构造工具JFLEX，S1词法分析器自动构造 <code>√</code><br>2.词法分析器自动构造工具YACC，S1词法分析器自动构造 <code>√</code><br>3.基础实验项目：表达式计算器Jflex/Yacc实现 <code>√</code><br>4.J1_指令 <code>√</code><br>5.实验项目PA1：Step1 S1编译器Jflex/Yacc实现 <code>√</code><br>6.实验项目PA2：Step2 S2编译器实现<br>7.实验项目PA3：Step3 S3编译器实现；Step4 S4编译器实现</p>
+<h2 id="六、实验课"><a href="#六、实验课" class="headerlink" title="六、实验课"></a>六、实验课</h2><p>1.词法分析器自动构造工具JFLEX，S1词法分析器自动构造 <code>√</code><br>2.词法分析器自动构造工具YACC，S1词法分析器自动构造 <code>√</code><br>3.基础实验项目：表达式计算器Jflex/Yacc实现 <code>√</code><br>4.J1_指令 <code>√</code><br>5.实验项目PA1：Step1 S1编译器Jflex/Yacc实现 <code>√</code><br>6.实验项目PA2：Step2 S2编译器实现 <code>√</code><br>7.实验项目PA3：Step3 S3编译器实现；Step4 S4编译器实现 <code>√</code></p>
 <p>说明：汇编语言 <code>J1</code>，编译器 <code>S1</code></p>
 <hr>
 <p><code>jflex</code> 是一个 <strong>词法分析</strong> 的生成器，<strong>生成</strong> Java 写的词法分析器，文件扩展名为 <code>.l</code></p>
@@ -1400,30 +1409,30 @@ a S1.a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/cn.html">
+                <a href="/posts/bfd3.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算机网络">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/24.jpg" class="responsive-img" alt="支持向量机">
                         
-                        <span class="card-title">计算机网络</span>
+                        <span class="card-title">支持向量机</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            大二下学期课程（二）
+                            机器学习作业（七）
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
-                                    大二
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                             
                             
@@ -1433,12 +1442,8 @@ a S1.a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
-                        <span class="chip bg-color">面试</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">计算机基础</span>
+                    <a href="/tags/SVM/">
+                        <span class="chip bg-color">SVM</span>
                     </a>
                     
                 </div>
@@ -1652,7 +1657,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">139.1k</span>&nbsp;字
+                class="white-color">139.2k</span>&nbsp;字
             
             
             

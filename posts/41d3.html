@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-13
+                    2021-06-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    235
+                    355
                 </div>
                 
 
@@ -542,6 +542,23 @@
             <span class="token comment" spellcheck="true">#在hash table里查找key，如果有返回对应的value，反之返回0 </span>
             pre<span class="token punctuation">[</span>sum<span class="token punctuation">]</span> <span class="token operator">=</span> pre<span class="token punctuation">.</span>get<span class="token punctuation">(</span>sum<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>    
         <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="149-直线上最多的点数"><a href="#149-直线上最多的点数" class="headerlink" title="149.直线上最多的点数"></a><a href="https://leetcode-cn.com/problems/max-points-on-a-line/" target="_blank" rel="noopener">149.直线上最多的点数</a></h2><p>给你一个数组 <code>points</code> ，其中 <code>points[i] = [xi, yi]</code> 表示 X-Y 平面上的一个点。求最多有多少个点在同一条直线上。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">maxPoints</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> points<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        ans <span class="token operator">=</span> <span class="token number">1</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>points<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            d <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                u <span class="token operator">=</span> points<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span>points<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+                v <span class="token operator">=</span> points<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">-</span>points<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+                <span class="token keyword">if</span> v<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+                    d<span class="token punctuation">[</span><span class="token string">'max'</span><span class="token punctuation">]</span> <span class="token operator">=</span> d<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'max'</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    k <span class="token operator">=</span> u<span class="token operator">/</span>v<span class="token operator">*</span><span class="token number">1.0</span>
+                    d<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> d<span class="token punctuation">.</span>get<span class="token punctuation">(</span>k<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span>
+            <span class="token keyword">if</span> d<span class="token punctuation">:</span>
+                ans <span class="token operator">=</span> max<span class="token punctuation">(</span>ans<span class="token punctuation">,</span>max<span class="token punctuation">(</span>d<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>小结</strong></p>
 <blockquote>
 <ol>
@@ -1218,7 +1235,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">139.1k</span>&nbsp;字
+                class="white-color">139.2k</span>&nbsp;字
             
             
             

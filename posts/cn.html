@@ -500,21 +500,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-12
+                    2021-06-24
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-22
+                    2021-06-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9k
+                    9.1k
                 </div>
                 
 
@@ -538,7 +538,6 @@
 <li>提高可靠性</li>
 <li>负载均衡</li>
 </ul>
-<hr>
 <h3 id="1-1-计算机网络的组成"><a href="#1-1-计算机网络的组成" class="headerlink" title="1.1 计算机网络的组成"></a>1.1 计算机网络的组成</h3><ul>
 <li>组成部分<ul>
 <li>硬件</li>
@@ -571,7 +570,6 @@
 </ul>
 </li>
 </ul>
-<hr>
 <h3 id="1-2-计算机网络的分类"><a href="#1-2-计算机网络的分类" class="headerlink" title="1.2 计算机网络的分类"></a>1.2 计算机网络的分类</h3><ul>
 <li>按分布范围分类：<ul>
 <li>广域网 <code>WAN</code></li>
@@ -589,7 +587,6 @@
 <li>按拓扑结构分类</li>
 <li>按传输技术分类：广播式网络、点对点式网络</li>
 </ul>
-<hr>
 <h3 id="1-3-标准化工作"><a href="#1-3-标准化工作" class="headerlink" title="1.3 标准化工作"></a>1.3 标准化工作</h3><ul>
 <li>分类<ul>
 <li>法定标准 <code>OSI</code></li>
@@ -607,7 +604,6 @@
 </ul>
 </li>
 </ul>
-<hr>
 <h3 id="1-4-性能指标"><a href="#1-4-性能指标" class="headerlink" title="1.4 性能指标"></a>1.4 性能指标</h3><ul>
 <li><strong>速率</strong> （即数据率，数据传输率，比特率）<ul>
 <li>单位：<code>b/s</code>，<code>kb/s</code>等</li>
@@ -632,12 +628,12 @@
 <li>分类：<ul>
 <li>发送时延<ul>
 <li>也叫 <strong>传输时延</strong>，是主机或路由器发送数据帧所需要的时间。</li>
-<li>= 数据帧长度(bit) / 发送速率(bit/s)</li>
+<li>$$传输时延=\frac{数据帧长度(bit)}{发送速率(bit/s)}$$</li>
 </ul>
 </li>
 <li><strong>传播时延</strong><ul>
 <li>是电磁波在信道中传播一定距离需要的时间。</li>
-<li>= 信道长度(m) / 电磁波在信道上的传播速率(m/s)</li>
+<li>$$传播时延=\frac{信道长度(m)}{电磁波在信道上传播速率(m/s)}$$</li>
 </ul>
 </li>
 <li>排队时延</li>
@@ -1056,23 +1052,7 @@
 </ul>
 <p>参考资料：<a href="https://blog.csdn.net/wangguchao/article/details/109595845" target="_blank" rel="noopener">https://blog.csdn.net/wangguchao/article/details/109595845</a></p>
 <hr>
-<h3 id="3-5-以太网"><a href="#3-5-以太网" class="headerlink" title="3.5 以太网"></a>3.5 以太网</h3><p><em>MAC</em> <strong>媒体访问控制层</strong>：控制传输及介质的访问，与接入各种媒体有关的问题都放在MAC层，不同LAN使用的介质访问方法不同。</p>
-<ul>
-<li>最小帧长：规定有效帧从DA~FCS，最短64字节</li>
-<li>争用期：发送数据开始后的时间 $2\tau$</li>
-<li>最小包长：72字节，8先导+14头+46字节+4CRC<ul>
-<li>数据不足46字节时，要填充至46字节</li>
-<li>帧长&lt;72字节的帧是冲突碎片</li>
-</ul>
-</li>
-<li>最小包间隔：9.6us</li>
-</ul>
-<p>计算机通过<strong>通信适配器</strong>与外界局域网连接。</p>
-<p>适配器的ROM上有计算机硬件地址MAC地址。</p>
-<p>每个适配器有一个全球唯一的 <code>48</code> 位二进制地址，前24位代表厂家，后24位由厂家指定。</p>
-<p><strong>MAC地址</strong>（Media Access Control Address），称为局域网地址（LAN Address），以太网地址（Ethernet Address）或物理地址（Physical Address），6字节，它是一个用来确认网络设备位置的位址。</p>
-<hr>
-<p><code>IEEE 802.11</code> 是无线局域网的通用标准</p>
+<h3 id="3-5-以太网"><a href="#3-5-以太网" class="headerlink" title="3.5 以太网"></a>3.5 以太网</h3><p>现在广泛使用的局域网只有以太网，</p>
 <p><strong>以太网</strong>（Ethernrt）是由Xerox公司创建的并由…联合开发的 <strong>基带总线局域网规范</strong> ，是当今现有局域网采用的最通用的通信协议标准。以太网使用 <code>CSMA/DA</code>（载波监听多路访问及冲突检测）技术。</p>
 <ul>
 <li>以太网的服务 -&gt; 不可靠交付，<code>无连接</code>，<code>不发确认</code>。<ul>
@@ -1088,6 +1068,23 @@
 </li>
 <li>使用 CSMA/CD 的以太网不能进行全双工通信，只能进行双向交替通信（半双工通信）</li>
 </ul>
+<hr>
+<p><em>MAC</em> <strong>媒体访问控制层</strong>：控制传输及介质的访问，与接入各种媒体有关的问题都放在MAC层，不同LAN使用的介质访问方法不同。</p>
+<ul>
+<li>最小帧长：规定有效帧从DA~FCS，最短64字节</li>
+<li>争用期：发送数据开始后的时间 $2\tau$</li>
+<li>最小包长：72字节，8先导+14头+46字节+4CRC<ul>
+<li>数据不足46字节时，要填充至46字节</li>
+<li>帧长&lt;72字节的帧是冲突碎片</li>
+</ul>
+</li>
+<li>最小包间隔：9.6us</li>
+</ul>
+<p>计算机通过<strong>通信适配器</strong>与外界局域网连接。</p>
+<p>适配器的ROM上有计算机硬件地址MAC地址。</p>
+<p>每个适配器有一个全球唯一的 <code>48</code> 位二进制地址，前24位代表厂家，后24位由厂家指定。</p>
+<p><strong>MAC地址</strong>（Media Access Control Address），称为局域网地址（LAN Address），以太网地址（Ethernet Address）或物理地址（Physical Address），6字节，它是一个用来确认网络设备位置的位址。</p>
+<p><code>IEEE 802.11</code> 是无线局域网的通用标准</p>
 <h3 id="3-6-交换机"><a href="#3-6-交换机" class="headerlink" title="3.6 交换机"></a>3.6 交换机</h3><ul>
 <li>网桥：根据MAC帧的目的地址对帧进行转发和过滤。<ul>
 <li>【连接冲突域】</li>
@@ -1163,7 +1160,7 @@
 <h3 id="4-1-概述"><a href="#4-1-概述" class="headerlink" title="4.1 概述"></a>4.1 概述</h3><p>网络层提供主机之间的逻辑通信</p>
 <ul>
 <li><strong>主要任务</strong>：把分组从源端传到目的端，为分组交换网上的不同主机提供通信服务。</li>
-<li>协议：<code>IP</code>, <code>ARP</code>, <code>ICMP</code> 因特网控制报文协议, <code>IGMP</code> 因特网组管理协议</li>
+<li>协议：<code>IP</code>, <code>ARP</code>地址解析协议, <code>ICMP</code> 因特网控制报文协议, <code>IGMP</code> 因特网组管理协议</li>
 <li>传输单位：数据报</li>
 <li><strong>功能</strong>：<ul>
 <li>路由选择与分组转发</li>
@@ -1176,13 +1173,13 @@
 </ul>
 </li>
 </ul>
-<p>网络层为传输层提供的服务：将数据包送入子网，然后等待。</p>
+<p>网络层向上只提供简单灵活的、无连接的、尽最大努力交付的数据报服务。</p>
 <hr>
 <h3 id="4-2-网络互连"><a href="#4-2-网络互连" class="headerlink" title="4.2 网络互连"></a>4.2 网络互连</h3><p><strong>互联网络</strong>：利用网桥、路由器等互联设备将两个及两个以上的物理网络相互连接起来构成的系统。<br>局域网、广域网是互联网的构件，在局域网或广域网内部主机通信使用网络的物理地址。</p>
 <ul>
 <li>直接交付<ul>
 <li>是指在一个物理网络上，数据报从一台机器上直接传送到另一台机器上，这是所有互联网通信的基础。</li>
-<li>只有当两台机器同时连到同一底层物理传输系统时(例如一个以太网)，才能进行直接交付</li>
+<li>只有当两台机器同时连到同一底层物理传输系统时（例如一个以太网），才能进行直接交付</li>
 </ul>
 </li>
 <li>间接交付<ul>
@@ -1334,8 +1331,10 @@
 <p>========== <em>其它补充</em></p>
 <p>在同一个局域网上的主机或路由器的IP地址中的网络号必须是一样的。</p>
 <p>私网IP要接入Internet时，要使用 <code>NAT</code> <strong>网络地址转换</strong><br>安装了NAT软件（含NAT转换表）的路由器叫NAT路由器，它至少有一个有效的外部全球IP地址。</p>
-<p><strong>移动IP技术</strong> 是移动结点（计算机、服务器等）以固定的网络IP地址，实现跨越不同网段的漫游功能，并保证了基于网络IP的网络权限在漫游过程中不发生任何改变。</p>
-<h3 id="4-7-IP数据报⭐"><a href="#4-7-IP数据报⭐" class="headerlink" title="4.7 IP数据报⭐"></a>4.7 IP数据报⭐</h3><img src="https://img-blog.csdnimg.cn/20210617190545194.png"/>
+<h3 id="4-7-IP数据报⭐"><a href="#4-7-IP数据报⭐" class="headerlink" title="4.7 IP数据报⭐"></a>4.7 IP数据报⭐</h3><blockquote>
+<p>IP数据报，数据报，分组，包都是同一个东西</p>
+</blockquote>
+<img src="https://img-blog.csdnimg.cn/20210617190545194.png"/>
 
 <div class="admonition info"><p class="admonition-title">什么是IP分片？
 </p><p>IP协议在传输数据包时会将数据报文分成若干片进行传输，并在目标系统中进行重组。这以过程就成为<strong>分片</strong>。</p>
@@ -1368,6 +1367,38 @@ DF（Don't fragment）：标志着允不允许数据报分片</p>
 </li>
 </ul>
 <p>判断IP为156.26.27.71, 156.26.27.110的主机，子网掩码为255.255.255.192是否处于同一子网？<br>经子网掩码运算后，子网号<code>0001101101</code>相同，处于同一子网</p>
+<h3 id="4-9-网络指令"><a href="#4-9-网络指令" class="headerlink" title="4.9 网络指令"></a>4.9 网络指令</h3><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ipconfig</td>
+<td>查看网络信息，IP配置等</td>
+</tr>
+<tr>
+<td>ping</td>
+<td>检测网络连通性</td>
+</tr>
+<tr>
+<td>netstat</td>
+<td>显示连接信息，路由表信息等</td>
+</tr>
+<tr>
+<td>arp</td>
+<td>用于显示和修改ARP表中缓存的项目</td>
+</tr>
+<tr>
+<td>tracert</td>
+<td>跟踪网络连接</td>
+</tr>
+<tr>
+<td>netsh</td>
+<td>用于显示和修改计算机的网络配置</td>
+</tr>
+</tbody></table>
 <h2 id="五、传输层"><a href="#五、传输层" class="headerlink" title="五、传输层"></a>五、传输层</h2><p>学习目的：</p>
 <ul>
 <li>了解：进程相互作用的Client/Server模型</li>
@@ -1676,13 +1707,13 @@ DF（Don't fragment）：标志着允不允许数据报分片</p>
 <li> 互联网现在采用的是存储转发的分组交换技术，以及三层ISP结构。</li>
 <li> <code>internet</code>（互联网或互连网）是一个通用名词，它泛指由多个计算机网络互连而成的网络。<br><code>Internet</code>（因特网）则是一个专用名词，它指当前全球最大的、开放的、由众多网络相互连接而成的特定计算机网络，它采用 TCP/IP 协议族作为通信的规则，且其前身是美国的 ARPANET。<br>连接在因特网上的计算机都称为主机(<code>host</code>)。</li>
 </ol>
-<p><code>实验报告1</code>：…<br><code>实验报告2</code>：当发送速率大于传输速率时，分组产生排队时延，暂存队列满时，会产生丢包。</p>
 <hr>
 <p>学时：56h理论+12h实验（6个）<br>分数：期末（70%）+平时（30%）</p>
 <hr>
 <p>考试重点：</p>
 <ul>
 <li>TCP\UDP特点</li>
+<li>路由表、ARP表</li>
 </ul>
 
             </div>
@@ -2057,28 +2088,82 @@ DF（Don't fragment）：标志着允不允许数据报分片</p>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/compiler.html">
+                <a href="/posts/cn.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="编译原理">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算机网络">
                         
-                        <span class="card-title">编译原理</span>
+                        <span class="card-title">计算机网络</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            大二下学期课程（五）
+                            大二下学期课程（二）
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-13
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                        <span class="chip bg-color">面试</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">计算机基础</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/a319.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算语言学">
+                        
+                        <span class="card-title">计算语言学</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            大二下学期课程（三）
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -2098,52 +2183,8 @@ DF（Don't fragment）：标志着允不允许数据报分片</p>
                         <span class="chip bg-color">笔记</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/bfd3.html">
-                    <div class="card-image">
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/24.jpg" class="responsive-img" alt="支持向量机">
-                        
-                        <span class="card-title">支持向量机</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            机器学习作业（七）
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-28
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/SVM/">
-                        <span class="chip bg-color">SVM</span>
+                    <a href="/tags/NLP/">
+                        <span class="chip bg-color">NLP</span>
                     </a>
                     
                 </div>
@@ -2357,7 +2398,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">139.1k</span>&nbsp;字
+                class="white-color">139.2k</span>&nbsp;字
             
             
             

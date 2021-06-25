@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-16
+                    2021-06-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.2k
+                    5.1k
                 </div>
                 
 
@@ -1100,10 +1100,8 @@ p <span class="token operator">=</span> <span class="token constant">NULL</span>
 <span class="token keyword">bool</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>p<span class="token punctuation">,</span> <span class="token keyword">float</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//参数数量不同</span>
 
 <span class="token keyword">int</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">float</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">float</span> x<span class="token punctuation">,</span> <span class="token keyword">float</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">//编译器不以形参名区分</span>
-<span class="token comment" spellcheck="true">//编译器不以返回值来区分</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">float</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">float</span> x<span class="token punctuation">,</span> <span class="token keyword">float</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>//编译器不以形参名区分<br>//编译器不以返回值来区分</p>
 <h3 id="3-6-结构体"><a href="#3-6-结构体" class="headerlink" title="3.6 结构体"></a>3.6 结构体</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> name<span class="token punctuation">{</span>
     共有成员
 <span class="token keyword">protected</span><span class="token operator">:</span>
@@ -1124,38 +1122,7 @@ T <span class="token function">abs</span><span class="token punctuation">(</span
 <span class="token comment" spellcheck="true">//自动推导其变量类型</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="3-8-other"><a href="#3-8-other" class="headerlink" title="3.8 other"></a>3.8 other</h3><p><code>extern</code> 用于全局变量、函数</p>
 <p><code>#if #elif #else #endif</code> 条件编译语句</p>
-<h2 id="四、STL标准模板库"><a href="#四、STL标准模板库" class="headerlink" title="四、STL标准模板库"></a>四、STL标准模板库</h2><p>泛型程序设计：将算法从数据结构中抽象出来，成为通用的，如 C++ 模板。</p>
-<h3 id="4-1-容器"><a href="#4-1-容器" class="headerlink" title="4.1 容器"></a>4.1 容器</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//顺序容器</span>
-<span class="token operator">&lt;</span>array<span class="token operator">></span>
-
-<span class="token comment" spellcheck="true">// 封装任何类型的动态数组，自动创建和删除</span>
-<span class="token comment" spellcheck="true">//数组下标越界检查</span>
-<span class="token comment" spellcheck="true">//size()函数</span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;vector></span></span>
-vector <span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">arr</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-
-<span class="token operator">&lt;</span>deque<span class="token operator">></span>
-<span class="token operator">&lt;</span>forward_list<span class="token operator">></span>
-<span class="token operator">&lt;</span>list<span class="token operator">></span>
-
-<span class="token comment" spellcheck="true">//有序关联容器</span>
-<span class="token operator">&lt;</span>set<span class="token operator">></span>
-<span class="token operator">&lt;</span>multiset<span class="token operator">></span>
-<span class="token operator">&lt;</span>map<span class="token operator">></span>
-<span class="token operator">&lt;</span>multimap<span class="token operator">></span>
-
-<span class="token comment" spellcheck="true">//无序关联容器</span>
-<span class="token operator">&lt;</span>unordered_map<span class="token operator">></span>
-<span class="token operator">&lt;</span>unordered_set<span class="token operator">></span>
-
-<span class="token comment" spellcheck="true">//容器适配器</span>
-<span class="token operator">&lt;</span>stack<span class="token operator">></span>
-<span class="token operator">&lt;</span>queue<span class="token operator">></span>
-<span class="token operator">&lt;</span>priority_queue<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="4-2-算法"><a href="#4-2-算法" class="headerlink" title="4.2 算法"></a>4.2 算法</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="4-3-迭代器"><a href="#4-3-迭代器" class="headerlink" title="4.3 迭代器"></a>4.3 迭代器</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iterator></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="五、实例"><a href="#五、实例" class="headerlink" title="五、实例"></a>五、实例</h2><h3 id="5-1-三角形类"><a href="#5-1-三角形类" class="headerlink" title="5.1 三角形类"></a>5.1 三角形类</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<h2 id="四、实例"><a href="#四、实例" class="headerlink" title="四、实例"></a>四、实例</h2><h3 id="4-1-三角形类"><a href="#4-1-三角形类" class="headerlink" title="4.1 三角形类"></a>4.1 三角形类</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;string></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cmath></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -1228,7 +1195,7 @@ Triangle<span class="token operator">::</span><span class="token operator">~</sp
     <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"pause"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="5-2-两数之和"><a href="#5-2-两数之和" class="headerlink" title="5.2 两数之和"></a>5.2 两数之和</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<h3 id="4-2-两数之和"><a href="#4-2-两数之和" class="headerlink" title="4.2 两数之和"></a>4.2 两数之和</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
     vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">twoSum</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">></span> hashtable<span class="token punctuation">;</span>
@@ -1241,13 +1208,28 @@ Triangle<span class="token operator">::</span><span class="token operator">~</sp
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h2><p><strong>参考资料</strong>：</p>
 <ul>
 <li>学校课程      30%</li>
 <li>C++语言程序设计（学堂在线）  20%</li>
 <li><em>C++ Primer 5th</em></li>
 <li>菜鸟教程</li>
+</ul>
+<hr>
+<p>相关文章：</p>
+<ul>
+<li><a href="https://www.unielu.com/posts/c6f.html">C 语言</a></li>
+<li><a href="https://www.unielu.com/posts/a2d2.html">设计模式</a></li>
+<li>STL标准库</li>
+</ul>
+<hr>
+<p>关于考试：</p>
+<ul>
+<li>类写完，要加括号</li>
+<li>多态的含义</li>
+<li>设计模式，3抽1</li>
 </ul>
 
             </div>
@@ -1923,7 +1905,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">139.1k</span>&nbsp;字
+                class="white-color">139.2k</span>&nbsp;字
             
             
             
