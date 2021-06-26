@@ -500,14 +500,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-18
+                    2021-06-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-22
+                    2021-06-26
                 </div>
                 
 
@@ -526,9 +526,38 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>引言</strong></p>
-<p>学习问题：如果一个计算机针对某类任务<code>T</code>的用<code>P</code>衡量的性能根据经验<code>E</code>来自我完善，那么我们称这个计算机程序在从经验<code>E</code>中学习，针对某类任务<code>T</code>，它的性能用<code>P</code>来衡量。</p>
-<h2 id="一、概念学习"><a href="#一、概念学习" class="headerlink" title="一、概念学习"></a>一、概念学习</h2><p>概念：可被看作一个对象或事件集合（或：这个较大集合中定义的布尔函数）。</p>
+                <p><a href="../zone/ml_1.html">二：概念学习中的Find-S算法和候选消除算法</a></p>
+<p><a href="https://www.unielu.com/posts/c1cc.html">三：决策树</a></p>
+<p><a href="https://www.unielu.com/posts/e53b.html">四：朴素贝叶斯</a></p>
+<p><a href="https://www.unielu.com/posts/a967.html">五：K 近邻</a></p>
+<p><a href="https://www.unielu.com/posts/e34y.html">六：感知机</a></p>
+<p><a href="https://www.unielu.com/posts/bfd3.html">七：支持向量机</a></p>
+<p><a href="https://www.unielu.com/posts/6f03.html">八：文本分类</a></p>
+<p><a href="../zone/ml_9.html">九：逻辑回归的梯度下降算法</a></p>
+<p><a href="../zone/ml_10.html">十：集成学习</a></p>
+<hr>
+<p><strong>引言</strong></p>
+<ul>
+<li>有监督学习<ul>
+<li>分类问题</li>
+<li>回归问题</li>
+</ul>
+</li>
+<li>无监督学习</li>
+<li>半监督学习</li>
+<li>强化学习</li>
+</ul>
+<hr>
+<p><strong>符号说明</strong></p>
+<p><code>假设空间</code> 用 $F$ 表示<br>$$F=\{f|Y=f_\theta(X),\theta \in R^n\}$$<br>参数向量 $\theta$ 取值于 $n$ 维欧氏空间 $R^n$，称为参数空间</p>
+<p>模型 $f(X)$ 关于训练数据集的平均损失称为 <code>经验风险</code> 或经验损失<br>$$R_{emp}(f)=\frac{1}{N}\sum^N_{i=1}L(y_i,f(x_i))$$</p>
+<hr>
+<p><strong>评价指标</strong></p>
+<p>TP：正确的正例<br>FN：错误的负例<br>FP：错误的正例<br>TN：正确的负例</p>
+<p>精确率 $$P=\frac{TP}{TP+FP}$$<br>召回率 $$R=\frac{TP}{TP+FN}$$<br>F1值 $$F_1=\frac{2PR}{P+R}$$</p>
+<hr>
+<p>一、概念学习</p>
+<p>概念：可被看作一个对象或事件集合（或：这个较大集合中定义的布尔函数）。</p>
 <p><strong>概念学习</strong>：给定某一类别的若干正例和反例，从中 <strong>获得</strong> 该类别的 <strong>一般定义</strong>。</p>
 <p><strong>变型空间</strong>：与训练样例一致的所有假设组成的集合，表示了目标概念的所有合理的变型</p>
 <p>一般边界<code>G</code>：假设空间H和训练数据D相一致的 <strong>极大一般</strong> 成员的集合。<br>特殊边界<code>S</code>：假设空间H和训练数据D相一致的 <strong>极大特殊</strong> 成员的集合。</p>
@@ -578,54 +607,63 @@
 </p><p>特殊：属性可接收的值，变得越来越少，<code>?</code> -&gt; 指定值 -&gt; <code>∅</code><br></p>
 </div>
 
-<h2 id="二、决策树学习"><a href="#二、决策树学习" class="headerlink" title="二、决策树学习"></a>二、决策树学习</h2><p>决策树：通过实例从根节点排列到某个子节点来分类实例。</p>
-<ul>
-<li>对空间划分，最后的树<strong>完备互斥</strong></li>
-<li>叶子节点，为实例所属的分类</li>
-<li>每个节点，说明了对实例的某个属性的测试</li>
-<li>节点的每个后继分支，对应于属性的一个可能值</li>
-</ul>
-<p>决策树代表实例属性值约束的合取的析取式</p>
-<ul>
-<li>基本的决策树学习算法<ul>
-<li>特征选择</li>
-<li>决策树构建</li>
-<li>决策树后修剪</li>
-</ul>
-</li>
-</ul>
-<p>gap较高时，可能发生过度拟合（over-fitting）</p>
-<p>$$E_{test}=E_{test}+\underbrace{(E_{train}-E_{test})}_{gap}$$</p>
 <div class="admonition info"><p class="admonition-title">过拟合
 </p><p>学习时选择的模型所包含的参数过多，以至出现这一模型对已知数据预测得很好，但对未知数据预测得差的现象。</p>
 </div>
 
-<p>//信息增益比率</p>
-<h2 id="三、贝叶斯学习"><a href="#三、贝叶斯学习" class="headerlink" title="三、贝叶斯学习"></a>三、贝叶斯学习</h2><p>$P(D)$表示训练数据D的先验概率， $P(D|h)$表示h成立时D的概率，称为似然概率（似然度）</p>
-<p>贝叶斯公式</p>
-<p>$$P(h|D)=/frac{P(D|h)P(h)}{P(D)}$$</p>
-<p>极大后验假设MAP</p>
-<h2 id="四、KNN"><a href="#四、KNN" class="headerlink" title="四、KNN"></a>四、KNN</h2><p>$K-NearestNeighbor$，每个样本都可以用它最近的K个近邻值来代表。</p>
-<p>基本步骤：</p>
-<ol>
-<li>准备数据，数据预处理</li>
-<li>计算测试样本点到其它样本点的距离</li>
-<li>在各个距离中选出最小的K个</li>
-<li>将测试样本点归入K个中的最大类</li>
-</ol>
-<h2 id="六、感知机"><a href="#六、感知机" class="headerlink" title="六、感知机"></a>六、感知机</h2><p>感知机时神经网络的起源算法，感知机接受多个输入信号，输出一个信号，<br>这里的信号可以理解为电流样“流动性”的东西，输入信号配以权重，用阈值$\theta$判定这个神经元是否被激活。</p>
+<hr>
+<p>六、感知机</p>
+<p>感知机时神经网络的起源算法，感知机接受多个输入信号，输出一个信号，<br>这里的信号可以理解为电流样“流动性”的东西，输入信号配以权重，用阈值$\theta$判定这个神经元是否被激活。</p>
 <p>$$f(x;\theta)=sign(w\cdot x+b)$$<br>w: n维权重向量<br>b: 偏置<br>sign: 符号函数<br>H: 所有线性函数的集合</p>
 <p>线性可分性、</p>
-<h2 id="七、SVM"><a href="#七、SVM" class="headerlink" title="七、SVM"></a>七、SVM</h2><h2 id="八、集成学习"><a href="#八、集成学习" class="headerlink" title="八、集成学习"></a>八、集成学习</h2><h2 id="九、logistic回归与Softmax"><a href="#九、logistic回归与Softmax" class="headerlink" title="九、logistic回归与Softmax"></a>九、logistic回归与Softmax</h2><p>二分类、多分类</p>
-<h2 id="十、神经网络与深度学习基础"><a href="#十、神经网络与深度学习基础" class="headerlink" title="十、神经网络与深度学习基础"></a>十、神经网络与深度学习基础</h2><h2 id="作业代码"><a href="#作业代码" class="headerlink" title="作业代码"></a>作业代码</h2><p><a href="../zone/ml_1.html">二：概念学习中的Find-S算法和候选消除算法</a></p>
-<p><a href="https://www.unielu.com/posts/c1cc.html">三：决策树</a></p>
-<p><a href="https://www.unielu.com/posts/e53b.html">四：朴素贝叶斯</a></p>
-<p><a href="https://www.unielu.com/posts/a967.html">五：K 近邻</a></p>
-<p><a href="https://www.unielu.com/posts/e34y.html">六：感知机</a></p>
-<p><a href="https://www.unielu.com/posts/bfd3.html">七：支持向量机</a></p>
-<p><a href="https://www.unielu.com/posts/6f03.html">八：文本分类</a></p>
-<p><a href="../zone/ml_9.html">九：逻辑回归的梯度下降算法</a></p>
-<p>十：集成学习</p>
+<hr>
+<h2 id="八、集成学习"><a href="#八、集成学习" class="headerlink" title="八、集成学习"></a>八、集成学习</h2><p>集成学习是指：把性能较低的多种弱学习器，通过适当组合而形成高性能的强学习器的方法。</p>
+<ul>
+<li>Bagging，bootstrap aggregating<ul>
+<li>随机森林</li>
+</ul>
+</li>
+<li>Boosting<ul>
+<li><code>AdaBoost</code>，Adaptive boosting<ul>
+<li>提高那些被前一轮分类器错误分类样本的权值，降低被正确分类样本的权值</li>
+<li>加大分类误差率小的弱分类器的权值，减小误差率大的弱分类器的权值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Stacking</li>
+</ul>
+<p><strong>习题8.1</strong><br>作业十</p>
+<p><strong>习题8.2</strong></p>
+<p>比较支持向量机、 AdaBoost 、Logistic回归模型的学习策略与算法</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>学习策略</th>
+<th>学习算法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>支持向量机</td>
+<td>极小化正则化合页损失，软间隔最大化；</td>
+<td>序列最小最优化算法（SMO）</td>
+</tr>
+<tr>
+<td>AdaBoost</td>
+<td>极小化加法模型指数损失；</td>
+<td>前向分步加法算法</td>
+</tr>
+<tr>
+<td>Logistic回归</td>
+<td>极大似然估计，正则化的极大似然估计；</td>
+<td>改进的迭代尺度算法，梯度下降，拟牛顿法</td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>关于考试：</em></p>
+<p>平时：期末 = 4：6</p>
+<p>判断题，简答题</p>
 
             </div>
             <hr/>
@@ -999,28 +1037,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/a319.html">
+                <a href="/posts/ml2.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算语言学">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="机器学习">
                         
-                        <span class="card-title">计算语言学</span>
+                        <span class="card-title">机器学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            大二下学期课程（三）
+                            大二下学期课程（一）
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1033,6 +1072,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1040,8 +1080,8 @@
                         <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/tags/NLP/">
-                        <span class="chip bg-color">NLP</span>
+                    <a href="/tags/%E4%BD%9C%E4%B8%9A/">
+                        <span class="chip bg-color">作业</span>
                     </a>
                     
                 </div>
@@ -1055,23 +1095,23 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/a2d2.html">
+                <a href="/posts/cn.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="设计模式">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算机网络">
                         
-                        <span class="card-title">设计模式</span>
+                        <span class="card-title">计算机网络</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无
+                            大二下学期课程（二）
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-24
                             </span>
                         <span class="publish-author">
                             
@@ -1088,16 +1128,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/cpp/">
-                        <span class="chip bg-color">cpp</span>
+                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                        <span class="chip bg-color">面试</span>
                     </a>
                     
-                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                        <span class="chip bg-color">设计模式</span>
-                    </a>
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">计算机基础</span>
                     </a>
                     
                 </div>

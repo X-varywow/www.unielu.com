@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>作业9_6_25</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>作业10_6_26</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14259,82 +14259,188 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="&#39064;&#30446;&#35828;&#26126;">&#39064;&#30446;&#35828;&#26126;<a class="anchor-link" href="#&#39064;&#30446;&#35828;&#26126;">&#182;</a></h2><p>（1）不借助任何机器学习工具包，手动实现逻辑回归（logistic regress）模型梯度下降算法；</p>
-<p>（2）数据集使用 random_data() 生成。</p>
+<h2 id="&#39064;&#30446;&#35201;&#27714;">&#39064;&#30446;&#35201;&#27714;<a class="anchor-link" href="#&#39064;&#30446;&#35201;&#27714;">&#182;</a></h2><ol>
+<li><p>实现decision stump学习器表示；</p>
+</li>
+<li><p>实现decision stump学习过程；定义好接口（API）供AdaBoost使用；</p>
+</li>
+<li><p>使用决策树桩作为基学习器（弱学习器），实现AdaBoost算法构建强学习器。</p>
+</li>
+</ol>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="&#20851;&#20110;&#36923;&#36753;&#26031;&#33922;&#22238;&#24402;">&#20851;&#20110;&#36923;&#36753;&#26031;&#33922;&#22238;&#24402;<a class="anchor-link" href="#&#20851;&#20110;&#36923;&#36753;&#26031;&#33922;&#22238;&#24402;">&#182;</a></h2><p>逻辑斯蒂回归（logistic regression）是统计学习中的经典 <strong>分类</strong> 方法。</p>
-<h3 id="&#65288;1&#65289;&#36923;&#36753;&#26031;&#33922;&#20998;&#24067;">&#65288;1&#65289;&#36923;&#36753;&#26031;&#33922;&#20998;&#24067;<a class="anchor-link" href="#&#65288;1&#65289;&#36923;&#36753;&#26031;&#33922;&#20998;&#24067;">&#182;</a></h3>$$F(x)=P(X \le x)=\frac{1}{1+e^{-(x-\mu)/\gamma}}$$<h3 id="&#65288;2&#65289;Sigmoid&#20989;&#25968;">&#65288;2&#65289;Sigmoid&#20989;&#25968;<a class="anchor-link" href="#&#65288;2&#65289;Sigmoid&#20989;&#25968;">&#182;</a></h3><p>上式的 $\mu=0, \gamma=1$</p>
-$$F(x)=\frac{1}{1+e^{-x}}$$<h3 id="&#65288;3&#65289;&#20108;&#39033;&#36923;&#36753;&#26031;&#33922;&#22238;&#24402;&#27169;&#22411;">&#65288;3&#65289;&#20108;&#39033;&#36923;&#36753;&#26031;&#33922;&#22238;&#24402;&#27169;&#22411;<a class="anchor-link" href="#&#65288;3&#65289;&#20108;&#39033;&#36923;&#36753;&#26031;&#33922;&#22238;&#24402;&#27169;&#22411;">&#182;</a></h3><p>二项逻辑斯蒂回归模型是如下的条件概率分布：</p>
-$$P(Y=1|x)\frac{exp(w\cdot x+b)}{1+exp(w\cdot x+b)}$$$$P(Y=0|x)\frac{1}{1+exp(w\cdot x+b)}$$<p>这里，x 是输入，Y 是输出。参数 w 称为权值向量，b 称为偏置</p>
-<h3 id="&#65288;4&#65289;Logistic&#22238;&#24402;&#27169;&#22411;&#23398;&#20064;&#30340;&#26799;&#24230;&#19979;&#38477;&#31639;&#27861;&#65306;">&#65288;4&#65289;Logistic&#22238;&#24402;&#27169;&#22411;&#23398;&#20064;&#30340;&#26799;&#24230;&#19979;&#38477;&#31639;&#27861;&#65306;<a class="anchor-link" href="#&#65288;4&#65289;Logistic&#22238;&#24402;&#27169;&#22411;&#23398;&#20064;&#30340;&#26799;&#24230;&#19979;&#38477;&#31639;&#27861;&#65306;">&#182;</a></h3>
+<h2 id="&#22522;&#26412;&#24605;&#24819;">&#22522;&#26412;&#24605;&#24819;<a class="anchor-link" href="#&#22522;&#26412;&#24605;&#24819;">&#182;</a></h2><ul>
+<li>每次迭代（训练）产生一个树桩，即一个基本的弱分类器，并得到该分类器的alpha值</li>
+<li>每次迭代（训练）会调整一次样本点权值，在后面的训练过程中生效</li>
+<li>二分类树桩有3个基本属性，维度，阈值，模式</li>
+</ul>
+
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[49]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">shuffle</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 
-<span class="k">def</span> <span class="nf">random_data</span><span class="p">():</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
-    <span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">20</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">20</span>
-    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
+              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
 
-<span class="k">def</span> <span class="nf">data_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.8</span><span class="p">):</span>
-    <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
-    <span class="n">shuffle</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">k</span><span class="p">)</span>
-    <span class="n">train_data</span><span class="p">,</span> <span class="n">train_label</span> <span class="o">=</span> <span class="p">[</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">[:</span><span class="n">p</span><span class="p">]],</span> <span class="p">[</span><span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">[:</span><span class="n">p</span><span class="p">]]</span>
-    <span class="n">test_data</span><span class="p">,</span> <span class="n">test_label</span> <span class="o">=</span> <span class="p">[</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">[</span><span class="n">p</span><span class="p">:]],</span> <span class="p">[</span><span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">[</span><span class="n">p</span><span class="p">:]]</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">train_data</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">train_label</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_data</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_label</span><span class="p">)</span>
+     </div>
+</div>
+</div>
+</div>
 
-<span class="k">class</span> <span class="nc">lo</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">w</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lda</span> <span class="o">=</span> <span class="mf">1e-2</span>
-    
-    <span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
-        <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">e</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">e</span><span class="p">)</span>        
-    
-    <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
-        <span class="n">_Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;=</span><span class="mf">0.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">])</span>
-        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{:.2%}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Y</span><span class="o">==</span><span class="n">_Y</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
-    
-    <span class="k">def</span> <span class="nf">gradw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
-        <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">e</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">e</span><span class="p">)</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">x</span>
-    
-    <span class="k">def</span> <span class="nf">gradb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
-        <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">)</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">e</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">e</span><span class="p">)</span><span class="o">-</span><span class="n">y</span>
-    
-    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lda</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">gradw</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span><span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lda</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">gradb</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span><span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-            <span class="c1">#print(len(self.w))</span>
-            <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">),</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[50]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">stump</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">d</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1">#二分类对应的维度</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1">#二分类对应的阈值</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1">#二分类对应的模式，l把左边分类为-1，r把右边分类为-1</span>
         
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="n">random_data</span><span class="p">()</span>    
-    <span class="n">train_data</span><span class="p">,</span><span class="n">train_label</span><span class="p">,</span> <span class="n">test_data</span><span class="p">,</span><span class="n">test_label</span> <span class="o">=</span> <span class="n">data_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-
-    <span class="n">model</span> <span class="o">=</span> <span class="n">lo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">train_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span><span class="n">train_label</span><span class="p">)</span>
+    <span class="nd">@staticmethod</span>                        <span class="c1">#静态方法，可以不实例化调用该方法</span>
+    <span class="k">def</span> <span class="nf">base_estimator</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">X</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>    <span class="c1">#预测表</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;l&#39;</span><span class="p">:</span>
+            <span class="n">ans</span><span class="p">[</span><span class="n">X</span><span class="p">[:,</span> <span class="n">d</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ans</span><span class="p">[</span><span class="n">X</span><span class="p">[:,</span> <span class="n">d</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
+        <span class="k">return</span> <span class="n">ans</span>
     
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span><span class="n">test_label</span><span class="p">))</span>
+    <span class="k">def</span> <span class="nf">get_d</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">d</span>
+    
+    <span class="k">def</span> <span class="nf">get_t</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span>
+    
+    <span class="k">def</span> <span class="nf">get_m</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">m</span>
+        
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>   <span class="c1"># w为样本点的权值，仅在该训练中生效</span>
+        <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">e_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+        <span class="n">sign</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">range_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+            <span class="n">range_min</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+            <span class="n">step</span> <span class="o">=</span> <span class="p">(</span><span class="n">range_max</span><span class="o">-</span><span class="n">range_min</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">range_min</span> <span class="o">+</span> <span class="n">j</span><span class="o">*</span><span class="n">step</span>
+                <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;l&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">]:</span>
+                    <span class="n">predict_vals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_estimator</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+                    <span class="n">err_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+                    <span class="n">err_arr</span><span class="p">[</span><span class="n">predict_vals</span><span class="o">.</span><span class="n">T</span> <span class="o">==</span> <span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="n">weighted_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">err_arr</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">weighted_error</span> <span class="o">&lt;</span> <span class="n">e_min</span><span class="p">:</span>
+                        <span class="n">e_min</span> <span class="o">=</span> <span class="n">weighted_error</span>
+                        <span class="n">sign</span> <span class="o">=</span> <span class="n">predict_vals</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">d</span> <span class="o">=</span> <span class="n">i</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">m</span> <span class="o">=</span> <span class="n">mode</span>
+        <span class="k">return</span> <span class="n">sign</span><span class="p">,</span> <span class="n">e_min</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[51]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">AdaBoost</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">X</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tol</span> <span class="o">=</span> <span class="n">tol</span>           <span class="c1">#终止值</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span> <span class="o">=</span> <span class="n">max_iter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">G</span> <span class="o">=</span> <span class="p">[]</span>              <span class="c1">#分类器</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="p">[]</span>          <span class="c1">#分类器权值</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">updata_w</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">predict</span><span class="p">):</span>
+        <span class="n">P</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">alpha</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">predict</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">P</span> <span class="o">/</span> <span class="n">P</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="p">):</span>
+            <span class="n">best_stump</span> <span class="o">=</span> <span class="n">stump</span><span class="p">()</span>
+            <span class="n">sign</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">best_stump</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">)</span>
+            
+            <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">error</span><span class="p">)</span> <span class="o">/</span> <span class="n">error</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">G</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">best_stump</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+            
+            <span class="c1"># 以下3行计算当前总分类器（之前所有弱分类器加权和）分类效率</span>
+            <span class="n">G</span> <span class="o">+=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">sign</span>
+            <span class="n">y_predict</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+            <span class="n">error_rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_predict</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">第</span><span class="si">{}</span><span class="s2">次迭代的样本权重：&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">pprint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">error_rate</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">tol</span><span class="p">:</span>            <span class="c1"># 满足中止条件 则跳出循环</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">总共迭代次数:&quot;</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="k">break</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">updata_w</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">)</span>  <span class="c1"># 若不满足，更新权重，继续迭代</span>
+
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">X</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">G</span><span class="p">)):</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="c1"># 遍历每一个弱分类器，进行加权</span>
+            <span class="n">_G</span> <span class="o">=</span> <span class="n">stump</span><span class="o">.</span><span class="n">base_estimator</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">tmp</span><span class="o">.</span><span class="n">get_d</span><span class="p">(),</span> <span class="n">tmp</span><span class="o">.</span><span class="n">get_t</span><span class="p">(),</span> <span class="n">tmp</span><span class="o">.</span><span class="n">get_m</span><span class="p">())</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">G</span> <span class="o">+=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">_G</span>
+        <span class="n">y_predict</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y_predict</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">y_predict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">error_rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_predict</span> <span class="o">-</span> <span class="n">y</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">弱分类器：&quot;</span><span class="p">)</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">G</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">error_rate</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[52]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">AdaBoost</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+
+<span class="n">y_predict</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="c1">#print(&quot;原始输出:&quot;, y)</span>
+<span class="c1">#print(&quot;预测输出:&quot;, y_predict)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;预测正确率：</span><span class="si">{:.2%}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -14354,23 +14460,50 @@ $$P(Y=1|x)\frac{exp(w\cdot x+b)}{1+exp(w\cdot x+b)}$$$$P(Y=0|x)\frac{1}{1+exp(w\
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>96.88% [-0.04872157  0.31090625] 0.13380214553301567
-100.00% [0.07882197 0.49509809] 0.20378410403418268
-100.00% [0.32194493 0.49276714] 0.30753819682228856
-100.00% [0.40630944 0.58209314] 0.27657173693929776
-100.00% [0.50344239 0.5960984 ] 0.2994975044743826
-100.00% [0.53508341 0.63515726] 0.3143461233001315
-100.00% [0.5704154  0.70317153] 0.3553905689897992
-100.00% [0.64863162 0.75385747] 0.3211444540221053
-100.00% [0.65888647 0.78063784] 0.3293522797645416
-100.00% [0.67199167 0.80251838] 0.33706963361816483
-100.00% [0.68834167 0.82239165] 0.33062277584674854
-100.00% [0.69637239 0.83068294] 0.33344738123604567
-100.00% [0.70568679 0.8424407 ] 0.33751572201248836
-100.00% [0.72227402 0.86537936] 0.32972662577827255
-100.00% [0.75116161 0.88174074] 0.32049322051109497
-====================================================================================================
-100.00%
+<pre>
+第1次迭代的样本权重：
+array([0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1])
+
+第2次迭代的样本权重：
+array([0.0625, 0.0625, 0.0625, 0.0625, 0.0625, 0.0625, 0.25  , 0.25  ,
+       0.0625, 0.0625])
+
+第3次迭代的样本权重：
+array([0.16666667, 0.03846154, 0.03846154, 0.16666667, 0.03846154,
+       0.16666667, 0.15384615, 0.15384615, 0.03846154, 0.03846154])
+
+第4次迭代的样本权重：
+array([0.13188406, 0.03043478, 0.03043478, 0.13188406, 0.03043478,
+       0.13188406, 0.33043478, 0.12173913, 0.03043478, 0.03043478])
+
+第5次迭代的样本权重：
+array([0.09937457, 0.02293259, 0.02293259, 0.34587511, 0.02293259,
+       0.09937457, 0.24898243, 0.09173037, 0.02293259, 0.02293259])
+
+第6次迭代的样本权重：
+array([0.09251592, 0.02134983, 0.02134983, 0.32200345, 0.02134983,
+       0.09251592, 0.23179812, 0.08539931, 0.09036799, 0.02134983])
+
+第7次迭代的样本权重：
+array([0.06729152, 0.01552881, 0.01552881, 0.23420943, 0.01552881,
+       0.20521726, 0.16859852, 0.06211525, 0.20045278, 0.01552881])
+
+第8次迭代的样本权重：
+array([0.04584103, 0.0105787 , 0.0105787 , 0.1595506 , 0.0105787 ,
+       0.13980025, 0.11485445, 0.0423148 , 0.45532406, 0.0105787 ])
+
+总共迭代次数: 8
+
+弱分类器：
+[&lt;__main__.stump object at 0x00000221775E5820&gt;,
+ &lt;__main__.stump object at 0x0000022178B3DA00&gt;,
+ &lt;__main__.stump object at 0x0000022178B3D490&gt;,
+ &lt;__main__.stump object at 0x00000221775E5880&gt;,
+ &lt;__main__.stump object at 0x0000022178B3DBB0&gt;,
+ &lt;__main__.stump object at 0x0000022178B3DC10&gt;,
+ &lt;__main__.stump object at 0x0000022178B3D4C0&gt;,
+ &lt;__main__.stump object at 0x0000022178B3DE20&gt;]
+预测正确率：100.00%
 </pre>
 </div>
 </div>
