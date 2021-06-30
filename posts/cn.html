@@ -507,14 +507,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-24
+                    2021-06-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.1k
+                    9.5k
                 </div>
                 
 
@@ -1331,11 +1331,23 @@
 <p>========== <em>其它补充</em></p>
 <p>在同一个局域网上的主机或路由器的IP地址中的网络号必须是一样的。</p>
 <p>私网IP要接入Internet时，要使用 <code>NAT</code> <strong>网络地址转换</strong><br>安装了NAT软件（含NAT转换表）的路由器叫NAT路由器，它至少有一个有效的外部全球IP地址。</p>
-<h3 id="4-7-IP数据报⭐"><a href="#4-7-IP数据报⭐" class="headerlink" title="4.7 IP数据报⭐"></a>4.7 IP数据报⭐</h3><blockquote>
+<h3 id="4-7-IP数据报⭐"><a href="#4-7-IP数据报⭐" class="headerlink" title="4.7 IP数据报⭐"></a>4.7 IP数据报⭐</h3><img src="https://img-blog.csdnimg.cn/20210627142312695.jpg" style="zoom:70%"/>
+
+
+<ul>
+<li>版本 : 有 4（IPv4）和 6（IPv6）两个值；</li>
+<li>首部长度 : 占 4 位，因此最大值为 15。值为 1 表示的是 1 个 32 位字的长度，也就是 4 字节。因为固定部分长度为 20 字节，因此该值最小为 5。如果可选字段的长度不是 4 字节的整数倍，就用尾部的填充部分来填充。</li>
+<li>区分服务 : 用来获得更好的服务，一般情况下不使用。</li>
+<li>总长度 : 包括首部长度和数据部分长度。</li>
+<li>生存时间 ：TTL，它的存在是为了防止无法交付的数据报在互联网中不断兜圈子。以路由器跳数为单位，当 TTL 为 0 时就丢弃数据报。</li>
+<li>协议 ：指出携带的数据应该上交给哪个协议进行处理，例如 ICMP、TCP、UDP 等。</li>
+<li>首部检验和 ：因为数据报每经过一个路由器，都要重新计算检验和，因此检验和不包含数据部分可以减少计算的工作量。</li>
+<li>标识 : 在数据报长度过长从而发生分片的情况下，相同数据报的不同分片具有相同的标识符。</li>
+<li>片偏移 : 和标识符一起，用于发生分片的情况。片偏移的单位为 8 字节。</li>
+</ul>
+<blockquote>
 <p>IP数据报，数据报，分组，包都是同一个东西</p>
 </blockquote>
-<img src="https://img-blog.csdnimg.cn/20210617190545194.png"/>
-
 <div class="admonition info"><p class="admonition-title">什么是IP分片？
 </p><p>IP协议在传输数据包时会将数据报文分成若干片进行传输，并在目标系统中进行重组。这以过程就成为<strong>分片</strong>。</p>
 </div>
@@ -1367,7 +1379,9 @@ DF（Don't fragment）：标志着允不允许数据报分片</p>
 </li>
 </ul>
 <p>判断IP为156.26.27.71, 156.26.27.110的主机，子网掩码为255.255.255.192是否处于同一子网？<br>经子网掩码运算后，子网号<code>0001101101</code>相同，处于同一子网</p>
-<h3 id="4-9-网络指令"><a href="#4-9-网络指令" class="headerlink" title="4.9 网络指令"></a>4.9 网络指令</h3><table>
+<h3 id="4-9-网际控制报文协议-ICMP"><a href="#4-9-网际控制报文协议-ICMP" class="headerlink" title="4.9 网际控制报文协议 ICMP"></a>4.9 网际控制报文协议 ICMP</h3><p>ICMP 是为了更有效地转发 IP 数据报和提高交付成功的机会。它封装在 IP 数据报中，但是不属于高层协议。</p>
+<p>Ping 的原理是通过向目的主机发送 ICMP Echo 请求报文，目的主机收到之后会发送 Echo 回答报文。Ping 会根据时间和成功响应的次数估算出数据包往返时间以及丢包率。</p>
+<h3 id="other"><a href="#other" class="headerlink" title="other"></a>other</h3><table>
 <thead>
 <tr>
 <th></th>
@@ -1681,7 +1695,7 @@ DF（Don't fragment）：标志着允不允许数据报分片</p>
 </li>
 </ul>
 <p>关于HTTP的理解（2020.05）：<a href="http://www.unielu.com/posts/2174.html">www.unielu.com/posts/2174.html</a></p>
-<h2 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h2><p><strong>参考资料</strong>：</p>
+<h2 id="other-1"><a href="#other-1" class="headerlink" title="other"></a><em>other</em></h2><p><strong>参考资料</strong>：</p>
 <ul>
 <li>2019-王道考研-计算机网络，60%</li>
 <li>学校课程，40%</li>
@@ -2144,23 +2158,23 @@ DF（Don't fragment）：标志着允不允许数据报分片</p>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/a319.html">
+                <a href="/posts/cpp.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算语言学">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="C++">
                         
-                        <span class="card-title">计算语言学</span>
+                        <span class="card-title">C++</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            大二下学期课程（三）
+                            大二下学期课程（六）
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-23
                             </span>
                         <span class="publish-author">
                             
@@ -2181,8 +2195,8 @@ DF（Don't fragment）：标志着允不允许数据报分片</p>
                         <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/tags/NLP/">
-                        <span class="chip bg-color">NLP</span>
+                    <a href="/tags/cpp/">
+                        <span class="chip bg-color">cpp</span>
                     </a>
                     
                 </div>
@@ -2396,7 +2410,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">139.2k</span>&nbsp;字
+                class="white-color">141k</span>&nbsp;字
             
             
             

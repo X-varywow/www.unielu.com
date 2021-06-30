@@ -496,21 +496,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-13
+                    2021-06-29
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-24
+                    2021-06-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.6k
+                    4k
                 </div>
                 
 
@@ -862,47 +862,76 @@
 <li>出错处理</li>
 </ul>
 <h2 id="三、自底向上语法分析"><a href="#三、自底向上语法分析" class="headerlink" title="三、自底向上语法分析"></a>三、自底向上语法分析</h2><h3 id="3-0-概述"><a href="#3-0-概述" class="headerlink" title="3.0 概述"></a>3.0 概述</h3><p><em>自底向上的分析</em>，可以看成是将输入串 w 归约为文法开始符号 S 的过程。</p>
-<ul>
-<li>采用最左归约</li>
-<li>移入-归约分析<ul>
-<li>根据剩余输入，不可归约时移入栈顶，可归约时将栈的元素替换，或接收、报错</li>
-</ul>
-</li>
-<li>栈内符号串 + 剩余输入 = “规范句型”</li>
-</ul>
 <p><strong>句柄</strong>：右句型的最左直接短语</p>
 <div class="admonition info"><p class="admonition-title">求短语、直接短语、句柄
 </p><p>画出全部的语法分析树<br>
-每一棵子树的边缘、两代子树的边缘、最左直接短语</p>
+每一棵子树的边缘；两代子树的边缘；最左直接短语。</p>
 </div>
 
-<h3 id="3-1-移进-归约分析"><a href="#3-1-移进-归约分析" class="headerlink" title="3.1 移进-归约分析"></a>3.1 移进-归约分析</h3><p>基本思想：借助一个栈和一个有限状态的分析引擎，却ing如下动作以进入新状态</p>
-<ul>
+<p>自底向上语法分析的主要问题：如何识别正确的句柄</p>
+<h3 id="3-1-移进-归约分析"><a href="#3-1-移进-归约分析" class="headerlink" title="3.1 移进-归约分析"></a>3.1 移进-归约分析</h3><ul>
+<li>基本思想：借助一个栈和一个有限状态的分析引擎，根据如下动作以进入新状态<ul>
 <li>Reduce: 依确定的方式对位于栈顶的短语进行归约。</li>
 <li>Shift: 从输入序列移进一个单词符号。</li>
 <li>Error: 发现语法错误，进行错误处理/恢复。</li>
 <li>Accept：分析成功。</li>
 </ul>
-<hr>
-<p><strong>移进−归约冲突</strong>是指到达一个不能确定下一步应该移进还是应该归约的状态。</p>
-<p><strong>归约−归约冲突</strong>是指到达一个可以对多个短语进行归约的状态。</p>
-<p>SLR（1）分析，向前查看一个符号可解决冲突</p>
-<p>二义文法在LR分析中的应用</p>
+</li>
+<li>栈内符号串 + 剩余输入 = “规范句型”</li>
+<li>语法分析动作冲突<ul>
+<li><strong>移进−归约冲突</strong><ul>
+<li>到达一个不能确定下一步应该移进还是应该归约的状态。</li>
+</ul>
+</li>
+<li><strong>归约−归约冲突</strong><ul>
+<li>到达一个可以对多个短语进行归约的状态。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-2-LR分析"><a href="#3-2-LR分析" class="headerlink" title="3.2 LR分析"></a>3.2 LR分析</h3><p>L，代表从左向右扫描输入的单词序列<br>R，代表产生的是最右推导</p>
+<p>LR分析 是一种表驱动的移进-归约分析</p>
 <ul>
-<li>LR 分析中的出错处理<ul>
-<li>LR 分析表的空表项对应一个出错位置</li>
-<li>可根据相应的堆栈终结和输入符号设置报错信息，进行简单的恢复工作</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-2-LR分析"><a href="#3-2-LR分析" class="headerlink" title="3.2 LR分析"></a>3.2 LR分析</h3><ul>
 <li>LR 分析表<ul>
-<li>$s_n$, 将符号a、状态n压入栈</li>
-<li>$r_n$, 用第 n 个产生式进行归约</li>
+<li>ACTION表<ul>
+<li>在栈顶状态为k，当前输入符号为a时应该做什么</li>
+<li>si（Shift, 移进）, rj（Reduce, 归约）, acc, err</li>
+</ul>
+</li>
+<li>GOTO表<ul>
+<li>依产生式归约，并进行状态转移</li>
 </ul>
 </li>
 </ul>
-<h3 id="3-4-LR（0）有限状态自动机"><a href="#3-4-LR（0）有限状态自动机" class="headerlink" title="3.4 LR（0）有限状态自动机"></a>3.4 LR（0）有限状态自动机</h3><h2 id="四、语法制导得语义计算基础"><a href="#四、语法制导得语义计算基础" class="headerlink" title="四、语法制导得语义计算基础"></a>四、语法制导得语义计算基础</h2><h3 id="4-0-概述"><a href="#4-0-概述" class="headerlink" title="4.0 概述"></a>4.0 概述</h3><p>语法制导翻译：语法分析 -&gt; 语义分析 -&gt; 中间代码生成</p>
+</li>
+</ul>
+<h3 id="3-3-LR（0）分析"><a href="#3-3-LR（0）分析" class="headerlink" title="3.3 LR（0）分析"></a>3.3 LR（0）分析</h3><ul>
+<li><strong>增广文法</strong><ul>
+<li>如果 G 是一个以 S 为开始符号的文法，则 G 的增广文法 <code>G&#39;</code> 就是在 <code>G</code> 中加上新开始符号 <code>S&#39;</code> 和产生式 <code>S&#39; → S</code> 而得到的文法，</li>
+</ul>
+</li>
+</ul>
+<p>引入这个新的开始产生式的目的是使得文法开始符号仅出现在一个产生式的左边，从而使得分析器只有一个接受状态。</p>
+<ul>
+<li><strong>项目</strong>，描述了句柄识别的状态，每个产生式对应若干个项目<ul>
+<li>移进项目 $$S’ \rightarrow \alpha .a\beta$$</li>
+<li>待约项目 $$S’ \rightarrow \alpha .B\beta$$</li>
+<li>归约项目 $$S’ \rightarrow \alpha$$</li>
+<li>接受项目 $$S’ \rightarrow S$$</li>
+</ul>
+</li>
+<li>后继项目，同属于一个产生式的项目，但圆点的位置在后一个位</li>
+</ul>
+<p>$LR(0)FSM$（有限状态自动机）的状态是一个 $LR(0)$ 项目集 $I$ 的闭包。</p>
+<p>根据自动机转换图，可构造分析表,<br>如果LR（0）分析表中没有语法分析动作冲突，那么给定的文法称为LR（0）文法</p>
+<p>？接受项目不与同状态下的移进项目冲突</p>
+<h3 id="3-4-SLR（1）分析"><a href="#3-4-SLR（1）分析" class="headerlink" title="3.4 SLR（1）分析"></a>3.4 SLR（1）分析</h3><p>SLR（1）分析，向前查看一个符号可解决冲突 </p>
+<p>SLR（1） 分析表的构造也基于LR（0） FSM，在SLR（1） 分析表中， ACTION 表的归约表项只适用于相应非终结符Follow 集中的输入符号</p>
+<p>各表项中，无多重定义，则称 G 为 SLR（1） 文法</p>
+<h3 id="3-5-LR（1）分析"><a href="#3-5-LR（1）分析" class="headerlink" title="3.5 LR（1）分析"></a>3.5 LR（1）分析</h3><p>在 LR（0） 项目基础上增加一个终结符</p>
+<h3 id="3-6-LALR（1）分析"><a href="#3-6-LALR（1）分析" class="headerlink" title="3.6 LALR（1）分析"></a>3.6 LALR（1）分析</h3><p>一个LR（1） 文法，如果将其LR（1） FSM 同芯状态合并后所得到的新状态无归约−归约冲突，则该文法是一个 LALR（1） 文法</p>
+<h2 id="四、语法制导得语义计算基础"><a href="#四、语法制导得语义计算基础" class="headerlink" title="四、语法制导得语义计算基础"></a>四、语法制导得语义计算基础</h2><h3 id="4-0-概述"><a href="#4-0-概述" class="headerlink" title="4.0 概述"></a>4.0 概述</h3><p>语法制导翻译：语法分析 -&gt; 语义分析 -&gt; 中间代码生成</p>
 <p>语义翻译：语义分析 -&gt; 中间代码生成</p>
 <p>语法制导翻译使用上下文无关文法 CFG　来引导对语言的单一，是一种面向文法的翻译技术</p>
 <ul>
@@ -1357,45 +1386,47 @@ a S1.a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/6f03.html">
+                <a href="/posts/compiler.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-1.jpg" class="responsive-img" alt="文本分类">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="编译原理">
                         
-                        <span class="card-title">文本分类</span>
+                        <span class="card-title">编译原理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            机器学习作业（八）
+                            大二下学期课程（五）
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
-                        <span class="chip bg-color">贝叶斯</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
@@ -1409,30 +1440,30 @@ a S1.a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/bfd3.html">
+                <a href="/posts/a319.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/24.jpg" class="responsive-img" alt="支持向量机">
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算语言学">
                         
-                        <span class="card-title">支持向量机</span>
+                        <span class="card-title">计算语言学</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            机器学习作业（七）
+                            大二下学期课程（三）
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
                                 </a>
                             
                             
@@ -1442,8 +1473,12 @@ a S1.a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SVM/">
-                        <span class="chip bg-color">SVM</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/NLP/">
+                        <span class="chip bg-color">NLP</span>
                     </a>
                     
                 </div>
@@ -1657,7 +1692,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">139.2k</span>&nbsp;字
+                class="white-color">141k</span>&nbsp;字
             
             
             

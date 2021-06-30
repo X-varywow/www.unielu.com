@@ -500,14 +500,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-15
+                    2021-06-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-23
+                    2021-06-30
                 </div>
                 
 
@@ -1038,7 +1038,7 @@ class_name <span class="token keyword">const</span> <span class="token function"
 
 <span class="token comment" spellcheck="true">//const函数能访问普通属性成员，但不能修改值</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="三、高级语法"><a href="#三、高级语法" class="headerlink" title="三、高级语法"></a>三、高级语法</h2><h3 id="3-1-异常处理"><a href="#3-1-异常处理" class="headerlink" title="3.1 异常处理"></a>3.1 异常处理</h3><h3 id="3-2-指针⭐"><a href="#3-2-指针⭐" class="headerlink" title="3.2 指针⭐"></a>3.2 指针⭐</h3><h5 id="（1）指针说明"><a href="#（1）指针说明" class="headerlink" title="（1）指针说明"></a>（1）指针说明</h5><ol>
+<h2 id="三、高级语法"><a href="#三、高级语法" class="headerlink" title="三、高级语法"></a>三、高级语法</h2><h3 id="3-1-指针⭐"><a href="#3-1-指针⭐" class="headerlink" title="3.1 指针⭐"></a>3.1 指针⭐</h3><h5 id="（1）指针说明"><a href="#（1）指针说明" class="headerlink" title="（1）指针说明"></a>（1）指针说明</h5><ol>
 <li>有效指针。指向本程序内存范围内有效的地址</li>
 <li>NULL指针。存在但不指向任何地方</li>
 <li>野指针。指向未知内存的指针，如：<code>char *p</code></li>
@@ -1046,7 +1046,11 @@ class_name <span class="token keyword">const</span> <span class="token function"
 <h5 id="（2）const-与指针"><a href="#（2）const-与指针" class="headerlink" title="（2）const 与指针"></a>（2）const 与指针</h5><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token string">"city"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//指向字符型常量的指针，它指向的值不能修改</span>
 <span class="token keyword">char</span> <span class="token operator">*</span> <span class="token keyword">const</span> p <span class="token operator">=</span> <span class="token string">"city"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//指向字符型变量的常指针，不能指向别的变量，但指向变量的值可以修改</span>
 <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span> p <span class="token operator">=</span> <span class="token string">"city"</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//指向字符型常量的常指针。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-3-引用"><a href="#3-3-引用" class="headerlink" title="3.3 引用"></a>3.3 引用</h3><ol>
+<h5 id="（3）指向对象的指针"><a href="#（3）指向对象的指针" class="headerlink" title="（3）指向对象的指针"></a>（3）指向对象的指针</h5><pre class="line-numbers language-cpp"><code class="language-cpp">Point <span class="token function">a</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Point <span class="token operator">*</span>p1 <span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">;</span>
+cout <span class="token operator">&lt;&lt;</span> p1<span class="token operator">-</span><span class="token operator">></span><span class="token function">getX</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//指针访问对象成员</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><code>this</code> 指针，隐含于类的每一个非静态成员函数中</p>
+<h3 id="3-2-引用"><a href="#3-2-引用" class="headerlink" title="3.2 引用"></a>3.2 引用</h3><ol>
 <li>引用（&amp;）是标识符的别名</li>
 <li>定义时需初始化，不能定义空引用</li>
 <li>区分取址、引用</li>
@@ -1060,7 +1064,7 @@ class_name <span class="token keyword">const</span> <span class="token function"
 
 <span class="token comment" spellcheck="true">//引用作为函数参数（声明中），说明参数是对变量的引用</span>
 <span class="token comment" spellcheck="true">//引用还可以作为函数返回值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-4-内存操作"><a href="#3-4-内存操作" class="headerlink" title="3.4 内存操作"></a>3.4 内存操作</h3><p>动态内存（基础）：</p>
+<h3 id="3-3-内存操作"><a href="#3-3-内存操作" class="headerlink" title="3.3 内存操作"></a>3.3 内存操作</h3><p>动态内存（基础）：</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span><span class="token operator">*</span> p<span class="token punctuation">;</span>                 <span class="token comment" spellcheck="true">//指针定义</span>
 p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//分配空间，大小可以确定、也可以不确定</span>
 <span class="token keyword">delete</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> p<span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">//释放空间</span>
@@ -1074,7 +1078,7 @@ p <span class="token operator">=</span> <span class="token constant">NULL</span>
 <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>m<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">//释放空间</span>
     <span class="token keyword">delete</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> pchar<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//不然会导致内存泄漏</span>
 <span class="token keyword">delete</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> pchar<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-5-函数"><a href="#3-5-函数" class="headerlink" title="3.5 函数"></a>3.5 函数</h3><p>在C++中，不再单纯依靠函数名字来确定函数，因此对函数的声明要求更加严格。</p>
+<h3 id="3-4-函数"><a href="#3-4-函数" class="headerlink" title="3.4 函数"></a>3.4 函数</h3><p>在C++中，不再单纯依靠函数名字来确定函数，因此对函数的声明要求更加严格。</p>
 <p>以下为合法的函数声明：</p>
 <ul>
 <li><code>int Area(int x, int y);</code></li>
@@ -1102,7 +1106,7 @@ p <span class="token operator">=</span> <span class="token constant">NULL</span>
 <span class="token keyword">int</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">float</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">float</span> x<span class="token punctuation">,</span> <span class="token keyword">float</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>//编译器不以形参名区分<br>//编译器不以返回值来区分</p>
-<h3 id="3-6-结构体"><a href="#3-6-结构体" class="headerlink" title="3.6 结构体"></a>3.6 结构体</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> name<span class="token punctuation">{</span>
+<h3 id="3-5-结构体"><a href="#3-5-结构体" class="headerlink" title="3.5 结构体"></a>3.5 结构体</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> name<span class="token punctuation">{</span>
     共有成员
 <span class="token keyword">protected</span><span class="token operator">:</span>
     保护型成员
@@ -1114,14 +1118,16 @@ p <span class="token operator">=</span> <span class="token constant">NULL</span>
 <span class="token comment" spellcheck="true">//结构体中可以有数据成员和函数成员</span>
 <span class="token comment" spellcheck="true">//一定情况下可如下初始化：</span>
 Student stu<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">201911</span><span class="token punctuation">,</span><span class="token string">"yasuo"</span><span class="token punctuation">,</span><span class="token number">19</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-7-函数模板"><a href="#3-7-函数模板" class="headerlink" title="3.7 函数模板"></a>3.7 函数模板</h3><p>提高代码的复用性</p>
+<h3 id="3-6-函数模板"><a href="#3-6-函数模板" class="headerlink" title="3.6 函数模板"></a>3.6 函数模板</h3><p>提高代码的复用性</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> T<span class="token operator">></span>
 T <span class="token function">abs</span><span class="token punctuation">(</span>T x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> x <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token operator">?</span> <span class="token operator">-</span>x <span class="token operator">:</span> x<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">//自动推导其变量类型</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-8-other"><a href="#3-8-other" class="headerlink" title="3.8 other"></a>3.8 other</h3><p><code>extern</code> 用于全局变量、函数</p>
+<h3 id="3-7-other"><a href="#3-7-other" class="headerlink" title="3.7 other"></a>3.7 other</h3><p><code>extern</code> 用于全局变量、函数</p>
 <p><code>#if #elif #else #endif</code> 条件编译语句</p>
+<p>C++ 文件和流，<a href="https://www.runoob.com/cplusplus/cpp-files-streams.html" target="_blank" rel="noopener">菜鸟教程</a></p>
+<p>C++ 异常处理，<a href="https://www.runoob.com/cplusplus/cpp-exceptions-handling.html" target="_blank" rel="noopener">菜鸟教程</a></p>
 <h2 id="四、实例"><a href="#四、实例" class="headerlink" title="四、实例"></a>四、实例</h2><h3 id="4-1-三角形类"><a href="#4-1-三角形类" class="headerlink" title="4.1 三角形类"></a>4.1 三角形类</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;string></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cmath></span></span>
@@ -1608,6 +1614,58 @@ Triangle<span class="token operator">::</span><span class="token operator">~</sp
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/posts/cn.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-8.jpg" class="responsive-img" alt="计算机网络">
+                        
+                        <span class="card-title">计算机网络</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            大二下学期课程（二）
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E4%BA%8C/" class="post-category">
+                                    大二
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                        <span class="chip bg-color">面试</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">计算机基础</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/posts/a2d2.html">
                     <div class="card-image">
                         
@@ -1623,9 +1681,9 @@ Triangle<span class="token operator">::</span><span class="token operator">~</sp
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1651,54 +1709,6 @@ Triangle<span class="token operator">::</span><span class="token operator">~</sp
                     
                     <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/6f03.html">
-                    <div class="card-image">
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/featureimages/new-1.jpg" class="responsive-img" alt="文本分类">
-                        
-                        <span class="card-title">文本分类</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            机器学习作业（八）
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-14
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
-                        <span class="chip bg-color">贝叶斯</span>
                     </a>
                     
                 </div>
@@ -1905,7 +1915,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">139.2k</span>&nbsp;字
+                class="white-color">141k</span>&nbsp;字
             
             
             
