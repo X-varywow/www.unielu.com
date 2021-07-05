@@ -17,17 +17,17 @@
 
 
     <title>数字逻辑 | -- blog --</title>
-    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/favicon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/css/my.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
@@ -179,7 +179,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name diyFont">welcome!</div>
     </div>
@@ -358,7 +358,7 @@
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-03
+                    2021-07-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    109
                 </div>
                 
 
@@ -522,218 +522,9 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、基本知识"><a href="#一、基本知识" class="headerlink" title="一、基本知识"></a>一、基本知识</h2><p><strong>数字系统</strong> 是一个能对数字信号进行加工、传递和存储的实体，它由实现各种功能的数字逻辑电路相互连接而成。</p>
-<ul>
-<li>模拟信号：表示模拟量的信号。如压力、温度等</li>
-<li>数字信号：表示数字量的信号。如电路的开关状态</li>
-</ul>
-<p>用来处理数字信号的电子线路称为数字电路</p>
-<p>根据一个电路是否具有记忆功能，可将数字逻辑分为 <strong>时序逻辑电路</strong> 和 <strong>组合逻辑电路</strong>。</p>
-<ul>
-<li>组合逻辑电路：一个逻辑电路在任何时刻的稳定输出仅取决于时刻的输入，与电路过去的输入无关。</li>
-<li>时序逻辑电路：一个逻辑电路在任何时刻的稳定输出不仅取决于时刻的输入，还与电路过去的输入有关。</li>
-</ul>
-<p>对数字系统中逻辑电路的研究的两个主要任务：<code>分析</code> 和 <code>设计</code></p>
-<hr>
-<ul>
-<li>数制及其转换<ul>
-<li>基数：指计数制中所用到的数字符号的个数</li>
-<li>位权：表明不同数位上数值大小的一个固定常数</li>
-<li><strong>2 进制转换</strong><ul>
-<li>整数转换：除2取余</li>
-<li>小数转换，乘2取整</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>机器码</strong><ul>
-<li>原码：符号位（0表正，1表负）+数值位（不变）</li>
-<li>反码：符号位（0表正，1表负）+数值位（正数不变，负数取反）</li>
-<li>补码：符号位（0表正，1表负）+数值位（正数不变，负数取反+1）</li>
-<li>运算：<ul>
-<li>[x1-x2]<sub>补</sub>=[x1]<sub>补</sub>+[-x2]<sub>补</sub></li>
-<li>[x1+x2]<sub>补</sub>=[x1]<sub>补</sub>+[x2]<sub>补</sub></li>
-<li>反码也是一样</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>奇偶检验码<ul>
-<li>组成：信息位、奇偶检验位（一位）</li>
-<li>编码方式：奇检验、偶检验</li>
-</ul>
-</li>
-<li>几种常见的编码<ul>
-<li>BCD码<ul>
-<li>8421码</li>
-<li>2421码</li>
-<li>余3码</li>
-</ul>
-</li>
-<li>格雷码<ul>
-<li>特点：任意两个相邻的数，其格雷码仅有一位不同</li>
-<li>作用：避免代码形成或者变换过程产生错误</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>设二进制码 B=b<sub>n-1</sub>b<sub>n-2</sub>…b<sub>0</sub>，格雷码 G=g<sub>n-1</sub>g<sub>n-2</sub>…g<sub>0</sub><br>有：g<sub>n-1</sub>=b<sub>n-1</sub>，g<sub>i</sub>=b<sub>i+1</sub>b<sub>i</sub>（0&lt;=i&lt;=n-2）</p>
+                <blockquote>
+<p>笔记没太大用，了解基本概念后（看书也行），做一下例题，PPT的题就行了。</p>
 </blockquote>
-<h2 id="二、逻辑代数基础"><a href="#二、逻辑代数基础" class="headerlink" title="二、逻辑代数基础"></a>二、逻辑代数基础</h2><p>逻辑代数<code>L</code>是一个封闭的代数系统，<code>K</code>表示逻辑变量集。<br><code>L={K，+，·，-，0，1}</code></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>公理1</td>
-<td>交换律</td>
-<td>A + B = B + A；A · B = B · A</td>
-</tr>
-<tr>
-<td>公理2</td>
-<td>结合律</td>
-<td>(A + B) + C = A + ( B + C )；( A·B )· C = A·( B· C )</td>
-</tr>
-<tr>
-<td>公理3</td>
-<td>分配律</td>
-<td>A + ( B·C ) = (A + B)·(A + C)；A·( B + C) = A · B + A · C</td>
-</tr>
-<tr>
-<td>公理4</td>
-<td>0-1律</td>
-<td>A + 0 = A； A · 1 = A；A + 1 = 1  ； A · 0 = 0</td>
-</tr>
-<tr>
-<td>公理5</td>
-<td>互补律</td>
-<td>A + !A = 1；A · !A = 0</td>
-</tr>
-<tr>
-<td>定理1</td>
-<td></td>
-<td>0+0=0…</td>
-</tr>
-<tr>
-<td>定理2</td>
-<td></td>
-<td>A + A = A；A · A = A</td>
-</tr>
-<tr>
-<td>定理3</td>
-<td></td>
-<td>A + A · B = A；A · ( A + B ) = A</td>
-</tr>
-<tr>
-<td>定理4</td>
-<td></td>
-<td>A + !A B = A + B；A · ( !A + B ) = A · B</td>
-</tr>
-<tr>
-<td>定理5</td>
-<td></td>
-<td>!!A = A</td>
-</tr>
-<tr>
-<td>定理6</td>
-<td></td>
-<td>!( A + B ) = !A · !B；!( A · B ) = !A + !B</td>
-</tr>
-<tr>
-<td>定理7</td>
-<td></td>
-<td>( A + B ) · ( A + !B ) = A</td>
-</tr>
-<tr>
-<td>定理8</td>
-<td></td>
-<td>A · B + !A · C + B · C = A · B + !A · C</td>
-</tr>
-</tbody></table>
-<p>.</p>
-<p>依次列出一个逻辑函数的所有输入变量取值组合及其相应函数值的表格称为 <strong>真值表</strong>。</p>
-<ul>
-<li><code>代入规则</code><ul>
-<li>任何一个含有变量A的逻辑等式，如果将所有出现A的位都代之以同一个逻辑函数F，则等式仍然成立。</li>
-</ul>
-</li>
-<li><code>反演规则</code><ul>
-<li>若将逻辑函数表达式F中所有的“·”变成“+”，“+”变成“·”，“0”变成“1”，“1”变成“0”，原变量变成反变量，反变量变成原变量，并保持原函数中的运算顺序不变 ，则所得到的新的函数为原函数F的反函数!F。   </li>
-</ul>
-</li>
-<li><code>对偶规则</code><ul>
-<li>如果将逻辑函数表达式F中所有的“·”变成“+”，“+”变成“·”，“0”变成“1”，“1”变成“0”，并保持原函数中的运算顺序不变，则所得到的新的逻辑表达式称为函数F的对偶式，并记作F’。例如， </li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li><code>最小项</code><ul>
-<li>如果一个具有 n 个变量的函数的与项包含全部 n 个变量，每个变量都以原变量或反变量的形式出现，且仅出现一次，则该与项被称为最小项。有时又称为标准与项。</li>
-<li>性质1：任意一个最小项，其相应变量有且只有一种取值使这个最小项的值为1.并且最小项不同，使其值为1的变量取值也不同。</li>
-<li>性质2：相同变量构成的两个不同最小项相与为0。</li>
-</ul>
-</li>
-<li><code>最大项</code><ul>
-<li>如果一个具有 n 个变量的函数的或项包含全部 n 个变量，每个变量都以原变量或反变量的形式出现，且仅出现一次，则该或项被称为最大项。有时又称为标准或项。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li>卡诺图，化简表达式</li>
-<li>蕴涵项：函数的与或表达式中的每个与项</li>
-<li>质蕴涵项：不是其它蕴涵项的子集</li>
-</ul>
-<h2 id="三、集成门电路与触发器"><a href="#三、集成门电路与触发器" class="headerlink" title="三、集成门电路与触发器"></a>三、集成门电路与触发器</h2><h3 id="3-1-数字集成电路的分类"><a href="#3-1-数字集成电路的分类" class="headerlink" title="3.1 数字集成电路的分类"></a>3.1 数字集成电路的分类</h3><ul>
-<li>根据类型分类<ul>
-<li>双极型集成电路<ul>
-<li>TTL，晶体管-晶体管逻辑电路</li>
-<li>ECL</li>
-<li>FL</li>
-</ul>
-</li>
-<li>单极型集成电路<ul>
-<li>PM</li>
-<li>CMOS，互补型金属氧化半导体</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>根据规模分类<ul>
-<li>SSI, MSI, LSI, VLSI</li>
-</ul>
-</li>
-<li>根据设计方法和功能进行分类<ul>
-<li>非定制电路，又称标准集成电路</li>
-<li>全定制电路，又称专用集成电路</li>
-<li>半定制电路，如PLD</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-2-半导体器件的开关特性"><a href="#3-2-半导体器件的开关特性" class="headerlink" title="3.2 半导体器件的开关特性"></a>3.2 半导体器件的开关特性</h3><ul>
-<li>静态特性</li>
-<li>动态特性</li>
-</ul>
-<h3 id="3-3-逻辑门电路"><a href="#3-3-逻辑门电路" class="headerlink" title="3.3 逻辑门电路"></a>3.3 逻辑门电路</h3><h3 id="3-4-触发器"><a href="#3-4-触发器" class="headerlink" title="3.4 触发器"></a>3.4 触发器</h3><h2 id="四、组合逻辑电路"><a href="#四、组合逻辑电路" class="headerlink" title="四、组合逻辑电路"></a>四、组合逻辑电路</h2><ul>
-<li>输出输入之间没有反馈延迟通路</li>
-<li>单路中不含具有记忆功能的元件</li>
-</ul>
-<h2 id="五、同步时序逻辑电路"><a href="#五、同步时序逻辑电路" class="headerlink" title="五、同步时序逻辑电路"></a>五、同步时序逻辑电路</h2><h2 id="七、中规模时序逻辑电路"><a href="#七、中规模时序逻辑电路" class="headerlink" title="七、中规模时序逻辑电路"></a>七、中规模时序逻辑电路</h2><hr>
-<p>实验：</p>
-<ol>
-<li>使用万用表、数字实验系统、基本逻辑门实验 <code>√</code></li>
-<li>示波器的原理与应用 <code>√</code></li>
-<li>触发器 <code>√</code></li>
-<li>VHDL、CPLD原理及应用</li>
-</ol>
-<hr>
 <p>参考资料：</p>
 <ul>
 <li>华科，数字电路与逻辑设计，公开课</li>
@@ -815,12 +606,12 @@
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
     
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/share/js/social-share.min.js"></script>
+    <script src="/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -1087,8 +878,8 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/valine/av-min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/valine/Valine.min.js"></script>
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
 <script>
     new Valine({
         el: '#vcomments',
@@ -1223,21 +1014,21 @@
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
 <!-- 代码块折行 -->
@@ -1265,7 +1056,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/tocbot/tocbot.min.js"></script>
+<script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -1350,7 +1141,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/aplayer/APlayer.min.css">
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
         
@@ -1400,7 +1191,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
     
@@ -1414,7 +1205,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">142.6k</span>&nbsp;字
+                class="white-color">141.4k</span>&nbsp;字
             
             
             
@@ -1518,10 +1309,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/js/search.js"></script>
+<script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/search.xml", 'searchInput', 'searchResult');
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1533,12 +1324,12 @@ $(function () {
 </div>
 
 
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/materialize/materialize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/aos/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/js/matery.js"></script>
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
 
     <!-- Baidu Analytics -->
 
@@ -1559,10 +1350,10 @@ $(function () {
 </script>
 
     
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/others/clicklove.js" async="async"></script>
+    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
-    <script async src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/others/busuanzi.pure.mini.js"></script>
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
@@ -1573,7 +1364,7 @@ $(function () {
     <script type="text/javascript" color="0,0,0"
         pointColor="0,0,0" opacity='0.7'
         zIndex="-1" count="99"
-        src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/background/canvas-nest.js"></script>
+        src="/libs/background/canvas-nest.js"></script>
     
 
     
@@ -1581,7 +1372,7 @@ $(function () {
     
 
     
-    <script src="https://cdn.jsdelivr.net/gh/X-varywow/www.unielu.com@V4.1/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 </body>
 
