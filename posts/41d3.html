@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-24
+                    2021-07-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    355
+                    442
                 </div>
                 
 
@@ -522,14 +522,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+                <h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a><a href="https://leetcode-cn.com/problems/two-sum/" target="_blank" rel="noopener">1. 两数之和</a></h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">twoSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
         hashmap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
         <span class="token keyword">for</span> i<span class="token punctuation">,</span>num <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
             j<span class="token operator">=</span>hashmap<span class="token punctuation">.</span>get<span class="token punctuation">(</span>target<span class="token operator">-</span>num<span class="token punctuation">)</span>
             <span class="token keyword">if</span> j <span class="token operator">!=</span> None <span class="token punctuation">:</span><span class="token keyword">return</span> <span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># j可为0</span>
             hashmap<span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token operator">=</span>i<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="560-和为K的子数组"><a href="#560-和为K的子数组" class="headerlink" title="560.和为K的子数组"></a>560.和为K的子数组</h2><p>给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的连续的子数组的个数。</p>
+<h2 id="560-和为K的子数组"><a href="#560-和为K的子数组" class="headerlink" title="560. 和为K的子数组"></a><a href="https://leetcode-cn.com/problems/subarray-sum-equals-k/" target="_blank" rel="noopener">560. 和为K的子数组</a></h2><p>给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的连续的子数组的个数。</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">subarraySum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
         pre <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">#记载所有前缀和</span>
@@ -541,8 +541,11 @@
                 ans <span class="token operator">+=</span> pre<span class="token punctuation">[</span>need<span class="token punctuation">]</span>
             <span class="token comment" spellcheck="true">#在hash table里查找key，如果有返回对应的value，反之返回0 </span>
             pre<span class="token punctuation">[</span>sum<span class="token punctuation">]</span> <span class="token operator">=</span> pre<span class="token punctuation">.</span>get<span class="token punctuation">(</span>sum<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>    
-        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="149-直线上最多的点数"><a href="#149-直线上最多的点数" class="headerlink" title="149.直线上最多的点数"></a><a href="https://leetcode-cn.com/problems/max-points-on-a-line/" target="_blank" rel="noopener">149.直线上最多的点数</a></h2><p>给你一个数组 <code>points</code> ，其中 <code>points[i] = [xi, yi]</code> 表示 X-Y 平面上的一个点。求最多有多少个点在同一条直线上。</p>
+        <span class="token keyword">return</span> ans
+
+<span class="token comment" spellcheck="true"># 前缀和+hash的优化</span>
+<span class="token comment" spellcheck="true"># dict.get(key,default=None)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="149-直线上最多的点数"><a href="#149-直线上最多的点数" class="headerlink" title="149. 直线上最多的点数"></a><a href="https://leetcode-cn.com/problems/max-points-on-a-line/" target="_blank" rel="noopener">149. 直线上最多的点数</a></h2><p>给你一个数组 <code>points</code> ，其中 <code>points[i] = [xi, yi]</code> 表示 X-Y 平面上的一个点。求最多有多少个点在同一条直线上。</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">maxPoints</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> points<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
         ans <span class="token operator">=</span> <span class="token number">1</span>
@@ -559,19 +562,28 @@
             <span class="token keyword">if</span> d<span class="token punctuation">:</span>
                 ans <span class="token operator">=</span> max<span class="token punctuation">(</span>ans<span class="token punctuation">,</span>max<span class="token punctuation">(</span>d<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
         <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>小结</strong></p>
-<blockquote>
-<ol>
-<li>前缀和+hash的优化</li>
-<li><code>dict.get(key,default=None)</code></li>
-</ol>
-</blockquote>
+<h2 id="692-前K个高频单词"><a href="#692-前K个高频单词" class="headerlink" title="692. 前K个高频单词"></a><a href="https://leetcode-cn.com/problems/top-k-frequent-words/" target="_blank" rel="noopener">692. 前K个高频单词</a></h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> functools <span class="token keyword">import</span> cmp_to_key
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">topKFrequent</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> words<span class="token punctuation">:</span> List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            w1<span class="token punctuation">,</span> c1 <span class="token operator">=</span> x
+            w2<span class="token punctuation">,</span> c2 <span class="token operator">=</span> y
+            <span class="token keyword">if</span> c1<span class="token operator">></span>c2<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>        <span class="token comment" spellcheck="true">#次数高的在前面</span>
+            <span class="token keyword">elif</span> c1<span class="token operator">==</span>c2<span class="token punctuation">:</span>         <span class="token comment" spellcheck="true">#次数相等的，字母序低的在前面</span>
+                <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">if</span> w1<span class="token operator">&lt;</span>w2 <span class="token keyword">else</span> <span class="token number">1</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token number">1</span>
+
+        ans <span class="token operator">=</span> Counter<span class="token punctuation">(</span>words<span class="token punctuation">)</span><span class="token punctuation">.</span>most_common<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        ans<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key <span class="token operator">=</span> cmp_to_key<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">,</span>y<span class="token punctuation">:</span>func<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> ans<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">:</span>k<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h2><pre class="line-numbers language-python"><code class="language-python">jewelsSet <span class="token operator">=</span> set<span class="token punctuation">(</span>J<span class="token punctuation">)</span>
 <span class="token keyword">return</span> sum<span class="token punctuation">(</span>s <span class="token keyword">in</span> jewelsSet <span class="token keyword">for</span> s <span class="token keyword">in</span> S<span class="token punctuation">)</span>
 
 <span class="token comment" spellcheck="true">#集合是一个哈希表，降低遍历的时间复杂度</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 每次都遇到这个问题：</span>
-<span class="token comment" spellcheck="true"># unhashable type: 'list'</span>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 关于报错：</span>
+<span class="token comment" spellcheck="true">#          unhashable type: 'list'</span>
 <span class="token comment" spellcheck="true"># 不能在哈希表中快速找到这个表，不能集合为多重表去重</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
             </div>
@@ -1235,7 +1247,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">141k</span>&nbsp;字
+                class="white-color">142.4k</span>&nbsp;字
             
             
             

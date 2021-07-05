@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-27
+                    2021-07-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.3k
                 </div>
                 
 
@@ -804,6 +804,29 @@
         <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
 
 <span class="token comment" spellcheck="true"># 获取坐标、BFS、条件判断</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="LCP-07-传递信息"><a href="#LCP-07-传递信息" class="headerlink" title="LCP 07. 传递信息"></a><a href="https://leetcode-cn.com/problems/chuan-di-xin-xi/" target="_blank" rel="noopener">LCP 07. 传递信息</a></h2><p><code>2021-7-1</code></p>
+<p><strong>（1）DFS:</strong></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">numWays</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">,</span> relation<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        d <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span>list<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> x<span class="token punctuation">,</span> y <span class="token keyword">in</span> relation<span class="token punctuation">:</span>
+            d<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+
+        <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> t<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> k<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span> 
+                <span class="token keyword">return</span> <span class="token punctuation">(</span>t <span class="token keyword">in</span> d<span class="token punctuation">[</span>s<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> sum<span class="token punctuation">(</span><span class="token punctuation">[</span>dfs<span class="token punctuation">(</span>i<span class="token punctuation">,</span> t<span class="token punctuation">,</span> k<span class="token number">-1</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> d<span class="token punctuation">[</span>s<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> int<span class="token punctuation">(</span>dfs<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n<span class="token number">-1</span><span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>（2）DP:</strong></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">numWays</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">,</span> relation<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        dp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span>n <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> x<span class="token punctuation">,</span>y <span class="token keyword">in</span> relation<span class="token punctuation">:</span>
+                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">+=</span> dp<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>x<span class="token punctuation">]</span>
+        <span class="token keyword">return</span> dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token number">-1</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1466,7 +1489,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">141k</span>&nbsp;字
+                class="white-color">142.4k</span>&nbsp;字
             
             
             

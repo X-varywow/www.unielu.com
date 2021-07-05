@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-15
+                    2021-07-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.4k
                 </div>
                 
 
@@ -609,6 +609,34 @@
         <span class="token keyword">return</span> l
 
 <span class="token comment" spellcheck="true">#二分的变式</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="287-寻找重复数"><a href="#287-寻找重复数" class="headerlink" title="287. 寻找重复数"></a><a href="https://leetcode-cn.com/problems/find-the-duplicate-number/" target="_blank" rel="noopener">287. 寻找重复数</a></h2><p>给定一个包含 <code>n + 1</code> 个整数的数组 <code>nums</code> ，其数字都在 <code>1</code> 到 <code>n</code> 之间（包括 1 和 n），可知至少存在一个重复的整数。</p>
+<p>假设 <code>nums</code> 只有 一个重复的整数 ，找出 这个重复的数 。</p>
+<p>你设计的解决方案必须不修改数组 <code>nums</code> 且只用常量级 <code>O(1)</code> 的额外空间。</p>
+<h5 id="1-快慢指针"><a href="#1-快慢指针" class="headerlink" title="(1)快慢指针"></a>(1)快慢指针</h5><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">findDuplicate</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        slow<span class="token punctuation">,</span> fast <span class="token operator">=</span> nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+        <span class="token keyword">while</span> slow <span class="token operator">!=</span> fast<span class="token punctuation">:</span>
+            slow <span class="token operator">=</span> nums<span class="token punctuation">[</span>slow<span class="token punctuation">]</span>
+            fast <span class="token operator">=</span> nums<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>fast<span class="token punctuation">]</span><span class="token punctuation">]</span>
+        slow <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">while</span> slow <span class="token operator">!=</span> fast<span class="token punctuation">:</span>
+            slow <span class="token operator">=</span> nums<span class="token punctuation">[</span>slow<span class="token punctuation">]</span>
+            fast <span class="token operator">=</span> nums<span class="token punctuation">[</span>fast<span class="token punctuation">]</span>
+        <span class="token keyword">return</span> slow
+
+<span class="token comment" spellcheck="true"># 看成链表，Floyd判圈算法</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="2-二分查找"><a href="#2-二分查找" class="headerlink" title="(2)二分查找"></a>(2)二分查找</h5><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">findDuplicate</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        l<span class="token punctuation">,</span> r <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
+        <span class="token keyword">while</span> l<span class="token operator">&lt;</span>r<span class="token punctuation">:</span>
+            mid <span class="token operator">=</span> <span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span>
+            cnt <span class="token operator">=</span> sum<span class="token punctuation">(</span><span class="token punctuation">[</span>num<span class="token operator">&lt;=</span>mid <span class="token keyword">for</span> num <span class="token keyword">in</span> nums<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> cnt <span class="token operator">&lt;=</span> mid<span class="token punctuation">:</span>
+                l <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                r <span class="token operator">=</span> mid
+        <span class="token keyword">return</span> r
+<span class="token comment" spellcheck="true"># 时间复杂度：O(nlogn)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="kmp算法"><a href="#kmp算法" class="headerlink" title="kmp算法"></a>kmp算法</h2><p>kmp是一个效率非常高的<strong>字符串匹配</strong>算法。<br>有问题如下：</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#求b在a中出现次数</span>
 a <span class="token operator">=</span> <span class="token string">"ababacababadababadadda"</span>
@@ -1324,7 +1352,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">141k</span>&nbsp;字
+                class="white-color">142.4k</span>&nbsp;字
             
             
             

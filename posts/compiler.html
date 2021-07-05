@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-30
+                    2021-07-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4k
+                    4.4k
                 </div>
                 
 
@@ -855,12 +855,43 @@
   <span class="token keyword">else</span>
     lookahead <span class="token operator">=</span> <span class="token function">getToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-3-预测分析表"><a href="#2-3-预测分析表" class="headerlink" title="2.3 预测分析表"></a>2.3 预测分析表</h3><p>根据可选集填表</p>
-<ul>
-<li>消除左递归</li>
-<li>提取左公因子</li>
+<h3 id="2-3-预测分析表"><a href="#2-3-预测分析表" class="headerlink" title="2.3 预测分析表"></a>2.3 预测分析表</h3><p>根据可选集填表即可</p>
+<h3 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h3><ul>
+<li>消除左递归<ul>
+<li>直接左递归：文法中有形如 $P\rightarrow P\alpha$ 的产生式，$\alpha$ 为文法符号串</li>
+<li>间接左递归：相应地，n&gt;0</li>
+</ul>
+</li>
+<li>提取左公因子<ul>
+<li>字面意思，对相同左部的产生式提取</li>
+</ul>
+</li>
 <li>出错处理</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>自顶向下</th>
+<th>自底向上</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>分析方法</td>
+<td>递归下降分析</td>
+<td>移进归约分析</td>
+</tr>
+<tr>
+<td>语法冲突</td>
+<td>候选式冲突</td>
+<td>移进归约冲突，归约归约冲突</td>
+</tr>
+<tr>
+<td>核心</td>
+<td>选择候选式</td>
+<td>正确识别句柄</td>
+</tr>
+</tbody></table>
 <h2 id="三、自底向上语法分析"><a href="#三、自底向上语法分析" class="headerlink" title="三、自底向上语法分析"></a>三、自底向上语法分析</h2><h3 id="3-0-概述"><a href="#3-0-概述" class="headerlink" title="3.0 概述"></a>3.0 概述</h3><p><em>自底向上的分析</em>，可以看成是将输入串 w 归约为文法开始符号 S 的过程。</p>
 <p><strong>句柄</strong>：右句型的最左直接短语</p>
 <div class="admonition info"><p class="admonition-title">求短语、直接短语、句柄
@@ -914,22 +945,37 @@
 </ul>
 <p>引入这个新的开始产生式的目的是使得文法开始符号仅出现在一个产生式的左边，从而使得分析器只有一个接受状态。</p>
 <ul>
+<li><strong>活前缀</strong><ul>
+<li>一个活前缀是某一右句型的前缀，它不超过该右句型的某个句柄</li>
+</ul>
+</li>
 <li><strong>项目</strong>，描述了句柄识别的状态，每个产生式对应若干个项目<ul>
 <li>移进项目 $$S’ \rightarrow \alpha .a\beta$$</li>
 <li>待约项目 $$S’ \rightarrow \alpha .B\beta$$</li>
-<li>归约项目 $$S’ \rightarrow \alpha$$</li>
-<li>接受项目 $$S’ \rightarrow S$$</li>
+<li>归约项目 $$S’ \rightarrow \alpha.$$</li>
+<li>接受项目 $$S’ \rightarrow S.$$</li>
 </ul>
 </li>
-<li>后继项目，同属于一个产生式的项目，但圆点的位置在后一个位</li>
+<li>后继项目，同属于一个产生式的项目，但圆点的位置在后一个位。</li>
 </ul>
 <p>$LR(0)FSM$（有限状态自动机）的状态是一个 $LR(0)$ 项目集 $I$ 的闭包。</p>
-<p>根据自动机转换图，可构造分析表,<br>如果LR（0）分析表中没有语法分析动作冲突，那么给定的文法称为LR（0）文法</p>
+<p>根据自动机转换图，可构造分析表,<br>如果LR（0）分析表中各表项均无多重定义，那么给定的文法称为LR（0）文法</p>
 <p>？接受项目不与同状态下的移进项目冲突</p>
 <h3 id="3-4-SLR（1）分析"><a href="#3-4-SLR（1）分析" class="headerlink" title="3.4 SLR（1）分析"></a>3.4 SLR（1）分析</h3><p>SLR（1）分析，向前查看一个符号可解决冲突 </p>
+<ul>
+<li>如果每一状态的所有 <code>归约项中要归约的非终结符的 Follow 集</code> 互不相交， 则可以解决归约−归约冲突。</li>
+<li>如果每一状态的所有 <code>归约项中要归约的非终结符的 Follow 集</code> 与该状态所有 <code>移进项目要移进的符号集</code> 互不相交，则可以解决移进−归约冲突。</li>
+</ul>
 <p>SLR（1） 分析表的构造也基于LR（0） FSM，在SLR（1） 分析表中， ACTION 表的归约表项只适用于相应非终结符Follow 集中的输入符号</p>
 <p>各表项中，无多重定义，则称 G 为 SLR（1） 文法</p>
-<h3 id="3-5-LR（1）分析"><a href="#3-5-LR（1）分析" class="headerlink" title="3.5 LR（1）分析"></a>3.5 LR（1）分析</h3><p>在 LR（0） 项目基础上增加一个终结符</p>
+<h3 id="3-5-LR（1）分析"><a href="#3-5-LR（1）分析" class="headerlink" title="3.5 LR（1）分析"></a>3.5 LR（1）分析</h3><ul>
+<li>LR（1）项目是在 LR（0）项目基础上增加一个终结符，称为向前搜索符<ul>
+<li>对于归约项目，下一个输入为该终结符时，才可归约</li>
+<li>对于其它项目，向前搜索符只起到信息传递的作用</li>
+</ul>
+</li>
+</ul>
+<p>根据LR（1）自动机转换图，可构造LR（1）分析表。</p>
 <h3 id="3-6-LALR（1）分析"><a href="#3-6-LALR（1）分析" class="headerlink" title="3.6 LALR（1）分析"></a>3.6 LALR（1）分析</h3><p>一个LR（1） 文法，如果将其LR（1） FSM 同芯状态合并后所得到的新状态无归约−归约冲突，则该文法是一个 LALR（1） 文法</p>
 <h2 id="四、语法制导得语义计算基础"><a href="#四、语法制导得语义计算基础" class="headerlink" title="四、语法制导得语义计算基础"></a>四、语法制导得语义计算基础</h2><h3 id="4-0-概述"><a href="#4-0-概述" class="headerlink" title="4.0 概述"></a>4.0 概述</h3><p>语法制导翻译：语法分析 -&gt; 语义分析 -&gt; 中间代码生成</p>
 <p>语义翻译：语义分析 -&gt; 中间代码生成</p>
@@ -960,7 +1006,19 @@
 </ul>
 </li>
 </ul>
-<h3 id="4-1-属性文法"><a href="#4-1-属性文法" class="headerlink" title="4.1 属性文法"></a>4.1 属性文法</h3><h3 id="4-2-语义计算"><a href="#4-2-语义计算" class="headerlink" title="4.2 语义计算"></a>4.2 语义计算</h3><h2 id="五、代码优化和目标代码生成"><a href="#五、代码优化和目标代码生成" class="headerlink" title="五、代码优化和目标代码生成"></a>五、代码优化和目标代码生成</h2><h3 id="5-0-概述"><a href="#5-0-概述" class="headerlink" title="5.0 概述"></a>5.0 概述</h3><ul>
+<h3 id="4-1-属性文法"><a href="#4-1-属性文法" class="headerlink" title="4.1 属性文法"></a>4.1 属性文法</h3><p>属性可用来刻画一个文法符号的任何特性，如符号的值，符号的类型…</p>
+<p>文法符号 X 关联属性 a 的属性值可通过 X.a 访问</p>
+<h3 id="4-2-语义计算"><a href="#4-2-语义计算" class="headerlink" title="4.2 语义计算"></a>4.2 语义计算</h3><ul>
+<li>S-属性文法<ul>
+<li>只包含综合属性</li>
+</ul>
+</li>
+<li>L-属性文法<ul>
+<li>可以包含综合属性，也可以包含继承属性</li>
+</ul>
+</li>
+</ul>
+<h2 id="五、代码优化和目标代码生成"><a href="#五、代码优化和目标代码生成" class="headerlink" title="五、代码优化和目标代码生成"></a>五、代码优化和目标代码生成</h2><h3 id="5-0-概述"><a href="#5-0-概述" class="headerlink" title="5.0 概述"></a>5.0 概述</h3><ul>
 <li>输入：某一种中间代码以及符号表等信息</li>
 <li>输出：特定目标机或虚拟机的目标代码</li>
 </ul>
@@ -971,7 +1029,7 @@
 </ul>
 </li>
 <li>流图<ul>
-<li>CFG _Control-Flow Graph_，是个有向图</li>
+<li>CFG <em>Control-Flow Graph</em> ，是个有向图</li>
 </ul>
 </li>
 <li>循环<ul>
@@ -1001,7 +1059,7 @@ javac Parser.java
 javac Yylex.java
 java Parser S1
 a S1.a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="other"><a href="#other" class="headerlink" title="other"></a><em>other</em></h2><p><strong>参考资料：</strong></p>
+<h2 id="other-1"><a href="#other-1" class="headerlink" title="other"></a><em>other</em></h2><p><strong>参考资料：</strong></p>
 <ul>
 <li><a href="https://www.icourse163.org/learn/HIT-1002123007" target="_blank" rel="noopener">编译原理，哈工大</a></li>
 <li>学校课程</li>
@@ -1692,7 +1750,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">141k</span>&nbsp;字
+                class="white-color">142.4k</span>&nbsp;字
             
             
             

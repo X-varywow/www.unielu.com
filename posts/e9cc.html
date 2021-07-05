@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-13
+                    2021-07-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    130
+                    310
                 </div>
                 
 
@@ -522,11 +522,35 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="lru-cache"><a href="#lru-cache" class="headerlink" title="lru_cache"></a>lru_cache</h2><p><code>@functools.lru_cache(maxsize=128, typed=False)</code><br>一个为函数提供缓存功能的装饰器，缓存 maxsize 组传入参数，在下次以相同参数调用时直接返回上一次的结果。用以<strong>节约高开销或I/O函数的调用时间</strong>。</p>
+                <p>官方文档：<a href="https://docs.python.org/zh-cn/3/library/functools.html" target="_blank" rel="noopener">https://docs.python.org/zh-cn/3/library/functools.html</a></p>
+<p><em>functools</em> 模块应用于高阶函数，即参数或（和）返回值为其他函数的函数。 通常来说，此模块的功能适用于所有可调用对象。</p>
+<hr>
+<h5 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h5><p>简单轻量级未绑定函数缓存</p>
+<hr>
+<h5 id="lru-cache"><a href="#lru-cache" class="headerlink" title="lru_cache"></a>lru_cache</h5><p><code>@functools.lru_cache(maxsize=128, typed=False)</code><br>一个为函数提供缓存功能的装饰器，缓存 maxsize 组传入参数，在下次以相同参数调用时直接返回上一次的结果。用以<strong>节约高开销或I/O函数的调用时间</strong>。</p>
 <ul>
 <li>如果 maxsize 设为 None，LRU 特性将被禁用且缓存可无限增长。</li>
 <li>如果 typed 设置为true，不同类型的函数参数将被分别缓存。例如， f(3) 和 f(3.0) 将被视为不同而分别缓存。</li>
 </ul>
+<hr>
+<h5 id="cmp-to-key"><a href="#cmp-to-key" class="headerlink" title="cmp_to_key"></a>cmp_to_key</h5><p>将比较函数作为key，示例代码：</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 692. 前K个高频单词</span>
+<span class="token keyword">from</span> functools <span class="token keyword">import</span> cmp_to_key
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">topKFrequent</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> words<span class="token punctuation">:</span> List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            w1<span class="token punctuation">,</span> c1 <span class="token operator">=</span> x
+            w2<span class="token punctuation">,</span> c2 <span class="token operator">=</span> y
+            <span class="token keyword">if</span> c1<span class="token operator">></span>c2<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>        <span class="token comment" spellcheck="true">#次数高的在前面</span>
+            <span class="token keyword">elif</span> c1<span class="token operator">==</span>c2<span class="token punctuation">:</span>         <span class="token comment" spellcheck="true">#次数相等的，字母序低的在前面</span>
+                <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">if</span> w1<span class="token operator">&lt;</span>w2 <span class="token keyword">else</span> <span class="token number">1</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token number">1</span>
+
+        ans <span class="token operator">=</span> Counter<span class="token punctuation">(</span>words<span class="token punctuation">)</span><span class="token punctuation">.</span>most_common<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        ans<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key <span class="token operator">=</span> cmp_to_key<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">,</span>y<span class="token punctuation">:</span>func<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> ans<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">:</span>k<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1189,7 +1213,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">141k</span>&nbsp;字
+                class="white-color">142.4k</span>&nbsp;字
             
             
             
