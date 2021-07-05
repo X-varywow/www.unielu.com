@@ -1702,6 +1702,7 @@ DF（Don't fragment）：标志着允不允许数据报分片</p>
 <li>2019-王道考研-计算机网络</li>
 <li>学校课程</li>
 <li>《计算机网络》谢希仁，第七版</li>
+<li><a href="https://www.bilibili.com/video/BV1464y1Z73S" target="_blank" rel="noopener">计算机网络期末复习，应用题</a></li>
 </ul>
 <hr>
 <p><strong>推荐阅读</strong>：</p>
@@ -1725,6 +1726,7 @@ DF（Don't fragment）：标志着允不允许数据报分片</p>
 <li> 互联网现在采用的是存储转发的分组交换技术，以及三层ISP结构。</li>
 <li> <code>internet</code>（互联网或互连网）是一个通用名词，它泛指由多个计算机网络互连而成的网络。<br><code>Internet</code>（因特网）则是一个专用名词，它指当前全球最大的、开放的、由众多网络相互连接而成的特定计算机网络，它采用 TCP/IP 协议族作为通信的规则，且其前身是美国的 ARPANET。<br>连接在因特网上的计算机都称为主机(<code>host</code>)。</li>
 <li>默认网关：一台主机如果找不到可用的网关，就把数据包发给默认指定的网关，默认网关最后一位为1。</li>
+<li>默认路由（Default route），是对IP数据包中的目的地址找不到存在的其他路由时，路由器所选择的路由。</li>
 <li>PING 指令的流程，先进行DNS解析，之后用网络层协议ARP，通过目标主机的IP地址映射为MAC地址，通过IP地址可以知道数据包最后发给谁，MAC地址可以知道数据包下一跳给谁。之后用网络层协议ICMP来传递主机间的控制信息。由于主机间没有连接过程，是直接发送数据的，所以不使用TCP协议。</li>
 <li>IPv4占用4字节，IPv6占用16个字节</li>
 <li>在路由器互联的多个局域网中，数据链路层协议和物理层协议都可以不相同。</li>
@@ -1735,9 +1737,10 @@ DF（Don't fragment）：标志着允不允许数据报分片</p>
 <p>考试重点：</p>
 <ul>
 <li>TCP\UDP特点</li>
-<li>路由表、ARP表、交换机的站表</li>
-<li>IP数据报、分片</li>
+<li>路由表（更新，下一跳计算）、ARP表、交换机的站表</li>
+<li>IP数据报（分片计算）</li>
 <li>子网划分</li>
+<li>冗余码计算</li>
 </ul>
 
             </div>
@@ -2420,7 +2423,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">142.4k</span>&nbsp;字
+                class="white-color">142.5k</span>&nbsp;字
             
             
             
