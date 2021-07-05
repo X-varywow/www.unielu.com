@@ -514,7 +514,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.8k
+                    10k
                 </div>
                 
 
@@ -1383,7 +1383,7 @@ DF（Don't fragment）：标志着允不允许数据报分片</p>
 <p><strong>地址聚合</strong>：即求二进制地址的最长公共前缀，并把/x改成位数</p>
 <h3 id="4-9-网际控制报文协议-ICMP"><a href="#4-9-网际控制报文协议-ICMP" class="headerlink" title="4.9 网际控制报文协议 ICMP"></a>4.9 网际控制报文协议 ICMP</h3><p>ICMP 是为了更有效地转发 IP 数据报和提高交付成功的机会。它封装在 IP 数据报中，但是不属于高层协议。</p>
 <p>Ping 的原理是通过向目的主机发送 ICMP Echo 请求报文，目的主机收到之后会发送 Echo 回答报文。Ping 会根据时间和成功响应的次数估算出数据包往返时间以及丢包率。</p>
-<h3 id="other"><a href="#other" class="headerlink" title="other"></a>other</h3><table>
+<h3 id="other"><a href="#other" class="headerlink" title="other"></a>other</h3><h5 id="（1）常用网络指令"><a href="#（1）常用网络指令" class="headerlink" title="（1）常用网络指令"></a>（1）常用网络指令</h5><table>
 <thead>
 <tr>
 <th></th>
@@ -1415,6 +1415,9 @@ DF（Don't fragment）：标志着允不允许数据报分片</p>
 <td>用于显示和修改计算机的网络配置</td>
 </tr>
 </tbody></table>
+<br/>
+
+<h5 id="（2）IPv6"><a href="#（2）IPv6" class="headerlink" title="（2）IPv6"></a>（2）IPv6</h5><p>IPv6地址 有16个字节</p>
 <h2 id="五、传输层"><a href="#五、传输层" class="headerlink" title="五、传输层"></a>五、传输层</h2><p>学习目的：</p>
 <ul>
 <li>了解：进程相互作用的Client/Server模型</li>
@@ -1595,6 +1598,25 @@ DF（Don't fragment）：标志着允不允许数据报分片</p>
 <td><code>imaplib</code></td>
 </tr>
 </tbody></table>
+<h3 id="5-4-拥塞控制"><a href="#5-4-拥塞控制" class="headerlink" title="5.4 拥塞控制"></a>5.4 拥塞控制</h3><img src="https://img-blog.csdnimg.cn/20210705112852630.jpg">
+
+<p>记轮次为$n$，拥塞窗口为$cwnd$，慢开始门限为$ssthresh$</p>
+<ul>
+<li>慢开始<ul>
+<li>拥塞窗口逐轮翻倍，在此阶段不能大于$ssthresh$</li>
+</ul>
+</li>
+<li>拥塞避免<ul>
+<li>$cwnd \ge ssthresh$ 时进入拥塞避免，$cwnd$逐轮加一</li>
+<li>超时时重新开始，$ssthresh = cwnd/2$</li>
+</ul>
+</li>
+<li>快重传和快恢复<ul>
+<li>$3-ACK$，表示收到3个重复确认报文，数据传输时丢失了，进入快重传和快恢复</li>
+<li>$cwnd=ssthresh=原cwnd/2$</li>
+</ul>
+</li>
+</ul>
 <h2 id="六、应用层"><a href="#六、应用层" class="headerlink" title="六、应用层"></a>六、应用层</h2><p>应用层的协议定义了：</p>
 <ul>
 <li>应用进程交换的报文类型，请求还是响应？</li>
@@ -1629,7 +1651,6 @@ DF（Don't fragment）：标志着允不允许数据报分片</p>
 </ul>
 <hr>
 <h3 id="6-2-DNS域名解析系统"><a href="#6-2-DNS域名解析系统" class="headerlink" title="6.2 DNS域名解析系统"></a>6.2 DNS域名解析系统</h3><p>–&gt;通过DNS服务器，将域名解析为IP地址</p>
-<hr>
 <p>如 <code>www.unielu.com</code>，<code>com</code>是顶级域名，<code>unielu</code>是二级域名，<code>www</code>是三级域名</p>
 <ul>
 <li>顶级域名：<ul>
@@ -1741,6 +1762,7 @@ DF（Don't fragment）：标志着允不允许数据报分片</p>
 <li>IP数据报（分片计算）</li>
 <li>子网划分</li>
 <li>冗余码计算</li>
+<li>拥塞控制算法</li>
 </ul>
 
             </div>
@@ -2423,7 +2445,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">142.5k</span>&nbsp;字
+                class="white-color">142.6k</span>&nbsp;字
             
             
             
