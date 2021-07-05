@@ -393,19 +393,20 @@ header .side-nav .social-link {
     height: 45px;
     line-height: 45px;
     font-size: 1rem;
-    color: #ebd3a8;
-    border: 1px solid #111111;
+    color: #e9f5ff;
+    border: 1px solid #e9f5ff;
     background-color: transparent;
     border-radius: 50px;
     box-shadow: none;
 }
 
 .cover-btns a:hover {
-    border: 1px solid #d6ecf0;
-    background-color: #d6ecf0;
-    box-shadow: 0 14px 26px -12px rgba(255, 255, 255, 0.42),
-            0 4px 23px 0 rgba(255, 255, 255, 0.12),
-            0 16px 10px -5px rgb(214, 247, 192);
+    background-color: #407FAC88;
+    box-shadow: 
+            0 -10px 20px #D8EAEC,
+            12px 0px 20px #D8EAEC,
+            -12px 0px 20px #D8EAEC,
+            0 12px 20px #D8EAEC;
 }
 
 .cover-btns a i {
