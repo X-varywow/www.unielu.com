@@ -503,14 +503,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-01
+                    2021-07-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.4k
+                    4.8k
                 </div>
                 
 
@@ -1018,36 +1018,53 @@
 </ul>
 </li>
 </ul>
+<p>复写规则，形如 A.X=B.X</p>
 <h2 id="五、代码优化和目标代码生成"><a href="#五、代码优化和目标代码生成" class="headerlink" title="五、代码优化和目标代码生成"></a>五、代码优化和目标代码生成</h2><h3 id="5-0-概述"><a href="#5-0-概述" class="headerlink" title="5.0 概述"></a>5.0 概述</h3><ul>
 <li>输入：某一种中间代码以及符号表等信息</li>
 <li>输出：特定目标机或虚拟机的目标代码</li>
 </ul>
-<p>如不特别说明，本章的中间代码形式均为三地址码（简称TAC）</p>
+<p>如不特别说明，本章的中间代码形式均为三地址码（简称<code>TAC</code>）</p>
 <ul>
-<li>基本块<ul>
-<li>程序中一个顺序执行的语句序列</li>
+<li><strong>基本块</strong><ul>
+<li>程序中一个顺序执行的语句序列，其中只有一个入口语句和一个出口语句。</li>
 </ul>
 </li>
-<li>流图<ul>
-<li>CFG <em>Control-Flow Graph</em> ，是个有向图</li>
+<li><strong>流图</strong><ul>
+<li>可以为构成程序的基本块增加控制流程信息， 方法是构造一个有向图， 称之为流图或控制流图。</li>
+<li>流图中，某一个基本块运行之后可以到达的所有基本块是该基本块的 <strong>后继基本块</strong>，可以直接运行并到达某一个基本块的所有基本块是该基本块的 <strong>前驱基本块</strong>。</li>
 </ul>
 </li>
-<li>循环<ul>
-<li>支配节点集，如果从流图的首结点出发，到达 n 的的任意通路都要经过 m, 则称 m 支配 n, 或 m 是 n 的支配结点。 </li>
+<li><strong>循环</strong><ul>
+<li>支配节点集，如果从流图的首结点出发，到达 n 的的任意通路都要经过 m, 则称 m 支配 n, 或 m 是 n 的 <strong>支配结点</strong>。 </li>
+<li><strong>回边</strong>，有向边，能回到支配结点</li>
 </ul>
 </li>
-<li>数据流分析基础</li>
-<li>局部优化技术</li>
-<li>目标代码生成技术</li>
-<li>代码优化技术</li>
 </ul>
-<h3 id="5-1-目标代码生成技术"><a href="#5-1-目标代码生成技术" class="headerlink" title="5.1 目标代码生成技术"></a>5.1 目标代码生成技术</h3><ul>
-<li>指令选择</li>
-<li>寄存器分配</li>
-<li>指令调度</li>
-<li>代码优化</li>
+<hr>
+<p><strong>数据流分析基础</strong></p>
+<p>数据流方程用于描述流入和流出某程序单元或程序中不同点之间的数据流信息之间的联系。 </p>
+<p>in [S]来定义 out [S]，这种数据流称为是向前流，相应的数据流方程（如 5-1）称为正向数据流方程。</p>
+<ul>
+<li>到达-定值数据流分析<ul>
+<li>in 到达基本块 B 入口处（入口语句之前的位置） 的各个变量的所有定值点集合。</li>
+<li>out 到达 B 出口处（紧接着出口语句之后的位置）的各个变量的所有定值点集合。</li>
+<li>gen B 中定值的并能够到达 B 出口处的所有定值点集合， 即 B 所“产生” 的定值点集合。</li>
+<li>kill  B 所“杀死” 的定值点集合。</li>
 </ul>
-<p>作业：第六题</p>
+</li>
+<li>out = gen U （in - kill）</li>
+</ul>
+<hr>
+<p><strong>活跃变量数据流分析</strong></p>
+<ul>
+<li>livein B 入口处为活跃的变量的集合。</li>
+<li>liveout B 的出口处的活跃变量的集合。</li>
+<li>def B 中定值的且定值前未曾在 B 中引用过的变量集合。</li>
+<li>liveuse B 中被定值之前要引用的变量集合。</li>
+<li>livein = liveout U （liveout - def）</li>
+</ul>
+<p>引用-定值链（Use-Definition Chaining），简称 UD 链,</p>
+<p>定值－引用链（Definition-Use Chaining），简称 DU 链。</p>
 <h2 id="六、实验课"><a href="#六、实验课" class="headerlink" title="六、实验课"></a>六、实验课</h2><p>1.词法分析器自动构造工具JFLEX，S1词法分析器自动构造 <code>√</code><br>2.词法分析器自动构造工具YACC，S1词法分析器自动构造 <code>√</code><br>3.基础实验项目：表达式计算器Jflex/Yacc实现 <code>√</code><br>4.J1_指令 <code>√</code><br>5.实验项目PA1：Step1 S1编译器Jflex/Yacc实现 <code>√</code><br>6.实验项目PA2：Step2 S2编译器实现 <code>√</code><br>7.实验项目PA3：Step3 S3编译器实现；Step4 S4编译器实现 <code>√</code></p>
 <p>说明：汇编语言 <code>J1</code>，编译器 <code>S1</code></p>
 <hr>
@@ -1075,6 +1092,7 @@ a S1.a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 </li>
 <li>期末（60%）</li>
 </ul>
+<p><code>2021.7.7</code> 考试结束，多写题</p>
 
             </div>
             <hr/>
@@ -1750,7 +1768,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">141.6k</span>&nbsp;字
+                class="white-color">142.5k</span>&nbsp;字
             
             
             
