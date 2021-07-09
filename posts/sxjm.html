@@ -510,7 +510,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    844
+                    921
                 </div>
                 
 
@@ -577,13 +577,15 @@
 <li>浮选是多步浮选还是单步</li>
 <li>浮选药剂之间的关系，暂时理解为：并列组合关系</li>
 </ol>
-<h2 id="成分分析"><a href="#成分分析" class="headerlink" title="成分分析"></a>成分分析</h2><p>这里将列出作用于 <code>主成分分析模型</code> 的成分，需：资料收集</p>
+<h2 id="组合分析"><a href="#组合分析" class="headerlink" title="组合分析"></a>组合分析</h2><p>寻找一组较优的组合：&lt;捕收剂，调整剂，浮选设备&gt;</p>
+<p>， 使资源回收率较大：<br>$$y = f(捕收剂，调整剂，浮选设备)$$</p>
+<p>要找的数据：<br>&lt;十二胺，？，？&gt;，二变量对结果的影响的数据<br>&lt;LKD，？？&gt;，二变量对结果的影响的数据</p>
 <table>
 <thead>
 <tr>
 <th>浮选药剂</th>
 <th>性质说明</th>
-<th>资源回收率</th>
+<th>资源回收率影响</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -617,21 +619,6 @@
 <td></td>
 </tr>
 <tr>
-<td>水玻璃</td>
-<td>调整剂</td>
-<td></td>
-</tr>
-<tr>
-<td>六偏磷酸钠</td>
-<td>调整剂</td>
-<td></td>
-</tr>
-<tr>
-<td>盐酸</td>
-<td>调整剂</td>
-<td></td>
-</tr>
-<tr>
 <td></td>
 <td></td>
 <td></td>
@@ -647,10 +634,39 @@
 <td></td>
 </tr>
 </tbody></table>
-<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>这里写模型</p>
-<p>模型功能：依据合理的浮选药剂组合，结合工业流程（例：3次粗选，1次精选），得出品位、回收率等</p>
+<hr>
+<p>调整剂</p>
+<table>
+<thead>
+<tr>
+<th>浮选药剂</th>
+<th>性质说明</th>
+<th>资源回收率影响</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>水玻璃</td>
+<td>调整剂</td>
+<td></td>
+</tr>
+<tr>
+<td>六偏磷酸钠</td>
+<td>调整剂</td>
+<td></td>
+</tr>
+<tr>
+<td>盐酸</td>
+<td>调整剂</td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<p>浮选机</p>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>这里写模型，</p>
+<h5 id="第一问"><a href="#第一问" class="headerlink" title="第一问"></a>第一问</h5><p>多元回归分析，选定上述的组合即可</p>
+<h5 id="第二问"><a href="#第二问" class="headerlink" title="第二问"></a>第二问</h5><p>依据第一问的多元回归模型，写建议书</p>
 <p><br><br></p>
-<h2 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h2><ul>
+<h2 id="建模流程"><a href="#建模流程" class="headerlink" title="建模流程"></a>建模流程</h2><ul>
 <li>基本概念，基本模型</li>
 <li>收集数据修正模型</li>
 <li>填论文<ul>
@@ -1342,7 +1358,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">142.8k</span>&nbsp;字
+                class="white-color">142.9k</span>&nbsp;字
             
             
             
